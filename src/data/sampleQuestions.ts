@@ -1,3 +1,4 @@
+// sampleQuestions.ts
 import { Question } from '../types';
 
 export const sampleQuestions: Question[] = [

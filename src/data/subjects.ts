@@ -1,3 +1,4 @@
+//subjects.ts
 import { Subject } from '../types';
 
 export const subjects: Subject[] = [
@@ -23,6 +24,6 @@ export const subjects: Subject[] = [
   { id: 'logic-social', name: 'Logic', icon: '🧠', field: 'social', isFree: true },
 ];
 
-export const examYears = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
+export const examYears = [2013, 2014, 2015, 2016, 2017,];
 
 export const chaptersPerSubject = 7;
