@@ -1,4 +1,3 @@
-// // src/components/Quiz/QuizPage.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
@@ -18,10 +17,18 @@ export default function QuizPage() {
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [score, setScore] = useState(0);
+  const [questions, setQuestions] = useState<Question[]>([]);
 
-  // For demo purposes, we'll use sample questions
-  // In a real app, you'd fetch questions based on subject, year, and chapter
-  const questions = sampleQuestions;
+  useEffect(() => {
+    // Filter questions based on subject, year, and chapter
+    const filteredQuestions = sampleQuestions.filter(
+      q => q.subject === subjectId && 
+           q.year === parseInt(year || '0') && 
+           q.chapter === parseInt(chapter || '0')
+    );
+    setQuestions(filteredQuestions);
+    setAnswers(new Array(filteredQuestions.length).fill(-1));
+  }, [subjectId, year, chapter]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,10 +37,6 @@ export default function QuizPage() {
 
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    setAnswers(new Array(questions.length).fill(-1));
-  }, [questions.length]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -60,6 +63,8 @@ export default function QuizPage() {
   };
 
   const handleSubmit = async () => {
+    if (questions.length === 0) return;
+    
     const correctAnswers = answers.filter((answer, index) => 
       answer === questions[index].correctAnswer
     ).length;
@@ -115,16 +120,14 @@ export default function QuizPage() {
                 <p className="text-gray-600">Great job on finishing the quiz</p>
               </div>
 
-              {/* Score Display */}
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6 mb-6">
                 <h3 className="text-xl font-semibold mb-2">Your Score</h3>
                 <div className="text-4xl font-bold mb-2">{score.toFixed(1)}%</div>
                 <p className="text-sm opacity-90">
-                  {answers.filter((answer, index) => answer === questions[index].correctAnswer).length} out of {questions.length} correct
+                  {answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length} out of {questions.length} correct
                 </p>
               </div>
 
-              {/* Performance Message */}
               <div className="mb-6">
                 {score >= 80 ? (
                   <p className="text-green-600 font-medium">Excellent work! 🎉</p>
@@ -135,7 +138,6 @@ export default function QuizPage() {
                 )}
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-3">
                 <button
                   onClick={handleRetakeQuiz}
@@ -157,6 +159,24 @@ export default function QuizPage() {
     );
   }
 
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">No Questions Available</h2>
+          <p className="text-gray-600 mb-6">There are no questions for this chapter yet.</p>
+          <button
+            onClick={handleBackToChapters}
+            className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all"
+          >
+            Back to Chapters
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   const currentQ = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
@@ -165,7 +185,6 @@ export default function QuizPage() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
         <button
           onClick={() => navigate(`/subject/${subjectId}/year/${year}`)}
           className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-6"
@@ -175,12 +194,11 @@ export default function QuizPage() {
         </button>
 
         <div className="max-w-4xl mx-auto">
-          {/* Quiz Header */}
           <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h2 className="text-2xl font-bold text-gray-800">
-                  Chapter {chapter} Quiz
+                  {subjectId?.toUpperCase()} - Year {year}, Chapter {chapter}
                 </h2>
                 <p className="text-gray-600">Question {currentQuestion + 1} of {questions.length}</p>
               </div>
@@ -192,7 +210,6 @@ export default function QuizPage() {
               </div>
             </div>
 
-            {/* Progress Bar */}
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
                 className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
@@ -201,7 +218,6 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {/* Question Card */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
               {currentQ.question}
@@ -229,7 +245,6 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="flex items-center justify-between">
             <button
               onClick={handlePrevious}
@@ -260,7 +275,6 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {/* Question Grid */}
           <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
             <h4 className="font-semibold text-gray-800 mb-4">Question Navigator</h4>
             <div className="grid grid-cols-5 md:grid-cols-10 gap-2">

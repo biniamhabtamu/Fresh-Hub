@@ -22,6 +22,7 @@ export const subjects: Subject[] = [
   { id: 'sociology', name: 'Sociology', icon: '👥', field: 'social', isFree: false },
   { id: 'psychology-social', name: 'Psychology', icon: '🧠', field: 'social', isFree: false },
   { id: 'logic-social', name: 'Logic', icon: '🧠', field: 'social', isFree: true },
+  
 ];
 
 export const examYears = [2013, 2014, 2015, 2016, 2017,];
