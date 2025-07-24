@@ -156,28 +156,428 @@ export const sampleQuestions: Question[] = [
   // ==================== LOGIC QUESTIONS ====================
   
   //logic-2013-1-1
-  {
-    id: 'logic-2013-1-1',
-    question: 'If all cats are mammals and all mammals are animals, then all cats are?',
-    options: ['Animals', 'Plants', 'Minerals', 'None of the above'],
-    correctAnswer: 0,
-    explanation: 'This is a classic syllogism. If A is B and B is C, then A is C.',
-    subject: 'logic',
-    year: 2013,
-    chapter: 1
-  },
-  //logic-2013-1-2
-  {
-    id: 'logic-2013-1-2',
-    question: 'Which of these is a valid logical operator?',
-    options: ['AND', 'OR', 'NOT', 'All of the above'],
-    correctAnswer: 3,
-    explanation: 'AND, OR, and NOT are all valid logical operators.',
-    subject: 'logic',
-    year: 2013,
-    chapter: 1
-  },
-
+  
+// ==================== LOGIC CHAPTER 1 QUESTIONS (30) ====================
+{
+  id: 'log-2013-1-1',
+  question: 'If all cats are mammals and all mammals are animals, then all cats are?',
+  options: ['Animals', 'Plants', 'Minerals', 'None of the above'],
+  correctAnswer: 0,
+  explanation: 'This is a classic syllogism.',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2013-1-2',
+  question: 'Which of these is a valid logical operator?',
+  options: ['AND', 'OR', 'NOT', 'All of the above'],
+  correctAnswer: 3,
+  explanation: 'AND, OR, and NOT are all valid logical operators.',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2013-1-3',
+  question: 'What is the negation of "All birds can fly"?',
+  options: [
+    'No birds can fly',
+    'Some birds cannot fly',
+    'All birds cannot fly',
+    'Some birds can fly'
+  ],
+  correctAnswer: 1,
+  explanation: 'The negation of "all X are Y" is "some X are not Y".',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-1',
+  question: 'If P implies Q, and Q is false, then:',
+  options: [
+    'P must be false',
+    'P must be true',
+    'P can be either true or false',
+    'None of the above'
+  ],
+  correctAnswer: 0,
+  explanation: 'This is the contrapositive (¬Q → ¬P).',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-2',
+  question: 'Which of these represents "P and Q"?',
+  options: ['P ∨ Q', 'P ∧ Q', 'P → Q', '¬P'],
+  correctAnswer: 1,
+  explanation: '∧ is the logical AND operator.',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-3',
+  question: 'What is the converse of "If it\'s a dog, then it\'s a mammal"?',
+  options: [
+    'If it\'s a mammal, then it\'s a dog',
+    'If it\'s not a dog, then it\'s not a mammal',
+    'It\'s a dog if and only if it\'s a mammal',
+    'None of the above'
+  ],
+  correctAnswer: 0,
+  explanation: 'Converse swaps the hypothesis and conclusion.',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-1',
+  question: 'Which is a tautology?',
+  options: [
+    'P ∨ ¬P',
+    'P ∧ ¬P',
+    'P → ¬P',
+    'P ∧ P'
+  ],
+  correctAnswer: 0,
+  explanation: 'A statement that is always true (law of excluded middle).',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-2',
+  question: '"No reptiles are mammals" is an example of:',
+  options: [
+    'Universal negative',
+    'Universal affirmative',
+    'Particular affirmative',
+    'Particular negative'
+  ],
+  correctAnswer: 0,
+  explanation: '"No X are Y" is a universal negative.',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-3',
+  question: 'If "Some A are B" is true, which must be false?',
+  options: [
+    'No A are B',
+    'All A are B',
+    'Some A are not B',
+    'None must be false'
+  ],
+  correctAnswer: 0,
+  explanation: '"Some A are B" contradicts "No A are B".',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-1',
+  question: 'Which is equivalent to ¬(P ∧ Q)?',
+  options: [
+    '¬P ∧ ¬Q',
+    '¬P ∨ ¬Q',
+    'P ∨ Q',
+    '¬P → Q'
+  ],
+  correctAnswer: 1,
+  explanation: 'This is De Morgan\'s Law.',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-2',
+  question: 'A syllogism has how many parts?',
+  options: ['2', '3', '4', '5'],
+  correctAnswer: 1,
+  explanation: 'Major premise, minor premise, and conclusion.',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-3',
+  question: '"All philosophers are thinkers. Socrates is a philosopher. Therefore, Socrates is a thinker." This is:',
+  options: [
+    'Valid and sound',
+    'Valid but unsound',
+    'Invalid',
+    'None of the above'
+  ],
+  correctAnswer: 0,
+  explanation: 'The argument is logically valid and the premises are true.',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-1',
+  question: 'Which quantifier means "there exists"?',
+  options: ['∀', '∃', '∈', '∴'],
+  correctAnswer: 1,
+  explanation: '∃ is the existential quantifier.',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-2',
+  question: 'In "If P then Q", Q is called the:',
+  options: [
+    'Antecedent',
+    'Consequent',
+    'Contrapositive',
+    'Predicate'
+  ],
+  correctAnswer: 1,
+  explanation: 'The "then" part is the consequent.',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-3',
+  question: 'A statement that is always false is called a:',
+  options: [
+    'Tautology',
+    'Contradiction',
+    'Contingency',
+    'Implication'
+  ],
+  correctAnswer: 1,
+  explanation: 'A contradiction is always false.',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
+{
+  id: 'log-2013-1-4',
+  question: 'Which logical fallacy assumes what it\'s trying to prove?',
+  options: [
+    'Straw man',
+    'Circular reasoning',
+    'False dilemma',
+    'Ad hominem'
+  ],
+  correctAnswer: 1,
+  explanation: 'Circular reasoning uses its conclusion as a premise.',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-4',
+  question: 'The statement "P ∨ Q" is false when:',
+  options: [
+    'Both P and Q are false',
+    'Both P and Q are true',
+    'P is true and Q is false',
+    'P is false and Q is true'
+  ],
+  correctAnswer: 0,
+  explanation: 'OR (∨) is only false when both operands are false.',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-4',
+  question: 'What is the inverse of "If it\'s sunny, then I\'ll go outside"?',
+  options: [
+    'If it\'s not sunny, then I won\'t go outside',
+    'If I go outside, then it\'s sunny',
+    'If I don\'t go outside, then it\'s not sunny',
+    'I\'ll go outside if and only if it\'s sunny'
+  ],
+  correctAnswer: 0,
+  explanation: 'Inverse negates both parts without swapping them.',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-4',
+  question: 'Which is NOT a type of categorical proposition?',
+  options: [
+    'Universal affirmative',
+    'Universal negative',
+    'Particular affirmative',
+    'Hypothetical conditional'
+  ],
+  correctAnswer: 3,
+  explanation: 'The first three are standard categorical propositions.',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-4',
+  question: 'In predicate logic, what does ∀x(P(x) → Q(x)) mean?',
+  options: [
+    'All P are Q',
+    'Some P are Q',
+    'No P are Q',
+    'Some P are not Q'
+  ],
+  correctAnswer: 0,
+  explanation: 'Universal quantifier with implication means "all P are Q".',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
+{
+  id: 'log-2013-1-5',
+  question: 'Which is logically equivalent to "Unless P, Q"?',
+  options: [
+    'P ∨ Q',
+    '¬P → Q',
+    'Q → P',
+    'P ∧ Q'
+  ],
+  correctAnswer: 1,
+  explanation: '"Unless P, Q" means "if not P, then Q".',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-5',
+  question: 'The principle that P ∧ Q ≡ Q ∧ P demonstrates:',
+  options: [
+    'Associativity',
+    'Commutativity',
+    'Distributivity',
+    'Idempotence'
+  ],
+  correctAnswer: 1,
+  explanation: 'Commutativity means order doesn\'t matter for the operation.',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-5',
+  question: 'Which rule allows deriving Q from P and P → Q?',
+  options: [
+    'Modus Ponens',
+    'Modus Tollens',
+    'Hypothetical Syllogism',
+    'Disjunctive Syllogism'
+  ],
+  correctAnswer: 0,
+  explanation: 'Modus Ponens: from P and P→Q, infer Q.',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-5',
+  question: 'What is the symbolic form of "Neither P nor Q"?',
+  options: [
+    '¬P ∧ ¬Q',
+    '¬P ∨ ¬Q',
+    'P ∧ Q',
+    'P ∨ Q'
+  ],
+  correctAnswer: 0,
+  explanation: '"Neither P nor Q" means "not P and not Q".',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-5',
+  question: 'Which is true about the statement "P → Q"?',
+  options: [
+    'It\'s equivalent to its converse',
+    'It\'s equivalent to its contrapositive',
+    'It\'s equivalent to its inverse',
+    'None of the above'
+  ],
+  correctAnswer: 1,
+  explanation: 'A conditional is equivalent to its contrapositive.',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
+{
+  id: 'log-2013-1-6',
+  question: 'What type of reasoning goes from general to specific?',
+  options: [
+    'Inductive',
+    'Deductive',
+    'Abductive',
+    'Reductive'
+  ],
+  correctAnswer: 1,
+  explanation: 'Deductive reasoning applies general rules to specific cases.',
+  subject: 'logic',
+  year: 2013,
+  chapter: 1
+},
+{
+  id: 'log-2014-1-6',
+  question: 'Which symbol represents logical equivalence?',
+  options: ['→', '≡', '∴', '⊢'],
+  correctAnswer: 1,
+  explanation: '≡ means "is logically equivalent to".',
+  subject: 'logic',
+  year: 2014,
+  chapter: 1
+},
+{
+  id: 'log-2015-1-6',
+  question: 'The statement P ∧ ¬P is always:',
+  options: [
+    'True',
+    'False',
+    'Contingent',
+    'Undefined'
+  ],
+  correctAnswer: 1,
+  explanation: 'A statement and its negation cannot both be true.',
+  subject: 'logic',
+  year: 2015,
+  chapter: 1
+},
+{
+  id: 'log-2016-1-6',
+  question: 'Which is NOT a valid inference rule?',
+  options: [
+    'From P → Q and Q, infer P',
+    'From P ∨ Q and ¬P, infer Q',
+    'From P → Q and ¬Q, infer ¬P',
+    'From P and Q, infer P ∧ Q'
+  ],
+  correctAnswer: 0,
+  explanation: 'This would be affirming the consequent, a logical fallacy.',
+  subject: 'logic',
+  year: 2016,
+  chapter: 1
+},
+{
+  id: 'log-2017-1-6',
+  question: 'What is the main connective in (P ∧ Q) → (R ∨ S)?',
+  options: [
+    '∧',
+    '∨',
+    '→',
+    'None of the above'
+  ],
+  correctAnswer: 2,
+  explanation: 'The → is the last operator to be applied.',
+  subject: 'logic',
+  year: 2017,
+  chapter: 1
+},
   // ==================== ENGLISH QUESTIONS ====================
   
   //english-2014-1-1
