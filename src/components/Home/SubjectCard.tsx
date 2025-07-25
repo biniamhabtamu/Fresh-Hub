@@ -78,9 +78,11 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
       className={`
         relative overflow-hidden min-h-[200px] flex flex-col p-6
         ${isLocked ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
-        transition-all duration-300 shadow-lg
-        ${isPremium ? 'bg-gradient-to-br from-purple-50 to-indigo-50 border-indigo-100' : 'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-100'}
-        ${isLocked ? 'border-2 border-gray-200 filter blur-[1px]' : 'border-2'}
+        transition-all duration-300 shadow-lg border-2
+        ${isPremium ? 
+          'bg-gradient-to-br from-purple-50 to-indigo-50 border-indigo-200' : 
+          'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200'
+        }
         rounded-2xl
       `}
     >
