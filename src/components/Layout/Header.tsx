@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, BookOpen, Bell, Search, User, ChevronDown, Share2, Send } from 'lucide-react';
+import { Menu, BookOpen, Bell, Search, User, ChevronDown, Share2, Send, Home, Book, GraduationCap, Settings, LogOut } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 export default function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isHoveringLogo, setIsHoveringLogo] = useState(false);
-  const { currentUser } = useAuth();
+  const [activeNav, setActiveNav] = useState('');
+  const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Set active navigation based on current route
+  useEffect(() => {
+    const path = location.pathname.split('/')[1];
+    setActiveNav(path || 'dashboard');
+  }, [location]);
 
   // Handle scroll effect
   useEffect(() => {
@@ -26,6 +34,15 @@ export default function Header() {
     const names = currentUser.displayName.split(' ');
     return names.map(name => name[0]).join('').toUpperCase();
   };
+
+  // Navigation items
+  const navItems = [
+    { path: 'dashboard', icon: Home, label: 'Home' },
+    { path: 'subjects', icon: Book, label: 'Subjects' },
+    { path: 'courses', icon: GraduationCap, label: 'Courses' },
+    { path: 'profile', icon: User, label: 'Profile' },
+    { path: 'settings', icon: Settings, label: 'Settings' },
+  ];
 
   return (
     <>
@@ -75,74 +92,38 @@ export default function Header() {
 
           {/* Right Side - Icons */}
           <div className="flex items-center space-x-4">
-          
-
-            {/* Share and Telegram Icons */}
-            <div className="flex items-center space-x-2">
-              <button 
-                className={`
-                  p-2 rounded-full transition-all duration-300
-                  ${scrolled 
-                    ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 shadow-sm' 
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                  }
-                `}
-                onClick={() => {/* Add share functionality */}}
-                aria-label="Share"
-              >
-                <Share2 size={20} />
-              </button>
-              <button 
-                className={`
-                  p-2 rounded-full transition-all duration-300
-                  ${scrolled 
-                    ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 shadow-sm' 
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                  }
-                `}
-                onClick={() => window.open('https://t.me/@bh068', '_blank')}
-                aria-label="Telegram"
-              >
-                <Send size={20} className="text-blue-500" />
-              </button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => navigate(`/${item.path}`)}
+                  className={`
+                    flex items-center px-3 py-2 rounded-lg transition-all duration-300
+                    ${activeNav === item.path 
+                      ? scrolled 
+                        ? 'bg-indigo-100 text-indigo-700 shadow-inner' 
+                        : 'bg-white/20 text-white'
+                      : scrolled 
+                        ? 'text-gray-700 hover:bg-indigo-50' 
+                        : 'text-white/80 hover:bg-white/10'
+                    }
+                  `}
+                >
+                  <item.icon size={18} className="mr-2" />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              ))}
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <button 
-                onClick={() => navigate('/search')}
-                className={`
-                  p-2 rounded-full transition-all duration-300 transform hover:scale-110
-                  ${scrolled 
-                    ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 shadow-sm' 
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                  }
-                `}
-                aria-label="Search"
-              >
-                <Search size={20} />
-              </button>
-              
-              <button 
-                onClick={() => navigate('/notifications')}
-                className={`
-                  p-2 rounded-full transition-all duration-300 transform hover:scale-110 relative
-                  ${scrolled 
-                    ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 shadow-sm' 
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                  }
-                `}
-                aria-label="Notifications"
-              >
-                <Bell size={20} />
-                <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full animate-pulse border border-white"></span>
-              </button>
-              
-              {/* User Profile with dropdown indicator */}
-              {currentUser ? (
+          
+
+            {/* User Profile */}
+            {currentUser ? (
+              <div className="relative group">
                 <button 
                   onClick={() => navigate('/profilepage')}
-                  className="flex items-center space-x-2 focus:outline-none group"
+                  className="flex items-center space-x-2 focus:outline-none"
                   aria-label="User profile"
                 >
                   <div className={`
@@ -153,7 +134,7 @@ export default function Header() {
                   `}>
                     {getUserInitials()}
                   </div>
-                  <div className="flex items-center">
+                  <div className="hidden lg:flex items-center">
                     <span className={`
                       font-medium transition-colors duration-300
                       ${scrolled ? 'text-gray-700 group-hover:text-indigo-600' : 'text-white group-hover:text-yellow-200'}
@@ -170,22 +151,51 @@ export default function Header() {
                     />
                   </div>
                 </button>
-              ) : (
-                <button 
-                  onClick={() => navigate('/auth')}
-                  className={`
-                    px-4 py-2 rounded-md font-medium transition-all duration-300
-                    transform hover:scale-105 shadow-md
-                    ${scrolled 
-                      ? 'bg-gradient-to-r from-indigo-600 to-pink-600 text-white hover:shadow-lg' 
-                      : 'bg-white text-indigo-700 hover:bg-gray-50'
-                    }
-                  `}
-                >
-                  Sign In
-                </button>
-              )}
-            </div>
+
+                {/* Dropdown Menu */}
+                <div className={`
+                  absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50
+                  opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                  transition-all duration-200 transform translate-y-1 group-hover:translate-y-0
+                `}>
+                  <button 
+                    onClick={() => navigate('/profile')}
+                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
+                  >
+                    <User size={16} className="mr-2" />
+                    Profile
+                  </button>
+                  <button 
+                    onClick={() => navigate('/settings')}
+                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
+                  >
+                    <Settings size={16} className="mr-2" />
+                    Settings
+                  </button>
+                  <button 
+                    onClick={logout}
+                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
+                  >
+                    <LogOut size={16} className="mr-2" />
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button 
+                onClick={() => navigate('/auth')}
+                className={`
+                  px-4 py-2 rounded-md font-medium transition-all duration-300
+                  transform hover:scale-105 shadow-md
+                  ${scrolled 
+                    ? 'bg-gradient-to-r from-indigo-600 to-pink-600 text-white hover:shadow-lg' 
+                    : 'bg-white text-indigo-700 hover:bg-gray-50'
+                  }
+                `}
+              >
+                Sign In
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -194,6 +204,8 @@ export default function Header() {
         isOpen={sidebarOpen} 
         onClose={() => setSidebarOpen(false)} 
         currentUser={currentUser}
+        navItems={navItems}
+        activeNav={activeNav}
       />
     </>
   );

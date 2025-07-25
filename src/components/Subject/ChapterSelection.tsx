@@ -110,18 +110,7 @@ export default function ChapterSelection() {
       <Header />
       
       <div className="container mx-auto px-4 py-8 max-w-6xl">
-        {/* Back Button */}
-        <motion.button
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-          onClick={() => navigate(`/subject/${subjectId}`)}
-          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-6 transition-colors duration-200"
-        >
-          <ArrowLeft size={20} />
-          <span className="font-medium">Back to Years</span>
-        </motion.button>
-
+        {/* Back Button (now moved to header) */}
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
