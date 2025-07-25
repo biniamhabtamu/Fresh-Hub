@@ -3,7 +3,8 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import Header from '../Layout/Header';
-import { Trophy, Medal, Award } from 'lucide-react';
+import { Trophy, Medal, Award, ChevronDown, ChevronUp, Crown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface LeaderboardEntry {
   id: string;
@@ -18,6 +19,7 @@ export default function LeaderboardPage() {
   const { currentUser } = useAuth();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [expandedUser, setExpandedUser] = useState<string | null>(null);
 
   useEffect(() => {
     loadLeaderboard();
@@ -72,24 +74,28 @@ export default function LeaderboardPage() {
   };
 
   const getRankIcon = (rank: number) => {
-    if (rank === 1) return <Trophy size={24} className="text-yellow-500" />;
-    if (rank === 2) return <Medal size={24} className="text-gray-400" />;
-    if (rank === 3) return <Award size={24} className="text-orange-500" />;
+    if (rank === 1) return <Crown size={24} className="text-yellow-500 fill-yellow-400" />;
+    if (rank === 2) return <Medal size={24} className="text-gray-400 fill-gray-300" />;
+    if (rank === 3) return <Award size={24} className="text-orange-500 fill-orange-300" />;
     return <span className="text-lg font-bold text-gray-600">#{rank}</span>;
   };
 
   const getRankStyle = (rank: number, isCurrentUser: boolean) => {
-    let baseStyle = "bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl ";
+    let baseStyle = "bg-white rounded-xl shadow-md p-4 transition-all hover:shadow-lg ";
     
     if (isCurrentUser) {
       baseStyle += "ring-2 ring-blue-500 bg-blue-50 ";
     }
     
-    if (rank === 1) return baseStyle + "border-l-4 border-yellow-500";
-    if (rank === 2) return baseStyle + "border-l-4 border-gray-400";
-    if (rank === 3) return baseStyle + "border-l-4 border-orange-500";
+    if (rank === 1) return baseStyle + "border-t-4 border-yellow-500";
+    if (rank === 2) return baseStyle + "border-t-4 border-gray-400";
+    if (rank === 3) return baseStyle + "border-t-4 border-orange-500";
     
     return baseStyle;
+  };
+
+  const toggleExpandUser = (userId: string) => {
+    setExpandedUser(expandedUser === userId ? null : userId);
   };
 
   if (loading) {
@@ -98,8 +104,12 @@ export default function LeaderboardPage() {
         <Header />
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading leaderboard...</p>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              className="rounded-full h-32 w-32 border-b-4 border-blue-600 mx-auto"
+            ></motion.div>
+            <p className="mt-4 text-gray-600 text-lg">Loading leaderboard...</p>
           </div>
         </div>
       </div>
@@ -112,72 +122,129 @@ export default function LeaderboardPage() {
       
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🏆 Leaderboard</h1>
-          <p className="text-gray-600 capitalize">
-            Top performers in {currentUser?.field} science
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+            <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+              Leaderboard
+            </span>
+          </h1>
+          <p className="text-gray-600 text-lg capitalize">
+            Top performers in <span className="font-semibold text-blue-600">{currentUser?.field}</span> field
           </p>
-        </div>
+        </motion.div>
 
         {/* Top 3 Podium */}
         {leaderboard.length >= 3 && (
-          <div className="mb-12">
-            <div className="flex items-end justify-center space-x-4 max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mb-16"
+          >
+            <div className="flex flex-col md:flex-row items-end justify-center gap-4 md:gap-8 max-w-4xl mx-auto">
               {/* 2nd Place */}
-              <div className="text-center">
-                <div className="bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-xl p-4 mb-2">
-                  <Medal size={32} className="mx-auto mb-2" />
-                  <h3 className="font-bold">{leaderboard[1].fullName}</h3>
-                  <p className="text-sm opacity-90">{leaderboard[1].averageScore.toFixed(1)}%</p>
+              <motion.div 
+                initial={{ y: 40 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="w-full md:w-1/3 order-2 md:order-1"
+              >
+                <div className="bg-gradient-to-b from-gray-200 to-gray-300 text-gray-800 rounded-t-xl p-4 pb-6 text-center shadow-md">
+                  <div className="flex justify-center mb-2">
+                    <Medal size={32} className="text-gray-600 fill-gray-400" />
+                  </div>
+                  <h3 className="font-bold text-lg">{leaderboard[1].fullName}</h3>
+                  <div className="text-3xl font-bold text-gray-700 mt-2">
+                    {leaderboard[1].averageScore.toFixed(1)}%
+                  </div>
                 </div>
-                <div className="bg-gray-300 h-20 rounded-t-lg flex items-center justify-center">
-                  <span className="text-2xl font-bold text-gray-700">2</span>
+                <div className="bg-gray-400 h-16 md:h-24 rounded-b-lg flex items-center justify-center shadow-inner">
+                  <span className="text-2xl font-bold text-white">2</span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 1st Place */}
-              <div className="text-center">
-                <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-xl p-4 mb-2">
-                  <Trophy size={40} className="mx-auto mb-2" />
-                  <h3 className="font-bold text-lg">{leaderboard[0].fullName}</h3>
-                  <p className="text-sm opacity-90">{leaderboard[0].averageScore.toFixed(1)}%</p>
+              <motion.div 
+                initial={{ y: 60 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="w-full md:w-1/3 order-1 md:order-2"
+              >
+                <div className="bg-gradient-to-b from-yellow-300 to-yellow-400 text-yellow-900 rounded-t-xl p-4 pb-8 text-center shadow-lg">
+                  <div className="flex justify-center mb-2">
+                    <Crown size={40} className="text-yellow-700 fill-yellow-500" />
+                  </div>
+                  <h3 className="font-bold text-xl">{leaderboard[0].fullName}</h3>
+                  <div className="text-4xl font-bold text-yellow-800 mt-2">
+                    {leaderboard[0].averageScore.toFixed(1)}%
+                  </div>
                 </div>
-                <div className="bg-yellow-400 h-32 rounded-t-lg flex items-center justify-center">
+                <div className="bg-yellow-500 h-24 md:h-32 rounded-b-lg flex items-center justify-center shadow-inner">
                   <span className="text-3xl font-bold text-yellow-900">1</span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 3rd Place */}
-              <div className="text-center">
-                <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-xl p-4 mb-2">
-                  <Award size={32} className="mx-auto mb-2" />
-                  <h3 className="font-bold">{leaderboard[2].fullName}</h3>
-                  <p className="text-sm opacity-90">{leaderboard[2].averageScore.toFixed(1)}%</p>
+              <motion.div 
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="w-full md:w-1/3 order-3"
+              >
+                <div className="bg-gradient-to-b from-orange-200 to-orange-300 text-orange-800 rounded-t-xl p-4 pb-4 text-center shadow-md">
+                  <div className="flex justify-center mb-2">
+                    <Award size={32} className="text-orange-600 fill-orange-400" />
+                  </div>
+                  <h3 className="font-bold text-lg">{leaderboard[2].fullName}</h3>
+                  <div className="text-2xl font-bold text-orange-700 mt-2">
+                    {leaderboard[2].averageScore.toFixed(1)}%
+                  </div>
                 </div>
-                <div className="bg-orange-300 h-16 rounded-t-lg flex items-center justify-center">
-                  <span className="text-2xl font-bold text-orange-700">3</span>
+                <div className="bg-orange-400 h-12 md:h-20 rounded-b-lg flex items-center justify-center shadow-inner">
+                  <span className="text-2xl font-bold text-orange-900">3</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Full Leaderboard */}
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Full Rankings</h2>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-800">Full Rankings</h2>
+            <div className="text-sm text-gray-500">
+              {leaderboard.length} {leaderboard.length === 1 ? 'participant' : 'participants'}
+            </div>
+          </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3">
             {leaderboard.map((entry) => {
               const isCurrentUser = entry.id === currentUser?.id;
               
               return (
-                <div
+                <motion.div
                   key={entry.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + (entry.rank * 0.05) }}
                   className={getRankStyle(entry.rank, isCurrentUser)}
                 >
-                  <div className="flex items-center justify-between">
+                  <div 
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleExpandUser(entry.id)}
+                  >
                     <div className="flex items-center space-x-4">
-                      <div className="flex items-center justify-center w-12 h-12">
+                      <div className="flex items-center justify-center w-10 h-10">
                         {getRankIcon(entry.rank)}
                       </div>
                       
@@ -192,27 +259,78 @@ export default function LeaderboardPage() {
                       </div>
                     </div>
                     
-                    <div className="text-right">
-                      <div className={`text-2xl font-bold ${isCurrentUser ? 'text-blue-700' : 'text-gray-800'}`}>
-                        {entry.averageScore.toFixed(1)}%
+                    <div className="flex items-center space-x-4">
+                      <div className="text-right">
+                        <div className={`text-xl md:text-2xl font-bold ${isCurrentUser ? 'text-blue-700' : 'text-gray-800'}`}>
+                          {entry.averageScore.toFixed(1)}%
+                        </div>
+                        <div className="text-xs text-gray-600">Average</div>
                       </div>
-                      <div className="text-sm text-gray-600">Average Score</div>
+                      {expandedUser === entry.id ? (
+                        <ChevronUp className="text-gray-500" />
+                      ) : (
+                        <ChevronDown className="text-gray-500" />
+                      )}
                     </div>
                   </div>
-                </div>
+
+                  <AnimatePresence>
+                    {expandedUser === entry.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden pt-4"
+                      >
+                        <div className="border-t border-gray-200 pt-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="bg-blue-50 p-3 rounded-lg">
+                              <p className="text-xs text-blue-600 font-medium">Field</p>
+                              <p className="text-blue-800 capitalize">{entry.field}</p>
+                            </div>
+                            <div className="bg-purple-50 p-3 rounded-lg">
+                              <p className="text-xs text-purple-600 font-medium">Quizzes Taken</p>
+                              <p className="text-purple-800">{entry.totalQuizzes}</p>
+                            </div>
+                          </div>
+                          <div className="mt-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white p-3 rounded-lg">
+                            <p className="text-xs font-medium">Performance</p>
+                            <div className="w-full bg-white bg-opacity-20 rounded-full h-2 mt-2">
+                              <div 
+                                className="bg-white h-2 rounded-full" 
+                                style={{ width: `${Math.min(100, entry.averageScore)}%` }}
+                              ></div>
+                            </div>
+                            <p className="text-xs mt-1 text-right">
+                              Top {Math.round((entry.rank / leaderboard.length) * 100)}% of participants
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Empty State */}
           {leaderboard.length === 0 && (
-            <div className="text-center py-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12"
+            >
               <div className="text-6xl mb-4">📊</div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">No rankings yet</h3>
-              <p className="text-gray-600">Complete some quizzes to appear on the leaderboard!</p>
-            </div>
+              <p className="text-gray-600 mb-6">Complete some quizzes to appear on the leaderboard!</p>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                Take a Quiz
+              </button>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
