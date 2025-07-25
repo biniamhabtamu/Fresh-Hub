@@ -72,8 +72,16 @@ function AppRoutes() {
           </ProtectedRoute>
         } 
       />
+      <Route 
+        path="/profilepage" 
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        } 
+      />
       <Route path="/" element={<Navigate to="/dashboard" />} />
-       <Route path="/profilepage" element={<ProfilePage />} />
+      
     </Routes>
   );
 }
