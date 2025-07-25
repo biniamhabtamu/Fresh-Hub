@@ -5,7 +5,8 @@ import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
 import Header from '../Layout/Header';
-import { ArrowLeft, Clock, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function QuizPage() {
   const { subjectId, year, chapter } = useParams();
@@ -18,6 +19,7 @@ export default function QuizPage() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -63,6 +65,8 @@ export default function QuizPage() {
   };
 
   const handleSubmit = async () => {
+    setIsSubmitting(true);
+    
     if (questions.length === 0) return;
     
     const correctAnswers = answers.filter((answer, index) => 
@@ -90,6 +94,8 @@ export default function QuizPage() {
         });
       } catch (error) {
         console.error('Error saving result:', error);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -112,48 +118,99 @@ export default function QuizPage() {
         <Header />
         
         <div className="container mx-auto px-4 py-8">
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-              <div className="mb-6">
-                <CheckCircle size={64} className="mx-auto text-green-500 mb-4" />
-                <h2 className="text-3xl font-bold text-gray-800 mb-2">Quiz Completed!</h2>
-                <p className="text-gray-600">Great job on finishing the quiz</p>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-semibold mb-2">Your Score</h3>
-                <div className="text-4xl font-bold mb-2">{score.toFixed(1)}%</div>
-                <p className="text-sm opacity-90">
-                  {answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length} out of {questions.length} correct
-                </p>
-              </div>
-
-              <div className="mb-6">
-                {score >= 80 ? (
-                  <p className="text-green-600 font-medium">Excellent work! 🎉</p>
-                ) : score >= 60 ? (
-                  <p className="text-yellow-600 font-medium">Good job! Keep practicing! 👍</p>
-                ) : (
-                  <p className="text-red-600 font-medium">Keep studying and try again! 💪</p>
-                )}
-              </div>
-
-              <div className="space-y-3">
-                <button
-                  onClick={handleRetakeQuiz}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all"
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white text-center">
+                <motion.div
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  Retake Quiz
-                </button>
-                <button
-                  onClick={handleBackToChapters}
-                  className="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all"
-                >
-                  Back to Chapters
-                </button>
+                  <CheckCircle size={64} className="mx-auto mb-4" />
+                </motion.div>
+                <h2 className="text-3xl font-bold mb-2">Quiz Completed!</h2>
+                <p className="opacity-90">Great job on finishing the quiz</p>
+              </div>
+
+              <div className="p-8 text-center">
+                <div className="mb-6">
+                  <div className="inline-flex items-center justify-center relative">
+                    <svg className="w-32 h-32" viewBox="0 0 36 36">
+                      <path
+                        d="M18 2.0845
+                          a 15.9155 15.9155 0 0 1 0 31.831
+                          a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="#E5E7EB"
+                        strokeWidth="3"
+                      />
+                      <path
+                        d="M18 2.0845
+                          a 15.9155 15.9155 0 0 1 0 31.831
+                          a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke={score >= 80 ? "#10B981" : score >= 60 ? "#F59E0B" : "#EF4444"}
+                        strokeWidth="3"
+                        strokeDasharray={`${score}, 100`}
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-3xl font-bold">{score.toFixed(1)}%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-lg font-medium mb-2">
+                    {answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length} 
+                    <span className="text-gray-500"> out of </span>
+                    {questions.length} 
+                    <span className="text-gray-500"> correct answers</span>
+                  </p>
+                  <p className={`text-lg font-semibold ${
+                    score >= 80 ? 'text-green-600' : 
+                    score >= 60 ? 'text-yellow-600' : 'text-red-600'
+                  }`}>
+                    {score >= 80 ? (
+                      <span className="flex items-center justify-center">
+                        <Award className="mr-2" /> Excellent work! 🎉
+                      </span>
+                    ) : score >= 60 ? (
+                      "Good job! Keep practicing! 👍"
+                    ) : (
+                      <span className="flex items-center justify-center">
+                        <AlertTriangle className="mr-2" /> Keep studying! 💪
+                      </span>
+                    )}
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleRetakeQuiz}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md"
+                  >
+                    Retake Quiz
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleBackToChapters}
+                    className="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all shadow-sm"
+                  >
+                    Back to Chapters
+                  </motion.button>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     );
@@ -164,14 +221,22 @@ export default function QuizPage() {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         <Header />
         <div className="container mx-auto px-4 py-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">No Questions Available</h2>
-          <p className="text-gray-600 mb-6">There are no questions for this chapter yet.</p>
-          <button
-            onClick={handleBackToChapters}
-            className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-md mx-auto bg-white rounded-xl shadow-md p-8"
           >
-            Back to Chapters
-          </button>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">No Questions Available</h2>
+            <p className="text-gray-600 mb-6">There are no questions for this chapter yet.</p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleBackToChapters}
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md"
+            >
+              Back to Chapters
+            </motion.button>
+          </motion.div>
         </div>
       </div>
     );
@@ -185,118 +250,147 @@ export default function QuizPage() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <button
+        <motion.button
+          whileHover={{ x: -2 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => navigate(`/subject/${subjectId}/year/${year}`)}
-          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-6"
+          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-6 transition-colors"
         >
           <ArrowLeft size={20} />
-          <span>Back to Chapters</span>
-        </button>
+          <span className="font-medium">Back to Chapters</span>
+        </motion.button>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-            <div className="flex items-center justify-between mb-4">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-xl shadow-lg p-6 mb-6"
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
               <div>
                 <h2 className="text-2xl font-bold text-gray-800">
                   {subjectId?.toUpperCase()} - Year {year}, Chapter {chapter}
                 </h2>
                 <p className="text-gray-600">Question {currentQuestion + 1} of {questions.length}</p>
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-4 bg-gray-100 px-4 py-2 rounded-lg">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <Clock size={20} />
-                  <span>{formatTime(timeElapsed)}</span>
+                  <span className="font-medium">{formatTime(timeElapsed)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div
-                className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
+          <motion.div 
+            key={currentQuestion}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-xl shadow-lg p-8 mb-6"
+          >
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
               {currentQ.question}
             </h3>
 
             <div className="space-y-3">
               {currentQ.options.map((option, index) => (
-                <button
+                <motion.button
                   key={index}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                   onClick={() => handleAnswerSelect(index)}
                   className={`
                     w-full text-left p-4 rounded-xl border-2 transition-all
                     ${answers[currentQuestion] === index
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
+                      ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-sm'
                       : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                     }
                   `}
                 >
-                  <span className="font-medium mr-3">
+                  <span className="font-medium mr-3 text-gray-500">
                     {String.fromCharCode(65 + index)}.
                   </span>
                   {option}
-                </button>
+                </motion.button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center justify-between">
-            <button
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handlePrevious}
               disabled={currentQuestion === 0}
-              className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm w-full sm:w-auto flex items-center justify-center"
             >
+              <ChevronLeft size={20} className="mr-2" />
               Previous
-            </button>
+            </motion.button>
 
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 w-full sm:w-auto">
               {currentQuestion === questions.length - 1 ? (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
-                  disabled={answers[currentQuestion] === -1}
-                  className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={answers[currentQuestion] === -1 || isSubmitting}
+                  className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center"
                 >
-                  Submit Quiz
-                </button>
+                  {isSubmitting ? 'Submitting...' : 'Submit Quiz'}
+                </motion.button>
               ) : (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={handleNext}
                   disabled={answers[currentQuestion] === -1}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center"
                 >
-                  Next
-                </button>
+                  Next <ChevronRight size={20} className="ml-2" />
+                </motion.button>
               )}
             </div>
           </div>
 
-          <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 bg-white rounded-xl shadow-lg p-6"
+          >
             <h4 className="font-semibold text-gray-800 mb-4">Question Navigator</h4>
-            <div className="grid grid-cols-5 md:grid-cols-10 gap-2">
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2">
               {questions.map((_, index) => (
-                <button
+                <motion.button
                   key={index}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentQuestion(index)}
                   className={`
-                    w-10 h-10 rounded-lg font-medium text-sm transition-all
+                    w-10 h-10 rounded-lg font-medium text-sm transition-all flex items-center justify-center
                     ${index === currentQuestion
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-blue-600 text-white shadow-md'
                       : answers[index] !== -1
-                      ? 'bg-green-100 text-green-700'
+                      ? 'bg-green-100 text-green-700 shadow-sm'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }
                   `}
                 >
                   {index + 1}
-                </button>
+                </motion.button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
