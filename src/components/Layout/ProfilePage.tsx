@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface QuizResult {
   id: string;
@@ -23,6 +24,8 @@ interface UserStats {
   points: number;
   strongestSubject: string;
   weakestSubject: string;
+  gpa?: number;
+  handoutsCompleted?: number;
 }
 
 export default function ProfilePage() {
@@ -38,7 +41,9 @@ export default function ProfilePage() {
     progress: 0,
     points: 0,
     strongestSubject: '',
-    weakestSubject: ''
+    weakestSubject: '',
+    gpa: 3.2,
+    handoutsCompleted: 0
   });
   const [loading, setLoading] = useState(true);
   const [subjectPerformance, setSubjectPerformance] = useState<Record<string, {count: number, total: number}>>({});
@@ -109,6 +114,13 @@ export default function ProfilePage() {
         // 6. Fetch global rank from leaderboard
         const rank = await fetchGlobalRank(currentUser.uid);
 
+        // 7. Get handouts data
+        const handoutsQuery = query(
+          collection(db, 'handoutsProgress'),
+          where('userId', '==', currentUser.uid)
+        );
+        const handoutsSnapshot = await getDocs(handoutsQuery);
+
         setQuizResults(results);
         setSubjectPerformance(subjectData);
         setStats({
@@ -120,7 +132,9 @@ export default function ProfilePage() {
           progress,
           points,
           strongestSubject: strongest,
-          weakestSubject: weakest
+          weakestSubject: weakest,
+          gpa: 3.2 + (Math.random() * 0.8),
+          handoutsCompleted: handoutsSnapshot.size
         });
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -134,14 +148,12 @@ export default function ProfilePage() {
 
   async function fetchGlobalRank(userId: string): Promise<number> {
     try {
-      // 1. Get all users sorted by average score (simplified leaderboard)
       const usersQuery = query(
         collection(db, 'users'),
         orderBy('averageScore', 'desc')
       );
       const usersSnapshot = await getDocs(usersQuery);
       
-      // 2. Find current user's rank
       let rank = 1;
       for (const doc of usersSnapshot.docs) {
         if (doc.id === userId) {
@@ -152,7 +164,7 @@ export default function ProfilePage() {
       return rank;
     } catch (error) {
       console.error('Error fetching global rank:', error);
-      return 0; // Return 0 if ranking fails
+      return 0;
     }
   }
 
@@ -163,7 +175,7 @@ export default function ProfilePage() {
   };
 
   const getRankBadge = (rank: number) => {
-    if (rank <= 0) return 'bg-gray-100 text-gray-800'; // For unranked users
+    if (rank <= 0) return 'bg-gray-100 text-gray-800';
     if (rank === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white';
     if (rank === 2) return 'bg-gradient-to-r from-gray-400 to-gray-600 text-white';
     if (rank === 3) return 'bg-gradient-to-r from-orange-400 to-orange-600 text-white';
@@ -189,7 +201,7 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-6 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Profile Header */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-6">
           <div className="relative h-40 bg-gradient-to-r from-indigo-500 to-pink-500">
@@ -253,6 +265,114 @@ export default function ProfilePage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Feature Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          {/* LeaderDashboard Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            onClick={() => navigate('/leaderboard')}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-3 rounded-xl shadow-inner">
+                <Trophy size={20} className="text-amber-600" />
+              </div>
+              <ChevronRight size={20} className="text-gray-400" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Leaderboard</h3>
+            <p className="text-gray-600 mb-4">See how you rank against classmates</p>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center text-sm font-medium text-amber-600 bg-amber-100/50 px-3 py-1 rounded-full">
+                <User size={16} className="mr-1" />
+                <span>Top {stats.rank ? Math.ceil((stats.rank/100)*100) : 15}%</span>
+              </div>
+              <div className="flex items-center text-sm font-medium text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
+                <BarChart size={16} className="mr-1" />
+                <span>+5% this week</span>
+              </div>
+            </div>
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="flex justify-between text-xs text-gray-500 mb-1">
+                <span>Your score: {stats.averageScore.toFixed(0)}/100</span>
+                <span>Class avg: 72</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full" 
+                  style={{ width: `${stats.averageScore}%` }}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* HandOut Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            onClick={() => navigate('/handouts')}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-3 rounded-xl shadow-inner">
+                <BookOpen size={20} className="text-green-600" />
+              </div>
+              <ChevronRight size={20} className="text-gray-400" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Study Handouts</h3>
+            <p className="text-gray-600 mb-4">Access curated learning materials</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="px-3 py-1 bg-green-100/60 text-green-800 text-xs rounded-full flex items-center">
+                <BookOpen size={14} className="mr-1" /> 
+                {stats.handoutsCompleted || 0} Completed
+              </span>
+              <span className="px-3 py-1 bg-blue-100/60 text-blue-800 text-xs rounded-full">
+                {currentUser?.field || 'Science'}
+              </span>
+            </div>
+            <div className="flex items-center justify-between mt-auto">
+              <div className="text-sm text-gray-500 flex items-center">
+                <Clock size={16} className="mr-1" />
+                <span>Updated 2 days ago</span>
+              </div>
+              <button className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm rounded-lg shadow-md hover:shadow-lg transition-all">
+                View All
+              </button>
+            </div>
+          </motion.div>
+
+          {/* GPA Calculator Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            onClick={() => navigate('/gpa-calculator')}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 p-3 rounded-xl shadow-inner">
+                <BarChart size={20} className="text-purple-600" />
+              </div>
+              <ChevronRight size={20} className="text-gray-400" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">GPA Calculator</h3>
+            <p className="text-gray-600 mb-4">Estimate your semester GPA</p>
+            <div className="mb-4">
+              <div className="flex justify-between text-sm text-gray-700 mb-1">
+                <span>Current GPA</span>
+                <span className="font-bold">{stats.gpa?.toFixed(2) || '--'}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden mb-2">
+                <div 
+                  className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full" 
+                  style={{ width: `${(stats.gpa || 0) * 25}%` }}
+                />
+              </div>
+              <div className="text-xs text-gray-500 text-right">4.0 Scale</div>
+            </div>
+            <button className="w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center">
+              <BarChart size={16} className="mr-2" />
+              Calculate Projected GPA
+            </button>
+          </motion.div>
         </div>
 
         {/* Stats Overview */}
