@@ -1,0 +1,197 @@
+/* Loading Animation Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.particle-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: rgba(99, 102, 241, 0.6);
+  border-radius: 50%;
+  top: var(--y);
+  left: var(--x);
+  filter: blur(1px);
+  animation: float 15s infinite ease-in-out;
+  animation-delay: var(--delay);
+  opacity: 0;
+  animation-fill-mode: both;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(calc(var(--x-speed) * 50px), calc(var(--y-speed) * 50px)) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.logo-container {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 3rem;
+}
+
+.logo-orb {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+}
+
+.logo-core {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 1) 0%, rgba(79, 70, 229, 1) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.logo-ring {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  border-radius: 50%;
+  animation: expand 3s infinite ease-out;
+}
+
+.logo-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit 4s infinite linear;
+  animation-delay: calc(var(--i) * -0.5s);
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(99, 102, 241, 0.8);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #c7d2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+}
+
+.logo-text-inner {
+  display: inline-block;
+  animation: textReveal 1s ease-out forwards;
+}
+
+.logo-text-inner:nth-child(1) {
+  animation-delay: 0.3s;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.logo-text-inner:nth-child(2) {
+  animation-delay: 0.6s;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #8b5cf6, #6366f1);
+  border-radius: 2px;
+  animation: progress 2.5s ease-out forwards;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+@keyframes progress {
+  to {
+    width: 100%;
+  }
+}
