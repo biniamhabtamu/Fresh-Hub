@@ -101,7 +101,7 @@ export default function Header() {
             {/* User Profile with dropdown indicator */}
             {currentUser ? (
               <button 
-                onClick={() => navigate('/profile')}
+                onClick={() => navigate('/profilepage')}
                 className="flex items-center space-x-2 focus:outline-none group"
                 aria-label="User profile"
               >

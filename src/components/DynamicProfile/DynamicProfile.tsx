@@ -5,39 +5,73 @@ import { db } from '../../firebase/config';
 import { 
   User, Mail, Calendar, BookOpen, Award, BarChart, 
   Edit, Save, X, Lock, Smartphone, CreditCard, Upload, 
-  Bell, Clock, Trophy, CheckCircle, Star, PieChart
+  Bell, Clock, Trophy, CheckCircle, Star, PieChart, Crown
 } from 'lucide-react';
 import { updatePassword, updateEmail, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 import { uploadBytes, ref, getDownloadURL, getStorage } from 'firebase/storage';
+
+interface FormData {
+  displayName: string;
+  phoneNumber: string;
+  bio: string;
+}
+
+interface PasswordData {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+interface Stats {
+  totalQuizzes: number;
+  averageScore: number;
+  premiumSince: Date | null;
+  lastActive: Date | null;
+}
+
+interface SubjectStat {
+  name: string;
+  average: number;
+  total: number;
+  count: number;
+  icon: string;
+}
+
+interface Activity {
+  id: string;
+  subject: string;
+  score: number;
+  date?: Date;
+}
 
 const DynamicProfile = () => {
   const { currentUser } = useAuth();
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     displayName: '',
     phoneNumber: '',
     bio: ''
   });
-  const [passwordData, setPasswordData] = useState({
+  const [passwordData, setPasswordData] = useState<PasswordData>({
     currentPassword: '',
     newPassword: '',
     confirmPassword: ''
   });
   const [activeTab, setActiveTab] = useState('profile');
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState<Stats>({
     totalQuizzes: 0,
     averageScore: 0,
     premiumSince: null,
     lastActive: null
   });
-  const [subjectStats, setSubjectStats] = useState([]);
+  const [subjectStats, setSubjectStats] = useState<SubjectStat[]>([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [profileImage, setProfileImage] = useState(null);
+  const [profileImage, setProfileImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState('');
-  const [recentActivity, setRecentActivity] = useState([]);
+  const [recentActivity, setRecentActivity] = useState<Activity[]>([]);
 
   // Real-time user data listener
   useEffect(() => {
@@ -55,8 +89,8 @@ const DynamicProfile = () => {
         });
         setStats(prev => ({
           ...prev,
-          premiumSince: data.premiumSince || null,
-          lastActive: data.lastActive || null
+          premiumSince: data.premiumSince?.toDate() || null,
+          lastActive: data.lastActive?.toDate() || null
         }));
         if (data.profileImage) {
           setImagePreview(data.profileImage);
@@ -82,8 +116,8 @@ const DynamicProfile = () => {
 
     const unsubscribeResults = onSnapshot(resultsQuery, (snapshot) => {
       let totalScore = 0;
-      const subjectPerformance = {};
-      const activity = [];
+      const subjectPerformance: Record<string, {name: string, total: number, count: number, icon: string}> = {};
+      const activity: Activity[] = [];
 
       snapshot.forEach(doc => {
         const result = doc.data();
@@ -126,9 +160,9 @@ const DynamicProfile = () => {
     return () => unsubscribeResults();
   }, [currentUser]);
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
       setProfileImage(file);
       setImagePreview(URL.createObjectURL(file));
     }
@@ -158,7 +192,7 @@ const DynamicProfile = () => {
     }
   };
 
-  const handleUpdateProfile = async (e) => {
+  const handleUpdateProfile = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentUser) return;
     
@@ -186,7 +220,7 @@ const DynamicProfile = () => {
     }
   };
 
-  const handleChangePassword = async (e) => {
+  const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentUser || !currentUser.email) return;
     
@@ -218,7 +252,7 @@ const DynamicProfile = () => {
       
       setSuccess('Password updated successfully!');
       setTimeout(() => setSuccess(''), 3000);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error changing password:', err);
       setError(err.message || 'Failed to change password');
     } finally {

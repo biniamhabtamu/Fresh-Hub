@@ -8,6 +8,7 @@ import ChapterSelection from './components/Subject/ChapterSelection';
 import QuizPage from './components/Quiz/QuizPage';
 import PremiumPage from './components/Premium/PremiumPage';
 import LeaderboardPage from './components/Leaderboard/LeaderboardPage';
+import ProfilePage from './components/Layout/ProfilePage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
@@ -72,6 +73,7 @@ function AppRoutes() {
         } 
       />
       <Route path="/" element={<Navigate to="/dashboard" />} />
+       <Route path="/profilepage" element={<ProfilePage />} />
     </Routes>
   );
 }
