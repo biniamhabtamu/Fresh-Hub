@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart, Loader2, Lock, Trophy, Sparkles } from 'lucide-react';
+import { BarChart, Lock, Trophy, Sparkles, ChevronRight } from 'lucide-react';
 import { Subject } from '../../types';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface SubjectCardProps {
   subject: Subject;
@@ -23,14 +24,13 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [performance, setPerformance] = useState<UserPerformance | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const fetchUserPerformance = async () => {
       if (!currentUser?.uid) return;
       
       try {
-        setLoading(true);
         const resultsQuery = query(
           collection(db, 'quizResults'),
           where('userId', '==', currentUser.uid),
@@ -57,8 +57,6 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         });
       } catch (error) {
         console.error('Error fetching performance data:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -73,58 +71,92 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
   const hasAttempts = performance?.attempts && performance.attempts > 0;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ scale: isLocked ? 1 : 1.03 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       onClick={!isLocked ? onClick : undefined}
       className={`
-        relative overflow-hidden min-h-[200px] flex flex-col p-6
-        ${isLocked ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
-        transition-all duration-300 shadow-lg border-2
+        relative overflow-hidden min-h-[220px] flex flex-col p-6
+        ${isLocked ? 'cursor-not-allowed' : 'cursor-pointer'}
+        transition-all duration-300 shadow-xl
+        backdrop-blur-sm bg-white/70 border border-white/30
         ${isPremium ? 
-          'bg-gradient-to-br from-purple-50 to-indigo-50 border-indigo-200' : 
-          'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200'
+          'shadow-purple-200/50 hover:shadow-purple-300/50' : 
+          'shadow-blue-200/50 hover:shadow-blue-300/50'
         }
         rounded-2xl
       `}
+      style={{
+        boxShadow: isHovered && !isLocked ? 
+          `0 10px 25px -5px ${isPremium ? 'rgba(168, 85, 247, 0.3)' : 'rgba(59, 130, 246, 0.3)'}` : 
+          '0 4px 15px -5px rgba(0, 0, 0, 0.1)'
+      }}
     >
+      {/* Glass Morphism Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 backdrop-blur-sm rounded-2xl" />
+      
       {/* Premium Glow Effect */}
       {isPremium && !isLocked && (
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-indigo-400/10 rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10 rounded-2xl" />
       )}
 
       {/* Lock Overlay */}
       {isLocked && (
         <div 
-          className="absolute inset-0 flex items-center justify-center z-10 bg-white/90"
+          className="absolute inset-0 flex items-center justify-center z-10 bg-white/90 backdrop-blur-sm"
           onClick={handleLockClick}
         >
-          <div className="text-center p-6 rounded-xl bg-white shadow-lg border border-gray-100">
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full inline-flex mb-4 shadow-md">
+          <motion.div 
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            className="text-center p-6 rounded-xl bg-white/95 backdrop-blur-sm shadow-lg border border-gray-100"
+          >
+            <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full inline-flex mb-4 shadow-lg">
               <Lock className="h-8 w-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-gray-800 mb-1">Premium Content</h4>
-            <p className="text-gray-600 mb-4">Unlock full access</p>
-            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-gray-600 mb-4">Unlock full access to this subject</p>
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium shadow-md hover:shadow-lg transition-all"
+            >
               Upgrade Now
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       )}
 
       {/* Premium Crown Badge */}
       {isPremium && !isLocked && (
-        <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-2 rounded-full shadow-md">
+        <motion.div 
+          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-2 rounded-full shadow-lg"
+        >
           <Sparkles className="h-4 w-4" />
-        </div>
+        </motion.div>
       )}
 
       {/* Subject Icon */}
-      <div className={`
-        text-5xl p-4 rounded-xl mb-4 self-start
-        ${isPremium ? 'bg-indigo-100 text-indigo-600' : 'bg-blue-100 text-blue-600'}
-        shadow-inner
-      `}>
+      <motion.div 
+        animate={{ y: isHovered && !isLocked ? -5 : 0 }}
+        transition={{ type: 'spring', stiffness: 300 }}
+        className={`
+          text-5xl p-4 rounded-xl mb-4 self-start
+          ${isPremium ? 
+            'bg-gradient-to-br from-purple-100 to-indigo-100 text-indigo-600' : 
+            'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-600'
+          }
+          shadow-inner border border-white/50
+        `}
+      >
         {subject.icon}
-      </div>
+      </motion.div>
 
       {/* Subject Name */}
       <h3 className={`
@@ -136,27 +168,26 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
 
       {/* Performance Stats */}
       <div className="mt-auto">
-        {loading ? (
-          <div className="flex justify-center py-3">
-            <Loader2 className="h-5 w-5 animate-spin text-blue-400" />
-          </div>
-        ) : hasAttempts ? (
+        {hasAttempts ? (
           <>
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-full bg-white/80 rounded-full h-2.5 shadow-inner overflow-hidden">
-                <div 
+              <div className="w-full bg-white/80 rounded-full h-2.5 shadow-inner overflow-hidden border border-white/50">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${performance?.averageScore}%` }}
+                  transition={{ duration: 0.8, type: 'spring' }}
                   className={`h-full rounded-full ${
-                    performance.averageScore >= 80 ? 'bg-green-400' :
-                    performance.averageScore >= 50 ? 'bg-yellow-400' : 'bg-red-400'
-                  }`}
-                  style={{ width: `${performance.averageScore}%` }}
+                    performance?.averageScore && performance.averageScore >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+                    performance?.averageScore && performance.averageScore >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
+                    'bg-gradient-to-r from-red-400 to-pink-400'
+                  } shadow-md`}
                 />
               </div>
               <span className={`font-bold ${
-                performance.averageScore >= 80 ? 'text-green-600' :
-                performance.averageScore >= 50 ? 'text-yellow-600' : 'text-red-600'
+                performance?.averageScore && performance.averageScore >= 80 ? 'text-green-600' :
+                performance?.averageScore && performance.averageScore >= 50 ? 'text-yellow-600' : 'text-red-600'
               }`}>
-                {performance.averageScore}%
+                {performance?.averageScore}%
               </span>
             </div>
             
@@ -165,10 +196,10 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
                 isPremium ? 'text-indigo-700' : 'text-blue-700'
               }`}>
                 <BarChart className="h-4 w-4 mr-1.5" />
-                {performance.attempts} attempt{performance.attempts !== 1 ? 's' : ''}
+                {performance?.attempts} attempt{performance?.attempts !== 1 ? 's' : ''}
               </span>
               
-              {performance.bestScore && (
+              {performance?.bestScore && (
                 <span className="flex items-center text-amber-600">
                   <Trophy className="h-4 w-4 mr-1.5" />
                   Best: {performance.bestScore}%
@@ -177,30 +208,49 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
             </div>
           </>
         ) : (
-          <div className={`text-center py-3 rounded-lg ${
-            isPremium ? 'bg-indigo-100/50' : 'bg-blue-100/50'
-          }`}>
+          <motion.div 
+            animate={{ y: isHovered && !isLocked ? -3 : 0 }}
+            className={`text-center py-3 rounded-lg ${
+              isPremium ? 'bg-indigo-100/30' : 'bg-blue-100/30'
+            } backdrop-blur-sm border border-white/50`}
+          >
             <p className={`mb-2 ${isPremium ? 'text-indigo-700' : 'text-blue-700'}`}>
               No attempts yet
             </p>
             {!isLocked && (
-              <button 
-                className={`px-4 py-1.5 rounded-full text-sm font-medium ${
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center mx-auto ${
                   isPremium ? 
-                    'bg-indigo-100 text-indigo-700 hover:bg-indigo-200' :
-                    'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                } transition-colors shadow-sm`}
+                    'bg-gradient-to-r from-purple-100 to-indigo-100 text-indigo-700 hover:from-purple-200 hover:to-indigo-200' :
+                    'bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 hover:from-blue-200 hover:to-cyan-200'
+                } transition-all shadow-sm`}
                 onClick={(e) => {
                   e.stopPropagation();
                   onClick();
                 }}
               >
-                Start Learning
-              </button>
+                Start Learning <ChevronRight className="h-4 w-4 ml-1" />
+              </motion.button>
             )}
-          </div>
+          </motion.div>
         )}
       </div>
-    </div>
+
+      {/* Hover Arrow */}
+      {!isLocked && isHovered && (
+        <motion.div 
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -10 }}
+          className="absolute bottom-4 right-4"
+        >
+          <ChevronRight className={`h-5 w-5 ${
+            isPremium ? 'text-indigo-500' : 'text-blue-500'
+          }`} />
+        </motion.div>
+      )}
+    </motion.div>
   );
 }
