@@ -83,12 +83,13 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         relative bg-white rounded-xl shadow-md p-5 min-h-[180px] flex flex-col
         border-2 ${isLocked ? 'border-gray-200' : 'border-transparent'}
         ${!isLocked ? 'hover:shadow-lg cursor-pointer transition-all' : 'cursor-not-allowed'}
+        ${isLocked ? 'filter blur-[1px]' : ''}
       `}
     >
       {/* Centered Lock icon for locked premium subjects */}
       {isLocked && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm z-10"
+          className="absolute inset-0 flex items-center justify-center z-10"
           onClick={handleLockClick}
         >
           <div className="text-center p-4">
