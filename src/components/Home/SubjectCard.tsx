@@ -4,6 +4,7 @@ import { Subject } from '../../types';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 interface SubjectCardProps {
   subject: Subject;
@@ -21,6 +22,7 @@ interface UserPerformance {
 
 export default function SubjectCard({ subject, onClick, isLocked, isPremium }: SubjectCardProps) {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
   const [performance, setPerformance] = useState<UserPerformance | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -67,6 +69,11 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
     fetchUserPerformance();
   }, [currentUser, subject.id]);
 
+  const handleLockClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigate('/premium');
+  };
+
   const hasAttempts = performance?.attempts && performance.attempts > 0;
 
   return (
@@ -75,17 +82,32 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
       className={`
         relative bg-white rounded-xl shadow-md p-5 min-h-[180px] flex flex-col
         border-2 ${isLocked ? 'border-gray-200' : 'border-transparent'}
-        ${!isLocked ? 'hover:shadow-lg cursor-pointer transition-all' : ''}
+        ${!isLocked ? 'hover:shadow-lg cursor-pointer transition-all' : 'cursor-not-allowed'}
       `}
     >
-      {/* Lock icon for premium subjects */}
-      {isPremium && (
-        <div className={`absolute top-3 right-3 p-1.5 rounded-full ${
-          isLocked ? 'bg-gray-100' : 'bg-indigo-100'
-        }`}>
-          <Lock className={`h-4 w-4 ${
-            isLocked ? 'text-gray-500' : 'text-indigo-600'
-          }`} />
+      {/* Centered Lock icon for locked premium subjects */}
+      {isLocked && (
+        <div 
+          className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm z-10"
+          onClick={handleLockClick}
+        >
+          <div className="text-center p-4">
+            <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-full inline-flex mb-3">
+              <Lock className="h-6 w-6 text-white" />
+            </div>
+            <p className="font-medium text-gray-800">Premium Content</p>
+            <p className="text-sm text-gray-600 mb-3">Upgrade to unlock</p>
+            <button className="text-sm bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full">
+              Unlock Now
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Small lock indicator in corner for unlocked premium */}
+      {!isLocked && isPremium && (
+        <div className="absolute top-3 right-3 p-1.5 rounded-full bg-indigo-100">
+          <Lock className="h-4 w-4 text-indigo-600" />
         </div>
       )}
 
@@ -129,19 +151,6 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
           </div>
         )}
       </div>
-
-      {/* Premium CTA for locked subjects */}
-      {isLocked && (
-        <button 
-          className="mt-2 text-xs bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1.5 rounded-full"
-          onClick={(e) => {
-            e.stopPropagation();
-            // Navigate to premium page
-          }}
-        >
-          Unlock Premium
-        </button>
-      )}
     </div>
   );
 }
