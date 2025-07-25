@@ -9,6 +9,7 @@ import QuizPage from './components/Quiz/QuizPage';
 import PremiumPage from './components/Premium/PremiumPage';
 import LeaderboardPage from './components/Leaderboard/LeaderboardPage';
 import ProfilePage from './components/Layout/ProfilePage';
+import SettingsPage from './components/Layout/SettingsPage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
@@ -77,6 +78,14 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <ProfilePage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/settings" 
+        element={
+          <ProtectedRoute>
+            <SettingsPage />
           </ProtectedRoute>
         } 
       />

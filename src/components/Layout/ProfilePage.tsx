@@ -106,8 +106,8 @@ export default function ProfilePage() {
           }
         });
 
-        // 6. Fetch ranking (replace with your actual ranking logic)
-        const rank = await calculateUserRank(currentUser.uid);
+        // 6. Fetch global rank from leaderboard
+        const rank = await fetchGlobalRank(currentUser.uid);
 
         setQuizResults(results);
         setSubjectPerformance(subjectData);
@@ -132,10 +132,28 @@ export default function ProfilePage() {
     fetchUserData();
   }, [currentUser]);
 
-  async function calculateUserRank(userId: string): Promise<number> {
-    // Implement your actual ranking logic here
-    // This is a placeholder that simulates ranking
-    return Math.floor(Math.random() * 100) + 1;
+  async function fetchGlobalRank(userId: string): Promise<number> {
+    try {
+      // 1. Get all users sorted by average score (simplified leaderboard)
+      const usersQuery = query(
+        collection(db, 'users'),
+        orderBy('averageScore', 'desc')
+      );
+      const usersSnapshot = await getDocs(usersQuery);
+      
+      // 2. Find current user's rank
+      let rank = 1;
+      for (const doc of usersSnapshot.docs) {
+        if (doc.id === userId) {
+          return rank;
+        }
+        rank++;
+      }
+      return rank;
+    } catch (error) {
+      console.error('Error fetching global rank:', error);
+      return 0; // Return 0 if ranking fails
+    }
   }
 
   const getPerformanceColor = (score: number) => {
@@ -145,10 +163,21 @@ export default function ProfilePage() {
   };
 
   const getRankBadge = (rank: number) => {
-    if (rank <= 3) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white';
+    if (rank <= 0) return 'bg-gray-100 text-gray-800'; // For unranked users
+    if (rank === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white';
+    if (rank === 2) return 'bg-gradient-to-r from-gray-400 to-gray-600 text-white';
+    if (rank === 3) return 'bg-gradient-to-r from-orange-400 to-orange-600 text-white';
     if (rank <= 10) return 'bg-gradient-to-r from-purple-400 to-purple-600 text-white';
     if (rank <= 50) return 'bg-gradient-to-r from-blue-400 to-blue-600 text-white';
     return 'bg-gray-100 text-gray-800';
+  };
+
+  const getRankIcon = (rank: number) => {
+    if (rank <= 0) return <Award size={20} className="text-gray-400" />;
+    if (rank === 1) return <Trophy size={20} className="text-yellow-400" />;
+    if (rank === 2) return <Trophy size={20} className="text-gray-300" />;
+    if (rank === 3) return <Trophy size={20} className="text-orange-400" />;
+    return <Award size={20} className="text-purple-400" />;
   };
 
   const getLevelProgressColor = (progress: number) => {
@@ -203,6 +232,11 @@ export default function ProfilePage() {
                     <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                       Level {stats.level}
                     </span>
+                    {stats.rank > 0 && (
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${getRankBadge(stats.rank)}`}>
+                        #{stats.rank} Global
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -250,8 +284,8 @@ export default function ProfilePage() {
           />
           
           <StatCard 
-            icon={<Award size={20} className={stats.rank <= 3 ? 'text-yellow-400' : stats.rank <= 10 ? 'text-purple-400' : 'text-gray-400'}/>}
-            value={`#${stats.rank}`}
+            icon={getRankIcon(stats.rank)}
+            value={stats.rank > 0 ? `#${stats.rank}` : '--'}
             label="Global Rank"
             loading={loading}
             gradient={getRankBadge(stats.rank)}
