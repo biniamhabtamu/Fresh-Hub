@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthForm from './components/Auth/AuthForm';
@@ -97,11 +97,49 @@ function AppRoutes() {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [progressText, setProgressText] = useState('Initializing');
+  const [progressPercent, setProgressPercent] = useState(0);
 
   useEffect(() => {
+    const messages = [
+      'Loading resources',
+      'Preparing interface',
+      'Optimizing experience',
+      'Almost there'
+    ];
+    let currentMessage = 0;
+
+    const startTime = Date.now();
+    const duration = 3200; // 3.2 seconds total
+
+    const updateProgress = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const percent = Math.floor(progress * 100);
+      
+      if (progressRef.current) {
+        progressRef.current.style.width = `${progress * 100}%`;
+      }
+
+      setProgressPercent(percent);
+
+      // Update progress message every 800ms
+      if (elapsed > currentMessage * 800 && currentMessage < messages.length) {
+        setProgressText(messages[currentMessage]);
+        currentMessage++;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateProgress);
+      } else {
+        setLoading(false);
+      }
+    };
+
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+      requestAnimationFrame(updateProgress);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -109,44 +147,76 @@ function App() {
   if (loading) {
     return (
       <div className="loading-screen">
-        <div className="loading-container">
-          <div className="particle-background">
-            {[...Array(20)].map((_, i) => (
-              <div 
-                key={i} 
-                className="particle" 
-                style={{
-                  '--delay': `${i * 0.1}s`,
-                  '--size': `${Math.random() * 10 + 5}px`,
-                  '--x': `${Math.random() * 100}%`,
-                  '--y': `${Math.random() * 100}%`,
-                } as React.CSSProperties}
-              />
-            ))}
-          </div>
-          
-          <div className="logo-container">
-            <div className="logo-orb">
-              <div className="logo-core"></div>
-              <div className="logo-ring"></div>
-              <div className="logo-particles">
-                {[...Array(8)].map((_, i) => (
-                  <div 
-                    key={i} 
-                    className="logo-particle" 
-                    style={{ '--i': i } as React.CSSProperties}
-                  />
-                ))}
-              </div>
+        <div className="cosmic-background">
+          <div className="galaxy-spiral"></div>
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div 
+              key={`particle-${i}`}
+              className="cosmic-particle"
+              style={{
+                '--size': `${Math.random() * 12 + 4}px`,
+                '--x': `${Math.random() * 100}%`,
+                '--y': `${Math.random() * 100}%`,
+                '--delay': `${Math.random() * 3}s`,
+                '--duration': `${Math.random() * 15 + 10}s`,
+                '--opacity': `${Math.random() * 0.7 + 0.2}`,
+                '--hue': `${Math.random() * 60 + 200}`
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
+
+        <div className="loading-content">
+          <div className="luxury-logo">
+            <div className="logo-sphere">
+              <div className="sphere-core"></div>
+              <div className="sphere-shine"></div>
+              <div className="sphere-glow"></div>
             </div>
-            <h1 className="logo-text">
-              <span className="logo-text-inner">Fresh</span>
-              <span className="logo-text-inner">Hub</span>
-            </h1>
+            <div className="logo-aurora">
+              <div className="aurora-ring aurora-1"></div>
+              <div className="aurora-ring aurora-2"></div>
+              <div className="aurora-ring aurora-3"></div>
+            </div>
+            <div className="logo-constellation">
+              {Array.from({ length: 16 }).map((_, i) => (
+                <div 
+                  key={`star-${i}`}
+                  className="star" 
+                  style={{ 
+                    '--angle': `${i * 22.5}deg`,
+                    '--delay': `${i * 0.05}s`
+                  } as React.CSSProperties}
+                />
+              ))}
+            </div>
           </div>
-          
-          <div className="progress-bar">
-            <div className="progress-fill"></div>
+
+          <h1 className="app-title">
+            {['F', 'r', 'e', 's', 'h', 'H', 'u', 'b'].map((letter, i) => (
+              <span key={`letter-${i}`} className="title-letter" style={{ '--delay': `${i * 0.1}s` } as React.CSSProperties}>
+                {letter}
+              </span>
+            ))}
+          </h1>
+
+          <div className="loading-status">
+            <div className="status-text">{progressText}</div>
+            <div className="status-dots">
+              {[0, 1, 2].map((i) => (
+                <span key={`dot-${i}`} className="dot" style={{ '--delay': `${i * 0.1}s` } as React.CSSProperties}></span>
+              ))}
+            </div>
+          </div>
+
+          <div className="luxury-progress">
+            <div className="progress-container">
+              <div ref={progressRef} className="progress-fill"></div>
+              <div className="progress-sparkle"></div>
+            </div>
+            <div className="progress-percentage">
+              {progressPercent}%
+            </div>
           </div>
         </div>
       </div>
