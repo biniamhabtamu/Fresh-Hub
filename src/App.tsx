@@ -111,7 +111,7 @@ function App() {
     let currentMessage = 0;
 
     const startTime = Date.now();
-    const duration = 3200; // 3.2 seconds total
+    const duration = 5200; // 5.2 seconds total
 
     const updateProgress = () => {
       const elapsed = Date.now() - startTime;
