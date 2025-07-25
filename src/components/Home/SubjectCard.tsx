@@ -106,21 +106,14 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         cursor-pointer hover:shadow-md ${getBorderColor()}
         bg-gradient-to-br ${getCardGradient()}
         ${!isLocked ? 'hover:scale-[1.02] transform-gpu' : ''}
+        ${isLocked ? 'filter blur-[1px]' : ''}
       `}
       aria-label={`${subject.name} subject card`}
     >
-      {/* Lock overlay for premium subjects */}
+      {/* Premium lock indicator (smaller and less intrusive) */}
       {isLocked && (
-        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center z-10 p-4">
-          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 p-3 rounded-full mb-3">
-            <Lock className="h-6 w-6 text-white" />
-          </div>
-          <p className="text-gray-700 font-medium text-center">
-            Premium Content
-          </p>
-          <p className="text-sm text-gray-500 text-center mt-1">
-            Upgrade to unlock this subject
-          </p>
+        <div className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm">
+          <Lock className="h-4 w-4 text-gray-600" />
         </div>
       )}
 
@@ -229,6 +222,21 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
           <span className="text-xs bg-gradient-to-r from-emerald-400 to-green-500 text-white px-3 py-1 rounded-full font-medium shadow-sm">
             FREE ACCESS
           </span>
+        </div>
+      )}
+
+      {/* Small premium CTA for locked subjects */}
+      {isLocked && (
+        <div className="absolute bottom-3 left-0 right-0 flex justify-center">
+          <button 
+            className="text-xs bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-1.5 rounded-full font-medium shadow-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              // Navigate to premium page
+            }}
+          >
+            Unlock Premium
+          </button>
         </div>
       )}
     </div>
