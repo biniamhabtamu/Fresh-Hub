@@ -63,6 +63,14 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
     fetchUserPerformance();
   }, [currentUser, subject.id]);
 
+  const handleClick = () => {
+    if (isLocked && isPremium) {
+      navigate('/premium');
+    } else if (!isLocked) {
+      onClick();
+    }
+  };
+
   const handleLockClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     navigate('/premium');
@@ -78,12 +86,12 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
       whileHover={{ scale: isLocked ? 1 : 1.03 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onClick={!isLocked ? onClick : undefined}
+      onClick={handleClick}
       className={`
         relative overflow-hidden min-h-[220px] flex flex-col p-6
-        ${isLocked ? 'cursor-not-allowed' : 'cursor-pointer'}
+        ${isLocked ? 'cursor-pointer' : 'cursor-pointer'}
         transition-all duration-300 shadow-xl
-        backdrop-blur-sm bg-white/70 border border-white/30
+        bg-white border border-gray-200
         ${isPremium ? 
           'shadow-purple-200/50 hover:shadow-purple-300/50' : 
           'shadow-blue-200/50 hover:shadow-blue-300/50'
@@ -91,71 +99,46 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         rounded-2xl
       `}
       style={{
-        boxShadow: isHovered && !isLocked ? 
+        boxShadow: isHovered ? 
           `0 10px 25px -5px ${isPremium ? 'rgba(168, 85, 247, 0.3)' : 'rgba(59, 130, 246, 0.3)'}` : 
           '0 4px 15px -5px rgba(0, 0, 0, 0.1)'
       }}
     >
-      {/* Glass Morphism Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 backdrop-blur-sm rounded-2xl" />
-      
-      {/* Premium Glow Effect */}
-      {isPremium && !isLocked && (
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10 rounded-2xl" />
-      )}
-
-      {/* Lock Overlay */}
+      {/* Lock Icon - Moved to top right corner */}
       {isLocked && (
-        <div 
-          className="absolute inset-0 flex items-center justify-center z-10 bg-white/90 backdrop-blur-sm"
+        <motion.div 
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute top-4 right-4 z-10"
           onClick={handleLockClick}
         >
-          <motion.div 
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            className="text-center p-6 rounded-xl bg-white/95 backdrop-blur-sm shadow-lg border border-gray-100"
-          >
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full inline-flex mb-4 shadow-lg">
-              <Lock className="h-8 w-8 text-white" />
-            </div>
-            <h4 className="text-xl font-bold text-gray-800 mb-1">Premium Content</h4>
-            <p className="text-gray-600 mb-4">Unlock full access to this subject</p>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium shadow-md hover:shadow-lg transition-all"
-            >
-              Upgrade Now
-            </motion.button>
-          </motion.div>
-        </div>
-      )}
-
-      {/* Premium Crown Badge */}
-      {isPremium && !isLocked && (
-        <motion.div 
-          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-2 rounded-full shadow-lg"
-        >
-          <Sparkles className="h-4 w-4" />
+          <div className="p-2 bg-white rounded-full shadow-md border border-gray-200">
+            <Lock className="h-5 w-5 text-purple-600" />
+          </div>
         </motion.div>
       )}
 
-      {/* Subject Icon */}
+      {/* Premium Glow Effect */}
+      {isPremium && !isLocked && (
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-white to-indigo-100/30 rounded-2xl" />
+      )}
+
+      {/* Subject Image/Icon - Made more prominent */}
       <motion.div 
-        animate={{ y: isHovered && !isLocked ? -5 : 0 }}
+        animate={{ y: isHovered ? -5 : 0 }}
         transition={{ type: 'spring', stiffness: 300 }}
         className={`
-          text-5xl p-4 rounded-xl mb-4 self-start
+          w-full h-32 mb-4 rounded-xl overflow-hidden flex items-center justify-center
           ${isPremium ? 
-            'bg-gradient-to-br from-purple-100 to-indigo-100 text-indigo-600' : 
-            'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-600'
+            'bg-gradient-to-br from-purple-100 to-indigo-100' : 
+            'bg-gradient-to-br from-blue-100 to-cyan-100'
           }
-          shadow-inner border border-white/50
+          border border-gray-200
         `}
       >
-        {subject.icon}
+        <div className="text-5xl">
+          {subject.icon}
+        </div>
       </motion.div>
 
       {/* Subject Name */}
@@ -171,7 +154,7 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         {hasAttempts ? (
           <>
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-full bg-white/80 rounded-full h-2.5 shadow-inner overflow-hidden border border-white/50">
+              <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden border border-gray-200">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${performance?.averageScore}%` }}
@@ -209,10 +192,10 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
           </>
         ) : (
           <motion.div 
-            animate={{ y: isHovered && !isLocked ? -3 : 0 }}
+            animate={{ y: isHovered ? -3 : 0 }}
             className={`text-center py-3 rounded-lg ${
-              isPremium ? 'bg-indigo-100/30' : 'bg-blue-100/30'
-            } backdrop-blur-sm border border-white/50`}
+              isPremium ? 'bg-indigo-50' : 'bg-blue-50'
+            } border border-gray-200`}
           >
             <p className={`mb-2 ${isPremium ? 'text-indigo-700' : 'text-blue-700'}`}>
               No attempts yet
@@ -238,8 +221,19 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         )}
       </div>
 
+      {/* Premium Crown Badge - Moved to bottom right */}
+      {isPremium && !isLocked && (
+        <motion.div 
+          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute bottom-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-2 rounded-full shadow-lg"
+        >
+          <Sparkles className="h-4 w-4" />
+        </motion.div>
+      )}
+
       {/* Hover Arrow */}
-      {!isLocked && isHovered && (
+      {isHovered && (
         <motion.div 
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
