@@ -63,8 +63,10 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
     fetchUserPerformance();
   }, [currentUser, subject.id]);
 
-  const handleClick = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
     if (isLocked && isPremium) {
+      e.preventDefault();
+      e.stopPropagation();
       navigate('/premium');
     } else if (!isLocked) {
       onClick();
@@ -72,6 +74,7 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
   };
 
   const handleLockClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     navigate('/premium');
   };
@@ -86,10 +89,10 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
       whileHover={{ scale: isLocked ? 1 : 1.03 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onClick={handleClick}
+      onClick={handleCardClick}
       className={`
         relative overflow-hidden min-h-[220px] flex flex-col p-6
-        ${isLocked ? 'cursor-pointer' : 'cursor-pointer'}
+        cursor-pointer
         transition-all duration-300 shadow-xl
         bg-white border border-gray-200
         ${isPremium ? 
@@ -104,7 +107,7 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
           '0 4px 15px -5px rgba(0, 0, 0, 0.1)'
       }}
     >
-      {/* Lock Icon - Moved to top right corner */}
+      {/* Lock Icon */}
       {isLocked && (
         <motion.div 
           whileHover={{ scale: 1.1 }}
@@ -123,7 +126,7 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
         <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-white to-indigo-100/30 rounded-2xl" />
       )}
 
-      {/* Subject Image/Icon - Made more prominent */}
+      {/* Subject Image/Icon */}
       <motion.div 
         animate={{ y: isHovered ? -5 : 0 }}
         transition={{ type: 'spring', stiffness: 300 }}
@@ -198,9 +201,9 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
             } border border-gray-200`}
           >
             <p className={`mb-2 ${isPremium ? 'text-indigo-700' : 'text-blue-700'}`}>
-              No attempts yet
+              {isLocked ? 'Premium content' : 'No attempts yet'}
             </p>
-            {!isLocked && (
+            {!isLocked ? (
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -216,12 +219,21 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
               >
                 Start Learning <ChevronRight className="h-4 w-4 ml-1" />
               </motion.button>
+            ) : (
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-1.5 rounded-full text-sm font-medium flex items-center mx-auto bg-gradient-to-r from-purple-100 to-indigo-100 text-indigo-700 hover:from-purple-200 hover:to-indigo-200 transition-all shadow-sm"
+                onClick={handleLockClick}
+              >
+                Unlock Premium <ChevronRight className="h-4 w-4 ml-1" />
+              </motion.button>
             )}
           </motion.div>
         )}
       </div>
 
-      {/* Premium Crown Badge - Moved to bottom right */}
+      {/* Premium Crown Badge */}
       {isPremium && !isLocked && (
         <motion.div 
           animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
