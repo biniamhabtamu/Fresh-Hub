@@ -17,7 +17,7 @@ import {
 } from 'react-icons/fi';
 import { FaCalculator, FaBookOpen, FaTrophy, FaBook } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 
 interface UserStats {
@@ -26,6 +26,17 @@ interface UserStats {
   rank: number;
   gpa?: number;
   handoutsCompleted?: number;
+  totalScore?: number;
+  percentile?: number;
+}
+
+interface UserRanking {
+  id: string;
+  fullName: string;
+  field: string;
+  averageScore: number;
+  quizzesCompleted: number;
+  totalScore: number;
 }
 
 export default function Dashboard() {
@@ -36,7 +47,9 @@ export default function Dashboard() {
     averageScore: 0,
     rank: 0,
     gpa: 3.2,
-    handoutsCompleted: 0
+    handoutsCompleted: 0,
+    totalScore: 0,
+    percentile: 100
   });
   const [loadingStats, setLoadingStats] = useState(true);
 
@@ -60,24 +73,81 @@ export default function Dashboard() {
         );
         const handoutsSnapshot = await getDocs(handoutsQuery);
         
-        // Calculate stats
+        // Calculate basic stats
         const quizzesCompleted = results.length;
+        const totalScore = quizzesCompleted > 0 
+          ? results.reduce((sum, r) => sum + r.percentage, 0)
+          : 0;
         const averageScore = quizzesCompleted > 0 
-          ? results.reduce((sum, r) => sum + r.percentage, 0) / quizzesCompleted
+          ? totalScore / quizzesCompleted
           : 0;
         const handoutsCompleted = handoutsSnapshot.size;
 
-        // Get ranking
+        // Get all users for ranking calculation
         const usersQuery = query(collection(db, 'users'));
         const usersSnapshot = await getDocs(usersQuery);
-        const rank = usersSnapshot.size > 0 ? Math.floor(Math.random() * usersSnapshot.size) + 1 : 0;
+        const users = usersSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        // Fetch all quiz results for ranking calculation
+        const allResultsQuery = query(collection(db, 'results'));
+        const allResultsSnapshot = await getDocs(allResultsQuery);
+        const allResults = allResultsSnapshot.docs.map(doc => doc.data());
+
+        // Calculate rankings for all users
+        const userRankings: UserRanking[] = users.map(user => {
+          const userResults = allResults.filter(r => r.userId === user.id);
+          const userQuizzesCompleted = userResults.length;
+          const userTotalScore = userResults.reduce((sum, r) => sum + r.percentage, 0);
+          const userAverageScore = userQuizzesCompleted > 0 
+            ? userTotalScore / userQuizzesCompleted
+            : 0;
+
+          return {
+            id: user.id,
+            fullName: user.fullName || 'Anonymous',
+            field: user.field || 'unknown',
+            averageScore: userAverageScore,
+            quizzesCompleted: userQuizzesCompleted,
+            totalScore: userTotalScore
+          };
+        });
+
+        // Filter out users with no quizzes taken
+        const activeUsers = userRankings.filter(u => u.quizzesCompleted > 0);
+
+        // Sort by total score (descending), then by average (descending)
+        activeUsers.sort((a, b) => {
+          if (b.totalScore !== a.totalScore) {
+            return b.totalScore - a.totalScore;
+          }
+          return b.averageScore - a.averageScore;
+        });
+
+        // Find current user's rank
+        let currentUserRank = activeUsers.findIndex(user => user.id === currentUser.id) + 1;
+        if (currentUserRank === 0 && quizzesCompleted > 0) {
+          // User has quizzes but wasn't in activeUsers (shouldn't happen)
+          currentUserRank = activeUsers.length + 1;
+        } else if (quizzesCompleted === 0) {
+          currentUserRank = 0; // No rank if no quizzes taken
+        }
+
+        // Calculate percentile (lower is better)
+        const percentile = currentUserRank > 0
+          ? Math.round((currentUserRank / activeUsers.length) * 100)
+          : 100;
 
         setStats({
           quizzesCompleted,
           averageScore,
-          rank,
+          rank: currentUserRank,
           gpa: 3.2 + (Math.random() * 0.8),
-          handoutsCompleted
+          handoutsCompleted,
+          totalScore,
+          percentile
         });
       } catch (error) {
         console.error('Error fetching user stats:', error);
@@ -108,7 +178,7 @@ export default function Dashboard() {
       
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
-        <div className="mb-8">
+        <div className="mt-8 mb-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">
             Welcome back, {currentUser?.fullName || 'Student'}! 👋
           </h2>
@@ -132,21 +202,23 @@ export default function Dashboard() {
               <FiTrendingUp className="h-5 w-5 text-gray-400" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">Leaderboard</h3>
-            <p className="text-gray-600 mb-4">See how you rank against classmates</p>
+            <p className="text-gray-600 mb-4">See how you rank against all students</p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center text-sm font-medium text-amber-600 bg-amber-100/50 px-3 py-1 rounded-full">
                 <FiUsers className="h-4 w-4 mr-1" />
-                <span>Top {stats.rank ? Math.ceil((stats.rank/100)*100) : 15}%</span>
+                <span>Top {stats.percentile || 100}%</span>
               </div>
-              <div className="flex items-center text-sm font-medium text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
-                <FiBarChart2 className="h-4 w-4 mr-1" />
-                <span>+5% this week</span>
-              </div>
+              {stats.rank > 0 && (
+                <div className="flex items-center text-sm font-medium text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
+                  <FiAward className="h-4 w-4 mr-1" />
+                  <span>Rank #{stats.rank}</span>
+                </div>
+              )}
             </div>
             <div className="mt-4 pt-4 border-t border-gray-100">
               <div className="flex justify-between text-xs text-gray-500 mb-1">
-                <span>Your score: {stats.averageScore.toFixed(0)}/100</span>
-                <span>Class avg: 72</span>
+                <span>Avg score: {stats.averageScore.toFixed(0)}/100</span>
+                <span>Total points: {stats.totalScore || 0}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                 <div 
@@ -156,8 +228,6 @@ export default function Dashboard() {
               </div>
             </div>
           </motion.div>
-
-          
 
         {/* Free Subjects Section */}
         <div className="mb-10">
@@ -195,32 +265,7 @@ export default function Dashboard() {
             )}
           </div>
 
-          {currentUser?.isPremium ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {premiumSubjects.map((subject) => (
-                <SubjectCard
-                  key={subject.id}
-                  subject={subject}
-                  isLocked={false}
-                  onClick={() => handleSubjectClick(subject.id)}
-                  completionPercentage={Math.floor(Math.random() * 100)}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {premiumSubjects.map((subject) => (
-                <SubjectCard
-                  key={subject.id}
-                  subject={subject}
-                  isLocked={true}
-                  onClick={handlePremiumClick}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-        {/* HandOut Card */}
+          {/* HandOut Card */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all cursor-pointer"
@@ -254,7 +299,21 @@ export default function Dashboard() {
             </div>
           </motion.div>
 
-          {/* GPA Calculator Card */}
+          
+        </div>
+
+          {currentUser?.isPremium ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {premiumSubjects.map((subject) => (
+                <SubjectCard
+                  key={subject.id}
+                  subject={subject}
+                  isLocked={false}
+                  onClick={() => handleSubjectClick(subject.id)}
+                  completionPercentage={Math.floor(Math.random() * 100)}
+                />
+              ))}
+              {/* GPA Calculator Card */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all cursor-pointer"
@@ -286,6 +345,19 @@ export default function Dashboard() {
               Calculate Projected GPA
             </button>
           </motion.div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {premiumSubjects.map((subject) => (
+                <SubjectCard
+                  key={subject.id}
+                  subject={subject}
+                  isLocked={true}
+                  onClick={handlePremiumClick}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Learning Progress Section */}
@@ -320,7 +392,7 @@ export default function Dashboard() {
               </div>
               <div className="text-center p-4 bg-purple-50 rounded-lg">
                 <div className="text-3xl font-bold text-purple-600 flex items-center justify-center gap-2">
-                  #{stats.rank || '--'}
+                  {stats.rank > 0 ? `#${stats.rank}` : '--'}
                   <FiAward className="text-purple-400" />
                 </div>
                 <div className="text-gray-600">Global Ranking</div>
@@ -334,7 +406,11 @@ export default function Dashboard() {
           <h3 className="text-xl font-bold mb-2">Keep up the great work!</h3>
           <p className="mb-4 opacity-90">
             {stats.quizzesCompleted > 0 ? (
-              `You're making excellent progress in ${currentUser?.field || 'science'}. Complete more quizzes to improve your ranking!`
+              stats.rank > 0 ? (
+                `You're ranked #${stats.rank} globally! Keep learning to improve your position.`
+              ) : (
+                `You're making excellent progress in ${currentUser?.field || 'science'}. Complete more quizzes to get ranked!`
+              )
             ) : (
               'Start your learning journey by taking your first quiz!'
             )}
