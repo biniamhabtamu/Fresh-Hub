@@ -1,3 +1,4 @@
+// src/data/sampleQuestions.
 import { Question } from '../types';
 
 // Structure your questions by subject, year, and chapter
@@ -41,6 +42,21 @@ export const sampleQuestions: Question[] = [
     year: 2013,
     chapter: 2
   },
+  {
+  id: 'geo-social-2013-1-2', // Social science ID format
+  question: 'Which river has been most economically significant for Ethiopia?',
+  options: [
+    'Awash (supports irrigation farms)',
+    'Blue Nile (hydroelectric power and agriculture)',
+    'Omo (supports indigenous tribes)',
+    'Wabe Shebelle (seasonal grazing lands)'
+  ],
+  correctAnswer: 1, // Still Blue Nile but for different reasons
+  explanation: 'The Blue Nile contributes to 90% of Ethiopia\'s hydropower and irrigates key agricultural regions, making it economically vital.',
+  subject: 'geography-social', // Social science subject
+  year: 2013,
+  chapter: 1 
+},
 
   // ==================== MATH QUESTIONS ====================
   
@@ -55,6 +71,7 @@ export const sampleQuestions: Question[] = [
     year: 2014,
     chapter: 1
   },
+
   //math-2014-1-2
   {
     id: 'math-2014-1-2',
