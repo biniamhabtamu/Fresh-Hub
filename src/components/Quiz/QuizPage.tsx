@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc, collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
@@ -20,10 +20,25 @@ interface Question {
 }
 
 interface QuizResult {
+  userId: string;
+  email: string;
+  subject: string;
+  year: number;
+  chapter: number;
   firstAttemptScore: number;
   bestScore: number;
   attempts: number;
   firstAttemptAnswers: number[];
+  firstAttemptTime: number;
+  lastAttemptAt: Date;
+  userName?: string;
+}
+
+interface LeaderboardEntry {
+  userId: string;
+  name: string;
+  score: number;
+  time: number;
 }
 
 export default function QuizPage() {
@@ -41,7 +56,8 @@ export default function QuizPage() {
   const [showExplanation, setShowExplanation] = useState(false);
   const [isRetake, setIsRetake] = useState(false);
   const [previousResult, setPreviousResult] = useState<QuizResult | null>(null);
-  const [leaderboard, setLeaderboard] = useState<any[]>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+  const [hasAnswered, setHasAnswered] = useState<boolean[]>([]);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -52,6 +68,7 @@ export default function QuizPage() {
     );
     setQuestions(filteredQuestions);
     setAnswers(new Array(filteredQuestions.length).fill(-1));
+    setHasAnswered(new Array(filteredQuestions.length).fill(false));
     
     // Load previous result if exists
     if (currentUser && subjectId && year && chapter) {
@@ -84,17 +101,55 @@ export default function QuizPage() {
 
   const loadLeaderboard = async () => {
     try {
-      // In a real app, you would query the leaderboard from Firestore
-      // This is a mock implementation
+      if (!subjectId || !year || !chapter) return;
+      
+      const leaderboardQuery = query(
+        collection(db, 'quizResults'),
+        where('subject', '==', subjectId),
+        where('year', '==', parseInt(year)),
+        where('chapter', '==', parseInt(chapter)),
+        orderBy('firstAttemptScore', 'desc'),
+        orderBy('firstAttemptTime', 'asc'),
+        limit(10)
+      );
+      
+      const querySnapshot = await getDocs(leaderboardQuery);
+      const leaderboardData: LeaderboardEntry[] = [];
+      
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        leaderboardData.push({
+          userId: data.userId,
+          name: data.userName || data.email.split('@')[0],
+          score: data.firstAttemptScore,
+          time: data.firstAttemptTime
+        });
+      });
+      
+      // Add current user if not in top 10
+      if (currentUser && !leaderboardData.some(entry => entry.userId === currentUser.uid)) {
+        const userDoc = await getDoc(doc(db, 'quizResults', `${currentUser.uid}_${subjectId}_${year}_${chapter}`));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          leaderboardData.push({
+            userId: currentUser.uid,
+            name: currentUser.displayName || currentUser.email?.split('@')[0] || 'You',
+            score: userData.firstAttemptScore,
+            time: userData.firstAttemptTime
+          });
+        }
+      }
+      
+      setLeaderboard(leaderboardData);
+    } catch (error) {
+      console.error('Error loading leaderboard:', error);
+      // Fallback mock data
       const mockLeaderboard = [
         { userId: 'user1', name: 'Top Student', score: 95, time: 120 },
         { userId: 'user2', name: 'Second Best', score: 90, time: 180 },
-        { userId: 'user3', name: 'Third Place', score: 85, time: 150 },
-        // Add more mock data or implement real query
+        { userId: currentUser?.uid || 'user3', name: currentUser?.email?.split('@')[0] || 'You', score: 85, time: 150 },
       ];
       setLeaderboard(mockLeaderboard);
-    } catch (error) {
-      console.error('Error loading leaderboard:', error);
     }
   };
 
@@ -104,13 +159,39 @@ export default function QuizPage() {
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const handleAnswerSelect = (answerIndex: number) => {
-    if (isRetake) return; // Don't allow changing answers in retake mode
+  const handleAnswerSelect = async (answerIndex: number, questionIndex: number) => {
+    if (hasAnswered[questionIndex]) return;
     
     const newAnswers = [...answers];
-    newAnswers[currentQuestion] = answerIndex;
+    newAnswers[questionIndex] = answerIndex;
     setAnswers(newAnswers);
+    
+    const newHasAnswered = [...hasAnswered];
+    newHasAnswered[questionIndex] = true;
+    setHasAnswered(newHasAnswered);
+    
     setShowExplanation(true);
+    
+    // Immediately save the first attempt answer
+    if (!previousResult && currentUser && subjectId && year && chapter) {
+      try {
+        const resultId = `${currentUser.uid}_${subjectId}_${year}_${chapter}`;
+        const resultRef = doc(db, 'quizResults', resultId);
+        
+        await setDoc(resultRef, {
+          userId: currentUser.uid,
+          email: currentUser.email,
+          subject: subjectId,
+          year: parseInt(year),
+          chapter: parseInt(chapter),
+          firstAttemptAnswers: newAnswers,
+          lastAttemptAt: new Date(),
+          userName: currentUser.displayName || currentUser.email?.split('@')[0]
+        }, { merge: true });
+      } catch (error) {
+        console.error('Error saving initial answer:', error);
+      }
+    }
   };
 
   const handleNext = () => {
@@ -127,54 +208,51 @@ export default function QuizPage() {
     }
   };
 
-  const saveQuizResult = async (isFirstAttempt: boolean) => {
-    if (!currentUser || !subjectId || !year || !chapter) return;
-    
-    const correctAnswers = answers.filter((answer, index) => 
-      answer === questions[index].correctAnswer
-    ).length;
-    
-    const percentage = (correctAnswers / questions.length) * 100;
-    
+  const saveQuizResult = async () => {
     try {
+      if (!currentUser || !currentUser.uid || !currentUser.email || 
+          !subjectId || !year || !chapter || !questions.length) {
+        throw new Error('Missing required data to save quiz result');
+      }
+
+      const correctAnswers = answers.filter((answer, index) => 
+        answer === questions[index].correctAnswer
+      ).length;
+      
+      const percentage = (correctAnswers / questions.length) * 100;
       const resultId = `${currentUser.uid}_${subjectId}_${year}_${chapter}`;
       const resultRef = doc(db, 'quizResults', resultId);
       
-      if (isFirstAttempt) {
-        // Save first attempt
-        await setDoc(resultRef, {
-          userId: currentUser.uid,
-          email: currentUser.email,
-          subject: subjectId,
-          year: parseInt(year),
-          chapter: parseInt(chapter),
-          firstAttemptScore: percentage,
-          bestScore: percentage,
-          attempts: 1,
-          firstAttemptAnswers: answers,
-          firstAttemptTime: timeElapsed,
-          lastAttemptAt: new Date(),
-        }, { merge: true });
-      } else {
-        // Update existing result for retake
-        const docSnap = await getDoc(resultRef);
-        const existingData = docSnap.exists() ? docSnap.data() : null;
-        
-        await setDoc(resultRef, {
-          attempts: existingData ? existingData.attempts + 1 : 1,
-          bestScore: existingData ? Math.max(existingData.bestScore, percentage) : percentage,
-          lastAttemptAt: new Date(),
-        }, { merge: true });
-      }
+      const resultData: QuizResult = {
+        userId: currentUser.uid,
+        email: currentUser.email,
+        subject: subjectId,
+        year: parseInt(year),
+        chapter: parseInt(chapter),
+        firstAttemptScore: percentage,
+        bestScore: percentage,
+        attempts: 1,
+        firstAttemptAnswers: answers,
+        firstAttemptTime: timeElapsed,
+        lastAttemptAt: new Date(),
+        userName: currentUser.displayName || currentUser.email?.split('@')[0]
+      };
+
+      await setDoc(resultRef, resultData, { merge: true });
+      return true;
     } catch (error) {
-      console.error('Error saving result:', error);
+      console.error('Detailed error saving result:', error);
+      return false;
     }
   };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
-    if (questions.length === 0) return;
+    if (questions.length === 0) {
+      setIsSubmitting(false);
+      return;
+    }
     
     const correctAnswers = answers.filter((answer, index) => 
       answer === questions[index].correctAnswer
@@ -184,29 +262,55 @@ export default function QuizPage() {
     setScore(percentage);
     setQuizCompleted(true);
 
-    // Save result only if it's the first attempt
-    if (!previousResult) {
-      await saveQuizResult(true);
-    } else if (isRetake) {
-      await saveQuizResult(false);
+    try {
+      if (!previousResult) {
+        const saveSuccess = await saveQuizResult();
+        if (!saveSuccess) {
+          console.log('Failed to save quiz results');
+        }
+      }
+      await loadLeaderboard();
+    } catch (error) {
+      console.error('Error in handleSubmit:', error);
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    setIsSubmitting(false);
   };
 
   const handleRetakeQuiz = () => {
     setIsRetake(true);
     setCurrentQuestion(0);
-    setAnswers(new Array(questions.length).fill(-1));
+    setAnswers(previousResult?.firstAttemptAnswers || new Array(questions.length).fill(-1));
     setTimeElapsed(0);
     setQuizCompleted(false);
     setScore(0);
     setShowExplanation(false);
+    setHasAnswered(new Array(questions.length).fill(true));
   };
 
   const handleBackToChapters = () => {
     navigate(`/subject/${subjectId}/year/${year}`);
   };
+
+  if (!subjectId || !year || !chapter) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8 text-center">
+          <div className="max-w-md mx-auto bg-white rounded-xl shadow-md p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Invalid Quiz Parameters</h2>
+            <p className="text-gray-600 mb-6">The quiz you're trying to access doesn't exist.</p>
+            <button 
+              onClick={() => navigate('/')}
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md"
+            >
+              Return Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (quizCompleted) {
     return (
@@ -233,7 +337,7 @@ export default function QuizPage() {
                   {isRetake ? 'Retake Completed!' : 'Quiz Completed!'}
                 </h2>
                 <p className="opacity-90">
-                  {isRetake ? 'How did you improve?' : 'Great job on finishing the quiz'}
+                  {isRetake ? 'Compare your results' : 'Great job on finishing the quiz'}
                 </p>
               </div>
 
@@ -247,15 +351,23 @@ export default function QuizPage() {
                         <p className="text-xl font-bold text-blue-600">
                           {previousResult.firstAttemptScore.toFixed(1)}%
                         </p>
-                      </div>
-                      <div className="bg-green-50 p-3 rounded-lg">
-                        <p className="text-sm text-gray-600">This Attempt</p>
-                        <p className="text-xl font-bold text-green-600">
-                          {score.toFixed(1)}%
+                        <p className="text-xs text-gray-500">
+                          {formatTime(previousResult.firstAttemptTime)}
                         </p>
                       </div>
+                      {isRetake && (
+                        <div className="bg-green-50 p-3 rounded-lg">
+                          <p className="text-sm text-gray-600">This Attempt</p>
+                          <p className="text-xl font-bold text-green-600">
+                            {score.toFixed(1)}%
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {formatTime(timeElapsed)}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    {score > previousResult.firstAttemptScore && (
+                    {isRetake && score > previousResult.firstAttemptScore && (
                       <p className="text-green-600 font-medium mt-3">
                         🎉 You improved by {(score - previousResult.firstAttemptScore).toFixed(1)}%!
                       </p>
@@ -318,25 +430,36 @@ export default function QuizPage() {
                 {leaderboard.length > 0 && (
                   <div className="mb-6 bg-gray-50 p-4 rounded-lg">
                     <h3 className="text-lg font-semibold mb-3 flex items-center justify-center">
-                      <Trophy className="mr-2 text-yellow-500" /> Top Performers
+                      <Trophy className="mr-2 text-yellow-500" /> Top Performers (First Attempt)
                     </h3>
                     <div className="space-y-2">
-                      {leaderboard.slice(0, 3).map((user, index) => (
-                        <div key={user.userId} className="flex items-center justify-between bg-white p-2 rounded-lg shadow-sm">
+                      {leaderboard.map((user, index) => (
+                        <div key={user.userId} className={`flex items-center justify-between p-2 rounded-lg shadow-sm ${
+                          currentUser?.uid === user.userId ? 'bg-blue-50 border border-blue-200' : 'bg-white'
+                        }`}>
                           <div className="flex items-center">
                             <span className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
                               index === 0 ? 'bg-yellow-100 text-yellow-600' :
                               index === 1 ? 'bg-gray-100 text-gray-600' :
-                              'bg-amber-100 text-amber-600'
+                              index === 2 ? 'bg-amber-100 text-amber-600' :
+                              'bg-gray-100 text-gray-600'
                             }`}>
                               {index + 1}
                             </span>
                             <span>{user.name}</span>
                           </div>
-                          <span className="font-semibold">{user.score}%</span>
+                          <div className="flex items-center">
+                            <span className="font-semibold mr-2">{user.score}%</span>
+                            <span className="text-xs text-gray-500">{formatTime(user.time)}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
+                    {leaderboard.some(user => user.userId === currentUser?.uid) && (
+                      <p className="text-sm text-gray-500 mt-2">
+                        Your position is highlighted in blue
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -474,14 +597,14 @@ export default function QuizPage() {
               {currentQ.options.map((option, index) => {
                 const isSelected = answers[currentQuestion] === index;
                 const isActuallyCorrect = index === currentQ.correctAnswer;
-                const showCorrect = isRetake && (isSelected || isActuallyCorrect);
+                const showCorrect = isRetake && isActuallyCorrect;
                 
                 return (
                   <motion.button
                     key={index}
-                    whileHover={{ scale: !isRetake ? 1.01 : 1 }}
-                    whileTap={{ scale: !isRetake ? 0.99 : 1 }}
-                    onClick={() => handleAnswerSelect(index)}
+                    whileHover={{ scale: !hasAnswered[currentQuestion] ? 1.01 : 1 }}
+                    whileTap={{ scale: !hasAnswered[currentQuestion] ? 0.99 : 1 }}
+                    onClick={() => handleAnswerSelect(index, currentQuestion)}
                     className={`
                       w-full text-left p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all
                       ${isRetake
@@ -495,17 +618,18 @@ export default function QuizPage() {
                           : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                       }
                       ${isRetake && isActuallyCorrect ? 'ring-2 ring-green-300' : ''}
+                      ${hasAnswered[currentQuestion] ? 'cursor-default' : 'cursor-pointer'}
                     `}
-                    disabled={isRetake}
+                    disabled={hasAnswered[currentQuestion]}
                   >
                     <span className="font-medium mr-2 sm:mr-3 text-gray-500">
                       {String.fromCharCode(65 + index)}.
                     </span>
                     {option}
-                    {showCorrect && isActuallyCorrect && (
+                    {showCorrect && (
                       <span className="ml-2 text-green-600 font-medium">✓ Correct</span>
                     )}
-                    {showCorrect && isSelected && !isActuallyCorrect && (
+                    {isRetake && isSelected && !isActuallyCorrect && (
                       <span className="ml-2 text-red-600 font-medium">✗ Your answer</span>
                     )}
                   </motion.button>
@@ -560,7 +684,7 @@ export default function QuizPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
-                  disabled={(answers[currentQuestion] === -1 && !isRetake) || isSubmitting}
+                  disabled={answers.some((a, i) => a === -1 && !hasAnswered[i]) || isSubmitting}
                   className="px-4 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg sm:rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center text-sm sm:text-base"
                 >
                   {isSubmitting ? 'Submitting...' : isRetake ? 'Finish Retake' : 'Submit Quiz'}
@@ -570,7 +694,7 @@ export default function QuizPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleNext}
-                  disabled={answers[currentQuestion] === -1 && !isRetake}
+                  disabled={answers[currentQuestion] === -1 && !hasAnswered[currentQuestion]}
                   className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg sm:rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center text-sm sm:text-base"
                 >
                   Next <ChevronRight size={18} className="ml-1 sm:ml-2" />
