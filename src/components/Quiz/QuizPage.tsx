@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
 import Header from '../Layout/Header';
-import { ArrowLeft, Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface Question {
@@ -17,6 +17,13 @@ interface Question {
   options: string[];
   correctAnswer: number;
   explanation?: string;
+}
+
+interface QuizResult {
+  firstAttemptScore: number;
+  bestScore: number;
+  attempts: number;
+  firstAttemptAnswers: number[];
 }
 
 export default function QuizPage() {
@@ -32,6 +39,9 @@ export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [isRetake, setIsRetake] = useState(false);
+  const [previousResult, setPreviousResult] = useState<QuizResult | null>(null);
+  const [leaderboard, setLeaderboard] = useState<any[]>([]);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -42,7 +52,13 @@ export default function QuizPage() {
     );
     setQuestions(filteredQuestions);
     setAnswers(new Array(filteredQuestions.length).fill(-1));
-  }, [subjectId, year, chapter]);
+    
+    // Load previous result if exists
+    if (currentUser && subjectId && year && chapter) {
+      loadPreviousResult();
+      loadLeaderboard();
+    }
+  }, [subjectId, year, chapter, currentUser]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -52,6 +68,36 @@ export default function QuizPage() {
     return () => clearInterval(timer);
   }, []);
 
+  const loadPreviousResult = async () => {
+    try {
+      const resultId = `${currentUser?.uid}_${subjectId}_${year}_${chapter}`;
+      const docRef = doc(db, 'quizResults', resultId);
+      const docSnap = await getDoc(docRef);
+      
+      if (docSnap.exists()) {
+        setPreviousResult(docSnap.data() as QuizResult);
+      }
+    } catch (error) {
+      console.error('Error loading previous result:', error);
+    }
+  };
+
+  const loadLeaderboard = async () => {
+    try {
+      // In a real app, you would query the leaderboard from Firestore
+      // This is a mock implementation
+      const mockLeaderboard = [
+        { userId: 'user1', name: 'Top Student', score: 95, time: 120 },
+        { userId: 'user2', name: 'Second Best', score: 90, time: 180 },
+        { userId: 'user3', name: 'Third Place', score: 85, time: 150 },
+        // Add more mock data or implement real query
+      ];
+      setLeaderboard(mockLeaderboard);
+    } catch (error) {
+      console.error('Error loading leaderboard:', error);
+    }
+  };
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -59,6 +105,8 @@ export default function QuizPage() {
   };
 
   const handleAnswerSelect = (answerIndex: number) => {
+    if (isRetake) return; // Don't allow changing answers in retake mode
+    
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = answerIndex;
     setAnswers(newAnswers);
@@ -79,6 +127,50 @@ export default function QuizPage() {
     }
   };
 
+  const saveQuizResult = async (isFirstAttempt: boolean) => {
+    if (!currentUser || !subjectId || !year || !chapter) return;
+    
+    const correctAnswers = answers.filter((answer, index) => 
+      answer === questions[index].correctAnswer
+    ).length;
+    
+    const percentage = (correctAnswers / questions.length) * 100;
+    
+    try {
+      const resultId = `${currentUser.uid}_${subjectId}_${year}_${chapter}`;
+      const resultRef = doc(db, 'quizResults', resultId);
+      
+      if (isFirstAttempt) {
+        // Save first attempt
+        await setDoc(resultRef, {
+          userId: currentUser.uid,
+          email: currentUser.email,
+          subject: subjectId,
+          year: parseInt(year),
+          chapter: parseInt(chapter),
+          firstAttemptScore: percentage,
+          bestScore: percentage,
+          attempts: 1,
+          firstAttemptAnswers: answers,
+          firstAttemptTime: timeElapsed,
+          lastAttemptAt: new Date(),
+        }, { merge: true });
+      } else {
+        // Update existing result for retake
+        const docSnap = await getDoc(resultRef);
+        const existingData = docSnap.exists() ? docSnap.data() : null;
+        
+        await setDoc(resultRef, {
+          attempts: existingData ? existingData.attempts + 1 : 1,
+          bestScore: existingData ? Math.max(existingData.bestScore, percentage) : percentage,
+          lastAttemptAt: new Date(),
+        }, { merge: true });
+      }
+    } catch (error) {
+      console.error('Error saving result:', error);
+    }
+  };
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
@@ -92,36 +184,18 @@ export default function QuizPage() {
     setScore(percentage);
     setQuizCompleted(true);
 
-    // Save result to Firebase
-    if (currentUser && subjectId && year && chapter) {
-      try {
-        const resultId = `${currentUser.uid}_${subjectId}_${year}_${chapter}_${Date.now()}`;
-        await setDoc(doc(db, 'results', resultId), {
-          userId: currentUser.uid,
-          email: currentUser.email,
-          subject: subjectId,
-          year: parseInt(year),
-          chapter: parseInt(chapter),
-          score: correctAnswers,
-          totalQuestions: questions.length,
-          percentage: percentage,
-          completedAt: new Date(),
-          timeElapsed: timeElapsed,
-          answers: answers.map((answer, index) => ({
-            questionId: questions[index].id,
-            selectedOption: answer,
-            isCorrect: answer === questions[index].correctAnswer
-          }))
-        });
-      } catch (error) {
-        console.error('Error saving result:', error);
-      } finally {
-        setIsSubmitting(false);
-      }
+    // Save result only if it's the first attempt
+    if (!previousResult) {
+      await saveQuizResult(true);
+    } else if (isRetake) {
+      await saveQuizResult(false);
     }
+    
+    setIsSubmitting(false);
   };
 
   const handleRetakeQuiz = () => {
+    setIsRetake(true);
     setCurrentQuestion(0);
     setAnswers(new Array(questions.length).fill(-1));
     setTimeElapsed(0);
@@ -153,13 +227,42 @@ export default function QuizPage() {
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <CheckCircle size={64} className="mx-auto mb-4" />
+                  {isRetake ? <Trophy size={64} className="mx-auto mb-4" /> : <CheckCircle size={64} className="mx-auto mb-4" />}
                 </motion.div>
-                <h2 className="text-3xl font-bold mb-2">Quiz Completed!</h2>
-                <p className="opacity-90">Great job on finishing the quiz</p>
+                <h2 className="text-3xl font-bold mb-2">
+                  {isRetake ? 'Retake Completed!' : 'Quiz Completed!'}
+                </h2>
+                <p className="opacity-90">
+                  {isRetake ? 'How did you improve?' : 'Great job on finishing the quiz'}
+                </p>
               </div>
 
               <div className="p-8 text-center">
+                {previousResult && (
+                  <div className="mb-6 bg-gray-50 p-4 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-2">Your Performance</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <p className="text-sm text-gray-600">First Attempt</p>
+                        <p className="text-xl font-bold text-blue-600">
+                          {previousResult.firstAttemptScore.toFixed(1)}%
+                        </p>
+                      </div>
+                      <div className="bg-green-50 p-3 rounded-lg">
+                        <p className="text-sm text-gray-600">This Attempt</p>
+                        <p className="text-xl font-bold text-green-600">
+                          {score.toFixed(1)}%
+                        </p>
+                      </div>
+                    </div>
+                    {score > previousResult.firstAttemptScore && (
+                      <p className="text-green-600 font-medium mt-3">
+                        🎉 You improved by {(score - previousResult.firstAttemptScore).toFixed(1)}%!
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 <div className="mb-6">
                   <div className="inline-flex items-center justify-center relative">
                     <svg className="w-32 h-32" viewBox="0 0 36 36">
@@ -212,6 +315,31 @@ export default function QuizPage() {
                   </p>
                 </div>
 
+                {leaderboard.length > 0 && (
+                  <div className="mb-6 bg-gray-50 p-4 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-3 flex items-center justify-center">
+                      <Trophy className="mr-2 text-yellow-500" /> Top Performers
+                    </h3>
+                    <div className="space-y-2">
+                      {leaderboard.slice(0, 3).map((user, index) => (
+                        <div key={user.userId} className="flex items-center justify-between bg-white p-2 rounded-lg shadow-sm">
+                          <div className="flex items-center">
+                            <span className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
+                              index === 0 ? 'bg-yellow-100 text-yellow-600' :
+                              index === 1 ? 'bg-gray-100 text-gray-600' :
+                              'bg-amber-100 text-amber-600'
+                            }`}>
+                              {index + 1}
+                            </span>
+                            <span>{user.name}</span>
+                          </div>
+                          <span className="font-semibold">{user.score}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="space-y-3">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -219,7 +347,7 @@ export default function QuizPage() {
                     onClick={handleRetakeQuiz}
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md"
                   >
-                    Retake Quiz
+                    {isRetake ? 'Try Again' : 'Retake Quiz'}
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -284,6 +412,23 @@ export default function QuizPage() {
           <span className="font-medium text-sm sm:text-base">Back to Chapters</span>
         </motion.button>
 
+        {previousResult && isRetake && (
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded-r-lg">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-yellow-700">
+                  This is a retake. Your first attempt score was {previousResult.firstAttemptScore.toFixed(1)}%.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="max-w-4xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
@@ -326,43 +471,69 @@ export default function QuizPage() {
             </h3>
 
             <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-              {currentQ.options.map((option, index) => (
-                <motion.button
-                  key={index}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  onClick={() => handleAnswerSelect(index)}
-                  className={`
-                    w-full text-left p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all
-                    ${answers[currentQuestion] === index
-                      ? answers[currentQuestion] === currentQ.correctAnswer
-                        ? 'border-green-500 bg-green-50 text-green-700'
-                        : 'border-red-500 bg-red-50 text-red-700'
-                      : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
-                    }
-                  `}
-                >
-                  <span className="font-medium mr-2 sm:mr-3 text-gray-500">
-                    {String.fromCharCode(65 + index)}.
-                  </span>
-                  {option}
-                </motion.button>
-              ))}
+              {currentQ.options.map((option, index) => {
+                const isSelected = answers[currentQuestion] === index;
+                const isActuallyCorrect = index === currentQ.correctAnswer;
+                const showCorrect = isRetake && (isSelected || isActuallyCorrect);
+                
+                return (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: !isRetake ? 1.01 : 1 }}
+                    whileTap={{ scale: !isRetake ? 0.99 : 1 }}
+                    onClick={() => handleAnswerSelect(index)}
+                    className={`
+                      w-full text-left p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all
+                      ${isRetake
+                        ? isActuallyCorrect
+                          ? 'border-green-500 bg-green-50 text-green-700'
+                          : isSelected && !isActuallyCorrect
+                            ? 'border-red-500 bg-red-50 text-red-700'
+                            : 'border-gray-200'
+                        : isSelected
+                          ? 'border-blue-500 bg-blue-50 text-blue-700'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                      }
+                      ${isRetake && isActuallyCorrect ? 'ring-2 ring-green-300' : ''}
+                    `}
+                    disabled={isRetake}
+                  >
+                    <span className="font-medium mr-2 sm:mr-3 text-gray-500">
+                      {String.fromCharCode(65 + index)}.
+                    </span>
+                    {option}
+                    {showCorrect && isActuallyCorrect && (
+                      <span className="ml-2 text-green-600 font-medium">✓ Correct</span>
+                    )}
+                    {showCorrect && isSelected && !isActuallyCorrect && (
+                      <span className="ml-2 text-red-600 font-medium">✗ Your answer</span>
+                    )}
+                  </motion.button>
+                );
+              })}
             </div>
 
-            {showExplanation && currentQ.explanation && (
+            {(showExplanation || isRetake) && currentQ.explanation && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 transition={{ duration: 0.3 }}
                 className={`overflow-hidden mt-4 p-4 rounded-lg ${
-                  isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'
+                  isRetake 
+                    ? 'bg-blue-50 border border-blue-200'
+                    : isCorrect 
+                      ? 'bg-green-50 border border-green-200'
+                      : 'bg-red-50 border border-red-200'
                 }`}
               >
                 <h4 className={`font-semibold mb-2 ${
-                  isCorrect ? 'text-green-700' : 'text-red-700'
+                  isRetake 
+                    ? 'text-blue-700'
+                    : isCorrect 
+                      ? 'text-green-700'
+                      : 'text-red-700'
                 }`}>
-                  {isCorrect ? 'Correct!' : 'Incorrect'}
+                  {isRetake ? 'Explanation' : isCorrect ? 'Correct!' : 'Incorrect'}
                 </h4>
                 <p className="text-sm sm:text-base text-gray-700">
                   {currentQ.explanation}
@@ -389,17 +560,17 @@ export default function QuizPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
-                  disabled={answers[currentQuestion] === -1 || isSubmitting}
+                  disabled={(answers[currentQuestion] === -1 && !isRetake) || isSubmitting}
                   className="px-4 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg sm:rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center text-sm sm:text-base"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Quiz'}
+                  {isSubmitting ? 'Submitting...' : isRetake ? 'Finish Retake' : 'Submit Quiz'}
                 </motion.button>
               ) : (
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleNext}
-                  disabled={answers[currentQuestion] === -1}
+                  disabled={answers[currentQuestion] === -1 && !isRetake}
                   className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg sm:rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md w-full sm:w-auto flex items-center justify-center text-sm sm:text-base"
                 >
                   Next <ChevronRight size={18} className="ml-1 sm:ml-2" />
@@ -416,30 +587,42 @@ export default function QuizPage() {
           >
             <h4 className="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Question Navigator</h4>
             <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-1 sm:gap-2">
-              {questions.map((_, index) => (
-                <motion.button
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setCurrentQuestion(index);
-                    setShowExplanation(false);
-                  }}
-                  className={`
-                    w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-medium text-xs sm:text-sm transition-all flex items-center justify-center
-                    ${index === currentQuestion
-                      ? 'bg-blue-600 text-white shadow-md'
-                      : answers[index] !== -1
-                      ? answers[index] === questions[index].correctAnswer
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-red-100 text-red-700'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }
-                  `}
-                >
-                  {index + 1}
-                </motion.button>
-              ))}
+              {questions.map((_, index) => {
+                const isAnswered = answers[index] !== -1;
+                const isCorrectAnswer = isAnswered && answers[index] === questions[index].correctAnswer;
+                const isCurrent = index === currentQuestion;
+                
+                return (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setCurrentQuestion(index);
+                      setShowExplanation(false);
+                    }}
+                    className={`
+                      w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-medium text-xs sm:text-sm transition-all flex items-center justify-center
+                      ${isCurrent
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : isRetake
+                          ? questions[index].correctAnswer === answers[index]
+                            ? 'bg-green-100 text-green-700'
+                            : answers[index] !== -1
+                              ? 'bg-red-100 text-red-700'
+                              : 'bg-gray-100 text-gray-600'
+                          : isAnswered
+                            ? isCorrectAnswer
+                              ? 'bg-green-100 text-green-700'
+                              : 'bg-red-100 text-red-700'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }
+                    `}
+                  >
+                    {index + 1}
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
         </div>
