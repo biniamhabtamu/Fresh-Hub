@@ -1,3 +1,4 @@
+// src/data/subjects.ts
 import { Subject } from '../types';
 
 export const subjects: Subject[] = [
@@ -89,28 +90,28 @@ export const subjects: Subject[] = [
 
   // Social Science Subjects
   { 
-    id: 'english-social', 
+    id: 'english', 
     name: 'English', 
     icon: '📖', // Different from natural science English
     field: 'social', 
     isFree: true 
   },
   { 
-    id: 'geography-social', 
+    id: 'geography', 
     name: 'Geography', 
     icon: '🗾', // Map of Japan for variety
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'history-social', 
+    id: 'history', 
     name: 'History', 
     icon: '⏳', // Hourglass representing time/history
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'civic-social', 
+    id: 'civic', 
     name: 'Civic', 
     icon: '🏙️', // Cityscape
     field: 'social', 
@@ -131,28 +132,28 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'emerging-social', 
+    id: 'emerging', 
     name: 'Emerging', 
     icon: '🌱', // Growing plant for social emerging
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'inclusive-social', 
+    id: 'inclusive', 
     name: 'Inclusive', 
     icon: '🌈', // Diversity flag
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'psychology-social', 
+    id: 'psychology', 
     name: 'Psychology', 
     icon: '🧘', // Meditating person
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'logic-social', 
+    id: 'logic', 
     name: 'Logic', 
     icon: '🧩', 
     field: 'social', 
