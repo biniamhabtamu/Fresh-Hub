@@ -126,7 +126,7 @@ export default function YearSelection() {
           className="mb-10 text-center md:text-left"
         >
           <h2 className="text-4xl font-bold text-gray-800 mb-2">
-            Select Exam Year
+            Select Different Ethiopian university mid and Final Exam all  Year Collection 
           </h2>
           <p className="text-gray-600 text-lg">
             Choose a year to practice and track your progress
