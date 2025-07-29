@@ -158,8 +158,8 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <Header />
-      
-      <div className="container mx-auto px-4 py-6">
+
+      <div className="container mx-auto px-4 py-6 pt-16">
         {/* Welcome Section */}
         <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
