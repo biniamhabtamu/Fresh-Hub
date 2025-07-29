@@ -157,7 +157,7 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
               </button>
             )}
           </nav>
-
+            
           {/* Logout Button with bounce animation */}
           <div className="pt-4 border-t border-gray-200 mt-4">
             <button
@@ -169,7 +169,9 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
               </div>
               <span className="font-medium">Logout</span>
             </button>
+            
           </div>
+          <h1 className='pt-4'>Version 1.0.0</h1>
         </div>
       </div>
     </>
