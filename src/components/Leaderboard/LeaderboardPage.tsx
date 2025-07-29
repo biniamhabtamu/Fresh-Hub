@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import Header from '../Layout/Header';
 import { Trophy, Medal, Award, ChevronDown, ChevronUp, Crown, Star, Zap, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BottomBar from '../Layout/BottomBar';
 
 interface LeaderboardEntry {
   id: string;
@@ -520,6 +521,7 @@ export default function LeaderboardPage() {
           )}
         </motion.div>
       </div>
+      <BottomBar />
     </div>
   );
 }

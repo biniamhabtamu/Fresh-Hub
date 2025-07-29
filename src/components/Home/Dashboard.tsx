@@ -19,6 +19,7 @@ import { FaTrophy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import BottomBar from '../Layout/BottomBar';
 
 interface UserStats {
   quizzesCompleted: number;
@@ -319,6 +320,7 @@ export default function Dashboard() {
           </button>
         </div>
       </div>
+      <BottomBar />
     </div>
   );
 }

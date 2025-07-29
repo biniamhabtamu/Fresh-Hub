@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Settings, User, Bell, Lock, Moon, Sun, Mail, Shield, LogOut } from 'lucide-react';
-
+import BottomBar from './BottomBar';
 export default function SettingsPage() {
   const [darkMode, setDarkMode] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -180,6 +180,7 @@ export default function SettingsPage() {
           </div>
         </div>
       </div>
+      <BottomBar />
     </div>
   );
 }
