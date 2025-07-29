@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { subjects } from '../../data/subjects';
 import SubjectCard from './SubjectCard';
 import Header from '../Layout/Header';
+import BottomBar from '../Layout/BottomBar';
 import { 
   FiLock, 
   FiUnlock, 
@@ -19,7 +20,6 @@ import { FaTrophy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import BottomBar from '../Layout/BottomBar';
 
 interface UserStats {
   quizzesCompleted: number;
