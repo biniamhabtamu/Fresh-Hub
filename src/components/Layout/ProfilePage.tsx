@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BookOpen, Award, BarChart, Clock, Edit3, Settings, Trophy, Star, Zap, ChevronRight, Flame, Bookmark, CheckCircle } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { BookOpen, Award, BarChart, Clock, Edit3, Settings, Trophy, Star, Zap, ChevronRight, Flame, Bookmark, CheckCircle } from 'lucide-react';
 import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from '../Layout/Header';
+import BottomBar from '../Layout/BottomBar';
 
 interface QuizResult {
   id: string;
@@ -45,6 +46,7 @@ interface LeaderboardUser {
 export default function ProfilePage() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
   const [todayActivity, setTodayActivity] = useState<QuizResult[]>([]);
   const [stats, setStats] = useState<UserStats>({
@@ -86,7 +88,6 @@ export default function ProfilePage() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         
-        // 1. Fetch quiz results (last 5)
         const resultsQuery = query(
           collection(db, 'quizResults'),
           where('userId', '==', currentUser.uid),
@@ -94,7 +95,6 @@ export default function ProfilePage() {
           limit(5)
         );
         
-        // 2. Fetch today's activity
         const todayQuery = query(
           collection(db, 'quizResults'),
           where('userId', '==', currentUser.uid),
@@ -125,7 +125,6 @@ export default function ProfilePage() {
           timestamp: doc.data().timestamp?.toDate() || new Date()
         }));
 
-        // 3. Calculate subject performance
         const subjectData: Record<string, {count: number, total: number, points: number}> = {};
         results.forEach(quiz => {
           if (!subjectData[quiz.subject]) {
@@ -136,7 +135,6 @@ export default function ProfilePage() {
           subjectData[quiz.subject].points += quiz.pointsEarned;
         });
 
-        // 4. Calculate stats
         const totalQuizzes = results.length;
         const totalScore = results.reduce((sum, r) => sum + r.score, 0);
         const totalPoints = results.reduce((sum, r) => sum + r.pointsEarned, 0);
@@ -145,11 +143,9 @@ export default function ProfilePage() {
         const todayPoints = todayResults.reduce((sum, r) => sum + r.pointsEarned, 0);
         const todayQuizzes = todayResults.length;
         
-        // 5. Calculate level and progress (100 points per level)
         const level = Math.floor(totalPoints / 100) + 1;
         const progress = (totalPoints % 100);
 
-        // 6. Determine strongest/weakest subjects
         let strongest = '';
         let weakest = '';
         let highestAvg = 0;
@@ -167,17 +163,14 @@ export default function ProfilePage() {
           }
         });
 
-        // 7. Fetch leaderboard data
         const leaderboardData = await fetchLeaderboard();
         setLeaderboard(leaderboardData);
 
-        // 8. Find current user's rank and percentile
         const currentUserRank = leaderboardData.find(user => user.id === currentUser.uid)?.rank || 0;
         const percentile = currentUserRank > 0 
           ? Math.round((currentUserRank / leaderboardData.length) * 100)
           : 100;
 
-        // 9. Get handouts data
         const handoutsQuery = query(
           collection(db, 'handoutsProgress'),
           where('userId', '==', currentUser.uid)
@@ -275,10 +268,12 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-6 px-4 sm:px-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 pb-20">
+      {/* Attractive Header */}
       <Header />
-      <div className="max-w-6xl mx-auto">
-        {/* Profile Header */}
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        {/* Profile Header Section */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-6">
           <div className="relative h-40 bg-gradient-to-r from-indigo-500 to-pink-500">
             {currentUser?.isPremium && (
@@ -630,6 +625,9 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
+
+      {/* Bottom Navigation Bar */}
+      <BottomBar />
     </div>
   );
 }
@@ -660,5 +658,7 @@ const StatCard = ({ icon, value, label, unit = '', loading, gradient = 'bg-white
         </p>
       </div>
     </div>
+  
   </motion.div>
+
 );
