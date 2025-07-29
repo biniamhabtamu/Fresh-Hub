@@ -12,6 +12,7 @@ interface SubjectCardProps {
   onClick: () => void;
   isLocked: boolean;
   isPremium?: boolean;
+  completionPercentage?: number;
 }
 
 interface UserPerformance {
@@ -20,11 +21,26 @@ interface UserPerformance {
   bestScore?: number;
 }
 
-export default function SubjectCard({ subject, onClick, isLocked, isPremium }: SubjectCardProps) {
+const colorThemes = [
+  { bg: 'from-blue-100 to-cyan-100', text: 'text-blue-800', border: 'border-blue-200' },
+  { bg: 'from-purple-100 to-indigo-100', text: 'text-purple-800', border: 'border-purple-200' },
+  { bg: 'from-green-100 to-emerald-100', text: 'text-green-800', border: 'border-green-200' },
+  { bg: 'from-amber-100 to-yellow-100', text: 'text-amber-800', border: 'border-amber-200' },
+  { bg: 'from-pink-100 to-rose-100', text: 'text-pink-800', border: 'border-pink-200' },
+];
+
+export default function SubjectCard({ 
+  subject, 
+  onClick, 
+  isLocked, 
+  isPremium = false, 
+  completionPercentage = 0 
+}: SubjectCardProps) {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [performance, setPerformance] = useState<UserPerformance | null>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [theme] = useState(colorThemes[Math.floor(Math.random() * colorThemes.length)]);
 
   useEffect(() => {
     const fetchUserPerformance = async () => {
@@ -80,181 +96,119 @@ export default function SubjectCard({ subject, onClick, isLocked, isPremium }: S
   };
 
   const hasAttempts = performance?.attempts && performance.attempts > 0;
+  const displayPercentage = hasAttempts ? performance?.averageScore : completionPercentage;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      whileHover={{ scale: isLocked ? 1 : 1.03 }}
+      transition={{ duration: 0.2 }}
+      whileHover={{ scale: isLocked ? 1 : 1.02 }}
+      whileTap={{ scale: 0.98 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={handleCardClick}
       className={`
-        relative overflow-hidden min-h-[220px] flex flex-col p-6
-        cursor-pointer
-        transition-all duration-300 shadow-xl
-        bg-white border border-gray-200
-        ${isPremium ? 
-          'shadow-purple-200/50 hover:shadow-purple-300/50' : 
-          'shadow-blue-200/50 hover:shadow-blue-300/50'
-        }
-        rounded-2xl
+        relative overflow-hidden h-full min-h-[160px] flex flex-col p-4
+        cursor-pointer transition-all duration-200 shadow-sm
+        bg-white border ${theme.border}
+        rounded-lg
+        ${isHovered ? 'shadow-md' : 'shadow-sm'}
       `}
-      style={{
-        boxShadow: isHovered ? 
-          `0 10px 25px -5px ${isPremium ? 'rgba(168, 85, 247, 0.3)' : 'rgba(59, 130, 246, 0.3)'}` : 
-          '0 4px 15px -5px rgba(0, 0, 0, 0.1)'
-      }}
     >
       {/* Lock Icon */}
       {isLocked && (
         <motion.div 
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute top-4 right-4 z-10"
+          className="absolute top-2 right-2 z-10"
           onClick={handleLockClick}
         >
-          <div className="p-2 bg-white rounded-full shadow-md border border-gray-200">
-            <Lock className="h-5 w-5 text-purple-600" />
+          <div className="p-1.5 bg-white rounded-full shadow-sm border border-gray-200">
+            <Lock className="h-4 w-4 text-purple-600" />
           </div>
         </motion.div>
       )}
 
-      {/* Premium Glow Effect */}
-      {isPremium && !isLocked && (
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-white to-indigo-100/30 rounded-2xl" />
-      )}
-
-      {/* Subject Image/Icon */}
+      {/* Subject Icon */}
       <motion.div 
-        animate={{ y: isHovered ? -5 : 0 }}
+        animate={{ y: isHovered ? -2 : 0 }}
         transition={{ type: 'spring', stiffness: 300 }}
         className={`
-          w-full h-32 mb-4 rounded-xl overflow-hidden flex items-center justify-center
-          ${isPremium ? 
-            'bg-gradient-to-br from-purple-100 to-indigo-100' : 
-            'bg-gradient-to-br from-blue-100 to-cyan-100'
-          }
-          border border-gray-200
+          w-full h-16 mb-3 rounded-lg overflow-hidden flex items-center justify-center
+          bg-gradient-to-br ${theme.bg}
+          border ${theme.border}
         `}
       >
-        <div className="text-5xl">
+        <div className="text-3xl">
           {subject.icon}
         </div>
       </motion.div>
 
       {/* Subject Name */}
       <h3 className={`
-        text-xl font-bold mb-2
-        ${isPremium ? 'text-indigo-900' : 'text-blue-900'}
+        text-sm font-bold mb-1 ${theme.text} truncate
       `}>
         {subject.name}
       </h3>
 
-      {/* Performance Stats */}
-      <div className="mt-auto">
-        {hasAttempts ? (
-          <>
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden border border-gray-200">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: `${performance?.averageScore}%` }}
-                  transition={{ duration: 0.8, type: 'spring' }}
-                  className={`h-full rounded-full ${
-                    performance?.averageScore && performance.averageScore >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
-                    performance?.averageScore && performance.averageScore >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
-                    'bg-gradient-to-r from-red-400 to-pink-400'
-                  } shadow-md`}
-                />
-              </div>
-              <span className={`font-bold ${
-                performance?.averageScore && performance.averageScore >= 80 ? 'text-green-600' :
-                performance?.averageScore && performance.averageScore >= 50 ? 'text-yellow-600' : 'text-red-600'
-              }`}>
-                {performance?.averageScore}%
-              </span>
-            </div>
-            
-            <div className="flex justify-between text-sm">
-              <span className={`flex items-center ${
-                isPremium ? 'text-indigo-700' : 'text-blue-700'
-              }`}>
-                <BarChart className="h-4 w-4 mr-1.5" />
-                {performance?.attempts} attempt{performance?.attempts !== 1 ? 's' : ''}
-              </span>
-              
-              {performance?.bestScore && (
-                <span className="flex items-center text-amber-600">
-                  <Trophy className="h-4 w-4 mr-1.5" />
-                  Best: {performance.bestScore}%
-                </span>
-              )}
-            </div>
-          </>
-        ) : (
-          <motion.div 
-            animate={{ y: isHovered ? -3 : 0 }}
-            className={`text-center py-3 rounded-lg ${
-              isPremium ? 'bg-indigo-50' : 'bg-blue-50'
-            } border border-gray-200`}
-          >
-            <p className={`mb-2 ${isPremium ? 'text-indigo-700' : 'text-blue-700'}`}>
-              {isLocked ? 'Premium content' : 'No attempts yet'}
-            </p>
-            {!isLocked ? (
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center mx-auto ${
-                  isPremium ? 
-                    'bg-gradient-to-r from-purple-100 to-indigo-100 text-indigo-700 hover:from-purple-200 hover:to-indigo-200' :
-                    'bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 hover:from-blue-200 hover:to-cyan-200'
-                } transition-all shadow-sm`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onClick();
-                }}
-              >
-                Start Learning <ChevronRight className="h-4 w-4 ml-1" />
-              </motion.button>
-            ) : (
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-1.5 rounded-full text-sm font-medium flex items-center mx-auto bg-gradient-to-r from-purple-100 to-indigo-100 text-indigo-700 hover:from-purple-200 hover:to-indigo-200 transition-all shadow-sm"
-                onClick={handleLockClick}
-              >
-                Unlock Premium <ChevronRight className="h-4 w-4 ml-1" />
-              </motion.button>
-            )}
-          </motion.div>
-        )}
+      {/* Progress Bar */}
+      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden border border-gray-200 mb-2">
+        <motion.div 
+          initial={{ width: 0 }}
+          animate={{ width: `${displayPercentage}%` }}
+          transition={{ duration: 0.8, type: 'spring' }}
+          className={`h-full rounded-full ${
+            displayPercentage && displayPercentage >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+            displayPercentage && displayPercentage >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
+            'bg-gradient-to-r from-red-400 to-pink-400'
+          } shadow-sm`}
+        />
       </div>
 
-      {/* Premium Crown Badge */}
-      {isPremium && !isLocked && (
+      {/* Stats or CTA */}
+      {hasAttempts ? (
+        <div className="flex justify-between items-center mt-auto">
+          <span className={`text-xs ${theme.text} flex items-center`}>
+            <BarChart className="h-3 w-3 mr-1" />
+            {performance?.attempts}x
+          </span>
+          {performance?.bestScore && (
+            <span className="text-xs text-amber-600 flex items-center">
+              <Trophy className="h-3 w-3 mr-1" />
+              {performance.bestScore}%
+            </span>
+          )}
+        </div>
+      ) : (
         <motion.div 
-          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute bottom-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-2 rounded-full shadow-lg"
+          animate={{ y: isHovered ? -1 : 0 }}
+          className={`text-center mt-auto py-1 rounded-md ${theme.bg} border ${theme.border} text-xs ${theme.text}`}
         >
-          <Sparkles className="h-4 w-4" />
+          {isLocked ? 'Premium' : 'Start Now'}
         </motion.div>
       )}
 
       {/* Hover Arrow */}
-      {isHovered && (
+      {isHovered && !isLocked && (
         <motion.div 
-          initial={{ opacity: 0, x: -10 }}
+          initial={{ opacity: 0, x: -5 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -10 }}
-          className="absolute bottom-4 right-4"
+          exit={{ opacity: 0, x: -5 }}
+          className="absolute bottom-2 right-2"
         >
-          <ChevronRight className={`h-5 w-5 ${
-            isPremium ? 'text-indigo-500' : 'text-blue-500'
-          }`} />
+          <ChevronRight className={`h-4 w-4 ${theme.text}`} />
+        </motion.div>
+      )}
+
+      {/* Premium Badge */}
+      {isPremium && !isLocked && (
+        <motion.div 
+          animate={{ rotate: isHovered ? [0, 10, -10, 0] : 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute top-1 left-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-1 rounded-full shadow-sm"
+        >
+          <Sparkles className="h-3 w-3" />
         </motion.div>
       )}
     </motion.div>
