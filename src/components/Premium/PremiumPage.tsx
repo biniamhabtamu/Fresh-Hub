@@ -1,35 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { submitPaymentProof } from '../../firebase/payments';
 import { 
   Crown, 
   Check, 
   Upload, 
   CreditCard, 
-  Smartphone, 
-  Zap, 
-  Shield, 
-  Gift, 
+  Smartphone,
+  Shield,
+  Gift,
   BarChart,
-  CheckCircle, // Added missing import
   Book,
   Archive,
   Headphones,
   Ban,
   Download,
-  Award
+  Award,
+  CheckCircle,
+  Zap,
+  Lock
 } from 'lucide-react';
 import Header from '../Layout/Header';
 
 export default function PremiumPage() {
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [selectedMethod, setSelectedMethod] = useState<'ebirr' | 'telebirr' | null>(null);
   const [screenshot, setScreenshot] = useState<File | null>(null);
+  const [transactionId, setTransactionId] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!currentUser) {
+      setError('Please log in to access premium features');
+    } else {
+      setError('');
+    }
+  }, [currentUser]);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setScreenshot(e.target.files[0]);
+    if (e.target.files?.[0]) {
+      const file = e.target.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setError('File size should be less than 5MB');
+        return;
+      }
+      if (!['image/jpeg', 'image/png'].includes(file.type)) {
+        setError('Only JPG/PNG files are allowed');
+        return;
+      }
+      setScreenshot(file);
+      setError('');
     }
   };
 
@@ -38,22 +63,93 @@ export default function PremiumPage() {
     setIsDragging(true);
   };
 
-  const handleDragLeave = () => {
-    setIsDragging(false);
-  };
+  const handleDragLeave = () => setIsDragging(false);
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setScreenshot(e.dataTransfer.files[0]);
+    if (e.dataTransfer.files?.[0]) {
+      const file = e.dataTransfer.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setError('File size should be less than 5MB');
+        return;
+      }
+      if (!['image/jpeg', 'image/png'].includes(file.type)) {
+        setError('Only JPG/PNG files are allowed');
+        return;
+      }
+      setScreenshot(file);
+      setError('');
     }
   };
 
   const handleSubmit = async () => {
-    if (!selectedMethod || !screenshot) return;
-    setSubmitted(true);
+    if (!currentUser) {
+      navigate('/login', { state: { from: '/premium' } });
+      return;
+    }
+
+    setError('');
+
+    if (!selectedMethod) {
+      setError('Please select a payment method');
+      return;
+    }
+    
+    if (!screenshot) {
+      setError('Please upload a payment screenshot');
+      return;
+    }
+    
+    setIsLoading(true);
+
+    try {
+      await submitPaymentProof(
+        currentUser.uid,
+        selectedMethod,
+        screenshot,
+        transactionId,
+        {
+          fullName: currentUser.displayName || 'User',
+          email: currentUser.email || 'no-email@example.com'
+        }
+      );
+      setSubmitted(true);
+      setSelectedMethod(null);
+      setScreenshot(null);
+      setTransactionId('');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Payment submission failed. Please try again.');
+      console.error('Payment submission error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  if (!currentUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8 text-center">
+            <div className="w-20 h-20 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Lock className="text-white" size={40} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">Login Required</h2>
+            <p className="text-gray-600 mb-6">
+              You need to be logged in to submit payment for premium access.
+            </p>
+            <button
+              onClick={() => navigate('/login', { state: { from: '/premium' } })}
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-medium hover:shadow-md transition-all"
+            >
+              Go to Login Page
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (submitted) {
     return (
@@ -63,7 +159,6 @@ export default function PremiumPage() {
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto">
             <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl p-8 text-center border border-white/50 relative overflow-hidden">
-              {/* Decorative elements */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-yellow-200 rounded-full opacity-20"></div>
               
@@ -133,7 +228,6 @@ export default function PremiumPage() {
       
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-12 relative">
             <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
             <div className="absolute top-0 right-0 w-24 h-24 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
@@ -152,7 +246,6 @@ export default function PremiumPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Features */}
             <div className="bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-xl p-8 border border-white/50">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-bold text-gray-800">Premium Features</h2>
@@ -184,7 +277,7 @@ export default function PremiumPage() {
               <div className="mt-8 p-5 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl border border-blue-200">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-3xl font-bold text-gray-800">150 Birr</div>
+                    <div className="text-3xl font-bold text-gray-800">200 Birr</div>
                     <div className="text-gray-600">One-time payment</div>
                   </div>
                   <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-bold">
@@ -198,7 +291,6 @@ export default function PremiumPage() {
               </div>
             </div>
 
-            {/* Payment Form */}
             <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-white/50">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-bold text-gray-800">Complete Payment</h2>
@@ -207,16 +299,24 @@ export default function PremiumPage() {
                 </div>
               </div>
               
-              {/* Payment Methods */}
               <div className="mb-8">
-                <label className="block text-sm font-medium text-gray-700 mb-3">Select Payment Method</label>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Select Payment Method {!selectedMethod && error.includes('payment method') && (
+                    <span className="text-red-500 text-xs ml-2">(Required)</span>
+                  )}
+                </label>
                 <div className="space-y-4">
                   <button
-                    onClick={() => setSelectedMethod('ebirr')}
+                    onClick={() => {
+                      setSelectedMethod('ebirr');
+                      setError('');
+                    }}
                     className={`w-full p-5 rounded-2xl transition-all border ${
                       selectedMethod === 'ebirr'
                         ? 'border-blue-500 bg-blue-50 shadow-sm'
-                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                        : error.includes('payment method') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                     }`}
                   >
                     <div className="flex items-center space-x-4">
@@ -231,11 +331,16 @@ export default function PremiumPage() {
                   </button>
 
                   <button
-                    onClick={() => setSelectedMethod('telebirr')}
+                    onClick={() => {
+                      setSelectedMethod('telebirr');
+                      setError('');
+                    }}
                     className={`w-full p-5 rounded-2xl transition-all border ${
                       selectedMethod === 'telebirr'
                         ? 'border-blue-500 bg-blue-50 shadow-sm'
-                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                        : error.includes('payment method') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                     }`}
                   >
                     <div className="flex items-center space-x-4">
@@ -251,7 +356,6 @@ export default function PremiumPage() {
                 </div>
               </div>
 
-              {/* Payment Instructions */}
               {selectedMethod && (
                 <div className="mb-8 p-5 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl border border-indigo-100">
                   <h3 className="font-semibold text-gray-800 mb-3 flex items-center">
@@ -263,7 +367,7 @@ export default function PremiumPage() {
                   <div className="text-sm text-gray-700 space-y-2 pl-8">
                     <p className="flex">
                       <span className="font-bold w-6 inline-block">1.</span> 
-                      Send 150 Birr to: <span className="font-mono bg-indigo-100 px-2 py-0.5 rounded ml-2">+251 994 024 681</span>
+                      Send 200 Birr to: <span className="font-mono bg-indigo-100 px-2 py-0.5 rounded ml-2">+251 994 024 681</span>
                     </p>
                     <p className="flex">
                       <span className="font-bold w-6 inline-block">2.</span> 
@@ -281,7 +385,21 @@ export default function PremiumPage() {
                 </div>
               )}
 
-              {/* File Upload */}
+              {selectedMethod && (
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Transaction ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={transactionId}
+                    onChange={(e) => setTransactionId(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg"
+                    placeholder="Enter transaction ID if available"
+                  />
+                </div>
+              )}
+
               {selectedMethod && (
                 <div className="mb-8">
                   <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center">
@@ -289,6 +407,9 @@ export default function PremiumPage() {
                       2
                     </span>
                     Upload Payment Screenshot
+                    {!screenshot && error.includes('screenshot') && (
+                      <span className="text-red-500 text-xs ml-2">(Required)</span>
+                    )}
                   </label>
                   <div 
                     onDragOver={handleDragOver}
@@ -298,7 +419,9 @@ export default function PremiumPage() {
                       border-2 rounded-2xl p-8 text-center transition-all cursor-pointer
                       ${isDragging 
                         ? 'border-blue-500 bg-blue-50' 
-                        : 'border-dashed border-gray-300 hover:border-blue-400 bg-gray-50'
+                        : error.includes('screenshot') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-dashed border-gray-300 hover:border-blue-400 bg-gray-50'
                       }
                     `}
                     onClick={() => document.getElementById('screenshot-upload')?.click()}
@@ -312,13 +435,17 @@ export default function PremiumPage() {
                     />
                     <div className="mb-4">
                       <div className="w-14 h-14 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto">
-                        <Upload size={24} className={isDragging ? "text-blue-500" : "text-gray-400"} />
+                        <Upload size={24} className={isDragging ? "text-blue-500" : error.includes('screenshot') ? "text-red-500" : "text-gray-400"} />
                       </div>
                     </div>
-                    <p className="font-medium text-gray-700 mb-1">
+                    <p className={`font-medium mb-1 ${
+                      error.includes('screenshot') ? 'text-red-500' : 'text-gray-700'
+                    }`}>
                       {screenshot ? 'Screenshot Selected' : 'Click to upload or drag & drop'}
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p className={`text-sm ${
+                      error.includes('screenshot') ? 'text-red-400' : 'text-gray-500'
+                    }`}>
                       {screenshot ? (
                         <span className="text-green-600 font-medium">{screenshot.name}</span>
                       ) : (
@@ -334,19 +461,24 @@ export default function PremiumPage() {
                 </div>
               )}
 
-              {/* Submit Button */}
+              {error && (
+                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
+                  {error}
+                </div>
+              )}
+
               <button
                 onClick={handleSubmit}
-                disabled={!selectedMethod || !screenshot}
+                disabled={isLoading || !selectedMethod || !screenshot}
                 className={`
                   w-full py-4 rounded-2xl font-bold text-white transition-all
-                  ${!selectedMethod || !screenshot 
-                    ? 'bg-gray-300 cursor-not-allowed' 
+                  ${isLoading || !selectedMethod || !screenshot
+                    ? 'bg-gray-400 cursor-not-allowed' 
                     : 'bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 hover:shadow-lg transform hover:-translate-y-0.5'
                   }
                 `}
               >
-                Submit Payment Proof
+                {isLoading ? 'Submitting...' : 'Submit Payment Proof'}
               </button>
             </div>
           </div>
