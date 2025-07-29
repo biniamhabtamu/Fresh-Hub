@@ -272,7 +272,7 @@ export default function ProfilePage() {
       {/* Attractive Header */}
       <Header />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pt-16">
         {/* Profile Header Section */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-6">
           <div className="relative h-40 bg-gradient-to-r from-indigo-500 to-pink-500">
