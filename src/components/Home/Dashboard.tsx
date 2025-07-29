@@ -15,9 +15,9 @@ import {
   FiFileText,
   FiClock
 } from 'react-icons/fi';
-import { FaCalculator, FaBookOpen, FaTrophy, FaBook } from 'react-icons/fa';
+import { FaTrophy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 
 interface UserStats {
@@ -28,15 +28,6 @@ interface UserStats {
   handoutsCompleted?: number;
   totalScore?: number;
   percentile?: number;
-}
-
-interface UserRanking {
-  id: string;
-  fullName: string;
-  field: string;
-  averageScore: number;
-  quizzesCompleted: number;
-  totalScore: number;
 }
 
 export default function Dashboard() {
@@ -66,13 +57,6 @@ export default function Dashboard() {
         const resultsSnapshot = await getDocs(resultsQuery);
         const results = resultsSnapshot.docs.map(doc => doc.data());
 
-        // Get handouts data
-        const handoutsQuery = query(
-          collection(db, 'handoutsProgress'),
-          where('userId', '==', currentUser.id)
-        );
-        const handoutsSnapshot = await getDocs(handoutsQuery);
-        
         // Calculate basic stats
         const quizzesCompleted = results.length;
         const totalScore = quizzesCompleted > 0 
@@ -81,7 +65,6 @@ export default function Dashboard() {
         const averageScore = quizzesCompleted > 0 
           ? totalScore / quizzesCompleted
           : 0;
-        const handoutsCompleted = handoutsSnapshot.size;
 
         // Get all users for ranking calculation
         const usersQuery = query(collection(db, 'users'));
@@ -97,7 +80,7 @@ export default function Dashboard() {
         const allResults = allResultsSnapshot.docs.map(doc => doc.data());
 
         // Calculate rankings for all users
-        const userRankings: UserRanking[] = users.map(user => {
+        const userRankings = users.map(user => {
           const userResults = allResults.filter(r => r.userId === user.id);
           const userQuizzesCompleted = userResults.length;
           const userTotalScore = userResults.reduce((sum, r) => sum + r.percentage, 0);
@@ -144,7 +127,7 @@ export default function Dashboard() {
           averageScore,
           rank: currentUserRank,
           gpa: 3.2 + (Math.random() * 0.8),
-          handoutsCompleted,
+          handoutsCompleted: 0,
           totalScore,
           percentile
         });
@@ -176,8 +159,8 @@ export default function Dashboard() {
       <Header />
       
       <div className="container mx-auto px-4 py-6">
-        {/* Welcome Section - Updated with more spacing */}
-        <div className="mt-4 mb-8">
+        {/* Welcome Section */}
+        <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
             Welcome back, {currentUser?.fullName || 'Student'}! 👋
           </h2>
@@ -186,124 +169,42 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* Feature Cards Section - Made more compact */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-          {/* LeaderDashboard Card - Made more compact */}
+        {/* Leaderboard Card - Centered and full width on mobile */}
+        <div className="flex justify-center mb-8">
           <motion.div
-            whileHover={{ y: -3 }}
-            className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/30 shadow-md hover:shadow-lg transition-all cursor-pointer"
+            whileHover={{ y: -3, scale: 1.02 }}
+            className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer w-full max-w-md"
             onClick={() => navigate('/leaderboard')}
           >
-            <div className="flex items-start justify-between mb-2">
-              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-2 rounded-lg shadow-inner">
-                <FaTrophy className="h-5 w-5 text-amber-600" />
+            <div className="flex items-start justify-between mb-4">
+              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-3 rounded-lg">
+                <FaTrophy className="h-6 w-6 text-amber-600" />
               </div>
-              <FiTrendingUp className="h-4 w-4 text-gray-400" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-1">Leaderboard</h3>
-            <p className="text-gray-600 text-sm mb-2">See how you rank against peers</p>
-            <div className="flex items-center space-x-2">
-              <div className="flex items-center text-xs font-medium text-amber-600 bg-amber-100/50 px-2 py-0.5 rounded-full">
-                <FiUsers className="h-3 w-3 mr-1" />
-                <span>Top {stats.percentile || 100}%</span>
-              </div>
-              {stats.rank > 0 && (
-                <div className="flex items-center text-xs font-medium text-blue-600 bg-blue-100/50 px-2 py-0.5 rounded-full">
-                  <FiAward className="h-3 w-3 mr-1" />
-                  <span>Rank #{stats.rank}</span>
-                </div>
-              )}
-            </div>
-            <div className="mt-2 pt-2 border-t border-gray-100">
-              <div className="flex justify-between text-xs text-gray-500 mb-1">
-                <span>Avg: {stats.averageScore.toFixed(0)}%</span>
-                <span>Points: {stats.totalScore || 0}</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-                <div 
-                  className="h-full bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full" 
-                  style={{ width: `${stats.averageScore}%` }}
-                />
+              <div className="flex items-center text-sm font-medium text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
+                <FiAward className="h-4 w-4 mr-1" />
+                <span>Rank #{stats.rank || '--'}</span>
               </div>
             </div>
-          </motion.div>
-
-          {/* HandOut Card - Made more compact */}
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/30 shadow-md hover:shadow-lg transition-all cursor-pointer"
-            onClick={() => navigate('/handouts')}
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-2 rounded-lg shadow-inner">
-                <FaBookOpen className="h-5 w-5 text-green-600" />
-              </div>
-              <FiTrendingUp className="h-4 w-4 text-gray-400" />
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Leaderboard</h3>
+            <p className="text-gray-500 text-sm mb-4">See your global ranking</p>
+            <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
+              <span>Top {stats.percentile || 100}%</span>
+              <span>{stats.averageScore.toFixed(0)}% Average</span>
             </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-1">Study Handouts</h3>
-            <p className="text-gray-600 text-sm mb-2">Access curated learning materials</p>
-            <div className="flex flex-wrap gap-1 mb-2">
-              <span className="px-2 py-0.5 bg-green-100/60 text-green-800 text-xs rounded-full flex items-center">
-                <FiFileText className="h-3 w-3 mr-1" /> 
-                {stats.handoutsCompleted || 0} Completed
-              </span>
-              <span className="px-2 py-0.5 bg-blue-100/60 text-blue-800 text-xs rounded-full">
-                {currentUser?.field || 'Science'}
-              </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full" 
+                style={{ width: `${stats.averageScore}%` }}
+              />
             </div>
-            <div className="flex items-center justify-between mt-auto">
-              <div className="text-xs text-gray-500 flex items-center">
-                <FiClock className="h-3 w-3 mr-1" />
-                <span>Updated recently</span>
-              </div>
-              <button className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs rounded-md shadow-sm hover:shadow-md transition-all">
-                View All
-              </button>
-            </div>
-          </motion.div>
-
-          {/* GPA Calculator Card - Made more compact */}
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/30 shadow-md hover:shadow-lg transition-all cursor-pointer"
-            onClick={() => navigate('/gpa-calculator')}
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 p-2 rounded-lg shadow-inner">
-                <FaCalculator className="h-5 w-5 text-purple-600" />
-              </div>
-              <FiTrendingUp className="h-4 w-4 text-gray-400" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-1">GPA Calculator</h3>
-            <p className="text-gray-600 text-sm mb-2">Estimate your semester GPA</p>
-            <div className="mb-2">
-              <div className="flex justify-between text-xs text-gray-700 mb-1">
-                <span>Current GPA</span>
-                <span className="font-bold">{stats.gpa?.toFixed(2) || '--'}</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden mb-1">
-                <div 
-                  className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full" 
-                  style={{ width: `${(stats.gpa || 0) * 25}%` }}
-                />
-              </div>
-              <div className="text-xs text-gray-500 text-right">4.0 Scale</div>
-            </div>
-            <button className="w-full px-3 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-xs rounded-md shadow-sm hover:shadow-md transition-all flex items-center justify-center">
-              <FaCalculator className="h-3 w-3 mr-1" />
-              Calculate GPA
-            </button>
           </motion.div>
         </div>
 
-        {/* Free Subjects Section - Updated layout */}
+        {/* Free Subjects Section */}
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
-              
-              Sample question 
-            </h3>
-          </div>
+          <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">
+            Sample Questions
+          </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {freeSubjects.map((subject) => (
               <SubjectCard
@@ -317,7 +218,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Premium Subjects Section - Updated layout */}
+        {/* Premium Subjects Section */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
@@ -357,8 +258,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Learning Progress Section - Made more compact */}
-        <div className="mt-6 bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
+        {/* Learning Progress Section */}
+        <div className="mt-6 bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
           <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
             <FiTrendingUp className="text-purple-600" />
             Your Learning Progress
@@ -375,9 +276,8 @@ export default function Dashboard() {
           ) : (
             <div className="grid grid-cols-3 gap-2">
               <div className="text-center p-2 bg-blue-50 rounded-md">
-                <div className="text-xl font-bold text-blue-600 flex items-center justify-center gap-1">
+                <div className="text-xl font-bold text-blue-600">
                   {stats.quizzesCompleted}
-                  <FiCheckCircle className="text-blue-400 h-4 w-4" />
                 </div>
                 <div className="text-xs text-gray-600">Quizzes Done</div>
               </div>
@@ -388,9 +288,8 @@ export default function Dashboard() {
                 <div className="text-xs text-gray-600">Avg Score</div>
               </div>
               <div className="text-center p-2 bg-purple-50 rounded-md">
-                <div className="text-xl font-bold text-purple-600 flex items-center justify-center gap-1">
+                <div className="text-xl font-bold text-purple-600">
                   {stats.rank > 0 ? `#${stats.rank}` : '--'}
-                  <FiAward className="text-purple-400 h-4 w-4" />
                 </div>
                 <div className="text-xs text-gray-600">Ranking</div>
               </div>
@@ -398,8 +297,8 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* Motivation Section - Made more compact */}
-        <div className="mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-md p-4">
+        {/* Motivation Section */}
+        <div className="mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-sm p-4">
           <h3 className="text-lg font-bold mb-1">Keep up the great work!</h3>
           <p className="mb-3 opacity-90 text-sm">
             {stats.quizzesCompleted > 0 ? (
