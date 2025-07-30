@@ -12,6 +12,7 @@ import ProfilePage from './components/Layout/ProfilePage';
 import SettingsPage from './components/Layout/SettingsPage';
 import { motion } from 'framer-motion';
 import './App.css';
+import AdminDashboard from './components/admin/premium-approvals';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
@@ -64,6 +65,14 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <PremiumPage />
+          </ProtectedRoute>
+        } 
+      />
+       <Route 
+        path="/admin/premium-approvals" 
+        element={
+          <ProtectedRoute>
+            <AdminDashboard />
           </ProtectedRoute>
         } 
       />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { X, User, Settings, Crown, LogOut, Mail, Users, BookOpen, Calculator, ChevronRight, Award, Home } from 'lucide-react';
+import { X, User, Settings, Crown, LogOut, Mail, Users, BookOpen, Calculator, ChevronRight, Award, Home, LayoutDashboard, Shield } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,8 +39,17 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
     onClose();
   };
 
-  // Menu items data for cleaner code
-  const menuItems = [
+  interface MenuItem {
+    path: string;
+    icon: React.ComponentType<{ size?: number }>;
+    label: string;
+    color: string;
+    iconColor: string;
+    hoverColor: string;
+    isAdmin?: boolean;
+  }
+
+  const baseMenuItems: MenuItem[] = [
     { path: '/', icon: Home, label: 'Home', color: 'bg-indigo-100', iconColor: 'text-indigo-600', hoverColor: 'hover:bg-indigo-50' },
     { path: '/profilepage', icon: User, label: 'Profile', color: 'bg-blue-100', iconColor: 'text-blue-600', hoverColor: 'hover:bg-blue-50' },
     { path: '/settings', icon: Settings, label: 'Settings', color: 'bg-gray-100', iconColor: 'text-gray-600', hoverColor: 'hover:bg-gray-50' },
@@ -50,6 +59,23 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
     { path: '/gpa-calculator', icon: Calculator, label: 'GPA Calculator', color: 'bg-red-100', iconColor: 'text-red-600', hoverColor: 'hover:bg-red-50' },
     { path: '/leaderboard', icon: Award, label: 'Leaderboard', color: 'bg-yellow-100', iconColor: 'text-yellow-600', hoverColor: 'hover:bg-yellow-50' },
   ];
+
+  const adminMenuItem: MenuItem = {
+    path: 'premium-approvals',
+    icon: LayoutDashboard,
+    label: 'Admin Dashboard',
+    color: 'bg-purple-100',
+    iconColor: 'text-purple-600',
+    hoverColor: 'hover:bg-purple-50',
+    isAdmin: true
+  };
+
+  const menuItems = [
+    ...baseMenuItems,
+    ...(currentUser?.email === 'biniamhabtamu320@gmail.com' ? [adminMenuItem] : [])
+  ];
+
+  const isAdminUser = currentUser?.email === 'biniamhabtamu320@gmail.com';
 
   return (
     <>
@@ -103,20 +129,24 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
                 )}
               </div>
               <div>
-                <h3 className="font-semibold text-white">{currentUser?.fullName || 'Guest'}</h3>
-                <p className="text-sm opacity-90 capitalize">
-                  {currentUser?.field || 'General'} Student
+                <h3 className="font-semibold text-white">{currentUser?.displayName || 'Guest'}</h3>
+                <p className="text-sm opacity-90">
+                  {currentUser?.email || 'No email'}
                 </p>
-                {currentUser?.isPremium ? (
-                  <div className="flex items-center space-x-1 mt-1">
-                    <Crown size={14} className="text-yellow-300 animate-pulse" />
-                    <span className="text-xs font-medium">Premium Member</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center space-x-1 mt-1">
-                    <span className="text-xs font-medium">Standard Member</span>
-                  </div>
-                )}
+                <div className="flex items-center space-x-2 mt-1">
+                  {currentUser?.isPremium && (
+                    <>
+                      <Crown size={14} className="text-yellow-300 animate-pulse" />
+                      <span className="text-xs font-medium">Premium Member</span>
+                    </>
+                  )}
+                  {isAdminUser && (
+                    <>
+                      <Shield size={14} className="text-green-300" />
+                      <span className="text-xs font-medium">Admin</span>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -169,9 +199,8 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
               </div>
               <span className="font-medium">Logout</span>
             </button>
-            
           </div>
-          <h1 className='pt-4'>Version 1.0.0</h1>
+          <h1 className='pt-4 text-sm text-gray-500'>Version 1.0.0</h1>
         </div>
       </div>
     </>
