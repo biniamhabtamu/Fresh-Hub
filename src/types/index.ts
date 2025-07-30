@@ -1,3 +1,4 @@
+// / src/types/index.ts
 export interface User {
   id: string;
   fullName: string;
@@ -5,8 +6,11 @@ export interface User {
   phone: string;
   field: 'natural' | 'social';
   isPremium: boolean;
+  premiumSince?: Date;
   createdAt: Date;
 }
+
+
 
 export interface Subject {
   id: string;
