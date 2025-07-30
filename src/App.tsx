@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthForm from './components/Auth/AuthForm';
 import Dashboard from './components/Home/Dashboard';
@@ -11,6 +10,7 @@ import PremiumPage from './components/Premium/PremiumPage';
 import LeaderboardPage from './components/Leaderboard/LeaderboardPage';
 import ProfilePage from './components/Layout/ProfilePage';
 import SettingsPage from './components/Layout/SettingsPage';
+import { motion } from 'framer-motion';
 import './App.css';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
