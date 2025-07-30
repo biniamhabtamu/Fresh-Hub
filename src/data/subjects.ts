@@ -5,10 +5,17 @@ export const subjects: Subject[] = [
   // Natural Science Subjects
   { 
     id: 'english', 
-    name: 'English', 
+    name: 'EnglishSkill1', 
     icon: '✍️', // Alternative: '📚'
     field: 'natural', 
     isFree: true 
+  },
+  { 
+    id: 'english2', 
+    name: 'EnglishSkill2', 
+    icon: '✍️', // Alternative: '📚'
+    field: 'natural', 
+    isFree: false 
   },
   { 
     id: 'math', 
@@ -86,6 +93,13 @@ export const subjects: Subject[] = [
     icon: '🔣', // Symbols representing logic
     field: 'natural', 
     isFree: true 
+  },
+   { 
+    id: 'economics', 
+    name: 'Economics', 
+    icon: '💹', // Chart with yen symbol
+    field: 'natural', 
+    isFree: false 
   },
 
   // Social Science Subjects
