@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthForm from './components/Auth/AuthForm';
 import Dashboard from './components/Home/Dashboard';
@@ -97,127 +98,164 @@ function AppRoutes() {
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const [progressText, setProgressText] = useState('Initializing');
-  const [progressPercent, setProgressPercent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [loadingText, setLoadingText] = useState('Loading');
 
   useEffect(() => {
-    const messages = [
-      'Loading resources',
-      'Preparing interface',
-      'Optimizing experience',
-      'Almost there'
-    ];
-    let currentMessage = 0;
+    // Animate dots
+    const dotsInterval = setInterval(() => {
+      setLoadingText(prev => {
+        const count = (prev.match(/\./g) || []).length;
+        return count >= 3 ? 'Loading' : prev + '.';
+      });
+    }, 300);
 
+    // Animate progress bar over 5 seconds
     const startTime = Date.now();
-    const duration = 5200; // 5.2 seconds total
-
+    const duration = 5000; // 5 seconds
+    
     const updateProgress = () => {
       const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const percent = Math.floor(progress * 100);
+      const newProgress = Math.min(elapsed / duration * 100, 100);
+      setProgress(newProgress);
       
-      if (progressRef.current) {
-        progressRef.current.style.width = `${progress * 100}%`;
-      }
-
-      setProgressPercent(percent);
-
-      // Update progress message every 800ms
-      if (elapsed > currentMessage * 800 && currentMessage < messages.length) {
-        setProgressText(messages[currentMessage]);
-        currentMessage++;
-      }
-
-      if (progress < 1) {
+      if (newProgress < 100) {
         requestAnimationFrame(updateProgress);
       } else {
         setLoading(false);
       }
     };
 
-    const timer = setTimeout(() => {
-      requestAnimationFrame(updateProgress);
-    }, 300);
+    updateProgress();
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearInterval(dotsInterval);
+    };
   }, []);
 
   if (loading) {
     return (
-      <div className="loading-screen">
-        <div className="cosmic-background">
-          <div className="galaxy-spiral"></div>
-          {Array.from({ length: 25 }).map((_, i) => (
-            <div 
-              key={`particle-${i}`}
-              className="cosmic-particle"
-              style={{
-                '--size': `${Math.random() * 12 + 4}px`,
-                '--x': `${Math.random() * 100}%`,
-                '--y': `${Math.random() * 100}%`,
-                '--delay': `${Math.random() * 3}s`,
-                '--duration': `${Math.random() * 15 + 10}s`,
-                '--opacity': `${Math.random() * 0.7 + 0.2}`,
-                '--hue': `${Math.random() * 60 + 200}`
-              } as React.CSSProperties}
-            />
-          ))}
-        </div>
+      <div className="fixed inset-0 bg-gradient-to-br from-indigo-900 to-purple-900 flex flex-col items-center justify-center overflow-hidden">
+        {/* Animated background elements */}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-white/10"
+            style={{
+              width: `${Math.random() * 10 + 5}px`,
+              height: `${Math.random() * 10 + 5}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0, 0.4, 0],
+              y: [0, -100],
+              x: [0, (Math.random() - 0.5) * 50],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
 
-        <div className="loading-content">
-          <div className="luxury-logo">
-            <div className="logo-sphere">
-              <div className="sphere-core"></div>
-              <div className="sphere-shine"></div>
-              <div className="sphere-glow"></div>
-            </div>
-            <div className="logo-aurora">
-              <div className="aurora-ring aurora-1"></div>
-              <div className="aurora-ring aurora-2"></div>
-              <div className="aurora-ring aurora-3"></div>
-            </div>
-            <div className="logo-constellation">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <div 
-                  key={`star-${i}`}
-                  className="star" 
-                  style={{ 
-                    '--angle': `${i * 22.5}deg`,
-                    '--delay': `${i * 0.05}s`
-                  } as React.CSSProperties}
+        {/* Main content */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center">
+          {/* App logo/name with animation */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <motion.h1 
+              className="text-5xl font-bold mb-2"
+              animate={{
+                backgroundSize: ['200%', '400%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }}
+              style={{
+                backgroundImage: 'linear-gradient(45deg, #00ffff, #ff00ff, #00ffff)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
+              FreshHub
+            </motion.h1>
+            <motion.p 
+              className="text-purple-200 text-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Your learning companion
+            </motion.p>
+          </motion.div>
+
+          {/* Loading indicator with dots */}
+          <motion.div
+            className="flex items-center justify-center mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <span className="text-white text-xl mr-1">{loadingText}</span>
+            <div className="flex space-x-1">
+              {[...Array(3)].map((_, i) => (
+                <motion.span
+                  key={i}
+                  className="w-2 h-2 bg-white rounded-full"
+                  animate={{
+                    opacity: [0.2, 1, 0.2],
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <h1 className="app-title">
-            {['F', 'r', 'e', 's', 'h', 'H', 'u', 'b'].map((letter, i) => (
-              <span key={`letter-${i}`} className="title-letter" style={{ '--delay': `${i * 0.1}s` } as React.CSSProperties}>
-                {letter}
-              </span>
-            ))}
-          </h1>
+          {/* Progress bar */}
+          <motion.div 
+            className="w-64 h-2 bg-white/20 rounded-full overflow-hidden mb-2"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full relative"
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 5, ease: "linear" }}
+            >
+              <motion.div
+                className="absolute right-0 top-0 w-1 h-full bg-white"
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity }}
+              />
+            </motion.div>
+          </motion.div>
 
-          <div className="loading-status">
-            <div className="status-text">{progressText}</div>
-            <div className="status-dots">
-              {[0, 1, 2].map((i) => (
-                <span key={`dot-${i}`} className="dot" style={{ '--delay': `${i * 0.1}s` } as React.CSSProperties}></span>
-              ))}
-            </div>
-          </div>
-
-          <div className="luxury-progress">
-            <div className="progress-container">
-              <div ref={progressRef} className="progress-fill"></div>
-              <div className="progress-sparkle"></div>
-            </div>
-            <div className="progress-percentage">
-              {progressPercent}%
-            </div>
-          </div>
+          {/* Progress percentage */}
+          <motion.span 
+            className="text-white text-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+          >
+            {Math.round(progress)}%
+          </motion.span>
         </div>
       </div>
     );
