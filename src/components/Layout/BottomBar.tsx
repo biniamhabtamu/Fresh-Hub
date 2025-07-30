@@ -21,7 +21,7 @@ const BottomBar = () => {
       name: 'Challenge', 
       icon: <FaFire size={20} />, 
       activeIcon: <motion.div whileHover={{ scale: 1.2 }} animate={{ rotate: [0, 10, -10, 0] }}><FaFire size={20} /></motion.div>,
-      path: '/live-challenge',
+      path: '/',
       color: 'text-red-500',
       bgColor: 'bg-red-100',
       hoverColor: 'hover:bg-red-50'
@@ -30,7 +30,7 @@ const BottomBar = () => {
       name: 'Handout', 
       icon: <FiBook size={22} />, 
       activeIcon: <motion.div whileHover={{ scale: 1.1 }} animate={{ y: [0, -2, 0] }}><FiBook size={22} /></motion.div>,
-      path: '/handout',
+      path: '/',
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-100',
       hoverColor: 'hover:bg-indigo-50'
