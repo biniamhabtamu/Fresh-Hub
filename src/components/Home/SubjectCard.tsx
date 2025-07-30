@@ -13,6 +13,7 @@ interface SubjectCardProps {
   isLocked: boolean;
   isPremium?: boolean;
   completionPercentage?: number;
+  hasPremiumAccess?: boolean;
 }
 
 interface UserPerformance {
@@ -34,7 +35,8 @@ export default function SubjectCard({
   onClick, 
   isLocked, 
   isPremium = false, 
-  completionPercentage = 0 
+  completionPercentage = 0,
+  hasPremiumAccess = false
 }: SubjectCardProps) {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -80,11 +82,11 @@ export default function SubjectCard({
   }, [currentUser, subject.id]);
 
   const handleCardClick = (e: React.MouseEvent) => {
-    if (isLocked && isPremium) {
+    if (isLocked && isPremium && !hasPremiumAccess) {
       e.preventDefault();
       e.stopPropagation();
       navigate('/premium');
-    } else if (!isLocked) {
+    } else if (!isLocked || (isPremium && hasPremiumAccess)) {
       onClick();
     }
   };
@@ -95,15 +97,20 @@ export default function SubjectCard({
     navigate('/premium');
   };
 
+  const shouldShowLock = isLocked && isPremium && !hasPremiumAccess;
   const hasAttempts = performance?.attempts && performance.attempts > 0;
   const displayPercentage = hasAttempts ? performance?.averageScore : completionPercentage;
+
+  // Determine if we should show progress or CTA
+  const showProgress = hasAttempts || completionPercentage > 0;
+  const showCTA = !hasAttempts && completionPercentage === 0;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      whileHover={{ scale: isLocked ? 1 : 1.02 }}
+      whileHover={{ scale: shouldShowLock ? 1 : 1.02 }}
       whileTap={{ scale: 0.98 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -114,10 +121,11 @@ export default function SubjectCard({
         bg-white border ${theme.border}
         rounded-lg
         ${isHovered ? 'shadow-md' : 'shadow-sm'}
+        ${shouldShowLock ? 'opacity-80' : ''}
       `}
     >
       {/* Lock Icon */}
-      {isLocked && (
+      {shouldShowLock && (
         <motion.div 
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -138,6 +146,7 @@ export default function SubjectCard({
           w-full h-16 mb-3 rounded-lg overflow-hidden flex items-center justify-center
           bg-gradient-to-br ${theme.bg}
           border ${theme.border}
+          ${shouldShowLock ? 'brightness-95' : ''}
         `}
       >
         <div className="text-3xl">
@@ -152,45 +161,49 @@ export default function SubjectCard({
         {subject.name}
       </h3>
 
-      {/* Progress Bar */}
-      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden border border-gray-200 mb-2">
-        <motion.div 
-          initial={{ width: 0 }}
-          animate={{ width: `${displayPercentage}%` }}
-          transition={{ duration: 0.8, type: 'spring' }}
-          className={`h-full rounded-full ${
-            displayPercentage && displayPercentage >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
-            displayPercentage && displayPercentage >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
-            'bg-gradient-to-r from-red-400 to-pink-400'
-          } shadow-sm`}
-        />
-      </div>
-
-      {/* Stats or CTA */}
-      {hasAttempts ? (
-        <div className="flex justify-between items-center mt-auto">
-          <span className={`text-xs ${theme.text} flex items-center`}>
-            <BarChart className="h-3 w-3 mr-1" />
-            {performance?.attempts}x
-          </span>
-          {performance?.bestScore && (
-            <span className="text-xs text-amber-600 flex items-center">
-              <Trophy className="h-3 w-3 mr-1" />
-              {performance.bestScore}%
-            </span>
-          )}
+      {/* Progress Bar - only show if there's progress to display */}
+      {showProgress && (
+        <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden border border-gray-200 mb-2">
+          <motion.div 
+            initial={{ width: 0 }}
+            animate={{ width: `${displayPercentage}%` }}
+            transition={{ duration: 0.8, type: 'spring' }}
+            className={`h-full rounded-full ${
+              displayPercentage && displayPercentage >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+              displayPercentage && displayPercentage >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
+              'bg-gradient-to-r from-red-400 to-pink-400'
+            } shadow-sm`}
+          />
         </div>
-      ) : (
-        <motion.div 
-          animate={{ y: isHovered ? -1 : 0 }}
-          className={`text-center mt-auto py-1 rounded-md ${theme.bg} border ${theme.border} text-xs ${theme.text}`}
-        >
-          {isLocked ? 'Premium' : 'Start Now'}
-        </motion.div>
       )}
 
+      {/* Stats or CTA */}
+      <div className="mt-auto">
+        {hasAttempts ? (
+          <div className="flex justify-between items-center">
+            <span className={`text-xs ${theme.text} flex items-center`}>
+              <BarChart className="h-3 w-3 mr-1" />
+              {performance?.attempts}x
+            </span>
+            {performance?.bestScore && (
+              <span className="text-xs text-amber-600 flex items-center">
+                <Trophy className="h-3 w-3 mr-1" />
+                {performance.bestScore}%
+              </span>
+            )}
+          </div>
+        ) : showCTA ? (
+          <motion.div 
+            animate={{ y: isHovered ? -1 : 0 }}
+            className={`text-center py-1 rounded-md ${theme.bg} border ${theme.border} text-xs ${theme.text}`}
+          >
+            {shouldShowLock ? 'Premium' : 'Start Now'}
+          </motion.div>
+        ) : null}
+      </div>
+
       {/* Hover Arrow */}
-      {isHovered && !isLocked && (
+      {isHovered && !shouldShowLock && (
         <motion.div 
           initial={{ opacity: 0, x: -5 }}
           animate={{ opacity: 1, x: 0 }}
@@ -202,7 +215,7 @@ export default function SubjectCard({
       )}
 
       {/* Premium Badge */}
-      {isPremium && !isLocked && (
+      {isPremium && !shouldShowLock && (
         <motion.div 
           animate={{ rotate: isHovered ? [0, 10, -10, 0] : 0 }}
           transition={{ duration: 0.4 }}
