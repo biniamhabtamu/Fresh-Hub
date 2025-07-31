@@ -61,7 +61,7 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
   ];
 
   const adminMenuItem: MenuItem = {
-    path: 'premium-approvals',
+    path: '/admin/premium-approvals',
     icon: LayoutDashboard,
     label: 'Admin Dashboard',
     color: 'bg-purple-100',

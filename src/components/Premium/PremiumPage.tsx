@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { CheckCircle2, Clock, AlertCircle, Phone, Copy, Banknote, Smartphone, CreditCard, MessageSquare } from 'lucide-react';
+import { CheckCircle2, Clock, AlertCircle, Phone, Copy, Banknote, Smartphone } from 'lucide-react';
 import { db } from '../../firebase/config';
-import { doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot, updateDoc, setDoc } from 'firebase/firestore'; // Import setDoc and updateDoc
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
-
-interface PremiumMessage {
-  id: string;
-  text: string;
-  sender: 'user' | 'admin';
-  timestamp: Date;
-}
 
 export default function PremiumPage() {
   const { currentUser } = useAuth();
@@ -21,35 +14,30 @@ export default function PremiumPage() {
   const [timeLeft, setTimeLeft] = useState(7 * 60 * 60); // 7 hours in seconds
   const [adminChecked, setAdminChecked] = useState(false);
   const [activePaymentMethod, setActivePaymentMethod] = useState<'ebirr' | 'telebirr' | 'cbe'>('telebirr');
-  const [messages, setMessages] = useState<PremiumMessage[]>([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [premiumStatus, setPremiumStatus] = useState<'pending' | 'approved' | 'rejected'>('pending'); // New state for premium status
 
   useEffect(() => {
     if (!currentUser?.uid) return;
 
-    // Check user's premium status and messages
     const userRef = doc(db, 'users', currentUser.uid);
-    const unsubscribe = onSnapshot(userRef, (doc) => {
-      const data = doc.data();
-      if (data?.isPremium) {
-        setIsApproved(true);
-        setAdminChecked(true);
-      } else if (data?.premiumStatus === 'rejected') {
-        setIsApproved(false);
-        setAdminChecked(true);
+    const unsubscribe = onSnapshot(userRef, (docSnap) => {
+      const data = docSnap.data();
+      if (data) {
+        // Update states based on the premiumStatus from Firestore
+        setPremiumStatus(data.premiumStatus || 'pending');
+        setIsApproved(data.isPremium || false);
+        // If the premiumStatus is not 'pending', it means admin has checked it
+        setAdminChecked(data.premiumStatus !== 'pending'); 
+        // If there's a premium request that was submitted, set submitted to true
+        if (data.transactionId && data.premiumStatus === 'pending') {
+          setSubmitted(true);
+        } else if (data.isPremium || data.premiumStatus === 'rejected') {
+          setSubmitted(true); // Keep submitted true if approved/rejected to show final state
+        }
       }
-      
-      // Load messages if they exist
-      if (data?.premiumMessages) {
-        setMessages(data.premiumMessages.map((msg: any) => ({
-          id: msg.id,
-          text: msg.text,
-          sender: msg.sender,
-          timestamp: new Date(msg.timestamp?.seconds * 1000)
-        })).sort((a: PremiumMessage, b: PremiumMessage) => 
-          a.timestamp.getTime() - b.timestamp.getTime()
-        ));
-      }
+    }, (error) => {
+      console.error("Error fetching user premium status:", error);
+      toast.error("Failed to load premium status.");
     });
 
     return () => unsubscribe();
@@ -77,54 +65,27 @@ export default function PremiumPage() {
       toast.error('Please enter your transaction ID');
       return;
     }
-    
-    try {
-      const userRef = doc(db, 'users', currentUser?.uid);
-      await updateDoc(userRef, {
-        transactionId,
-        premiumStatus: 'pending',
-        premiumMessages: [
-          {
-            id: Date.now().toString(),
-            text: `User submitted transaction ID: ${transactionId}`,
-            sender: 'user',
-            timestamp: new Date()
-          }
-        ]
-      });
-      setSubmitted(true);
-      setMessages([{
-        id: Date.now().toString(),
-        text: `User submitted transaction ID: ${transactionId}`,
-        sender: 'user',
-        timestamp: new Date()
-      }]);
-    } catch (error) {
-      toast.error('Failed to submit transaction ID');
-      console.error(error);
+    if (!currentUser?.uid) {
+      toast.error('You must be logged in to submit a request.');
+      return;
     }
-  };
 
-  const sendMessage = async () => {
-    if (!newMessage.trim() || !currentUser?.uid) return;
-    
     try {
-      const userRef = doc(db, 'users', currentUser.uid);
-      const newMsg = {
-        id: Date.now().toString(),
-        text: newMessage,
-        sender: 'user' as const,
-        timestamp: new Date()
-      };
-      
-      await updateDoc(userRef, {
-        premiumMessages: [...messages, newMsg]
+      // Update the user's document with the transaction ID and pending status
+      await updateDoc(doc(db, 'users', currentUser.uid), {
+        transactionId: transactionId.trim(),
+        premiumStatus: 'pending',
+        isPremium: false, // Ensure isPremium is false when pending
+        paymentMethod: activePaymentMethod, // Save the payment method used
+        submittedAt: new Date(), // Timestamp for admin
       });
-      
-      setNewMessage('');
+
+      setSubmitted(true);
+      setAdminChecked(false); // Reset adminChecked to false as a new request is pending
+      toast.success('Transaction ID submitted! Waiting for admin approval.');
     } catch (error) {
-      toast.error('Failed to send message');
-      console.error(error);
+      console.error('Error submitting transaction ID:', error);
+      toast.error('Failed to submit transaction ID. Please try again.');
     }
   };
 
@@ -158,7 +119,86 @@ export default function PremiumPage() {
               </p>
             </div>
 
-            {!submitted ? (
+            {premiumStatus === 'approved' ? (
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center p-4 bg-green-100 rounded-full">
+                  <CheckCircle2 className="h-12 w-12 text-green-600" />
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4">
+                  Congratulations, {currentUser?.displayName || 'User'}!
+                </h2>
+                <p className="text-gray-600 mt-2">
+                  You are now a premium member. Enjoy all the exclusive features!
+                </p>
+                <div className="mt-4 sm:mt-6">
+                  <button
+                    onClick={() => window.location.href = '/'}
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+                  >
+                    Start Exploring
+                  </button>
+                </div>
+              </div>
+            ) : premiumStatus === 'rejected' ? (
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center p-4 bg-red-100 rounded-full">
+                  <AlertCircle className="h-12 w-12 text-red-600" />
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4">Verification Failed</h2>
+                <p className="text-gray-600 mt-2">
+                  We couldn't verify your transaction. Please contact admin for assistance or try again.
+                </p>
+                <div className="mt-4 flex items-center justify-center space-x-2">
+                  <Phone className="h-5 w-5 text-gray-500" />
+                  <span className="text-gray-700 font-medium">+251994024681</span>
+                </div>
+                <div className="mt-4 sm:mt-6">
+                  <button
+                    onClick={() => {
+                      setSubmitted(false); // Allow re-submission
+                      setTransactionId(''); // Clear transaction ID for new attempt
+                      setAdminChecked(false);
+                      setPremiumStatus('pending'); // Reset status for new attempt
+                    }}
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+                  >
+                    Try Again
+                  </button>
+                </div>
+              </div>
+            ) : premiumStatus === 'pending' && submitted ? (
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center p-4 bg-purple-100 rounded-full">
+                  <Clock className="h-12 w-12 text-purple-600" />
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4">Processing Your Request</h2>
+                <p className="text-gray-600 mt-2">
+                  Your transaction ID <span className="font-mono font-bold text-purple-700">{transactionId}</span> has been received. Our team is verifying your premium request. This usually takes up to 7 hours.
+                </p>
+                
+                <div className="py-4 sm:py-6">
+                  <div className="text-3xl sm:text-4xl font-mono font-bold text-purple-600">
+                    {formatTime(timeLeft)}
+                  </div>
+                  <div className="mt-2 text-sm text-gray-500">
+                    Time remaining for verification
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <AlertCircle className="h-5 w-5 text-yellow-400" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-yellow-700">
+                        Please be patient while we verify your transaction. You'll receive a notification once processed.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
               <div className="space-y-6">
                 {/* Payment Method Selection */}
                 <div className="space-y-3">
@@ -300,126 +340,49 @@ export default function PremiumPage() {
                   </button>
                 </form>
               </div>
-            ) : (
-              <div className="space-y-6">
-                {!adminChecked ? (
-                  <>
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center p-4 bg-purple-100 rounded-full">
-                        <Clock className="h-12 w-12 text-purple-600" />
-                      </div>
-                      <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Processing Your Request</h2>
-                      <p className="text-gray-600">
-                        Our team is verifying your transaction. This usually takes up to 7 hours.
-                      </p>
-                      
-                      <div className="py-4 sm:py-6">
-                        <div className="text-3xl sm:text-4xl font-mono font-bold text-purple-600">
-                          {formatTime(timeLeft)}
-                        </div>
-                        <div className="mt-2 text-sm text-gray-500">
-                          Time remaining for verification
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Chat Interface */}
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-medium text-gray-800 mb-3 flex items-center">
-                        <MessageSquare className="h-5 w-5 text-purple-600 mr-2" />
-                        Premium Approval Chat
-                      </h3>
-                      
-                      <div className="space-y-3 mb-4 max-h-60 overflow-y-auto">
-                        {messages.length > 0 ? (
-                          messages.map((message) => (
-                            <div 
-                              key={message.id}
-                              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                            >
-                              <div 
-                                className={`max-w-xs sm:max-w-md px-4 py-2 rounded-lg ${message.sender === 'user' 
-                                  ? 'bg-purple-100 text-purple-900 rounded-tr-none' 
-                                  : 'bg-gray-100 text-gray-900 rounded-tl-none'}`}
-                              >
-                                <p className="text-sm">{message.text}</p>
-                                <p className="text-xs text-gray-500 mt-1">
-                                  {message.timestamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
-                                </p>
-                              </div>
-                            </div>
-                          ))
-                        ) : (
-                          <p className="text-sm text-gray-500 text-center py-4">
-                            No messages yet. Admin will contact you here if needed.
-                          </p>
-                        )}
-                      </div>
-
-                      <div className="flex space-x-2">
-                        <input
-                          type="text"
-                          value={newMessage}
-                          onChange={(e) => setNewMessage(e.target.value)}
-                          placeholder="Type your message..."
-                          className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        />
-                        <button
-                          onClick={sendMessage}
-                          className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-                        >
-                          Send
-                        </button>
-                      </div>
-                    </div>
-                  </>
-                ) : isApproved ? (
-                  <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center p-4 bg-green-100 rounded-full">
-                      <CheckCircle2 className="h-12 w-12 text-green-600" />
-                    </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
-                      Congratulations, {currentUser?.displayName || 'User'}!
-                    </h2>
-                    <p className="text-gray-600">
-                      You are now a premium member. Enjoy all the exclusive features!
-                    </p>
-                    <div className="mt-4 sm:mt-6">
-                      <button
-                        onClick={() => window.location.href = '/'}
-                        className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
-                      >
-                        Start Exploring
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center p-4 bg-red-100 rounded-full">
-                      <AlertCircle className="h-12 w-12 text-red-600" />
-                    </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Verification Failed</h2>
-                    <p className="text-gray-600">
-                      We couldn't verify your transaction. Please contact admin for assistance.
-                    </p>
-                    <div className="mt-4 flex items-center justify-center space-x-2">
-                      <Phone className="h-5 w-5 text-gray-500" />
-                      <span className="text-gray-700 font-medium">+251994024681</span>
-                    </div>
-                    <div className="mt-4 sm:mt-6">
-                      <button
-                        onClick={() => setSubmitted(false)}
-                        className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
-                      >
-                        Try Again
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
             )}
           </div>
         </motion.div>
+
+        {submitted && premiumStatus === 'pending' && (
+          <div className="mt-6 sm:mt-8 bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-5 sm:p-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-3 sm:mb-4">What happens next?</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-600 text-sm sm:text-base">1</span>
+                  </div>
+                  <div className="ml-3 sm:ml-4">
+                    <p className="text-sm sm:text-base text-gray-700">
+                      Our admin team reviews your transaction details
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-600 text-sm sm:text-base">2</span>
+                  </div>
+                  <div className="ml-3 sm:ml-4">
+                    <p className="text-sm sm:text-base text-gray-700">
+                      Verification typically completes within 7 hours
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-600 text-sm sm:text-base">3</span>
+                  </div>
+                  <div className="ml-3 sm:ml-4">
+                    <p className="text-sm sm:text-base text-gray-700">
+                      You'll receive immediate access upon approval
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
