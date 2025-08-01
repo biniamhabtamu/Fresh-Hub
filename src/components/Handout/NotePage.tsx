@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { noteCollections } from '../../data/NoteCollections';
-import { ChevronDown, ChevronUp, ArrowLeft, Download, BookOpen, Bookmark, Search } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowLeft, BookOpen, Bookmark, Layers } from 'lucide-react';
 
 const NotePage = () => {
   const { subjectId, chapterId } = useParams();
@@ -9,7 +9,25 @@ const NotePage = () => {
   const [content, setContent] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+
+  // Color themes for different subjects
+  const subjectColors = {
+    Psychology: { bg: 'from-purple-100 to-pink-100', text: 'text-purple-600', border: 'border-purple-200' },
+    Logic: { bg: 'from-blue-100 to-cyan-100', text: 'text-blue-600', border: 'border-blue-200' },
+    Geography: { bg: 'from-green-100 to-teal-100', text: 'text-green-600', border: 'border-green-200' },
+    'English skill 1': { bg: 'from-red-100 to-orange-100', text: 'text-red-600', border: 'border-red-200' },
+    Anthropology: { bg: 'from-amber-100 to-yellow-100', text: 'text-amber-600', border: 'border-amber-200' },
+    Economics: { bg: 'from-emerald-100 to-lime-100', text: 'text-emerald-600', border: 'border-emerald-200' },
+    Physics: { bg: 'from-indigo-100 to-violet-100', text: 'text-indigo-600', border: 'border-indigo-200' },
+    Math: { bg: 'from-sky-100 to-blue-100', text: 'text-sky-600', border: 'border-sky-200' },
+    'Organic Chemistry': { bg: 'from-rose-100 to-pink-100', text: 'text-rose-600', border: 'border-rose-200' },
+    'C++': { bg: 'from-fuchsia-100 to-purple-100', text: 'text-fuchsia-600', border: 'border-fuchsia-200' },
+    'Applied Math': { bg: 'from-cyan-100 to-blue-100', text: 'text-cyan-600', border: 'border-cyan-200' },
+    'Global Trade': { bg: 'from-teal-100 to-emerald-100', text: 'text-teal-600', border: 'border-teal-200' },
+    'Emerging Technology': { bg: 'from-violet-100 to-purple-100', text: 'text-violet-600', border: 'border-violet-200' },
+    History: { bg: 'from-amber-100 to-orange-100', text: 'text-amber-600', border: 'border-amber-200' },
+    default: { bg: 'from-gray-100 to-blue-100', text: 'text-gray-600', border: 'border-gray-200' }
+  };
 
   useEffect(() => {
     const subject = noteCollections.find(s => s.id === subjectId);
@@ -17,7 +35,6 @@ const NotePage = () => {
       const chapter = subject.chapters.find(c => c.id === chapterId);
       if (chapter) {
         setContent(chapter.content);
-        // Check if chapter is bookmarked in localStorage
         const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
         setIsBookmarked(!!bookmarks[chapterId]);
       } else {
@@ -58,31 +75,19 @@ const NotePage = () => {
     setIsBookmarked(!isBookmarked);
   };
 
-  const highlightSearchTerms = (text) => {
-    if (!searchQuery) return text;
-    
-    const regex = new RegExp(`(${searchQuery})`, 'gi');
-    return text.split(regex).map((part, i) => 
-      regex.test(part) ? (
-        <mark key={i} className="bg-yellow-200">{part}</mark>
-      ) : (
-        part
-      )
-    );
-  };
-
   const currentSubject = noteCollections.find(s => s.id === subjectId);
   const currentChapter = currentSubject?.chapters.find(c => c.id === chapterId);
+  const colors = subjectColors[currentSubject?.name] || subjectColors.default;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className={`min-h-screen bg-gradient-to-br ${colors.bg}`}>
       {/* Floating Navigation */}
       {isScrolled && (
-        <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-10 py-2 px-4">
+        <div className={`fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-10 py-3 px-6 border-b ${colors.border}`}>
           <div className="max-w-6xl mx-auto flex justify-between items-center">
             <button
               onClick={() => navigate('/handouts')}
-              className="flex items-center text-indigo-600 hover:text-indigo-800 transition-colors"
+              className={`flex items-center ${colors.text} hover:opacity-80 transition-opacity`}
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
               <span className="hidden sm:inline">{currentSubject?.name}</span>
@@ -90,72 +95,50 @@ const NotePage = () => {
             <h2 className="text-sm sm:text-base font-medium text-gray-700 truncate max-w-xs sm:max-w-md">
               {currentChapter?.title}
             </h2>
-            <div className="flex space-x-2">
-              <button
-                onClick={toggleBookmark}
-                className={`p-2 rounded-full ${isBookmarked ? 'text-yellow-500' : 'text-gray-400 hover:text-yellow-500'}`}
-              >
-                <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
-              </button>
-              <button
-                onClick={scrollToBottom}
-                className="p-2 rounded-full text-indigo-600 hover:bg-indigo-50"
-              >
-                <ChevronDown className="h-5 w-5" />
-              </button>
-            </div>
+            <button
+              onClick={toggleBookmark}
+              className={`p-2 rounded-full ${isBookmarked ? colors.text : 'text-gray-400 hover:' + colors.text}`}
+            >
+              <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
+            </button>
           </div>
         </div>
       )}
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pt-16 sm:pt-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 pt-20 sm:pt-24">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-          <div>
-            <button
-              onClick={() => navigate('/handouts')}
-              className="flex items-center text-indigo-600 hover:text-indigo-800 transition-colors mb-2"
-            >
-              <ArrowLeft className="h-5 w-5 mr-2" />
-              Back to Subjects
-            </button>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
-              {currentSubject?.name}
-            </h1>
-            <h2 className="text-xl sm:text-2xl text-indigo-600 mt-2">
-              {currentChapter?.title}
-            </h2>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <div className="relative w-full sm:w-64">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search in notes..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+        <div className="mb-10 text-center">
+          <button
+            onClick={() => navigate('/handouts')}
+            className={`flex items-center mx-auto ${colors.text} hover:opacity-80 transition-opacity mb-6`}
+          >
+            <ArrowLeft className="h-5 w-5 mr-2" />
+            Back to Subjects
+          </button>
+          
+          <div className={`inline-block px-6 py-2 rounded-full ${colors.text} bg-white/50 backdrop-blur-sm mb-4`}>
+            <div className="flex items-center">
+              <Layers className="h-4 w-4 mr-2" />
+              <span className="text-sm font-medium">{currentSubject?.name}</span>
             </div>
-            <button className="flex items-center justify-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-              <Download className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">Download PDF</span>
-            </button>
+          </div>
+          
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+            {currentChapter?.title}
+          </h1>
+          
+          <div className="flex justify-center items-center text-sm text-gray-500">
+            <BookOpen className="h-4 w-4 mr-2" />
+            <span>Last updated: {new Date().toLocaleDateString()}</span>
           </div>
         </div>
 
         {/* Content */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/20">
           <div className="p-6 sm:p-8">
-            <div className="flex items-center text-sm text-gray-500 mb-4">
-              <BookOpen className="h-4 w-4 mr-2" />
-              <span>Last updated: {new Date().toLocaleDateString()}</span>
-            </div>
-            
             <div className="prose max-w-none text-gray-700">
               {content ? (
-                <div dangerouslySetInnerHTML={{ __html: highlightSearchTerms(content) }} />
+                <div dangerouslySetInnerHTML={{ __html: content }} />
               ) : (
                 <div className="flex justify-center items-center h-64">
                   <div className="animate-pulse text-gray-400">
@@ -169,26 +152,26 @@ const NotePage = () => {
 
         {/* Chapter Navigation */}
         {currentSubject && (
-          <div className="mt-8 bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">More Chapters</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {currentSubject.chapters.map((chapter) => (
-                  <button
-                    key={chapter.id}
-                    onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
-                    className={`p-3 rounded-lg border transition-colors text-left ${chapterId === chapter.id
-                      ? 'bg-indigo-50 border-indigo-200 text-indigo-700'
-                      : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                    }`}
-                  >
-                    <h4 className="font-medium">{chapter.title}</h4>
-                    <p className="text-sm text-gray-500 mt-1 line-clamp-2">
-                      {chapter.description || 'No description available'}
-                    </p>
-                  </button>
-                ))}
-              </div>
+          <div className="mt-12">
+            <h3 className={`text-lg font-semibold ${colors.text} mb-6 text-center`}>
+              Explore More Chapters
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {currentSubject.chapters.map((chapter) => (
+                <button
+                  key={chapter.id}
+                  onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
+                  className={`p-5 rounded-xl border transition-all text-left backdrop-blur-sm ${chapterId === chapter.id
+                    ? `bg-white/90 border-white shadow-lg ${colors.text} font-medium`
+                    : 'bg-white/50 border-white/30 hover:bg-white/70 hover:shadow-md'
+                  }`}
+                >
+                  <h4 className="font-medium">{chapter.title}</h4>
+                  <p className="text-sm text-gray-500 mt-2 line-clamp-2">
+                    {chapter.description || 'Chapter content'}
+                  </p>
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -199,7 +182,7 @@ const NotePage = () => {
         {isScrolled && (
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
+            className={`p-3 rounded-full shadow-lg ${colors.text} bg-white/90 backdrop-blur-sm hover:bg-white transition-all`}
             aria-label="Scroll to top"
           >
             <ChevronUp className="h-6 w-6" />
@@ -207,7 +190,7 @@ const NotePage = () => {
         )}
         <button
           onClick={scrollToBottom}
-          className="bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
+          className={`p-3 rounded-full shadow-lg ${colors.text} bg-white/90 backdrop-blur-sm hover:bg-white transition-all`}
           aria-label="Scroll to bottom"
         >
           <ChevronDown className="h-6 w-6" />
