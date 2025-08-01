@@ -12,23 +12,336 @@ export interface Subject {
 }
 
 export const noteCollections: Subject[] = [
-  {
-    id: 'psychology',
-    name: 'Psychology',
-    icon: '🧠',
-    chapters: [
-      { 
-        id: 'intro', 
-        title: 'Introduction to Psychology', 
-        content: '<h2>What is Psychology?</h2><p>Psychology is the scientific study of mind and behavior...</p><h3>Key Concepts</h3><ul><li>Cognition</li><li>Emotion</li><li>Development</li></ul>'
-      },
-      { 
-        id: 'research-methods', 
-        title: 'Research Methods', 
-        content: '<h2>Scientific Methods in Psychology</h2><p>Experimental designs, case studies, and correlations...</p>'
-      }
-    ]
-  },
+ {
+  id: 'psychology',
+  name: 'Psychology',
+  icon: '🧠',
+  chapters: [
+    { 
+      id: 'chapter1', 
+      title: 'Chapter 1: Essence of Psychology', 
+      content: `
+        <div class="prose max-w-none">
+          <h1 class="text-3xl font-bold mb-6 text-purple-700">Chapter 1: Essence of Psychology</h1>
+          
+          <div class="bg-purple-50 p-6 rounded-xl mb-8 border-l-4 border-purple-500">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-800">Chapter Overview</h2>
+            <p class="text-gray-700">This chapter introduces the concept of psychology, covering definitions, goals, historical background, major perspectives, branches, and research methods.</p>
+          </div>
+
+          <div class="bg-indigo-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
+            <h2 class="text-2xl font-semibold mb-4 text-indigo-800">Learning Outcomes</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Define psychology</li>
+              <li>Show the historical roots of psychology</li>
+              <li>Identify goals and early schools of psychology</li>
+              <li>Discuss different perspectives and subfields</li>
+              <li>Differentiate research methods and steps in scientific research</li>
+            </ul>
+          </div>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.1. Definition of Psychology and Related Concepts</h2>
+            
+            <div class="ml-6 space-y-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Origin</h3>
+                <p>The term "psychology" comes from the Greek words <span class="font-semibold">psyche</span> (mind, soul) and <span class="font-semibold">logos</span> (study, knowledge). It represents the study of the mind and its processes, often symbolized by the Greek letter <span class="text-xl">ᴪ</span> (psi).</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Scientific Definition</h3>
+                <ul class="list-disc pl-6 space-y-2 mt-2">
+                  <li><strong>Science:</strong> Psychology employs scientific methods to study behavior and mental processes, using empirical data.</li>
+                  <li><strong>Behavior:</strong> Includes observable actions and reactions, as well as covert behaviors considered mental processes.</li>
+                  <li><strong>Mental Processes:</strong> Refers to internal activities like thinking, feeling, and remembering.</li>
+                </ul>
+              </div>
+              
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 mt-4">
+                <h4 class="font-medium text-yellow-800">Reflection</h4>
+                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
+                  <li>Compare the definition of psychology with prior conceptions.</li>
+                  <li>Reflect on how the four goals of psychology relate to and differ from each other.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.2. Goals of Psychology</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Description</h3>
+                <p>Observing and noting behavior to understand "What is happening?" This involves documenting actions and reactions.</p>
+                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Noticing a student's decline in performance and attitude.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Explanation</h3>
+                <p>Seeking reasons for observed behavior, leading to theories.</p>
+                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Understanding a student's behavior might involve investigating their home background.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Prediction</h3>
+                <p>Determining future behavior based on current observations and research.</p>
+                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Predicting a student's academic potential based on observed issues.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Control</h3>
+                <p>Modifying behavior from undesirable to desirable, and controlling for variables in research.</p>
+                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Implementing learning strategies to improve academic performance.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.3. Historical Background and Major Perspectives</h2>
+            
+            <div class="ml-6 space-y-6">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Historical Context</h3>
+                <p>Psychology emerged around 125 years ago with Wilhelm Wundt establishing the first psychology laboratory in 1879 at the University of Leipzig, Germany. Wundt's method, objective introspection, aimed to scientifically study mental experiences.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-medium mb-3 text-purple-600">Early Schools of Psychology</h3>
+                
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-bold text-blue-700">Structuralism</h4>
+                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                      <li><strong>Founder:</strong> Edward Titchener</li>
+                      <li><strong>Focus:</strong> Structure of the mind</li>
+                      <li><strong>Method:</strong> Introspection</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <h4 class="font-bold text-green-700">Functionalism</h4>
+                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                      <li><strong>Founder:</strong> William James</li>
+                      <li><strong>Focus:</strong> Functions of the mind</li>
+                      <li><strong>Methods:</strong> Questionnaires, tests</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-bold text-yellow-700">Gestalt Psychology</h4>
+                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                      <li><strong>Founders:</strong> Wertheimer et al.</li>
+                      <li><strong>Focus:</strong> Mind as a whole</li>
+                      <li><strong>Viewpoint:</strong> "Whole is greater"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-4 mt-4">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <h4 class="font-bold text-red-700">Behaviorism</h4>
+                  <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                    <li><strong>Founder:</strong> John B. Watson</li>
+                    <li><strong>Focus:</strong> Observable behavior</li>
+                    <li><strong>Key Concept:</strong> Learned behaviors</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-pink-50 p-4 rounded-lg border border-pink-200">
+                  <h4 class="font-bold text-pink-700">Psychoanalysis</h4>
+                  <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                    <li><strong>Founder:</strong> Sigmund Freud</li>
+                    <li><strong>Focus:</strong> Unconscious mind</li>
+                    <li><strong>Methods:</strong> Dream analysis</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm mt-4">
+                <h3 class="text-lg font-medium text-purple-600">Modern Perspectives</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Psychodynamic</h4>
+                    <p class="text-sm">Unconscious dynamics, childhood experiences</p>
+                  </div>
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Behavioral</h4>
+                    <p class="text-sm">Learning experiences, environment</p>
+                  </div>
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Humanistic</h4>
+                    <p class="text-sm">Free will, self-actualization</p>
+                  </div>
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Cognitive</h4>
+                    <p class="text-sm">Reasoning, memory, problem-solving</p>
+                  </div>
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Biological</h4>
+                    <p class="text-sm">Brain structures, neurotransmitters</p>
+                  </div>
+                  <div class="border p-3 rounded">
+                    <h4 class="font-bold">Sociocultural</h4>
+                    <p class="text-sm">Cultural norms, social interactions</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-medium text-yellow-800">Reflection Questions</h4>
+                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
+                  <li>How does the historical development influence current practices?</li>
+                  <li>What are key differences between early schools?</li>
+                  <li>How might insights from different perspectives be integrated?</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.4. Branches of Psychology</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Developmental Psychology</h3>
+                <p class="text-sm">Studies physical, cognitive, and psychological changes across the lifespan.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Social Psychology</h3>
+                <p class="text-sm">Deals with social interactions, relationships, and attitudes.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Clinical Psychology</h3>
+                <p class="text-sm">Diagnosis and treatment of psychological disorders.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Industrial Psychology</h3>
+                <p class="text-sm">Applies principles to increase productivity in organizations.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Forensic Psychology</h3>
+                <p class="text-sm">Applies principles to improve the legal system.</p>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">Health Psychology</h3>
+                <p class="text-sm">Prevention and treatment of physical illnesses.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.5. Research Methods in Psychology</h2>
+            
+            <div class="ml-6 space-y-6">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">A. Definition of Terms</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li><strong>Scientific Method:</strong> Process for reducing bias through systematic observation</li>
+                  <li><strong>Theory:</strong> Integrated principles describing aspects of experience</li>
+                  <li><strong>Hypothesis:</strong> Tentative proposition about variable relationships</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-medium mb-3 text-purple-600">B. Major Research Methods</h3>
+                
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-blue-700">Descriptive Research</h4>
+                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                      <li>Naturalistic observation</li>
+                      <li>Case studies</li>
+                      <li>Surveys</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-green-700">Correlational Research</h4>
+                    <p class="text-sm mt-2">Examines relationships between variables (correlation ≠ causation)</p>
+                  </div>
+                  
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-purple-700">Experimental Research</h4>
+                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
+                      <li>Independent Variable (IV)</li>
+                      <li>Dependent Variable (DV)</li>
+                      <li>Control Group</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-purple-600">C. Steps of Scientific Research</h3>
+                <ol class="list-decimal pl-6 space-y-3">
+                  <li><strong>Defining the Problem:</strong> Identifying phenomenon needing explanation</li>
+                  <li><strong>Formulating Hypothesis:</strong> Creating testable statement</li>
+                  <li><strong>Testing Hypothesis:</strong> Collecting and analyzing data</li>
+                  <li><strong>Drawing Conclusions:</strong> Making generalizations</li>
+                  <li><strong>Reporting Results:</strong> Documenting findings</li>
+                </ol>
+              </div>
+              
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-medium text-yellow-800">Reflection Questions</h4>
+                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
+                  <li>Compare the three major research methods</li>
+                  <li>Discuss ethical procedures in research</li>
+                  <li>List the steps of conducting research</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-800">Summary</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Psychology is the scientific study of behavior and mental processes</li>
+              <li>Psychologists aim to describe, explain, predict, and control behavior</li>
+              <li>Evolved from early schools to modern perspectives</li>
+              <li>Applied in health, education, business, and law</li>
+              <li>Research methods include descriptive, correlational, and experimental</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 bg-white p-6 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700">Discussion Questions</h2>
+            <ol class="list-decimal pl-6 space-y-3">
+              <li>Compare and contrast the five early schools of thought in psychology</li>
+              <li>Compare and contrast the modern psychological perspectives</li>
+              <li>Reflect on the relationship between the goals of psychology and research methods</li>
+              <li>In an experiment on tutorial support:
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                  <li><strong>Dependent Variable:</strong> Students' academic performance</li>
+                  <li><strong>Independent Variable:</strong> Tutorial support</li>
+                  <li><strong>Control Group:</strong> Students without tutorial support</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      `
+    },
+    { 
+      id: 'intro', 
+      title: 'Introduction to Psychology', 
+      content: '<h2>What is Psychology?</h2><p>Psychology is the scientific study of mind and behavior...</p><h3>Key Concepts</h3><ul><li>Cognition</li><li>Emotion</li><li>Development</li></ul>'
+    },
+    { 
+      id: 'research-methods', 
+      title: 'Research Methods', 
+      content: '<h2>Scientific Methods in Psychology</h2><p>Experimental designs, case studies, and correlations...</p>'
+    }
+  ]
+},
   {
     id: 'logic',
     name: 'Logic',
