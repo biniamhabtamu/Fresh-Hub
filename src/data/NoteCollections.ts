@@ -922,14 +922,19 @@ export const noteCollections: Subject[] = [
       `
     },
     { 
-      id: 'physical', 
-      title: 'Physical Geography', 
+      id: 'chapter2', 
+      title: 'The Geology Of Ethiopia and the Horn of Africa', 
       content: '<h2>Earth Systems</h2><p>Lithosphere, hydrosphere, atmosphere...</p>'
     },
     { 
-      id: 'human', 
-      title: 'Human Geography', 
+      id: 'chapter3', 
+      title: 'The Topography of Ethiopia and the Horn of Africa', 
       content: '<h2>Population and Culture</h2><p>Demographics, migration patterns...</p>'
+    },
+    { 
+      id: 'chapter4', 
+      title: 'Drainage Systems and Water Resources of Ethiopia and the Horn of Africa', 
+      content: '<h2>Water Bodies</h2><p>Lakes, rivers, and their significance...</p>'
     }
   ]
 },
