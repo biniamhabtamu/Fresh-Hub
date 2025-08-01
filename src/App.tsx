@@ -13,6 +13,8 @@ import SettingsPage from './components/Layout/SettingsPage';
 import { motion } from 'framer-motion';
 import './App.css';
 import AdminDashboard from './components/admin/premium-approvals';
+import HandoutPage from './components/Handout/HandoutPage';
+import NotePage from './components/Handout/NotePage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
@@ -93,6 +95,23 @@ function AppRoutes() {
         } 
       />
       <Route 
+        path="/handouts" 
+        element={
+          <ProtectedRoute>
+            <HandoutPage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/notes/:subjectId/:chapterId" 
+        element={
+          <ProtectedRoute>
+            <NotePage />
+          </ProtectedRoute>
+        } 
+      />
+
+      <Route 
         path="/settings" 
         element={
           <ProtectedRoute>
@@ -101,6 +120,7 @@ function AppRoutes() {
         } 
       />
       <Route path="/" element={<Navigate to="/dashboard" />} />
+      
     </Routes>
   );
 }

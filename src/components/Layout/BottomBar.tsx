@@ -30,7 +30,7 @@ const BottomBar = () => {
       name: 'Handout', 
       icon: <FiBook size={22} />, 
       activeIcon: <motion.div whileHover={{ scale: 1.1 }} animate={{ y: [0, -2, 0] }}><FiBook size={22} /></motion.div>,
-      path: '/',
+      path: '/handouts',
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-100',
       hoverColor: 'hover:bg-indigo-50'
