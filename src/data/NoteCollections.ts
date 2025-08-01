@@ -343,22 +343,408 @@ export const noteCollections: Subject[] = [
   ]
 },
   {
-    id: 'logic',
-    name: 'Logic',
-    icon: '🔍',
-    chapters: [
-      { 
-        id: 'propositional', 
-        title: 'Propositional Logic', 
-        content: '<h2>Basic Logical Operators</h2><p>AND, OR, NOT, IF-THEN...</p>'
-      },
-      { 
-        id: 'fallacies', 
-        title: 'Logical Fallacies', 
-        content: '<h2>Common Reasoning Errors</h2><p>Straw man, ad hominem, false dilemma...</p>'
-      }
-    ]
-  },
+  id: 'logic',
+  name: 'Logic',
+  icon: '🔍',
+  chapters: [
+    { 
+      id: 'chapter1', 
+      title: 'Chapter 1: Introducing Philosophy', 
+      content: `
+        <div class="prose max-w-none">
+          <h1 class="text-3xl font-bold mb-6 text-blue-800">Chapter 1: Introducing Philosophy</h1>
+          
+          <div class="bg-blue-50 p-6 rounded-xl mb-8 border-l-4 border-blue-600">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-800">Chapter Overview</h2>
+            <div class="space-y-3 text-gray-700">
+              <p><span class="font-medium text-blue-700">Logic:</span> Treated as both a field of study and an instrument:</p>
+              <ul class="list-disc pl-6 space-y-1">
+                <li><strong>As a field:</strong> Branch of philosophy focused on arguments and correct reasoning</li>
+                <li><strong>As an instrument:</strong> Used to construct and evaluate rational arguments</li>
+              </ul>
+              <p>Historically, philosophers used logic to examine core philosophical topics like reality, knowledge, and values.</p>
+            </div>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-xl mb-8 border-l-4 border-green-600">
+            <h2 class="text-2xl font-semibold mb-4 text-green-800">Chapter Objectives</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Understand the meaning, nature, and features of philosophy</li>
+              <li>Recognize the major branches of philosophy</li>
+              <li>Appreciate the importance of studying logic and philosophy</li>
+            </ul>
+          </div>
+
+          <section class="mb-10">
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-600 text-white p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-blue-800">Lesson 1: Meaning and Nature of Philosophy</h2>
+            </div>
+            
+            <div class="ml-12 space-y-6">
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-xl font-medium mb-3 text-blue-700">Definition</h3>
+                <p>Etymologically, philosophy means <span class="font-semibold text-blue-600">"love of wisdom."</span></p>
+                <ul class="list-disc pl-6 mt-3 space-y-2">
+                  <li>Represents a quest for truth and development of critical thinking</li>
+                  <li>Encourages questioning of what may appear obvious or assumed</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-xl font-medium mb-3 text-blue-700">Lesson Objectives</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>Recognize fundamental concepts of philosophy</li>
+                  <li>Understand the meaning and nature of philosophy</li>
+                </ul>
+              </div>
+              
+              <div class="space-y-6">
+                <div class="bg-indigo-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-indigo-700">1. Defining Philosophy</h3>
+                  <p>Unlike other disciplines with specific subjects, philosophy addresses universal issues such as:</p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Existence</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Knowledge</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Truth</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Values</span>
+                  </div>
+                </div>
+                
+                <div class="bg-purple-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-purple-700">2. Philosophizing</h3>
+                  <p>Philosophy involves questioning fundamental issues and developing a critical mindset.</p>
+                  <div class="bg-white p-3 rounded mt-3 border-l-4 border-purple-500">
+                    <p class="italic">"Philosophy begins in wonder"</p>
+                    <p class="text-right text-sm text-gray-600">- Socrates</p>
+                  </div>
+                </div>
+                
+                <div class="bg-teal-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-teal-700">3. Etymology</h3>
+                  <p>The term comes from Greek:</p>
+                  <div class="flex items-center mt-2">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm mr-2">philo = love</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm shadow-sm">sophia = wisdom</span>
+                  </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-yellow-700">4. The Nature of Wisdom</h3>
+                  <p>Philosophical wisdom differs from technical knowledge - it's about critical thinking and truth.</p>
+                  <p class="mt-2 font-medium">Socratic wisdom involves constant search for truth and questioning apparent realities.</p>
+                </div>
+                
+                <div class="bg-pink-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-pink-700">5. The Art of Questioning</h3>
+                  <p>Central to philosophy, involving imagination and creativity to see beyond the obvious.</p>
+                </div>
+                
+                <div class="bg-blue-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-blue-700">6. Philosophy as Rational & Critical</h3>
+                  <p>Formulates and answers fundamental questions through:</p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Reason</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Analysis</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Comparison</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Evaluation</span>
+                  </div>
+                </div>
+                
+                <div class="bg-green-50 p-5 rounded-lg">
+                  <h3 class="text-lg font-bold mb-2 text-green-700">7. Philosophy as an Activity</h3>
+                  <p>An active process rather than memorized knowledge - about thinking critically and philosophizing.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <div class="flex items-center mb-4">
+              <div class="bg-green-600 text-white p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-green-800">Lesson 2: Basic Features of Philosophy</h2>
+            </div>
+            
+            <div class="ml-12 space-y-6">
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-xl font-medium mb-3 text-green-700">Lesson Objectives</h3>
+                <p>Recognize and understand the unique features of philosophy.</p>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h3 class="text-lg font-bold mb-2 text-blue-700">1. Informal vs. Formal Philosophy</h3>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                      <h4 class="font-semibold text-blue-600">Informal Philosophy</h4>
+                      <p class="text-sm">Personal views/beliefs about life, often held uncritically</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                      <h4 class="font-semibold text-green-600">Formal Philosophy</h4>
+                      <p class="text-sm">Critical examination of beliefs using argumentation and analysis</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h3 class="text-lg font-bold mb-2 text-purple-700">2. Critical Reflection & Generalization</h3>
+                  <p>Reflecting critically on common sense and generalizing across life problems.</p>
+                </div>
+                
+                <div class="border-l-4 border-teal-500 pl-4">
+                  <h3 class="text-lg font-bold mb-2 text-teal-700">3. Worldview Integration</h3>
+                  <p>Combining conclusions of sciences and human experience into a coherent worldview.</p>
+                </div>
+                
+                <div class="border-l-4 border-yellow-500 pl-4">
+                  <h3 class="text-lg font-bold mb-2 text-yellow-700">4. Analysis of Language</h3>
+                  <p>Logical analysis of language and clarification of terms.</p>
+                </div>
+                
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h3 class="text-lg font-bold mb-2 text-red-700">5. Perennial Problems</h3>
+                  <p>Addresses deep, fundamental issues about existence, truth, morality.</p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Idealism</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Realism</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Pragmatism</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-center shadow-sm">Existentialism</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <div class="flex items-center mb-4">
+              <div class="bg-purple-600 text-white p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-purple-800">Lesson 3: Metaphysics and Epistemology</h2>
+            </div>
+            
+            <div class="ml-12 space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-indigo-50 p-5 rounded-xl">
+                  <h3 class="text-xl font-bold mb-3 text-indigo-700">Metaphysics</h3>
+                  <p>Studies the ultimate nature of reality or existence.</p>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Key Questions:</h4>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                      <li>What is the nature of reality?</li>
+                      <li>Mind-body problem</li>
+                      <li>Existence of God</li>
+                      <li>Meaning of life</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Subsets:</h4>
+                    <div class="space-y-2">
+                      <div class="bg-white p-2 rounded">
+                        <h5 class="font-medium">Cosmological</h5>
+                        <p class="text-xs">Universe's origin, nature, purpose</p>
+                      </div>
+                      <div class="bg-white p-2 rounded">
+                        <h5 class="font-medium">Theological</h5>
+                        <p class="text-xs">Existence and attributes of God</p>
+                      </div>
+                      <div class="bg-white p-2 rounded">
+                        <h5 class="font-medium">Anthropological</h5>
+                        <p class="text-xs">Human nature, free will, soul</p>
+                      </div>
+                      <div class="bg-white p-2 rounded">
+                        <h5 class="font-medium">Ontological</h5>
+                        <p class="text-xs">Nature of existence</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-teal-50 p-5 rounded-xl">
+                  <h3 class="text-xl font-bold mb-3 text-teal-700">Epistemology</h3>
+                  <p>Examines the nature, scope, and validity of knowledge.</p>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Key Issues:</h4>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                      <li>Nature of knowledge and truth</li>
+                      <li>Sources of knowledge</li>
+                      <li>Faith vs. reason</li>
+                      <li>Subjective vs. objective knowledge</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Sources of Knowledge:</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Experience</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Reason</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Intuition</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Revelation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <div class="flex items-center mb-4">
+              <div class="bg-red-600 text-white p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-red-800">Lesson 4: Axiology and Logic</h2>
+            </div>
+            
+            <div class="ml-12 space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-yellow-50 p-5 rounded-xl">
+                  <h3 class="text-xl font-bold mb-3 text-yellow-700">Axiology</h3>
+                  <p class="italic">(Greek: "Axios" = value, "Logos" = study)</p>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Areas of Study:</h4>
+                    <div class="space-y-3">
+                      <div class="bg-white p-3 rounded-lg">
+                        <h5 class="font-bold text-yellow-600">Ethics</h5>
+                        <ul class="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li>Moral principles and conduct</li>
+                          <li>Branches: Meta-ethics, Normative, Applied</li>
+                          <li>Questions: Good/bad, right/wrong</li>
+                        </ul>
+                      </div>
+                      
+                      <div class="bg-white p-3 rounded-lg">
+                        <h5 class="font-bold text-yellow-600">Aesthetics</h5>
+                        <ul class="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li>Theory of beauty and art</li>
+                          <li>Questions: What is art? Standards of beauty?</li>
+                        </ul>
+                      </div>
+                      
+                      <div class="bg-white p-3 rounded-lg">
+                        <h5 class="font-bold text-yellow-600">Social/Political</h5>
+                        <ul class="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li>Value judgments in society</li>
+                          <li>Questions: Best government? Justice?</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-5 rounded-xl">
+                  <h3 class="text-xl font-bold mb-3 text-blue-700">Logic</h3>
+                  <p>Study of principles of right reasoning.</p>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Key Questions:</h4>
+                    <ul class="list-disc pl-6 space-y-1 text-sm">
+                      <li>What constitutes an argument?</li>
+                      <li>Validity and soundness of arguments</li>
+                      <li>Relationship between premises and conclusion</li>
+                      <li>Identifying fallacies</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Types of Logic:</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Deductive</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Inductive</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Formal</span>
+                      <span class="bg-white px-2 py-1 rounded text-sm text-center shadow-sm">Informal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-10">
+            <div class="flex items-center mb-4">
+              <div class="bg-green-600 text-white p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-green-800">Lesson 5: Importance of Learning Philosophy</h2>
+            </div>
+            
+            <div class="ml-12 space-y-6">
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-xl font-medium mb-3 text-green-700">Benefits</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">1. Intellectual Independence</h4>
+                    <p class="text-sm">Develop personal opinions and coherent worldviews</p>
+                  </div>
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">2. Reflective Self-Awareness</h4>
+                    <p class="text-sm">Critically examine essential aspects of life</p>
+                  </div>
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">3. Tolerance & Open-Mindedness</h4>
+                    <p class="text-sm">Understand diverse perspectives</p>
+                  </div>
+                  <div class="bg-yellow-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">4. Critical Thinking</h4>
+                    <p class="text-sm">Enhance reasoning and original perspectives</p>
+                  </div>
+                  <div class="bg-red-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">5. Value Systems</h4>
+                    <p class="text-sm">Formulate moral, aesthetic, political values</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-gray-500">
+                <h3 class="text-lg font-bold mb-2 text-gray-700">Dealing with Uncertainty</h3>
+                <p class="italic">"The whole problem with the world is that fools and fanatics are always so certain of themselves, and wiser people so full of doubts."</p>
+                <p class="text-right text-sm text-gray-600">- Bertrand Russell</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-800">Chapter Summary</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Philosophy means "love of wisdom" - involves critical thinking and truth-seeking</li>
+              <li>Dual-sided discipline with critical and constructive aspects</li>
+              <li>Major branches: Metaphysics, Epistemology, Axiology, Logic</li>
+              <li>Helps examine life critically, promotes self-actualization</li>
+              <li>Prepares students to handle uncertainty of knowledge</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+    { 
+      id: 'propositional', 
+      title: 'Propositional Logic', 
+      content: '<h2>Basic Logical Operators</h2><p>AND, OR, NOT, IF-THEN...</p>'
+    },
+    { 
+      id: 'fallacies', 
+      title: 'Logical Fallacies', 
+      content: '<h2>Common Reasoning Errors</h2><p>Straw man, ad hominem, false dilemma...</p>'
+    }
+  ]
+},
  {
   id: 'geography',
   name: 'Geography',
