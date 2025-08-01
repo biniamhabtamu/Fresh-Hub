@@ -921,14 +921,14 @@ export const noteCollections: Subject[] = [
         </div>
       `
     },
-    { 
+    {  
       id: 'chapter2', 
       title: 'Chapter 2: The Geology Of Ethiopia and the Horn of Africa', 
       content: '<h2>Earth Systems</h2><p>Lithosphere, hydrosphere, atmosphere...</p>'
     },
     { 
       id: 'chapter3', 
-      title: 'Chapter 3: The Topography of Ethiopia and the Horn of Africa', 
+      title: 'Chapter 3:  The Topography of Ethiopia and the Horn of Africa', 
       content: '<h2>Population and Culture</h2><p>Demographics, migration patterns...</p>'
     },
     { 
