@@ -53,7 +53,7 @@ export default function Sidebar({ isOpen, onClose, currentUser }: SidebarProps) 
     { path: '/', icon: Home, label: 'Home', color: 'bg-indigo-100', iconColor: 'text-indigo-600', hoverColor: 'hover:bg-indigo-50' },
     { path: '/profilepage', icon: User, label: 'Profile', color: 'bg-blue-100', iconColor: 'text-blue-600', hoverColor: 'hover:bg-blue-50' },
     { path: '/settings', icon: Settings, label: 'Settings', color: 'bg-gray-100', iconColor: 'text-gray-600', hoverColor: 'hover:bg-gray-50' },
-    { path: '/contact', icon: Mail, label: 'Contact Us', color: 'bg-green-100', iconColor: 'text-green-600', hoverColor: 'hover:bg-green-50' },
+    { path: '/ContactUs', icon: Mail, label: 'Contact Us', color: 'bg-green-100', iconColor: 'text-green-600', hoverColor: 'hover:bg-green-50' },
     { path: '/community', icon: Users, label: 'Community', color: 'bg-purple-100', iconColor: 'text-purple-600', hoverColor: 'hover:bg-purple-50' },
     { path: '/handouts', icon: BookOpen, label: 'Handouts', color: 'bg-orange-100', iconColor: 'text-orange-600', hoverColor: 'hover:bg-orange-50' },
     { path: '/gpa-calculator', icon: Calculator, label: 'GPA Calculator', color: 'bg-red-100', iconColor: 'text-red-600', hoverColor: 'hover:bg-red-50' },
