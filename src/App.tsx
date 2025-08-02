@@ -15,7 +15,7 @@ import './App.css';
 import AdminDashboard from './components/admin/premium-approvals';
 import HandoutPage from './components/Handout/HandoutPage';
 import NotePage from './components/Handout/NotePage';
-
+import ContactUs from './components/Layout/ContactUs';
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -119,6 +119,13 @@ function AppRoutes() {
           </ProtectedRoute>
         } 
       />
+      <Route 
+        path="/ContactUs" 
+        element={
+          <ProtectedRoute>
+            <ContactUs />
+          </ProtectedRoute>
+        } />
       <Route path="/" element={<Navigate to="/dashboard" />} />
       
     </Routes>
