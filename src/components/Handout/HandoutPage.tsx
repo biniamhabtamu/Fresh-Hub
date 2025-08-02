@@ -3,6 +3,8 @@ import { noteCollections } from '../../data/NoteCollections';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronUp, BookOpen, Eye, NotebookText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BottomBar from '../Layout/BottomBar';
+import Header from '../Layout/Header';
 
 const HandoutPage = () => {
   const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
@@ -15,27 +17,11 @@ const HandoutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-12 px-4 sm:px-6 lg:px-16">
+      
       <div className="max-w-7xl mx-auto">
+        
         {/* Header Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center mb-4 p-3 bg-white rounded-full shadow-sm">
-            <NotebookText className="w-8 h-8 text-purple-600" />
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-              Study Handouts
-            </span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive resources for every subject, carefully curated for your learning journey
-          </p>
-        </motion.div>
-
+       
         {/* Subjects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {noteCollections.map((subject) => (
@@ -142,6 +128,7 @@ const HandoutPage = () => {
           </p>
         </motion.div>
       </div>
+      <BottomBar />
     </div>
   );
 };
