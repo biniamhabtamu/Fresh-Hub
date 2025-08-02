@@ -107,31 +107,7 @@ const NotePage = () => {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 pt-20 sm:pt-24">
         {/* Header */}
-        <div className="mb-10 text-center">
-          <button
-            onClick={() => navigate('/handouts')}
-            className={`flex items-center mx-auto ${colors.text} hover:opacity-80 transition-opacity mb-6`}
-          >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Subjects
-          </button>
-          
-          <div className={`inline-block px-6 py-2 rounded-full ${colors.text} bg-white/50 backdrop-blur-sm mb-4`}>
-            <div className="flex items-center">
-              <Layers className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">{currentSubject?.name}</span>
-            </div>
-          </div>
-          
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-            {currentChapter?.title}
-          </h1>
-          
-          <div className="flex justify-center items-center text-sm text-gray-500">
-            <BookOpen className="h-4 w-4 mr-2" />
-            <span>Last updated: {new Date().toLocaleDateString()}</span>
-          </div>
-        </div>
+        
 
         {/* Content */}
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/20">
