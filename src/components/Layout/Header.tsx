@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, BookOpen, Bell, Search, User, ChevronDown, Share2, Send, Home, Book, GraduationCap, Settings, LogOut } from 'lucide-react';
+import { Menu, Home, Book, GraduationCap, Settings, MoreVertical } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -9,6 +9,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isHoveringLogo, setIsHoveringLogo] = useState(false);
   const [activeNav, setActiveNav] = useState('');
+  const [showAboutUs, setShowAboutUs] = useState(false);
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,19 +29,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Get user initials for avatar
-  const getUserInitials = () => {
-    if (!currentUser?.displayName) return 'U';
-    const names = currentUser.displayName.split(' ');
-    return names.map(name => name[0]).join('').toUpperCase();
-  };
+  // Close About Us when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showAboutUs && !event.target.closest('.about-us-container')) {
+        setShowAboutUs(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showAboutUs]);
 
   // Navigation items
   const navItems = [
     { path: 'dashboard', icon: Home, label: 'Home' },
     { path: 'subjects', icon: Book, label: 'Subjects' },
     { path: 'courses', icon: GraduationCap, label: 'Courses' },
-    { path: 'profile', icon: User, label: 'Profile' },
     { path: 'settings', icon: Settings, label: 'Settings' },
   ];
 
@@ -116,72 +120,54 @@ export default function Header() {
               ))}
             </div>
 
-          
+            {/* 3-dot Menu Icon */}
+            <div className="relative about-us-container">
+              <button 
+                onClick={() => setShowAboutUs(!showAboutUs)}
+                className={`
+                  p-2 rounded-full transition-all duration-300
+                  ${scrolled 
+                    ? 'text-gray-700 hover:bg-indigo-50' 
+                    : 'text-white hover:bg-white/20'
+                  }
+                  ${showAboutUs ? (scrolled ? 'bg-indigo-100' : 'bg-white/30') : ''}
+                `}
+                aria-label="More options"
+              >
+                <MoreVertical size={24} />
+              </button>
 
-            {/* User Profile */}
-            {currentUser ? (
-              <div className="relative group">
-                <button 
-                  onClick={() => navigate('/profilepage')}
-                  className="flex items-center space-x-2 focus:outline-none"
-                  aria-label="User profile"
-                >
-                  <div className={`
-                    w-10 h-10 rounded-full flex items-center justify-center text-white font-bold
-                    transition-all duration-300 transform group-hover:scale-110
-                    bg-gradient-to-r from-indigo-400 to-pink-500 shadow-md
-                    ${isHoveringLogo ? 'animate-pulse' : ''}
-                  `}>
-                    {getUserInitials()}
-                  </div>
-                  <div className="hidden lg:flex items-center">
-                    <span className={`
-                      font-medium transition-colors duration-300
-                      ${scrolled ? 'text-gray-700 group-hover:text-indigo-600' : 'text-white group-hover:text-yellow-200'}
-                    `}>
-                      {currentUser.displayName?.split(' ')[0] || 'Profile'}
-                    </span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`
-                        ml-1 transition-transform duration-300
-                        ${scrolled ? 'text-indigo-600' : 'text-white'}
-                        group-hover:translate-y-0.5
-                      `} 
-                    />
-                  </div>
-                </button>
-
-                {/* Dropdown Menu */}
+              {/* About Us Dropdown */}
+              {showAboutUs && (
                 <div className={`
-                  absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50
-                  opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                  transition-all duration-200 transform translate-y-1 group-hover:translate-y-0
+                  absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50
+                  transition-all duration-200 transform origin-top-right
+                  ${showAboutUs ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}
                 `}>
-                  <button 
-                    onClick={() => navigate('/profile')}
-                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
-                  >
-                    <User size={16} className="mr-2" />
-                    Profile
-                  </button>
-                  <button 
-                    onClick={() => navigate('/settings')}
-                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
-                  >
-                    <Settings size={16} className="mr-2" />
-                    Settings
-                  </button>
-                  <button 
-                    onClick={logout}
-                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 w-full text-left"
-                  >
-                    <LogOut size={16} className="mr-2" />
-                    Sign Out
-                  </button>
+                  <div className="p-4 border-b border-gray-200">
+                    <h3 className="text-lg font-bold text-indigo-700">About FreshHub</h3>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm text-gray-600 mb-3">
+                      FreshHub is an innovative learning platform designed to help students 
+                      master their subjects through interactive notes and comprehensive resources.
+                    </p>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Our mission is to make quality education accessible to everyone, 
+                      everywhere.
+                    </p>
+                    <div className="flex items-center text-sm text-indigo-600">
+                      <span>Version 1.0.0</span>
+                      <span className="mx-2">•</span>
+                      <span>© 2023 FreshHub</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ) : (
+              )}
+            </div>
+
+            {/* Sign In Button (shown when not logged in) */}
+            {!currentUser && (
               <button 
                 onClick={() => navigate('/auth')}
                 className={`
