@@ -16,6 +16,7 @@ import AdminDashboard from './components/admin/premium-approvals';
 import HandoutPage from './components/Handout/HandoutPage';
 import NotePage from './components/Handout/NotePage';
 import ContactUs from './components/Layout/ContactUs';
+import CommunityPage from './components/Community/CommunityPage';
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -124,6 +125,13 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <ContactUs />
+          </ProtectedRoute>
+        } />
+        <Route 
+        path="/Community" 
+        element={
+          <ProtectedRoute>
+            <CommunityPage />
           </ProtectedRoute>
         } />
       <Route path="/" element={<Navigate to="/dashboard" />} />
