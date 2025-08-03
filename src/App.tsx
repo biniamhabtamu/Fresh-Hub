@@ -17,8 +17,7 @@ import HandoutPage from './components/Handout/HandoutPage';
 import NotePage from './components/Handout/NotePage';
 import ContactUs from './components/Layout/ContactUs';
 import CommunityPage from './components/Community/CommunityPage';
-import ProgressPage from './components/Progress/ProgressPage';
-import ProgressBar from './components/ProgressBar';
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -136,13 +135,7 @@ function AppRoutes() {
             <CommunityPage />
           </ProtectedRoute>
         } />
-        <Route 
-        path="/progressbar" 
-        element={
-          <ProtectedRoute>
-            <ProgressBar />
-          </ProtectedRoute>
-        } />
+        
       <Route path="/" element={<Navigate to="/dashboard" />} />
       
     </Routes>
