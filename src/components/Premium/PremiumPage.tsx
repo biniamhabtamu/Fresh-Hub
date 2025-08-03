@@ -25,7 +25,7 @@ import {
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
-import ProgressBar from '../../components/ProgressBar';
+//import ProgressBar from '../../components/ProgressBar';
 
 type PaymentMethod = 'ebirr' | 'telebirr' | 'cbe';
 type PremiumStatus = 'pending' | 'approved' | 'rejected';
