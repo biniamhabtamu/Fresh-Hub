@@ -90,7 +90,7 @@ export const subjects: Subject[] = [
   { 
     id: 'logic', 
     name: 'Logic', 
-    icon: '🔣', // Symbols representing logic
+    icon: '🧩', // Symbols representing logic
     field: 'natural', 
     isFree: true 
   },
@@ -105,10 +105,10 @@ export const subjects: Subject[] = [
   // Social Science Subjects
   { 
     id: 'english', 
-    name: 'English', 
+    name: 'EnglishSkill2', 
     icon: '📖', // Different from natural science English
     field: 'social', 
-    isFree: true 
+    isFree: false 
   },
   { 
     id: 'geography', 
