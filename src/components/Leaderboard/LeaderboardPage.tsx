@@ -6,6 +6,7 @@ import Header from '../Layout/Header';
 import { Trophy, Medal, Award, ChevronDown, ChevronUp, Crown, Star, Zap, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BottomBar from '../Layout/BottomBar';
+import { useNavigate } from 'react-router-dom';
 
 interface LeaderboardEntry {
   id: string;
@@ -14,12 +15,13 @@ interface LeaderboardEntry {
   averageScore: number;
   totalQuizzes: number;
   rank: number;
-  points: number;
+  points?: number;
   avatar?: string;
 }
 
 export default function LeaderboardPage() {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
@@ -30,7 +32,6 @@ export default function LeaderboardPage() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -45,42 +46,50 @@ export default function LeaderboardPage() {
     try {
       setLoading(true);
       
-      // Base query for users
+      // Get users based on active tab
       let usersQuery = query(collection(db, 'users'));
-      
       if (activeTab === 'field') {
         usersQuery = query(usersQuery, where('field', '==', currentUser.field));
       }
-      
       const usersSnapshot = await getDocs(usersQuery);
-      const users = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-      // Get all results
+      
+      // Get all quiz results
       const resultsSnapshot = await getDocs(collection(db, 'results'));
-      const results = resultsSnapshot.docs.map(doc => doc.data());
+      
+      // Process each user's data
+      const leaderboardData = [];
+      
+      for (const userDoc of usersSnapshot.docs) {
+        const user = userDoc.data();
+        const userResults = resultsSnapshot.docs
+          .filter(doc => doc.data().userId === userDoc.id)
+          .map(doc => doc.data());
+        
+        // Only include users who have taken quizzes
+        if (userResults.length > 0) {
+          const averageScore = userResults.reduce((sum, r) => sum + r.percentage, 0) / userResults.length;
+          
+          // Calculate total points from either 'points' or 'pointsEarned' field
+          const totalPoints = userResults.reduce((sum, result) => {
+            const pointsValue = result.points ?? result.pointsEarned;
+            return sum + (pointsValue || 0);
+          }, 0);
 
-      // Calculate stats for each user
-      const leaderboardData = users.map(user => {
-        const userResults = results.filter(r => r.userId === user.id);
-        const averageScore = userResults.length > 0
-          ? userResults.reduce((sum, r) => sum + r.percentage, 0) / userResults.length
-          : 0;
-        const totalPoints = userResults.reduce((sum, r) => sum + (r.pointsEarned || 0), 0);
+          leaderboardData.push({
+            id: userDoc.id,
+            fullName: user.fullName || 'Anonymous',
+            field: user.field,
+            averageScore,
+            totalQuizzes: userResults.length,
+            points: totalPoints > 0 ? totalPoints : undefined,
+            avatar: user.photoURL
+          });
+        }
+      }
 
-        return {
-          id: user.id,
-          fullName: user.fullName || 'Anonymous',
-          field: user.field,
-          averageScore,
-          totalQuizzes: userResults.length,
-          points: totalPoints,
-          avatar: user.photoURL
-        };
-      });
-
-      // Sort and rank
+      // Sort by points and assign ranks
       const sortedLeaderboard = leaderboardData
-        .sort((a, b) => b.averageScore - a.averageScore)
+        .sort((a, b) => (b.points || 0) - (a.points || 0))
         .map((entry, index) => ({
           ...entry,
           rank: index + 1
@@ -138,7 +147,7 @@ export default function LeaderboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 ">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <Header />
       
       <div className="container mx-auto px-4 py-6 pt-16">
@@ -220,7 +229,7 @@ export default function LeaderboardPage() {
                   <h3 className="font-bold text-xs text-gray-800 truncate px-1">{leaderboard[1].fullName}</h3>
                   <div className="flex items-center justify-center mt-1 space-x-1">
                     <span className="text-xs font-bold text-gray-700">
-                      {leaderboard[1].averageScore.toFixed(1)}%
+                      {leaderboard[1].points !== undefined ? `${leaderboard[1].points} pts` : '--'}
                     </span>
                   </div>
                 </div>
@@ -258,7 +267,7 @@ export default function LeaderboardPage() {
                   <h3 className="font-bold text-xs text-yellow-900 truncate px-1">{leaderboard[0].fullName}</h3>
                   <div className="flex items-center justify-center mt-1 space-x-1">
                     <span className="text-xs font-bold text-yellow-800">
-                      {leaderboard[0].averageScore.toFixed(1)}%
+                      {leaderboard[0].points !== undefined ? `${leaderboard[0].points} pts` : '--'}
                     </span>
                   </div>
                 </div>
@@ -296,7 +305,7 @@ export default function LeaderboardPage() {
                   <h3 className="font-bold text-xs text-orange-900 truncate px-1">{leaderboard[2].fullName}</h3>
                   <div className="flex items-center justify-center mt-1 space-x-1">
                     <span className="text-xs font-bold text-orange-800">
-                      {leaderboard[2].averageScore.toFixed(1)}%
+                      {leaderboard[2].points !== undefined ? `${leaderboard[2].points} pts` : '--'}
                     </span>
                   </div>
                 </div>
@@ -378,8 +387,13 @@ export default function LeaderboardPage() {
                     <div className="flex items-center space-x-2">
                       <div className="flex flex-col items-end">
                         <div className={`text-xs font-bold ${isCurrentUser ? 'text-blue-700' : 'text-gray-800'}`}>
-                          {entry.averageScore.toFixed(1)}%
+                          {entry.points !== undefined ? `${entry.points} pts` : '--'}
                         </div>
+                        {entry.averageScore > 0 && (
+                          <div className="text-xxs text-gray-500">
+                            {entry.averageScore.toFixed(1)}% avg
+                          </div>
+                        )}
                       </div>
                       {expandedUser === entry.id ? (
                         <ChevronUp className="text-gray-500" size={14} />
@@ -416,11 +430,16 @@ export default function LeaderboardPage() {
                             <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-2 rounded">
                               <p className="text-xxs text-purple-600 font-medium uppercase tracking-wider">Stats</p>
                               <div className="flex flex-wrap gap-1 mt-1">
-                                <span className="text-xxs bg-yellow-100 text-yellow-800 px-1 py-0.5 rounded">
-                                  {entry.points} pts
-                                </span>
+                                {entry.points !== undefined && (
+                                  <span className="text-xxs bg-yellow-100 text-yellow-800 px-1 py-0.5 rounded">
+                                    {entry.points} pts
+                                  </span>
+                                )}
                                 <span className="text-xxs bg-green-100 text-green-800 px-1 py-0.5 rounded">
                                   {entry.totalQuizzes} quizzes
+                                </span>
+                                <span className="text-xxs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">
+                                  Rank #{entry.rank}
                                 </span>
                               </div>
                             </div>
@@ -469,7 +488,7 @@ export default function LeaderboardPage() {
           )}
 
           {/* Current User Position (if not in top) */}
-          {currentUser && leaderboard.length > 3 && 
+          {currentUser && leaderboard.length > 0 && 
             !leaderboard.some(entry => entry.id === currentUser.id) && (
             <motion.div
               initial={{ opacity: 0 }}
