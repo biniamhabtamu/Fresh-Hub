@@ -5,7 +5,7 @@ import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
 import Header from '../Layout/Header';
-import { ArrowLeft, Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, HelpCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function QuizPage() {
@@ -20,6 +20,7 @@ export default function QuizPage() {
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showExplanation, setShowExplanation] = useState(false);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -50,17 +51,20 @@ export default function QuizPage() {
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = answerIndex;
     setAnswers(newAnswers);
+    setShowExplanation(false); // Hide explanation when selecting a new answer
   };
 
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      setShowExplanation(false);
     }
   };
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
+      setShowExplanation(false);
     }
   };
 
@@ -106,6 +110,7 @@ export default function QuizPage() {
     setTimeElapsed(0);
     setQuizCompleted(false);
     setScore(0);
+    setShowExplanation(false);
   };
 
   const handleBackToChapters = () => {
@@ -244,6 +249,8 @@ export default function QuizPage() {
 
   const currentQ = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const isAnswerSelected = answers[currentQuestion] !== -1;
+  const isCorrect = isAnswerSelected && answers[currentQuestion] === currentQ.correctAnswer;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
@@ -261,6 +268,7 @@ export default function QuizPage() {
         </motion.button>
 
         <div className="max-w-4xl mx-auto">
+          {/* Quiz Info Card */}
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -281,27 +289,31 @@ export default function QuizPage() {
               </div>
             </div>
 
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
+            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-2">
               <div
                 className="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
+            <div className="text-right text-sm text-gray-500">
+              {Math.round(progress)}% completed
+            </div>
           </motion.div>
 
+          {/* Question Card */}
           <motion.div 
             key={currentQuestion}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-xl shadow-lg p-8 mb-6"
+            className="bg-white rounded-xl shadow-lg p-6 mb-6"
           >
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
               {currentQ.question}
             </h3>
 
-            <div className="space-y-3">
+            <div className="space-y-3 mb-6">
               {currentQ.options.map((option, index) => (
                 <motion.button
                   key={index}
@@ -311,8 +323,14 @@ export default function QuizPage() {
                   className={`
                     w-full text-left p-4 rounded-xl border-2 transition-all
                     ${answers[currentQuestion] === index
-                      ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-sm'
+                      ? isCorrect
+                        ? 'border-green-500 bg-green-50 text-green-700 shadow-sm'
+                        : 'border-red-500 bg-red-50 text-red-700 shadow-sm'
                       : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                    }
+                    ${isAnswerSelected && index === currentQ.correctAnswer 
+                      ? 'border-green-500 bg-green-50 text-green-700 shadow-sm' 
+                      : ''
                     }
                   `}
                 >
@@ -323,9 +341,40 @@ export default function QuizPage() {
                 </motion.button>
               ))}
             </div>
+
+            {/* Explanation Section */}
+            {isAnswerSelected && currentQ.explanation && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <button
+                  onClick={() => setShowExplanation(!showExplanation)}
+                  className="flex items-center text-blue-600 hover:text-blue-700 mb-2"
+                >
+                  <HelpCircle size={18} className="mr-2" />
+                  {showExplanation ? 'Hide Explanation' : 'Show Explanation'}
+                </button>
+                
+                {showExplanation && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="bg-blue-50 p-4 rounded-lg border border-blue-200"
+                  >
+                    <h4 className="font-semibold text-blue-800 mb-2">Explanation:</h4>
+                    <p className="text-gray-700">{currentQ.explanation}</p>
+                  </motion.div>
+                )}
+              </motion.div>
+            )}
           </motion.div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Navigation Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -362,15 +411,16 @@ export default function QuizPage() {
             </div>
           </div>
 
+          {/* Question Navigator */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-8 bg-white rounded-xl shadow-lg p-6"
+            className="bg-white rounded-xl shadow-lg p-6"
           >
             <h4 className="font-semibold text-gray-800 mb-4">Question Navigator</h4>
             <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2">
-              {questions.map((_, index) => (
+              {questions.map((q, index) => (
                 <motion.button
                   key={index}
                   whileHover={{ scale: 1.05 }}
@@ -381,14 +431,35 @@ export default function QuizPage() {
                     ${index === currentQuestion
                       ? 'bg-blue-600 text-white shadow-md'
                       : answers[index] !== -1
-                      ? 'bg-green-100 text-green-700 shadow-sm'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        ? answers[index] === q.correctAnswer
+                          ? 'bg-green-100 text-green-700 shadow-sm'
+                          : 'bg-red-100 text-red-700 shadow-sm'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }
                   `}
                 >
                   {index + 1}
                 </motion.button>
               ))}
+            </div>
+            
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <div className="flex items-center">
+                <div className="w-4 h-4 bg-blue-600 rounded mr-2"></div>
+                <span>Current</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-4 h-4 bg-green-100 rounded mr-2"></div>
+                <span>Correct</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-4 h-4 bg-red-100 rounded mr-2"></div>
+                <span>Incorrect</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-4 h-4 bg-gray-100 rounded mr-2"></div>
+                <span>Unanswered</span>
+              </div>
             </div>
           </motion.div>
         </div>
