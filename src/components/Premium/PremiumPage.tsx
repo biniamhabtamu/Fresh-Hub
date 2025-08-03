@@ -1,560 +1,488 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { submitPaymentProof } from '../../firebase/payments';
 import { 
-  CheckCircle2, 
-  Clock, 
-  AlertCircle, 
-  Phone, 
-  Copy, 
-  Banknote, 
+  Crown, 
+  Check, 
+  Upload, 
+  CreditCard, 
   Smartphone,
-  CloudUpload,
-  XCircle,
-  ShieldCheck,
-  Loader2
+  Shield,
+  Gift,
+  BarChart,
+  Book,
+  Archive,
+  Headphones,
+  Ban,
+  Download,
+  Award,
+  CheckCircle,
+  Zap,
+  Lock
 } from 'lucide-react';
-import { db, storage } from '../../firebase/config';
-import { 
-  doc, 
-  onSnapshot, 
-  updateDoc, 
-  setDoc, 
-  collection,
-  serverTimestamp 
-} from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast';
-//import ProgressBar from '../../components/ProgressBar';
-
-type PaymentMethod = 'ebirr' | 'telebirr' | 'cbe';
-type PremiumStatus = 'pending' | 'approved' | 'rejected';
+import Header from '../Layout/Header';
 
 export default function PremiumPage() {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const [selectedMethod, setSelectedMethod] = useState<'ebirr' | 'telebirr' | null>(null);
+  const [screenshot, setScreenshot] = useState<File | null>(null);
   const [transactionId, setTransactionId] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(7 * 60 * 60); // 7 hours in seconds
-  const [activePaymentMethod, setActivePaymentMethod] = useState<PaymentMethod>('telebirr');
-  const [premiumStatus, setPremiumStatus] = useState<PremiumStatus>('pending');
+  const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [screenshot, setScreenshot] = useState<File | null>(null);
-  const [screenshotUrl, setScreenshotUrl] = useState('');
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState('');
 
-  // Fetch user's premium status
   useEffect(() => {
-    if (!currentUser?.uid) return;
-
-    const userRef = doc(db, 'users', currentUser.uid);
-    const unsubscribe = onSnapshot(userRef, (docSnap) => {
-      const data = docSnap.data();
-      if (data) {
-        setPremiumStatus(data.premiumStatus || 'pending');
-        if (data.transactionId) {
-          setTransactionId(data.transactionId);
-          setSubmitted(true);
-        }
-        if (data.screenshotUrl) {
-          setScreenshotUrl(data.screenshotUrl);
-        }
-      }
-    }, (error) => {
-      console.error("Error fetching premium status:", error);
-      toast.error("Failed to load premium status");
-    });
-
-    return () => unsubscribe();
+    if (!currentUser) {
+      setError('Please log in to access premium features');
+    } else {
+      setError('');
+    }
   }, [currentUser]);
 
-  // Countdown timer for pending requests
-  useEffect(() => {
-    if (!submitted || premiumStatus !== 'pending') return;
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.[0]) {
+      const file = e.target.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setError('File size should be less than 5MB');
+        return;
+      }
+      if (!['image/jpeg', 'image/png'].includes(file.type)) {
+        setError('Only JPG/PNG files are allowed');
+        return;
+      }
+      setScreenshot(file);
+      setError('');
+    }
+  };
 
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
 
-    return () => clearInterval(timer);
-  }, [submitted, premiumStatus]);
+  const handleDragLeave = () => setIsDragging(false);
 
-  const handleScreenshotUpload = async (file: File) => {
-    if (!currentUser?.uid) return;
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    if (e.dataTransfer.files?.[0]) {
+      const file = e.dataTransfer.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        setError('File size should be less than 5MB');
+        return;
+      }
+      if (!['image/jpeg', 'image/png'].includes(file.type)) {
+        setError('Only JPG/PNG files are allowed');
+        return;
+      }
+      setScreenshot(file);
+      setError('');
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!currentUser) {
+      navigate('/login', { state: { from: '/premium' } });
+      return;
+    }
+
+    setError('');
+
+    if (!selectedMethod) {
+      setError('Please select a payment method');
+      return;
+    }
     
-    setIsUploading(true);
+    if (!screenshot) {
+      setError('Please upload a payment screenshot');
+      return;
+    }
+    
+    setIsLoading(true);
+
     try {
-      const storageRef = ref(storage, `paymentProofs/${currentUser.uid}/${file.name}`);
-      const uploadTask = uploadBytes(storageRef, file);
-      
-      uploadTask.on('state_changed', 
-        (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setUploadProgress(progress);
-        },
-        (error) => {
-          console.error("Upload failed:", error);
-          toast.error("Screenshot upload failed");
-          setIsUploading(false);
-        },
-        async () => {
-          const url = await getDownloadURL(uploadTask.snapshot.ref);
-          setScreenshotUrl(url);
-          toast.success("Screenshot uploaded successfully!");
-          setIsUploading(false);
+      await submitPaymentProof(
+        currentUser.uid,
+        selectedMethod,
+        screenshot,
+        transactionId,
+        {
+          fullName: currentUser.displayName || 'User',
+          email: currentUser.email || 'no-email@example.com'
         }
       );
-    } catch (error) {
-      console.error("Upload error:", error);
-      toast.error("Failed to upload screenshot");
-      setIsUploading(false);
-    }
-  };
-
-  const handleRemoveScreenshot = async () => {
-    if (!screenshotUrl || !currentUser?.uid) return;
-    
-    try {
-      // Delete from storage
-      const imageRef = ref(storage, screenshotUrl);
-      await deleteObject(imageRef);
-      
-      // Clear local state
-      setScreenshot(null);
-      setScreenshotUrl('');
-      
-      toast.success("Screenshot removed");
-    } catch (error) {
-      console.error("Delete error:", error);
-      toast.error("Failed to remove screenshot");
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!transactionId.trim()) {
-      toast.error('Please enter your transaction ID');
-      return;
-    }
-    if (!screenshotUrl) {
-      toast.error('Please upload payment screenshot');
-      return;
-    }
-    if (!currentUser?.uid) {
-      toast.error('You must be logged in');
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      // Update user document
-      await updateDoc(doc(db, 'users', currentUser.uid), {
-        transactionId: transactionId.trim(),
-        premiumStatus: 'pending',
-        isPremium: false,
-        paymentMethod: activePaymentMethod,
-        screenshotUrl,
-        submittedAt: serverTimestamp(),
-      });
-
-      // Create payment submission record
-      const submissionsRef = collection(db, 'paymentSubmissions');
-      await setDoc(doc(submissionsRef), {
-        userId: currentUser.uid,
-        transactionId: transactionId.trim(),
-        paymentMethod: activePaymentMethod,
-        amount: 100, // ETB
-        screenshotUrl,
-        status: 'pending',
-        timestamp: serverTimestamp(),
-        userEmail: currentUser.email,
-        userName: currentUser.displayName || 'Anonymous',
-      });
-
       setSubmitted(true);
-      toast.success('Payment submitted for verification!');
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast.error('Failed to submit payment');
+      setSelectedMethod(null);
+      setScreenshot(null);
+      setTransactionId('');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Payment submission failed. Please try again.');
+      console.error('Payment submission error:', err);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    return `${hours.toString().padStart(2, '0')}:${minutes
-      .toString()
-      .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  if (!currentUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8 text-center">
+            <div className="w-20 h-20 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Lock className="text-white" size={40} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">Login Required</h2>
+            <p className="text-gray-600 mb-6">
+              You need to be logged in to submit payment for premium access.
+            </p>
+            <button
+              onClick={() => navigate('/login', { state: { from: '/premium' } })}
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-medium hover:shadow-md transition-all"
+            >
+              Go to Login Page
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success('Copied to clipboard!');
-  };
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <Header />
+        
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl p-8 text-center border border-white/50 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
+              <div className="absolute -top-20 -right-20 w-48 h-48 bg-yellow-200 rounded-full opacity-20"></div>
+              
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                    <Crown size={40} className="text-white" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-2">Payment Submitted!</h2>
+                  <p className="text-gray-600">
+                    Please wait a few hours. We are verifying your payment...
+                  </p>
+                </div>
 
-  const resetForm = () => {
-    setSubmitted(false);
-    setTransactionId('');
-    setPremiumStatus('pending');
-    setTimeLeft(7 * 60 * 60);
-    setScreenshot(null);
-    setScreenshotUrl('');
-  };
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-yellow-200 rounded-xl p-5 mb-6 text-left">
+                  <div className="flex items-start space-x-3">
+                    <Shield className="flex-shrink-0 text-amber-600 mt-0.5" />
+                    <div>
+                      <h3 className="font-medium text-amber-800 mb-2">Important Information</h3>
+                      <ul className="text-yellow-700 text-sm space-y-1">
+                        <li>• Contact us at: <span className="font-bold">0994024681</span></li>
+                        <li>• Our team will review your payment proof within 2-4 hours</li>
+                        <li>• You'll receive a notification once activated</li>
+                        <li>• Check your email for confirmation</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-  // Payment method details
-  const paymentMethods = {
-    telebirr: {
-      name: 'Telebirr',
-      icon: <Smartphone className="h-6 w-6 text-purple-600" />,
-      instructions: [
-        'Open your Telebirr app',
-        'Go to Send Money',
-        'Enter phone number: +251994024681',
-        'Enter amount: ETB 100',
-        'Complete the transaction',
-        'Take a screenshot of the transaction'
-      ],
-      copyText: '+251994024681'
-    },
-    ebirr: {
-      name: 'Ebirr',
-      icon: <Smartphone className="h-6 w-6 text-blue-600" />,
-      instructions: [
-        'Open your Ebirr app',
-        'Go to Send Money',
-        'Enter phone number: +251994024681',
-        'Enter amount: ETB 100',
-        'Complete the transaction',
-        'Take a screenshot of the transaction'
-      ],
-      copyText: '+251994024681'
-    },
-    cbe: {
-      name: 'CBE',
-      icon: <Banknote className="h-6 w-6 text-green-600" />,
-      instructions: [
-        'Open your CBE mobile banking or visit a branch',
-        'Go to Transfer Money',
-        'Enter account number: 1000611141657',
-        'Enter amount: ETB 200',
-        'Complete the transaction',
-        'Take a screenshot of the transaction'
-      ],
-      copyText: '1000611141657'
-    }
-  };
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-5 mb-6 border border-blue-200">
+                  <div className="flex items-start space-x-3">
+                    <Gift className="flex-shrink-0 text-indigo-600 mt-0.5" />
+                    <div>
+                      <h3 className="font-medium text-indigo-800 mb-2">Premium Activated?</h3>
+                      <p className="text-indigo-700 text-sm">
+                        Enjoy these premium features immediately after activation:
+                      </p>
+                      <ul className="mt-2 grid grid-cols-2 gap-1 text-sm">
+                        {['All Subjects', 'Unlimited Questions', 'Advanced Analytics', 'Ad-Free', 'Offline Access', 'Priority Support', 'Leaderboards', 'Exam History'].map((feature, i) => (
+                          <li key={i} className="flex items-center">
+                            <Check size={14} className="text-green-500 mr-2" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => navigate('/dashboard')}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3.5 rounded-xl font-semibold hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                >
+                  Back to Dashboard
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl overflow-hidden"
-        >
-          <div className="p-6 sm:p-8">
-            <div className="text-center mb-8">
-              <h1 className="text-2xl sm:text-3xl font-bold text-purple-800 mb-2">
-                Go Premium
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <Header />
+      
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 relative">
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+            
+            <div className="relative z-10">
+              <div className="w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Crown size={48} className="text-white" />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+                Unlock <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Premium</span> Access
               </h1>
-              <p className="text-purple-600">
-                Unlock all premium features and content
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                Get full access to all subjects, advanced features, and boost your exam preparation
               </p>
             </div>
-
-            {premiumStatus === 'approved' ? (
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center p-4 bg-green-100 rounded-full mb-4">
-                  <CheckCircle2 className="h-12 w-12 text-green-600" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  Congratulations, {currentUser?.displayName || 'User'}!
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  You are now a premium member. Enjoy all the exclusive features!
-                </p>
-                <div className="bg-purple-50 p-4 rounded-lg mb-6">
-                  <h3 className="font-medium text-purple-800 mb-2">Premium Benefits</h3>
-                  <ul className="text-left text-sm text-gray-700 space-y-1">
-                    <li className="flex items-center">
-                      <ShieldCheck className="h-4 w-4 text-green-500 mr-2" />
-                      Unlimited access to all subjects
-                    </li>
-                    <li className="flex items-center">
-                      <ShieldCheck className="h-4 w-4 text-green-500 mr-2" />
-                      Advanced practice questions
-                    </li>
-                    <li className="flex items-center">
-                      <ShieldCheck className="h-4 w-4 text-green-500 mr-2" />
-                      Detailed performance analytics
-                    </li>
-                    <li className="flex items-center">
-                      <ShieldCheck className="h-4 w-4 text-green-500 mr-2" />
-                      Priority customer support
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  onClick={() => window.location.href = '/'}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
-                >
-                  Start Exploring
-                </button>
-              </div>
-            ) : premiumStatus === 'rejected' ? (
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center p-4 bg-red-100 rounded-full mb-4">
-                  <AlertCircle className="h-12 w-12 text-red-600" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  Verification Failed
-                </h2>
-                <p className="text-gray-600 mb-4">
-                  We couldn't verify your transaction. Please contact support or try again.
-                </p>
-                <div className="flex items-center justify-center space-x-2 mb-6">
-                  <Phone className="h-5 w-5 text-gray-500" />
-                  <span className="text-gray-700 font-medium">+251994024681</span>
-                </div>
-                <button
-                  onClick={resetForm}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
-                >
-                  Try Again
-                </button>
-              </div>
-            ) : submitted && premiumStatus === 'pending' ? (
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center p-4 bg-purple-100 rounded-full mb-4">
-                  <Clock className="h-12 w-12 text-purple-600" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  Processing Your Request
-                </h2>
-                <p className="text-gray-600 mb-4">
-                  Your transaction ID: <span className="font-mono font-bold text-purple-700">
-                    {transactionId}
-                  </span>
-                </p>
-                
-                <div className="py-4 sm:py-6 mb-4">
-                  <div className="text-3xl sm:text-4xl font-mono font-bold text-purple-600">
-                    {formatTime(timeLeft)}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    Estimated verification time remaining
-                  </div>
-                </div>
-
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg text-left">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <AlertCircle className="h-5 w-5 text-yellow-400" />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-yellow-700">
-                        Please be patient while we verify your transaction. You'll receive 
-                        a notification once the process is complete.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                {/* Payment Method Selection */}
-                <div className="space-y-3">
-                  <h2 className="text-lg font-medium text-gray-800">
-                    Choose Payment Method
-                  </h2>
-                  <div className="grid grid-cols-3 gap-2">
-                    {(Object.keys(paymentMethods) as PaymentMethod[]).map((method) => (
-                      <button
-                        key={method}
-                        type="button"
-                        onClick={() => setActivePaymentMethod(method)}
-                        className={`p-3 rounded-lg border flex flex-col items-center ${
-                          activePaymentMethod === method 
-                            ? 'border-purple-500 bg-purple-50' 
-                            : 'border-gray-200 hover:bg-gray-50'
-                        }`}
-                      >
-                        {paymentMethods[method].icon}
-                        <span className="text-sm font-medium mt-1">
-                          {paymentMethods[method].name}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Payment Instructions */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium text-gray-800 flex items-center mb-3">
-                    {paymentMethods[activePaymentMethod].icon}
-                    <span className="ml-2">
-                      {paymentMethods[activePaymentMethod].name} Payment
-                    </span>
-                  </h3>
-                  <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
-                    {paymentMethods[activePaymentMethod].instructions.map((step, i) => (
-                      <li key={i}>{step}</li>
-                    ))}
-                  </ol>
-                  <div className="flex items-center justify-between bg-white p-3 rounded border border-gray-200 mt-3">
-                    <span className="font-mono">
-                      {paymentMethods[activePaymentMethod].copyText}
-                    </span>
-                    <button
-                      onClick={() => copyToClipboard(paymentMethods[activePaymentMethod].copyText)}
-                      className="text-purple-600 hover:text-purple-800 flex items-center"
-                    >
-                      <Copy className="h-4 w-4 mr-1" />
-                      Copy
-                    </button>
-                  </div>
-                </div>
-
-                {/* Screenshot Upload */}
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Upload Payment Screenshot
-                  </label>
-                  <div className="flex items-center justify-center w-full">
-                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                      {screenshotUrl ? (
-                        <div className="relative w-full h-full">
-                          <img 
-                            src={screenshotUrl} 
-                            alt="Payment proof" 
-                            className="w-full h-full object-contain p-2"
-                          />
-                          <button
-                            type="button"
-                            onClick={handleRemoveScreenshot}
-                            className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1"
-                          >
-                            <XCircle className="h-4 w-4" />
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                          <CloudUpload className="h-8 w-8 text-gray-400 mb-2" />
-                          <p className="text-sm text-gray-500">
-                            <span className="font-semibold">Click to upload</span> or drag and drop
-                          </p>
-                          <p className="text-xs text-gray-500">
-                            PNG, JPG (MAX. 2MB)
-                          </p>
-                        </div>
-                      )}
-                      <input 
-                        id="screenshot" 
-                        type="file" 
-                        className="hidden" 
-                        accept="image/png,image/jpeg"
-                        onChange={(e) => {
-                          if (e.target.files?.[0]) {
-                            const file = e.target.files[0];
-                            if (file.size > 2 * 1024 * 1024) {
-                              toast.error('File size must be less than 2MB');
-                              return;
-                            }
-                            setScreenshot(file);
-                            handleScreenshotUpload(file);
-                          }
-                        }}
-                        disabled={isUploading}
-                      />
-                    </label>
-                  </div>
-                  {isUploading && (
-                    <ProgressBar progress={uploadProgress} />
-                  )}
-                  {screenshotUrl && !isUploading && (
-                    <p className="text-xs text-green-600">Screenshot uploaded successfully!</p>
-                  )}
-                </div>
-
-                {/* Transaction ID Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="transactionId" className="block text-sm font-medium text-gray-700 mb-1">
-                      Enter Your Transaction ID
-                    </label>
-                    <input
-                      type="text"
-                      id="transactionId"
-                      value={transactionId}
-                      onChange={(e) => setTransactionId(e.target.value)}
-                      className="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                      placeholder={`e.g. ${activePaymentMethod.toUpperCase()}123456789`}
-                      required
-                    />
-                    <p className="mt-1 text-xs text-gray-500">
-                      Find this in your {paymentMethods[activePaymentMethod].name} transaction history
-                    </p>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isLoading || isUploading || !screenshotUrl}
-                    className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-75 disabled:cursor-not-allowed"
-                  >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                        Processing...
-                      </>
-                    ) : (
-                      'Submit Payment'
-                    )}
-                  </button>
-                </form>
-              </div>
-            )}
           </div>
-        </motion.div>
 
-        {submitted && premiumStatus === 'pending' && (
-          <div className="mt-6 sm:mt-8 bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="p-5 sm:p-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-3 sm:mb-4">
-                What happens next?
-              </h3>
-              <div className="space-y-3 sm:space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-white to-purple-50 rounded-3xl shadow-xl p-8 border border-white/50">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-bold text-gray-800">Premium Features</h2>
+                <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  EXCLUSIVE
+                </div>
+              </div>
+              
+              <div className="space-y-5">
                 {[
-                  "Our admin team reviews your transaction details",
-                  "Verification typically completes within 7 hours",
-                  "You'll receive immediate access upon approval",
-                  "If rejected, you'll receive instructions to try again"
-                ].map((text, i) => (
-                  <div key={i} className="flex items-start">
-                    <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-purple-100 flex items-center justify-center">
-                      <span className="text-purple-600 text-sm sm:text-base">
-                        {i + 1}
-                      </span>
+                  {text: 'Access to all subjects in your field', icon: <Book className="text-indigo-600" />},
+                  {text: 'Unlimited practice questions', icon: <Zap className="text-yellow-500" />},
+                  {text: 'Detailed performance analytics', icon: <BarChart className="text-blue-500" />},
+                  {text: 'Complete exam history (all years)', icon: <Archive className="text-purple-500" />},
+                  {text: 'Priority customer support', icon: <Headphones className="text-green-500" />},
+                  {text: 'Ad-free learning experience', icon: <Ban className="text-red-500" />},
+                  {text: 'Offline question downloads', icon: <Download className="text-cyan-500" />},
+                  {text: 'Global leaderboard participation', icon: <Award className="text-amber-500" />}
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-4">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
+                      {feature.icon}
                     </div>
-                    <div className="ml-3 sm:ml-4">
-                      <p className="text-sm sm:text-base text-gray-700">
-                        {text}
-                      </p>
-                    </div>
+                    <span className="text-gray-700 font-medium">{feature.text}</span>
                   </div>
                 ))}
               </div>
+
+              <div className="mt-8 p-5 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl border border-blue-200">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-3xl font-bold text-gray-800">200 Birr</div>
+                    <div className="text-gray-600">One-time payment</div>
+                  </div>
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-bold">
+                    SAVE 75%
+                  </div>
+                </div>
+                <div className="mt-3 text-sm text-green-600 font-medium flex items-center">
+                  <CheckCircle className="mr-2" size={16} /> 
+                  <span>Lifetime Access - Never pay again!</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-white/50">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-bold text-gray-800">Complete Payment</h2>
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  SECURE
+                </div>
+              </div>
+              
+              <div className="mb-8">
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Select Payment Method {!selectedMethod && error.includes('payment method') && (
+                    <span className="text-red-500 text-xs ml-2">(Required)</span>
+                  )}
+                </label>
+                <div className="space-y-4">
+                  <button
+                    onClick={() => {
+                      setSelectedMethod('ebirr');
+                      setError('');
+                    }}
+                    className={`w-full p-5 rounded-2xl transition-all border ${
+                      selectedMethod === 'ebirr'
+                        ? 'border-blue-500 bg-blue-50 shadow-sm'
+                        : error.includes('payment method') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                        <CreditCard size={24} className="text-blue-600" />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-semibold text-gray-800">Ebirr</div>
+                        <div className="text-sm text-gray-600">Digital wallet payment</div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setSelectedMethod('telebirr');
+                      setError('');
+                    }}
+                    className={`w-full p-5 rounded-2xl transition-all border ${
+                      selectedMethod === 'telebirr'
+                        ? 'border-blue-500 bg-blue-50 shadow-sm'
+                        : error.includes('payment method') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <Smartphone size={24} className="text-green-600" />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-semibold text-gray-800">Telebirr</div>
+                        <div className="text-sm text-gray-600">Mobile payment solution</div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              {selectedMethod && (
+                <div className="mb-8 p-5 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl border border-indigo-100">
+                  <h3 className="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-1 rounded mr-2">
+                      1
+                    </span>
+                    Payment Instructions
+                  </h3>
+                  <div className="text-sm text-gray-700 space-y-2 pl-8">
+                    <p className="flex">
+                      <span className="font-bold w-6 inline-block">1.</span> 
+                      Send 200 Birr to: <span className="font-mono bg-indigo-100 px-2 py-0.5 rounded ml-2">+251 994 024 681</span>
+                    </p>
+                    <p className="flex">
+                      <span className="font-bold w-6 inline-block">2.</span> 
+                      Take a clear screenshot of the payment confirmation
+                    </p>
+                    <p className="flex">
+                      <span className="font-bold w-6 inline-block">3.</span> 
+                      Upload the screenshot below
+                    </p>
+                    <p className="flex">
+                      <span className="font-bold w-6 inline-block">4.</span> 
+                      We'll activate premium within 2-4 hours
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {selectedMethod && (
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Transaction ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={transactionId}
+                    onChange={(e) => setTransactionId(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg"
+                    placeholder="Enter transaction ID if available"
+                  />
+                </div>
+              )}
+
+              {selectedMethod && (
+                <div className="mb-8">
+                  <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center">
+                    <span className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-1 rounded mr-2">
+                      2
+                    </span>
+                    Upload Payment Screenshot
+                    {!screenshot && error.includes('screenshot') && (
+                      <span className="text-red-500 text-xs ml-2">(Required)</span>
+                    )}
+                  </label>
+                  <div 
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                    className={`
+                      border-2 rounded-2xl p-8 text-center transition-all cursor-pointer
+                      ${isDragging 
+                        ? 'border-blue-500 bg-blue-50' 
+                        : error.includes('screenshot') 
+                          ? 'border-red-500 bg-red-50'
+                          : 'border-dashed border-gray-300 hover:border-blue-400 bg-gray-50'
+                      }
+                    `}
+                    onClick={() => document.getElementById('screenshot-upload')?.click()}
+                  >
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                      id="screenshot-upload"
+                    />
+                    <div className="mb-4">
+                      <div className="w-14 h-14 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto">
+                        <Upload size={24} className={isDragging ? "text-blue-500" : error.includes('screenshot') ? "text-red-500" : "text-gray-400"} />
+                      </div>
+                    </div>
+                    <p className={`font-medium mb-1 ${
+                      error.includes('screenshot') ? 'text-red-500' : 'text-gray-700'
+                    }`}>
+                      {screenshot ? 'Screenshot Selected' : 'Click to upload or drag & drop'}
+                    </p>
+                    <p className={`text-sm ${
+                      error.includes('screenshot') ? 'text-red-400' : 'text-gray-500'
+                    }`}>
+                      {screenshot ? (
+                        <span className="text-green-600 font-medium">{screenshot.name}</span>
+                      ) : (
+                        'PNG, JPG up to 5MB'
+                      )}
+                    </p>
+                    {screenshot && (
+                      <div className="mt-4 text-green-600 flex justify-center">
+                        <CheckCircle className="mr-2" size={16} /> Ready to submit
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {error && (
+                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
+                  {error}
+                </div>
+              )}
+
+              <button
+                onClick={handleSubmit}
+                disabled={isLoading || !selectedMethod || !screenshot}
+                className={`
+                  w-full py-4 rounded-2xl font-bold text-white transition-all
+                  ${isLoading || !selectedMethod || !screenshot
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 hover:shadow-lg transform hover:-translate-y-0.5'
+                  }
+                `}
+              >
+                {isLoading ? 'Submitting...' : 'Submit Payment Proof'}
+              </button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
