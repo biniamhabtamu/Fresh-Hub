@@ -8,6 +8,7 @@ import { examYears } from '../../data/subjects';
 import Header from '../Layout/Header';
 import { ArrowLeft, Award, AlertTriangle, Clock, BarChart2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import BottomBar from '../Layout/BottomBar';
 
 interface YearResult {
   year: number;
@@ -224,6 +225,7 @@ export default function YearSelection() {
           </div>
         </motion.div>
       </div>
+      <BottomBar />
     </div>
   );
 }
