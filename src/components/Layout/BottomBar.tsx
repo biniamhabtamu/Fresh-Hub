@@ -1,91 +1,68 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { FiHome, FiUser, FiAward, FiBook } from 'react-icons/fi';
-import { FaFire, FaTrophy } from 'react-icons/fa';
+import { FiHome, FiUser, FiAward, FiBookOpen } from 'react-icons/fi';
+import { FaFire } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const BottomBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // All 5 navigation items are now in a single array for a unified layout
   const navItems = [
-    { 
-      name: 'Home', 
-      icon: <FiHome size={22} />, 
-      activeIcon: <motion.div whileHover={{ scale: 1.1 }}><FiHome size={22} /></motion.div>,
-      path: '/',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-100',
-      hoverColor: 'hover:bg-purple-50'
-    },
-    { 
-      name: 'Challenge', 
-      icon: <FaFire size={20} />, 
-      activeIcon: <motion.div whileHover={{ scale: 1.2 }} animate={{ rotate: [0, 10, -10, 0] }}><FaFire size={20} /></motion.div>,
-      path: '/',
-      color: 'text-red-500',
-      bgColor: 'bg-red-100',
-      hoverColor: 'hover:bg-red-50'
-    },
-    { 
-      name: 'Handout', 
-      icon: <FiBook size={22} />, 
-      activeIcon: <motion.div whileHover={{ scale: 1.1 }} animate={{ y: [0, -2, 0] }}><FiBook size={22} /></motion.div>,
-      path: '/handouts',
-      color: 'text-indigo-600',
-      bgColor: 'bg-indigo-100',
-      hoverColor: 'hover:bg-indigo-50'
-    },
-    { 
-      name: 'Leaderboard', 
-      icon: <FiAward size={22} />, 
-      activeIcon: <motion.div whileHover={{ scale: 1.1 }}><FaTrophy size={22} /></motion.div>,
-      path: '/leaderboard',
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-100',
-      hoverColor: 'hover:bg-blue-50'
-    },
-    { 
-      name: 'Profile', 
-      icon: <FiUser size={22} />, 
-      activeIcon: <motion.div whileHover={{ scale: 1.1 }}><FiUser size={22} /></motion.div>,
-      path: '/profilepage',
-      color: 'text-green-500',
-      bgColor: 'bg-green-100',
-      hoverColor: 'hover:bg-green-50'
-    }
+    { name: 'Home', icon: FiHome, path: '/dashboard', activeColor: 'text-cyan-400' },
+    { name: 'Handouts', icon: FiBookOpen, path: '/handouts', activeColor: 'text-cyan-400' },
+    { name: 'Challenge', icon: FaFire, path: '/challenge', activeColor: 'text-red-500' },
+    { name: 'Leaderboard', icon: FiAward, path: '/leaderboard', activeColor: 'text-cyan-400' },
+    { name: 'Profile', icon: FiUser, path: '/profilepage', activeColor: 'text-cyan-400' },
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
-      <div className="flex justify-around items-center h-16">
-        {navItems.map((item) => (
-          <motion.button
-            key={item.name}
-            whileTap={{ scale: 0.95 }}
-            className={`flex flex-col items-center justify-center w-full h-full transition-colors duration-200 ${
-              location.pathname === item.path ? item.color : 'text-gray-500'
-            } ${item.hoverColor}`}
-            onClick={() => navigate(item.path)}
-          >
-            <motion.div 
-              className={`p-2 rounded-full transition-all duration-300 ${
-                location.pathname === item.path ? item.bgColor : ''
-              }`}
-              whileHover={{ scale: 1.05 }}
-            >
-              {location.pathname === item.path ? item.activeIcon : item.icon}
-            </motion.div>
-            <motion.span 
-              className="text-xs mt-1"
-              animate={{
-                scale: location.pathname === item.path ? [1, 1.05, 1] : 1
+    // Main container to create the floating effect
+    <div className="md:hidden fixed bottom-4 left-4 right-4 h-16 z-50">
+      {/* Main navigation bar with glassmorphism effect and 5 items */}
+      <div className="flex h-full w-full items-center justify-around rounded-2xl border border-white/10 bg-slate-800/60 p-2 shadow-xl backdrop-blur-lg">
+        {navItems.map((item) => {
+          const isActive = location.pathname.startsWith(item.path);
+          const iconColor = isActive ? item.activeColor.replace('text-', '') : '#9ca3af';
+
+          return (
+            <motion.button
+              key={item.name}
+              onClick={() => navigate(item.path)}
+              whileTap={{ scale: 0.85 }}
+              animate={isActive ? 'active' : 'inactive'}
+              variants={{
+                active: { scale: 1.1 },
+                inactive: { scale: 1 },
               }}
-              transition={{ duration: 0.3 }}
+              className="relative flex h-full flex-1 flex-col items-center justify-center text-gray-400 focus:outline-none"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              {item.name}
-            </motion.span>
-          </motion.button>
-        ))}
+              {/* Icon with pop-up animation */}
+              <motion.div
+                variants={{
+                  active: { y: -8, color: iconColor },
+                  inactive: { y: 0, color: '#9ca3af' }, // gray-400
+                }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              >
+                <item.icon size={24} />
+              </motion.div>
+
+              {/* Text label that fades in */}
+              <motion.span
+                className={`absolute bottom-1 text-xs font-bold ${item.activeColor}`}
+                variants={{
+                  active: { opacity: 1, scale: 1 },
+                  inactive: { opacity: 0, scale: 0.8 },
+                }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+              >
+                {item.name}
+              </motion.span>
+            </motion.button>
+          );
+        })}
       </div>
     </div>
   );
