@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { noteCollections } from '../../data/NoteCollections';
-import { ChevronDown, ChevronUp, ArrowLeft, BookOpen, Bookmark, Layers } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowLeft, BookOpen, Bookmark, Layers, FileText } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const NotePage = () => {
   const { subjectId, chapterId } = useParams();
@@ -9,24 +10,25 @@ const NotePage = () => {
   const [content, setContent] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(true);
 
   // Color themes for different subjects
   const subjectColors = {
-    Psychology: { bg: 'from-purple-100 to-pink-100', text: 'text-purple-600', border: 'border-purple-200' },
-    Logic: { bg: 'from-blue-100 to-cyan-100', text: 'text-blue-600', border: 'border-blue-200' },
-    Geography: { bg: 'from-green-100 to-teal-100', text: 'text-green-600', border: 'border-green-200' },
-    'English skill 1': { bg: 'from-red-100 to-orange-100', text: 'text-red-600', border: 'border-red-200' },
-    Anthropology: { bg: 'from-amber-100 to-yellow-100', text: 'text-amber-600', border: 'border-amber-200' },
-    Economics: { bg: 'from-emerald-100 to-lime-100', text: 'text-emerald-600', border: 'border-emerald-200' },
-    Physics: { bg: 'from-indigo-100 to-violet-100', text: 'text-indigo-600', border: 'border-indigo-200' },
-    Math: { bg: 'from-sky-100 to-blue-100', text: 'text-sky-600', border: 'border-sky-200' },
-    'Organic Chemistry': { bg: 'from-rose-100 to-pink-100', text: 'text-rose-600', border: 'border-rose-200' },
-    'C++': { bg: 'from-fuchsia-100 to-purple-100', text: 'text-fuchsia-600', border: 'border-fuchsia-200' },
-    'Applied Math': { bg: 'from-cyan-100 to-blue-100', text: 'text-cyan-600', border: 'border-cyan-200' },
-    'Global Trade': { bg: 'from-teal-100 to-emerald-100', text: 'text-teal-600', border: 'border-teal-200' },
-    'Emerging Technology': { bg: 'from-violet-100 to-purple-100', text: 'text-violet-600', border: 'border-violet-200' },
-    History: { bg: 'from-amber-100 to-orange-100', text: 'text-amber-600', border: 'border-amber-200' },
-    default: { bg: 'from-gray-100 to-blue-100', text: 'text-gray-600', border: 'border-gray-200' }
+    Psychology: { bg: 'from-purple-50 to-pink-50', text: 'text-purple-600', border: 'border-purple-200', iconBg: 'bg-purple-600' },
+    Logic: { bg: 'from-blue-50 to-cyan-50', text: 'text-blue-600', border: 'border-blue-200', iconBg: 'bg-blue-600' },
+    Geography: { bg: 'from-green-50 to-teal-50', text: 'text-green-600', border: 'border-green-200', iconBg: 'bg-green-600' },
+    'English skill 1': { bg: 'from-red-50 to-orange-50', text: 'text-red-600', border: 'border-red-200', iconBg: 'bg-red-600' },
+    Anthropology: { bg: 'from-amber-50 to-yellow-50', text: 'text-amber-600', border: 'border-amber-200', iconBg: 'bg-amber-600' },
+    Economics: { bg: 'from-emerald-50 to-lime-50', text: 'text-emerald-600', border: 'border-emerald-200', iconBg: 'bg-emerald-600' },
+    Physics: { bg: 'from-indigo-50 to-violet-50', text: 'text-indigo-600', border: 'border-indigo-200', iconBg: 'bg-indigo-600' },
+    Math: { bg: 'from-sky-50 to-blue-50', text: 'text-sky-600', border: 'border-sky-200', iconBg: 'bg-sky-600' },
+    'Organic Chemistry': { bg: 'from-rose-50 to-pink-50', text: 'text-rose-600', border: 'border-rose-200', iconBg: 'bg-rose-600' },
+    'C++': { bg: 'from-fuchsia-50 to-purple-50', text: 'text-fuchsia-600', border: 'border-fuchsia-200', iconBg: 'bg-fuchsia-600' },
+    'Applied Math': { bg: 'from-cyan-50 to-blue-50', text: 'text-cyan-600', border: 'border-cyan-200', iconBg: 'bg-cyan-600' },
+    'Global Trade': { bg: 'from-teal-50 to-emerald-50', text: 'text-teal-600', border: 'border-teal-200', iconBg: 'bg-teal-600' },
+    'Emerging Technology': { bg: 'from-violet-50 to-purple-50', text: 'text-violet-600', border: 'border-violet-200', iconBg: 'bg-violet-600' },
+    History: { bg: 'from-amber-50 to-orange-50', text: 'text-amber-600', border: 'border-amber-200', iconBg: 'bg-amber-600' },
+    default: { bg: 'from-gray-50 to-blue-50', text: 'text-gray-600', border: 'border-gray-200', iconBg: 'bg-gray-600' }
   };
 
   useEffect(() => {
@@ -46,6 +48,9 @@ const NotePage = () => {
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
+      if (window.scrollY > 50) {
+        setShowScrollHint(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -55,6 +60,13 @@ const NotePage = () => {
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
       behavior: 'smooth'
     });
   };
@@ -80,39 +92,99 @@ const NotePage = () => {
   const colors = subjectColors[currentSubject?.name] || subjectColors.default;
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${colors.bg}`}>
+    <div className={`min-h-screen font-sans ${currentSubject ? `bg-gradient-to-br ${colors.bg}` : 'bg-gray-50'}`}>
       {/* Floating Navigation */}
-      {isScrolled && (
-        <div className={`fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-10 py-3 px-6 border-b ${colors.border}`}>
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className={`fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-20 py-3 px-6 border-b ${colors.border}`}
+          >
+            <div className="max-w-6xl mx-auto flex justify-between items-center">
+              <button
+                onClick={() => navigate('/handouts')}
+                className={`flex items-center text-sm font-semibold text-gray-600 hover:text-gray-800 transition-colors`}
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">{currentSubject?.name}</span>
+              </button>
+              <h2 className="text-sm sm:text-base font-semibold text-gray-800 truncate max-w-xs sm:max-w-md">
+                {currentChapter?.title}
+              </h2>
+              <button
+                onClick={toggleBookmark}
+                className={`p-2 rounded-full transition-colors ${isBookmarked ? `${colors.text} bg-white` : 'text-gray-400 hover:text-gray-600'}`}
+              >
+                <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 pt-20">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center"
+        >
+          <div className="inline-flex items-center gap-4 text-sm font-semibold text-gray-600 mb-2">
             <button
               onClick={() => navigate('/handouts')}
-              className={`flex items-center ${colors.text} hover:opacity-80 transition-opacity`}
+              className={`flex items-center gap-2 ${colors.text} hover:underline transition-colors`}
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">{currentSubject?.name}</span>
+              <Layers className="h-4 w-4" />
+              <span>{currentSubject?.name}</span>
             </button>
-            <h2 className="text-sm sm:text-base font-medium text-gray-700 truncate max-w-xs sm:max-w-md">
-              {currentChapter?.title}
-            </h2>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-500">Chapter</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+            {currentChapter?.title}
+          </h1>
+          <p className="mt-3 text-lg text-gray-600">
+            {currentChapter?.description}
+          </p>
+          <div className="mt-6 flex justify-center items-center gap-4">
             <button
               onClick={toggleBookmark}
-              className={`p-2 rounded-full ${isBookmarked ? colors.text : 'text-gray-400 hover:' + colors.text}`}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${isBookmarked
+                  ? `${colors.iconBg} text-white hover:bg-opacity-90`
+                  : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-100'
+                }`}
             >
-              <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
+              <Bookmark className="h-4 w-4" fill={isBookmarked ? "currentColor" : "none"} />
+              {isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
             </button>
           </div>
-        </div>
-      )}
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 pt-20 sm:pt-24">
-        {/* Header */}
-        
+        </motion.div>
 
         {/* Content */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/20">
-          <div className="p-6 sm:p-8">
-            <div className="prose max-w-none text-gray-700">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white"
+        >
+          {showScrollHint && (
+            <motion.div
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-10 ${colors.text}`}
+            >
+              <span className="text-sm">Scroll Down</span>
+              <ChevronDown className="w-5 h-5 mt-1" />
+            </motion.div>
+          )}
+
+          <div className="p-6 sm:p-10">
+            <div className="prose prose-lg max-w-none text-gray-800 leading-relaxed">
               {content ? (
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               ) : (
@@ -124,12 +196,17 @@ const NotePage = () => {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Chapter Navigation */}
         {currentSubject && (
-          <div className="mt-12">
-            <h3 className={`text-lg font-semibold ${colors.text} mb-6 text-center`}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12"
+          >
+            <h3 className={`text-xl font-bold ${colors.text} mb-6 text-center`}>
               Explore More Chapters
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -137,36 +214,34 @@ const NotePage = () => {
                 <button
                   key={chapter.id}
                   onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
-                  className={`p-5 rounded-xl border transition-all text-left backdrop-blur-sm ${chapterId === chapter.id
-                    ? `bg-white/90 border-white shadow-lg ${colors.text} font-medium`
+                  className={`p-5 rounded-2xl border transition-all text-left backdrop-blur-sm shadow-md ${chapterId === chapter.id
+                    ? `bg-white/90 border-white shadow-lg ${colors.text} font-bold`
                     : 'bg-white/50 border-white/30 hover:bg-white/70 hover:shadow-md'
-                  }`}
+                    }`}
                 >
-                  <h4 className="font-medium">{chapter.title}</h4>
+                  <h4 className="font-semibold text-gray-800">{chapter.title}</h4>
                   <p className="text-sm text-gray-500 mt-2 line-clamp-2">
                     {chapter.description || 'Chapter content'}
                   </p>
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
 
       {/* Floating action buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col space-y-3">
-        {isScrolled && (
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`p-3 rounded-full shadow-lg ${colors.text} bg-white/90 backdrop-blur-sm hover:bg-white transition-all`}
-            aria-label="Scroll to top"
-          >
-            <ChevronUp className="h-6 w-6" />
-          </button>
-        )}
+        <button
+          onClick={scrollToTop}
+          className={`p-3 rounded-full shadow-lg ${colors.iconBg} text-white backdrop-blur-sm hover:scale-110 transition-all`}
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
         <button
           onClick={scrollToBottom}
-          className={`p-3 rounded-full shadow-lg ${colors.text} bg-white/90 backdrop-blur-sm hover:bg-white transition-all`}
+          className={`p-3 rounded-full shadow-lg ${colors.iconBg} text-white backdrop-blur-sm hover:scale-110 transition-all`}
           aria-label="Scroll to bottom"
         >
           <ChevronDown className="h-6 w-6" />

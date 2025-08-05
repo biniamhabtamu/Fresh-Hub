@@ -1057,8 +1057,28 @@ export const noteCollections: Subject[] = [
     icon: '⚛️',
     chapters: [
       { 
-        id: 'mechanics', 
-        title: 'Classical Mechanics', 
+        id: 'Chapter1', 
+        title: 'Chapter 1 :Preliminaries', 
+        content: '<h2>Newton\'s Laws</h2><p>Motion, forces, energy...</p>'
+      },
+      { 
+        id: 'Chapter2', 
+        title: 'Chapter 2 :Kinematics and Dynamics of Particles', 
+        content: '<h2>Newton\'s Laws</h2><p>Motion, forces, energy...</p>'
+      },
+      { 
+        id: 'Chapter3', 
+        title: 'Chapter 3 :Fluid Mechnics', 
+        content: '<h2>Newton\'s Laws</h2><p>Motion, forces, energy...</p>'
+      },
+      { 
+        id: 'Chapter4', 
+        title: 'Chapter 4 : Heat and thermodynamics', 
+        content: '<h2>Newton\'s Laws</h2><p>Motion, forces, energy...</p>'
+      },
+      { 
+        id: 'Chapter5', 
+        title: 'Chapter 5 : Oscillation ,Waves and Optics', 
         content: '<h2>Newton\'s Laws</h2><p>Motion, forces, energy...</p>'
       }
     ]
