@@ -23,18 +23,48 @@ interface UserPerformance {
 }
 
 const colorThemes = [
-  { bg: 'from-blue-100 to-cyan-100', text: 'text-blue-800', border: 'border-blue-200' },
-  { bg: 'from-purple-100 to-indigo-100', text: 'text-purple-800', border: 'border-purple-200' },
-  { bg: 'from-green-100 to-emerald-100', text: 'text-green-800', border: 'border-green-200' },
-  { bg: 'from-amber-100 to-yellow-100', text: 'text-amber-800', border: 'border-amber-200' },
-  { bg: 'from-pink-100 to-rose-100', text: 'text-pink-800', border: 'border-pink-200' },
+  { 
+    bg: 'from-blue-200 to-cyan-300', 
+    text: 'text-blue-800', 
+    border: 'border-blue-300',
+    progress: 'from-blue-500 to-cyan-500',
+    lock: 'text-blue-600'
+  },
+  { 
+    bg: 'from-purple-200 to-indigo-300', 
+    text: 'text-purple-800', 
+    border: 'border-purple-300',
+    progress: 'from-purple-500 to-indigo-500',
+    lock: 'text-purple-600'
+  },
+  { 
+    bg: 'from-green-200 to-emerald-300', 
+    text: 'text-green-800', 
+    border: 'border-green-300',
+    progress: 'from-green-500 to-emerald-500',
+    lock: 'text-green-600'
+  },
+  { 
+    bg: 'from-amber-200 to-yellow-300', 
+    text: 'text-amber-800', 
+    border: 'border-amber-300',
+    progress: 'from-amber-500 to-yellow-500',
+    lock: 'text-amber-600'
+  },
+  { 
+    bg: 'from-pink-200 to-rose-300', 
+    text: 'text-pink-800', 
+    border: 'border-pink-300',
+    progress: 'from-pink-500 to-rose-500',
+    lock: 'text-pink-600'
+  },
 ];
 
-export default function SubjectCard({ 
-  subject, 
-  onClick, 
-  isLocked, 
-  isPremium = false, 
+export default function SubjectCard({
+  subject,
+  onClick,
+  isLocked,
+  isPremium = false,
   completionPercentage = 0,
   hasPremiumAccess = false
 }: SubjectCardProps) {
@@ -47,19 +77,19 @@ export default function SubjectCard({
   useEffect(() => {
     const fetchUserPerformance = async () => {
       if (!currentUser?.uid) return;
-      
+    
       try {
         const resultsQuery = query(
           collection(db, 'quizResults'),
           where('userId', '==', currentUser.uid),
           where('subjectId', '==', subject.id)
         );
-        
+      
         const querySnapshot = await getDocs(resultsQuery);
         let totalScore = 0;
         let totalAttempts = 0;
         let bestScore = 0;
-        
+      
         querySnapshot.forEach((doc) => {
           const data = doc.data();
           const score = data.score || 0;
@@ -67,7 +97,7 @@ export default function SubjectCard({
           totalAttempts++;
           if (score > bestScore) bestScore = score;
         });
-        
+      
         setPerformance({
           averageScore: totalAttempts > 0 ? Math.round((totalScore / totalAttempts) * 10) / 10 : 0,
           attempts: totalAttempts,
@@ -110,43 +140,52 @@ export default function SubjectCard({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      whileHover={{ scale: shouldShowLock ? 1 : 1.02 }}
+      whileHover={{ scale: shouldShowLock ? 1 : 1.03 }}
       whileTap={{ scale: 0.98 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={handleCardClick}
       className={`
-        relative overflow-hidden h-full min-h-[160px] flex flex-col p-4
-        cursor-pointer transition-all duration-200 shadow-sm
+        relative overflow-hidden h-full min-h-[180px] flex flex-col p-5
+        cursor-pointer transition-all duration-300 shadow-sm
         bg-white border ${theme.border}
-        rounded-lg
-        ${isHovered ? 'shadow-md' : 'shadow-sm'}
-        ${shouldShowLock ? 'opacity-80' : ''}
+        rounded-xl
+        ${isHovered ? 'shadow-lg ring-2 ring-opacity-30 ' + theme.border : 'shadow-md'}
+        ${shouldShowLock ? 'opacity-90' : ''}
+        group
       `}
     >
-      {/* Lock Icon */}
+
+      {/* Enhanced Lock Icon - Top Right */}
       {shouldShowLock && (
-        <motion.div 
-          whileHover={{ scale: 1.1 }}
+        <motion.div
+          whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute top-2 right-2 z-10"
+          className="absolute top-3 right-3 z-20"
           onClick={handleLockClick}
         >
-          <div className="p-1.5 bg-white rounded-full shadow-sm border border-gray-200">
-            <Lock className="h-4 w-4 text-purple-600" />
+          <div className="p-2 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-full shadow-lg border border-amber-200 flex items-center justify-center">
+            <Lock className="h-5 w-5 text-amber-600" />
+            <span className="absolute top-0 right-0 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+            </span>
           </div>
         </motion.div>
       )}
 
-      {/* Subject Icon */}
-      <motion.div 
-        animate={{ y: isHovered ? -2 : 0 }}
+      {/* Subject Icon with Enhanced Styling */}
+      <motion.div
+        animate={{ y: isHovered ? -5 : 0 }}
         transition={{ type: 'spring', stiffness: 300 }}
         className={`
-          w-full h-16 mb-3 rounded-lg overflow-hidden flex items-center justify-center
+          w-16 h-16 mb-4 rounded-2xl overflow-hidden flex items-center justify-center
           bg-gradient-to-br ${theme.bg}
-          border ${theme.border}
-          ${shouldShowLock ? 'brightness-95' : ''}
+          border-2 ${theme.border}
+          shadow-inner
+          group-hover:shadow-md
+          ${shouldShowLock ? 'brightness-90' : ''}
+          mx-auto
         `}
       >
         <div className="text-3xl">
@@ -156,74 +195,77 @@ export default function SubjectCard({
 
       {/* Subject Name */}
       <h3 className={`
-        text-sm font-bold mb-1 ${theme.text} truncate
+        text-lg font-bold mb-2 ${theme.text} text-center
+        group-hover:underline decoration-2 underline-offset-2
       `}>
         {subject.name}
       </h3>
 
-      {/* Progress Bar - only show if there's progress to display */}
+      {/* Enhanced Progress Bar */}
       {showProgress && (
-        <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden border border-gray-200 mb-2">
-          <motion.div 
+        <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden border border-gray-200 mb-3 shadow-inner">
+          <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${displayPercentage}%` }}
             transition={{ duration: 0.8, type: 'spring' }}
-            className={`h-full rounded-full ${
-              displayPercentage && displayPercentage >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
-              displayPercentage && displayPercentage >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' : 
-              'bg-gradient-to-r from-red-400 to-pink-400'
-            } shadow-sm`}
+            className={`h-full rounded-full bg-gradient-to-r ${theme.progress} shadow-sm`}
           />
         </div>
       )}
 
-      {/* Stats or CTA */}
-      <div className="mt-auto">
+      {/* Stats or CTA with Enhanced Design */}
+      <div className="mt-auto w-full">
         {hasAttempts ? (
-          <div className="flex justify-between items-center">
-            <span className={`text-xs ${theme.text} flex items-center`}>
-              <BarChart className="h-3 w-3 mr-1" />
-              {performance?.attempts}x
+          <div className="flex justify-between items-center px-1">
+            <span className={`text-sm font-medium ${theme.text} flex items-center`}>
+              <BarChart className="h-4 w-4 mr-2" />
+              <span className="font-bold">{performance?.attempts}</span> attempts
             </span>
             {performance?.bestScore && (
-              <span className="text-xs text-amber-600 flex items-center">
-                <Trophy className="h-3 w-3 mr-1" />
-                {performance.bestScore}%
+              <span className="text-sm font-medium text-amber-600 flex items-center">
+                <Trophy className="h-4 w-4 mr-2" />
+                Best: <span className="font-bold ml-1">{performance.bestScore}%</span>
               </span>
             )}
           </div>
         ) : showCTA ? (
-          <motion.div 
-            animate={{ y: isHovered ? -1 : 0 }}
-            className={`text-center py-1 rounded-md ${theme.bg} border ${theme.border} text-xs ${theme.text}`}
+          <motion.div
+            animate={{ y: isHovered ? -2 : 0 }}
+            className={`text-center py-2 rounded-xl ${theme.bg} border ${theme.border} text-sm font-semibold ${theme.text} shadow-sm group-hover:shadow-md`}
           >
-            {shouldShowLock ? 'Premium' : 'Start Now'}
+            {shouldShowLock ? 'Unlock Premium →' : 'Start Learning →'}
           </motion.div>
         ) : null}
       </div>
 
-      {/* Hover Arrow */}
+      {/* Enhanced Hover Arrow */}
       {isHovered && !shouldShowLock && (
-        <motion.div 
-          initial={{ opacity: 0, x: -5 }}
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -5 }}
-          className="absolute bottom-2 right-2"
+          exit={{ opacity: 0, x: -10 }}
+          className="absolute bottom-3 right-3"
         >
-          <ChevronRight className={`h-4 w-4 ${theme.text}`} />
+          <ChevronRight className={`h-5 w-5 ${theme.text} bg-white/80 rounded-full p-1 shadow-lg`} />
         </motion.div>
       )}
 
-      {/* Premium Badge */}
+      {/* Enhanced Premium Badge */}
       {isPremium && !shouldShowLock && (
-        <motion.div 
-          animate={{ rotate: isHovered ? [0, 10, -10, 0] : 0 }}
+        <motion.div
+          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
           transition={{ duration: 0.4 }}
-          className="absolute top-1 left-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-1 rounded-full shadow-sm"
+          className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-2 py-1 rounded-lg shadow-md flex items-center"
         >
-          <Sparkles className="h-3 w-3" />
+          <Sparkles className="h-4 w-4 mr-1" />
+          <span className="text-xs font-bold">Premium</span>
         </motion.div>
       )}
+
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 z-0 opacity-5">
+        <div className="absolute right-0 top-0 w-20 h-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+      </div>
     </motion.div>
   );
 }
