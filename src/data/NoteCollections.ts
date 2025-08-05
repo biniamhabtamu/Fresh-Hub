@@ -331,15 +331,35 @@ export const noteCollections: Subject[] = [
       `
     },
     { 
-      id: 'intro', 
-      title: 'Introduction to Psychology', 
+      id: 'Chapter2', 
+      title: 'Chapter 2 : Sensation and Perception ', 
       content: '<h2>What is Psychology?</h2><p>Psychology is the scientific study of mind and behavior...</p><h3>Key Concepts</h3><ul><li>Cognition</li><li>Emotion</li><li>Development</li></ul>'
     },
     { 
-      id: 'research-methods', 
-      title: 'Research Methods', 
+      id: 'Chapter3', 
+      title: 'Chapter 3: Learninig and Theory of learnig', 
       content: '<h2>Scientific Methods in Psychology</h2><p>Experimental designs, case studies, and correlations...</p>'
-    }
+    },
+    { 
+        id: 'Chapter4', 
+        title: 'Chapter 4 : Memory and Forgetting', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter5', 
+        title: 'Chapter 5: Motivation and Emotions', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter6', 
+        title: 'Chapter 6 :Personality', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter7', 
+        title: 'Chapter 7 : Psychological Disorders and Treatment Techniques', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      }
   ]
 },
   {
@@ -734,15 +754,35 @@ export const noteCollections: Subject[] = [
       `
     },
     { 
-      id: 'propositional', 
-      title: 'Propositional Logic', 
+      id: 'Chapter2', 
+      title: 'Chapter 2 : Basic Concepts Of Logic', 
       content: '<h2>Basic Logical Operators</h2><p>AND, OR, NOT, IF-THEN...</p>'
     },
     { 
-      id: 'fallacies', 
-      title: 'Logical Fallacies', 
+      id: 'Chapter3', 
+      title: 'Chapter 3 : Logic and Langueage', 
       content: '<h2>Common Reasoning Errors</h2><p>Straw man, ad hominem, false dilemma...</p>'
-    }
+    },
+    { 
+        id: 'MidExams', 
+        title: 'Mid Exam Collations all Ethiopian University', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+    { 
+        id: 'Chapter4', 
+        title: 'Chapter 4 : Basic Concepts Of Critical Thinking', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter5', 
+        title: 'Chapter 5 : Informal Fallacies', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter6', 
+        title: 'Chapter 6 : Categorical Propostion', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      }
   ]
 },
  {
@@ -944,8 +984,28 @@ export const noteCollections: Subject[] = [
     icon: '📖',
     chapters: [
       { 
-        id: 'grammar', 
-        title: 'Basic Grammar', 
+        id: 'Chapter1', 
+        title: 'Chapter 1: Tense', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter2', 
+        title: 'Chapter 2: Conditonal Sentence', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter3', 
+        title: 'Chapter 3 : Modal Verb', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter4', 
+        title: 'Chapeter 4: Colloctations', 
+        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+      },
+      { 
+        id: 'Chapter5', 
+        title: 'Chapter 5 : Active and Passive Voices', 
         content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
       }
     ]
