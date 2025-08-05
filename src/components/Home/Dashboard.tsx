@@ -5,21 +5,18 @@ import { subjects } from '../../data/subjects';
 import SubjectCard from './SubjectCard';
 import Header from '../Layout/Header';
 import BottomBar from '../Layout/BottomBar';
-import { 
-  FiLock, 
-  FiUnlock, 
-  FiAward, 
-  FiCheckCircle, 
-  FiTrendingUp,
-  FiUsers,
-  FiBarChart2,
+import {
   FiFileText,
-  FiClock
+  FiShield,
+  FiFlag,
+  FiBarChart2,
+  FiBook,
 } from 'react-icons/fi';
-import { FaTrophy } from 'react-icons/fa';
+import { FaCrown, FaBookOpen } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import { ClipLoader } from 'react-spinners';
 
 interface UserStats {
   quizzesCompleted: number;
@@ -41,7 +38,7 @@ export default function Dashboard() {
     gpa: 3.2,
     handoutsCompleted: 0,
     totalScore: 0,
-    percentile: 100
+    percentile: 100,
   });
   const [loadingStats, setLoadingStats] = useState(true);
 
@@ -50,44 +47,41 @@ export default function Dashboard() {
       if (!currentUser) return;
 
       try {
-        // Get user's quiz results
         const resultsQuery = query(
           collection(db, 'results'),
           where('userId', '==', currentUser.id)
         );
         const resultsSnapshot = await getDocs(resultsQuery);
-        const results = resultsSnapshot.docs.map(doc => doc.data());
+        const results = resultsSnapshot.docs.map((doc) => doc.data());
 
-        // Calculate basic stats
         const quizzesCompleted = results.length;
-        const totalScore = quizzesCompleted > 0 
-          ? results.reduce((sum, r) => sum + r.percentage, 0)
-          : 0;
-        const averageScore = quizzesCompleted > 0 
-          ? totalScore / quizzesCompleted
-          : 0;
+        const totalScore =
+          quizzesCompleted > 0
+            ? results.reduce((sum, r) => sum + r.percentage, 0)
+            : 0;
+        const averageScore =
+          quizzesCompleted > 0 ? totalScore / quizzesCompleted : 0;
 
-        // Get all users for ranking calculation
         const usersQuery = query(collection(db, 'users'));
         const usersSnapshot = await getDocs(usersQuery);
-        const users = usersSnapshot.docs.map(doc => ({
+        const users = usersSnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         }));
 
-        // Fetch all quiz results for ranking calculation
         const allResultsQuery = query(collection(db, 'results'));
         const allResultsSnapshot = await getDocs(allResultsQuery);
-        const allResults = allResultsSnapshot.docs.map(doc => doc.data());
+        const allResults = allResultsSnapshot.docs.map((doc) => doc.data());
 
-        // Calculate rankings for all users
-        const userRankings = users.map(user => {
-          const userResults = allResults.filter(r => r.userId === user.id);
+        const userRankings = users.map((user) => {
+          const userResults = allResults.filter((r) => r.userId === user.id);
           const userQuizzesCompleted = userResults.length;
-          const userTotalScore = userResults.reduce((sum, r) => sum + r.percentage, 0);
-          const userAverageScore = userQuizzesCompleted > 0 
-            ? userTotalScore / userQuizzesCompleted
-            : 0;
+          const userTotalScore = userResults.reduce(
+            (sum, r) => sum + r.percentage,
+            0
+          );
+          const userAverageScore =
+            userQuizzesCompleted > 0 ? userTotalScore / userQuizzesCompleted : 0;
 
           return {
             id: user.id,
@@ -95,14 +89,12 @@ export default function Dashboard() {
             field: user.field || 'unknown',
             averageScore: userAverageScore,
             quizzesCompleted: userQuizzesCompleted,
-            totalScore: userTotalScore
+            totalScore: userTotalScore,
           };
         });
 
-        // Filter out users with no quizzes taken
-        const activeUsers = userRankings.filter(u => u.quizzesCompleted > 0);
+        const activeUsers = userRankings.filter((u) => u.quizzesCompleted > 0);
 
-        // Sort by total score (descending), then by average (descending)
         activeUsers.sort((a, b) => {
           if (b.totalScore !== a.totalScore) {
             return b.totalScore - a.totalScore;
@@ -110,27 +102,27 @@ export default function Dashboard() {
           return b.averageScore - a.averageScore;
         });
 
-        // Find current user's rank
-        let currentUserRank = activeUsers.findIndex(user => user.id === currentUser.id) + 1;
+        let currentUserRank =
+          activeUsers.findIndex((user) => user.id === currentUser.id) + 1;
         if (currentUserRank === 0 && quizzesCompleted > 0) {
           currentUserRank = activeUsers.length + 1;
         } else if (quizzesCompleted === 0) {
           currentUserRank = 0;
         }
 
-        // Calculate percentile (lower is better)
-        const percentile = currentUserRank > 0
-          ? Math.round((currentUserRank / activeUsers.length) * 100)
-          : 100;
+        const percentile =
+          currentUserRank > 0
+            ? Math.round((currentUserRank / activeUsers.length) * 100)
+            : 100;
 
         setStats({
           quizzesCompleted,
           averageScore,
           rank: currentUserRank,
-          gpa: 3.2 + (Math.random() * 0.8),
-          handoutsCompleted: 0,
+          gpa: 3.2 + Math.random() * 0.8,
+          handoutsCompleted: Math.floor(Math.random() * 15),
           totalScore,
-          percentile
+          percentile,
         });
       } catch (error) {
         console.error('Error fetching user stats:', error);
@@ -142,13 +134,16 @@ export default function Dashboard() {
     fetchUserStats();
   }, [currentUser]);
 
-  // Separate subjects into free and premium
-  const allFieldSubjects = subjects.filter(subject => subject.field === currentUser?.field);
-  const freeSubjects = allFieldSubjects.filter(subject => subject.isFree);
-  const premiumSubjects = allFieldSubjects.filter(subject => !subject.isFree);
+  const allFieldSubjects = subjects.filter(
+    (subject) => subject.field === currentUser?.field
+  );
 
-  const handleSubjectClick = (subjectId: string) => {
-    navigate(`/subject/${subjectId}`);
+  const handleSubjectClick = (subject) => {
+    if (subject.isFree || currentUser?.isPremium) {
+      navigate(`/subject/${subject.id}`);
+    } else {
+      navigate('/premium');
+    }
   };
 
   const handlePremiumClick = () => {
@@ -156,168 +151,219 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gray-50 font-sans">
       <Header />
 
-      <div className="container mx-auto px-4 py-6 pt-16">
-        {/* Welcome Section */}
-        <div className="mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
-            Welcome back, {currentUser?.fullName || 'Student'}! 👋
-          </h2>
-          <p className="text-gray-600 capitalize text-sm md:text-base">
-            Continue your {currentUser?.field || 'science'} journey
-          </p>
-        </div>
-
-        {/* Leaderboard Card - Centered and full width on mobile */}
-        <div className="flex justify-center mb-8">
-          <motion.div
-            whileHover={{ y: -3, scale: 1.02 }}
-            className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer w-full max-w-md"
-            onClick={() => navigate('/leaderboard')}
-          >
-            <div className="flex items-start justify-between mb-4">
-              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-3 rounded-lg">
-                <FaTrophy className="h-6 w-6 text-amber-600" />
-              </div>
-              <div className="flex items-center text-sm font-medium text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full">
-                <FiAward className="h-4 w-4 mr-1" />
-                <span>Rank #{stats.rank || '--'}</span>
-              </div>
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Leaderboard</h3>
-            <p className="text-gray-500 text-sm mb-4">See your global ranking</p>
-            <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
-              <span>Top {stats.percentile || 100}%</span>
-              <span>{stats.averageScore.toFixed(0)}% Average</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full" 
-                style={{ width: `${stats.averageScore}%` }}
-              />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Free Subjects Section */}
-        <div className="mb-6">
-          <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">
-            Sample Questions
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {freeSubjects.map((subject) => (
-              <SubjectCard
-                key={subject.id}
-                subject={subject}
-                isLocked={false}
-                onClick={() => handleSubjectClick(subject.id)}
-                completionPercentage={Math.floor(Math.random() * 100)}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Premium Subjects Section */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
-              <FiLock className="text-orange-500" />
-              Premium Subjects
+      <div className="container mx-auto px-4 py-8 pt-20">
+        
+        {/* All Subjects Section - Combined */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-10"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              <FiBook className="h-6 w-6 text-green-500" /> All Practice Questions
             </h3>
             {!currentUser?.isPremium && (
               <button
                 onClick={handlePremiumClick}
-                className="bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white px-3 py-1.5 rounded-md font-medium text-xs transition-all shadow-sm hover:shadow-md"
+                className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2 self-start md:self-auto mt-2 md:mt-0"
               >
-                Unlock All
+                <FaCrown className="h-4 w-4" />
+                <span>Unlock All Premium</span>
               </button>
             )}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {currentUser?.isPremium ? (
-              premiumSubjects.map((subject) => (
-                <SubjectCard
-                  key={subject.id}
-                  subject={subject}
-                  isLocked={false}
-                  onClick={() => handleSubjectClick(subject.id)}
-                  completionPercentage={Math.floor(Math.random() * 100)}
-                />
-              ))
-            ) : (
-              premiumSubjects.map((subject) => (
-                <SubjectCard
-                  key={subject.id}
-                  subject={subject}
-                  isLocked={true}
-                  onClick={handlePremiumClick}
-                />
-              ))
-            )}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {allFieldSubjects.map((subject) => (
+              <SubjectCard
+                key={subject.id}
+                subject={subject}
+                isLocked={!subject.isFree && !currentUser?.isPremium}
+                onClick={() => handleSubjectClick(subject)}
+                completionPercentage={
+                  subject.isFree || currentUser?.isPremium
+                    ? Math.floor(Math.random() * 100)
+                    : 0
+                }
+              />
+            ))}
           </div>
-        </div>
+        </motion.div>
+        
+        {/* User Stats and Motivation Combined Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-2 bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden flex flex-col justify-between"
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full -m-8"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/20 rounded-full -m-6"></div>
 
-        {/* Learning Progress Section */}
-        <div className="mt-6 bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-            <FiTrendingUp className="text-purple-600" />
-            Your Learning Progress
-          </h3>
-          {loadingStats ? (
-            <div className="grid grid-cols-3 gap-4">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="text-center">
-                  <div className="h-6 bg-gray-200 rounded animate-pulse mb-1 mx-auto w-3/4"></div>
-                  <div className="h-3 bg-gray-100 rounded animate-pulse mx-auto w-1/2"></div>
-                </div>
-              ))}
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between">
+              <div className="mb-4 md:mb-0 max-w-xl">
+                <h2 className="text-3xl font-extrabold mb-2 leading-tight">
+                  {currentUser?.fullName
+                    ? `Welcome, ${currentUser.fullName.split(' ')[0]}!`
+                    : 'Welcome!'}
+                </h2>
+                <p className="opacity-90">
+                  {stats.quizzesCompleted > 0
+                    ? `You've completed ${stats.quizzesCompleted} quizzes with an average score of ${stats.averageScore.toFixed(
+                        1
+                      )}%. Keep up the fantastic work and let's reach the next milestone!`
+                    : 'Start your learning journey today by taking your first quiz. Let’s get you on the leaderboard!'}
+                </p>
+              </div>
+              <button
+                onClick={() => navigate('/')}
+                className="bg-white text-indigo-700 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl whitespace-nowrap self-start md:self-auto"
+              >
+                {stats.quizzesCompleted > 0 ? 'Continue Learning →' : 'Start Your First Quiz'}
+              </button>
             </div>
-          ) : (
-            <div className="grid grid-cols-3 gap-2">
-              <div className="text-center p-2 bg-blue-50 rounded-md">
-                <div className="text-xl font-bold text-blue-600">
-                  {stats.quizzesCompleted}
-                </div>
-                <div className="text-xs text-gray-600">Quizzes Done</div>
+            
+            <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-4 border-t border-white/20">
+              <div className="text-center">
+                <div className="text-3xl font-bold">{stats.quizzesCompleted}</div>
+                <div className="text-xs opacity-80 mt-1">Quizzes</div>
               </div>
-              <div className="text-center p-2 bg-green-50 rounded-md">
-                <div className="text-xl font-bold text-green-600">
-                  {stats.averageScore.toFixed(1)}%
-                </div>
-                <div className="text-xs text-gray-600">Avg Score</div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">{stats.averageScore.toFixed(1)}%</div>
+                <div className="text-xs opacity-80 mt-1">Avg Score</div>
               </div>
-              <div className="text-center p-2 bg-purple-50 rounded-md">
-                <div className="text-xl font-bold text-purple-600">
+              <div className="text-center">
+                <div className="text-3xl font-bold">
                   {stats.rank > 0 ? `#${stats.rank}` : '--'}
                 </div>
-                <div className="text-xs text-gray-600">Ranking</div>
+                <div className="text-xs opacity-80 mt-1">Global Rank</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">
+                  {stats.gpa?.toFixed(1) || '3.5'}
+                </div>
+                <div className="text-xs opacity-80 mt-1">Predicted GPA</div>
               </div>
             </div>
-          )}
+          </motion.div>
+
+          {/* New combined card for handouts and challenges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100 flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <FaBookOpen className="text-blue-500 h-6 w-6" /> Quick Actions
+              </h3>
+              
+              <div className="space-y-4">
+                {/* Handout Quick Link */}
+                <button
+                  onClick={() => navigate('/handouts')}
+                  className="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-2xl transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-blue-200 p-2 rounded-lg">
+                        <FiFileText className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <span className="font-medium text-gray-800">Study Handouts</span>
+                    </div>
+                    <span className="text-blue-500 font-medium text-sm">View All →</span>
+                  </div>
+                </button>
+
+                {/* Challenge Quick Link */}
+                <button
+                  onClick={() => navigate('/challenges')}
+                  className="w-full text-left p-4 bg-amber-50 hover:bg-amber-100 rounded-2xl transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-amber-200 p-2 rounded-lg">
+                        <FiFlag className="h-5 w-5 text-amber-600" />
+                      </div>
+                      <span className="font-medium text-gray-800">Challenges</span>
+                    </div>
+                    <span className="text-amber-500 font-medium text-sm">Join Now →</span>
+                  </div>
+                </button>
+
+                {/* Leaderboard Quick Link */}
+                <button
+                  onClick={() => navigate('/leaderboard')}
+                  className="w-full text-left p-4 bg-purple-50 hover:bg-purple-100 rounded-2xl transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-purple-200 p-2 rounded-lg">
+                        <FiBarChart2 className="h-5 w-5 text-purple-600" />
+                      </div>
+                      <span className="font-medium text-gray-800">Leaderboard</span>
+                    </div>
+                    <span className="text-purple-500 font-medium text-sm">View Ranks →</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Motivation Section */}
-        <div className="mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-sm p-4">
-          <h3 className="text-lg font-bold mb-1">Keep up the great work!</h3>
-          <p className="mb-3 opacity-90 text-sm">
-            {stats.quizzesCompleted > 0 ? (
-              stats.rank > 0 ? (
-                `You're ranked #${stats.rank} globally! Keep learning to improve.`
-              ) : (
-                `Making progress in ${currentUser?.field || 'science'}. Take more quizzes!`
-              )
-            ) : (
-              'Start by taking your first quiz!'
-            )}
-          </p>
-          <button 
-            onClick={() => navigate('/')}
-            className="bg-white text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md font-medium text-xs transition-all"
+        {/* Additional information cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* Handout Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            onClick={() => navigate('/handouts')}
           >
-            {stats.quizzesCompleted > 0 ? 'Continue Learning' : 'Start Now'}
-          </button>
+            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 flex flex-col justify-center h-full">
+              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
+                <FiFileText className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-1">Study Handouts</h3>
+              <p className="text-indigo-100 text-sm">Access comprehensive study materials and notes.</p>
+            </div>
+          </motion.div>
+
+          {/* COC Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            onClick={() => navigate('/code-of-conduct')}
+          >
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-6 flex flex-col justify-center h-full">
+              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
+                <FiShield className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-1">Code of Conduct</h3>
+              <p className="text-teal-100 text-sm">Our community guidelines for a great environment.</p>
+            </div>
+          </motion.div>
+
+          {/* Challenges Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            onClick={() => navigate('/challenges')}
+          >
+            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-6 flex flex-col justify-center h-full">
+              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
+                <FiFlag className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-1">Active Challenges</h3>
+              <p className="text-orange-100 text-sm">Test your knowledge against other students.</p>
+            </div>
+          </motion.div>
         </div>
       </div>
       <BottomBar />
