@@ -156,20 +156,27 @@ export default function SubjectCard({
       `}
     >
 
-      {/* Enhanced Lock Icon - Top Right */}
-      {shouldShowLock && (
+      {/* Premium Lock Icon - Top Right Corner */}
+      {isPremium && (
         <motion.div
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           className="absolute top-3 right-3 z-20"
           onClick={handleLockClick}
         >
-          <div className="p-2 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-full shadow-lg border border-amber-200 flex items-center justify-center">
-            <Lock className="h-5 w-5 text-amber-600" />
-            <span className="absolute top-0 right-0 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-            </span>
+          <div className={`p-2 rounded-full shadow-lg flex items-center justify-center
+            ${shouldShowLock 
+              ? 'bg-gradient-to-br from-amber-100 to-yellow-100 border border-amber-200' 
+              : 'bg-gradient-to-br from-purple-100 to-indigo-100 border border-purple-200'
+            }`}
+          >
+            <Lock className={`h-5 w-5 ${shouldShowLock ? 'text-amber-600' : 'text-purple-600'}`} />
+            {shouldShowLock && (
+              <span className="absolute top-0 right-0 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+              </span>
+            )}
           </div>
         </motion.div>
       )}
@@ -250,7 +257,7 @@ export default function SubjectCard({
         </motion.div>
       )}
 
-      {/* Enhanced Premium Badge */}
+      {/* Premium Badge (only show if premium but not locked) */}
       {isPremium && !shouldShowLock && (
         <motion.div
           animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
