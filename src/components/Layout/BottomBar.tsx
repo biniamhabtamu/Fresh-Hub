@@ -7,7 +7,6 @@ const BottomBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // All 5 navigation items are now in a single array for a unified layout
   const navItems = [
     { name: 'Home', icon: FiHome, path: '/dashboard', activeColor: 'text-cyan-400' },
     { name: 'Handouts', icon: FiBookOpen, path: '/handouts', activeColor: 'text-cyan-400' },
@@ -17,10 +16,10 @@ const BottomBar = () => {
   ];
 
   return (
-    // Main container to create the floating effect
-    <div className="md:hidden fixed bottom-4 left-4 right-4 h-16 z-50">
-      {/* Main navigation bar with glassmorphism effect and 5 items */}
-      <div className="flex h-full w-full items-center justify-around rounded-2xl border border-white/10 bg-slate-800/60 p-2 shadow-xl backdrop-blur-lg">
+    // Main container now fixed to the very bottom with no margin
+    <div className="md:hidden fixed bottom-0 left-0 right-0 h-20 z-50 bg-slate-800/80 backdrop-blur-lg">
+      {/* Container to center and style the items */}
+      <div className="container mx-auto max-w-lg h-full flex items-center justify-around px-4">
         {navItems.map((item) => {
           const isActive = location.pathname.startsWith(item.path);
           const iconColor = isActive ? item.activeColor.replace('text-', '') : '#9ca3af';
@@ -29,34 +28,35 @@ const BottomBar = () => {
             <motion.button
               key={item.name}
               onClick={() => navigate(item.path)}
-              whileTap={{ scale: 0.85 }}
-              animate={isActive ? 'active' : 'inactive'}
-              variants={{
-                active: { scale: 1.1 },
-                inactive: { scale: 1 },
-              }}
+              whileTap={{ scale: 0.9 }}
               className="relative flex h-full flex-1 flex-col items-center justify-center text-gray-400 focus:outline-none"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              {/* Icon with pop-up animation */}
+              {isActive && (
+                <motion.div
+                  layoutId="active-nav-item"
+                  className="absolute top-0 w-12 h-1 bg-cyan-400 rounded-b-md"
+                  initial={{ y: -5, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              
+              {/* Icon with scaling effect */}
               <motion.div
-                variants={{
-                  active: { y: -8, color: iconColor },
-                  inactive: { y: 0, color: '#9ca3af' }, // gray-400
-                }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                className={`transition-colors duration-300 ${isActive ? item.activeColor : 'text-gray-400'}`}
+                animate={{ scale: isActive ? 1.2 : 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                <item.icon size={24} />
+                <item.icon size={26} />
               </motion.div>
 
-              {/* Text label that fades in */}
+              {/* Text label that fades in/out */}
               <motion.span
-                className={`absolute bottom-1 text-xs font-bold ${item.activeColor}`}
-                variants={{
-                  active: { opacity: 1, scale: 1 },
-                  inactive: { opacity: 0, scale: 0.8 },
-                }}
-                transition={{ duration: 0.2, delay: 0.1 }}
+                className={`text-xs font-bold mt-1 transition-colors duration-300 ${isActive ? item.activeColor : 'text-gray-400'}`}
+                initial={false}
+                animate={{ opacity: isActive ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
               >
                 {item.name}
               </motion.span>
