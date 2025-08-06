@@ -619,7 +619,46 @@ export const sampleQuestions: Question[] = [
     year: 2014,
     chapter: 1
   },
-
+{
+    id: 'eng-2013-1-2',
+    question: 'Moti: Young children ____________violent Tv shows. Addisu: Yes, you are right. Parents must control their children.',
+    options: ['had not better watch', 'ought not watch', 'should watch', 'shouldn\'t watch'],
+    correctAnswer: 3,
+    explanation: 'The correct answer is "shouldn\'t watch" as it expresses that children ought not to watch violent TV shows.',
+    subject: 'english',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'eng-2013-1-3',
+    question: 'Friend: You___________. You are driving too fast. You: Ok, I will drive slowly.',
+    options: ['ought slow down', 'should to slow down', 'ought to slowing down', 'had better slow down'],
+    correctAnswer: 3,
+    explanation: 'The correct answer is "had better slow down" as it expresses strong advice about the dangerous situation.',
+    subject: 'english',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'eng-2013-1-4',
+    question: 'You: It is really cold outside. Sister: You___________________a warm jacket.',
+    options: ['ought wear', 'ought to wear', 'should wearing', 'had better wearing'],
+    correctAnswer: 1,
+    explanation: 'The correct answer is "ought to wear" as it properly expresses advice with the correct modal verb structure.',
+    subject: 'english',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'eng-2013-1-5',
+    question: 'I think your finger is broken. You___________________go to the emergency room.',
+    options: ['should to', 'could', 'ought to', 'can'],
+    correctAnswer: 2,
+    explanation: 'The correct answer is "ought to" as it expresses strong recommendation.',
+    subject: 'english',
+    year: 2013,
+    chapter: 1
+  },
   // ==================== CIVIC QUESTIONS ====================
   
   //civic-2015-1-1
