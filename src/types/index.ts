@@ -1,4 +1,5 @@
 // / src/types/index.ts
+// src/types/index.ts
 export interface User {
   id: string;
   fullName: string;
@@ -6,10 +7,14 @@ export interface User {
   phone: string;
   field: 'natural' | 'social';
   isPremium: boolean;
+  premiumStatus: 'pending' | 'approved' | 'rejected';
   premiumSince?: Date;
+  screenshotUrl?: string;
+  submittedAt?: Date;
   createdAt: Date;
 }
 
+// ... rest of your existing types
 
 
 export interface Subject {

@@ -6,7 +6,8 @@ import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { chaptersPerSubject } from '../../data/subjects';
 import Header from '../Layout/Header';
-import { ArrowLeft, Play } from 'lucide-react';
+import { ArrowLeft, BookOpen, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import BottomBar from '../Layout/BottomBar';
 
 interface ChapterResult {
@@ -15,20 +16,52 @@ interface ChapterResult {
   completed: boolean;
 }
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
+const getStatusBadge = (score: number, completed: boolean) => {
+  if (!completed) {
+    return { text: 'Start Quiz', color: 'bg-gray-200 text-gray-600' };
+  }
+  if (score < 60) {
+    return { text: 'Needs Improvement', color: 'bg-red-200 text-red-700' };
+  }
+  return { text: 'Well Done!', color: 'bg-green-200 text-green-700' };
+};
+
 export default function ChapterSelection() {
   const { subjectId, year } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [chapterResults, setChapterResults] = useState<ChapterResult[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadChapterResults();
+    if (currentUser) {
+      loadChapterResults();
+    }
   }, [subjectId, year, currentUser]);
 
   const loadChapterResults = async () => {
-    if (!currentUser || !subjectId || !year) return;
+    if (!currentUser || !subjectId || !year) {
+      setLoading(false);
+      return;
+    }
 
     try {
+      setLoading(true);
       const resultsQuery = query(
         collection(db, 'results'),
         where('userId', '==', currentUser.id),
@@ -53,19 +86,9 @@ export default function ChapterSelection() {
       setChapterResults(chapters);
     } catch (error) {
       console.error('Error loading chapter results:', error);
+    } finally {
+      setLoading(false);
     }
-  };
-
-  const getChapterCardClass = (result: ChapterResult) => {
-    if (!result.completed) return 'bg-white border-gray-200 hover:border-blue-300';
-    if (result.score < 60) return 'bg-red-100 border-red-300 hover:border-red-400';
-    return 'bg-green-100 border-green-300 hover:border-green-400';
-  };
-
-  const getChapterTextClass = (result: ChapterResult) => {
-    if (!result.completed) return 'text-gray-600';
-    if (result.score < 60) return 'text-red-700';
-    return 'text-green-700';
   };
 
   const handleChapterClick = (chapter: number) => {
@@ -77,81 +100,111 @@ export default function ChapterSelection() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(`/subject/${subjectId}`)}
-          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-6"
+        {/* Page Header and Back Button */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          <ArrowLeft size={20} />
-          <span>Back to Years</span>
-        </button>
-
-        {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            {year} Exam Chapters
+          <button
+            onClick={() => navigate(`/subject/${subjectId}`)}
+            className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Years</span>
+          </button>
+          <h2 className="text-4xl font-extrabold text-gray-900 mt-4 mb-2">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              {year} Exam Chapters
+            </span>
           </h2>
-          <p className="text-gray-600">
-            Choose a chapter to start your quiz
+          <p className="text-gray-500 text-lg">
+            Select a chapter to start your quiz or review your previous score.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Chapters Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {chapterResults.map((result) => (
-            <div
-              key={result.chapter}
-              onClick={() => handleChapterClick(result.chapter)}
-              className={`
-                cursor-pointer rounded-xl border-2 p-6 transition-all duration-300 
-                hover:scale-105 hover:shadow-lg
-                ${getChapterCardClass(result)}
-              `}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className={`text-xl font-bold ${getChapterTextClass(result)}`}>
-                  Chapter {result.chapter}
-                </h3>
-                <Play size={20} className={getChapterTextClass(result)} />
-              </div>
-              
-              <p className={`text-sm mb-3 ${getChapterTextClass(result)}`}>
-                {result.completed 
-                  ? `Score: ${result.score.toFixed(1)}%` 
-                  : 'Not attempted yet'
-                }
-              </p>
-              
-              {/* Progress Bar */}
-              {result.completed && (
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className={`h-2 rounded-full ${
-                      result.score < 60 ? 'bg-red-500' : 'bg-green-500'
-                    }`}
-                    style={{ width: `${result.score}%` }}
-                  />
-                </div>
-              )}
-              
-              {/* Status Badge */}
-              <div className="mt-3">
-                <span className={`
-                  text-xs px-2 py-1 rounded-full font-medium
-                  ${result.completed 
-                    ? (result.score < 60 ? 'bg-red-200 text-red-700' : 'bg-green-200 text-green-700')
-                    : 'bg-gray-200 text-gray-600'
-                  }
-                `}>
-                  {result.completed 
-                    ? (result.score < 60 ? 'Needs Improvement' : 'Well Done!')
-                    : 'Start Quiz'
-                  }
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-16">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full"
+            ></motion.div>
+            <p className="mt-4 text-gray-600 text-lg">Loading chapters...</p>
+          </div>
+        ) : (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence>
+              {chapterResults.map((result) => {
+                const status = getStatusBadge(result.score, result.completed);
+                return (
+                  <motion.div
+                    key={result.chapter}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleChapterClick(result.chapter)}
+                    className="cursor-pointer rounded-2xl border-2 border-gray-200 p-6 bg-white transition-all duration-300 relative overflow-hidden"
+                  >
+                    {/* Glowing background on hover */}
+                    <motion.div
+                      className="absolute inset-0 z-0 opacity-0"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 0.5 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        backgroundImage: `radial-gradient(circle at center, ${status.color.includes('green') ? '#dcfce7' : status.color.includes('red') ? '#fee2e2' : '#e0f2fe'} 0%, transparent 70%)`
+                      }}
+                    />
+                    
+                    <div className="relative z-10 flex items-start justify-between mb-4">
+                      <div className="p-3 bg-blue-100 rounded-full">
+                        <BookOpen size={24} className="text-blue-600" />
+                      </div>
+                      <span className={`text-xs px-3 py-1 rounded-full font-bold ${status.color}`}>
+                        {status.text}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      Chapter {result.chapter}
+                    </h3>
+                    
+                    <div className="flex items-center space-x-2 text-gray-600 text-sm mb-4">
+                      <Star size={16} className="text-yellow-400" />
+                      <p>
+                        {result.completed 
+                          ? `Score: ${result.score.toFixed(1)}%` 
+                          : 'Not attempted yet'
+                        }
+                      </p>
+                    </div>
+                    
+                    {/* Progress Bar */}
+                    {result.completed && (
+                      <div className="w-full bg-gray-200 rounded-full h-2.5">
+                        <motion.div
+                          className={`h-full rounded-full ${
+                            result.score < 60 ? 'bg-red-500' : 'bg-green-500'
+                          }`}
+                          initial={{ width: 0 }}
+                          animate={{ width: `${result.score}%` }}
+                          transition={{ duration: 0.8, ease: "easeInOut" }}
+                        />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </motion.div>
+        )}
       </div>
       <BottomBar />
     </div>

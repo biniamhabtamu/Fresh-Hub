@@ -72,7 +72,7 @@ function AppRoutes() {
           </ProtectedRoute>
         } 
       />
-       <Route 
+        <Route 
         path="/admin/premium-approvals" 
         element={
           <ProtectedRoute>
@@ -145,45 +145,29 @@ function AppRoutes() {
 function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [loadingText, setLoadingText] = useState('Loading');
 
   useEffect(() => {
-    // Animate dots
-    const dotsInterval = setInterval(() => {
-      setLoadingText(prev => {
-        const count = (prev.match(/\./g) || []).length;
-        return count >= 3 ? 'Loading' : prev + '.';
-      });
-    }, 300);
+    const totalDuration = 5000;
+    const interval = 16;
+    let currentProgress = 0;
 
-    // Animate progress bar over 5 seconds
-    const startTime = Date.now();
-    const duration = 5000; // 5 seconds
-    
-    const updateProgress = () => {
-      const elapsed = Date.now() - startTime;
-      const newProgress = Math.min(elapsed / duration * 100, 100);
-      setProgress(newProgress);
-      
-      if (newProgress < 100) {
-        requestAnimationFrame(updateProgress);
-      } else {
+    const progressTimer = setInterval(() => {
+      currentProgress += (interval / totalDuration) * 100;
+      if (currentProgress >= 100) {
+        clearInterval(progressTimer);
         setLoading(false);
       }
-    };
+      setProgress(Math.min(currentProgress, 100));
+    }, interval);
 
-    updateProgress();
-
-    return () => {
-      clearInterval(dotsInterval);
-    };
+    return () => clearInterval(progressTimer);
   }, []);
 
   if (loading) {
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-indigo-900 to-purple-900 flex flex-col items-center justify-center overflow-hidden">
-        {/* Animated background elements */}
-        {[...Array(15)].map((_, i) => (
+        {/* Animated particles */}
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-white/10"
@@ -207,9 +191,9 @@ function App() {
           />
         ))}
 
-        {/* Main content */}
+        {/* Main content container */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
-          {/* App logo/name with animation */}
+          {/* Animated app logo/name */}
           <motion.div
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -245,14 +229,14 @@ function App() {
             </motion.p>
           </motion.div>
 
-          {/* Loading indicator with dots */}
+          {/* Loading indicator with bouncing dots */}
           <motion.div
             className="flex items-center justify-center mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <span className="text-white text-xl mr-1">{loadingText}</span>
+            <span className="text-white text-xl mr-1">Loading</span>
             <div className="flex space-x-1">
               {[...Array(3)].map((_, i) => (
                 <motion.span
