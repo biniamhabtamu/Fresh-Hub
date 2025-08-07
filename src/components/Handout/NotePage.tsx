@@ -5,17 +5,20 @@ import {
   ChevronDown, 
   ChevronUp, 
   ArrowLeft, 
-  BookOpen, 
   Bookmark, 
-  Layers, 
-  FileText,
+  Layers,
   Plus,
   Minus,
   Volume2,
   Sun,
   Moon,
   Maximize2,
-  Minimize2
+  Minimize2,
+  Settings,
+  User,
+  Book,
+  Menu,
+  X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -26,14 +29,23 @@ const NotePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
-  const [fontSize, setFontSize] = useState(100); // Percentage
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [fontSize, setFontSize] = useState(100);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showVoiceOptions, setShowVoiceOptions] = useState(false);
+  const [voices, setVoices] = useState([]);
+  const [selectedVoice, setSelectedVoice] = useState(null);
+  const [readingSpeed, setReadingSpeed] = useState(1);
+  const [showSettingsPanel, setShowSettingsPanel] = useState(false);
   
   // Speech synthesis
   const synthRef = useRef(null);
   const utteranceRef = useRef(null);
+  const contentRef = useRef(null);
 
   // Color themes for different subjects
   const subjectColors = {
@@ -81,21 +93,39 @@ const NotePage = () => {
     // Initialize speech synthesis
     synthRef.current = window.speechSynthesis;
     
-    // Clean up speech synthesis on unmount
+    // Load voices
+    const loadVoices = () => {
+      const availableVoices = synthRef.current.getVoices();
+      setVoices(availableVoices);
+      
+      // Try to find a default voice (preferably English)
+      const defaultVoice = availableVoices.find(v => v.lang.includes('en')) || 
+                           availableVoices.find(v => v.default) || 
+                           availableVoices[0];
+      setSelectedVoice(defaultVoice);
+    };
+    
+    loadVoices();
+    synthRef.current.onvoiceschanged = loadVoices;
+    
+    // Clean up
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (utteranceRef.current) {
         synthRef.current.cancel();
       }
+      synthRef.current.onvoiceschanged = null;
     };
   }, [subjectId, chapterId, navigate]);
 
   useEffect(() => {
-    // Apply dark mode class to body
+    // Apply theme to document
     if (isDarkMode) {
-      document.body.classList.add('dark');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      document.body.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
@@ -130,11 +160,11 @@ const NotePage = () => {
   };
 
   const increaseFontSize = () => {
-    setFontSize(prev => Math.min(prev + 10, 150)); // Max 150%
+    setFontSize(prev => Math.min(prev + 10, 150));
   };
 
   const decreaseFontSize = () => {
-    setFontSize(prev => Math.max(prev - 10, 70)); // Min 70%
+    setFontSize(prev => Math.max(prev - 10, 70));
   };
 
   const toggleDarkMode = () => {
@@ -143,14 +173,14 @@ const NotePage = () => {
 
   const toggleTextToSpeech = () => {
     if (isSpeaking) {
-      // Stop speaking
       synthRef.current.cancel();
       setIsSpeaking(false);
     } else {
-      // Start speaking
-      const contentText = document.querySelector('.content-text')?.textContent || '';
+      const contentText = contentRef.current?.textContent || '';
       if (contentText) {
         utteranceRef.current = new SpeechSynthesisUtterance(contentText);
+        utteranceRef.current.voice = selectedVoice;
+        utteranceRef.current.rate = readingSpeed;
         utteranceRef.current.onend = () => setIsSpeaking(false);
         synthRef.current.speak(utteranceRef.current);
         setIsSpeaking(true);
@@ -170,12 +200,33 @@ const NotePage = () => {
     }
   };
 
+  const handleVoiceChange = (voiceName) => {
+    const voice = voices.find(v => v.name === voiceName);
+    if (voice) {
+      setSelectedVoice(voice);
+      // Restart speech if currently speaking
+      if (isSpeaking) {
+        synthRef.current.cancel();
+        toggleTextToSpeech();
+      }
+    }
+    setShowVoiceOptions(false);
+  };
+
+  const handleSpeedChange = (speed) => {
+    setReadingSpeed(speed);
+    if (isSpeaking) {
+      synthRef.current.cancel();
+      toggleTextToSpeech();
+    }
+  };
+
   const currentSubject = noteCollections.find(s => s.id === subjectId);
   const currentChapter = currentSubject?.chapters.find(c => c.id === chapterId);
   const colors = subjectColors[currentSubject?.name] || subjectColors.default;
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-300 ${currentSubject ? `bg-gradient-to-br ${colors.bg}` : 'bg-gray-50'} dark:bg-gray-900`}>
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${currentSubject ? `bg-gradient-to-br ${colors.bg}` : 'bg-gray-50'} dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800`}>
       {/* Floating Navigation */}
       <AnimatePresence>
         {isScrolled && (
@@ -269,6 +320,7 @@ const NotePage = () => {
 
           <div className="p-6 sm:p-10">
             <div 
+              ref={contentRef}
               className="prose prose-lg max-w-none leading-relaxed content-text dark:prose-invert"
               style={{ fontSize: `${fontSize}%` }}
             >
@@ -319,7 +371,7 @@ const NotePage = () => {
       </div>
 
       {/* Floating action buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-3">
+      <div className="fixed bottom-24 right-6 flex flex-col space-y-3 z-30">
         <button
           onClick={scrollToTop}
           className={`p-3 rounded-full shadow-lg ${colors.iconBg} text-white backdrop-blur-sm hover:scale-110 transition-all`}
@@ -337,9 +389,14 @@ const NotePage = () => {
       </div>
 
       {/* Bottom Control Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg shadow-lg border-t border-gray-200 dark:bg-gray-800/90 dark:border-gray-700 z-30">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
+      <motion.div 
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg shadow-2xl border-t border-gray-200 dark:bg-gray-800/90 dark:border-gray-700 z-30"
+      >
+        <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex items-center space-x-2 mb-3 sm:mb-0">
             <button 
               onClick={decreaseFontSize}
               className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
@@ -348,7 +405,7 @@ const NotePage = () => {
               <Minus className="h-5 w-5" />
             </button>
             
-            <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <div className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12 text-center">
               {fontSize}%
             </div>
             
@@ -359,12 +416,12 @@ const NotePage = () => {
             >
               <Plus className="h-5 w-5" />
             </button>
-          </div>
-          
-          <div className="flex items-center space-x-4">
+            
+            <div className="h-6 w-px bg-gray-300 mx-2 dark:bg-gray-600"></div>
+            
             <button 
               onClick={toggleTextToSpeech}
-              className={`p-2 rounded-full transition-colors ${
+              className={`p-2 rounded-full transition-colors relative ${
                 isSpeaking 
                   ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400' 
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
@@ -372,8 +429,75 @@ const NotePage = () => {
               aria-label={isSpeaking ? "Stop reading" : "Read aloud"}
             >
               <Volume2 className="h-5 w-5" />
+              {isSpeaking && (
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+              )}
             </button>
             
+            {voices.length > 0 && (
+              <div className="relative ml-2">
+                <button 
+                  onClick={() => setShowVoiceOptions(!showVoiceOptions)}
+                  className="flex items-center text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-300"
+                >
+                  <User className="h-4 w-4 mr-1" />
+                  <span className="hidden sm:inline">Voice</span>
+                </button>
+                
+                <AnimatePresence>
+                  {showVoiceOptions && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      className="absolute bottom-full mb-2 left-0 w-64 bg-white rounded-lg shadow-xl p-3 z-40 dark:bg-gray-800 dark:border dark:border-gray-700"
+                    >
+                      <h4 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Select Voice</h4>
+                      <div className="max-h-60 overflow-y-auto pr-2">
+                        {voices.map((voice) => (
+                          <button
+                            key={voice.name}
+                            onClick={() => handleVoiceChange(voice.name)}
+                            className={`w-full text-left px-3 py-2 rounded mb-1 text-sm ${
+                              selectedVoice?.name === voice.name
+                                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                            }`}
+                          >
+                            {voice.name} ({voice.lang})
+                          </button>
+                        ))}
+                      </div>
+                      
+                      <div className="mt-4">
+                        <h4 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Reading Speed</h4>
+                        <div className="flex gap-2">
+                          {[0.5, 0.8, 1, 1.2, 1.5].map(speed => (
+                            <button
+                              key={speed}
+                              onClick={() => handleSpeedChange(speed)}
+                              className={`px-3 py-1 rounded-full text-sm ${
+                                readingSpeed === speed
+                                  ? 'bg-blue-500 text-white'
+                                  : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                              }`}
+                            >
+                              {speed}x
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+          </div>
+          
+          <div className="flex items-center space-x-2">
             <button 
               onClick={toggleDarkMode}
               className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
@@ -389,9 +513,131 @@ const NotePage = () => {
             >
               {isFullscreen ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
             </button>
+            
+            <button 
+              onClick={() => setShowSettingsPanel(!showSettingsPanel)}
+              className={`p-2 rounded-full transition-colors ${
+                showSettingsPanel
+                  ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+              }`}
+              aria-label="Settings"
+            >
+              <Settings className="h-5 w-5" />
+            </button>
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Settings Panel */}
+      <AnimatePresence>
+        {showSettingsPanel && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="fixed bottom-24 left-0 right-0 mx-4 bg-white/90 backdrop-blur-lg rounded-xl shadow-2xl p-6 z-40 dark:bg-gray-800/90 dark:border dark:border-gray-700"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white">Reading Preferences</h3>
+              <button 
+                onClick={() => setShowSettingsPanel(false)}
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Font Settings</h4>
+                <div className="flex items-center gap-4">
+                  <button 
+                    onClick={decreaseFontSize}
+                    className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                  >
+                    <Minus className="h-5 w-5" />
+                  </button>
+                  
+                  <div className="text-lg font-medium text-gray-800 dark:text-gray-200 w-16 text-center">
+                    {fontSize}%
+                  </div>
+                  
+                  <button 
+                    onClick={increaseFontSize}
+                    className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                  >
+                    <Plus className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Reading Voice</h4>
+                <div className="flex flex-wrap gap-2">
+                  {voices.slice(0, 3).map(voice => (
+                    <button
+                      key={voice.name}
+                      onClick={() => handleVoiceChange(voice.name)}
+                      className={`px-3 py-1 rounded-full text-sm ${
+                        selectedVoice?.name === voice.name
+                          ? 'bg-blue-500 text-white'
+                          : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                      }`}
+                    >
+                      {voice.name.split(' ')[0]}
+                    </button>
+                  ))}
+                  {voices.length > 3 && (
+                    <button 
+                      onClick={() => setShowVoiceOptions(true)}
+                      className="px-3 py-1 rounded-full text-sm bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+                    >
+                      +{voices.length - 3} more
+                    </button>
+                  )}
+                </div>
+                
+                <div className="mt-4">
+                  <h4 className="font-semibold mb-2 text-gray-700 dark:text-gray-300">Reading Speed</h4>
+                  <div className="flex gap-2">
+                    {[0.5, 0.8, 1, 1.2, 1.5].map(speed => (
+                      <button
+                        key={speed}
+                        onClick={() => handleSpeedChange(speed)}
+                        className={`px-3 py-1 rounded-full text-sm ${
+                          readingSpeed === speed
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                        }`}
+                      >
+                        {speed}x
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Content Display</h4>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 dark:text-gray-300">Dark Mode</span>
+                <button 
+                  onClick={toggleDarkMode}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full ${
+                    isDarkMode ? 'bg-blue-500' : 'bg-gray-300'
+                  }`}
+                >
+                  <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
+                    isDarkMode ? 'translate-x-6' : 'translate-x-1'
+                  }`} />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
