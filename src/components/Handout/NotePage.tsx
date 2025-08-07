@@ -1,7 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { noteCollections } from '../../data/NoteCollections';
-import { ChevronDown, ChevronUp, ArrowLeft, BookOpen, Bookmark, Layers, FileText } from 'lucide-react';
+import { 
+  ChevronDown, 
+  ChevronUp, 
+  ArrowLeft, 
+  BookOpen, 
+  Bookmark, 
+  Layers, 
+  FileText,
+  Plus,
+  Minus,
+  Volume2,
+  Sun,
+  Moon,
+  Maximize2,
+  Minimize2
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NotePage = () => {
@@ -11,6 +26,14 @@ const NotePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
+  const [fontSize, setFontSize] = useState(100); // Percentage
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  
+  // Speech synthesis
+  const synthRef = useRef(null);
+  const utteranceRef = useRef(null);
 
   // Color themes for different subjects
   const subjectColors = {
@@ -54,8 +77,27 @@ const NotePage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Initialize speech synthesis
+    synthRef.current = window.speechSynthesis;
+    
+    // Clean up speech synthesis on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (utteranceRef.current) {
+        synthRef.current.cancel();
+      }
+    };
   }, [subjectId, chapterId, navigate]);
+
+  useEffect(() => {
+    // Apply dark mode class to body
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   const scrollToBottom = () => {
     window.scrollTo({
@@ -87,12 +129,53 @@ const NotePage = () => {
     setIsBookmarked(!isBookmarked);
   };
 
+  const increaseFontSize = () => {
+    setFontSize(prev => Math.min(prev + 10, 150)); // Max 150%
+  };
+
+  const decreaseFontSize = () => {
+    setFontSize(prev => Math.max(prev - 10, 70)); // Min 70%
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
+  const toggleTextToSpeech = () => {
+    if (isSpeaking) {
+      // Stop speaking
+      synthRef.current.cancel();
+      setIsSpeaking(false);
+    } else {
+      // Start speaking
+      const contentText = document.querySelector('.content-text')?.textContent || '';
+      if (contentText) {
+        utteranceRef.current = new SpeechSynthesisUtterance(contentText);
+        utteranceRef.current.onend = () => setIsSpeaking(false);
+        synthRef.current.speak(utteranceRef.current);
+        setIsSpeaking(true);
+      }
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    }
+  };
+
   const currentSubject = noteCollections.find(s => s.id === subjectId);
   const currentChapter = currentSubject?.chapters.find(c => c.id === chapterId);
   const colors = subjectColors[currentSubject?.name] || subjectColors.default;
 
   return (
-    <div className={`min-h-screen font-sans ${currentSubject ? `bg-gradient-to-br ${colors.bg}` : 'bg-gray-50'}`}>
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${currentSubject ? `bg-gradient-to-br ${colors.bg}` : 'bg-gray-50'} dark:bg-gray-900`}>
       {/* Floating Navigation */}
       <AnimatePresence>
         {isScrolled && (
@@ -101,22 +184,22 @@ const NotePage = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className={`fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-20 py-3 px-6 border-b ${colors.border}`}
+            className={`fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-20 py-3 px-6 border-b ${colors.border} dark:bg-gray-800/90 dark:border-gray-700`}
           >
             <div className="max-w-6xl mx-auto flex justify-between items-center">
               <button
                 onClick={() => navigate('/handouts')}
-                className={`flex items-center text-sm font-semibold text-gray-600 hover:text-gray-800 transition-colors`}
+                className={`flex items-center text-sm font-semibold text-gray-600 hover:text-gray-800 transition-colors dark:text-gray-300 dark:hover:text-white`}
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 <span className="hidden sm:inline">{currentSubject?.name}</span>
               </button>
-              <h2 className="text-sm sm:text-base font-semibold text-gray-800 truncate max-w-xs sm:max-w-md">
+              <h2 className="text-sm sm:text-base font-semibold text-gray-800 truncate max-w-xs sm:max-w-md dark:text-white">
                 {currentChapter?.title}
               </h2>
               <button
                 onClick={toggleBookmark}
-                className={`p-2 rounded-full transition-colors ${isBookmarked ? `${colors.text} bg-white` : 'text-gray-400 hover:text-gray-600'}`}
+                className={`p-2 rounded-full transition-colors ${isBookmarked ? `${colors.text} bg-white dark:bg-gray-700` : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
               >
                 <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
               </button>
@@ -133,7 +216,7 @@ const NotePage = () => {
           transition={{ duration: 0.5 }}
           className="mb-10 text-center"
         >
-          <div className="inline-flex items-center gap-4 text-sm font-semibold text-gray-600 mb-2">
+          <div className="inline-flex items-center gap-4 text-sm font-semibold text-gray-600 mb-2 dark:text-gray-400">
             <button
               onClick={() => navigate('/handouts')}
               className={`flex items-center gap-2 ${colors.text} hover:underline transition-colors`}
@@ -141,22 +224,23 @@ const NotePage = () => {
               <Layers className="h-4 w-4" />
               <span>{currentSubject?.name}</span>
             </button>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-500">Chapter</span>
+            <span className="text-gray-400 dark:text-gray-500">/</span>
+            <span className="text-gray-500 dark:text-gray-400">Chapter</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight dark:text-white">
             {currentChapter?.title}
           </h1>
-          <p className="mt-3 text-lg text-gray-600">
+          <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
             {currentChapter?.description}
           </p>
           <div className="mt-6 flex justify-center items-center gap-4">
             <button
               onClick={toggleBookmark}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${isBookmarked
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                isBookmarked
                   ? `${colors.iconBg} text-white hover:bg-opacity-90`
-                  : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-100'
-                }`}
+                  : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700'
+              }`}
             >
               <Bookmark className="h-4 w-4" fill={isBookmarked ? "currentColor" : "none"} />
               {isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
@@ -169,7 +253,7 @@ const NotePage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white"
+          className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white dark:bg-gray-800/80 dark:border-gray-700"
         >
           {showScrollHint && (
             <motion.div
@@ -184,12 +268,15 @@ const NotePage = () => {
           )}
 
           <div className="p-6 sm:p-10">
-            <div className="prose prose-lg max-w-none text-gray-800 leading-relaxed">
+            <div 
+              className="prose prose-lg max-w-none leading-relaxed content-text dark:prose-invert"
+              style={{ fontSize: `${fontSize}%` }}
+            >
               {content ? (
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               ) : (
                 <div className="flex justify-center items-center h-64">
-                  <div className="animate-pulse text-gray-400">
+                  <div className="animate-pulse text-gray-400 dark:text-gray-500">
                     Loading note content...
                   </div>
                 </div>
@@ -206,7 +293,7 @@ const NotePage = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-12"
           >
-            <h3 className={`text-xl font-bold ${colors.text} mb-6 text-center`}>
+            <h3 className={`text-xl font-bold ${colors.text} mb-6 text-center dark:text-${colors.text.split('text-')[1]}-400`}>
               Explore More Chapters
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -214,13 +301,14 @@ const NotePage = () => {
                 <button
                   key={chapter.id}
                   onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
-                  className={`p-5 rounded-2xl border transition-all text-left backdrop-blur-sm shadow-md ${chapterId === chapter.id
-                    ? `bg-white/90 border-white shadow-lg ${colors.text} font-bold`
-                    : 'bg-white/50 border-white/30 hover:bg-white/70 hover:shadow-md'
-                    }`}
+                  className={`p-5 rounded-2xl border transition-all text-left backdrop-blur-sm shadow-md ${
+                    chapterId === chapter.id
+                      ? `bg-white/90 border-white shadow-lg ${colors.text} font-bold dark:bg-gray-800/90 dark:border-gray-700 dark:text-${colors.text.split('text-')[1]}-400`
+                      : 'bg-white/50 border-white/30 hover:bg-white/70 hover:shadow-md dark:bg-gray-800/50 dark:border-gray-700/50 dark:hover:bg-gray-700/70'
+                  }`}
                 >
-                  <h4 className="font-semibold text-gray-800">{chapter.title}</h4>
-                  <p className="text-sm text-gray-500 mt-2 line-clamp-2">
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-200">{chapter.title}</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">
                     {chapter.description || 'Chapter content'}
                   </p>
                 </button>
@@ -246,6 +334,63 @@ const NotePage = () => {
         >
           <ChevronDown className="h-6 w-6" />
         </button>
+      </div>
+
+      {/* Bottom Control Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg shadow-lg border-t border-gray-200 dark:bg-gray-800/90 dark:border-gray-700 z-30">
+        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={decreaseFontSize}
+              className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              aria-label="Decrease font size"
+            >
+              <Minus className="h-5 w-5" />
+            </button>
+            
+            <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              {fontSize}%
+            </div>
+            
+            <button 
+              onClick={increaseFontSize}
+              className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              aria-label="Increase font size"
+            >
+              <Plus className="h-5 w-5" />
+            </button>
+          </div>
+          
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={toggleTextToSpeech}
+              className={`p-2 rounded-full transition-colors ${
+                isSpeaking 
+                  ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+              }`}
+              aria-label={isSpeaking ? "Stop reading" : "Read aloud"}
+            >
+              <Volume2 className="h-5 w-5" />
+            </button>
+            
+            <button 
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+            
+            <button 
+              onClick={toggleFullscreen}
+              className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+            >
+              {isFullscreen ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
