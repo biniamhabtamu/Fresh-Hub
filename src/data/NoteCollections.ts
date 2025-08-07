@@ -369,90 +369,200 @@ export const noteCollections: Subject[] = [
   chapters: [
         {
   "id": "chapter1",
-  "title": "🧠 Chapter 1: Introducing Philosophy",
+  "title": "🌟 Philosophy Essentials: A Structured Overview",
+  "subtitle": "Clear, Concise & Easy to Review",
   "content": `
-    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; color: #2c3e50;">
-      <h2 style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">🧐 1. Defining Logic & Philosophy</h2>
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; color: #2c3e50;">
       
-      <h3 style="color: #9b59b6; border-bottom: 2px solid #9b59b6; padding-bottom: 6px;">🔷 Logic</h3>
-      <ul style="border-left: 3px solid #9b59b6; padding-left: 20px;">
-        <li style="margin-bottom: 10px;"><span style="color: #8e44ad; font-weight: bold;">Field of Study:</span> A branch of philosophy that focuses on the principles and methods of right reasoning and arguments.</li>
-        <li style="margin-bottom: 10px;"><span style="color: #8e44ad; font-weight: bold;">Instrument:</span> A tool used to formulate rational arguments and critically evaluate others' arguments.</li>
-      </ul>
-
-      <h3 style="color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 6px;">🔷 Philosophy</h3>
-      <ul style="border-left: 3px solid #e74c3c; padding-left: 20px;">
-        <li style="margin-bottom: 10px;"><span style="color: #c0392b; font-weight: bold;">Definition:</span> The study of fundamental problems concerning existence, knowledge, truth, justice, mind, and language.</li>
-        <li style="margin-bottom: 10px;"><span style="color: #c0392b; font-weight: bold;">Nature:</span> A rational and critical enterprise that uses reason, analysis, and evaluation.</li>
-        <li style="margin-bottom: 10px;"><span style="color: #c0392b; font-weight: bold;">Etymology:</span> "Philo" (love) + "Sophia" (wisdom) → <em style="color: #16a085;">Love of wisdom</em>.</li>
-      </ul>
-
-      <h2 style="background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); color: white; padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px;">✨ 2. The Essence of Philosophical Inquiry</h2>
-      <ul style="background: rgba(46, 204, 113, 0.08); padding: 15px; border-radius: 8px; border-left: 4px solid #2ecc71;">
-        <li style="margin-bottom: 12px;"><span style="color: #27ae60; font-weight: bold;">Difficulty in Defining:</span> Deals with universal issues; best understood by philosophizing.</li>
-        <li style="margin-bottom: 12px;"><span style="color: #27ae60; font-weight: bold;">Wonder:</span> Philosophy begins in wonder – the urge to question (Socrates).</li>
-        <li style="margin-bottom: 12px;"><span style="color: #27ae60; font-weight: bold;">Seeking Wisdom:</span> Not technical knowledge, but critical habit and search for truth.</li>
-        <li style="margin-bottom: 12px;"><span style="color: #27ae60; font-weight: bold;">Questioning:</span> Goes beyond the apparent to uncover deeper meaning.</li>
-        <li style="margin-bottom: 12px;"><span style="color: #27ae60; font-weight: bold;">Activity:</span> Not just knowledge but active critical thinking and theorizing.</li>
-      </ul>
-
-      <h2 style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px;">🎯 3. Key Aspects & Objectives</h2>
-      <ul style="padding-left: 20px; list-style-type: none;">
-        <li style="margin-bottom: 12px; padding-left: 15px; border-left: 3px solid #e67e22;"><span style="color: #d35400; font-weight: bold;">Constructive Side:</span> Offering rational answers to fundamental questions.</li>
-        <li style="margin-bottom: 12px; padding-left: 15px; border-left: 3px solid #e67e22;"><span style="color: #d35400; font-weight: bold;">Critical Side:</span> Evaluating and clarifying existing answers.</li>
-      </ul>
-      <p style="background: #f8f9fa; padding: 10px; border-radius: 6px;"><span style="color: #e74c3c; font-weight: bold;">Learning Objectives:</span></p>
-      <ul style="background: linear-gradient(to right, #f8f9fa 0%, #ffffff 100%); padding: 15px 15px 15px 30px; border-radius: 8px;">
-        <li style="margin-bottom: 8px; color: #3498db;">Understand the nature and meaning of philosophy</li>
-        <li style="margin-bottom: 8px; color: #3498db;">Recognize its main fields</li>
-        <li style="color: #3498db;">Know the importance of logic and philosophy</li>
-      </ul>
-
-      <h2 style="background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%); color: white; padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px;">🧠 Lesson 2: Basic Features of Philosophy</h2>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-        <div style="background: rgba(155, 89, 182, 0.1); padding: 15px; border-radius: 8px; border-top: 4px solid #9b59b6;">
-          <h3 style="color: #8e44ad;">🗣️ 1. Two Senses of "Philosophy"</h3>
-          <ul>
-            <li><span style="color: #9b59b6; font-weight: bold;">Informal:</span> Personal life views (e.g., "Live and let live")</li>
-            <li><span style="color: #9b59b6; font-weight: bold;">Formal:</span> Critically reflecting on beliefs with logic and reasoning</li>
+      <!-- Header -->
+      <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: 2.2em;">🌟 Philosophy Essentials</h1>
+        <p style="font-size: 1.2em; opacity: 0.9; margin: 10px 0 0;">Clear, Concise & Easy to Review</p>
+      </div>
+      
+      <!-- Chapter 1 -->
+      <div style="background: linear-gradient(to right, #e3f2fd, #bbdefb); padding: 25px; border-radius: 12px; border-left: 5px solid #2196f3; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);">
+        <h2 style="color: #0d47a1; margin-top: 0; border-bottom: 2px dashed #42a5f5; padding-bottom: 8px;">Chapter 1: What is Philosophy?</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+          <!-- Logic Card -->
+          <div style="background: white; padding: 20px; border-radius: 10px; border-top: 4px solid #7e57c2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #5e35b1; margin-top: 0;">🔷 Logic</h3>
+            <p><span style="background: #ede7f6; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #5e35b1;">Field</span> Branch of philosophy studying arguments & correct reasoning</p>
+            <p><span style="background: #ede7f6; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #5e35b1;">Tool</span> Used to build rational arguments and critique others'</p>
+          </div>
+          
+          <!-- Philosophy Card -->
+          <div style="background: white; padding: 20px; border-radius: 10px; border-top: 4px solid #ef5350; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #d32f2f; margin-top: 0;">🔷 Philosophy</h3>
+            <p><span style="background: #ffebee; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #d32f2f;">Definition</span> Study of fundamental questions about existence, truth, justice</p>
+            <p><span style="background: #ffebee; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #d32f2f;">Root Meaning</span> <em style="color: #c62828;">"philo" (love) + "sophia" (wisdom)</em></p>
+          </div>
+        </div>
+        
+        <!-- Heart of Philosophy -->
+        <div style="background: linear-gradient(to right, #e8f5e9, #c8e6c9); padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #4caf50;">
+          <h3 style="color: #2e7d32; margin-top: 0;">💖 The Heart of Philosophy</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+              <span style="position: absolute; left: 0; color: #4caf50;">✦</span> 
+              <span style="font-weight: bold; color: #388e3c;">Starts with Wonder:</span> Curiosity drives questioning (Socrates)
+            </li>
+            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+              <span style="position: absolute; left: 0; color: #4caf50;">✦</span> 
+              <span style="font-weight: bold; color: #388e3c;">Beyond Surface-Level:</span> Challenges assumptions to seek deeper truths
+            </li>
+            <li style="padding-left: 25px; position: relative;">
+              <span style="position: absolute; left: 0; color: #4caf50;">✦</span> 
+              <span style="font-weight: bold; color: #388e3c;">An Active Practice:</span> Critical thinking, analysis & conceptual exploration
+            </li>
           </ul>
         </div>
         
-        <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 8px; border-top: 4px solid #3498db;">
-          <h3 style="color: #2980b9;">🌍 2. Philosophy as a Holistic Worldview</h3>
-          <ul>
-            <li><span style="color: #3498db; font-weight: bold;">Integration:</span> Combines scientific, historical, and religious knowledge</li>
-            <li><span style="color: #3498db; font-weight: bold;">Goal:</span> A consistent and meaningful worldview</li>
-          </ul>
+        <!-- Key Goals -->
+        <div style="margin-top: 20px;">
+          <h3 style="color: #0277bd;">🎯 Key Goals</h3>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+              <h4 style="color: #0288d1; margin-top: 0;">Constructive</h4>
+              <p>Build rational answers to life's big questions</p>
+            </div>
+            <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+              <h4 style="color: #0288d1; margin-top: 0;">Critical</h4>
+              <p>Analyze, clarify and evaluate existing ideas</p>
+            </div>
+            <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+              <h4 style="color: #0288d1; margin-top: 0;">Objective</h4>
+              <p>Understand philosophy's nature, fields, and logic's importance</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div style="margin-top: 20px;">
-        <h3 style="color: #e67e22; border-bottom: 2px dashed #e67e22; padding-bottom: 6px;">💬 3. Philosophy and Language</h3>
-        <ul style="background: rgba(231, 76, 60, 0.05); padding: 15px; border-radius: 8px;">
-          <li><span style="color: #e67e22; font-weight: bold;">Logical Analysis:</span> Clarifying meanings and concepts through language</li>
-          <li><span style="color: #e67e22; font-weight: bold;">Function:</span> Central or one of many philosophical aims</li>
-        </ul>
+      
+      <!-- Lesson 2 -->
+      <div style="background: linear-gradient(to right, #e8f5e9, #c8e6c9); padding: 25px; border-radius: 12px; border-left: 5px solid #4caf50; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);">
+        <h2 style="color: #2e7d32; margin-top: 0; border-bottom: 2px dashed #66bb6a; padding-bottom: 8px;">Lesson 2: Features of Philosophy</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+          <!-- Card 1 -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #7e57c2;">
+            <h3 style="color: #5e35b1; margin-top: 0;">1️⃣ Two Senses of "Philosophy"</h3>
+            <p><span style="background: #ede7f6; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #5e35b1;">Informal</span> Personal beliefs ("My philosophy is live and let live")</p>
+            <p><span style="background: #ede7f6; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #5e35b1;">Formal</span> Active critical reflection + argument mastery</p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #66bb6a;">
+            <h3 style="color: #2e7d32; margin-top: 0;">2️⃣ Holistic Worldview</h3>
+            <p>Integrates science, art, history, and religion into one coherent perspective of life</p>
+          </div>
+        </div>
+        
+        <!-- Philosophy & Language -->
+        <div style="background: rgba(255, 167, 38, 0.1); padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
+          <h3 style="color: #ef6c00; margin-top: 0;">3️⃣ Philosophy & Language</h3>
+          <p>Focuses on clarity of words/concepts <span style="background: #fff3e0; padding: 2px 8px; border-radius: 4px; font-style: italic;">(e.g., "What does justice really mean?")</span></p>
+        </div>
+        
+        <!-- Perennial Questions -->
+        <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 10px; margin-top: 20px;">
+          <h3 style="color: #c2185b; margin-top: 0;">4️⃣ Perennial Questions</h3>
+          <p style="font-weight: bold;">Tackles timeless issues:</p>
+          <div style="columns: 2; column-gap: 30px;">
+            <p style="background: rgba(255,255,255,0.7); padding: 10px; border-radius: 6px;">• What is truth?</p>
+            <p style="background: rgba(255,255,255,0.7); padding: 10px; border-radius: 6px;">• Do we have free will?</p>
+            <p style="background: rgba(255,255,255,0.7); padding: 10px; border-radius: 6px;">• What makes a good society?</p>
+            <p style="background: rgba(255,255,255,0.7); padding: 10px; border-radius: 6px;">• What is the meaning of life?</p>
+          </div>
+        </div>
       </div>
-
-      <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 10px; margin-top: 25px;">
-        <h3 style="color: #c0392b;">❓ 4. Philosophy and Perennial Problems</h3>
-        <p>Examples of philosophical questions:</p>
-        <ul style="columns: 2; column-gap: 30px;">
-          <li style="color: #8e44ad; margin-bottom: 8px;">What is truth?</li>
-          <li style="color: #16a085; margin-bottom: 8px;">What distinguishes right from wrong?</li>
-          <li style="color: #d35400; margin-bottom: 8px;">What is the purpose of life?</li>
-          <li style="color: #27ae60; margin-bottom: 8px;">Do we have free will?</li>
-          <li style="color: #2980b9;">What is a good society?</li>
-        </ul>
-        <p style="font-style: italic; color: #7f8c8d; margin-top: 15px;">Such questions have led to various theories like idealism, pragmatism, and existentialism.</p>
+      
+      <!-- Lesson 3 -->
+      <div style="background: linear-gradient(to right, #f3e5f5, #e1bee7); padding: 25px; border-radius: 12px; border-left: 5px solid #9c27b0; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);">
+        <h2 style="color: #7b1fa2; margin-top: 0; border-bottom: 2px dashed #ab47bc; padding-bottom: 8px;">Lesson 3: Core Fields I — Metaphysics & Epistemology</h2>
+        
+        <!-- Metaphysics -->
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #7b1fa2;">
+          <h3 style="color: #6a1b9a; margin-top: 0;">🌌 Metaphysics: Ultimate Reality</h3>
+          <p><span style="background: #f3e5f5; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #7b1fa2;">Studies:</span> Existence, reality, mind-body, God, time</p>
+          
+          <div style="margin-top: 15px;">
+            <h4 style="color: #8e24aa;">Subfields:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px;">
+                <span style="font-weight: bold; color: #7b1fa2;">Cosmology</span><br>Origin of universe
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px;">
+                <span style="font-weight: bold; color: #7b1fa2;">Theology</span><br>Nature of God/evil
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px;">
+                <span style="font-weight: bold; color: #7b1fa2;">Anthropology</span><br>Human nature/soul
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px;">
+                <span style="font-weight: bold; color: #7b1fa2;">Ontology</span><br>Nature of being
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Epistemology -->
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #5e35b1;">
+          <h3 style="color: #4527a0; margin-top: 0;">🧠 Epistemology: Theory of Knowledge</h3>
+          
+          <div style="margin-bottom: 20px;">
+            <h4 style="color: #5e35b1;">Key Questions:</h4>
+            <div style="background: #ede7f6; padding: 15px; border-radius: 8px;">
+              <p>• What is knowledge vs. belief?</p>
+              <p>• How do we find truth?</p>
+            </div>
+          </div>
+          
+          <h4 style="color: #5e35b1;">Sources of Knowledge:</h4>
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: #5e35b1; color: white;">
+                <th style="padding: 12px; text-align: left;">Source</th>
+                <th style="padding: 12px; text-align: left;">Pros</th>
+                <th style="padding: 12px; text-align: left;">Cons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px; font-weight: bold; color: #2196f3;">👁️ Empiricism</td>
+                <td style="padding: 12px;">Evidence-based; testable</td>
+                <td style="padding: 12px;">Senses can deceive</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px; font-weight: bold; color: #9c27b0;">🧠 Rationalism</td>
+                <td style="padding: 12px;">Logical consistency</td>
+                <td style="padding: 12px;">Relies on unproven premises</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px; font-weight: bold; color: #ff9800;">⚡ Intuition</td>
+                <td style="padding: 12px;">Creative breakthroughs</td>
+                <td style="padding: 12px;">Unreliable alone</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px; font-weight: bold; color: #e91e63;">🌠 Revelation</td>
+                <td style="padding: 12px;">Absolute (for believers)</td>
+                <td style="padding: 12px;">Requires faith</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; font-weight: bold; color: #4caf50;">📜 Authority</td>
+                <td style="padding: 12px;">Efficient learning</td>
+                <td style="padding: 12px;">Risk of dogma/error</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <!-- Additional lessons would follow similar colorful patterns -->
-      <!-- Metaphysics & Epistemology section would use teal/orange gradients -->
-      <!-- Axiology & Logic would use green/purple gradients -->
-      <!-- Importance section would use gold/earth tone gradients -->
+      
+      <!-- Key Takeaway -->
+      <div style="background: linear-gradient(135deg, #ffe29f 0%, #ffa99f 100%); padding: 25px; border-radius: 12px; text-align: center; margin: 40px 0; border: 2px dashed #ff6d00;">
+        <p style="font-size: 1.4em; font-weight: bold; color: #bf360c; margin: 0; font-style: italic;">
+          "Philosophy is the art of thinking critically about everything—from existence to ethics—to live wisely, not just reactively."
+        </p>
+      </div>
     </div>
   `
 },
