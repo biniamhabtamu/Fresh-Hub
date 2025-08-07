@@ -2,6 +2,14 @@
 import { Subject } from '../types';
 
 export const subjects: Subject[] = [
+
+  { 
+    id: 'Sample', 
+    name: 'Sample', 
+    icon: '📖', // Different from natural science English
+    field: 'natural', 
+    isFree: false 
+  },
   // Natural Science Subjects
   { 
     id: 'english', 
@@ -103,6 +111,13 @@ export const subjects: Subject[] = [
   },
 
   // Social Science Subjects
+   { 
+    id: 'SampleQuestion', 
+    name: 'SampleQuestion', 
+    icon: '📖', // Different from natural science English
+    field: 'social', 
+    isFree: false 
+  },
   { 
     id: 'english', 
     name: 'EnglishSkill2', 

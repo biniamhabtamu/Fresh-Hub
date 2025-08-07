@@ -71,7 +71,6 @@ export default function PremiumPage() {
   const navigate = useNavigate();
   const [selectedMethod, setSelectedMethod] = useState<'ebirr' | 'telebirr' | null>(null);
   const [screenshot, setScreenshot] = useState<File | null>(null);
-  const [transactionId, setTransactionId] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -177,23 +176,31 @@ export default function PremiumPage() {
       const userDocRef = doc(db, 'users', currentUser.uid);
       
       await updateDoc(userDocRef, {
+        isPremium: false,
         premiumStatus: 'pending',
-        screenshotUrl,
+        screenshotUrl, 
         submittedAt: serverTimestamp(),
         paymentMethod: selectedMethod,
-        transactionId: transactionId || null
       });
 
       setSubmitted(true);
       setSelectedMethod(null);
       setScreenshot(null);
-      setTransactionId('');
       toast.success('Payment proof submitted successfully!');
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Payment submission failed. Please try again.';
+      console.error('Payment submission error:', err);
+      
+      let errorMessage = 'Payment submission failed. Please try again.';
+
+      // More robust check to handle different types of errors
+      if (err && err instanceof Error) {
+        errorMessage = err.message;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      }
+      
       setError(errorMessage);
       toast.error(errorMessage);
-      console.error('Payment submission error:', err);
     } finally {
       setIsLoading(false);
     }
@@ -263,10 +270,9 @@ export default function PremiumPage() {
                       <div>
                         <h3 className="font-bold text-amber-800 mb-2 text-xl">Important Information</h3>
                         <ul className="text-yellow-700 text-sm space-y-1">
-                          <li>• Contact: <span className="font-bold">0994024681</span></li>
-                          <li>• Our team reviews proofs in 2-4 hours</li>
-                          <li>• You'll get a notification when activated</li>
-                          <li>• Check your email for confirmation</li>
+                          <li>• Your request is pending verification.</li>
+                          <li>• Premium access will be activated within **5 hours**.</li>
+                          <li>• If you face any issues, please contact us at: **0994024681**</li>
                         </ul>
                       </div>
                     </div>
@@ -467,21 +473,6 @@ export default function PremiumPage() {
                       <span className="ml-2">Upload the screenshot below to verify.</span>
                     </p>
                   </div>
-                </div>
-              )}
-
-              {selectedMethod && (
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Transaction ID (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    value={transactionId}
-                    onChange={(e) => setTransactionId(e.target.value)}
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="Enter transaction ID if available"
-                  />
                 </div>
               )}
 
