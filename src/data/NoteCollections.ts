@@ -1032,11 +1032,406 @@ export const noteCollections: Subject[] = [
     </div>
   `
 },
-    { 
-      id: 'Chapter3', 
-      title: 'Chapter 3 : Logic and Langueage', 
-      content: '<h2>Common Reasoning Errors</h2><p>Straw man, ad hominem, false dilemma...</p>'
-    },
+    {
+  "id": "Chapter3",
+  "title": "Chapter 3: Logic and Language",
+  "content": `
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; color: #2c3e50; padding: 15px;">
+      <!-- Chapter Header -->
+      <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: clamp(1.8em, 5vw, 2.2em);">🔤 Logic and Language</h1>
+        <p style="font-size: clamp(1em, 3vw, 1.2em); opacity: 0.9;">The Intersection of Clear Thinking and Precise Expression</p>
+      </div>
+
+      <!-- Chapter Overview -->
+      <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #2196f3; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);">
+        <h2 style="color: #0d47a1; margin-top: 0; border-bottom: 2px dashed #42a5f5; padding-bottom: 8px;">Chapter Overview</h2>
+        <p>This chapter explores the critical relationship between logic and language, emphasizing how effective argumentation depends on clear and precise language. We'll examine how to clarify and analyze terms, understand meaning, and use definitions effectively in logical reasoning.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #7e57c2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #5e35b1; margin-top: 0;">🎯 Objectives</h3>
+            <ul style="padding-left: 20px;">
+              <li>Recognize the logic-language relationship</li>
+              <li>Identify crucial language components</li>
+              <li>Understand word meanings and definitions</li>
+              <li>Use definitions to evaluate arguments</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #4caf50; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #2e7d32; margin-top: 0;">🔑 Key Concepts</h3>
+            <ul style="padding-left: 20px;">
+              <li>Philosophy of language</li>
+              <li>Meaning (cognitive vs emotive)</li>
+              <li>Intension vs extension</li>
+              <li>Definition techniques</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 1 -->
+      <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #9c27b0; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #9c27b0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">1</span>
+          </div>
+          <h2 style="color: #7b1fa2; margin: 0;">Philosophy of Language</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">🔍 What is Philosophy of Language?</h3>
+            <p>Examines fundamental questions about language: its nature, meaning, and relationship to reality. Asks questions like:</p>
+            <ul>
+              <li>"What is meaning?"</li>
+              <li>"How does language refer to reality?"</li>
+              <li>"How do words convey concepts?"</li>
+            </ul>
+            <div style="background: #f3e5f5; padding: 15px; border-radius: 8px; margin-top: 15px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Unlike linguistics which studies language structure, philosophy of language explores broader conceptual issues about meaning and reference."</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">📜 Historical Development</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 15px;">
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Plato</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Names are nature-determined</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Stoics</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Developed proposition theory</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Medieval</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Explored language subtleties</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Modern</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Analytic philosophy focus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <h3 style="color: #6a1b9a; margin-top: 0;">🧩 Theories of Meaning</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+            <div style="border-left: 4px solid #2196f3; padding-left: 12px;">
+              <h4 style="color: #2196f3; margin: 0 0 8px;">Idea Theories</h4>
+              <p style="margin: 0;">Meanings are mental contents triggered by signs (Locke, Hume)</p>
+            </div>
+            <div style="border-left: 4px solid #4caf50; padding-left: 12px;">
+              <h4 style="color: #4caf50; margin: 0 0 8px;">Truth-Conditional</h4>
+              <p style="margin: 0;">Meaning defined by truth conditions (Frege)</p>
+            </div>
+            <div style="border-left: 4px solid #ff9800; padding-left: 12px;">
+              <h4 style="color: #ff9800; margin: 0 0 8px;">Use Theories</h4>
+              <p style="margin: 0;">Meaning from speech acts (Wittgenstein)</p>
+            </div>
+            <div style="border-left: 4px solid #e91e63; padding-left: 12px;">
+              <h4 style="color: #e91e63; margin: 0 0 8px;">Reference Theories</h4>
+              <p style="margin: 0;">Meaning corresponds to real-world entities (Kripke)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 2 -->
+      <div style="background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #0288d1; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(2, 136, 209, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #0288d1; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">2</span>
+          </div>
+          <h2 style="color: #0277bd; margin: 0;">Logic and Meaning</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #01579b; margin-top: 0;">💡 Language Functions</h3>
+            <div style="display: flex; gap: 15px; margin-top: 15px;">
+              <div style="flex: 1; text-align: center; padding: 15px; background: #e3f2fd; border-radius: 8px;">
+                <div style="font-size: 24px; color: #0d47a1;">🧠</div>
+                <h4 style="color: #0d47a1; margin: 10px 0;">Cognitive</h4>
+                <p style="margin: 0; font-size: 0.9em;">Conveys factual information</p>
+                <p style="margin: 5px 0 0; font-style: italic; color: #0288d1;">"Legal in 36 states"</p>
+              </div>
+              <div style="flex: 1; text-align: center; padding: 15px; background: #ffebee; border-radius: 8px;">
+                <div style="font-size: 24px; color: #c62828;">❤️</div>
+                <h4 style="color: #c62828; margin: 10px 0;">Emotive</h4>
+                <p style="margin: 0; font-size: 0.9em;">Expresses feelings/evokes emotions</p>
+                <p style="margin: 5px 0 0; font-style: italic; color: #d32f2f;">"Cruel and inhuman punishment"</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #01579b; margin-top: 0;">⚠️ Meaning Deficiencies</h3>
+            <div style="margin-top: 15px;">
+              <div style="border-left: 4px solid #ff9800; padding-left: 12px; margin-bottom: 15px;">
+                <h4 style="color: #ef6c00; margin: 0 0 8px;">Vagueness</h4>
+                <p style="margin: 0;">Borderline cases where application is unclear</p>
+                <p style="margin: 5px 0 0; font-style: italic; color: #ff8f00;">"Love", "happiness", "fresh"</p>
+              </div>
+              <div style="border-left: 4px solid #9c27b0; padding-left: 12px;">
+                <h4 style="color: #7b1fa2; margin: 0 0 8px;">Ambiguity</h4>
+                <p style="margin: 0;">Multiple distinct meanings in context</p>
+                <p style="margin: 5px 0 0; font-style: italic; color: #7b1fa2;">"Light", "bank", "critical"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <h3 style="color: #01579b; margin-top: 0;">⚖️ Forms of Disputes</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-top: 4px solid #7b1fa2;">
+              <h4 style="color: #7b1fa2; margin-top: 0;">Verbal Disputes</h4>
+              <p>Arise from misunderstandings about word meanings</p>
+              <div style="background: #f3e5f5; padding: 10px; border-radius: 6px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 0.9em;">"Is disciplining children abuse?"</p>
+              </div>
+            </div>
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-top: 4px solid #2196f3;">
+              <h4 style="color: #0d47a1; margin-top: 0;">Factual Disputes</h4>
+              <p>Based on disagreements about evidence</p>
+              <div style="background: #e3f2fd; padding: 10px; border-radius: 6px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 0.9em;">"Did Fisseha steal the computer?"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <h3 style="color: #01579b; margin-top: 0;">🧭 Intension vs Extension</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+            <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 8px;">
+              <h4 style="color: #2e7d32; margin-top: 0;">Intension (Sense)</h4>
+              <p style="margin: 10px 0;">Qualities/attributes connoted by a term</p>
+              <div style="background: white; padding: 10px; border-radius: 6px; font-style: italic; color: #388e3c;">
+                "Cat": furry, domesticated, carnivorous mammal
+              </div>
+            </div>
+            <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); border-radius: 8px;">
+              <h4 style="color: #bf360c; margin-top: 0;">Extension (Reference)</h4>
+              <p style="margin: 10px 0;">Actual members denoted by a term</p>
+              <div style="background: white; padding: 10px; border-radius: 6px; font-style: italic; color: #d84315;">
+                "Cat": all existing cats in the universe
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 3 -->
+      <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #4caf50; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #4caf50; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">3</span>
+          </div>
+          <h2 style="color: #2e7d32; margin: 0;">Types of Definitions</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #ff9800;">
+            <h3 style="color: #ef6c00; margin-top: 0;">✨ Stipulative</h3>
+            <p>Assigns new meaning to a word</p>
+            <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #ef6c00;">"Let's call tiger-lion hybrids 'tigons'"</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #2196f3;">
+            <h3 style="color: #0d47a1; margin-top: 0;">📖 Lexical</h3>
+            <p>Reports standard dictionary meaning</p>
+            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #0d47a1;">"Nice: pleasant, agreeable, satisfactory"</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #9c27b0;">
+            <h3 style="color: #7b1fa2; margin-top: 0;">🎯 Précising</h3>
+            <p>Reduces vagueness in specific contexts</p>
+            <div style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Adult: person aged 18+"</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #009688;">
+            <h3 style="color: #00695c; margin-top: 0;">🔬 Theoretical</h3>
+            <p>Explains within a conceptual framework</p>
+            <div style="background: #e0f2f1; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #00695c;">"Gravity: curvature of spacetime"</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #f44336;">
+            <h3 style="color: #c62828; margin-top: 0;">🎭 Persuasive</h3>
+            <p>Influences attitudes or opinions</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Freedom: absence of government control"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 4 -->
+      <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ff9800; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #ff9800; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">4</span>
+          </div>
+          <h2 style="color: #ef6c00; margin: 0;">Definition Techniques</h2>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <h3 style="color: #e65100; margin-top: 0;">📍 Extensional Techniques</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">👉</div>
+              <h4 style="color: #ff8f00; margin: 0;">Demonstrative</h4>
+              <p style="margin: 10px 0 0;">Pointing to examples</p>
+            </div>
+            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">🔢</div>
+              <h4 style="color: #ff8f00; margin: 0;">Enumerative</h4>
+              <p style="margin: 10px 0 0;">Listing specific members</p>
+            </div>
+            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
+              <div style="font-size: 32px; margin-bottom: 10px;">🗂️</div>
+              <h4 style="color: #ff8f00; margin: 0;">Subclass</h4>
+              <p style="margin: 10px 0 0;">Naming subcategories</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <h3 style="color: #e65100; margin-top: 0;">🔍 Intensional Techniques</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #2196f3;">
+              <h4 style="color: #0d47a1; margin-top: 0;">Synonymous</h4>
+              <p>Using equivalent terms</p>
+              <p style="margin: 5px 0 0; font-style: italic; color: #0d47a1;">"Physician means doctor"</p>
+            </div>
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #7b1fa2;">
+              <h4 style="color: #7b1fa2; margin-top: 0;">Etymological</h4>
+              <p>Historical word origins</p>
+              <p style="margin: 5px 0 0; font-style: italic; color: #7b1fa2;">"License: from Latin 'licere' (to be permitted)"</p>
+            </div>
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #4caf50;">
+              <h4 style="color: #2e7d32; margin-top: 0;">Operational</h4>
+              <p>Testing procedures</p>
+              <p style="margin: 5px 0 0; font-style: italic; color: #2e7d32;">"Acid: turns litmus paper red"</p>
+            </div>
+            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #ff9800;">
+              <h4 style="color: #ef6c00; margin-top: 0;">Genus & Difference</h4>
+              <p>Category + distinguishing features</p>
+              <p style="margin: 5px 0 0; font-style: italic; color: #ef6c00;">"Ice: frozen water"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 5 -->
+      <div style="background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #f44336; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(244, 67, 54, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #f44336; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">5</span>
+          </div>
+          <h2 style="color: #c62828; margin: 0;">Lexical Definition Rules</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">📝 Essential Guidelines</h3>
+            <ul style="padding-left: 20px;">
+              <li>Be grammatically correct</li>
+              <li>Convey essential meaning</li>
+              <li>Avoid being too broad/narrow</li>
+              <li>No circular definitions</li>
+              <li>Prefer affirmative statements</li>
+              <li>Avoid figurative language</li>
+              <li>Indicate context when needed</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">🚫 Common Mistakes</h3>
+            <div style="margin-top: 15px;">
+              <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+                <div style="color: #f44336; font-size: 24px;">❌</div>
+                <div>
+                  <p style="margin: 0; font-weight: bold;">Too broad:</p>
+                  <p style="margin: 5px 0 0;">"Bird: warm-blooded animal with wings"</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
+                <div style="color: #f44336; font-size: 24px;">❌</div>
+                <div>
+                  <p style="margin: 0; font-weight: bold;">Circular:</p>
+                  <p style="margin: 5px 0 0;">"Science: what scientists do"</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <div style="color: #f44336; font-size: 24px;">❌</div>
+                <div>
+                  <p style="margin: 0; font-weight: bold;">Emotive:</p>
+                  <p style="margin: 5px 0 0;">"Communism: evil economic system"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter Summary -->
+      <div style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ffd600; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 214, 0, 0.2);">
+        <h2 style="color: #f57f17; margin-top: 0; text-align: center;">📚 Chapter Summary</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">🔤 Language Fundamentals</h3>
+            <ul style="padding-left: 20px;">
+              <li>Arguments depend on clear language</li>
+              <li>Distinguish cognitive vs emotive meaning</li>
+              <li>Vagueness and ambiguity create confusion</li>
+              <li>Verbal vs factual disputes</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">🧩 Meaning Concepts</h3>
+            <ul style="padding-left: 20px;">
+              <li>Intension: attributes connoted</li>
+              <li>Extension: members denoted</li>
+              <li>Intension determines extension</li>
+              <li>Proper names have unique challenges</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">📖 Definition Mastery</h3>
+            <ul style="padding-left: 20px;">
+              <li>5 types serve different purposes</li>
+              <li>4 extensional techniques</li>
+              <li>4 intensional techniques</li>
+              <li>8 rules for lexical definitions</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div style="background: rgba(255, 193, 7, 0.2); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+          <p style="font-size: 1.2em; font-style: italic; color: #5d4037; margin: 0;">
+            "Clear language is the foundation of logical reasoning - master definitions to master arguments"
+          </p>
+        </div>
+      </div>
+    </div>
+  `
+},
     { 
         id: 'MidExams', 
         title: 'Mid Exam Collations all Ethiopian University', 
