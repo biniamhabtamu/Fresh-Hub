@@ -112,12 +112,12 @@ export const subjects: Subject[] = [
 
   // Social Science Subjects
    { 
-    id: 'SampleQuestion', 
-    name: 'SampleQuestion', 
+    id: 'Sample', 
+    name: 'Sample', 
     icon: '📖', // Different from natural science English
     field: 'social', 
     isFree: false 
-  },
+  },,
   { 
     id: 'english', 
     name: 'EnglishSkill2', 
