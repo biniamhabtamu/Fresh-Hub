@@ -1,453 +1,390 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase/config';
-import { collection, query, where, onSnapshot, doc, updateDoc, orderBy } from 'firebase/firestore';
-import { 
-  CheckCircle2, XCircle, RefreshCw, User, Shield, Eye, Search, X,
-  CreditCard, Smartphone, Book, Award, BarChart, Headphones, Download
-} from 'lucide-react';
-import { toast } from 'react-hot-toast';
+import { collection, query, getDocs, doc, updateDoc } from 'firebase/firestore';
+import { CheckCircle2, XCircle, RefreshCw, User, Shield, Loader2, Link } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Tailwind CSS classes for better readability and a clean design
+const containerClasses = "min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8";
+const cardClasses = "bg-white shadow-lg rounded-xl p-6 transition-transform hover:scale-[1.02] duration-300 ease-in-out";
+const headerClasses = "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8";
+const titleClasses = "text-3xl font-extrabold text-gray-900";
+const filterButtonClasses = "px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200";
 
 interface UserData {
   id: string;
-  fullName: string;
+  displayName: string;
   email: string;
-  phone: string;
-  field: 'natural' | 'social';
   isPremium: boolean;
   premiumStatus: 'pending' | 'approved' | 'rejected';
-  screenshotUrl?: string;
-  submittedAt?: Date;
-  paymentMethod?: 'ebirr' | 'telebirr';
   transactionId?: string;
-  createdAt: Date;
+  transactionUrl?: string; // Added new field for the URL
 }
 
 export default function AdminPremiumApproval() {
   const [users, setUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('pending');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [imageLoading, setImageLoading] = useState<string | null>(null);
+  const [filter, setFilter] = useState<'all' | 'pending' | 'premium'>('pending');
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    let usersQuery;
-
-    if (filter === "pending") {
-      usersQuery = query(
-        collection(db, "users"),
-        where("premiumStatus", "==", "pending"),
-        where("screenshotUrl", "!=", null),
-        orderBy("submittedAt", "desc")
-      );
-    } else if (filter === "approved") {
-      usersQuery = query(
-        collection(db, "users"),
-        where("premiumStatus", "==", "approved"),
-        orderBy("submittedAt", "desc")
-      );
-    } else if (filter === "rejected") {
-      usersQuery = query(
-        collection(db, "users"),
-        where("premiumStatus", "==", "rejected"),
-        orderBy("submittedAt", "desc")
-      );
-    } else {
-      usersQuery = query(
-        collection(db, "users"),
-        orderBy("submittedAt", "desc")
-      );
-    }
-
-    const unsubscribe = onSnapshot(
-      usersQuery,
-      (snapshot) => {
-        const usersData: UserData[] = [];
-        snapshot.forEach((doc) => {
+    const fetchUsers = async () => {
+      setLoading(true);
+      try {
+        const usersQuery = query(collection(db, 'users'));
+        const querySnapshot = await getDocs(usersQuery);
+        
+        const usersData: UserData[] = querySnapshot.docs.map((doc) => {
           const data = doc.data();
-          usersData.push({
+          return {
             id: doc.id,
-            fullName: data.fullName || "No Name",
-            email: data.email || "No Email",
-            phone: data.phone || "No Phone",
-            field: data.field || 'natural',
+            displayName: data.displayName || 'No Name',
+            email: data.email,
             isPremium: data.isPremium || false,
-            premiumStatus: data.premiumStatus || "pending",
-            screenshotUrl: data.screenshotUrl,
-            submittedAt: data.submittedAt?.toDate(),
-            paymentMethod: data.paymentMethod,
+            premiumStatus: data.premiumStatus || 'pending',
             transactionId: data.transactionId,
-            createdAt: data.createdAt?.toDate() || new Date()
-          });
+            transactionUrl: data.transactionUrl // Fetch the new `transactionUrl` field
+          };
         });
+
         setUsers(usersData);
-        setLoading(false);
-      },
-      (error) => {
-        console.error("Error fetching users:", error);
-        toast.error("Failed to load user data");
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      } finally {
         setLoading(false);
       }
-    );
+    };
 
-    return () => unsubscribe();
-  }, [filter]);
+    fetchUsers();
+  }, []);
 
   const handleApprove = async (userId: string) => {
+    setIsUpdating(true);
     try {
-      await updateDoc(doc(db, "users", userId), {
+      await updateDoc(doc(db, 'users', userId), {
         isPremium: true,
-        premiumStatus: "approved",
-        approvedAt: new Date(),
+        premiumStatus: 'approved'
       });
-      toast.success("Premium access approved successfully!");
+      setUsers(users.map(user => 
+        user.id === userId ? { ...user, isPremium: true, premiumStatus: 'approved' } : user
+      ));
     } catch (error) {
-      console.error("Error approving premium:", error);
-      toast.error("Failed to approve premium access");
+      console.error('Error approving user:', error);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
   const handleReject = async (userId: string) => {
+    setIsUpdating(true);
     try {
-      await updateDoc(doc(db, "users", userId), {
+      await updateDoc(doc(db, 'users', userId), {
         isPremium: false,
-        premiumStatus: "rejected",
-        rejectedAt: new Date(),
+        premiumStatus: 'rejected'
       });
-      toast.success("Premium request rejected");
+      setUsers(users.map(user => 
+        user.id === userId ? { ...user, isPremium: false, premiumStatus: 'rejected' } : user
+      ));
     } catch (error) {
-      console.error("Error rejecting premium:", error);
-      toast.error("Failed to reject premium request");
+      console.error('Error rejecting user:', error);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
-  const filteredUsers = users.filter(user => 
-    user.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.phone.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredUsers = users.filter(user => {
+    if (filter === 'all') return true;
+    if (filter === 'pending') return user.premiumStatus === 'pending';
+    if (filter === 'premium') return user.isPremium;
+    return true;
+  });
 
-  const pendingCount = users.filter(u => u.premiumStatus === "pending" && u.screenshotUrl).length;
-  const approvedCount = users.filter(u => u.premiumStatus === "approved").length;
-  const rejectedCount = users.filter(u => u.premiumStatus === "rejected").length;
+  const getStatusBadge = (user: UserData) => {
+    if (user.isPremium) {
+      return (
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+          <CheckCircle2 className="h-3 w-3 mr-1" />
+          Premium
+        </span>
+      );
+    }
+    switch (user.premiumStatus) {
+      case 'pending':
+        return (
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+            <RefreshCw className="h-3 w-3 mr-1 animate-spin" />
+            Pending
+          </span>
+        );
+      case 'rejected':
+        return (
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+            <XCircle className="h-3 w-3 mr-1" />
+            Rejected
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-gray-800">
+            <User className="h-3 w-3 mr-1" />
+            Basic
+          </span>
+        );
+    }
+  };
+
+  const dashboardCards = [
+    {
+      title: "Total Premium Users",
+      value: users.filter(u => u.isPremium).length,
+      icon: <Shield className="h-6 w-6 text-white" />,
+      bgColor: "bg-indigo-500"
+    },
+    {
+      title: "Pending Approvals",
+      value: users.filter(u => u.premiumStatus === 'pending').length,
+      icon: <RefreshCw className="h-6 w-6 text-white" />,
+      bgColor: "bg-yellow-500"
+    },
+    {
+      title: "Rejected Requests",
+      value: users.filter(u => u.premiumStatus === 'rejected').length,
+      icon: <XCircle className="h-6 w-6 text-white" />,
+      bgColor: "bg-red-500"
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className={containerClasses}>
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white shadow rounded-lg overflow-hidden">
-          <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-purple-800 to-indigo-800">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <h1 className="text-xl font-semibold text-white mb-4 sm:mb-0">Premium User Management</h1>
-              
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Search users..."
-                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
-                
-                <div className="flex space-x-1">
-                  <button
-                    onClick={() => setFilter("pending")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${
-                      filter === "pending" ? "bg-white text-purple-800" : "text-white hover:bg-purple-700"
-                    }`}
-                  >
-                    Pending ({pendingCount})
-                  </button>
-                  <button
-                    onClick={() => setFilter("approved")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${
-                      filter === "approved" ? "bg-white text-purple-800" : "text-white hover:bg-purple-700"
-                    }`}
-                  >
-                    Approved ({approvedCount})
-                  </button>
-                  <button
-                    onClick={() => setFilter("rejected")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${
-                      filter === "rejected" ? "bg-white text-purple-800" : "text-white hover:bg-purple-700"
-                    }`}
-                  >
-                    Rejected ({rejectedCount})
-                  </button>
-                  <button
-                    onClick={() => setFilter("all")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${
-                      filter === "all" ? "bg-white text-purple-800" : "text-white hover:bg-purple-700"
-                    }`}
-                  >
-                    All Users ({users.length})
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div className={headerClasses}>
+          <h1 className={titleClasses}>Admin Dashboard</h1>
+          <div className="flex flex-wrap gap-2 mt-4 sm:mt-0">
+            <button
+              onClick={() => setFilter('pending')}
+              className={`${filterButtonClasses} ${filter === 'pending' ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
+            >
+              Pending
+            </button>
+            <button
+              onClick={() => setFilter('premium')}
+              className={`${filterButtonClasses} ${filter === 'premium' ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
+            >
+              Premium
+            </button>
+            <button
+              onClick={() => setFilter('all')}
+              className={`${filterButtonClasses} ${filter === 'all' ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
+            >
+              All Users
+            </button>
           </div>
+        </div>
 
-          <div className="overflow-x-auto">
-            {loading ? (
-              <div className="flex justify-center items-center p-12">
-                <RefreshCw className="h-8 w-8 text-purple-600 animate-spin" />
-              </div>
-            ) : (
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      User
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Contact
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Field
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Payment Method
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Status
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Payment Proof
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Submitted
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {filteredUsers.length > 0 ? (
-                    filteredUsers.map((user) => (
-                      <tr key={user.id} className={user.premiumStatus === "pending" ? "bg-yellow-50" : ""}>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
-                              <User className="h-5 w-5 text-purple-600" />
-                            </div>
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">{user.fullName}</div>
-                              <div className="text-sm text-gray-500">{user.email}</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {user.phone}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            user.field === 'natural' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'
-                          }`}>
-                            {user.field === 'natural' ? 'Natural' : 'Social'}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {user.paymentMethod ? (
-                            <div className="flex items-center">
-                              {user.paymentMethod === 'ebirr' ? (
-                                <>
-                                  <CreditCard className="h-4 w-4 text-blue-500 mr-1" />
-                                  <span>Ebirr</span>
-                                </>
-                              ) : (
-                                <>
-                                  <Smartphone className="h-4 w-4 text-green-500 mr-1" />
-                                  <span>Telebirr</span>
-                                </>
-                              )}
-                            </div>
-                          ) : (
-                            <span className="text-gray-400">N/A</span>
-                          )}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            user.isPremium
-                              ? "bg-green-100 text-green-800"
-                              : user.premiumStatus === "pending"
-                                ? "bg-yellow-100 text-yellow-800"
-                                : "bg-red-100 text-red-800"
-                          }`}>
-                            {user.isPremium ? "Premium" : user.premiumStatus}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {user.screenshotUrl ? (
-                            <div className="flex items-center space-x-2">
-                              <div className="relative">
-                                {imageLoading === user.screenshotUrl && (
-                                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded">
-                                    <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
-                                  </div>
-                                )}
-                                <img
-                                  src={user.screenshotUrl}
-                                  alt="Payment screenshot"
-                                  className="h-12 w-12 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity"
-                                  onClick={() => setSelectedImage(user.screenshotUrl!)}
-                                  onLoad={() => setImageLoading(null)}
-                                  onError={() => setImageLoading(null)}
-                                  onLoadStart={() => setImageLoading(user.screenshotUrl!)}
-                                />
+        <div className="bg-white shadow-lg rounded-xl overflow-hidden mb-12">
+          {loading ? (
+            <div className="flex justify-center items-center p-20">
+              <Loader2 className="h-10 w-10 text-indigo-500 animate-spin" />
+            </div>
+          ) : (
+            <>
+              {/* Desktop View */}
+              <div className="hidden md:block">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        User
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Email
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Transaction ID
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Transaction URL
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    <AnimatePresence>
+                      {filteredUsers.length > 0 ? (
+                        filteredUsers.map((user) => (
+                          <motion.tr
+                            key={user.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="hover:bg-gray-50 transition-colors duration-150"
+                          >
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                                  <User className="h-5 w-5 text-indigo-600" />
+                                </div>
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">{user.displayName}</div>
+                                </div>
                               </div>
-                              <button
-                                onClick={() => setSelectedImage(user.screenshotUrl!)}
-                                className="text-purple-600 hover:text-purple-800 flex items-center text-sm"
-                              >
-                                <Eye className="h-4 w-4 mr-1" />
-                                View
-                              </button>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                              {user.email}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              {getStatusBadge(user)}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                              {user.transactionId || 'N/A'}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                              {user.transactionUrl ? (
+                                <a 
+                                  href={user.transactionUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="flex items-center text-blue-600 hover:text-blue-800 hover:underline"
+                                >
+                                  <Link className="h-4 w-4 mr-1" />
+                                  View Screenshot
+                                </a>
+                              ) : (
+                                'N/A'
+                              )}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              {user.premiumStatus === 'pending' && (
+                                <div className="flex justify-end space-x-2">
+                                  <button
+                                    onClick={() => handleApprove(user.id)}
+                                    className="p-2 rounded-full text-green-600 hover:bg-green-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    disabled={isUpdating}
+                                  >
+                                    <CheckCircle2 className="h-5 w-5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleReject(user.id)}
+                                    className="p-2 rounded-full text-red-600 hover:bg-red-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    disabled={isUpdating}
+                                  >
+                                    <XCircle className="h-5 w-5" />
+                                  </button>
+                                </div>
+                              )}
+                            </td>
+                          </motion.tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan={6} className="px-6 py-12 text-center text-sm text-gray-500">
+                            No users found for this filter.
+                          </td>
+                        </tr>
+                      )}
+                    </AnimatePresence>
+                  </tbody>
+                </table>
+              </div>
+              
+              {/* Mobile View */}
+              <div className="md:hidden">
+                <div className="divide-y divide-gray-200">
+                  <AnimatePresence>
+                    {filteredUsers.length > 0 ? (
+                      filteredUsers.map((user) => (
+                        <motion.div
+                          key={user.id}
+                          className="p-4 flex flex-col space-y-4 hover:bg-gray-50 transition-colors duration-150"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, x: -20 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                                <User className="h-5 w-5 text-indigo-600" />
+                              </div>
+                              <div className="ml-4">
+                                <div className="text-base font-semibold text-gray-900">{user.displayName}</div>
+                                <div className="text-sm text-gray-500">{user.email}</div>
+                              </div>
                             </div>
-                          ) : (
-                            <span className="text-gray-400 text-sm">No image</span>
-                          )}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {user.submittedAt ? user.submittedAt.toLocaleString() : "N/A"}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          {user.premiumStatus === "pending" && (
+                            {getStatusBadge(user)}
+                          </div>
+                          
+                          {user.premiumStatus === 'pending' && (
                             <div className="flex justify-end space-x-2">
                               <button
                                 onClick={() => handleApprove(user.id)}
-                                className="inline-flex items-center px-3 py-1 border border-transparent rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-sm"
-                                title="Approve"
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={isUpdating}
                               >
-                                <CheckCircle2 className="h-4 w-4 mr-1" /> Approve
+                                <CheckCircle2 className="h-4 w-4 mr-2" />
+                                Approve
                               </button>
                               <button
                                 onClick={() => handleReject(user.id)}
-                                className="inline-flex items-center px-3 py-1 border border-transparent rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 text-sm"
-                                title="Reject"
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={isUpdating}
                               >
-                                <XCircle className="h-4 w-4 mr-1" /> Reject
+                                <XCircle className="h-4 w-4 mr-2" />
+                                Reject
                               </button>
                             </div>
                           )}
-                          {user.premiumStatus === "approved" && (
-                            <span className="text-green-600 flex justify-end items-center">
-                              <CheckCircle2 className="h-4 w-4 mr-1" /> Approved
-                            </span>
-                          )}
-                          {user.premiumStatus === "rejected" && (
-                            <span className="text-red-600 flex justify-end items-center">
-                              <XCircle className="h-4 w-4 mr-1" /> Rejected
-                            </span>
-                          )}
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={8} className="px-6 py-4 text-center text-sm text-gray-500">
-                        No users found matching your criteria
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            )}
-          </div>
+                          <div className="text-sm text-gray-500 flex items-center">
+                            <span className="font-semibold text-gray-900 mr-2">Transaction ID:</span>
+                            {user.transactionId || 'N/A'}
+                          </div>
+                          <div className="text-sm text-gray-500 flex items-center">
+                            <span className="font-semibold text-gray-900 mr-2">Transaction URL:</span>
+                            {user.transactionUrl ? (
+                              <a href={user.transactionUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center">
+                                <Link className="h-4 w-4 mr-1" />
+                                View Screenshot
+                              </a>
+                            ) : (
+                              'N/A'
+                            )}
+                          </div>
+                        </motion.div>
+                      ))
+                    ) : (
+                      <div className="p-12 text-center text-gray-500">
+                        No users found for this filter.
+                      </div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
 
-          {/* Statistics Cards */}
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3 p-6">
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-purple-500 rounded-md p-3">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Total Premium Users</dt>
-                      <dd className="flex items-baseline">
-                        <div className="text-2xl font-semibold text-gray-900">
-                          {approvedCount}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {dashboardCards.map((card, index) => (
+            <div key={index} className={cardClasses}>
+              <div className="flex items-center">
+                <div className={`flex-shrink-0 rounded-full p-4 ${card.bgColor}`}>
+                  {card.icon}
+                </div>
+                <div className="ml-5 flex-1">
+                  <dt className="text-sm font-medium text-gray-500 truncate">{card.title}</dt>
+                  <dd className="text-3xl font-bold text-gray-900">{card.value}</dd>
                 </div>
               </div>
             </div>
-
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-yellow-500 rounded-md p-3">
-                    <RefreshCw className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Pending Approvals</dt>
-                      <dd className="flex items-baseline">
-                        <div className="text-2xl font-semibold text-gray-900">
-                          {pendingCount}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-red-500 rounded-md p-3">
-                    <XCircle className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Rejected Requests</dt>
-                      <dd className="flex items-baseline">
-                        <div className="text-2xl font-semibold text-gray-900">
-                          {rejectedCount}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-4xl w-full max-h-full">
-            <button 
-              onClick={() => setSelectedImage(null)} 
-              className="absolute -top-10 right-0 text-white hover:text-gray-300 z-10"
-            >
-              <X className="h-8 w-8" />
-            </button>
-            <div className="bg-white p-2 rounded-lg">
-              <img
-                src={selectedImage}
-                alt="Payment screenshot full view"
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
-              />
-              <div className="mt-2 text-sm text-gray-500 text-center">
-                Payment confirmation screenshot
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
