@@ -9,6 +9,19 @@ import { Question } from '../types';
 export const sampleQuestions: Question[] = [
   // ==================== GEOGRAPHY QUESTIONS ====================
   
+{
+    id: 'Sam-2015-1-1',
+    question: 'In which year did the Battle of Adwa occur?',
+    options: ['1896', '1905', '1889', '1911'],
+    correctAnswer: 0,
+    explanation: 'The Battle of Adwa, where Ethiopia defeated Italy, occurred on March 1, 1896.',
+    subject: 'Sample',
+    year: 2015,
+    chapter: 1
+  },
+
+
+
   //geography-2013-1-1
   {
     id: 'geo-2013-1-1',

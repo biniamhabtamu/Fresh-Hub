@@ -1442,11 +1442,410 @@ export const noteCollections: Subject[] = [
         title: 'Chapter 4 : Basic Concepts Of Critical Thinking', 
         content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
       },
-      { 
-        id: 'Chapter5', 
-        title: 'Chapter 5 : Informal Fallacies', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
-      },
+      {
+  "id": "Chapter5",
+  "title": "Chapter 5: Informal Fallacies",
+  "content": `
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; color: #2c3e50; padding: 15px;">
+      <!-- Chapter Header -->
+      <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: clamp(1.8em, 5vw, 2.2em);">⚠️ Informal Fallacies</h1>
+        <p style="font-size: clamp(1em, 3vw, 1.2em); opacity: 0.9;">Identifying and Avoiding Errors in Reasoning</p>
+      </div>
+
+      <!-- Chapter Overview -->
+      <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #2196f3; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);">
+        <h2 style="color: #0d47a1; margin-top: 0; border-bottom: 2px dashed #42a5f5; padding-bottom: 8px;">Chapter Overview</h2>
+        <p>This chapter explores defects in reasoning known as fallacies - errors that make arguments appear valid while containing logical flaws. We'll examine formal and informal fallacies, with a focus on common informal fallacies that arise from content errors rather than structural defects.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #7e57c2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #5e35b1; margin-top: 0;">🎯 Objectives</h3>
+            <ul style="padding-left: 20px;">
+              <li>Define fallacy and differentiate types</li>
+              <li>Identify formal vs informal fallacies</li>
+              <li>Recognize 5 categories of informal fallacies</li>
+              <li>Spot specific fallacies in arguments</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #4caf50; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #2e7d32; margin-top: 0;">🔑 Key Concepts</h3>
+            <ul style="padding-left: 20px;">
+              <li>Relevance fallacies</li>
+              <li>Weak induction</li>
+              <li>Presumption errors</li>
+              <li>Ambiguity issues</li>
+              <li>Grammatical analogies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 1 -->
+      <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #9c27b0; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #9c27b0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">1</span>
+          </div>
+          <h2 style="color: #7b1fa2; margin: 0;">Understanding Fallacies</h2>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 25px;">
+          <h3 style="color: #6a1b9a; margin-top: 0;">❓ What is a Fallacy?</h3>
+          <p>A fallacy is a logical defect in an argument's structure, reasoning process, or content that violates standard rules of good argumentation. It creates an illusion that makes bad arguments appear good.</p>
+          
+          <div style="background: #f3e5f5; padding: 15px; border-radius: 8px; margin-top: 15px;">
+            <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Fallacies go beyond false premises - they involve mistakes in reasoning that undermine an argument's validity."</p>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">📐 Formal Fallacies</h3>
+            <p>Structural defects in deductive arguments identifiable by form:</p>
+            
+            <div style="border-left: 4px solid #7b1fa2; padding-left: 12px; margin: 15px 0;">
+              <h4 style="color: #7b1fa2; margin: 0 0 8px;">Categorical Example</h4>
+              <p style="margin: 0;">All tigers are animals<br>All mammals are animals<br>∴ All tigers are mammals</p>
+            </div>
+            
+            <div style="border-left: 4px solid #7b1fa2; padding-left: 12px;">
+              <h4 style="color: #7b1fa2; margin: 0 0 8px;">Hypothetical Example</h4>
+              <p style="margin: 0;">If apes are intelligent, they solve puzzles<br>Apes solve puzzles<br>∴ Apes are intelligent (Affirming the Consequent)</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">📝 Informal Fallacies</h3>
+            <p>Content defects requiring analysis of meaning and context:</p>
+            
+            <div style="border-left: 4px solid #9c27b0; padding-left: 12px; margin: 15px 0;">
+              <h4 style="color: #9c27b0; margin: 0 0 8px;">Equivocation Example</h4>
+              <p style="margin: 0;">All factories are plants<br>All plants contain chlorophyll<br>∴ All factories contain chlorophyll</p>
+            </div>
+            
+            <div style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Informal fallacies are categorized into 5 groups: relevance, weak induction, presumption, ambiguity, and grammatical analogy."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 2 -->
+      <div style="background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #0288d1; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(2, 136, 209, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #0288d1; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">2</span>
+          </div>
+          <h2 style="color: #0277bd; margin: 0;">Fallacies of Relevance</h2>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 25px;">
+          <p>Premises seem psychologically relevant but are logically irrelevant to the conclusion. Characterized by non sequitur ("it does not follow") reasoning.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- Appeal to Force -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #f44336;">
+            <h3 style="color: #c62828; margin-top: 0;">👊 Appeal to Force</h3>
+            <p>Using threats to force acceptance of a conclusion.</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Drop the charges or you'll regret it!"</p>
+            </div>
+          </div>
+          
+          <!-- Appeal to Pity -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #2196f3;">
+            <h3 style="color: #0d47a1; margin-top: 0;">😢 Appeal to Pity</h3>
+            <p>Evoking pity to gain acceptance of a conclusion.</p>
+            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #0d47a1;">"Hire me because I have a family to support."</p>
+            </div>
+          </div>
+          
+          <!-- Appeal to People -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #4caf50;">
+            <h3 style="color: #2e7d32; margin-top: 0;">👥 Appeal to People</h3>
+            <p>Appealing to desires for acceptance/admiration:</p>
+            <ul style="padding-left: 20px;">
+              <li><strong>Bandwagon</strong>: "Everyone's doing it!"</li>
+              <li><strong>Vanity</strong>: "Smart people use this product"</li>
+              <li><strong>Snobbery</strong>: "This wine isn't for ordinary people"</li>
+            </ul>
+          </div>
+          
+          <!-- Ad Hominem -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #ff9800;">
+            <h3 style="color: #ef6c00; margin-top: 0;">🎯 Argument Against Person</h3>
+            <p>Attacking the person instead of the argument:</p>
+            <ul style="padding-left: 20px;">
+              <li><strong>Abusive</strong>: "He's a drunk, ignore his ideas"</li>
+              <li><strong>Circumstantial</strong>: "He just wants power"</li>
+              <li><strong>Tu Quoque</strong>: "You smoke too, doctor!"</li>
+            </ul>
+          </div>
+          
+          <!-- Accident -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #9c27b0;">
+            <h3 style="color: #7b1fa2; margin-top: 0;">⚠️ Accident Fallacy</h3>
+            <p>Misapplying a general rule to a special case.</p>
+            <div style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Free speech protects inciting riots"</p>
+            </div>
+          </div>
+          
+          <!-- Straw Man -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #009688;">
+            <h3 style="color: #00695c; margin-top: 0;">🌾 Straw Man</h3>
+            <p>Distorting an opponent's argument to attack it.</p>
+            <div style="background: #e0f2f1; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #00695c;">"He wants federalism? He just wants the old regime back!"</p>
+            </div>
+          </div>
+          
+          <!-- Missing the Point -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #795548;">
+            <h3 style="color: #4e342e; margin-top: 0;">🎯 Missing the Point</h3>
+            <p>Premises support one conclusion but a different one is drawn.</p>
+            <div style="background: #efebe9; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #4e342e;">"Globalization benefits rich nations, so poor nations should detach"</p>
+            </div>
+          </div>
+          
+          <!-- Red Herring -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #607d8b;">
+            <h3 style="color: #37474f; margin-top: 0;">🐟 Red Herring</h3>
+            <p>Diverting attention to an irrelevant issue.</p>
+            <div style="background: #eceff1; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #37474f;">"Our pollution? Your newspaper uses more paper!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 3 -->
+      <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #4caf50; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #4caf50; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">3</span>
+          </div>
+          <h2 style="color: #2e7d32; margin: 0;">Fallacies of Weak Induction</h2>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 25px;">
+          <p>Premises provide insufficient support for the conclusion, violating the principle of sufficiency.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- Appeal to Authority -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #ff9800;">
+            <h3 style="color: #ef6c00; margin-top: 0;">👑 Appeal to Unqualified Authority</h3>
+            <p>Relying on non-expert testimony.</p>
+            <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #ef6c00;">"My favorite actor says this diet works!"</p>
+            </div>
+          </div>
+          
+          <!-- Appeal to Ignorance -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #9c27b0;">
+            <h3 style="color: #7b1fa2; margin-top: 0;">❓ Appeal to Ignorance</h3>
+            <p>Claiming truth based on lack of evidence.</p>
+            <div style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"No one proved ghosts don't exist, so they do!"</p>
+            </div>
+          </div>
+          
+          <!-- Hasty Generalization -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #2196f3;">
+            <h3 style="color: #0d47a1; margin-top: 0;">📊 Hasty Generalization</h3>
+            <p>Generalizing from insufficient/unrepresentative sample.</p>
+            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #0d47a1;">"My Italian friends are rude, so all Italians are rude"</p>
+            </div>
+          </div>
+          
+          <!-- False Cause -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #f44336;">
+            <h3 style="color: #c62828; margin-top: 0;">⏱️ False Cause</h3>
+            <p>Mistaking correlation for causation:</p>
+            <ul style="padding-left: 20px;">
+              <li><strong>Post Hoc</strong>: "I wore lucky shirt, we won"</li>
+              <li><strong>Oversimplified</strong>: "Grades drop because of Facebook"</li>
+              <li><strong>Non Causa</strong>: "Pay more to make him successful"</li>
+            </ul>
+          </div>
+          
+          <!-- Slippery Slope -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #009688;">
+            <h3 style="color: #00695c; margin-top: 0;">⛷️ Slippery Slope</h3>
+            <p>Assuming chain reaction without evidence.</p>
+            <div style="background: #e0f2f1; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #00695c;">"Allow donkey slaughter → collapse of food culture"</p>
+            </div>
+          </div>
+          
+          <!-- Weak Analogy -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #795548;">
+            <h3 style="color: #4e342e; margin-top: 0;">🔄 Weak Analogy</h3>
+            <p>Comparing insufficiently similar things.</p>
+            <div style="background: #efebe9; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #4e342e;">"Cancer requires drastic measures → so do criminals"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 4 -->
+      <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ff9800; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #ff9800; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">4</span>
+          </div>
+          <h2 style="color: #ef6c00; margin: 0;">Fallacies of Presumption</h2>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 25px;">
+          <p>Arguments that assume what they're supposed to prove, creating false impressions of adequacy.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- Begging the Question -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #9c27b0;">
+            <h3 style="color: #7b1fa2; margin-top: 0;">🔄 Begging the Question</h3>
+            <p>Circular reasoning that assumes its conclusion:</p>
+            <ul style="padding-left: 20px;">
+              <li>Omission: "Abortion wrong because murder wrong"</li>
+              <li>Restatement: "Capital punishment justified because legitimate"</li>
+              <li>Circular: "Best beer → best chemists → best beer"</li>
+            </ul>
+          </div>
+          
+          <!-- Complex Question -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #2196f3;">
+            <h3 style="color: #0d47a1; margin-top: 0;">❓ Complex Question</h3>
+            <p>Combining questions with hidden assumptions.</p>
+            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #0d47a1;">"Have you stopped cheating on exams?"</p>
+            </div>
+          </div>
+          
+          <!-- False Dichotomy -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #f44336;">
+            <h3 style="color: #c62828; margin-top: 0;">⚖️ False Dichotomy</h3>
+            <p>Presenting false either/or choices.</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Either buy me a car or I'll divorce you"</p>
+            </div>
+          </div>
+          
+          <!-- Suppressed Evidence -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #4caf50;">
+            <h3 style="color: #2e7d32; margin-top: 0;">🙈 Suppressed Evidence</h3>
+            <p>Ignoring crucial counter-evidence.</p>
+            <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #2e7d32;">"Somalia great for investment" (ignoring instability)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 5 -->
+      <div style="background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #f44336; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(244, 67, 54, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #f44336; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">5</span>
+          </div>
+          <h2 style="color: #c62828; margin: 0;">Ambiguity & Grammatical Fallacies</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- Equivocation -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">🔤 Equivocation</h3>
+            <p>Using a word in multiple senses:</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Obtuse triangles → obtuse people"</p>
+              <p style="margin: 10px 0 0;">"Law repealed → law of gravity repealed"</p>
+            </div>
+          </div>
+          
+          <!-- Amphiboly -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">📝 Amphiboly</h3>
+            <p>Grammatical ambiguity leading to misinterpretation:</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Saw the building standing on the corner"</p>
+              <p style="margin: 10px 0 0;">"Stewed oysters" (cooked or drunk?)</p>
+            </div>
+          </div>
+          
+          <!-- Composition -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">🧱 Composition</h3>
+            <p>Attributing parts' qualities to the whole:</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Great players → great team"</p>
+              <p style="margin: 10px 0 0;">"Bricks <1lb → building <1lb"</p>
+            </div>
+          </div>
+          
+          <!-- Division -->
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #b71c1c; margin-top: 0;">🔍 Division</h3>
+            <p>Attributing whole's qualities to parts:</p>
+            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+              <p style="margin: 0; font-style: italic; color: #c62828;">"Salt safe → sodium safe"</p>
+              <p style="margin: 10px 0 0;">"300-year society → 300-year member"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter Summary -->
+      <div style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ffd600; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 214, 0, 0.2);">
+        <h2 style="color: #f57f17; margin-top: 0; text-align: center;">📚 Chapter Summary</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">🔤 Core Concepts</h3>
+            <ul style="padding-left: 20px;">
+              <li>Fallacy: Reasoning defect creating illusion of validity</li>
+              <li>Formal: Structural defects in deductive arguments</li>
+              <li>Informal: Content defects in any argument type</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">🧩 Fallacy Categories</h3>
+            <ul style="padding-left: 20px;">
+              <li>Relevance: Irrelevant premises</li>
+              <li>Weak Induction: Insufficient support</li>
+              <li>Presumption: Unwarranted assumptions</li>
+              <li>Ambiguity: Language confusion</li>
+              <li>Grammatical: Faulty analogies</li>
+            </ul>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #5d4037; margin-top: 0;">🎯 Key Takeaways</h3>
+            <ul style="padding-left: 20px;">
+              <li>22 specific informal fallacies</li>
+              <li>Fallacies often create psychological persuasion</li>
+              <li>Critical thinking requires fallacy recognition</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div style="background: rgba(255, 193, 7, 0.2); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+          <p style="font-size: 1.2em; font-style: italic; color: #5d4037; margin: 0;">
+            "The first principle is that you must not fool yourself - and you are the easiest person to fool." - Richard Feynman
+          </p>
+        </div>
+      </div>
+    </div>
+  `
+},
       { 
         id: 'Chapter6', 
         title: 'Chapter 6 : Categorical Propostion', 
