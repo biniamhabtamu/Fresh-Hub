@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { noteCollections } from '../../data/NoteCollections';
 import { 
@@ -23,9 +23,14 @@ import {
   Search,
   BookmarkPlus,
   BookmarkMinus,
-  BookmarkCheck
+  BookmarkCheck,
+  Eye,
+  Heart
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { db } from '../../firebase/config';
+import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
+import { useAuth } from '../../contexts/AuthContext';
 
 const NotePage = () => {
   const { subjectId, chapterId } = useParams();
@@ -45,9 +50,107 @@ const NotePage = () => {
   const [showShareOptions, setShowShareOptions] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [highlightedText, setHighlightedText] = useState('');
+  const [viewsCount, setViewsCount] = useState(0);
+  const [likesCount, setLikesCount] = useState(0);
+  const [userLiked, setUserLiked] = useState(false);
+  const [userViewed, setUserViewed] = useState(false);
   const contentRef = useRef(null);
   const synthRef = useRef(null);
   const utteranceRef = useRef(null);
+  const { currentUser } = useAuth();
+
+  // Firebase document references
+  const chapterStatsRef = doc(db, 'chapterStats', chapterId);
+  const userStatsRef = currentUser 
+    ? doc(db, 'userStats', `${currentUser.uid}_${chapterId}`) 
+    : null;
+
+  // Record view in Firebase
+  const recordView = useCallback(async () => {
+    if (!currentUser || userViewed) return;
+    
+    try {
+      // Create user stats document if it doesn't exist
+      await setDoc(userStatsRef, {
+        userId: currentUser.uid,
+        chapterId,
+        viewed: true,
+        liked: false,
+        lastViewed: new Date()
+      }, { merge: true });
+      
+      // Update chapter stats
+      await updateDoc(chapterStatsRef, {
+        views: increment(1)
+      });
+      
+      setUserViewed(true);
+    } catch (error) {
+      console.error("Error recording view: ", error);
+    }
+  }, [currentUser, chapterId, userStatsRef, chapterStatsRef, userViewed]);
+
+  // Toggle like in Firebase
+  const toggleLike = useCallback(async () => {
+    if (!currentUser) {
+      // Redirect to login or show login prompt
+      navigate('/login');
+      return;
+    }
+
+    try {
+      const userStatsSnap = await getDoc(userStatsRef);
+      const hasLiked = userStatsSnap.exists() && userStatsSnap.data().liked;
+
+      if (hasLiked) {
+        // Remove like
+        await updateDoc(userStatsRef, { liked: false });
+        await updateDoc(chapterStatsRef, { likes: increment(-1) });
+        setUserLiked(false);
+        setLikesCount(prev => prev - 1);
+      } else {
+        // Add like
+        await setDoc(userStatsRef, { 
+          liked: true,
+          userId: currentUser.uid,
+          chapterId,
+          lastLiked: new Date()
+        }, { merge: true });
+        
+        await updateDoc(chapterStatsRef, { 
+          likes: increment(1)
+        }, { merge: true });
+        
+        setUserLiked(true);
+        setLikesCount(prev => prev + 1);
+      }
+    } catch (error) {
+      console.error("Error toggling like: ", error);
+    }
+  }, [currentUser, chapterId, userStatsRef, chapterStatsRef]);
+
+  // Load stats from Firebase
+  const loadStats = useCallback(async () => {
+    try {
+      const chapterStatsSnap = await getDoc(chapterStatsRef);
+      if (chapterStatsSnap.exists()) {
+        const stats = chapterStatsSnap.data();
+        setViewsCount(stats.views || 0);
+        setLikesCount(stats.likes || 0);
+      }
+
+      if (currentUser && userStatsRef) {
+        const userStatsSnap = await getDoc(userStatsRef);
+        if (userStatsSnap.exists()) {
+          const userStats = userStatsSnap.data();
+          setUserViewed(userStats.viewed || false);
+          setUserLiked(userStats.liked || false);
+        }
+      }
+    } catch (error) {
+      console.error("Error loading stats: ", error);
+    }
+  }, [chapterStatsRef, userStatsRef, currentUser]);
 
   useEffect(() => {
     const subject = noteCollections.find(s => s.id === subjectId);
@@ -112,6 +215,33 @@ const NotePage = () => {
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
+
+  useEffect(() => {
+    // Initialize Firebase stats
+    const initializeStats = async () => {
+      // Create chapter stats if it doesn't exist
+      await setDoc(chapterStatsRef, {
+        views: 0,
+        likes: 0
+      }, { merge: true });
+      
+      // Load existing stats
+      await loadStats();
+    };
+    
+    initializeStats();
+  }, [chapterId, chapterStatsRef, loadStats]);
+
+  useEffect(() => {
+    // Record view when component mounts
+    const recordViewIfNeeded = async () => {
+      if (!userViewed && currentUser) {
+        await recordView();
+      }
+    };
+    
+    recordViewIfNeeded();
+  }, [currentUser, userViewed, recordView]);
 
   const currentSubject = noteCollections.find(s => s.id === subjectId);
   const currentChapter = currentSubject?.chapters.find(c => c.id === chapterId);
@@ -273,6 +403,13 @@ const NotePage = () => {
                 >
                   {isBookmarked ? <BookmarkCheck className="h-5 w-5" /> : <Bookmark className="h-5 w-5" />}
                 </button>
+                <button
+                  onClick={toggleLike}
+                  className={`p-2 rounded-full transition-colors ${userLiked ? 'text-rose-500 bg-rose-50 dark:bg-rose-900/30' : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
+                  aria-label={userLiked ? 'Unlike' : 'Like'}
+                >
+                  <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+                </button>
               </div>
             </div>
           </motion.div>
@@ -323,6 +460,16 @@ const NotePage = () => {
                   <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                     <BookOpen className="h-5 w-5" />
                     <span>Estimated reading time: {calculateReadingTime()} min</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1">
+                      <Eye className="h-4 w-4" />
+                      <span>{viewsCount} views</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Heart className={`h-4 w-4 ${userLiked ? 'fill-rose-500' : ''}`} />
+                      <span>{likesCount} likes</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -438,6 +585,20 @@ const NotePage = () => {
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {currentChapter?.description}
           </p>
+          
+          <div className="mt-8 flex justify-center items-center gap-6">
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+              <Eye className="h-5 w-5" />
+              <span>{viewsCount} views</span>
+            </div>
+            <button 
+              onClick={toggleLike}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 dark:bg-rose-900/30 dark:text-rose-300"
+            >
+              <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+              <span>{likesCount} likes</span>
+            </button>
+          </div>
           
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button
@@ -618,6 +779,13 @@ const NotePage = () => {
           
           {/* Center: Quick actions */}
           <div className="flex items-center space-x-2">
+            <button 
+              onClick={toggleLike}
+              className={`control-btn ${userLiked ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400' : ''}`}
+              aria-label={userLiked ? 'Unlike' : 'Like'}
+            >
+              <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+            </button>
             <button 
               onClick={() => setShowShareOptions(!showShareOptions)}
               className={`control-btn ${showShareOptions ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400' : ''}`}
