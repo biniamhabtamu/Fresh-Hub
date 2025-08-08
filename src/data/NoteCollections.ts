@@ -431,11 +431,591 @@ export const noteCollections: Subject[] = [
     <p><strong style="color: #c0392b;">Habituation:</strong> A decrease in response to a constant stimulus.</p>
   `
 },
-    { 
-      id: 'Chapter3', 
-      title: 'Chapter 3: Learninig and Theory of learnig', 
-      content: '<h2>Scientific Methods in Psychology</h2><p>Experimental designs, case studies, and correlations...</p>'
-    },
+    {
+  id: 'Chapter3',
+  title: 'Chapter 3: Learning and Theory of Learning',
+  content: `
+    <div class="chapter-container">
+      <section class="chapter-overview">
+        <h2>Chapter Three: Learning and Theories of Learning</h2>
+        <div class="overview-card">
+          <h3>Chapter Overview</h3>
+          <p>This chapter builds on the previous one, shifting focus from personality to learning. It covers the nature and foundations of learning, divided into two sections: the nature of learning and theories of learning with their applications.</p>
+        </div>
+        
+        <div class="appetizer-card">
+          <h3>Learner Appetizer</h3>
+          <ul>
+            <li><strong>Importance of Learning:</strong> Almost all human behavior is learned. Without past learning, basic functions like reading, writing, and even simple tasks would be impossible. Learning is integral to almost every psychological phenomenon and varies widely among individuals.</li>
+          </ul>
+        </div>
+        
+        <div class="outcomes-card">
+          <h3>Learning Outcomes</h3>
+          <p>After studying this chapter, you should be able to:</p>
+          <ul>
+            <li>Explain the meaning, types, and factors of learning</li>
+            <li>Identify characteristics of learning</li>
+            <li>Describe theories of learning and their characteristics</li>
+            <li>Compare different learning theories</li>
+            <li>Apply learning theories</li>
+            <li>Use techniques to motivate and reinforce behavior</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <h2>3.1. Definition, Characteristics, and Principles of Learning</h2>
+        
+        <div class="definition-card">
+          <h3>3.1.1. Definitions of Learning</h3>
+          <ul>
+            <li><strong>Definition:</strong> Learning is a relatively permanent change in behavior resulting from experience or practice.</li>
+            <li><strong>Attributes of Learning:</strong>
+              <ul>
+                <li>Behavior change is relatively permanent</li>
+                <li>Not due to illness, fatigue, or intoxication</li>
+                <li>Results from experience or practice, not biological factors</li>
+                <li>Manifested through activities, not directly observable</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="reflection-box">
+            <p><strong>Reflection:</strong> Consider how this definition aligns with your previous understanding of learning.</p>
+          </div>
+        </div>
+        
+        <div class="characteristics-card">
+          <h3>3.1.2. Characteristics of Learning</h3>
+          <ul>
+            <li>Learning is ongoing throughout life and impacts all aspects of human experience.</li>
+            <li>It involves the whole person—socially, emotionally, and intellectually.</li>
+            <li>It can change the organization of experiences and is responsive to incentives.</li>
+            <li>It is active, purposeful, and dependent on maturation, motivation, and practice.</li>
+            <li>Learning is multifaceted and influenced by an individual's background.</li>
+          </ul>
+          <div class="reflection-box">
+            <p><strong>Reflection:</strong> Reflect on how these characteristics apply to your own learning experiences.</p>
+          </div>
+        </div>
+        
+        <div class="principles-card">
+          <h3>3.1.3. Principles of Learning</h3>
+          <ul>
+            <li>Effective learning requires readiness (physical, mental, and emotional).</li>
+            <li>Meaningful practice helps in retaining information longer.</li>
+            <li>Learning is strengthened by pleasant experiences and weakened by unpleasant ones.</li>
+            <li>Initial and recent learning has a stronger impact on memory.</li>
+            <li>Real experiences are more impactful than substitutes.</li>
+            <li>Individuals should have relevant abilities and skills for learning.</li>
+            <li>Freely chosen learning enhances intellectual and moral growth.</li>
+          </ul>
+          <div class="reflection-box">
+            <p><strong>Reflection:</strong> Evaluate how these principles influence your learning process.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="factors-section">
+        <h2>3.2. Factors Influencing Learning</h2>
+        <div class="factors-grid">
+          <div class="factor-card">
+            <h3>Motivation</h3>
+            <p>Strong motives enhance learning effectiveness and enthusiasm.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Maturation</h3>
+            <p>Neuro-muscular coordination is crucial for learning specific tasks.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Health Condition</h3>
+            <p>Good health supports effective learning; impairments and deficiencies hinder it.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Psychological Well-being</h3>
+            <p>Psychological states like confidence and self-respect are vital for effective learning.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Working Conditions</h3>
+            <p>Factors such as fresh air, lighting, and comfort impact learning.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Background Experiences</h3>
+            <p>Previous knowledge and experiences influence new learning.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Length of Working Period</h3>
+            <p>Optimal learning periods balance between too short and too long to avoid fatigue and ensure adequate practice.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Massed vs. Distributed Learning</h3>
+            <p>Spacing learning over time is generally more effective than cramming.</p>
+          </div>
+        </div>
+        
+        <div class="reflection-box wide">
+          <h3>Reflection on Learning Factors</h3>
+          <p><strong>Learning Materials, Teaching Styles, Methods, and Medium of Instruction:</strong> These aspects can significantly affect learning, similar to factors like motivation, health, and psychological well-being. Effective materials, engaging teaching styles, and appropriate methods and mediums can enhance learning by accommodating diverse needs and learning preferences.</p>
+        </div>
+      </section>
+
+      <section class="theories-section">
+        <h2>3.3. Theories of Learning and Their Applications</h2>
+        
+        <div class="brainstorming-card">
+          <h3>Brainstorming Question</h3>
+          <p><strong>What is Theory and Its Relation to Learning?</strong> A theory is a system of ideas intended to explain something. In the context of learning, theories provide frameworks for understanding how learning occurs and how various factors influence it.</p>
+        </div>
+        
+        <div class="theory-card">
+          <h3>3.3.1. Behavioral Theory of Learning</h3>
+          <p>Behavioral theory focuses on observable behaviors and stimulus-response associations. It explains learning in terms of behavioral changes resulting from interactions with stimuli and their consequences.</p>
+          
+          <div class="sub-theory">
+            <h4>3.3.1.1. Classical Conditioning Theory</h4>
+            
+            <div class="brainstorming-card">
+              <h5>Brainstorming Questions</h5>
+              <ul>
+                <li><strong>Expectations with Thunder or Seeing a Parent:</strong> These responses illustrate classical conditioning, where an emotional or physiological response is triggered by a stimulus.</li>
+                <li><strong>Responses to Unfamiliar vs. Familiar People:</strong> These reflect conditioned responses developed through previous experiences.</li>
+              </ul>
+            </div>
+            
+            <h5>Classical Conditioning Overview</h5>
+            <ul>
+              <li><strong>Definition:</strong> Learning where a neutral stimulus, after being paired with an unconditioned stimulus (UCS), elicits a conditioned response (CR) similar to the response originally elicited by the UCS.</li>
+              <li><strong>Examples:</strong> Pavlov's experiment demonstrated how a bell (initially a neutral stimulus) could become a conditioned stimulus (CS) to elicit salivation (conditioned response or CR) when paired with food (UCS).</li>
+            </ul>
+            
+            <h5>Basic Terms</h5>
+            <div class="terms-grid">
+              <div class="term-card">
+                <h6>Neutral Stimulus (NS)</h6>
+                <p>A stimulus that does not initially evoke a response.</p>
+              </div>
+              <div class="term-card">
+                <h6>Unconditioned Stimulus (UCS)</h6>
+                <p>A stimulus that naturally triggers a response.</p>
+              </div>
+              <div class="term-card">
+                <h6>Unconditioned Response (UCR)</h6>
+                <p>An automatic response to the UCS.</p>
+              </div>
+              <div class="term-card">
+                <h6>Conditioned Stimulus (CS)</h6>
+                <p>A previously neutral stimulus that, after association with the UCS, triggers a response.</p>
+              </div>
+              <div class="term-card">
+                <h6>Conditioned Response (CR)</h6>
+                <p>The learned response to the CS.</p>
+              </div>
+            </div>
+            
+            <h5>Principles of Classical Conditioning</h5>
+            <div class="principles-grid">
+              <div class="principle-card">
+                <h6>Stimulus Generalization</h6>
+                <p>Responding to stimuli similar to the CS (e.g., salivating to different bell sounds).</p>
+              </div>
+              <div class="principle-card">
+                <h6>Stimulus Discrimination</h6>
+                <p>Differentiating between similar stimuli (e.g., salivating only to the dinner bell).</p>
+              </div>
+              <div class="principle-card">
+                <h6>Extinction</h6>
+                <p>Gradual weakening of the CR when the CS is no longer paired with the UCS.</p>
+              </div>
+              <div class="principle-card">
+                <h6>Spontaneous Recovery</h6>
+                <p>Reappearance of the CR after a period of rest, without additional conditioning.</p>
+              </div>
+            </div>
+            
+            <div class="reflection-box">
+              <h5>Reflection</h5>
+              <p><strong>Scenario Analysis:</strong> For a child shocked by an outlet:</p>
+              <ul>
+                <li>UCS: Shock from the outlet</li>
+                <li>UCR: Fear and crying</li>
+                <li>CS: The toy or the outlet</li>
+                <li>CR: Fear of the toy after the shock</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="sub-theory">
+            <h4>3.3.1.2. Operant Conditioning</h4>
+            
+            <div class="brainstorming-card">
+              <h5>Brainstorming Questions</h5>
+              <ul>
+                <li><strong>Child's Behavior:</strong> Crying when hungry or becoming aggressive can be explained by operant conditioning, where behaviors are reinforced or punished.</li>
+                <li><strong>Role of Rewards and Punishments:</strong> These are central to operant conditioning. Rewards (reinforcement) increase desired behaviors, while punishments decrease undesired behaviors.</li>
+              </ul>
+            </div>
+            
+            <h5>Key Concepts in Operant Conditioning</h5>
+            <div class="concepts-grid">
+              <div class="concept-card">
+                <h6>Types of Reinforcement</h6>
+                <ul>
+                  <li><strong>Positive Reinforcement:</strong> Adding a pleasant stimulus to increase behavior (e.g., giving a reward for good behavior).</li>
+                  <li><strong>Negative Reinforcement:</strong> Removing an unpleasant stimulus to increase behavior (e.g., stopping nagging when chores are done).</li>
+                </ul>
+              </div>
+              <div class="concept-card">
+                <h6>Types of Punishment</h6>
+                <ul>
+                  <li><strong>Positive Punishment:</strong> Adding an unpleasant stimulus to decrease behavior (e.g., giving extra chores for misbehavior).</li>
+                  <li><strong>Negative Punishment:</strong> Removing a pleasant stimulus to decrease behavior (e.g., taking away a toy for misbehavior).</li>
+                </ul>
+              </div>
+              <div class="concept-card">
+                <h6>Schedules of Reinforcement</h6>
+                <ul>
+                  <li><strong>Fixed-Ratio:</strong> Reinforcement after a set number of responses.</li>
+                  <li><strong>Variable-Ratio:</strong> Reinforcement after a variable number of responses.</li>
+                  <li><strong>Fixed-Interval:</strong> Reinforcement after a fixed amount of time.</li>
+                  <li><strong>Variable-Interval:</strong> Reinforcement after varying amounts of time.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h5>Punishment and Shaping in Learning</h5>
+            <div class="punishment-card">
+              <h6>Punishment</h6>
+              <ul>
+                <li><strong>Definition:</strong> A stimulus that weakens or reduces the likelihood of a behavior recurring.</li>
+                <li><strong>Types of Punishers:</strong>
+                  <ul>
+                    <li><strong>Primary Punishers:</strong> Inherently aversive, such as pain or extreme temperatures.</li>
+                    <li><strong>Secondary Punishers:</strong> Learned aversive stimuli, such as criticism or fines.</li>
+                  </ul>
+                </li>
+                <li><strong>Positive vs. Negative Punishment:</strong>
+                  <ul>
+                    <li><strong>Positive Punishment:</strong> Adding an unpleasant stimulus (e.g., extra chores).</li>
+                    <li><strong>Negative Punishment:</strong> Removing a pleasant stimulus (e.g., taking away a toy).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
+            <h6>Effectiveness of Punishment</h6>
+            <ul>
+              <li><strong>Immediacy:</strong> Punishment should occur immediately after the behavior to be effective.</li>
+              <li><strong>Consistency:</strong> Inconsistent punishment can lead to resistance and ineffective behavior modification.</li>
+              <li><strong>Intensity:</strong> While severe punishments can be effective, moderate punishments can also work if applied consistently and immediately.</li>
+            </ul>
+            
+            <h6>Problems with Punishment</h6>
+            <ol>
+              <li><strong>Inappropriate Application:</strong> Punishment is sometimes applied in a broad or mindless manner, targeting irrelevant behaviors.</li>
+              <li><strong>Negative Emotional Responses:</strong> Punishment can cause fear, anxiety, or anger, which may generalize to the situation or person delivering the punishment.</li>
+              <li><strong>Temporary Effectiveness:</strong> The impact of punishment may be short-lived and dependent on the presence of the punishing agent.</li>
+              <li><strong>Delayed Responses:</strong> Immediate punishment can be challenging to administer.</li>
+              <li><strong>Lack of Informational Value:</strong> Punishment often fails to provide clear guidance on what behavior is desired.</li>
+            </ol>
+            
+            <h6>Shaping</h6>
+            <ul>
+              <li><strong>Definition:</strong> An operant conditioning method where successive approximations of a desired behavior are reinforced until the final behavior is achieved.</li>
+              <li><strong>Process:</strong> Start with initial behaviors that are close to the desired response and gradually reinforce closer approximations.</li>
+            </ul>
+            
+            <h5>Application of Operant Conditioning</h5>
+            <ol>
+              <li><strong>Conditioning Study Behavior:</strong> Teachers use reinforcement to promote learning, such as rewards or praise.</li>
+              <li><strong>Classroom Behavior:</strong> Positive reinforcement can counteract negative associations with a subject or teacher.</li>
+              <li><strong>Managing Problem Behavior:</strong> Use positive reinforcement rather than punishment to shape behavior.</li>
+              <li><strong>Dealing with Anxieties:</strong> Gradual desensitization can help manage fears acquired through conditioning.</li>
+              <li><strong>Conditioning Group Behavior:</strong> Reinforcement can change group behavior, improving classroom interactions.</li>
+              <li><strong>Conditioning and Cognitive Processes:</strong> Reinforcement supports progress in learning, with immediate feedback being crucial.</li>
+              <li><strong>Shaping Complex Behavior:</strong> Complex behaviors are developed through reinforcing smaller, sequential behaviors.</li>
+            </ol>
+          </div>
+        </div>
+        
+        <div class="theory-card">
+          <h3>3.3.2. Social Learning Theory (Observational Learning)</h3>
+          <ul>
+            <li><strong>Key Proponent:</strong> Albert Bandura.</li>
+            <li><strong>Definition:</strong> Learning through observing the behavior of others (models) and the consequences of their actions.</li>
+            <li><strong>Types of Reinforcement:</strong>
+              <ul>
+                <li><strong>Direct Reinforcement:</strong> Direct rewards for imitating the model's behavior.</li>
+                <li><strong>Vicarious Reinforcement:</strong> Observing others receive rewards for specific behaviors, which encourages imitation.</li>
+                <li><strong>Self-Reinforcement:</strong> Internal rewards and personal satisfaction from achieving goals.</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <h4>Conditions for Effective Observational Learning</h4>
+          <div class="conditions-grid">
+            <div class="condition-card">
+              <h5>1. Attention</h5>
+              <p>The observer must pay attention to the model.</p>
+            </div>
+            <div class="condition-card">
+              <h5>2. Retention</h5>
+              <ul>
+                <li>Observers need to remember the behavior they have observed.</li>
+                <li><strong>Technique to Enhance Retention:</strong> Rehearsal.</li>
+              </ul>
+            </div>
+            <div class="condition-card">
+              <h5>3. Motor Reproduction</h5>
+              <ul>
+                <li>Observers must be able to replicate the demonstrated behavior.</li>
+                <li>Developmental readiness impacts the ability to reproduce complex actions.</li>
+              </ul>
+            </div>
+            <div class="condition-card">
+              <h5>4. Motivation</h5>
+              <ul>
+                <li>Learners must be motivated to perform the observed behavior.</li>
+                <li>Motivation varies among individuals and affects how behaviors are reproduced.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h4>Educational Implications of Social Learning Theory</h4>
+          <ol>
+            <li><strong>Learning by Observation:</strong> Students learn significantly by observing others.</li>
+            <li><strong>Consequences Discussion:</strong> Talking about rewards and consequences can shape behavior.</li>
+            <li><strong>Modeling vs. Shaping:</strong> Modeling can be a faster and more effective method than shaping for teaching new behaviors. Essential conditions include attention, retention, motor reproduction, and motivation.</li>
+            <li><strong>Modeling Behavior:</strong> Teachers and parents should model appropriate behaviors and avoid inappropriate ones.</li>
+            <li><strong>Exposure to Models:</strong> Provide students with diverse models to challenge stereotypes.</li>
+            <li><strong>Self-Efficacy:</strong> Encourage students' belief in their abilities by providing confidence-building experiences and positive reinforcement.</li>
+            <li><strong>Realistic Expectations:</strong> Set challenging but achievable goals to ensure students are not under- or over-challenged.</li>
+            <li><strong>Self-Regulation:</strong> Use self-regulation techniques to improve student behavior.</li>
+          </ol>
+        </div>
+        
+        <div class="theory-card">
+          <h3>Cognitive Learning Theory</h3>
+          <div class="cognitive-grid">
+            <div class="cognitive-card">
+              <h4>1. Latent Learning</h4>
+              <ul>
+                <li><strong>Definition:</strong> Learning that occurs without immediate evidence and becomes apparent when conditions are favorable.</li>
+                <li><strong>Example:</strong> Tolman and Honzik's maze experiment with rats, where learning was not evident until the rats were rewarded.</li>
+              </ul>
+            </div>
+            <div class="cognitive-card">
+              <h4>2. Insight Learning</h4>
+              <ul>
+                <li><strong>Definition:</strong> Cognitive process of reorganizing perception to solve a problem, often occurring suddenly (the "aha" experience).</li>
+                <li><strong>Characteristics:</strong> Problem-solving occurs without prior conditioning and the solution can be applied to similar problems.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="implications-card">
+          <h3>Educational Implications of Learning Theories</h3>
+          <ul>
+            <li><strong>Classical Conditioning:</strong> Focuses on the association between stimuli and responses.</li>
+            <li><strong>Operant Conditioning:</strong> Emphasizes reinforcement and punishment in behavior modification.</li>
+            <li><strong>Social Cognitive Theory:</strong> Highlights the interaction of behavior, environment, and cognitive factors.</li>
+            <li><strong>Cognitive Learning Theories:</strong> Includes latent and insight learning, focusing on cognitive processes in problem-solving.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <style>
+      /* Base Styles */
+      .chapter-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        font-size: 1.8rem;
+      }
+      
+      h3 {
+        color: #2980b9;
+        margin-top: 30px;
+        font-size: 1.5rem;
+      }
+      
+      h4 {
+        color: #16a085;
+        margin-top: 25px;
+        font-size: 1.3rem;
+      }
+      
+      h5 {
+        color: #27ae60;
+        margin-top: 20px;
+        font-size: 1.1rem;
+      }
+      
+      h6 {
+        color: #8e44ad;
+        margin-top: 15px;
+        font-size: 1rem;
+      }
+      
+      /* Card Styles */
+      .overview-card,
+      .appetizer-card,
+      .outcomes-card,
+      .definition-card,
+      .characteristics-card,
+      .principles-card,
+      .brainstorming-card,
+      .theory-card,
+      .implications-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 20px 0;
+      }
+      
+      .appetizer-card {
+        background-color: #e8f4f8;
+        border-left: 4px solid #3498db;
+      }
+      
+      .outcomes-card {
+        background-color: #e8f8f0;
+        border-left: 4px solid #2ecc71;
+      }
+      
+      .reflection-box {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        border-left: 3px solid #f39c12;
+      }
+      
+      .reflection-box.wide {
+        margin: 20px 0;
+      }
+      
+      /* Grid Layouts */
+      .factors-grid,
+      .terms-grid,
+      .principles-grid,
+      .concepts-grid,
+      .conditions-grid,
+      .cognitive-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .factor-card,
+      .term-card,
+      .principle-card,
+      .concept-card,
+      .condition-card,
+      .cognitive-card {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .sub-theory {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+      }
+      
+      .punishment-card {
+        background-color: #fef2f2;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 3px solid #e74c3c;
+      }
+      
+      /* Lists and Text */
+      ul, ol {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      
+      li {
+        margin-bottom: 8px;
+      }
+      
+      strong {
+        color: #2c3e50;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .factors-grid,
+        .terms-grid,
+        .principles-grid,
+        .concepts-grid,
+        .conditions-grid,
+        .cognitive-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
+        
+        h3 {
+          font-size: 1.3rem;
+        }
+        
+        h4 {
+          font-size: 1.1rem;
+        }
+        
+        .chapter-container {
+          padding: 15px;
+        }
+        
+        .overview-card,
+        .appetizer-card,
+        .outcomes-card,
+        .definition-card,
+        .characteristics-card,
+        .principles-card,
+        .brainstorming-card,
+        .theory-card,
+        .implications-card {
+          padding: 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.4rem;
+        }
+        
+        h3 {
+          font-size: 1.2rem;
+        }
+        
+        .chapter-container {
+          padding: 10px;
+        }
+      }
+    </style>
+  `
+},
     { 
         id: 'Chapter4', 
         title: 'Chapter 4 : Memory and Forgetting', 
