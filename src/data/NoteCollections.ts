@@ -330,11 +330,515 @@ export const noteCollections: Subject[] = [
         </div>
       `
     },
-    { 
-      id: 'Chapter2', 
-      title: 'Chapter 2 : Sensation and Perception ', 
-      content: '<h2>What is Psychology?</h2><p>Psychology is the scientific study of mind and behavior...</p><h3>Key Concepts</h3><ul><li>Cognition</li><li>Emotion</li><li>Development</li></ul>'
-    },
+   {
+  id: 'Chapter2',
+  title: 'Chapter 2: Sensation and Perception',
+  content: `
+    <div class="chapter-content">
+      <section class="intro-section">
+        <h2>What is Psychology?</h2>
+        <p>Psychology is the scientific study of mind and behavior...</p>
+        <h3>Key Concepts</h3>
+        <ul class="key-concepts">
+          <li>Cognition</li>
+          <li>Emotion</li>
+          <li>Development</li>
+        </ul>
+      </section>
+
+      <section class="comparison-section">
+        <h2>Sensation vs. Perception</h2>
+        <div class="comparison-card">
+          <div class="card sensation">
+            <h3>Sensation</h3>
+            <p>This is the process through which sensory receptors (e.g., eyes, ears, skin) detect stimuli from the environment and send this information to the brain. Sensation is about detecting raw data such as colors, sounds, or tastes.</p>
+            <p class="example">Example: Seeing black marks on a page is a sensory experience.</p>
+          </div>
+          <div class="card perception">
+            <h3>Perception</h3>
+            <p>This is the process where the brain organizes and interprets sensory information to create meaningful experiences. Perception involves recognizing patterns, shapes, and context, turning raw sensory data into coherent experiences.</p>
+            <p class="example">Example: Recognizing those marks as letters and words is a perceptual process.</p>
+          </div>
+        </div>
+        <div class="clinical-case">
+          <h4>Clinical Case: Prosopagnosia</h4>
+          <p>In a real-life case, a patient with prosopagnosia could see faces but could not perceive them as recognizable faces.</p>
+        </div>
+      </section>
+
+      <section class="sensory-laws">
+        <h2>Sensory Thresholds</h2>
+        <table class="threshold-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Definition</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Absolute Threshold</strong></td>
+              <td>The minimum intensity of a stimulus required for it to be detected 50% of the time</td>
+              <td>The minimum amount of sugar in coffee that a person can taste</td>
+            </tr>
+            <tr>
+              <td><strong>Difference Threshold (jnd)</strong></td>
+              <td>The smallest change in stimulus intensity that can be detected. According to Weber's Law, the jnd is a constant proportion of the original stimulus.</td>
+              <td>You can detect a change in weight only if it exceeds a certain percentage of the original weight</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Sensory Adaptation</h3>
+        <div class="adaptation-example">
+          <p>This occurs when the sensory system becomes less responsive to constant stimuli over time.</p>
+          <p class="example">Example: You might stop noticing the smell of garbage after being in a room for a while.</p>
+        </div>
+      </section>
+
+      <section class="brainstorming-section">
+        <h2>Brainstorming and Reflection Questions</h2>
+        
+        <div class="question-card">
+          <h3>Conditions for Not Sensing a Stimulus</h3>
+          <p>This might occur when:</p>
+          <ul>
+            <li>The stimulus is below the absolute threshold</li>
+            <li>The sensory receptors are damaged or impaired</li>
+            <li>There is a strong competing stimulus</li>
+          </ul>
+        </div>
+
+        <div class="question-card">
+          <h3>Sensitization vs. Habituation</h3>
+          <ul>
+            <li><strong>Sensitization:</strong> An increased reaction to a stimulus over time, which relates to the absolute threshold as it involves heightened detection</li>
+            <li><strong>Habituation:</strong> A decrease in response to a constant stimulus, relates to sensory adaptation</li>
+          </ul>
+        </div>
+
+        <div class="question-card">
+          <h3>Sensory Differences Among People</h3>
+          <p>Differences can arise due to:</p>
+          <ul>
+            <li>Individual variations in sensory receptors</li>
+            <li>Psychological states</li>
+            <li>Attention</li>
+            <li>Experience</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="comparison-details">
+        <h2>Similarities and Differences Between Sensation and Perception</h2>
+        
+        <div class="similarities-differences-grid">
+          <div class="similarities">
+            <h3>Similarities</h3>
+            <ul>
+              <li><strong>Both involve sensory systems:</strong> Sensation and perception both rely on sensory organs and neural pathways to process information from the environment.</li>
+              <li><strong>They work together:</strong> Sensation provides the raw data (e.g., light, sound) which perception then interprets to create a coherent experience.</li>
+              <li><strong>They are interconnected:</strong> Sensory input cannot be perceived without being sensed first, highlighting their interdependence.</li>
+            </ul>
+          </div>
+          
+          <div class="differences">
+            <h3>Differences</h3>
+            <table>
+              <tr>
+                <th>Aspect</th>
+                <th>Sensation</th>
+                <th>Perception</th>
+              </tr>
+              <tr>
+                <td><strong>Function</strong></td>
+                <td>Involves the detection of physical stimuli (e.g., light, sound waves) by sensory organs and their transmission to the brain</td>
+                <td>Is the process by which the brain organizes and interprets sensory information, creating meaningful experiences (e.g., recognizing a melody or identifying an object)</td>
+              </tr>
+              <tr>
+                <td><strong>Process</strong></td>
+                <td>More about the raw, initial input (e.g., detecting color or sound)</td>
+                <td>Involves higher-level cognitive processes to make sense of those inputs (e.g., understanding that a series of sounds forms a song)</td>
+              </tr>
+              <tr>
+                <td><strong>Conscious Awareness</strong></td>
+                <td>Typically a lower-level process that does not require conscious thought</td>
+                <td>Involves conscious awareness and interpretation, allowing us to understand and react to sensory information</td>
+              </tr>
+              <tr>
+                <td><strong>Complexity</strong></td>
+                <td>Often straightforward and mechanical, related to the basic physiological response to stimuli</td>
+                <td>More complex, involving interpretation based on experience, context, and cognitive processes</td>
+              </tr>
+              <tr>
+                <td><strong>Examples</strong></td>
+                <td>Feeling the texture of a fabric</td>
+                <td>Recognizing that fabric as soft or rough based on your past experiences</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="perception-process">
+        <h2>Perception and the Meaning-Making Process</h2>
+        <p>Perception is the process through which we interpret and make sense of the sensory information we receive. It is not just a passive reception of stimuli but an active process of creating meaning from these stimuli.</p>
+        
+        <div class="attention-section">
+          <h3>Selectivity of Perception: Attention</h3>
+          <div class="concept-card">
+            <p><strong>Concept:</strong> Attention is the cognitive process that allows us to focus on specific stimuli while ignoring others. Our sensory organs are constantly bombarded with information, but only a fraction of this reaches our conscious awareness.</p>
+            <p><strong>Focus and Margin:</strong> Our perceptual field can be divided into "focus" (what we pay clear attention to) and "margin" (background stimuli that are less clear). For example, at a football game, while the ball carrier is the focus of attention, background stimuli like the cold or crowd noise are in the margin.</p>
+            <p><strong>Shifting Attention:</strong> Attention is not static; it shifts based on relevance and need. After the play ends, you become more aware of the cold or the crowd noise because your focus has shifted.</p>
+          </div>
+
+          <h4>Factors Determining Attention</h4>
+          <div class="attention-factors">
+            <div class="factor-card">
+              <h5>External Factors</h5>
+              <p>These include characteristics of stimuli such as:</p>
+              <ul>
+                <li><strong>Size:</strong> Larger objects attract more attention</li>
+                <li><strong>Intensity:</strong> Bright colors and loud noises capture attention</li>
+                <li><strong>Repetition:</strong> Repeated stimuli become more noticeable</li>
+                <li><strong>Novelty:</strong> New or unexpected stimuli stand out</li>
+                <li><strong>Movement:</strong> Particularly attention-grabbing as it may signal potential threat</li>
+              </ul>
+            </div>
+            <div class="factor-card">
+              <h5>Internal Factors</h5>
+              <p>Psychological states such as:</p>
+              <ul>
+                <li><strong>Expectancy (set):</strong> Being "primed" for certain stimuli based on prior experiences or needs</li>
+                <li><strong>Motives:</strong> Needs influence what stimuli we focus on (e.g., focusing on food if you're hungry)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-perception">
+          <h3>Form Perception</h3>
+          <div class="perception-principle">
+            <h4>Figure-Ground Perception</h4>
+            <p>This involves distinguishing objects (figures) from their background (ground). For instance, words on a page are perceived as figures against the white page background.</p>
+          </div>
+          <div class="perception-principle">
+            <h4>Contours in Form Perception</h4>
+            <p>Contours are perceived where there is a marked contrast in brightness or color. They help us separate and identify objects against their background. A gradual change in color might make it hard to perceive contours, while abrupt changes make them more noticeable.</p>
+          </div>
+        </div>
+
+        <div class="organization-perception">
+          <h3>Organization in Form Perception</h3>
+          <p>When observing multiple objects, we naturally perceive them as organized into coherent patterns or groups. This tendency is central to Gestalt psychology, which asserts that "the whole is more than the sum of its parts." This means that the perceived organization of objects gives rise to new properties that are not just a combination of individual elements.</p>
+          
+          <h4>Key Principles of Perceptual Organization:</h4>
+          <div class="gestalt-grid">
+            <div class="principle">
+              <h5>Proximity</h5>
+              <p>Objects close to each other in space or time are perceived as a group. For instance, dots or shapes close together are seen as forming a unitary figure.</p>
+            </div>
+            <div class="principle">
+              <h5>Similarity</h5>
+              <p>Items that resemble each other in color, shape, or size tend to be grouped together. For example, if dots and rings are arranged in patterns, they are perceived as separate triangles rather than a hexagon or star due to their similarity.</p>
+            </div>
+            <div class="principle">
+              <h5>Symmetry (Good Figure)</h5>
+              <p>We prefer to perceive objects in a balanced or symmetrical form. Symmetrical patterns are seen as a unified whole, even if the individual elements are different. For instance, a six-pointed star made from overlapping rings and dots is perceived due to the tendency to form a balanced figure.</p>
+            </div>
+            <div class="principle">
+              <h5>Continuation</h5>
+              <p>We perceive lines or shapes as continuing smoothly in their original direction. A curve is seen as a continuous curve, and a straight line is seen as continuing straight or changing direction sharply.</p>
+            </div>
+            <div class="principle">
+              <h5>Closure</h5>
+              <p>Our perception tends to fill in gaps to create a complete figure. Even if parts of an object are missing or obscured, we perceive it as a whole. For example, we see a complete circle even if parts of it are hidden.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="depth-perception">
+          <h3>Depth Perception</h3>
+          <p>Depth perception allows us to judge the distance of objects in a three-dimensional space, despite the two-dimensional nature of retinal images. It involves:</p>
+          
+          <div class="depth-cues">
+            <div class="cue-card">
+              <h4>Binocular Cues</h4>
+              <ul>
+                <li>
+                  <strong>Retinal Disparity:</strong> The difference in images between the two eyes provides depth information. Objects closer to us have greater disparity, while distant objects have less. For example, viewing an object with one eye closed and then the other shows different perspectives.
+                </li>
+                <li>
+                  <strong>Convergence:</strong> The inward movement of the eyes to focus on closer objects. The greater the convergence, the closer the object. For instance, as you move your finger toward your nose, your eyes converge more.
+                </li>
+              </ul>
+            </div>
+            <div class="cue-card">
+              <h4>Monocular Cues</h4>
+              <ul>
+                <li><strong>Accommodation:</strong> The eye's lens changes shape to focus on objects. Greater accommodation suggests a closer object.</li>
+                <li><strong>Motion Parallax:</strong> Closer objects move faster across your field of vision compared to distant objects. For instance, as you drive, nearby telephone poles seem to move rapidly compared to distant farms.</li>
+              </ul>
+            </div>
+            <div class="cue-card">
+              <h4>Pictorial Cues</h4>
+              <ul>
+                <li><strong>Interposition:</strong> Objects that overlap others are perceived as closer.</li>
+                <li><strong>Relative Size:</strong> Smaller images are perceived as farther away if objects are of the same size.</li>
+                <li><strong>Linear Perspective:</strong> Parallel lines appear to converge in the distance.</li>
+                <li><strong>Elevation:</strong> Objects higher in the visual field are perceived as farther away.</li>
+                <li><strong>Shading:</strong> Areas in shadow appear farther away than those in light.</li>
+                <li><strong>Texture Gradient:</strong> Objects appear less detailed as they get farther away.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="perceptual-constancies">
+          <h3>Perceptual Constancies</h3>
+          <p>Perceptual constancies ensure that objects are perceived as stable despite changes in sensory input:</p>
+          
+          <div class="constancy-grid">
+            <div class="constancy">
+              <h4>Size Constancy</h4>
+              <p>Objects are perceived as having a constant size despite changes in the retinal image due to distance. For example, a car seems the same size whether it is near or far away.</p>
+            </div>
+            <div class="constancy">
+              <h4>Shape Constancy</h4>
+              <p>Objects are perceived as having a consistent shape despite changes in the angle of view. For instance, a book appears rectangular even when viewed from an angle.</p>
+            </div>
+            <div class="constancy">
+              <h4>Brightness Constancy</h4>
+              <p>Objects maintain their perceived brightness regardless of changes in lighting. A white shirt looks white in both dim and bright light.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="perceptual-illusions">
+          <h3>Perceptual Illusions</h3>
+          <p>Perceptual illusions reveal how our perceptual processes can lead to misinterpretations:</p>
+          
+          <div class="illusion-examples">
+            <div class="illusion">
+              <h4>Size Constancy Illusions</h4>
+              <p>For instance, the moon appears larger on the horizon than overhead, despite being the same size.</p>
+            </div>
+            <div class="illusion">
+              <h4>Müller-Lyer Illusion</h4>
+              <p>Lines of equal length appear different due to the context of arrows at their ends, influenced by perceived distance and angles.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="esp-section">
+          <h3>Extra Sensory Perception (ESP)</h3>
+          <p>ESP refers to the ability to perceive information without traditional sensory input. Common types include telepathy, clairvoyance, and precognition. While some claim to experience ESP, scientific consensus generally regards it as lacking empirical support. Psychologists and scientists remain skeptical due to the lack of reproducible evidence and controlled studies validating ESP phenomena.</p>
+        </div>
+      </section>
+    </div>
+
+    <style>
+      .chapter-content {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 30px;
+      }
+      
+      h3 {
+        color: #2980b9;
+        margin-top: 25px;
+      }
+      
+      h4 {
+        color: #16a085;
+        margin-top: 20px;
+      }
+      
+      h5 {
+        color: #27ae60;
+        margin-top: 15px;
+      }
+      
+      .comparison-card {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .card {
+        flex: 1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+      
+      .sensation {
+        background-color: #e8f4f8;
+        border-left: 4px solid #3498db;
+      }
+      
+      .perception {
+        background-color: #f9f4e8;
+        border-left: 4px solid #f39c12;
+      }
+      
+      .example {
+        font-style: italic;
+        color: #7f8c8d;
+        margin-top: 10px;
+      }
+      
+      .threshold-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      
+      .threshold-table th, 
+      .threshold-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      
+      .threshold-table th {
+        background-color: #f2f6fa;
+      }
+      
+      .attention-factors {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .factor-card {
+        flex: 1;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+      
+      .gestalt-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .principle {
+        padding: 15px;
+        background-color: #f5fbfe;
+        border-radius: 8px;
+        border-left: 3px solid #3498db;
+      }
+      
+      .clinical-case {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+      }
+      
+      .question-card {
+        background-color: #f0f7fb;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid #2980b9;
+      }
+      
+      .similarities-differences-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .similarities {
+        background-color: #f0fff0;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .differences table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      .differences th, 
+      .differences td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      
+      .differences th {
+        background-color: #f5f5f5;
+      }
+      
+      .depth-cues {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .cue-card {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+      
+      .constancy-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .constancy {
+        padding: 15px;
+        background-color: #f0f8ff;
+        border-radius: 8px;
+      }
+      
+      .illusion-examples {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .illusion {
+        padding: 15px;
+        background-color: #fffaf0;
+        border-radius: 8px;
+      }
+      
+      .esp-section {
+        background-color: #fff0f5;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      
+      strong {
+        color: #2c3e50;
+      }
+    </style>
+  `
+},
     { 
       id: 'Chapter3', 
       title: 'Chapter 3: Learninig and Theory of learnig', 
