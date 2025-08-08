@@ -334,101 +334,197 @@ export const noteCollections: Subject[] = [
   id: 'Chapter2',
   title: 'Chapter 2: Sensation and Perception',
   content: `
-    <h2 style="color: #1a5276;">Sensation vs. Perception</h2>
-    <p><strong>Sensation:</strong> This is the process through which sensory receptors (e.g., eyes, ears, skin) detect stimuli from the environment and send this information to the brain. Sensation is about detecting raw data such as colors, sounds, or tastes.</p>
-    <p><strong>Perception:</strong> This is the process where the brain organizes and interprets sensory information to create meaningful experiences. Perception involves recognizing patterns, shapes, and context, turning raw sensory data into coherent experiences.</p>
-    <h3 style="color: #1e8449;">Examples:</h3>
-    <ul>
-      <li>Seeing black marks on a page is a sensory experience. Recognizing those marks as letters and words is a perceptual process.</li>
-      <li>In a real-life case, a patient with prosopagnosia could see faces but could not perceive them as recognizable faces.</li>
-    </ul>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chapter 2: Sensation and Perception</title>
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+      <style>
+        body {
+          font-family: 'Lato', sans-serif;
+          line-height: 1.7;
+          color: #4a4a4a;
+          margin: 0;
+          padding: 20px;
+          background-color: #f0f2f5;
+        }
+        
+        .content-section {
+          background-color: #ffffff;
+          padding: 25px;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    <h2 style="color: #1a5276;">Sensory Laws</h2>
-    <h3 style="color: #1e8449;">1. Sensory Thresholds:</h3>
-    <p><strong>Absolute Threshold:</strong> The minimum intensity of a stimulus required for it to be detected 50% of the time. For instance, the minimum amount of sugar in coffee that a person can taste.</p>
-    <p><strong>Difference Threshold (<strong style="color: #c0392b;">Just Noticeable Difference, jnd</strong>):</strong> The smallest change in stimulus intensity that can be detected. According to <strong>Weber's Law</strong>, the jnd is a constant proportion of the original stimulus. For example, you can detect a change in weight only if it exceeds a certain percentage of the original weight.</p>
-    <h3 style="color: #1e8449;">2. Sensory Adaptation:</h3>
-    <p><strong style="color: #c0392b;">Sensory Adaptation:</strong> This occurs when the sensory system becomes less responsive to constant stimuli over time. For instance, you might stop noticing the smell of garbage after being in a room for a while.</p>
+        h2 {
+          color: #0d47a1;
+          border-bottom: 2px solid #0d47a1;
+          padding-bottom: 8px;
+          margin-top: 0;
+          font-size: 2em;
+          font-weight: 700;
+        }
+        
+        h3 {
+          color: #2e7d32;
+          font-size: 1.5em;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        
+        p {
+          margin-bottom: 15px;
+        }
+        
+        strong {
+          color: #c62828;
+          font-weight: 700;
+        }
 
-    <h2 style="color: #1a5276;">Perception and the Meaning-Making Process</h2>
-    <p>Perception is the process through which we interpret and make sense of the sensory information we receive. It is not just a passive reception of stimuli but an active process of creating meaning from these stimuli.</p>
-    <h3 style="color: #1e8449;">Selectivity of Perception: Attention</h3>
-    <p><strong style="color: #c0392b;">Concept:</strong> Attention is the cognitive process that allows us to focus on specific stimuli while ignoring others. Our sensory organs are constantly bombarded with information, but only a fraction of this reaches our conscious awareness.</p>
-    <p><strong style="color: #c0392b;">Focus and Margin:</strong> Our perceptual field can be divided into "focus" (what we pay clear attention to) and "margin" (background stimuli that are less clear). For example, at a football game, while the ball carrier is the focus of attention, background stimuli like the cold or crowd noise are in the margin.</p>
-    <p><strong style="color: #c0392b;">Shifting Attention:</strong> Attention is not static; it shifts based on relevance and need.</p>
-    <h3 style="color: #1e8449;">Factors Determining Attention</h3>
-    <p><strong style="color: #c0392b;">External Factors:</strong> These include characteristics of stimuli such as size, intensity, repetition, novelty, and movement. For instance, bright colors and loud noises are more likely to capture attention. Movement is particularly attention-grabbing because it may signal a potential threat.</p>
-    <p><strong style="color: #c0392b;">Internal Factors:</strong> Psychological states such as expectancy (set) and motives affect attention. Expectancy refers to being "primed" for certain stimuli based on prior experiences or needs. Motives or needs influence what stimuli we focus on, such as focusing on food if you’re hungry.</p>
+        ul, ol {
+          padding-left: 20px;
+          margin-bottom: 15px;
+        }
+        
+        li {
+          margin-bottom: 8px;
+        }
 
-    <h2 style="color: #1a5276;">Organization in Form Perception</h2>
-    <p>When observing multiple objects, we naturally perceive them as organized into coherent patterns or groups. This tendency is central to <strong style="color: #c0392b;">Gestalt psychology</strong>, which asserts that "the whole is more than the sum of its parts."</p>
-    <h3 style="color: #1e8449;">Key Principles of Perceptual Organization:</h3>
-    <ul>
-      <li><strong style="color: #c0392b;">Proximity:</strong> Objects close to each other in space or time are perceived as a group.</li>
-      <li><strong style="color: #c0392b;">Similarity:</strong> Items that resemble each other in color, shape, or size tend to be grouped together.</li>
-      <li><strong style="color: #c0392b;">Symmetry (Good Figure):</strong> We prefer to perceive objects in a balanced or symmetrical form.</li>
-      <li><strong style="color: #c0392b;">Continuation:</strong> We perceive lines or shapes as continuing smoothly in their original direction.</li>
-      <li><strong style="color: #c0392b;">Closure:</strong> Our perception tends to fill in gaps to create a complete figure.</li>
-    </ul>
+        @media (max-width: 600px) {
+          body {
+            padding: 10px;
+          }
+          .content-section {
+            padding: 15px;
+          }
+          h2 {
+            font-size: 1.7em;
+          }
+          h3 {
+            font-size: 1.3em;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="content-section">
+        <h2>Sensation vs. Perception</h2>
+        <p><strong>Sensation:</strong> This is the process through which sensory receptors (e.g., eyes, ears, skin) detect stimuli from the environment and send this information to the brain. Sensation is about detecting raw data such as colors, sounds, or tastes.</p>
+        <p><strong>Perception:</strong> This is the process where the brain organizes and interprets sensory information to create meaningful experiences. Perception involves recognizing patterns, shapes, and context, turning raw sensory data into coherent experiences.</p>
+        <h3>Examples:</h3>
+        <ul>
+          <li>Seeing black marks on a page is a sensory experience. Recognizing those marks as letters and words is a perceptual process.</li>
+          <li>In a real-life case, a patient with prosopagnosia could see faces but could not perceive them as recognizable faces.</li>
+        </ul>
+      </div>
 
-    <h2 style="color: #1a5276;">Depth Perception</h2>
-    <p>Depth perception allows us to judge the distance of objects in a three-dimensional space, despite the two-dimensional nature of retinal images.</p>
-    <h3 style="color: #1e8449;">Binocular Cues:</h3>
-    <ul>
-      <li><strong style="color: #c0392b;">Retinal Disparity:</strong> The difference in images between the two eyes provides depth information.</li>
-      <li><strong style="color: #c0392b;">Convergence:</strong> The inward movement of the eyes to focus on closer objects.</li>
-    </ul>
-    <h3 style="color: #1e8449;">Monocular Cues:</h3>
-    <ul>
-      <li><strong style="color: #c0392b;">Accommodation:</strong> The eye's lens changes shape to focus on objects.</li>
-      <li><strong style="color: #c0392b;">Motion Parallax:</strong> Closer objects move faster across your field of vision compared to distant objects.</li>
-    </ul>
-    <h3 style="color: #1e8449;">Pictorial Cues:</h3>
-    <ul>
-      <li><strong style="color: #c0392b;">Interposition:</strong> Objects that overlap others are perceived as closer.</li>
-      <li><strong style="color: #c0392b;">Relative Size:</strong> Smaller images are perceived as farther away if objects are of the same size.</li>
-      <li><strong style="color: #c0392b;">Linear Perspective:</strong> Parallel lines appear to converge in the distance.</li>
-      <li><strong style="color: #c0392b;">Elevation:</strong> Objects higher in the visual field are perceived as farther away.</li>
-      <li><strong style="color: #c0392b;">Shading:</strong> Areas in shadow appear farther away than those in light.</li>
-      <li><strong style="color: #c0392b;">Texture Gradient:</strong> Objects appear less detailed as they get farther away.</li>
-    </ul>
+      <div class="content-section">
+        <h2>Sensory Laws</h2>
+        <h3>1. Sensory Thresholds:</h3>
+        <p><strong>Absolute Threshold:</strong> The minimum intensity of a stimulus required for it to be detected 50% of the time. For instance, the minimum amount of sugar in coffee that a person can taste.</p>
+        <p><strong>Difference Threshold (<strong style="color: #c62828;">Just Noticeable Difference, jnd</strong>):</strong> The smallest change in stimulus intensity that can be detected. According to <strong>Weber's Law</strong>, the jnd is a constant proportion of the original stimulus. For example, you can detect a change in weight only if it exceeds a certain percentage of the original weight.</p>
+        <h3>2. Sensory Adaptation:</h3>
+        <p><strong>Sensory Adaptation:</strong> This occurs when the sensory system becomes less responsive to constant stimuli over time. For instance, you might stop noticing the smell of garbage after being in a room for a while.</p>
+      </div>
 
-    <h2 style="color: #1a5276;">Perceptual Constancies</h2>
-    <p>Perceptual constancies ensure that objects are perceived as stable despite changes in sensory input:</p>
-    <ul>
-      <li><strong style="color: #c0392b;">Size Constancy:</strong> Objects are perceived as having a constant size despite changes in the retinal image due to distance.</li>
-      <li><strong style="color: #c0392b;">Shape Constancy:</strong> Objects are perceived as having a consistent shape despite changes in the angle of view.</li>
-      <li><strong style="color: #c0392b;">Brightness Constancy:</strong> Objects maintain their perceived brightness regardless of changes in lighting.</li>
-    </ul>
+      <div class="content-section">
+        <h2>Perception and the Meaning-Making Process</h2>
+        <p>Perception is the process through which we interpret and make sense of the sensory information we receive. It is not just a passive reception of stimuli but an active process of creating meaning from these stimuli.</p>
+        <h3>Selectivity of Perception: Attention</h3>
+        <p><strong>Concept:</strong> Attention is the cognitive process that allows us to focus on specific stimuli while ignoring others. Our sensory organs are constantly bombarded with information, but only a fraction of this reaches our conscious awareness.</p>
+        <p><strong>Focus and Margin:</strong> Our perceptual field can be divided into "focus" (what we pay clear attention to) and "margin" (background stimuli that are less clear). For example, at a football game, while the ball carrier is the focus of attention, background stimuli like the cold or crowd noise are in the margin.</p>
+        <p><strong>Shifting Attention:</strong> Attention is not static; it shifts based on relevance and need.</p>
+        <h3>Factors Determining Attention</h3>
+        <p><strong>External Factors:</strong> These include characteristics of stimuli such as size, intensity, repetition, novelty, and movement. For instance, bright colors and loud noises are more likely to capture attention. Movement is particularly attention-grabbing because it may signal a potential threat.</p>
+        <p><strong>Internal Factors:</strong> Psychological states such as expectancy (set) and motives affect attention. Expectancy refers to being "primed" for certain stimuli based on prior experiences or needs. Motives or needs influence what stimuli we focus on, such as focusing on food if you’re hungry.</p>
+      </div>
 
-    <h2 style="color: #1a5276;">Perceptual Illusions</h2>
-    <p>Perceptual illusions reveal how our perceptual processes can lead to misinterpretations:</p>
-    <ul>
-      <li><strong style="color: #c0392b;">Size Constancy Illusions:</strong> For instance, the moon appears larger on the horizon than overhead.</li>
-      <li><strong style="color: #c0392b;">Müller-Lyer Illusion:</strong> Lines of equal length appear different due to the context of arrows at their ends.</li>
-    </ul>
+      <div class="content-section">
+        <h2>Organization in Form Perception</h2>
+        <p>When observing multiple objects, we naturally perceive them as organized into coherent patterns or groups. This tendency is central to <strong>Gestalt psychology</strong>, which asserts that "the whole is more than the sum of its parts."</p>
+        <h3>Key Principles of Perceptual Organization:</h3>
+        <ul>
+          <li><strong>Proximity:</strong> Objects close to each other in space or time are perceived as a group.</li>
+          <li><strong>Similarity:</strong> Items that resemble each other in color, shape, or size tend to be grouped together.</li>
+          <li><strong>Symmetry (Good Figure):</strong> We prefer to perceive objects in a balanced or symmetrical form.</li>
+          <li><strong>Continuation:</strong> We perceive lines or shapes as continuing smoothly in their original direction.</li>
+          <li><strong>Closure:</strong> Our perception tends to fill in gaps to create a complete figure.</li>
+        </ul>
+      </div>
 
-    <h2 style="color: #1a5276;">Extra Sensory Perception (ESP)</h2>
-    <p>ESP refers to the ability to perceive information without traditional sensory input. While some claim to experience ESP, scientific consensus generally regards it as lacking empirical support. Psychologists and scientists remain skeptical due to the lack of reproducible evidence and controlled studies validating ESP phenomena.</p>
+      <div class="content-section">
+        <h2>Depth Perception</h2>
+        <p>Depth perception allows us to judge the distance of objects in a three-dimensional space, despite the two-dimensional nature of retinal images.</p>
+        <h3>Binocular Cues:</h3>
+        <ul>
+          <li><strong>Retinal Disparity:</strong> The difference in images between the two eyes provides depth information.</li>
+          <li><strong>Convergence:</strong> The inward movement of the eyes to focus on closer objects.</li>
+        </ul>
+        <h3>Monocular Cues:</h3>
+        <ul>
+          <li><strong>Accommodation:</strong> The eye's lens changes shape to focus on objects.</li>
+          <li><strong>Motion Parallax:</strong> Closer objects move faster across your field of vision compared to distant objects.</li>
+        </ul>
+        <h3>Pictorial Cues:</h3>
+        <ul>
+          <li><strong>Interposition:</strong> Objects that overlap others are perceived as closer.</li>
+          <li><strong>Relative Size:</strong> Smaller images are perceived as farther away if objects are of the same size.</li>
+          <li><strong>Linear Perspective:</strong> Parallel lines appear to converge in the distance.</li>
+          <li><strong>Elevation:</strong> Objects higher in the visual field are perceived as farther away.</li>
+          <li><strong>Shading:</strong> Areas in shadow appear farther away than those in light.</li>
+          <li><strong>Texture Gradient:</strong> Objects appear less detailed as they get farther away.</li>
+        </ul>
+      </div>
+      
+      <div class="content-section">
+        <h2>Perceptual Constancies</h2>
+        <p>Perceptual constancies ensure that objects are perceived as stable despite changes in sensory input:</p>
+        <ul>
+          <li><strong>Size Constancy:</strong> Objects are perceived as having a constant size despite changes in the retinal image due to distance.</li>
+          <li><strong>Shape Constancy:</strong> Objects are perceived as having a consistent shape despite changes in the angle of view.</li>
+          <li><strong>Brightness Constancy:</strong> Objects maintain their perceived brightness regardless of changes in lighting.</li>
+        </ul>
+      </div>
 
-    <h2 style="color: #1a5276;">Brainstorming and Reflection Questions</h2>
-    <h3 style="color: #1e8449;">Similarities and Differences between Sensation and Perception</h3>
-    <p><strong style="color: #c0392b;">Similarities:</strong> Both involve sensory systems and work together to process information. Sensory input cannot be perceived without being sensed first, highlighting their interdependence.</p>
-    <p><strong style="color: #c0392b;">Differences:</strong> Sensation is the detection of physical stimuli; perception is the interpretation and meaning-making of these stimuli.</p>
+      <div class="content-section">
+        <h2>Perceptual Illusions</h2>
+        <p>Perceptual illusions reveal how our perceptual processes can lead to misinterpretations:</p>
+        <ul>
+          <li><strong>Size Constancy Illusions:</strong> For instance, the moon appears larger on the horizon than overhead.</li>
+          <li><strong>Müller-Lyer Illusion:</strong> Lines of equal length appear different due to the context of arrows at their ends.</li>
+        </ul>
+      </div>
 
-    <h3 style="color: #1e8449;">Sensory Differences Among People</h3>
-    <p>Differences can arise due to individual variations in sensory receptors, psychological states, attention, and experience.</p>
+      <div class="content-section">
+        <h2>Extra Sensory Perception (ESP)</h2>
+        <p>ESP refers to the ability to perceive information without traditional sensory input. While some claim to experience ESP, scientific consensus generally regards it as lacking empirical support. Psychologists and scientists remain skeptical due to the lack of reproducible evidence and controlled studies validating ESP phenomena.</p>
+      </div>
 
-    <h3 style="color: #1e8449;">Limen vs. jnd</h3>
-    <p><strong style="color: #c0392b;">Limen (Absolute Threshold):</strong> Minimum intensity of a stimulus needed for detection.</p>
-    <p><strong style="color: #c0392b;">jnd (Difference Threshold):</strong> Minimum change in stimulus intensity needed to notice a difference.</p>
+      <div class="content-section">
+        <h2>Brainstorming and Reflection Questions</h2>
+        <h3>Similarities and Differences between Sensation and Perception</h3>
+        <p><strong>Similarities:</strong> Both involve sensory systems and work together to process information. Sensory input cannot be perceived without being sensed first, highlighting their interdependence.</p>
+        <p><strong>Differences:</strong> Sensation is the detection of physical stimuli; perception is the interpretation and meaning-making of these stimuli.</p>
 
-    <h3 style="color: #1e8449;">Sensory Adaptation</h3>
-    <p>Occurs when continuous stimulation leads to decreased sensitivity to that stimulus over time, allowing for focus on new or changing stimuli.</p>
+        <h3>Sensory Differences Among People</h3>
+        <p>Differences can arise due to individual variations in sensory receptors, psychological states, attention, and experience.</p>
 
-    <h3 style="color: #1e8449;">Sensitization vs. Habituation</h3>
-    <p><strong style="color: #c0392b;">Sensitization:</strong> An increased reaction to a stimulus over time.</p>
-    <p><strong style="color: #c0392b;">Habituation:</strong> A decrease in response to a constant stimulus.</p>
+        <h3>Limen vs. jnd</h3>
+        <p><strong>Limen (Absolute Threshold):</strong> Minimum intensity of a stimulus needed for detection.</p>
+        <p><strong>jnd (Difference Threshold):</strong> Minimum change in stimulus intensity needed to notice a difference.</p>
+
+        <h3>Sensory Adaptation</h3>
+        <p>Occurs when continuous stimulation leads to decreased sensitivity to that stimulus over time, allowing for focus on new or changing stimuli.</p>
+
+        <h3>Sensitization vs. Habituation</h3>
+        <p><strong>Sensitization:</strong> An increased reaction to a stimulus over time.</p>
+        <p><strong>Habituation:</strong> A decrease in response to a constant stimulus.</p>
+      </div>
+    </body>
+    </html>
   `
 },
     {
@@ -1651,12 +1747,428 @@ export const noteCollections: Subject[] = [
       }
     </style>
   `
+},{
+  id: 'Chapter5',
+  title: 'Chapter 5: Motivation and Emotions',
+  content: `
+    <div class="chapter-container">
+      <section class="chapter-overview">
+        <h2>Chapter Five: Motivation and Emotions</h2>
+        <div class="overview-card">
+          <h3>Chapter Overview</h3>
+          <ul>
+            <li>Introduction to motivation and emotion.</li>
+            <li>Topics include definitions, types, and theories of motivation, as well as elements and theories of emotion.</li>
+          </ul>
+        </div>
+        
+        <div class="outcomes-card">
+          <h3>Learning Outcomes</h3>
+          <ul>
+            <li>Define and identify motivation types (intrinsic and extrinsic).</li>
+            <li>Compare motivation theories.</li>
+            <li>Explain conflicts of motives.</li>
+            <li>Define emotion and discuss its elements and theories.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="motivation-section">
+        <h2>1. Motivation</h2>
+        
+        <div class="definition-card">
+          <h3>Definition</h3>
+          <p>Motivation involves factors that initiate, direct, and sustain behavior to meet physical or psychological needs.</p>
+          
+          <h3>Types of Motivation</h3>
+          <div class="types-grid">
+            <div class="type-card">
+              <h4>Intrinsic</h4>
+              <p>Internal rewards (e.g., personal satisfaction, enjoyment)</p>
+            </div>
+            <div class="type-card">
+              <h4>Extrinsic</h4>
+              <p>External rewards (e.g., money, grades, recognition)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="approaches-section">
+        <h2>2. Approaches to Motivation</h2>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h3>Instinct Theory</h3>
+            <p>Early theory focusing on biologically determined behaviors.</p>
+          </div>
+          <div class="theory-card">
+            <h3>Drive-Reduction Theory</h3>
+            <p>Motivation arises from the need to reduce internal tension created by unmet needs.</p>
+          </div>
+          <div class="theory-card">
+            <h3>Arousal Theory</h3>
+            <p>Motivation to maintain or increase stimulation.</p>
+          </div>
+          <div class="theory-card">
+            <h3>Incentive Theory</h3>
+            <p>Motivation driven by external rewards.</p>
+          </div>
+          <div class="theory-card">
+            <h3>Cognitive Theory</h3>
+            <p>Motivation influenced by thoughts, beliefs, expectations, and goals.</p>
+          </div>
+        </div>
+        
+        <div class="theory-details">
+          <div class="detail-card">
+            <h3>Drive-Reduction Theory (continued)</h3>
+            <ul>
+              <li><strong>Primary Drives:</strong> Biological needs essential for survival (e.g., hunger, thirst)</li>
+              <li><strong>Secondary Drives:</strong> Learned needs (e.g., money, social approval)</li>
+              <li><strong>Homeostasis:</strong> The body's need to maintain a balanced internal state, akin to a thermostat</li>
+            </ul>
+          </div>
+          
+          <div class="detail-card">
+            <h3>Arousal Theory</h3>
+            <p><strong>Optimal Level of Arousal:</strong> People seek to maintain a balance of stimulation. If arousal is too low, individuals seek activities to increase it; if too high, they seek to decrease it.</p>
+          </div>
+          
+          <div class="detail-card">
+            <h3>Incentive Theory</h3>
+            <ul>
+              <li><strong>External Rewards:</strong> Motivation is influenced by external incentives (e.g., grades, money)</li>
+              <li>This theory complements drive-reduction theory by explaining how external rewards drive behavior</li>
+            </ul>
+          </div>
+          
+          <div class="detail-card">
+            <h3>Cognitive Theory</h3>
+            <ul>
+              <li><strong>Thoughts and Beliefs:</strong> Motivation is driven by mental processes such as expectations and goals</li>
+              <li>People are motivated based on their personal beliefs about their abilities and outcomes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="maslow-section">
+        <h2>Self-Actualization Needs</h2>
+        <div class="maslow-card">
+          <h3>Definition</h3>
+          <p>The desire to realize personal potential, self-fulfillment, and personal growth. This is the highest level in Maslow's hierarchy of needs, reflecting the pursuit of becoming everything one is capable of becoming.</p>
+          
+          <h3>Maslow's Hierarchy of Needs</h3>
+          <div class="hierarchy-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Maslow%27s_Hierarchy_of_Needs.svg/1200px-Maslow%27s_Hierarchy_of_Needs.svg.png" alt="Maslow's Hierarchy of Needs">
+          </div>
+          <p class="caption">Illustrates the progression from basic biological needs to higher-order needs like self-actualization.</p>
+          
+          <div class="reflection-box">
+            <p><strong>Reflection:</strong> Consider which motivation theory best explains your behavior and whether you agree that lower-order needs must be met before addressing higher-order needs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="conflict-section">
+        <h2>Conflict of Motives and Frustration</h2>
+        
+        <div class="conflict-grid">
+          <div class="conflict-card">
+            <h3>Approach-Approach Conflicts</h3>
+            <p>Choosing between two desirable activities (e.g., going to a movie vs. a concert)</p>
+          </div>
+          <div class="conflict-card">
+            <h3>Avoidance-Avoidance Conflicts</h3>
+            <p>Choosing between two undesirable alternatives (e.g., selling a house vs. declaring bankruptcy)</p>
+          </div>
+          <div class="conflict-card">
+            <h3>Approach-Avoidance Conflicts</h3>
+            <p>Facing an event with both attractive and unattractive features (e.g., starting a relationship that may impact study time)</p>
+          </div>
+          <div class="conflict-card">
+            <h3>Multiple Approach-Avoidance Conflicts</h3>
+            <p>Choosing between options with both positive and negative aspects (e.g., two job offers with different benefits and drawbacks)</p>
+          </div>
+        </div>
+        
+        <div class="reflection-box">
+          <p><strong>Reflection:</strong> Reflect on personal experiences with these conflicts and how you resolved them.</p>
+        </div>
+      </section>
+
+      <section class="emotion-section">
+        <h2>Emotions</h2>
+        
+        <div class="definition-card">
+          <h3>Definition</h3>
+          <p>The "feeling" aspect of consciousness involving physical arousal, behavior, and subjective experience.</p>
+          
+          <h3>Elements of Emotion</h3>
+          <div class="elements-grid">
+            <div class="element-card">
+              <h4>Physiology</h4>
+              <p>Physical arousal, including increased heart rate and rapid breathing. Emotions like anger and fear often have similar physical symptoms.</p>
+            </div>
+            <div class="element-card">
+              <h4>Behavior</h4>
+              <p>Observable actions and expressions, such as facial expressions and body movements, indicating how one feels. Expressions may vary across cultures but have some universal aspects.</p>
+            </div>
+            <div class="element-card">
+              <h4>Subjective Experience</h4>
+              <p>The process of labeling emotions based on personal experiences, context, and cultural influences.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="emotion-theories">
+        <h2>Theories of Emotion</h2>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h3>James-Lange Theory</h3>
+            <p>Emotions result from physiological responses to stimuli. For example, seeing a snarling dog causes physiological arousal (e.g., increased heart rate), which is then interpreted as fear. Essentially, "I am afraid because I am aroused."</p>
+          </div>
+          <div class="theory-card">
+            <h3>Cannon-Bard Theory</h3>
+            <p>Emotion and physiological arousal occur simultaneously rather than sequentially. According to this theory, the thalamus sends sensory information to both the cortex (for the emotional experience) and the sympathetic nervous system (for the physiological reaction) at the same time. For example, when encountering a threatening stimulus, one experiences fear and physiological arousal concurrently—"I am afraid and running and aroused!"</p>
+          </div>
+          <div class="theory-card">
+            <h3>Schachter-Singer Theory</h3>
+            <p>Emotion results from two simultaneous processes: physical arousal and cognitive labeling of that arousal based on environmental cues. For instance, encountering a snarling dog triggers physiological arousal (e.g., racing heart) and cognitive interpretation (e.g., recognizing this as fear), which together produce the emotional experience of fear.</p>
+          </div>
+          <div class="theory-card">
+            <h3>Two-Factor Theory</h3>
+            <p>Emotion arises from physiological arousal and cognitive labeling of that arousal.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-section">
+        <h2>Summary</h2>
+        <div class="summary-card">
+          <div class="summary-column">
+            <h3>Motivation</h3>
+            <ul>
+              <li>Influences behavior initiation, direction, intensity, and persistence</li>
+              <li>Can be intrinsic (internal rewards) or extrinsic (external rewards)</li>
+              <li>Theories include instinct, drive-reduction, arousal, incentive, cognitive, and humanistic approaches (Maslow's hierarchy of needs)</li>
+            </ul>
+          </div>
+          <div class="summary-column">
+            <h3>Emotion</h3>
+            <ul>
+              <li>Defined as the "feeling" aspect of consciousness, involving physiological arousal, observable behavior, and subjective experience</li>
+              <li>Key theories include:
+                <ul>
+                  <li>James-Lange Theory: Emotions arise from awareness of physiological responses</li>
+                  <li>Cannon-Bard Theory: Emotions and physiological responses occur simultaneously</li>
+                  <li>Schachter-Singer Theory: Emotions result from the interplay of physiological arousal and cognitive interpretation</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="discussion-section">
+        <h2>Discussion Questions</h2>
+        <div class="questions-card">
+          <ol>
+            <li>Provide examples of intrinsic and extrinsic motivation.</li>
+            <li>Identify which motivation approach aligns with the statement: "When we lack something, we are motivated to get it."</li>
+            <li>Discuss which theory of emotion best explains your personal emotional experiences.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <style>
+      /* Base Styles */
+      .chapter-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        font-size: 1.8rem;
+      }
+      
+      h3 {
+        color: #2980b9;
+        margin-top: 30px;
+        font-size: 1.5rem;
+      }
+      
+      h4 {
+        color: #16a085;
+        margin-top: 25px;
+        font-size: 1.3rem;
+      }
+      
+      /* Card Styles */
+      .overview-card,
+      .outcomes-card,
+      .definition-card,
+      .maslow-card,
+      .summary-card,
+      .questions-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 20px 0;
+      }
+      
+      .outcomes-card {
+        background-color: #e8f8f0;
+        border-left: 4px solid #2ecc71;
+      }
+      
+      .reflection-box {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        border-left: 3px solid #f39c12;
+      }
+      
+      /* Grid Layouts */
+      .types-grid,
+      .theory-grid,
+      .elements-grid,
+      .conflict-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .type-card,
+      .theory-card,
+      .element-card,
+      .conflict-card {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .theory-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .detail-card {
+        background-color: #f0f7fb;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .summary-card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .hierarchy-image {
+        margin: 20px 0;
+        text-align: center;
+      }
+      
+      .hierarchy-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      
+      .caption {
+        font-style: italic;
+        text-align: center;
+        color: #7f8c8d;
+      }
+      
+      /* Lists and Text */
+      ul, ol {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      
+      li {
+        margin-bottom: 8px;
+      }
+      
+      strong {
+        color: #2c3e50;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .types-grid,
+        .theory-grid,
+        .elements-grid,
+        .conflict-grid,
+        .summary-card {
+          grid-template-columns: 1fr;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
+        
+        h3 {
+          font-size: 1.3rem;
+        }
+        
+        h4 {
+          font-size: 1.1rem;
+        }
+        
+        .chapter-container {
+          padding: 15px;
+        }
+        
+        .overview-card,
+        .outcomes-card,
+        .definition-card,
+        .maslow-card,
+        .summary-card,
+        .questions-card {
+          padding: 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.4rem;
+        }
+        
+        h3 {
+          font-size: 1.2rem;
+        }
+        
+        .chapter-container {
+          padding: 10px;
+        }
+        
+        ul, ol {
+          padding-left: 15px;
+        }
+      }
+    </style>
+  `
 },
-      { 
-        id: 'Chapter5', 
-        title: 'Chapter 5: Motivation and Emotions', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
-      },
       { 
         id: 'Chapter6', 
         title: 'Chapter 6 :Personality', 
