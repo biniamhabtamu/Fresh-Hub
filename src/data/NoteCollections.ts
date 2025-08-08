@@ -1016,11 +1016,642 @@ export const noteCollections: Subject[] = [
     </style>
   `
 },
-    { 
-        id: 'Chapter4', 
-        title: 'Chapter 4 : Memory and Forgetting', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
-      },
+   {
+  id: 'Chapter4',
+  title: 'Chapter 4: Memory and Forgetting',
+  content: `
+    <div class="chapter-container">
+      <section class="chapter-overview">
+        <h2>Chapter Overview: Memory and Forgetting</h2>
+        <div class="overview-card">
+          <h3>Relationship with Learning</h3>
+          <p>Memory and learning are interconnected. Learning involves the initial acquisition and encoding of information, while memory pertains to the storage and retrieval of that information. Together, they encompass encoding, storage, and retrieval processes.</p>
+          
+          <h3>Chapter Focus</h3>
+          <p>This chapter is divided into two main sections: understanding memory and exploring forgetting, including theories of forgetting and strategies to improve memory.</p>
+        </div>
+        
+        <div class="appetizer-card">
+          <h3>Learner Appetizer</h3>
+          <ul>
+            <li><strong>Reflection on Memory:</strong> Consider how forgetting can be preferable to remembering painful events. Reflect on childhood memories and understand that memory is not a perfect recording device; it can change over time.</li>
+            <li><strong>Basic Memory Systems:</strong> Explore how we can remember various events and what processes are involved in recalling information.</li>
+          </ul>
+        </div>
+        
+        <div class="outcomes-card">
+          <h3>Learning Outcomes</h3>
+          <ul>
+            <li>Define memory and forgetting.</li>
+            <li>Describe stages and structures of memory.</li>
+            <li>Explain memory functions and organization in long-term memory.</li>
+            <li>Identify factors affecting memory persistence and loss.</li>
+            <li>Understand theories of forgetting.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="brainstorming-section">
+        <h2>Brainstorming Questions</h2>
+        <div class="question-grid">
+          <div class="question-card">
+            <h3>Concept of Memory</h3>
+            <p>What is memory and its significance?</p>
+          </div>
+          <div class="question-card">
+            <h3>Memory's Function</h3>
+            <p>How does memory impact studying and daily life?</p>
+          </div>
+          <div class="question-card">
+            <h3>Memory Formation</h3>
+            <p>How do you form and retain memories?</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="memory-section">
+        <h2>Memory Definition and Processes</h2>
+        
+        <div class="definition-card">
+          <h3>Memory</h3>
+          <p>Retention of information over time, bridging the past and present.</p>
+          
+          <h3>Processes of Memory</h3>
+          <div class="process-grid">
+            <div class="process-card">
+              <h4>Encoding</h4>
+              <p>Converting sensory input into a form usable for memory.</p>
+            </div>
+            <div class="process-card">
+              <h4>Storage</h4>
+              <p>Keeping encoded information in the nervous system.</p>
+            </div>
+            <div class="process-card">
+              <h4>Retrieval</h4>
+              <p>Accessing stored information when needed.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reflection-box">
+          <h3>Reflection Questions</h3>
+          <ul>
+            <li>Define memory and its processes.</li>
+            <li>Describe the stages of memory as proposed by the stage model.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="models-section">
+        <h2>Models of Memory and Information Processing Theories</h2>
+        
+        <div class="theory-card">
+          <p><strong>Information Processing Theories:</strong> These models liken human memory to computer systems. They involve storing vast amounts of information in a memory storehouse, which is retrieved onto a limited-capacity working memory that processes current experiences.</p>
+          
+          <h3>Three-Box Model by Atkinson and Shiffrin (1968)</h3>
+          <div class="model-grid">
+            <div class="model-card">
+              <h4>1. Sensory Memory/Sensory Register</h4>
+              <ul>
+                <li><strong>Function:</strong> Initial storage area for sensory input.</li>
+                <li><strong>Characteristics:</strong> Holds all sensory information briefly; includes visual (Iconic) and auditory (Echoic) subsystems.</li>
+                <li><strong>Duration:</strong> Visual information lasts about one second; auditory information lasts up to two seconds.</li>
+              </ul>
+            </div>
+            <div class="model-card">
+              <h4>2. Short-term Memory (STM)</h4>
+              <ul>
+                <li><strong>Function:</strong> Holds and processes information actively; used for thinking, reading, and problem-solving.</li>
+                <li><strong>Characteristics:</strong>
+                  <ul>
+                    <li><strong>Active:</strong> Information remains only while being consciously processed.</li>
+                    <li><strong>Rapid Accessibility:</strong> Information is quickly available.</li>
+                    <li><strong>Temporal Sequence:</strong> Preserves the order of information temporarily.</li>
+                    <li><strong>Limited Capacity:</strong> Holds about 7±2 chunks of information; capacity can be expanded through chunking.</li>
+                  </ul>
+                </li>
+                <li><strong>Duration:</strong> Holds information for about 30 seconds; prolonged by rehearsal.</li>
+              </ul>
+            </div>
+            <div class="model-card">
+              <h4>3. Long-Term Memory (LTM)</h4>
+              <ul>
+                <li><strong>Function:</strong> Stores meaningful information for long periods; capacity appears to be limitless.</li>
+                <li><strong>Characteristics:</strong> Information can be retained for days, months, years, or a lifetime.</li>
+                <li><strong>Types:</strong>
+                  <ul>
+                    <li><strong>Declarative/Explicit Memory:</strong> Conscious recollection of facts (Semantic) and personal events (Episodic).</li>
+                    <li><strong>Non-declarative/Implicit Memory:</strong> Unconscious memory such as procedural skills (e.g., knowing how to ride a bike).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="serial-position-card">
+          <h3>Serial Position Effect</h3>
+          <ul>
+            <li><strong>Definition:</strong> Better recall of items at the beginning (primacy effect) and end (recency effect) of a list, with poorer recall of items in the middle.</li>
+            <li><strong>Explanation:</strong> Items at the start of the list are processed before short-term memory becomes crowded, while items at the end are still in short-term memory at recall.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="factors-section">
+        <h2>Factors Affecting Memory</h2>
+        <div class="factors-grid">
+          <div class="factor-card">
+            <h3>Retention Ability</h3>
+            <p>Good memory traces from past experiences.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Health</h3>
+            <p>Better health enhances retention.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Age</h3>
+            <p>Younger individuals generally have better memory.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Maturity</h3>
+            <p>Younger children struggle with complex material.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Will to Remember</h3>
+            <p>Motivation aids retention.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Intelligence</h3>
+            <p>Higher intelligence correlates with better memory.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Interest</h3>
+            <p>Greater interest improves learning and retention.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Over Learning</h3>
+            <p>Repeated practice enhances memory.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Speed of Learning</h3>
+            <p>Faster learning often leads to better retention.</p>
+          </div>
+          <div class="factor-card">
+            <h3>Meaningfulness</h3>
+            <p>Meaningful information is retained longer than nonsensical material.</p>
+          </div>
+        </div>
+        
+        <div class="reflection-box">
+          <h3>Reflection</h3>
+          <ul>
+            <li>Describe each type of memory, its capacity, and characteristics.</li>
+            <li>Explain the serial-position effect and its relation to memory processes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="forgetting-section">
+        <h2>Key Points on Memory and Forgetting</h2>
+        
+        <div class="forgetting-card">
+          <h3>Forgetting</h3>
+          <ul>
+            <li><strong>Forgetting Defined:</strong> Forgetting is the apparent loss of information that was previously encoded and stored in long-term memory. It can occur due to various mechanisms and is a normal part of cognitive processes.</li>
+            <li><strong>Why Forgetting Occurs:</strong>
+              <ul>
+                <li><strong>Overload of Information:</strong> We encounter and attempt to process more information than we can realistically remember.</li>
+                <li><strong>Selective Memory:</strong> We may consciously or unconsciously choose to forget certain information.</li>
+                <li><strong>Motivated Forgetting:</strong> Driven by psychological mechanisms like repression, where painful or threatening memories are blocked from consciousness.</li>
+              </ul>
+            </li>
+            <li><strong>Ebbinghaus's Research:</strong>
+              <ul>
+                <li>Found that forgetting is most rapid immediately after learning, with a slower decline over time.</li>
+                <li>Demonstrated that relearning is generally faster than initial learning.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="theories-card">
+          <h3>Theories of Forgetting</h3>
+          <div class="theory-grid">
+            <div class="theory-card">
+              <h4>1. Decay Theory</h4>
+              <ul>
+                <li><strong>Concept:</strong> Memory traces fade over time if not accessed.</li>
+                <li><strong>Limitation:</strong> Does not fully account for forgetting in long-term memory, as some memories from the past remain vivid while more recent ones may be forgotten.</li>
+              </ul>
+            </div>
+            <div class="theory-card">
+              <h4>2. Interference Theory</h4>
+              <ul>
+                <li><strong>Concept:</strong> Similar information can interfere with memory retrieval.</li>
+                <li><strong>Types:</strong>
+                  <ul>
+                    <li><strong>Proactive Interference:</strong> Older information interferes with the recall of newer information.</li>
+                    <li><strong>Retroactive Interference:</strong> New information interferes with the recall of older information.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="theory-card">
+              <h4>3. Displacement Theory</h4>
+              <ul>
+                <li><strong>Concept:</strong> New information can overwrite old information in short-term memory due to its limited capacity.</li>
+              </ul>
+            </div>
+            <div class="theory-card">
+              <h4>4. Motivated Forgetting</h4>
+              <ul>
+                <li><strong>Concept:</strong> Forgetting due to the blocking of distressing or threatening memories, often through repression.</li>
+              </ul>
+            </div>
+            <div class="theory-card">
+              <h4>5. Cue-Dependent Forgetting</h4>
+              <ul>
+                <li><strong>Concept:</strong> Failure to retrieve information due to a lack of appropriate retrieval cues.</li>
+                <li><strong>State-Dependent Memory:</strong> Retrieval is easier when in the same physical or emotional state as when the information was encoded.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="improvement-section">
+        <h2>Improving Memory</h2>
+        <div class="strategies-card">
+          <h3>Strategies</h3>
+          <div class="strategies-grid">
+            <div class="strategy-card">
+              <h4>Pay Attention</h4>
+              <p>Ensure proper encoding of information by focusing on it.</p>
+            </div>
+            <div class="strategy-card">
+              <h4>Elaborate Encoding</h4>
+              <p>Encode information in multiple ways and add meaning to enhance memory.</p>
+            </div>
+            <div class="strategy-card">
+              <h4>Take Your Time</h4>
+              <p>Use breaks and sleep to reduce interference and consolidate memory.</p>
+            </div>
+            <div class="strategy-card">
+              <h4>Over Learn</h4>
+              <p>Continue studying beyond initial mastery to solidify memory.</p>
+            </div>
+            <div class="strategy-card">
+              <h4>Monitor Learning</h4>
+              <p>Regularly test yourself and review material to assess and reinforce learning.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-section">
+        <h2>Summary</h2>
+        <div class="summary-card">
+          <h3>Memory Processes</h3>
+          <ul>
+            <li><strong>Encoding:</strong> Initial recording of information through senses.</li>
+            <li><strong>Storage:</strong> Maintaining information over time.</li>
+            <li><strong>Retrieval:</strong> Bringing stored information to mind.</li>
+          </ul>
+          
+          <h3>Forgetting</h3>
+          <ul>
+            <li>Results from decay, interference, or repression.</li>
+          </ul>
+          
+          <h3>Memory Improvement</h3>
+          <ul>
+            <li>Can be achieved through better encoding practices, managing interference, and using effective strategies for learning and recall.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="memory-models-section">
+        <h2>Memory and Forgetting</h2>
+        
+        <div class="models-card">
+          <h3>Memory Models</h3>
+          
+          <h4>1. Atkinson-Shiffrin Model (1968)</h4>
+          <div class="model-details">
+            <div class="detail-card">
+              <h5>Sensory Memory</h5>
+              <ul>
+                <li><strong>Function:</strong> Acts as the initial storage area for incoming sensory information.</li>
+                <li><strong>Duration:</strong> Very brief, with visual (iconic) memory lasting about one second and auditory (echoic) memory lasting up to two seconds.</li>
+                <li><strong>Characteristics:</strong> Retains a detailed but unprocessed snapshot of sensory input.</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h5>Short-Term Memory (STM)</h5>
+              <ul>
+                <li><strong>Function:</strong> Holds and processes information that we are currently aware of and working with.</li>
+                <li><strong>Capacity:</strong> Limited to about 7±2 chunks of information, according to George Miller's research.</li>
+                <li><strong>Characteristics:</strong> Active processing and manipulation of information; preserves temporal sequence and allows for conscious awareness.</li>
+                <li><strong>Chunking:</strong> Organizes information into larger units to overcome capacity limits.</li>
+              </ul>
+            </div>
+            <div class="detail-card">
+              <h5>Long-Term Memory (LTM)</h5>
+              <ul>
+                <li><strong>Function:</strong> Stores information for long periods, potentially indefinitely.</li>
+                <li><strong>Capacity:</strong> Virtually unlimited.</li>
+                <li><strong>Characteristics:</strong> Includes semantic memory (factual knowledge) and episodic memory (personal experiences).</li>
+                <li><strong>Subdivisions:</strong>
+                  <ul>
+                    <li><strong>Declarative (Explicit) Memory:</strong> Conscious recollection of facts and events.</li>
+                    <li><strong>Semantic Memory:</strong> Knowledge of facts and concepts.</li>
+                    <li><strong>Episodic Memory:</strong> Personal experiences and specific events.</li>
+                    <li><strong>Non-Declarative (Implicit) Memory:</strong> Involves skills and procedures that are not consciously recalled.</li>
+                    <li><strong>Procedural Memory:</strong> Skills and habits like riding a bike or typing.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="serial-card">
+          <h3>Serial Position Effect</h3>
+          <ul>
+            <li><strong>Concept:</strong> Recall accuracy is influenced by the position of an item in a list.</li>
+            <li><strong>Primacy Effect:</strong> Better recall for items at the beginning of a list due to more time spent encoding them into long-term memory.</li>
+            <li><strong>Recency Effect:</strong> Better recall for items at the end of a list because they are still present in short-term memory.</li>
+          </ul>
+        </div>
+        
+        <div class="factors-card">
+          <h3>Factors Affecting Memory</h3>
+          <div class="factors-list">
+            <div class="factor-item">
+              <h4>1. Retention Ability</h4>
+              <p>Depends on the strength of memory traces formed.</p>
+            </div>
+            <div class="factor-item">
+              <h4>2. Health</h4>
+              <p>Good physical and mental health supports better memory.</p>
+            </div>
+            <div class="factor-item">
+              <h4>3. Age</h4>
+              <p>Memory capabilities can decline with age.</p>
+            </div>
+            <div class="factor-item">
+              <h4>4. Maturity</h4>
+              <p>Younger children often struggle with complex material.</p>
+            </div>
+            <div class="factor-item">
+              <h4>5. Will to Remember</h4>
+              <p>Motivation affects memory retention.</p>
+            </div>
+            <div class="factor-item">
+              <h4>6. Intelligence</h4>
+              <p>Generally correlates with better memory performance.</p>
+            </div>
+            <div class="factor-item">
+              <h4>7. Interest</h4>
+              <p>Higher interest in material leads to better memory.</p>
+            </div>
+            <div class="factor-item">
+              <h4>8. Overlearning</h4>
+              <p>Repeated practice enhances memory.</p>
+            </div>
+            <div class="factor-item">
+              <h4>9. Speed of Learning</h4>
+              <p>Faster learning can improve retention.</p>
+            </div>
+            <div class="factor-item">
+              <h4>10. Meaningfulness</h4>
+              <p>Meaningful information is more memorable.</p>
+            </div>
+            <div class="factor-item">
+              <h4>11. Sleep/Rest</h4>
+              <p>Essential for consolidating memories and improving recall.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reflections-card">
+          <h3>Reflections</h3>
+          <div class="reflection-item">
+            <h4>Forgetting</h4>
+            <ul>
+              <li><strong>Definition:</strong> The loss or inability to retrieve information previously encoded.</li>
+              <li><strong>Causes:</strong> Can include decay, interference, motivated forgetting, and cue-dependent forgetting.</li>
+              <li><strong>Major Memory Impairments:</strong> Include issues with encoding, storage, and retrieval.</li>
+            </ul>
+          </div>
+          <div class="reflection-item">
+            <h4>Improving Memory</h4>
+            <ul>
+              <li><strong>Strategies:</strong> Effective encoding, minimizing interference, and using various memorization techniques like mnemonics and spaced repetition can enhance memory performance.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <style>
+      /* Base Styles */
+      .chapter-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        font-size: 1.8rem;
+      }
+      
+      h3 {
+        color: #2980b9;
+        margin-top: 30px;
+        font-size: 1.5rem;
+      }
+      
+      h4 {
+        color: #16a085;
+        margin-top: 25px;
+        font-size: 1.3rem;
+      }
+      
+      h5 {
+        color: #27ae60;
+        margin-top: 20px;
+        font-size: 1.1rem;
+      }
+      
+      h6 {
+        color: #8e44ad;
+        margin-top: 15px;
+        font-size: 1rem;
+      }
+      
+      /* Card Styles */
+      .overview-card,
+      .appetizer-card,
+      .outcomes-card,
+      .definition-card,
+      .forgetting-card,
+      .theories-card,
+      .strategies-card,
+      .summary-card,
+      .models-card,
+      .reflections-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin: 20px 0;
+      }
+      
+      .appetizer-card {
+        background-color: #e8f4f8;
+        border-left: 4px solid #3498db;
+      }
+      
+      .outcomes-card {
+        background-color: #e8f8f0;
+        border-left: 4px solid #2ecc71;
+      }
+      
+      .reflection-box {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        border-left: 3px solid #f39c12;
+      }
+      
+      .serial-position-card,
+      .serial-card {
+        background-color: #f5f0ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 3px solid #9b59b6;
+      }
+      
+      /* Grid Layouts */
+      .question-grid,
+      .process-grid,
+      .model-grid,
+      .factors-grid,
+      .theory-grid,
+      .strategies-grid,
+      .model-details,
+      .factors-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .question-card,
+      .process-card,
+      .model-card,
+      .factor-card,
+      .theory-card,
+      .strategy-card,
+      .detail-card,
+      .factor-item {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      
+      .model-details {
+        grid-template-columns: 1fr;
+      }
+      
+      /* Lists and Text */
+      ul, ol {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      
+      li {
+        margin-bottom: 8px;
+      }
+      
+      strong {
+        color: #2c3e50;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .question-grid,
+        .process-grid,
+        .model-grid,
+        .factors-grid,
+        .theory-grid,
+        .strategies-grid,
+        .model-details,
+        .factors-list {
+          grid-template-columns: 1fr;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
+        
+        h3 {
+          font-size: 1.3rem;
+        }
+        
+        h4 {
+          font-size: 1.1rem;
+        }
+        
+        .chapter-container {
+          padding: 15px;
+        }
+        
+        .overview-card,
+        .appetizer-card,
+        .outcomes-card,
+        .definition-card,
+        .forgetting-card,
+        .theories-card,
+        .strategies-card,
+        .summary-card,
+        .models-card,
+        .reflections-card {
+          padding: 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.4rem;
+        }
+        
+        h3 {
+          font-size: 1.2rem;
+        }
+        
+        .chapter-container {
+          padding: 10px;
+        }
+        
+        ul, ol {
+          padding-left: 15px;
+        }
+      }
+    </style>
+  `
+},
       { 
         id: 'Chapter5', 
         title: 'Chapter 5: Motivation and Emotions', 
