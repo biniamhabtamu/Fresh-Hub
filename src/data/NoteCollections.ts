@@ -3852,462 +3852,172 @@ export const noteCollections: Subject[] = [
   id: 'chapter2',
   title: 'Chapter 2: The Geology Of Ethiopia and the Horn of Africa',
   content: `
-    <div style="
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.6;
-      max-width: 100%;
-      padding: 15px;
-      background-color: #f8f9fa;
-      color: #333;
-    ">
-      <style>
-        @media (max-width: 768px) {
-          .geology-container h1 { font-size: 2.2rem !important; }
-          .geology-container h2 { font-size: 1.8rem !important; }
-          .geology-container h3 { font-size: 1.5rem !important; }
-          .geology-container p, .geology-container li { font-size: 1rem !important; }
-          .geology-container .content-card { padding: 12px !important; }
-        }
-      </style>
-
-      <div class="geology-container">
-        <h1 style="
-          font-size: 2.8rem;
-          color: #2c3e50;
-          text-align: center;
-          margin-bottom: 25px;
-          padding-bottom: 15px;
-          border-bottom: 3px solid #3498db;
-          font-weight: 600;
-          text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        ">
-          Geology of Ethiopia and the Horn
-        </h1>
-        
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Introduction
-          </h2>
-          <p style="font-size: 1.1rem; color: #444; margin-bottom: 0;">
-            Geology is the study of Earth's evolution, materials, and processes. Much of this study involves interpreting past events and subsurface features through visible clues and indirect methods. Key techniques include <span style="color: #27ae60; font-weight: 500;">geophysics</span>, <span style="color: #27ae60; font-weight: 500;">geochemistry</span>, and <span style="color: #27ae60; font-weight: 500;">geochronology</span>, which help infer geological history from observable and measurable data.
-          </p>
-        </div>
-
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Chapter Focus
-          </h2>
-          <p style="font-size: 1.1rem; color: #444; margin-bottom: 15px;">
-            This chapter will cover the geology of Ethiopia and the Horn, including:
-          </p>
-          <div style="
-            background-color: #f1f8fe;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            border-radius: 6px;
-          ">
-            <strong style="color: #e74c3c;">Geologic Processes:</strong> Both <span style="color: #e74c3c; font-weight: 500;">endogenic</span> (internal, such as volcanic activity and tectonic processes) and <span style="color: #3498db; font-weight: 500;">exogenic</span> (external, such as weathering and erosion) processes shape the landforms.
-          </div>
-          <div style="
-            background-color: #f1f8fe;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            border-radius: 6px;
-          ">
-            <strong>Rift Valley Formation:</strong> Examining how this significant geological feature was formed.
-          </div>
-          <div style="
-            background-color: #f1f8fe;
-            margin-bottom: 0;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            border-radius: 6px;
-          ">
-            <strong>Mineral Endowment:</strong> Understanding Ethiopia's mineral resources in relation to its geological processes.
-          </div>
-        </div>
-
-        <!-- Continental Drift Theory Section -->
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Continental Drift Theory
-          </h2>
-          <p style="font-size: 1.1rem; color: #444; margin-bottom: 15px;">
-            Australian climatologist Alfred Wegener proposed that continents were once a single supercontinent, <span style="color: #f39c12; font-weight: 500;">Pangaea</span>, which later split into Gondwanaland and Laurasia. His evidence included:
-          </p>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
-            <div style="
-              background-color: #f8f9fa;
-              padding: 15px;
-              border-radius: 8px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Fit of Continents:</strong> Matching coastlines of different continents.
-            </div>
-            <div style="
-              background-color: #f8f9fa;
-              padding: 15px;
-              border-radius: 8px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Mountain Belts and Rock Types:</strong> Correspondence of geological features across continents.
-            </div>
-            <div style="
-              background-color: #f8f9fa;
-              padding: 15px;
-              border-radius: 8px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Fossil Distribution:</strong> Similar fossils found on now-separated continents.
-            </div>
-            <div style="
-              background-color: #f8f9fa;
-              padding: 15px;
-              border-radius: 8px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Paleoclimates:</strong> Evidence of past climates consistent with the reassembly of continents.
-            </div>
-          </div>
-        </div>
-
-        <!-- Geologic Processes Section -->
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Geologic Processes
-          </h2>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <div style="
-              background-color: #fff8f0;
-              padding: 20px;
-              border-radius: 8px;
-              border-top: 3px solid #e74c3c;
-              box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            ">
-              <h3 style="color: #e74c3c; margin-top: 0; font-size: 1.5rem;">Endogenic Processes</h3>
-              <p style="margin-bottom: 0;">Include volcanic activity and tectonic movements like folding and faulting, which create structural features such as rift valleys and mountain ranges.</p>
-            </div>
-            
-            <div style="
-              background-color: #f0f8ff;
-              padding: 20px;
-              border-radius: 8px;
-              border-top: 3px solid #3498db;
-              box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            ">
-              <h3 style="color: #3498db; margin-top: 0; font-size: 1.5rem;">Exogenic Processes</h3>
-              <p style="margin-bottom: 0;">Involve weathering, erosion, and deposition that modify existing landforms.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Geological Time Scale Section -->
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Geological Time Scale
-          </h2>
-          <p style="font-size: 1.1rem; color: #444; margin-bottom: 15px;">
-            The Earth's history is divided into:
-          </p>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
-            <div style="
-              background-color: #f5f5f5;
-              padding: 15px;
-              border-radius: 6px;
-              text-align: center;
-            ">
-              <div style="
-                background-color: #2c3e50;
-                color: white;
-                padding: 8px;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 10px;
-                font-weight: bold;
-              ">1</div>
-              <strong>Eons:</strong> Largest time units.
-            </div>
-            
-            <div style="
-              background-color: #f5f5f5;
-              padding: 15px;
-              border-radius: 6px;
-              text-align: center;
-            ">
-              <div style="
-                background-color: #2c3e50;
-                color: white;
-                padding: 8px;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 10px;
-                font-weight: bold;
-              ">2</div>
-              <strong>Eras:</strong> Major subdivisions of eons.
-            </div>
-            
-            <div style="
-              background-color: #f5f5f5;
-              padding: 15px;
-              border-radius: 6px;
-              text-align: center;
-            ">
-              <div style="
-                background-color: #2c3e50;
-                color: white;
-                padding: 8px;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 10px;
-                font-weight: bold;
-              ">3</div>
-              <strong>Periods:</strong> Subdivisions of eras.
-            </div>
-            
-            <div style="
-              background-color: #f5f5f5;
-              padding: 15px;
-              border-radius: 6px;
-              text-align: center;
-            ">
-              <div style="
-                background-color: #2c3e50;
-                color: white;
-                padding: 8px;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 10px;
-                font-weight: bold;
-              ">4</div>
-              <strong>Epochs:</strong> Smallest units of geological time.
-            </div>
-          </div>
-          
-          <p style="font-size: 1.1rem; color: #444; margin-bottom: 0;">
-            These divisions are based on significant geological and biological events, with time measurements varying in length. The geological time scale helps describe Earth's history and the evolution of life over billions of years.
-          </p>
-        </div>
-
-        <!-- Age Dating Techniques Section -->
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Age Dating Techniques
-          </h2>
-          
-          <div style="margin-bottom: 25px;">
-            <h3 style="
-              font-size: 1.8rem;
-              color: #16a085;
-              margin-top: 0;
-              padding-bottom: 5px;
-              border-bottom: 1px dashed #ddd;
-            ">
-              A. Relative Dating
-            </h3>
-            <p style="font-size: 1.1rem; color: #444; margin-bottom: 15px;">
-              Relative dating determines the comparative age of rocks or fossils based on geological evidence. Methods include:
-            </p>
-            
-            <div style="
-              background-color: #e8f8f5;
-              padding: 15px;
-              border-radius: 6px;
-              margin-bottom: 10px;
-              border-left: 4px solid #1abc9c;
-            ">
-              <strong>Fossil Comparison:</strong> Identifying unique fossils to date rocks to specific geologic periods.
-            </div>
-            
-            <div style="
-              background-color: #e8f8f5;
-              padding: 15px;
-              border-radius: 6px;
-              margin-bottom: 0;
-              border-left: 4px solid #1abc9c;
-            ">
-              <strong>Stratigraphy:</strong> Observing rock layers where younger rocks are deposited on top of older ones.
-            </div>
-          </div>
-          
-          <div>
-            <h3 style="
-              font-size: 1.8rem;
-              color: #16a085;
-              margin-top: 0;
-              padding-bottom: 5px;
-              border-bottom: 1px dashed #ddd;
-            ">
-              B. Absolute Dating
-            </h3>
-            <p style="font-size: 1.1rem; color: #444; margin-bottom: 15px;">
-              Also known as radiometric dating, this technique measures the decay of radioactive elements to determine the exact age of rocks. Major methods include:
-            </p>
-            
-            <div style="
-              background-color: #e8f8f5;
-              padding: 15px;
-              border-radius: 6px;
-              margin-bottom: 10px;
-              border-left: 4px solid #1abc9c;
-            ">
-              <strong>Carbon-14 Dating:</strong> Measures the decay of carbon-14 in once-living organisms. Useful for dating materials up to about 50,000 years old. Carbon-14 has a half-life of 5730 years.
-            </div>
-            
-            <div style="
-              background-color: #e8f8f5;
-              padding: 15px;
-              border-radius: 6px;
-              margin-bottom: 0;
-              border-left: 4px solid #1abc9c;
-            ">
-              <strong>Potassium-Argon Dating:</strong> Used for dating rocks, particularly those with potassium-40. It measures the decay of potassium-40 to argon-40. Problems arise if the rock has been heated above 125°C, affecting the results.
-            </div>
-          </div>
-        </div>
-
-        <!-- [Additional sections would follow the same pattern...] -->
-
-        <!-- Mineral Potential Section -->
-        <div style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-          <h2 style="
-            font-size: 2.2rem;
-            color: #2980b9;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            font-weight: 500;
-          ">
-            Mineral Potential Sites of Ethiopia
-          </h2>
-          
-          <div style="margin-bottom: 25px;">
-            <h3 style="
-              font-size: 1.8rem;
-              color: #8e44ad;
-              margin-top: 0;
-              padding-bottom: 5px;
-              border-bottom: 1px dashed #ddd;
-            ">
-              1. Western and South-western Greenstone Belt
-            </h3>
-            <div style="
-              background-color: #f5eef8;
-              padding: 15px;
-              border-radius: 6px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Minerals:</strong> Includes gold (e.g., Dul, Tulu-Kape), platinum (e.g., Yubdo), base metals, molybdenite, and iron deposits. Notable sites include Bikilal and Chago.
-            </div>
-          </div>
-          
-          <div style="margin-bottom: 25px;">
-            <h3 style="
-              font-size: 1.8rem;
-              color: #8e44ad;
-              margin-top: 0;
-              padding-bottom: 5px;
-              border-bottom: 1px dashed #ddd;
-            ">
-              2. Southern Greenstone Belt (Adola Belt)
-            </h3>
-            <div style="
-              background-color: #f5eef8;
-              padding: 15px;
-              border-radius: 6px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Minerals:</strong> Known for primary gold deposits (e.g., Lega-dembi, Sakaro), tantalum (e.g., Kenticha), and nickel deposits. Also includes other industrial minerals.
-            </div>
-          </div>
-          
-          <div>
-            <h3 style="
-              font-size: 1.8rem;
-              color: #8e44ad;
-              margin-top: 0;
-              padding-bottom: 5px;
-              border-bottom: 1px dashed #ddd;
-            ">
-              3. Northern Greenstone Belt (Tigray)
-            </h3>
-            <div style="
-              background-color: #f5eef8;
-              padding: 15px;
-              border-radius: 6px;
-              border-left: 4px solid #9b59b6;
-            ">
-              <strong>Minerals:</strong> Contains gold deposits (e.g., Terakemti, Adi-Zeresenay), base metals, and placer gold occurrences.
-            </div>
-          </div>
-          
-          <p style="font-size: 1.1rem; color: #444; margin-top: 20px; margin-bottom: 0;">
-            These regions highlight Ethiopia's rich mineral resources and potential for further exploration and exploitation.
-          </p>
-        </div>
-      </div>
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; max-width: 100%; overflow-x: auto; padding: 10px; background-color: #f8f9fa;">
+      <h1 style="font-size: 2.8em; color: #007bff; text-align: center; border-bottom: 2px solid #007bff; padding-bottom: 10px;">Geology of Ethiopia and the Horn</h1>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Introduction</h2>
+      <p style="font-size: 1.1em; color: #495057;">Geology is the study of Earth's evolution, materials, and processes. Much of this study involves interpreting past events and subsurface features through visible clues and indirect methods. Key techniques include <strong style="color: #28a745;">geophysics</strong>, <strong style="color: #28a745;">geochemistry</strong>, and <strong style="color: #28a745;">geochronology</strong>, which help infer geological history from observable and measurable data.</p>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Chapter Focus</h2>
+      <p style="font-size: 1.1em; color: #495057;">This chapter will cover the geology of Ethiopia and the Horn, including:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Geologic Processes:</strong> Both <strong style="color: #dc3545;">endogenic</strong> (internal, such as volcanic activity and tectonic processes) and <strong style="color: #17a2b8;">exogenic</strong> (external, such as weathering and erosion) processes shape the landforms.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Rift Valley Formation:</strong> Examining how this significant geological feature was formed.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Mineral Endowment:</strong> Understanding Ethiopia's mineral resources in relation to its geological processes.</li>
+      </ul>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Continental Drift Theory</h2>
+      <p style="font-size: 1.1em; color: #495057;">Australian climatologist Alfred Wegener proposed that continents were once a single supercontinent, <strong style="color: #ffc107;">Pangaea</strong>, which later split into Gondwanaland and Laurasia. His evidence included:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Fit of Continents:</strong> Matching coastlines of different continents.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Mountain Belts and Rock Types:</strong> Correspondence of geological features across continents.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Fossil Distribution:</strong> Similar fossils found on now-separated continents.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Paleoclimates:</strong> Evidence of past climates consistent with the reassembly of continents.</li>
+      </ul>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Geologic Processes</h2>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Endogenic Processes:</strong> Include volcanic activity and tectonic movements like folding and faulting, which create structural features such as rift valleys and mountain ranges.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Exogenic Processes:</strong> Involve weathering, erosion, and deposition that modify existing landforms.</li>
+      </ul>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Geological Time Scale</h2>
+      <p style="font-size: 1.1em; color: #495057;">The Earth's history is divided into:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Eons:</strong> Largest time units.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Eras:</strong> Major subdivisions of eons.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Periods:</strong> Subdivisions of eras.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Epochs:</strong> Smallest units of geological time.</li>
+      </ul>
+      <p style="font-size: 1.1em; color: #495057;">These divisions are based on significant geological and biological events, with time measurements varying in length. The geological time scale helps describe Earth's history and the evolution of life over billions of years.</p>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Age Dating Techniques</h2>
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">A. Relative Dating</h3>
+      <p style="font-size: 1.1em; color: #495057;">Relative dating determines the comparative age of rocks or fossils based on geological evidence. Methods include:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Fossil Comparison:</strong> Identifying unique fossils to date rocks to specific geologic periods.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Stratigraphy:</strong> Observing rock layers where younger rocks are deposited on top of older ones.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">B. Absolute Dating</h3>
+      <p style="font-size: 1.1em; color: #495057;">Also known as radiometric dating, this technique measures the decay of radioactive elements to determine the exact age of rocks. Major methods include:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Carbon-14 Dating:</strong> Measures the decay of carbon-14 in once-living organisms. Useful for dating materials up to about 50,000 years old. Carbon-14 has a half-life of 5730 years.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Potassium-Argon Dating:</strong> Used for dating rocks, particularly those with potassium-40. It measures the decay of potassium-40 to argon-40. Problems arise if the rock has been heated above 125°C, affecting the results.</li>
+      </ul>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Geological Processes and Landforms</h2>
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Precambrian Era (4.5 billion – 600 million years ago)</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Processes:</strong> Major orogenesis (mountain building) and intrusive igneous activity, followed by denudation that reduced mountains to near-level surfaces.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Landforms:</strong> Basement rocks, including metamorphic and crystalline rocks, are found beneath newer formations in various regions like Tigray, Gambella, and southern Ethiopia.</p>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Paleozoic Era (600 million – 225 million years ago)</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Processes:</strong> Denudation of Precambrian mountains, leading to a peneplained surface with some residual features.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Landforms:</strong> Rare rocks from this era in Ethiopia, with sediments forming continental and marine deposits transported southward and eastward.</p>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Mesozoic Era (225 – 70 million years ago)</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Processes:</strong> Alternating subsidence and epeirogenesis led to sea invasions and regressions, affecting the Horn of Africa. Deposition of sands, muds, and limestones occurred, creating major sedimentary layers.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Landforms:</strong></p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Adigrat Sandstone:</strong> Older and thicker in the southeast.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Hintalo Limestone:</strong> Found interbedded with gypsum and shale.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Upper Sandstone:</strong> Younger and thicker in the southeast, thinner in the northwest.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Sedimentary Rocks:</strong> Cover 25% of Ethiopia's landmass, found in regions like central Tigray and the Southeast lowlands.</li>
+      </ul>
+      <p style="font-size: 1.1em; color: #495057;">These eras and processes reflect the complex geological history that has shaped the landforms of Ethiopia and the Horn.</p>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Cenozoic Era Geologic Processes (70 million years ago – Present)</h2>
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">1. Uplifting of the Arabo-Ethiopian Landmass and Lava Outpouring</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Uplifting:</strong> Began in the Upper Jurassic and Cretaceous, continuing into the Paleocene and Oligocene. The Arabo-Ethiopian landmass uplifted significantly, reaching up to 2,000 meters during the Eocene. This uplift was epeirogenic, affecting large blocks of the landmass.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Lava Outpouring:</strong> The uplift caused extensive fracturing of the crust, leading to massive basalt eruptions that formed the Ethiopian Plateau and the Rift Valley floor. The resulting lava, known as Trappean lava, created a thick layer of volcanic rock, which is visible in the plateau and volcanic mountains.</p>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">2. Formation of the Rift Valley</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Tectonic Theory:</strong> The Rift Valley formed due to plate tectonics, with lateral movements causing parallel faults and a central depression. Major rifting began in the late Oligocene and Miocene, leading to the formation of the Red Sea, Gulf of Aden, and Afar Depression.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Geological Effects:</strong> Rifting and faulting led to the separation of the Arabian Peninsula from Africa, the formation of basins and lakes, and the development of the Rift Valley's characteristic features like fault depressions and volcanic activity.</p>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">3. Quaternary Volcanic Eruptions and Depositions</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Volcanic Activity:</strong> Renewed rifting and volcanism occurred in the Pliocene-Pleistocene Epochs. This activity, particularly in the Afar region and the main Ethiopian Rift, included numerous eruptions, forming volcanic cones and extensive lava fields.</p>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Recent Features:</strong> Includes active volcanoes like Erta Ale, volcanic hills, lava ridges, and thermal springs. The Quaternary period also saw significant climatic changes, affecting lake sizes and sediment deposition.</p>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">4. Quaternary Deposits</h3>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Types of Deposits:</strong></p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Lacustrine:</strong> From former lakebeds and swamps.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Fluvial:</strong> On riverbanks and floodplains.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Glacio-fluvial:</strong> On high mountains.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Aeolian:</strong> Windblown deposits.</li>
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Coastal and Marine:</strong> Sea-influenced deposits.</li>
+      </ul>
+      <p style="font-size: 1.1em; color: #495057;"><strong>Distribution:</strong> Found extensively in the Rift Valley, Baro lowlands, southern Borena, and northwestern lowlands. Cenozoic rocks cover 50% of Ethiopia's landmass, including volcanics and sediments.</p>
+      <p style="font-size: 1.1em; color: #495057;">These processes and formations significantly shaped the current geological landscape of Ethiopia and the Horn of Africa.</p>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Brief Facts and Current State of Main Minerals in Ethiopia</h2>
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Gold</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Locations:</strong> Mined in Benishangul-Gumuz (Metekel) and Adola. Active mines include Dermi-dama, Sakoro, and Lega-dembi. Secondary deposits are found in Adola, Murmur Basin, Shakiso, and several other regions, including Gambella and Sidama.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Platinum</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Primary Mine:</strong> Yubdo in Wellega. Other reported occurrences include Delatti, Demi-Denissa, Bone Rivers, and Tullu Mountain in Sidama.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Tantalum</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Significant Deposit:</strong> Kenticha Tantalum mine in Adola, with over 17,000 metric tons of ore.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Coal</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Types:</strong> Lignite deposits are widespread, including in Nedjo (Wellega), Chilga (Gonder), and other areas. Potential exists in Beressa Valley, Sululta, and several other locations.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Gemstones</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Varieties:</strong> Amethyst, aquamarine, emerald, garnet, opal, peridot, sapphire, and tourmaline are found mainly in Amhara and Oromia, with significant opal discoveries in North Wello.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Potash</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Reserve Location:</strong> Danakil (Dallol Depression) in the Afar region, with believed significant reserves.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Gypsum and Anhydrite</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Production and Reserves:</strong> Limited production for domestic use, but large deposits are known in various regions, including the Red Sea coastal area, Danakil Depression, and others.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Clay</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Types and Locations:</strong> Industrial clay for bricks and ceramics is found in Adola, Abay gorge, Rift Valley lakes region, and Ambo.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Marble</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Quarrying Locations:</strong> Includes west Mekelle, south Adwa in Tigray, and various locations in West Hararghe and Gonder.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">Construction Stones</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Types:</strong> Basalt, granite, limestone, and sandstone are used in construction, with volcanic rocks used for road surfacing and cement production.</li>
+      </ul>
+      
+      <h2 style="font-size: 2.2em; color: #343a40; border-left: 4px solid #17a2b8; padding-left: 10px;">Mineral Potential Sites of Ethiopia</h2>
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">1. Western and South-western Greenstone Belt</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Minerals:</strong> Includes gold (e.g., Dul, Tulu-Kape), platinum (e.g., Yubdo), base metals, molybdenite, and iron deposits. Notable sites include Bikilal and Chago.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">2. Southern Greenstone Belt (Adola Belt)</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Minerals:</strong> Known for primary gold deposits (e.g., Lega-dembi, Sakaro), tantalum (e.g., Kenticha), and nickel deposits. Also includes other industrial minerals.</li>
+      </ul>
+      
+      <h3 style="font-size: 1.8em; color: #5d6d7e; border-bottom: 1px dashed #dcdcdc; padding-bottom: 5px;">3. Northern Greenstone Belt (Tigray)</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="background-color: #e9ecef; margin-bottom: 10px; padding: 15px; border-left: 4px solid #6c757d; border-radius: 6px;"><strong>Minerals:</strong> Contains gold deposits (e.g., Terakemti, Adi-Zeresenay), base metals, and placer gold occurrences.</li>
+      </ul>
+      <p style="font-size: 1.1em; color: #495057;">These regions highlight Ethiopia's rich mineral resources and potential for further exploration and exploitation.</p>
     </div>
   `
 },
