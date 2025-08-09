@@ -8,7 +8,7 @@ export const subjects: Subject[] = [
     name: 'Sample', 
     icon: '📖', // Different from natural science English
     field: 'natural', 
-    isFree: false 
+    isFree: true
   },
   // Natural Science Subjects
   { 
@@ -116,8 +116,8 @@ export const subjects: Subject[] = [
     name: 'Sample', 
     icon: '📖', // Different from natural science English
     field: 'social', 
-    isFree: false 
-  },,
+    isFree: true 
+  },
   { 
     id: 'english', 
     name: 'EnglishSkill2', 
