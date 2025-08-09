@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { db } from '../../firebase/config';
 import { collection, query, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { CheckCircle2, XCircle, RefreshCw, User, Shield, Loader2, Link } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Tailwind CSS classes for better readability and a clean design
 const containerClasses = "min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8";
 const cardClasses = "bg-white shadow-lg rounded-xl p-6 transition-transform hover:scale-[1.02] duration-300 ease-in-out";
 const headerClasses = "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8";
@@ -13,12 +12,14 @@ const filterButtonClasses = "px-4 py-2 rounded-full text-sm font-semibold transi
 
 interface UserData {
   id: string;
-  displayName: string;
+  fullName: string;
   email: string;
   isPremium: boolean;
   premiumStatus: 'pending' | 'approved' | 'rejected';
   transactionId?: string;
-  transactionUrl?: string; // Added new field for the URL
+  transactionUrl?: string;
+  field?: string;
+  phone?: string;
 }
 
 export default function AdminPremiumApproval() {
@@ -33,17 +34,19 @@ export default function AdminPremiumApproval() {
       try {
         const usersQuery = query(collection(db, 'users'));
         const querySnapshot = await getDocs(usersQuery);
-        
+
         const usersData: UserData[] = querySnapshot.docs.map((doc) => {
           const data = doc.data();
           return {
             id: doc.id,
-            displayName: data.displayName || 'No Name',
+            fullName: data.fullName || 'No Name',
             email: data.email,
             isPremium: data.isPremium || false,
             premiumStatus: data.premiumStatus || 'pending',
-            transactionId: data.transactionId,
-            transactionUrl: data.transactionUrl // Fetch the new `transactionUrl` field
+            field: data.field || '',
+            phone: data.phone || '',
+            transactionId: data.transactionId || '',
+            transactionUrl: data.transactionUrl || '',
           };
         });
 
@@ -61,6 +64,7 @@ export default function AdminPremiumApproval() {
   const handleApprove = async (userId: string) => {
     setIsUpdating(true);
     try {
+      console.log("Approving user with ID:", userId);
       await updateDoc(doc(db, 'users', userId), {
         isPremium: true,
         premiumStatus: 'approved'
@@ -70,6 +74,7 @@ export default function AdminPremiumApproval() {
       ));
     } catch (error) {
       console.error('Error approving user:', error);
+      alert("Failed to approve user. See console for details.");
     } finally {
       setIsUpdating(false);
     }
@@ -78,6 +83,7 @@ export default function AdminPremiumApproval() {
   const handleReject = async (userId: string) => {
     setIsUpdating(true);
     try {
+      console.log("Rejecting user with ID:", userId);
       await updateDoc(doc(db, 'users', userId), {
         isPremium: false,
         premiumStatus: 'rejected'
@@ -87,6 +93,7 @@ export default function AdminPremiumApproval() {
       ));
     } catch (error) {
       console.error('Error rejecting user:', error);
+      alert("Failed to reject user. See console for details.");
     } finally {
       setIsUpdating(false);
     }
@@ -193,24 +200,12 @@ export default function AdminPremiumApproval() {
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        User
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Email
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Transaction ID
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Transaction URL
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Actions
-                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">User</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Field</th>
+                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Phone Number</th>
+                      <th className="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
@@ -231,34 +226,14 @@ export default function AdminPremiumApproval() {
                                   <User className="h-5 w-5 text-indigo-600" />
                                 </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium text-gray-900">{user.displayName}</div>
+                                  <div className="text-sm font-medium text-gray-900">{user.fullName}</div>
                                 </div>
                               </div>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                              {user.email}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              {getStatusBadge(user)}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                              {user.transactionId || 'N/A'}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                              {user.transactionUrl ? (
-                                <a 
-                                  href={user.transactionUrl} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="flex items-center text-blue-600 hover:text-blue-800 hover:underline"
-                                >
-                                  <Link className="h-4 w-4 mr-1" />
-                                  View Screenshot
-                                </a>
-                              ) : (
-                                'N/A'
-                              )}
-                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{user.email}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">{getStatusBadge(user)}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{user.field}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{user.phone}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                               {user.premiumStatus === 'pending' && (
                                 <div className="flex justify-end space-x-2">
@@ -283,9 +258,7 @@ export default function AdminPremiumApproval() {
                         ))
                       ) : (
                         <tr>
-                          <td colSpan={6} className="px-6 py-12 text-center text-sm text-gray-500">
-                            No users found for this filter.
-                          </td>
+                          <td colSpan={6} className="px-6 py-12 text-center text-sm text-gray-500">No users found for this filter.</td>
                         </tr>
                       )}
                     </AnimatePresence>
@@ -313,7 +286,7 @@ export default function AdminPremiumApproval() {
                                 <User className="h-5 w-5 text-indigo-600" />
                               </div>
                               <div className="ml-4">
-                                <div className="text-base font-semibold text-gray-900">{user.displayName}</div>
+                                <div className="text-base font-semibold text-gray-900">{user.fullName}</div>
                                 <div className="text-sm text-gray-500">{user.email}</div>
                               </div>
                             </div>
@@ -358,9 +331,7 @@ export default function AdminPremiumApproval() {
                         </motion.div>
                       ))
                     ) : (
-                      <div className="p-12 text-center text-gray-500">
-                        No users found for this filter.
-                      </div>
+                      <div className="p-12 text-center text-gray-500">No users found for this filter.</div>
                     )}
                   </AnimatePresence>
                 </div>
