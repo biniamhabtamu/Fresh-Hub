@@ -4243,28 +4243,7 @@ export const noteCollections: Subject[] = [
         </div>
     </div>
 
-    <div class="mobile-menu">
-        <a href="#" class="menu-item">
-            <i class="fas fa-home menu-icon"></i>
-            <span>Home</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-book menu-icon"></i>
-            <span>Chapters</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-bookmark menu-icon"></i>
-            <span>Bookmarks</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-download menu-icon"></i>
-            <span>Download</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-user menu-icon"></i>
-            <span>Profile</span>
-        </a>
-    </div>
+    
 </body>
 </html>
       `
