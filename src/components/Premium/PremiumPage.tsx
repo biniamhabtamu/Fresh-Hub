@@ -1,56 +1,82 @@
 import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, serverTimestamp, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave } from "react-icons/fa";
 import { MdAccountBalance, MdPayment } from "react-icons/md";
+
+// Define the duration for the timer (5 hours in milliseconds)
+const TIMER_DURATION_MS = 5 * 60 * 60 * 1000;
 
 export default function PremiumPage() {
   const [userData, setUserData] = useState(null);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(
-    localStorage.getItem('premiumSubmitted') === 'true'
-  );
-  const [timeLeft, setTimeLeft] = useState(() => {
-    const savedTime = localStorage.getItem('premiumTimer');
-    return savedTime ? parseInt(savedTime) : 5 * 60 * 60; // 5 hours in seconds
-  });
+  const [submissionData, setSubmissionData] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(0);
 
   const IMGBB_KEY = "cee6f899a1f2b76b6a01b89517662be0";
   const TELEGRAM_BOT_TOKEN = "7516286710:AAGlGBxpmyVQuLW1lcm4rVw-wC1UZ_dp5l4";
   const TELEGRAM_CHAT_ID = "901943741";
 
+  // New useEffect hook to fetch user data and listen for real-time updates
+  // on their submission status.
   useEffect(() => {
-    const fetchUserData = async () => {
-      const authUser = getAuth().currentUser;
-      if (!authUser) return;
-      const userRef = doc(db, "users", authUser.uid);
-      const snap = await getDoc(userRef);
-      if (snap.exists()) {
-        setUserData(snap.data());
+    const auth = getAuth();
+    const authUser = auth.currentUser;
+
+    if (!authUser) return;
+
+    const userRef = doc(db, "users", authUser.uid);
+
+    // Use onSnapshot to listen for real-time changes to the user's document.
+    // This will automatically update the component if the submission status changes.
+    const unsubscribe = onSnapshot(userRef, (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setUserData(data);
+        // Check for the submission timestamp directly from Firestore
+        if (data.premiumSubmission) {
+          setSubmissionData(data.premiumSubmission);
+        } else {
+          setSubmissionData(null);
+        }
+      } else {
+        setUserData(null);
+        setSubmissionData(null);
       }
-    };
-    fetchUserData();
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
   }, []);
 
+  // New useEffect hook for the timer logic.
+  // This hook now depends on the `submissionData` state.
   useEffect(() => {
-    if (submitted && timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft((prev) => {
-          const newTime = prev - 1;
-          localStorage.setItem('premiumTimer', newTime.toString());
-          return newTime;
-        });
-      }, 1000);
-      return () => clearInterval(timer);
-    } else if (timeLeft <= 0) {
-      localStorage.removeItem('premiumSubmitted');
-      localStorage.removeItem('premiumTimer');
-    }
-  }, [submitted, timeLeft]);
+    if (submissionData && submissionData.timestamp) {
+      const submissionTime = submissionData.timestamp.toDate().getTime();
+      const endTime = submissionTime + TIMER_DURATION_MS;
 
+      const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const remaining = Math.max(0, endTime - now);
+        setTimeLeft(Math.floor(remaining / 1000));
+
+        if (remaining <= 0) {
+          clearInterval(timer);
+          // Optionally, you can clear the submission data from Firestore here
+          // to make the form reappear.
+          // For now, the timer will just stop at 0.
+        }
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [submissionData]);
+
+  // Existing useEffect for image preview remains unchanged
   useEffect(() => {
     if (image) {
       const reader = new FileReader();
@@ -115,11 +141,23 @@ export default function PremiumPage() {
 
     setLoading(true);
     try {
+      const authUser = getAuth().currentUser;
       const imgUrl = await uploadToImgBB(image);
       await sendToTelegram(userData.email, userData.phone, imgUrl);
-      setSubmitted(true);
-      localStorage.setItem('premiumSubmitted', 'true');
-      localStorage.setItem('premiumTimer', (5 * 60 * 60).toString());
+      
+      // Update the user's document in Firestore with submission details
+      const userRef = doc(db, "users", authUser.uid);
+      await setDoc(userRef, {
+        premiumSubmission: {
+          timestamp: serverTimestamp(),
+          imageUrl: imgUrl,
+          status: 'pending' // You can use a status field to track the verification process
+        }
+      }, { merge: true }); // Use merge: true to avoid overwriting other user data
+      
+      // The `onSnapshot` listener will automatically update the state,
+      // so we don't need to manually set `submitted` here.
+
     } catch (error) {
       console.error(error);
       alert("Submission failed: " + error.message);
@@ -127,7 +165,8 @@ export default function PremiumPage() {
     setLoading(false);
   };
 
-  if (submitted) {
+  // Conditional rendering based on `submissionData` from Firebase
+  if (submissionData) {
     return (
       <div className="max-w-md mx-auto p-8 bg-gradient-to-br from-green-50 to-blue-50 shadow-2xl rounded-2xl mt-10 text-center border border-green-200">
         <div className="flex justify-center mb-6">
@@ -166,6 +205,7 @@ export default function PremiumPage() {
     );
   }
 
+  // The rest of the component remains unchanged (the form)
   return (
     <div className="max-w-md mx-auto p-8 bg-gradient-to-br from-blue-50 to-purple-50 shadow-xl rounded-2xl mt-8 border border-blue-200">
       <h1 className="text-3xl font-bold text-center mb-6 text-blue-800">Premium Verification</h1>
