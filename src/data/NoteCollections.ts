@@ -21,313 +21,503 @@ export const noteCollections: Subject[] = [
       id: 'chapter1', 
       title: 'Chapter 1: Essence of Psychology', 
       content: `
-        <div class="prose max-w-none">
-          <h1 class="text-3xl font-bold mb-6 text-purple-700">Chapter 1: Essence of Psychology</h1>
-          
-          <div class="bg-purple-50 p-6 rounded-xl mb-8 border-l-4 border-purple-500">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-800">Chapter Overview</h2>
-            <p class="text-gray-700">This chapter introduces the concept of psychology, covering definitions, goals, historical background, major perspectives, branches, and research methods.</p>
-          </div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Psychology</title>
+    <style>
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f9fc;
+        }
+        
+        .container {
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 24px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+        
+        .note-box {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .amharic {
+            font-family: 'Nyala', 'Abyssinica SIL', sans-serif;
+            background-color: #f0f7f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .theme-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .theme-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        .perspective {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .perspective-title {
+            font-weight: bold;
+            color: #8e44ad;
+        }
+        
+        .research-method {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .method-title {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .correlation {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .correlation-emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .variable-group {
+            display: flex;
+            margin: 15px 0;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .variable-box {
+            flex: 1;
+            background-color: #e8f8f5;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #2ecc71;
+            min-width: 250px;
+        }
+        
+        .variable-title {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
 
-          <div class="bg-indigo-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
-            <h2 class="text-2xl font-semibold mb-4 text-indigo-800">Learning Outcomes</h2>
-            <ul class="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Define psychology</li>
-              <li>Show the historical roots of psychology</li>
-              <li>Identify goals and early schools of psychology</li>
-              <li>Discuss different perspectives and subfields</li>
-              <li>Differentiate research methods and steps in scientific research</li>
-            </ul>
-          </div>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.1. Definition of Psychology and Related Concepts</h2>
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
             
-            <div class="ml-6 space-y-4">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Origin</h3>
-                <p>The term "psychology" comes from the Greek words <span class="font-semibold">psyche</span> (mind, soul) and <span class="font-semibold">logos</span> (study, knowledge). It represents the study of the mind and its processes, often symbolized by the Greek letter <span class="text-xl">ᴪ</span> (psi).</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Scientific Definition</h3>
-                <ul class="list-disc pl-6 space-y-2 mt-2">
-                  <li><strong>Science:</strong> Psychology employs scientific methods to study behavior and mental processes, using empirical data.</li>
-                  <li><strong>Behavior:</strong> Includes observable actions and reactions, as well as covert behaviors considered mental processes.</li>
-                  <li><strong>Mental Processes:</strong> Refers to internal activities like thinking, feeling, and remembering.</li>
-                </ul>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 mt-4">
-                <h4 class="font-medium text-yellow-800">Reflection</h4>
-                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
-                  <li>Compare the definition of psychology with prior conceptions.</li>
-                  <li>Reflect on how the four goals of psychology relate to and differ from each other.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.2. Goals of Psychology</h2>
+            h1 {
+                font-size: 24px;
+            }
             
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Description</h3>
-                <p>Observing and noting behavior to understand "What is happening?" This involves documenting actions and reactions.</p>
-                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Noticing a student's decline in performance and attitude.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Explanation</h3>
-                <p>Seeking reasons for observed behavior, leading to theories.</p>
-                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Understanding a student's behavior might involve investigating their home background.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Prediction</h3>
-                <p>Determining future behavior based on current observations and research.</p>
-                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Predicting a student's academic potential based on observed issues.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Control</h3>
-                <p>Modifying behavior from undesirable to desirable, and controlling for variables in research.</p>
-                <p class="mt-2 text-sm text-gray-600"><span class="font-medium">Example:</span> Implementing learning strategies to improve academic performance.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.3. Historical Background and Major Perspectives</h2>
+            h2 {
+                font-size: 20px;
+            }
             
-            <div class="ml-6 space-y-6">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Historical Context</h3>
-                <p>Psychology emerged around 125 years ago with Wilhelm Wundt establishing the first psychology laboratory in 1879 at the University of Leipzig, Germany. Wundt's method, objective introspection, aimed to scientifically study mental experiences.</p>
-              </div>
-              
-              <div>
-                <h3 class="text-xl font-medium mb-3 text-purple-600">Early Schools of Psychology</h3>
-                
-                <div class="grid md:grid-cols-3 gap-4">
-                  <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                    <h4 class="font-bold text-blue-700">Structuralism</h4>
-                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                      <li><strong>Founder:</strong> Edward Titchener</li>
-                      <li><strong>Focus:</strong> Structure of the mind</li>
-                      <li><strong>Method:</strong> Introspection</li>
-                    </ul>
-                  </div>
-                  
-                  <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <h4 class="font-bold text-green-700">Functionalism</h4>
-                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                      <li><strong>Founder:</strong> William James</li>
-                      <li><strong>Focus:</strong> Functions of the mind</li>
-                      <li><strong>Methods:</strong> Questionnaires, tests</li>
-                    </ul>
-                  </div>
-                  
-                  <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                    <h4 class="font-bold text-yellow-700">Gestalt Psychology</h4>
-                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                      <li><strong>Founders:</strong> Wertheimer et al.</li>
-                      <li><strong>Focus:</strong> Mind as a whole</li>
-                      <li><strong>Viewpoint:</strong> "Whole is greater"</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="grid md:grid-cols-2 gap-4 mt-4">
-                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <h4 class="font-bold text-red-700">Behaviorism</h4>
-                  <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                    <li><strong>Founder:</strong> John B. Watson</li>
-                    <li><strong>Focus:</strong> Observable behavior</li>
-                    <li><strong>Key Concept:</strong> Learned behaviors</li>
-                  </ul>
-                </div>
-                
-                <div class="bg-pink-50 p-4 rounded-lg border border-pink-200">
-                  <h4 class="font-bold text-pink-700">Psychoanalysis</h4>
-                  <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                    <li><strong>Founder:</strong> Sigmund Freud</li>
-                    <li><strong>Focus:</strong> Unconscious mind</li>
-                    <li><strong>Methods:</strong> Dream analysis</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm mt-4">
-                <h3 class="text-lg font-medium text-purple-600">Modern Perspectives</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Psychodynamic</h4>
-                    <p class="text-sm">Unconscious dynamics, childhood experiences</p>
-                  </div>
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Behavioral</h4>
-                    <p class="text-sm">Learning experiences, environment</p>
-                  </div>
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Humanistic</h4>
-                    <p class="text-sm">Free will, self-actualization</p>
-                  </div>
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Cognitive</h4>
-                    <p class="text-sm">Reasoning, memory, problem-solving</p>
-                  </div>
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Biological</h4>
-                    <p class="text-sm">Brain structures, neurotransmitters</p>
-                  </div>
-                  <div class="border p-3 rounded">
-                    <h4 class="font-bold">Sociocultural</h4>
-                    <p class="text-sm">Cultural norms, social interactions</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                <h4 class="font-medium text-yellow-800">Reflection Questions</h4>
-                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
-                  <li>How does the historical development influence current practices?</li>
-                  <li>What are key differences between early schools?</li>
-                  <li>How might insights from different perspectives be integrated?</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.4. Branches of Psychology</h2>
+            h3 {
+                font-size: 18px;
+            }
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Developmental Psychology</h3>
-                <p class="text-sm">Studies physical, cognitive, and psychological changes across the lifespan.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Social Psychology</h3>
-                <p class="text-sm">Deals with social interactions, relationships, and attitudes.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Clinical Psychology</h3>
-                <p class="text-sm">Diagnosis and treatment of psychological disorders.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Industrial Psychology</h3>
-                <p class="text-sm">Applies principles to increase productivity in organizations.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Forensic Psychology</h3>
-                <p class="text-sm">Applies principles to improve the legal system.</p>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">Health Psychology</h3>
-                <p class="text-sm">Prevention and treatment of physical illnesses.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">1.5. Research Methods in Psychology</h2>
+            .variable-box {
+                min-width: 100%;
+            }
             
-            <div class="ml-6 space-y-6">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">A. Definition of Terms</h3>
-                <ul class="list-disc pl-6 space-y-2">
-                  <li><strong>Scientific Method:</strong> Process for reducing bias through systematic observation</li>
-                  <li><strong>Theory:</strong> Integrated principles describing aspects of experience</li>
-                  <li><strong>Hypothesis:</strong> Tentative proposition about variable relationships</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 class="text-xl font-medium mb-3 text-purple-600">B. Major Research Methods</h3>
-                
-                <div class="grid md:grid-cols-3 gap-4">
-                  <div class="bg-blue-50 p-4 rounded-lg">
-                    <h4 class="font-bold text-blue-700">Descriptive Research</h4>
-                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                      <li>Naturalistic observation</li>
-                      <li>Case studies</li>
-                      <li>Surveys</li>
-                    </ul>
-                  </div>
-                  
-                  <div class="bg-green-50 p-4 rounded-lg">
-                    <h4 class="font-bold text-green-700">Correlational Research</h4>
-                    <p class="text-sm mt-2">Examines relationships between variables (correlation ≠ causation)</p>
-                  </div>
-                  
-                  <div class="bg-purple-50 p-4 rounded-lg">
-                    <h4 class="font-bold text-purple-700">Experimental Research</h4>
-                    <ul class="list-disc pl-5 space-y-1 mt-2 text-sm">
-                      <li>Independent Variable (IV)</li>
-                      <li>Dependent Variable (DV)</li>
-                      <li>Control Group</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-lg font-medium text-purple-600">C. Steps of Scientific Research</h3>
-                <ol class="list-decimal pl-6 space-y-3">
-                  <li><strong>Defining the Problem:</strong> Identifying phenomenon needing explanation</li>
-                  <li><strong>Formulating Hypothesis:</strong> Creating testable statement</li>
-                  <li><strong>Testing Hypothesis:</strong> Collecting and analyzing data</li>
-                  <li><strong>Drawing Conclusions:</strong> Making generalizations</li>
-                  <li><strong>Reporting Results:</strong> Documenting findings</li>
-                </ol>
-              </div>
-              
-              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                <h4 class="font-medium text-yellow-800">Reflection Questions</h4>
-                <ul class="list-disc pl-6 space-y-1 mt-2 text-gray-700">
-                  <li>Compare the three major research methods</li>
-                  <li>Discuss ethical procedures in research</li>
-                  <li>List the steps of conducting research</li>
-                </ul>
-              </div>
-            </div>
-          </section>
+            .amharic, .theme-box, .perspective, .research-method {
+                padding: 12px;
+            }
+        }
 
-          <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-800">Summary</h2>
-            <ul class="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Psychology is the scientific study of behavior and mental processes</li>
-              <li>Psychologists aim to describe, explain, predict, and control behavior</li>
-              <li>Evolved from early schools to modern perspectives</li>
-              <li>Applied in health, education, business, and law</li>
-              <li>Research methods include descriptive, correlational, and experimental</li>
-            </ul>
-          </div>
-
-          <div class="mt-8 bg-white p-6 rounded-lg shadow-sm">
-            <h2 class="text-2xl font-semibold mb-4 text-purple-700">Discussion Questions</h2>
-            <ol class="list-decimal pl-6 space-y-3">
-              <li>Compare and contrast the five early schools of thought in psychology</li>
-              <li>Compare and contrast the modern psychological perspectives</li>
-              <li>Reflect on the relationship between the goals of psychology and research methods</li>
-              <li>In an experiment on tutorial support:
-                <ul class="list-disc pl-6 mt-2 space-y-1">
-                  <li><strong>Dependent Variable:</strong> Students' academic performance</li>
-                  <li><strong>Independent Variable:</strong> Tutorial support</li>
-                  <li><strong>Control Group:</strong> Students without tutorial support</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 22px;
+                padding-bottom: 8px;
+            }
+            
+            h2, h3 {
+                font-size: 18px;
+            }
+            
+            p, li {
+                font-size: 16px;
+            }
+            
+            .theme-title, .perspective-title, .method-title {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What is Psychology? <span class="emoji">🤔</span></h1>
+        <p>Psychology is a science that studies human behavior and mental processes. The word itself comes from two Greek words: "psyche" (meaning soul or mind) and "logos" (meaning study). This isn't just about common sense; it uses a structured scientific method to understand why we think, feel, and act the way we do.</p>
+        
+        <p><strong>Behavior:</strong> These are the actions we can see, like talking, running, or a facial expression. <span class="emoji">👀</span></p>
+        
+        <p><strong>Mental Processes:</strong> These are the internal experiences we can't see, such as thinking, feeling, or remembering. <span class="emoji">🧠</span></p>
+        
+        <div class="amharic">
+            <h3>ሳይኮሎጂ ምንድን ነው?</h3>
+            <p>ሳይኮሎጂ የሰውን ባህሪ እና የአዕምሮ ሂደቶችን በሳይንሳዊ መንገድ የሚያጠና የትምህርት ዘርፍ ነው። ቃሉ ከሁለት የግሪክ ቃላት የመጣ ነው፡- "psyche" (ነፍስ ወይም አዕምሮ ማለት ነው) እና "logos" (ጥናት ማለት ነው)። ሳይኮሎጂ የተለመዱ አመለካከቶችን ብቻ ሳይሆን፣ አንድ ሰው ለምን እንዲህ እንደሚያደርግ ለመረዳት ሳይንሳዊ ዘዴን ይጠቀማል።</p>
+            
+            <p><strong>ባህሪ:</strong> እነዚህ በአይን የሚታዩ ድርጊቶች ናቸው፣ ለምሳሌ ማውራት፣ መሮጥ ወይም የፊት ገጽታዎች። <span class="emoji">👀</span></p>
+            
+            <p><strong>የአዕምሮ ሂደቶች:</strong> እነዚህ በቀጥታ የማይታዩት እንደ ማሰብ፣ መሰማት እና ማስታወስ ያሉ የአዕምሮ ውስጣዊ እንቅስቃሴዎች ናቸው። <span class="emoji">🧠</span></p>
         </div>
+        
+        <h2>The Four Goals of Psychology <span class="emoji">🎯</span></h2>
+        <p>Psychology has four main goals, which you can remember with the acronym D.E.P.C. (Description, Explanation, Prediction, Control). Think of them as the steps psychologists take to solve a puzzle.</p>
+        
+        <div class="theme-box">
+            <div class="theme-title"><span class="emoji">📝</span> Description</div>
+            <p>The first step is to observe and describe a behavior. You ask, "What is happening?" For example, a teacher notices a student is failing and seems to have a negative attitude.</p>
+        </div>
+        
+        <div class="theme-box">
+            <div class="theme-title"><span class="emoji">🗣️</span> Explanation</div>
+            <p>Next, you try to figure out why it's happening. This involves forming a theory. To understand the struggling student, a psychologist might talk to their family or friends.</p>
+        </div>
+        
+        <div class="theme-box">
+            <div class="theme-title"><span class="emoji">🔮</span> Prediction</div>
+            <p>Based on your findings, you try to predict what might happen in the future. A psychologist might predict that if the student doesn't get help, their academic performance won't improve.</p>
+        </div>
+        
+        <div class="theme-box">
+            <div class="theme-title"><span class="emoji">🚀</span> Control</div>
+            <p>The final goal is to change a behavior from undesirable to desirable. This is where solutions come in. A psychologist could introduce learning strategies to help the student succeed.</p>
+        </div>
+        
+        <div class="amharic">
+            <h3>የሳይኮሎጂ አራት ዋና ዋና ግቦች <span class="emoji">🎯</span></h3>
+            <p>ልክ እንደ ማንኛውም ሳይንስ፣ ሳይኮሎጂ አራት ዋና ዋና ግቦች አሉት፣ በአህጽሮት D.E.P.C. (መግለጽ፣ ማስረዳት፣ መተንበይ፣ መቆጣጠር) በሚለው ማስታወስ ይቻላል። እነዚህን ግቦች አንድን እንቆቅልሽ ለመፍታት ሳይኮሎጂስቶች የሚከተሏቸው ደረጃዎች አድርጎ ማሰብ ይቻላል።</p>
+            
+            <p><strong>መግለጽ (Description):</strong> የመጀመሪያው እርምጃ አንድን ባህሪ መመልከት እና መግለጽ ነው። "ምንድን ነው እየሆነ ያለው?" ብሎ መጠየቅ። ለምሳሌ፣ አንድ አስተማሪ ተማሪው እየወደቀ እና መጥፎ አመለካከት እንዳለው ያስተውላል። <span class="emoji">📝</span></p>
+            
+            <p><strong>ማስረዳት (Explanation):</strong> ቀጥሎ ደግሞ፣ "ለምን እየሆነ ነው?" የሚለውን ምክንያት ለማግኘት መሞከር። ለዚህም የተለያዩ ንድፈ ሐሳቦች ይፈጠራሉ። ለተቸገረው ተማሪ ምክንያት ለማግኘት፣ የሥነ ልቦና ባለሙያ ከቤተሰቡ ወይም ከጓደኞቹ ጋር ሊነጋገር ይችላል። <span class="emoji">🗣️</span></p>
+            
+            <p><strong>መተንበይ (Prediction):</strong> በተገኙት መረጃዎች ላይ ተመስርቶ፣ ወደፊት ምን ሊከሰት እንደሚችል መተንበይ። የሥነ ልቦና ባለሙያው ተማሪው እርዳታ ካላገኘ የትምህርት አፈጻጸሙ እንደማይሻሻል ሊተነብይ ይችላል። <span class="emoji">🔮</span></p>
+            
+            <p><strong>መቆጣጠር (Control):</strong> የመጨረሻው ግብ አንድን የማይፈለግ ባህሪ ወደ ተፈለገው መለወጥ ነው። ለምሳሌ፣ የሥነ ልቦና ባለሙያው ተማሪው እንዲሳካ የሚረዱ የመማሪያ ስልቶችን ሊያስተምረው ይችላል። <span class="emoji">🚀</span></p>
+        </div>
+        
+        <h2>The Roots of Psychology <span class="emoji">🏛️</span></h2>
+        <p>Psychology as a formal science began in 1879 in Germany, when Wilhelm Wundt opened the first psychological lab. He is known as the "father of modern psychology." The early years were defined by different schools of thought, each with a unique view on what psychology should study.</p>
+        
+        <h3>Early Schools of Psychology <span class="emoji">🏫</span></h3>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🤔</span> Structuralism</div>
+            <p>Led by Edward Titchener, this school wanted to break down the mind into its basic parts: sensations, images, and feelings. They used a method called introspection (looking within) to study these elements.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🏃‍♂️</span> Functionalism</div>
+            <p>Founded by William James, this perspective focused on the function of the mind—how it helps us adapt and survive in the real world. They were more interested in the practical uses of our thoughts.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🖼️</span> Gestalt Psychology</div>
+            <p>This school believed that "the whole is greater than the sum of its parts." They argued that the mind should be studied as a complete pattern, not as a collection of separate elements.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🐾</span> Behaviorism</div>
+            <p>John B. Watson and B.F. Skinner focused only on observable, measurable behaviors. They believed all behavior is learned from our environment through rewards and punishments, ignoring internal mental processes.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">❄️</span> Psychoanalysis</div>
+            <p>Sigmund Freud's perspective emphasized the power of the unconscious mind. He believed our hidden desires and childhood conflicts influence our behavior and can be uncovered through methods like dream analysis.</p>
+        </div>
+        
+        <div class="amharic">
+            <h3>የሳይኮሎጂ መነሻ <span class="emoji">🏛️</span></h3>
+            <p>ሳይኮሎጂ እንደ መደበኛ ሳይንስ የጀመረው በ1879 ጀርመን ውስጥ ዊልሄልም ውንድት የመጀመሪያውን የሥነ ልቦና ላብራቶሪ ሲከፍት ነው። እርሱም "የዘመናዊ ሳይኮሎጂ አባት" በመባል ይታወቃል። የጥንቶቹ ዓመታት ዋና ትኩረታቸው ምን መሆን አለበት በሚለው ላይ በሚከራከሩ የተለያዩ የአስተሳሰብ ትምህርት ቤቶች ተለይተዋል።</p>
+            
+            <h3>የጥንት የሳይኮሎጂ አስተሳሰቦች <span class="emoji">🏫</span></h3>
+            
+            <p><strong>ስትራክቸራሊዝም:</strong> በኤድዋርድ ቲችነር የሚመራው ይህ ትምህርት ቤት አዕምሮን ወደ መሰረታዊ ክፍሎቹ፣ ስሜቶች፣ ምስሎች እና ስሜት ለመከፋፈል ይፈልግ ነበር። ይህንንም ለማጥናት ኢንትሮስፔክሽን (ወደ ውስጥ መመልከት) የሚባል ዘዴ ይጠቀሙ ነበር። <span class="emoji">🤔</span></p>
+            
+            <p><strong>ፈንክሽናሊዝም:</strong> በዊሊያም ጄምስ የተመሰረተው ይህ አመለካከት የአዕምሮን ተግባር ላይ ያተኩራል—በእውነተኛው ዓለም እንድንላመድ እና እንድንኖር እንዴት እንደሚረዳን ይመለከታል። <span class="emoji">🏃‍♂️</span></p>
+            
+            <p><strong>ጌሽታልት ሳይኮሎጂ:</strong> ይህ አስተሳሰብ "አጠቃላይ ነገሩ ከክፍሎቹ ድምር ይበልጣል" በሚለው መርህ ላይ የተመሰረተ ነው። አዕምሮ እንደ ተናጠል ክፍሎች ስብስብ ሳይሆን እንደ አንድ ሙሉ ውቅር መታየት እንዳለበት ያምኑ ነበር። <span class="emoji">🖼️</span></p>
+            
+            <p><strong>ቢሄቪዮሪዝም:</strong> በጆን ቢ ዋትሰን የሚመራው ይህ አስተሳሰብ በሚታዩ እና በሚለኩ ባህሪዎች ላይ ብቻ ያተኩራል። ሁሉም ባህሪዎች ከአካባቢያችን የምንማራቸው ምላሾች ናቸው ብለው ያምናሉ እና የአዕምሮ ውስጣዊ ሂደቶችን ችላ ይላሉ። <span class="emoji">🐾</span></p>
+            
+            <p><strong>ሳይኮአናሊሲስ:</strong> በሲግመንድ ፍሮይድ የተመሰረተው ይህ አመለካከት የማያውቀው አዕምሮ (unconscious mind) በባህሪያችን ላይ ትልቅ ሚና እንዳለው ያስተምራል። የተደበቁ ፍላጎቶቻችን እና የልጅነት ግጭቶቻችን ባህሪያችንን እንደሚቀርጹ ያምናል። <span class="emoji">❄️</span></p>
+        </div>
+        
+        <h2>Modern Perspectives in Psychology <span class="emoji">🧠</span></h2>
+        <p>Today, psychologists use multiple viewpoints, or perspectives, to understand behavior. They are not entirely new; many grew from the early schools of thought.</p>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🌀</span> Psychodynamic</div>
+            <p>Coming from Freud's ideas, this perspective focuses on the unconscious mind and how hidden desires and childhood conflicts influence our daily behavior.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🚶‍♀️</span> Behavioral</div>
+            <p>This view emphasizes the role of the environment and how learning through rewards and punishments shapes our actions. It treats the mind as a "black box," focusing on what goes in and what comes out.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">💖</span> Humanistic</div>
+            <p>This perspective highlights our unique human qualities, focusing on free will and the goal of reaching our full potential, or self-actualization.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🧠</span> Cognitive</div>
+            <p>This perspective is all about our internal mental processes like thinking, memory, and problem-solving. It shows how our thoughts directly affect our actions and feelings.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🧬</span> Biological</div>
+            <p>This view explores how our brain, genes, and body chemistry influence our behavior, thoughts, and emotions.</p>
+        </div>
+        
+        <div class="perspective">
+            <div class="perspective-title"><span class="emoji">🌍</span> Sociocultural</div>
+            <p>This perspective looks at how social and cultural forces—like our family, friends, and community—shape our behavior and thoughts.</p>
+        </div>
+        
+        <div class="amharic">
+            <h3>ዘመናዊ የሳይኮሎጂ አመለካከቶች <span class="emoji">🧠</span></h3>
+            <p>ዛሬ የሥነ ልቦና ባለሙያዎች ባህሪን ለመረዳት ብዙ አመለካከቶችን ይጠቀማሉ። እነዚህ አመለካከቶች ከቀደሙት የአስተሳሰብ ትምህርት ቤቶች የወጡ ናቸው።</p>
+            
+            <p><strong>ሳይኮዳይናሚክስ:</strong> ከፍሮይድ ሐሳቦች የወጣ ሲሆን፣ በማያውቀው አዕምሮ እና የተደበቁ ፍላጎቶች እንዲሁም የልጅነት ግጭቶች በዕለት ተዕለት ባህሪያችን ላይ የሚያሳድሩትን ተጽዕኖ ይመለከታል። <span class="emoji">🌀</span></p>
+            
+            <p><strong>ባህሪያዊ:</strong> ይህ አመለካከት የአካባቢን እና በሽልማቶችና ቅጣቶች አማካኝነት የሚፈጠረውን የመማር ሂደት ላይ ያተኩራል። አዕምሮን እንደ "ጥቁር ሣጥን" በመመልከት፣ በውስጥ ያለውን ሂደት ችላ ይላል። <span class="emoji">🚶‍♀️</span></p>
+            
+            <p><strong>ሰብአዊነት (Humanistic):</strong> ይህ አመለካከት የሰውን ልጅ ልዩ ባህሪያት ላይ በማተኮር፣ ነጻ ፈቃድን እና ሙሉ አቅማችንን የመድረስ ፍላጎት ላይ ያተኩራል። <span class="emoji">💖</span></p>
+            
+            <p><strong>ኮግኒቲቭ (Cognitive):</strong> ይህ አመለካከት በአዕምሯችን ውስጥ በሚከናወኑ ነገሮች ላይ ነው፣ እንደ ማሰብ፣ ማስታወስ እና ችግር መፍታት። ሀሳባችን ድርጊቶቻችንን እና ስሜቶቻችንን እንዴት እንደሚነካ ያሳያል። <span class="emoji">🧠</span></p>
+            
+            <p><strong>ባዮሎጂያዊ:</strong> ይህ አመለካከት አዕምሯችን፣ ጂኖቻችን እና የሰውነት ኬሚካላዊ ምላሾች በባህሪያችን፣ በሀሳቦቻችን እና በስሜቶቻችን ላይ እንዴት ተጽዕኖ እንደሚያሳድሩ ይመረምራል። <span class="emoji">🧬</span></p>
+            
+            <p><strong>ማህበራዊ-ባህላዊ (Sociocultural):</strong> ይህ አመለካከት ማህበራዊ እና ባህላዊ ኃይሎች—እንደ ቤተሰብ፣ ጓደኞች እና ማህበረሰብ—ባህሪያችንን እና አስተሳሰባችንን እንዴት እንደሚቀርጹ ይመለከታል። <span class="emoji">🌍</span></p>
+        </div>
+        
+        <h2>Psychology's Subfields <span class="emoji">🔬</span></h2>
+        <p>Psychology is a wide field with many specializations. Here are some of the main branches:</p>
+        
+        <div class="variable-group">
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">👶➡️👴</span> Developmental Psychology</div>
+                <p>Studies how people change physically and mentally throughout their life.</p>
+            </div>
+            
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">🛋️</span> Clinical Psychology</div>
+                <p>Focuses on diagnosing and treating serious psychological disorders.</p>
+            </div>
+        </div>
+        
+        <div class="variable-group">
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">🗣️</span> Counseling Psychology</div>
+                <p>Helps individuals with less severe life problems.</p>
+            </div>
+            
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">🤝</span> Social Psychology</div>
+                <p>Examines how our relationships and social interactions affect our behavior.</p>
+            </div>
+        </div>
+        
+        <div class="variable-group">
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">🧑‍🏫</span> Educational Psychology</div>
+                <p>Applies psychological theories to improve teaching and the learning process.</p>
+            </div>
+            
+            <div class="variable-box">
+                <div class="variable-title"><span class="emoji">💼</span> Industrial Psychology</div>
+                <p>Uses psychology to improve productivity and well-being in the workplace.</p>
+            </div>
+        </div>
+        
+        <div class="amharic">
+            <h3>የሥነ ልቦና ጥናት ዘርፎች <span class="emoji">🔬</span></h3>
+            <p>የሥነ ልቦና ጥናት ብዙ ልዩ ልዩ ዘርፎች ያሉት ሰፊ መስክ ነው። ዋና ዋናዎቹም የሚከተሉት ናቸው።</p>
+            
+            <p><strong>የዕድገት ሳይኮሎጂ:</strong> ሰዎች በህይወት ዘመናቸው በአካል እና በአዕምሮ እንዴት እንደሚለወጡ ያጠናል:: <span class="emoji">👶➡️👴</span></p>
+            
+            <p><strong>ክሊኒካል ሳይኮሎጂ:</strong> ከባድ የሆኑ የስነ-ልቦና ችግሮችን ለመመርመር እና ለማከም የሚሰራ ዘርፍ ነው። <span class="emoji">🛋️</span></p>
+            
+            <p><strong>ካውንስሊንግ ሳይኮሎጂ:</strong> ብዙም ከባድ ያልሆኑ ችግሮች ያሉባቸውን ሰዎች ለመርዳት ያተኩራል። <span class="emoji">🗣️</span></p>
+            
+            <p><strong>ማህበራዊ ሳይኮሎጂ:</strong> ግንኙነቶቻችን እና ማህበራዊ መስተጋብሮቻችን በባህሪያችን ላይ እንዴት ተጽዕኖ እንደሚያሳድሩ ይመረምራል። <span class="emoji">🤝</span></p>
+            
+            <p><strong>የትምህርት ሳይኮሎጂ:</strong> የማስተማር እና የመማር ሂደቱን ለማሻሻል የስነ-ልቦና ንድፈ ሐሳቦችን ይተገብራል። <span class="emoji">🧑‍🏫</span></p>
+            
+            <p><strong>ኢንዱስትሪያል ሳይኮሎጂ:</strong> በሥራ ቦታ ምርታማነትን እና የሰራተኞችን ደህንነት ለማሻሻል የስነ-ልቦና መርሆችን ይጠቀማል። <span class="emoji">💼</span></p>
+        </div>
+        
+        <h2>Research Methods in Psychology <span class="emoji">🔬</span></h2>
+        <p>Psychology uses a scientific process to study behavior. This helps researchers reduce bias and errors. Here are the main methods.</p>
+        
+        <div class="research-method">
+            <div class="method-title"><span class="emoji">📖</span> 1. Descriptive Research</div>
+            <p>This method simply describes what the researcher observes.</p>
+            
+            <p><strong>Naturalistic Observation:</strong> Watching people in their natural environment. The downside is that people might act differently if they know they're being watched. <span class="emoji">👀</span></p>
+            
+            <p><strong>Case Study:</strong> A very detailed study of one individual. It gives a lot of information, but the findings may not apply to other people. <span class="emoji">🕵️</span></p>
+            
+            <p><strong>Survey:</strong> A quick way to collect data from a large group of people using questionnaires. A key challenge is ensuring the sample represents the whole population. <span class="emoji">📝</span></p>
+        </div>
+        
+        <div class="research-method">
+            <div class="method-title"><span class="emoji">🤝</span> 2. Correlational Research</div>
+            <p>This method measures the relationship between two or more variables (anything that can change). A correlation shows if variables are connected but doesn't prove cause and effect.</p>
+            
+            <div class="correlation">
+                <span class="correlation-emoji">⬆️⬆️</span>
+                <span><strong>Positive Correlation (+):</strong> When one variable increases, the other also increases. For example, as height increases, weight tends to increase.</span>
+            </div>
+            
+            <div class="correlation">
+                <span class="correlation-emoji">⬆️⬇️</span>
+                <span><strong>Negative Correlation (-):</strong> When one variable increases, the other decreases. For example, as time spent studying increases, test anxiety may decrease.</span>
+            </div>
+        </div>
+        
+        <div class="research-method">
+            <div class="method-title"><span class="emoji">🧪</span> 3. Experimental Research</div>
+            <p>This is the only method that can determine a cause and effect relationship. The researcher manipulates one variable and measures its effect on another.</p>
+            
+            <div class="variable-group">
+                <div class="variable-box">
+                    <div class="variable-title">Independent Variable</div>
+                    <p>The factor the researcher manipulates (e.g., class size). <span class="emoji">🧑‍🏫</span></p>
+                </div>
+                
+                <div class="variable-box">
+                    <div class="variable-title">Dependent Variable</div>
+                    <p>The factor that is measured and may change (e.g., student performance). <span class="emoji">📈</span></p>
+                </div>
+            </div>
+            
+            <div class="variable-group">
+                <div class="variable-box">
+                    <div class="variable-title">Experimental Group</div>
+                    <p>The group that experiences the manipulated factor. <span class="emoji">👥</span></p>
+                </div>
+                
+                <div class="variable-box">
+                    <div class="variable-title">Control Group</div>
+                    <p>The comparison group that does not experience the manipulated factor. <span class="emoji">👥</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="amharic">
+            <h3>በሳይኮሎጂ ውስጥ የምርምር ዘዴዎች <span class="emoji">🔬</span></h3>
+            <p>ሳይኮሎጂ ባህሪን ለማጥናት ሳይንሳዊ ሂደቶችን ይጠቀማል። ይህ ተመራማሪዎች አድሎአቸውን እንዲቀንሱ ይረዳቸዋል። ዋና ዋናዎቹ ዘዴዎችም የሚከተሉት ናቸው።</p>
+            
+            <p><strong>1. ገላጭ ምርምር (Descriptive Research):</strong> ይህ ዘዴ ተመራማሪው የሚያየውን በቀላሉ የሚገልጽ ነው።</p>
+            
+            <p><strong>የተፈጥሮአዊ ምልከታ:</strong> ሰዎችን በተፈጥሮአዊ አካባቢያቸው መመልከት። ጉዳቱ ግን ሰዎች እየተመለከቷቸው እንደሆነ ካወቁ እንደተለመደው ባህሪ ላያሳዩ ይችላሉ። <span class="emoji">👀</span></p>
+            
+            <p><strong>የጉዳይ ጥናት:</strong> አንድን ግለሰብ በጥልቀት ማጥናት። ብዙ ዝርዝር መረጃ ቢሰጥም፣ ውጤቱ ለሌሎች ሰዎች ላይተገበር ይችላል። <span class="emoji">🕵️</span></p>
+            
+            <p><strong>የዳሰሳ ጥናት:</strong> ብዙ ሰዎች ላይ መረጃ በፍጥነት ለመሰብሰብ የሚያገለግል ዘዴ ነው። ትክክለኛ ውጤት ለማግኘት የጥናቱ ናሙና በደንብ መመረጥ አለበት። <span class="emoji">📝</span></p>
+            
+            <p><strong>2. ተዛማጅነት ምርምር (Correlational Research):</strong> ይህ ዘዴ በሁለት ወይም ከዚያ በላይ ተለዋዋጮች መካከል ያለውን ግንኙነት ይለካል። ግንኙነት መኖሩን ያሳያል እንጂ ምክንያት እና ውጤት መሆኑን አያረጋግጥም።</p>
+            
+            <p><strong>አዎንታዊ ግንኙነት (+):</strong> አንድ ተለዋዋጭ ሲጨምር ሌላኛውም ይጨምራል። <span class="emoji">⬆️⬆️</span></p>
+            
+            <p><strong>አሉታዊ ግንኙነት (-):</strong> አንድ ተለዋዋጭ ሲጨምር ሌላኛው ይቀንሳል። <span class="emoji">⬆️⬇️</span></p>
+            
+            <p><strong>3. የሙከራ ምርምር (Experimental Research):</strong> ይህ ዘዴ ምክንያት እና ውጤት ግንኙነትን ለማረጋገጥ ብቸኛው ዘዴ ነው። ተመራማሪው አንድን ተለዋዋጭ ይቆጣጠርና በሌላኛው ላይ ያለውን ተጽዕኖ ይለካል።</p>
+            
+            <p><strong>ገለልተኛ ተለዋዋጭ:</strong> ተመራማሪው የሚቆጣጠረው ነገር (ለምሳሌ፣ የክፍል መጠን)። <span class="emoji">🧑‍🏫</span></p>
+            
+            <p><strong>ጥገኛ ተለዋዋጭ:</strong> የሚለካው እና ሊለወጥ የሚችለው ውጤት (ለምሳሌ፣ የተማሪ ውጤት)። <span class="emoji">📈</span></p>
+            
+            <p><strong>የሙከራ ቡድን:</strong> የተቆጣጠረውን ነገር የሚያገኝ ቡድን። <span class="emoji">👥</span></p>
+            
+            <p><strong>የቁጥጥር ቡድን:</strong> ለማነፃፀር የሚያገለግል እና የተቆጣጠረውን ነገር የማያገኝ ቡድን። <span class="emoji">👥</span></p>
+        </div>
+    </div>
+</body>
+</html>
       `
     },
    {
