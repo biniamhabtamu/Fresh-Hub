@@ -12,6 +12,27 @@ export const subjects: Subject[] = [
   },
   // Natural Science Subjects
   { 
+    id: 'logic', 
+    name: 'Logic', 
+    icon: '🧩', // Symbols representing logic
+    field: 'natural', 
+    isFree: true 
+  },
+   { 
+    id: 'psychology', 
+    name: 'Psychology', 
+    icon: '🧠', 
+    field: 'natural', 
+    isFree: false 
+  },
+    { 
+    id: 'geography', 
+    name: 'Geography', 
+    icon: '🌎', // Alternative: '🗺️'
+    field: 'natural', 
+    isFree: false 
+  },
+  { 
     id: 'english', 
     name: 'EnglishSkill1', 
     icon: '✍️', // Alternative: '📚'
@@ -19,9 +40,9 @@ export const subjects: Subject[] = [
     isFree: true 
   },
   { 
-    id: 'english2', 
-    name: 'EnglishSkill2', 
-    icon: '✍️', // Alternative: '📚'
+    id: 'physics', 
+    name: 'Physics', 
+    icon: '⚛️', // Atomic symbol
     field: 'natural', 
     isFree: false 
   },
@@ -33,16 +54,16 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'geography', 
-    name: 'Geography', 
-    icon: '🌎', // Alternative: '🗺️'
+    id: 'coc', 
+    name: 'CoC', 
+    icon: '🧮', // Alternative: '∫' (math symbol)
     field: 'natural', 
     isFree: false 
   },
   { 
-    id: 'psychology', 
-    name: 'Psychology', 
-    icon: '🧠', 
+    id: 'english2', 
+    name: 'EnglishSkill2', 
+    icon: '✍️', // Alternative: '📚'
     field: 'natural', 
     isFree: false 
   },
@@ -50,13 +71,6 @@ export const subjects: Subject[] = [
     id: 'chemistry', 
     name: 'Chemistry', 
     icon: '⚗️', // Alternative: '🧪'
-    field: 'natural', 
-    isFree: false 
-  },
-  { 
-    id: 'physics', 
-    name: 'Physics', 
-    icon: '⚛️', // Atomic symbol
     field: 'natural', 
     isFree: false 
   },
@@ -89,18 +103,18 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'inclusive', 
-    name: 'Inclusive', 
-    icon: '🤝', // Better representation of inclusion
+    id: 'entrepreneurship', 
+    name: 'Entrepreneurship', 
+    icon: '🌎', // Chart with yen symbol
     field: 'natural', 
     isFree: false 
   },
   { 
-    id: 'logic', 
-    name: 'Logic', 
-    icon: '🧩', // Symbols representing logic
+    id: 'Inclusive', 
+    name: 'Inclusive', 
+    icon: '🤝', // Better representation of inclusion
     field: 'natural', 
-    isFree: true 
+    isFree: false 
   },
    { 
     id: 'economics', 
@@ -109,9 +123,17 @@ export const subjects: Subject[] = [
     field: 'natural', 
     isFree: false 
   },
+  { 
+    id: 'GlobalTrade', 
+    name: 'Global Trade', 
+    icon: '🌎', // Chart with yen symbol
+    field: 'natural', 
+    isFree: false 
+  },
 
   // Social Science Subjects
    { 
+    
     id: 'Sample', 
     name: 'Sample', 
     icon: '📖', // Different from natural science English
@@ -119,9 +141,16 @@ export const subjects: Subject[] = [
     isFree: true 
   },
   { 
-    id: 'english', 
-    name: 'EnglishSkill2', 
-    icon: '📖', // Different from natural science English
+    id: 'psychology', 
+    name: 'Psychology', 
+    icon: '🧠', // Meditating person
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'logic', 
+    name: 'Logic', 
+    icon: '🧩', 
     field: 'social', 
     isFree: false 
   },
@@ -132,6 +161,14 @@ export const subjects: Subject[] = [
     field: 'social', 
     isFree: false 
   },
+  { 
+    id: 'english', 
+    name: 'EnglishSkill2', 
+    icon: '📖', // Different from natural science English
+    field: 'social', 
+    isFree: false 
+  },
+  
   { 
     id: 'history', 
     name: 'History', 
@@ -154,8 +191,8 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'sociology', 
-    name: 'Sociology', 
+    id: 'Anthropology', 
+    name: 'Anthropology', 
     icon: '👥', // Multiple people
     field: 'social', 
     isFree: false 
@@ -175,19 +212,20 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'psychology', 
-    name: 'Psychology', 
-    icon: '🧘', // Meditating person
+    id: 'globalTrade', 
+    name: 'Global Trade', 
+    icon: '🌎', // Chart with yen symbol
     field: 'social', 
     isFree: false 
   },
   { 
-    id: 'logic', 
-    name: 'Logic', 
-    icon: '🧩', 
+    id: 'entrepreneurship', 
+    name: 'Entrepreneurship', 
+    icon: '🌎', // Chart with yen symbol
     field: 'social', 
-    isFree: true 
+    isFree: false 
   },
+  
 ];
 
 // For even more attractive icons, consider using SVG icons from libraries like:
