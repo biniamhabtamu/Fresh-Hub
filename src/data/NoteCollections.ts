@@ -3692,18 +3692,21 @@ export const noteCollections: Subject[] = [
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f5f9fc;
         }
         
         .container {
+            width: 100%;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         h1 {
@@ -3712,6 +3715,7 @@ export const noteCollections: Subject[] = [
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
             margin-bottom: 30px;
+            font-size: 28px;
         }
         
         h2 {
@@ -3719,11 +3723,17 @@ export const noteCollections: Subject[] = [
             margin-top: 30px;
             border-left: 5px solid #3498db;
             padding-left: 15px;
+            font-size: 24px;
         }
         
         h3 {
             color: #16a085;
             margin-top: 25px;
+            font-size: 20px;
+        }
+        
+        h4 {
+            font-size: 18px;
         }
         
         .note-box {
@@ -3813,249 +3823,285 @@ export const noteCollections: Subject[] = [
             border: 1px solid #ddd;
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
             .map-elements {
                 grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            h2, h3 {
+                font-size: 18px;
+            }
+            
+            .amharic, .theme-box, .advantages, .disadvantages {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Geography: A Scientific Exploration of Our Earth</h1>
-        
-        <h2>1. What Is Geography?</h2>
-        <p>Geography is much more than just memorizing countries and capitals. It's the scientific study of the Earth, exploring how physical, biological, and human elements vary across different places and over time. Geographers analyze the intricate relationships between these elements to understand the complex tapestry of our planet.</p>
-        
-        <div class="amharic">
-            <h3>የጂኦግራፊ ትርጉም</h3>
-            <p>ጂኦግራፊ የምድርን ገጽታ ላይ �ሉ የአካላዊ፣ የባዮሎጂ እና የሰው ልጅ ክስተቶችን፣ እንዲሁም የእነዚህን ግንኙነቶች እና ተለዋዋጭነት በቦታ እና በጊዜ ውስጥ የሚያጠና የሳይንስ ዘርፍ ነው። በአጭሩ፣ ስለ �ምድራችን ሁሉን አቀፍ እና ሳይንሳዊ እይታ ይሰጣል።</p>
-        </div>
-        
-        <h2>2. The Scope and Approaches of Geography</h2>
-        <p>Geography is a holistic, interdisciplinary field that helps us understand how the Earth's spatial structures have changed and will continue to change. The scope of geography is the Earth's surface—the thin habitable zone where the atmosphere, lithosphere, hydrosphere, and biosphere all interact.</p>
-        <p>Geographers use two main approaches to study this vast field:</p>
-        <ul>
-            <li><strong>Topical (Systematic) Geography:</strong> This approach focuses on specific categories of physical or human phenomena across the Earth. For example, studying all the world's mountains or the global patterns of a specific type of agriculture.</li>
-            <li><strong>Regional Geography:</strong> This approach focuses on the associations and interrelationships of various elements within a specific region. For example, studying the climate, culture, and economy of the Horn of Africa as a single, interconnected system.</li>
-        </ul>
-        
-        <div class="amharic">
-            <h3>የጂኦግራፊ ጥናት ወሰን እና አቀራረቦች</h3>
-            <p>ጂኦግራፊ አጠቃላይ እና በርካታ የትምህርት ዘርፎችን የሚያካትት ሳይንስ ነው። የጥናቱ ወሰን ሰዎች የሚኖሩበት የምድር ገጽ ክፍል ሲሆን፣ ይህ ክፍል ደግሞ የከባቢ አየር፣ የድንጋይ ንጣፍ፣ የውሃ አካል እና የባዮስፌር መስተጋብር የሚፈጠርበት ቀጭን ዞን ነው። ጂኦግራፊን ለመረዳት ሁለት �ና ዋና አቀራረቦች አሉ፡ ቶፒካል (ሥርዓታዊ) ጂኦግራፊ (ለምሳሌ የአለምን ተራራዎች ወይም �ነየር ንብረት �ስርዓቶችን ማጥናት) እና የአካባቢ ጂኦግራፊ (ለምሳሌ የአንድን የተወሰነ አካባቢ የአየር ንብረት፣ ባህል እና ኢኮኖሚን ​​በአንድ ላይ ማጥናት)።</p>
-        </div>
-        
-        <h2>3. The Five Core Themes of Geography</h2>
-        <p>These five themes are the foundation of geographical study. They help us organize and understand information about the world.</p>
-        
-        <div class="theme-box">
-            <div class="theme-title"><span class="emoji">📍</span> A. Location</div>
-            <p>Location is simply a specific place or position. It's the starting point for geographical studies. We can describe location in two ways:</p>
+        <div class="content">
+            <h1>Geography: A Scientific Exploration of Our Earth</h1>
+            
+            <h2>1. What Is Geography?</h2>
+            <p>Geography is much more than just memorizing countries and capitals. It's the scientific study of the Earth, exploring how physical, biological, and human elements vary across different places and over time. Geographers analyze the intricate relationships between these elements to understand the complex tapestry of our planet.</p>
+            
+            <div class="amharic">
+                <h3>የጂኦግራፊ ትርጉም</h3>
+                <p>ጂኦግራፊ የምድርን ገጽታ ላይ ያሉ የአካላዊ፣ የባዮሎጂ �ና የሰው ልጅ ክስተቶችን፣ እንዲሁም የእነዚህን ግንኙነቶች እና ተለዋዋጭነት በቦታ እና በጊዜ ውስጥ የሚያጠና የሳይንስ ዘርፍ ነው። በአጭሩ፣ ስለ ምድራችን ሁሉን አቀፍ እና ሳይንሳዊ እይታ �ሰጣል።</p>
+            </div>
+            
+            <h2>2. The Scope and Approaches of Geography</h2>
+            <p>Geography is a holistic, interdisciplinary field that helps us understand how the Earth's spatial structures have changed and will continue to change. The scope of geography is the Earth's surface—the thin habitable zone where the atmosphere, lithosphere, hydrosphere, and biosphere all interact.</p>
+            <p>Geographers use two main approaches to study this vast field:</p>
             <ul>
-                <li><strong>Absolute Location:</strong> The exact, precise position of a place, given using coordinates (latitude and longitude) or a specific address. For example, the absolute location of Addis Ababa is approximately 9.03° N latitude and 38.74° E longitude.</li>
-                <li><strong>Relative Location:</strong> A place's position in relation to other places. For example, "Ethiopia is located in the Horn of Africa, east of Sudan."</li>
+                <li><strong>Topical (Systematic) Geography:</strong> This approach focuses on specific categories of physical or human phenomena across the Earth. For example, studying all the world's mountains or the global patterns of a specific type of agriculture.</li>
+                <li><strong>Regional Geography:</strong> This approach focuses on the associations and interrelationships of various elements within a specific region. For example, studying the climate, culture, and economy of the Horn of Africa as a single, interconnected system.</li>
             </ul>
             
             <div class="amharic">
-                <h3>ቦታ 📍</h3>
-                <p>ቦታ የአንድ የተወሰነ ስፍራ ወይም አቀማመጥን ያመለክታል። ቦታን በሁለት መንገድ መግለጽ ይቻላል፡ አብሶሉት (ፍፁም) ቦታ፣ እሱም የአንድ ቦታ ትክክለኛ መጋጠሚያ (ለምሳሌ በኬክሮስና ኬንትሮስ) የሚገለጽ ሲሆን፣ ሪላቲቭ (አንፃራዊ) ቦታ ደግሞ የአንድን ቦታ አቀማመጥ ከሌሎች ቦታዎች ጋር በማነጻጸር የሚገልጽ ነው።</p>
+                <h3>የጂኦግራፊ ጥናት ወሰን እና አቀራረቦች</h3>
+                <p>ጂኦግራፊ አጠቃላይ እና በርካታ የትምህርት ዘርፎችን የሚያካትት ሳይንስ ነው። የጥናቱ ወሰን ሰዎች የሚኖሩበት የምድር ገጽ ክፍል ሲሆን፣ ይህ ክፍል �ግሞ የከባቢ አየር፣ የድንጋይ ንጣፍ፣ የውሃ አካል እና የባዮስፌር መስተጋብር የሚፈጠርበት ቀጭን ዞን ነው። ጂኦግራፊን ለመረዳት ሁለት ዋና ዋና አቀራረቦች አሉ፡ ቶፒካል (ሥርዓታዊ) ጂኦግራፊ (ለምሳሌ የአለምን ተራራዎች ወይም የአየር ንብረት ስርዓቶችን ማጥናት) እና የአካባቢ ጂኦግራፊ (ለምሳሌ የአንድን የተወሰነ አካባቢ የአየር ንብረት፣ ባህል እና ኢኮኖሚን ​​በአንድ ላይ ማጥናት)።</p>
             </div>
-        </div>
-        
-        <div class="theme-box">
-            <div class="theme-title"><span class="emoji">🏙️</span> B. Place</div>
-            <p>Place refers to a location's unique physical and human characteristics. Every place has its own identity, shaped by its landforms, water bodies, plants, and human population, including their culture and way of life.</p>
+            
+            <h2>3. The Five Core Themes of Geography</h2>
+            <p>These five themes are the foundation of geographical study. They help us organize and understand information about the world.</p>
+            
+            <div class="theme-box">
+                <div class="theme-title"><span class="emoji">📍</span> A. Location</div>
+                <p>Location is simply a specific place or position. It's the starting point for geographical studies. We can describe location in two ways:</p>
+                <ul>
+                    <li><strong>Absolute Location:</strong> The exact, precise position of a place, given using coordinates (latitude and longitude) or a specific address. For example, the absolute location of Addis Ababa is approximately 9.03° N latitude and 38.74° E longitude.</li>
+                    <li><strong>Relative Location:</strong> A place's position in relation to other places. For example, "Ethiopia is located in the Horn of Africa, east of Sudan."</li>
+                </ul>
+                
+                <div class="amharic">
+                    <h3>ቦታ 📍</h3>
+                    <p>ቦታ የአንድ የተወሰነ ስፍራ ወይም አቀማመጥን ያመለክታል። ቦታን በሁለት መንገድ መግለጽ ይቻላል፡ አብሶሉት (ፍፁም) ቦታ፣ እሱም የአንድ ቦታ ትክክለኛ መጋጠሚያ (ለምሳሌ በኬክሮስና ኬንትሮስ) የሚገለጽ ሲሆን፣ ሪላቲቭ (አንፃራዊ) ቦታ ደግሞ የአንድን ቦታ አቀማመጥ ከሌሎች ቦታዎች ጋር በማነጻጸር የሚገልጽ ነው።</p>
+                </div>
+            </div>
+            
+            <div class="theme-box">
+                <div class="theme-title"><span class="emoji">🏙️</span> B. Place</div>
+                <p>Place refers to a location's unique physical and human characteristics. Every place has its own identity, shaped by its landforms, water bodies, plants, and human population, including their culture and way of life.</p>
+                
+                <div class="amharic">
+                    <h3>ስፍራ 🏙️</h3>
+                    <p>ስፍራ የአንድን ቦታ አካላዊና ሰብአዊ ገጽታዎችን ያመለክታል። እያንዳንዱ ስፍራ የራሱ የሆነ ማንነት ያለው ሲሆን፣ ይህ ማንነት በምድሩ አቀማመጥ፣ በውሃ አካሎቹ፣ በእፅዋት እና በሰዎች ብዛትና ባህል �ገለጻል። ጂኦግራፊያዊ ስፍራዎችን ለማወዳደር �ና ለመለየት ይረዳል።</p>
+                </div>
+            </div>
+            
+            <div class="theme-box">
+                <div class="theme-title"><span class="emoji">🤝</span> C. Human-Environment Interaction</div>
+                <p>This theme explores the dynamic relationship between people and their natural surroundings. Humans impact the environment and, in turn, are influenced by it. This interaction involves three key aspects:</p>
+                <ul>
+                    <li><strong>Dependency:</strong> Humans rely on nature for essentials like food, water, and shelter.</li>
+                    <li><strong>Adaptation:</strong> People change their lifestyles and behavior to fit a new environment (e.g., wearing warm clothes in cold climates).</li>
+                    <li><strong>Modification:</strong> Humans change the environment to suit their needs, such as building dams or clearing forests for farming.</li>
+                </ul>
+                
+                <div class="amharic">
+                    <h3>የሰው ልጅ እና የተፈጥሮ መስተጋብር 🤝</h3>
+                    <p>ይህ የጥናት ክፍል በሰው ልጆች እና በተፈጥሮ አካባቢያቸው መካከል ያለውን ዘላቂ ግንኙነት ይመለከታል። ይህ ግንኙነት በሶስት ገጽታዎች ይገለጻል፡ ጥገኝነት (በተፈጥሮ ላይ ለኑሮ መመካት)፣ መላመድ (አኗኗራችንን ለአካባቢው መቀየር) እና ለውጥ (አካባቢን ለፍላጎታችን ማስተካከል ለምሳሌ ግድብ መገንባት)።</p>
+                </div>
+            </div>
+            
+            <div class="theme-box">
+                <div class="theme-title"><span class="emoji">✈️</span> D. Movement</div>
+                <p>Movement is all about the translocation of people, goods, and ideas from one location to another. This theme is crucial for understanding how human civilization has spread and developed. The movement of people allowed humans to inhabit all parts of the globe, the movement of goods facilitates trade, and the movement of ideas promotes the growth of knowledge, culture, and technology.</p>
+                
+                <div class="amharic">
+                    <h3>እንቅስቃሴ ✈️</h3>
+                    <p>እንቅስቃሴ የሰው ልጆች፣ እቃዎች እና ሃሳቦች ከአንዱ ቦታ ወደ ሌላው የሚጓዙበትን ሁኔታ ያመለክታል። ይህ የሰው ልጅ ስልጣኔ እንዴት እንደተስፋፋ እና እንዳደገ ለመረዳት አስፈላጊ ነው። ይህ እንቅስቃሴ የሰዎችን መዛወር፣ የእቃዎች መጓጓዣ እና የሃሳቦች መስፋፋትን ያካትታል።</p>
+                </div>
+            </div>
+            
+            <div class="theme-box">
+                <div class="theme-title"><span class="emoji">🌐</span> E. Region</div>
+                <p>A region is a geographic area with distinctive characteristics that set it apart from neighboring areas. Regions can be defined in two ways:</p>
+                <ul>
+                    <li><strong>Formal Region:</strong> An area with a shared, uniform characteristic, such as a country with a single government or a climate zone with similar temperature and rainfall patterns.</li>
+                    <li><strong>Functional (Nodal) Region:</strong> An area organized around a central point or "node" and defined by the connections within it, like a city and its surrounding suburbs linked by transportation or economic ties.</li>
+                </ul>
+                
+                <div class="amharic">
+                    <h3>ክልል 🌐</h3>
+                    <p>ክልል በአጎራባች ስፍራዎች ከሚለየው የተለየ ባህሪ ያለው ጂኦግራፊያዊ አካባቢ ነው። ክልሎች በሁለት መልኩ ሊገለጹ ይችላሉ፡ ፎርማል (መደበኛ) ክልል፣ እሱም በአንድ አይነት ባህሪ (ለምሳሌ የአየር ሁኔታ ወይም ቋንቋ) የሚገለጽ ሲሆን፣ ፈንክሽናል (ተግባራዊ) ክልል ደግሞ በአንድ ማዕከላዊ ነጥብ ዙሪያ በተፈጠሩ ግንኙነቶች (ለምሳሌ ከተማና የአካባቢዋ የትራንስፖርት ግንኙነት) የሚገለጽ ነው።</p>
+                </div>
+            </div>
+            
+            <h2>Ethiopia and the Horn of Africa: Location, Shape, and Size</h2>
+            
+            <h3>1. The Horn of Africa <span class="emoji">🌍</span></h3>
+            <p>The Horn of Africa is the easternmost extension of the African continent. It is home to four countries: Djibouti, Eritrea, Ethiopia, and Somalia. These nations share deep cultural and historical ties. Among them, Ethiopia is the largest in size, while Djibouti is the smallest.</p>
             
             <div class="amharic">
-                <h3>ስፍራ 🏙️</h3>
-                <p>ስፍራ የአንድን ቦታ አካላዊና ሰብአዊ ገጽታዎችን ያመለክታል። እያንዳንዱ ስፍራ የራሱ �ነው ማንነት ያለው ሲሆን፣ ይህ ማንነት በምድሩ አቀማመጥ፣ በውሃ አካሎቹ፣ በእፅዋት እና በሰዎች ብዛትና ባህል ይገለጻል። ጂኦግራፊያዊ ስፍራዎችን ለማወዳደር እና ለመለየት ይረዳል።</p>
+                <h3>የአፍሪካ ቀንድ</h3>
+                <p>የአፍሪካ ቀንድ የአፍሪካ አህጉር ወደ ምስራቅ የምትዘረጋ ጠባብ ክፍል ሲሆን፣ ጅቡቲ፣ ኤርትራ፣ ኢትዮጵያ እና ሶማሊያ የተባሉ ሀገራትን ያቀፈ ነው። እነዚህ ሀገራት ረዥም የጋራ ታሪክ እና ባህል አላቸው። ከነዚህ ሀገራት ኢትዮጵያ በስፋት ትልቋ ስትሆን፣ ጅቡቲ ደግሞ ትንሿ ነች።</p>
             </div>
-        </div>
-        
-        <div class="theme-box">
-            <div class="theme-title"><span class="emoji">🤝</span> C. Human-Environment Interaction</div>
-            <p>This theme explores the dynamic relationship between people and their natural surroundings. Humans impact the environment and, in turn, are influenced by it. This interaction involves three key aspects:</p>
+            
+            <h3>2. Location of Ethiopia <span class="emoji">📍</span></h3>
+            <p>A country's location can be described in two ways: astronomical and relative.</p>
+            
+            <h4>A. Astronomical Location</h4>
+            <p>This is also known as absolute or mathematical location. It uses lines of latitude and longitude to give a precise position. Ethiopia is located between 3°N and 15°N latitudes and 33°E to 48°E longitudes.</p>
+            <p><strong>Impact of Latitude:</strong> Because Ethiopia is located between the Equator and the Tropic of Cancer, it has a tropical climate, though this is significantly modified by its high altitude.</p>
+            <p><strong>Impact of Longitude:</strong> The longitudinal extension of 15 degrees means there's a difference of one hour between the country's most eastern and western points. For convenience, the whole country uses a single time zone (GMT+3).</p>
+            
+            <div class="amharic">
+                <h3>የኢትዮጵያ ቦታ አቀማመጥ</h3>
+                <p>የኢትዮጵያ ቦታ በሁለት መንገድ ይገለጻል፡- በአስትሮኖሚካል (ፍጹም) እና በሪላቲቭ (አንፃራዊ) አቀማመጥ።</p>
+                <p><strong>የአስትሮኖሚካል ቦታ:</strong> ይህ ቦታ በኬክሮስና ኬንትሮስ መስመሮች በመጠቀም የሚሰጥ ትክክለኛ አቀማመጥ ነው። ኢትዮጵያ በ3°ሰ እና በ15°ሰ ኬክሮስ እና በ33°ም እና በ48°ም ኬንትሮስ መካከል ትገኛለች። የኬክሮስ አቀማመጥ ኢትዮጵያ �ሐሩር የአየር ንብረት እንዲኖራት ያደርጋል።</p>
+            </div>
+            
+            <h4>B. Relative Location</h4>
+            <p>This describes a country's location in relation to other countries, landmasses, or water bodies.</p>
+            <p><strong>Neighbors:</strong> Ethiopia is bordered by Eritrea to the north, Djibouti and Somalia to the east, Kenya to the south, and Sudan and South Sudan to the west.</p>
+            <p><strong>Wider Context:</strong> Ethiopia is located in the Horn of Africa, southwest of the Arabian Peninsula, and in the Nile Basin.</p>
+            <p>This unique location has several implications:</p>
             <ul>
-                <li><strong>Dependency:</strong> Humans rely on nature for essentials like food, water, and shelter.</li>
-                <li><strong>Adaptation:</strong> People change their lifestyles and behavior to fit a new environment (e.g., wearing warm clothes in cold climates).</li>
-                <li><strong>Modification:</strong> Humans change the environment to suit their needs, such as building dams or clearing forests for farming.</li>
+                <li><strong>Climate:</strong> Its position relative to the Indian and Atlantic Oceans, and the African and Asian landmasses, plays a huge role in its climate patterns.</li>
+                <li><strong>Socio-cultural:</strong> Ethiopia's proximity to the Middle East meant it was one of the earliest places to receive major world religions like Christianity and Islam.</li>
+                <li><strong>Political:</strong> Its strategic position near the Red Sea—a major global trade route—has often made it a focus of geopolitical interest, leading to both challenges and opportunities.</li>
             </ul>
             
             <div class="amharic">
-                <h3>የሰው ልጅ እና የተፈጥሮ መስተጋብር 🤝</h3>
-                <p>ይህ የጥናት ክፍል በሰው ልጆች እና በተፈጥሮ �ካባቢያቸው መካከል ያለውን ዘላቂ ግንኙነት ይመለከታል። ይህ ግንኙነት በሶስት ገጽታዎች ይገለጻል፡ ጥገኝነት (በተፈጥሮ ላይ ለኑሮ መመካት)፣ መላመድ (አኗኗራችንን ለአካባቢው መቀየር) እና ለውጥ (አካባቢን ለፍላጎታችን ማስተካከል ለምሳሌ ግድብ መገንባት)።</p>
+                <h3>አንፃራዊ ቦታ</h3>
+                <p>ይህ የአንድን ሀገር ቦታ ከሌሎች ሀገሮች፣ አህጉራት ወይም የውሃ አካላት ጋር በማነፃፀር የሚገለጽ ነው። ኢትዮጵያ በአፍሪካ ቀንድ ውስጥ የምትገኝ ሲሆን፣ በጎረቤት ሀገሮች፣ በቀይ ባህር አቅራቢያ እና በናይል ተፋሰስ ውስጥ መገኘቷ ለአየር ንብረቷ፣ ለባህሏ እና ለፖለቲካዊ ታሪኳ ትልቅ አስተዋፅዖ አለው።</p>
             </div>
-        </div>
-        
-        <div class="theme-box">
-            <div class="theme-title"><span class="emoji">✈️</span> D. Movement</div>
-            <p>Movement is all about the translocation of people, goods, and ideas from one location to another. This theme is crucial for understanding how human civilization has spread and developed. The movement of people allowed humans to inhabit all parts of the globe, the movement of goods facilitates trade, and the movement of ideas promotes the growth of knowledge, culture, and technology.</p>
+            
+            <h3>3. Size of Ethiopia <span class="emoji">📏</span></h3>
+            <p>With a total area of approximately 1,106,000 square kilometers, Ethiopia is the 8th largest country in Africa. This large size has both advantages and disadvantages.</p>
+            
+            <div class="advantages">
+                <h4>Advantages 👍</h4>
+                <ul>
+                    <li><strong>Diverse Agro-Ecological Zones:</strong> The large area creates a variety of climates and environments suitable for different types of agriculture.</li>
+                    <li><strong>Abundant Resources:</strong> A large landmass often means a wider variety of natural resources.</li>
+                    <li><strong>Extensive Arable Land:</strong> More land is available for farming, which is vital for a country with a large population.</li>
+                    <li><strong>Larger Population:</strong> A bigger country can support a larger population, providing a larger workforce and consumer base.</li>
+                    <li><strong>Defense:</strong> It offers a greater depth for military defense against external invasion.</li>
+                </ul>
+            </div>
+            
+            <div class="disadvantages">
+                <h4>Disadvantages 👎</h4>
+                <ul>
+                    <li><strong>Infrastructure Costs:</strong> It costs a lot of money to build roads, railways, and other infrastructure across such a vast territory.</li>
+                    <li><strong>Difficult Administration:</strong> Managing and governing a large area effectively can be a challenge.</li>
+                    <li><strong>Security Concerns:</strong> Protecting a long border requires a large army and significant resources.</li>
+                    <li><strong>Socio-economic Integration:</strong> It can be difficult to connect all parts of the country socially and economically.</li>
+                </ul>
+            </div>
             
             <div class="amharic">
-                <h3>እንቅስቃሴ ✈️</h3>
-                <p>እንቅስቃሴ የሰው ልጆች፣ እቃዎች እና ሃሳቦች ከአንዱ ቦታ ወደ ሌላው የሚጓዙበትን ሁኔታ ያመለክታል። ይህ የሰው ልጅ ስልጣኔ እንዴት እንደተስፋፋ እና እንዳደገ ለመረዳት አስፈላጊ ነው። ይህ እንቅስቃሴ የሰዎችን መዛወር፣ የእቃዎች መጓጓዣ እና የሃሳቦች መስፋፋትን ያካትታል።</p>
+                <h3>የኢትዮጵያ ስፋት 📏</h3>
+                <p>ኢትዮጵያ ወደ 1,106,000 ካሬ ኪሎሜትር ስፋት ያላት ሲሆን፣ በአፍሪካ 8ኛዋ ትልቁ ሀገር ነች።</p>
+                <p><strong>ጥቅሞች:</strong> ሰፊ ቦታው የተለያዩ የእርሻ ስነ-ምህዳሮችን፣ ብዙ የተፈጥሮ ሀብቶችን እና ሰፊ የእርሻ መሬትን እንዲኖራት አድርጓታል። እንዲሁም ለውጭ ወረራ ከመከላከል አንፃር ትልቅ ጠቀሜታ አለው።</p>
+                <p><strong>ጉዳቶች:</strong> ሰፊ ቦታው በመሠረተ ልማት ግንባታ ላይ ከፍተኛ ወጪን ይጠይቃል፣ ሀገሪቱን በአስተዳደር ረገድ አስቸጋሪ ያደርጋል፣ እንዲሁም የህብረተሰብ እና የኢኮኖሚ ትስስርን ያደናቅፋል።</p>
             </div>
-        </div>
-        
-        <div class="theme-box">
-            <div class="theme-title"><span class="emoji">🌐</span> E. Region</div>
-            <p>A region is a geographic area with distinctive characteristics that set it apart from neighboring areas. Regions can be defined in two ways:</p>
+            
+            <h3>4. The Shape of Ethiopia: Implications and Analysis</h3>
+            <p>Countries have different shapes, such as compact, fragmented, elongated, perforated, and protruded. Ethiopia has a compact shape, which is generally considered advantageous. A compact shape means the distance from the center to any of its borders is relatively uniform.</p>
+            
+            <h4>Implications of Ethiopia's Compact Shape</h4>
+            <p>A country's shape has significant impacts on its administration, defense, and economic integration.</p>
             <ul>
-                <li><strong>Formal Region:</strong> An area with a shared, uniform characteristic, such as a country with a single government or a climate zone with similar temperature and rainfall patterns.</li>
-                <li><strong>Functional (Nodal) Region:</strong> An area organized around a central point or "node" and defined by the connections within it, like a city and its surrounding suburbs linked by transportation or economic ties.</li>
+                <li><strong>Defense:</strong> A compact shape makes it easier to defend the country's borders because military forces can be deployed quickly and efficiently from a central point to any border area.</li>
+                <li><strong>Socio-economic Integration:</strong> Compactness facilitates easier movement of people, goods, and ideas within the country, which promotes national unity and economic development.</li>
+                <li><strong>Administration:</strong> A compact shape simplifies the administration of the country from a central government, making it easier to manage and enforce laws across the nation.</li>
             </ul>
             
             <div class="amharic">
-                <h3>ክልል 🌐</h3>
-                <p>ክልል በአጎራባች ስፍራዎች ከሚለየው የተለየ ባህሪ ያለው ጂኦግራፊያዊ አካባቢ ነው። ክልሎች በሁለት መልኩ ሊገለጹ ይችላሉ፡ ፎርማል (መደበኛ) ክልል፣ እሱም በአንድ አይነት ባህሪ (ለምሳሌ የአየር ሁኔታ ወይም ቋንቋ) የሚገለጽ ሲሆን፣ ፈንክሽናል (ተግባራዊ) ክልል ደግሞ በአንድ ማዕከላዊ ነጥብ ዙሪያ በተፈጠሩ ግንኙነቶች (ለምሳሌ ከተማና የአካባቢዋ የትራንስፖርት ግንኙነት) የሚገለጽ ነው።</p>
+                <h3>የኢትዮጵያ ቅርፅ እና አንድምታው</h3>
+                <p>የአንድ ሀገር ቅርፅ በአስተዳደሩ፣ በመከላከሉ እና በኢኮኖሚ ውህደቱ ላይ ትልቅ ተጽእኖ አለው። ኢትዮጵያ ኮምፓክት (የተሰበሰበ) ቅርፅ አላት፣ ይህም በአጠቃላይ ጠቀሜታ አለው።</p>
+                <p><strong>መከላከያ:</strong> ወታደራዊ ኃይሎችን በቀላሉ ወደ ድንበር በማንቀሳቀስ ሀገርን ለመከላከል ቀላል ያደርጋል።</p>
+                <p><strong>ማህበራዊ-ኢኮኖሚያዊ ውህደት:</strong> የሰዎችና የእቃዎች እንቅስቃሴን ስለሚያቀልል የሀገር ውስጥ ትስስርን ያጠናክራል እንዲሁም የኢኮኖሚ እድገትን ያግዛል።</p>
+                <p><strong>አስተዳደር:</strong> ማዕከላዊ መንግሥት አገሪቱን ለማስተዳደር እና ህግን ለማስፈፀም ቀላል ያደርገዋል።</p>
             </div>
-        </div>
-        
-        <h2>Ethiopia and the Horn of Africa: Location, Shape, and Size</h2>
-        
-        <h3>1. The Horn of Africa <span class="emoji">🌍</span></h3>
-        <p>The Horn of Africa is the easternmost extension of the African continent. It is home to four countries: Djibouti, Eritrea, Ethiopia, and Somalia. These nations share deep cultural and historical ties. Among them, Ethiopia is the largest in size, while Djibouti is the smallest.</p>
-        
-        <div class="amharic">
-            <h3>የአፍሪካ ቀንድ</h3>
-            <p>የአፍሪካ ቀንድ የአፍሪካ አህጉር ወደ ምስራቅ የምትዘረጋ ጠባብ ክፍል ሲሆን፣ ጅቡቲ፣ ኤርትራ፣ ኢትዮጵያ እና ሶማሊያ የተባሉ ሀገራትን ያቀፈ ነው። እነዚህ ሀገራት ረዥም የጋራ ታሪክ እና ባህል አላቸው። ከነዚህ ሀገራት ኢትዮጵያ በስፋት ትልቋ �ስትሆን፣ ጅቡቲ ደግሞ ትንሿ ነች።</p>
-        </div>
-        
-        <h3>2. Location of Ethiopia <span class="emoji">📍</span></h3>
-        <p>A country's location can be described in two ways: astronomical and relative.</p>
-        
-        <h4>A. Astronomical Location</h4>
-        <p>This is also known as absolute or mathematical location. It uses lines of latitude and longitude to give a precise position. Ethiopia is located between 3°N and 15°N latitudes and 33°E to 48°E longitudes.</p>
-        <p><strong>Impact of Latitude:</strong> Because Ethiopia is located between the Equator and the Tropic of Cancer, it has a tropical climate, though this is significantly modified by its high altitude.</p>
-        <p><strong>Impact of Longitude:</strong> The longitudinal extension of 15 degrees means there's a difference of one hour between the country's most eastern and western points. For convenience, the whole country uses a single time zone (GMT+3).</p>
-        
-        <div class="amharic">
-            <h3>የኢትዮጵያ ቦታ አቀማመጥ</h3>
-            <p>የኢትዮጵያ ቦታ በሁለት መንገድ ይገለጻል፡- በአስትሮኖሚካል (ፍጹም) እና በሪላቲቭ (አንፃራዊ) አቀማመጥ።</p>
-            <p><strong>የአስትሮኖሚካል ቦታ:</strong> ይህ ቦታ በኬክሮስና ኬንትሮስ መስመሮች በመጠቀም የሚሰጥ ትክክለኛ አቀማመጥ ነው። ኢትዮጵያ በ3°ሰ እና በ15°ሰ ኬክሮስ እና በ33°ም እና በ48°ም ኬንትሮስ መካከል ትገኛለች። የኬክሮስ አቀማመጥ ኢትዮጵያ የሐሩር የአየር ንብረት እንዲኖራት ያደርጋል።</p>
-        </div>
-        
-        <h4>B. Relative Location</h4>
-        <p>This describes a country's location in relation to other countries, landmasses, or water bodies.</p>
-        <p><strong>Neighbors:</strong> Ethiopia is bordered by Eritrea to the north, Djibouti and Somalia to the east, Kenya to the south, and Sudan and South Sudan to the west.</p>
-        <p><strong>Wider Context:</strong> Ethiopia is located in the Horn of Africa, southwest of the Arabian Peninsula, and in the Nile Basin.</p>
-        <p>This unique location has several implications:</p>
-        <ul>
-            <li><strong>Climate:</strong> Its position relative to the Indian and Atlantic Oceans, and the African and Asian landmasses, plays a huge role in its climate patterns.</li>
-            <li><strong>Socio-cultural:</strong> Ethiopia's proximity to the Middle East meant it was one of the earliest places to receive major world religions like Christianity and Islam.</li>
-            <li><strong>Political:</strong> Its strategic position near the Red Sea—a major global trade route—has often made it a focus of geopolitical interest, leading to both challenges and opportunities.</li>
-        </ul>
-        
-        <div class="amharic">
-            <h3>አንፃራዊ ቦታ</h3>
-            <p>ይህ የአንድን ሀገር ቦታ ከሌሎች ሀገሮች፣ አህጉራት ወይም የውሃ አካላት ጋር በማነፃፀር የሚገለጽ ነው። ኢትዮጵያ በአፍሪካ ቀንድ ውስጥ የምትገኝ ሲሆን፣ በጎረቤት ሀገሮች፣ በቀይ ባህር አቅራቢያ እና በናይል ተፋሰስ ውስጥ መገኘቷ ለአየር ንብረቷ፣ �ለባህሏ እና ለፖለቲካዊ ታሪኳ ትልቅ አስተዋፅዖ አለው።</p>
-        </div>
-        
-        <h3>3. Size of Ethiopia <span class="emoji">📏</span></h3>
-        <p>With a total area of approximately 1,106,000 square kilometers, Ethiopia is the 8th largest country in Africa. This large size has both advantages and disadvantages.</p>
-        
-        <div class="advantages">
-            <h4>Advantages 👍</h4>
+            
+            <h4>Measuring the Shape of Countries</h4>
+            <p>To measure how "compact" a country is, geographers use several indices. These indices measure how much a country's shape deviates from a perfect circle, which is the most compact shape.</p>
             <ul>
-                <li><strong>Diverse Agro-Ecological Zones:</strong> The large area creates a variety of climates and environments suitable for different types of agriculture.</li>
-                <li><strong>Abundant Resources:</strong> A large landmass often means a wider variety of natural resources.</li>
-                <li><strong>Extensive Arable Land:</strong> More land is available for farming, which is vital for a country with a large population.</li>
-                <li><strong>Larger Population:</strong> A bigger country can support a larger population, providing a larger workforce and consumer base.</li>
-                <li><strong>Defense:</strong> It offers a greater depth for military defense against external invasion.</li>
+                <li><strong>Area-Boundary Ratio (A/B Ratio):</strong> This compares the country's total area to the length of its boundary. A higher ratio indicates greater compactness. Ethiopia has a high A/B ratio (210.27), showing its compact nature.</li>
+                <li><strong>Boundary-Circumference Ratio (B/C Ratio):</strong> This compares the length of a country's boundary to the circumference of a circle with the same area. The closer the ratio is to 1, the more compact the country. Ethiopia's ratio is 1.41, which is relatively close to 1.</li>
             </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>Disadvantages 👎</h4>
+            
+            <div class="amharic">
+                <h3>የሀገሮችን ቅርፅ መለኪያ</h3>
+                <p>የሀገሮችን ቅርፅ ለመለካት የተለያዩ ስሌቶች ጥቅም ላይ ይውላሉ። እነዚህ ስሌቶች የአንድ ሀገር ቅርፅ ከክብ ቅርፅ ምን ያህል እንደሚርቅ ይለካሉ። ለምሳሌ፣ የቦታ እና የድንበር ርዝመት ጥምርታ (A/B Ratio) ሲሆን፣ መጠኑ ከፍ ባለ ቁጥር ሀገሪቱ ይበልጥ የተሰበሰበች ትሆናለች። ኢትዮጵያ 210.27 ጥምርታ አላት።</p>
+            </div>
+            
+            <h2>5. Basic Skills of Map Reading</h2>
+            <p>A map is a two-dimensional, scaled representation of a part or the whole of the Earth's surface. Maps are essential tools for geographers and many other disciplines because they help us visualize and analyze geographical information that can't be easily seen in person.</p>
+            
+            <h3>Key Elements of a Map (Marginal Information)</h3>
+            <p>To read a map effectively, you need to understand its key elements, which are usually found around the map's margin.</p>
+            
+            <div class="map-elements">
+                <div class="map-element">
+                    <strong>Title:</strong> Tells you what the map is about.
+                </div>
+                <div class="map-element">
+                    <strong>Key (Legend):</strong> Explains what the symbols and colors on the map mean.
+                </div>
+                <div class="map-element">
+                    <strong>Scale:</strong> Shows the ratio between the distance on the map and the actual distance on the ground. It can be a written statement, a representative fraction (e.g., 1:50,000), or a linear bar.
+                </div>
+                <div class="map-element">
+                    <strong>North Arrow:</strong> Indicates which direction is north on the map, helping you orient yourself.
+                </div>
+                <div class="map-element">
+                    <strong>Margin:</strong> The frame of the map that defines the mapped area.
+                </div>
+                <div class="map-element">
+                    <strong>Date of Compilation:</strong> Tells you when the map was made, which is important for knowing if the information is current.
+                </div>
+            </div>
+            
+            <h3>Principles of Map Reading</h3>
             <ul>
-                <li><strong>Infrastructure Costs:</strong> It costs a lot of money to build roads, railways, and other infrastructure across such a vast territory.</li>
-                <li><strong>Difficult Administration:</strong> Managing and governing a large area effectively can be a challenge.</li>
-                <li><strong>Security Concerns:</strong> Protecting a long border requires a large army and significant resources.</li>
-                <li><strong>Socio-economic Integration:</strong> It can be difficult to connect all parts of the country socially and economically.</li>
+                <li><strong>Symbol Visualization:</strong> You must be able to translate map symbols into real-world features. For example, understanding that a blue line on a map represents a river.</li>
+                <li><strong>Direction:</strong> Always locate the North Arrow first to orient yourself correctly. Once you know north, you can determine all other directions.</li>
+                <li><strong>Grid System:</strong> Maps often have a grid of lines with numbers. These numbers form a grid reference, which allows you to pinpoint a specific location with high accuracy.</li>
             </ul>
-        </div>
-        
-        <div class="amharic">
-            <h3>የኢትዮጵያ ስፋት 📏</h3>
-            <p>ኢትዮጵያ ወደ 1,106,000 ካሬ ኪሎሜትር ስፋት ያላት ሲሆን፣ በአፍሪካ 8ኛዋ ትልቁ ሀገር ነች።</p>
-            <p><strong>ጥቅሞች:</strong> ሰፊ ቦታው የተለያዩ የእርሻ ስነ-ምህዳሮችን፣ ብዙ የተፈጥሮ ሀብቶችን እና ሰፊ የእርሻ መሬትን እንዲኖራት አድርጓታል። እንዲሁም ለውጭ ወረራ ከመከላከል አንፃር ትልቅ ጠቀሜታ አለው።</p>
-            <p><strong>ጉዳቶች:</strong> ሰፊ ቦታው በመሠረተ ልማት ግንባታ ላይ ከፍተኛ ወጪን ይጠይቃል፣ ሀገሪቱን በአስተዳደር ረገድ አስቸጋሪ ያደርጋል፣ እንዲሁም የህብረተሰብ እና የኢኮኖሚ ትስስርን ያደናቅፋል።</p>
-        </div>
-        
-        <h3>4. The Shape of Ethiopia: Implications and Analysis</h3>
-        <p>Countries have different shapes, such as compact, fragmented, elongated, perforated, and protruded. Ethiopia has a compact shape, which is generally considered advantageous. A compact shape means the distance from the center to any of its borders is relatively uniform.</p>
-        
-        <h4>Implications of Ethiopia's Compact Shape</h4>
-        <p>A country's shape has significant impacts on its administration, defense, and economic integration.</p>
-        <ul>
-            <li><strong>Defense:</strong> A compact shape makes it easier to defend the country's borders because military forces can be deployed quickly and efficiently from a central point to any border area.</li>
-            <li><strong>Socio-economic Integration:</strong> Compactness facilitates easier movement of people, goods, and ideas within the country, which promotes national unity and economic development.</li>
-            <li><strong>Administration:</strong> A compact shape simplifies the administration of the country from a central government, making it easier to manage and enforce laws across the nation.</li>
-        </ul>
-        
-        <div class="amharic">
-            <h3>የኢትዮጵያ ቅርፅ እና አንድምታው</h3>
-            <p>የአንድ ሀገር ቅርፅ በአስተዳደሩ፣ በመከላከሉ እና በኢኮኖሚ ውህደቱ ላይ ትልቅ ተጽእኖ አለው። ኢትዮጵያ ኮምፓክት (የተሰበሰበ) ቅርፅ አላት፣ ይህም በአጠቃላይ ጠቀሜታ አለው።</p>
-            <p><strong>መከላከያ:</strong> ወታደራዊ ኃይሎችን በቀላሉ ወደ ድንበር በማንቀሳቀስ ሀገርን ለመከላከል ቀላል ያደርጋል።</p>
-            <p><strong>ማህበራዊ-ኢኮኖሚያዊ ውህደት:</strong> የሰዎችና የእቃዎች እንቅስቃሴን ስለሚያቀልል የሀገር ውስጥ ትስስርን �ጠናክራል እንዲሁም የኢኮኖሚ እድገትን ያግዛል።</p>
-            <p><strong>አስተዳደር:</strong> ማዕከላዊ መንግሥት �ገሪቱን ለማስተዳደር እና ህግን ለማስፈፀም ቀላል ያደርገዋል።</p>
-        </div>
-        
-        <h4>Measuring the Shape of Countries</h4>
-        <p>To measure how "compact" a country is, geographers use several indices. These indices measure how much a country's shape deviates from a perfect circle, which is the most compact shape.</p>
-        <ul>
-            <li><strong>Area-Boundary Ratio (A/B Ratio):</strong> This compares the country's total area to the length of its boundary. A higher ratio indicates greater compactness. Ethiopia has a high A/B ratio (210.27), showing its compact nature.</li>
-            <li><strong>Boundary-Circumference Ratio (B/C Ratio):</strong> This compares the length of a country's boundary to the circumference of a circle with the same area. The closer the ratio is to 1, the more compact the country. Ethiopia's ratio is 1.41, which is relatively close to 1.</li>
-        </ul>
-        
-        <div class="amharic">
-            <h3>የሀገሮችን ቅርፅ መለኪያ</h3>
-            <p>የሀገሮችን ቅርፅ ለመለካት የተለያዩ ስሌቶች ጥቅም ላይ ይውላሉ። እነዚህ ስሌቶች የአንድ ሀገር ቅርፅ ከክብ ቅርፅ ምን ያህል �ንደሚርቅ ይለካሉ። ለምሳሌ፣ የቦታ እና የድንበር ርዝመት ጥምርታ (A/B Ratio) ሲሆን፣ መጠኑ ከፍ ባለ ቁጥር ሀገሪቱ ይበልጥ የተሰበሰበች ትሆናለች። ኢትዮጵያ 210.27 ጥምርታ አላት።</p>
-        </div>
-        
-        <h2>5. Basic Skills of Map Reading</h2>
-        <p>A map is a two-dimensional, scaled representation of a part or the whole of the Earth's surface. Maps are essential tools for geographers and many other disciplines because they help us visualize and analyze geographical information that can't be easily seen in person.</p>
-        
-        <h3>Key Elements of a Map (Marginal Information)</h3>
-        <p>To read a map effectively, you need to understand its key elements, which are usually found around the map's margin.</p>
-        
-        <div class="map-elements">
-            <div class="map-element">
-                <strong>Title:</strong> Tells you what the map is about.
+            
+            <div class="amharic">
+                <h3>የካርታ ንባብ መሰረታዊ ነገሮች</h3>
+                <p>ካርታ የምድርን ገጽታ ወይም የክፍሉን ክፍል በሁለት ገጽታ ላይ በልኬት የሚያሳይ ምስል ነው። ካርታን በትክክል ለማንበብ የሚረዱ ዋና ዋና ነገሮች አሉ፡</p>
+                <p><strong>ርዕስ (Title):</strong> ካርታው �ስለ ምን እንደሆነ ይነግረናል።</p>
+                <p><strong>ምልክት (Key/Legend):</strong> �በካርታው ላይ ያሉትን ምልክቶች ትርጉም ያብራራል።</p>
+                <p><strong>ስኬል (Scale):</strong> በካርታው ላይ ያለው ርቀት በእውነተኛው መሬት ላይ ካለው ርቀት ጋር ያለውን ጥምርታ �ሳያል።</p>
+                <p><strong>የሰሜን አቅጣጫ ምልክት (North Arrow):</strong> የሰሜን አቅጣጫን በማሳየት እራስዎን በትክክል ለማስቀመጥ ይረዳል።</p>
+                <p><strong>የመረጃ ቀን (Date of Compilation):</strong> ካርታው የተዘጋጀበትን ቀን ያሳያል።</p>
+                <p><strong>የካርታ ንባብ መርሆዎች</strong> ምልክቶችን ከእውነተኛው ዓለም ጋር ማገናኘት፣ አቅጣጫን ማወቅ (በተለይ ሰሜንን) እና የፍርግርግ ስርዓት (grid system) መጠቀምን ያካትታሉ።</p>
             </div>
-            <div class="map-element">
-                <strong>Key (Legend):</strong> Explains what the symbols and colors on the map mean.
-            </div>
-            <div class="map-element">
-                <strong>Scale:</strong> Shows the ratio between the distance on the map and the actual distance on the ground. It can be a written statement, a representative fraction (e.g., 1:50,000), or a linear bar.
-            </div>
-            <div class="map-element">
-                <strong>North Arrow:</strong> Indicates which direction is north on the map, helping you orient yourself.
-            </div>
-            <div class="map-element">
-                <strong>Margin:</strong> The frame of the map that defines the mapped area.
-            </div>
-            <div class="map-element">
-                <strong>Date of Compilation:</strong> Tells you when the map was made, which is important for knowing if the information is current.
-            </div>
-        </div>
-        
-        <h3>Principles of Map Reading</h3>
-        <ul>
-            <li><strong>Symbol Visualization:</strong> You must be able to translate map symbols into real-world features. For example, understanding that a blue line on a map represents a river.</li>
-            <li><strong>Direction:</strong> Always locate the North Arrow first to orient yourself correctly. Once you know north, you can determine all other directions.</li>
-            <li><strong>Grid System:</strong> Maps often have a grid of lines with numbers. These numbers form a grid reference, which allows you to pinpoint a specific location with high accuracy.</li>
-        </ul>
-        
-        <div class="amharic">
-            <h3>የካርታ ንባብ መሰረታዊ ነገሮች</h3>
-            <p>ካርታ የምድርን ገጽታ ወይም የክፍሉን ክፍል �ሁለት ገጽታ ላይ በልኬት የሚያሳይ ምስል ነው። ካርታን በትክክል ለማንበብ የሚረዱ ዋና ዋና ነገሮች አሉ፡</p>
-            <p><strong>ርዕስ (Title):</strong> ካርታው ስለ ምን እንደሆነ ይነግረናል።</p>
-            <p><strong>ምልክት (Key/Legend):</strong> በካርታው ላይ ያሉትን ምልክቶች ትርጉም ያብራራል።</p>
-            <p><strong>ስኬል (Scale):</strong> በካርታው ላይ ያለው ርቀት በእውነተኛው መሬት ላይ ካለው ርቀት ጋር ያለውን ጥምርታ ያሳያል።</p>
-            <p><strong>የሰሜን አቅጣጫ ምልክት (North Arrow):</strong> የሰሜን አቅጣጫን በማሳየት እራስዎን በትክክል ለማስቀመጥ ይረዳል።</p>
-            <p><strong>የመረጃ ቀን (Date of Compilation):</strong> ካርታው የተዘጋጀበትን ቀን ያሳያል።</p>
-            <p><strong>የካርታ ንባብ መርሆዎች</strong> ምልክቶችን ከእውነተኛው ዓለም ጋር ማገናኘት፣ አቅጣጫን ማወቅ (በተለይ ሰሜንን) እና የፍርግርግ ስርዓት (grid system) መጠቀምን ያካትታሉ።</p>
         </div>
     </div>
 </body>
