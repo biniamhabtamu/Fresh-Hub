@@ -4,8 +4,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
-import Header from '../Layout/Header';
-import { Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, HelpCircle, XCircle } from 'lucide-react';
+import { Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, HelpCircle, XCircle, Menu, BookOpen, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Define the Question type for better type safety
@@ -29,7 +28,9 @@ export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
-  const [isScoreSaved, setIsScoreSaved] = useState(false); // New state to track if the score has been saved
+  const [isScoreSaved, setIsScoreSaved] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -94,7 +95,6 @@ export default function QuizPage() {
     setScore(percentage);
     setQuizCompleted(true);
 
-    // Only save the result to Firebase if it hasn't been saved before
     if (!isScoreSaved && currentUser && subjectId && year && chapter) {
       try {
         const resultId = `${currentUser.id}_${subjectId}_${year}_${chapter}`;
@@ -109,7 +109,7 @@ export default function QuizPage() {
           completedAt: new Date(),
           timeElapsed: timeElapsed
         });
-        setIsScoreSaved(true); // Mark the score as saved
+        setIsScoreSaved(true);
       } catch (error) {
         console.error('Error saving result:', error);
       }
@@ -117,18 +117,18 @@ export default function QuizPage() {
     setIsSubmitting(false);
   };
 
-  const handleRetakeQuiz = () => {
+  const handleReviewQuiz = () => {
     setCurrentQuestion(0);
-    setAnswers(new Array(questions.length).fill(-1));
-    setTimeElapsed(0);
     setQuizCompleted(false);
-    setScore(0);
-    setShowExplanation(false);
+    setShowExplanation(true);
   };
 
-  // Removed handleBackToChapters and its usage
-
   if (quizCompleted) {
+    // Calculate weaknesses (questions answered incorrectly)
+    const weaknesses = questions.filter((q, index) => 
+      answers[index] !== -1 && answers[index] !== q.correctAnswer
+    );
+
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-300 scale-100 opacity-100">
@@ -141,7 +141,7 @@ export default function QuizPage() {
               <Award size={80} className="mx-auto mb-4" />
             </motion.div>
             <h2 className="text-4xl font-extrabold mb-2">Quiz Complete!</h2>
-            <p className="text-lg opacity-90">You've finished the quiz. Let's see your results!</p>
+            <p className="text-lg opacity-90">Here's your performance review</p>
           </div>
           <div className="p-8 md:p-12 text-center">
             <div className="mb-8">
@@ -199,16 +199,29 @@ export default function QuizPage() {
               </p>
             </div>
 
+            {/* Correct Answers and Weaknesses Section */}
+            {weaknesses.length > 0 && (
+              <div className="mb-8 text-left bg-gray-50 p-4 rounded-lg">
+                <h3 className="text-lg font-bold mb-3 text-gray-800">Areas to Improve:</h3>
+                <ul className="space-y-2">
+                  {weaknesses.map((q, index) => (
+                    <li key={index} className="text-red-600">
+                      <span className="font-medium">Question {questions.indexOf(q) + 1}:</span> {q.question}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div className="space-y-4">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={handleRetakeQuiz}
+                onClick={handleReviewQuiz}
                 className="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-bold text-lg shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all"
               >
-                Retake Quiz
+                Review Answers
               </motion.button>
-              {/* Removed "Back to Chapters" button */}
             </div>
           </div>
         </div>
@@ -227,7 +240,7 @@ export default function QuizPage() {
           >
             <h2 className="text-3xl font-bold text-gray-800 mb-4">No Questions Available</h2>
             <p className="text-gray-600 mb-6">There are no questions for this chapter yet. Please check back later.</p>
-            {/* Removed "Back to Chapters" button */}
+            <p className="text-gray-600 mb-6">Coming Soon will add the Question</p>
           </motion.div>
         </div>
       </div>
@@ -260,30 +273,48 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 font-sans flex flex-col">
-      <Header />
-      <div className="container mx-auto max-w-4xl pt-8 pb-16 flex-1">
-        {/* Removed "Back to Chapters" button from here */}
+    <div className="min-h-screen bg-gray-50 font-sans flex flex-col">
+      {/* Fixed Header */}
+      <header className="sticky top-0 z-10 bg-white shadow-md p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <div>
+            <h1 className="text-xl font-bold text-gray-800">
+              {subjectId?.toUpperCase()} - Year {year}
+            </h1>
+          </div>
+          <div className="flex items-center space-x-2 bg-indigo-100 px-4 py-2 rounded-full">
+            <Clock size={20} className="text-indigo-600" />
+            <span className="font-medium text-indigo-800">{formatTime(timeElapsed)}</span>
+          </div>
+        </div>
+      </header>
 
+      <div className="container mx-auto max-w-4xl pt-8 pb-16 flex-1 px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-2xl shadow-xl p-6 mb-8"
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-800">
-                {subjectId?.toUpperCase()} - Year {year}, Chapter {chapter}
-              </h2>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <button 
+                onClick={() => setShowNav(!showNav)}
+                className="p-2 rounded-full hover:bg-gray-100 mr-2"
+              >
+                {showNav ? <X size={20} /> : <Menu size={20} />}
+              </button>
               <p className="text-gray-600">
                 Question <span className="font-semibold text-indigo-600">{currentQuestion + 1}</span> of <span className="font-semibold text-gray-800">{questions.length}</span>
               </p>
             </div>
-            <div className="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full">
-              <Clock size={20} className="text-gray-500" />
-              <span className="font-medium text-gray-800">{formatTime(timeElapsed)}</span>
-            </div>
+            <button 
+              onClick={() => setShowNotes(!showNotes)}
+              className="p-2 rounded-full hover:bg-gray-100"
+            >
+              <BookOpen size={20} />
+            </button>
           </div>
+          
           <div className="w-full bg-gray-200 rounded-full h-3">
             <motion.div
               className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full"
@@ -294,6 +325,64 @@ export default function QuizPage() {
             />
           </div>
         </motion.div>
+
+        {/* Navigation Panel */}
+        {showNav && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-white rounded-2xl shadow-xl p-6 mb-8 overflow-hidden"
+          >
+            <h4 className="font-bold text-lg text-gray-800 mb-4">Question Navigator</h4>
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3">
+              {questions.map((q, index) => (
+                <motion.button
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setCurrentQuestion(index);
+                    setShowNav(false);
+                  }}
+                  className={`
+                    w-10 h-10 rounded-lg font-bold text-sm transition-all flex items-center justify-center
+                    ${index === currentQuestion
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : answers[index] !== -1
+                        ? answers[index] === q.correctAnswer
+                          ? 'bg-green-100 text-green-700'
+                          : 'bg-red-100 text-red-700'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }
+                  `}
+                >
+                  {index + 1}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Notes Panel */}
+        {showNotes && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-white rounded-2xl shadow-xl p-6 mb-8 overflow-hidden"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h4 className="font-bold text-lg text-gray-800">Chapter Notes</h4>
+              <button onClick={() => setShowNotes(false)} className="p-1 rounded-full hover:bg-gray-100">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <p className="text-yellow-800">Notes for {subjectId} Chapter {chapter} will appear here.</p>
+            </div>
+          </motion.div>
+        )}
 
         <div className="relative">
           <AnimatePresence mode="wait">
@@ -373,122 +462,45 @@ export default function QuizPage() {
             </motion.div>
           </AnimatePresence>
 
-          <AnimatePresence>
-            {currentQuestion > 0 && (
-              <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.2 }}
-                onClick={handlePrevious}
-                className="absolute top-1/2 left-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg text-gray-500 hover:bg-gray-100 hover:text-indigo-600 transition-colors hidden md:flex items-center justify-center"
-              >
-                <ChevronLeft size={32} />
-              </motion.button>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {currentQuestion < questions.length - 1 && (
-              <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.2 }}
-                onClick={handleNext}
-                className="absolute top-1/2 right-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg text-gray-500 hover:bg-gray-100 hover:text-indigo-600 transition-colors hidden md:flex items-center justify-center"
-              >
-                <ChevronRight size={32} />
-              </motion.button>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div className="flex justify-between sm:hidden mb-8 gap-4">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handlePrevious}
-            disabled={currentQuestion === 0}
-            className="w-1/2 py-3 bg-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm flex items-center justify-center"
-          >
-            <ChevronLeft size={20} className="mr-2" />
-            Prev
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleNext}
-            disabled={answers[currentQuestion] === -1 || currentQuestion === questions.length - 1}
-            className="w-1/2 py-3 bg-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm flex items-center justify-center"
-          >
-            Next
-            <ChevronRight size={20} className="ml-2" />
-          </motion.button>
-        </div>
-        
-        {answers[questions.length - 1] !== -1 && (
-          <div className="text-center mt-6">
+          {/* Navigation Controls */}
+          <div className="flex justify-between items-center my-6">
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-teal-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg w-full max-w-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handlePrevious}
+              disabled={currentQuestion === 0}
+              className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Quiz'}
+              <ChevronLeft size={20} className="mr-2" />
+              Back
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleNext}
+              disabled={answers[currentQuestion] === -1 || currentQuestion === questions.length - 1}
+              className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Next
+              <ChevronRight size={20} className="ml-2" />
             </motion.button>
           </div>
-        )}
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl p-6 mt-8"
-        >
-          <h4 className="font-bold text-lg text-gray-800 mb-4">Question Navigator</h4>
-          <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3">
-            {questions.map((q, index) => (
+          
+          {answers[questions.length - 1] !== -1 && (
+            <div className="text-center mt-6">
               <motion.button
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setCurrentQuestion(index)}
-                className={`
-                  w-10 h-10 rounded-lg font-bold text-sm transition-all flex items-center justify-center
-                  ${index === currentQuestion
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : answers[index] !== -1
-                      ? answers[index] === q.correctAnswer
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-red-100 text-red-700'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }
-                `}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-teal-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg w-full max-w-sm"
               >
-                {index + 1}
+                {isSubmitting ? 'Submitting...' : 'Submit Quiz'}
               </motion.button>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-indigo-600 rounded-sm mr-2"></div>
-              <span>Current</span>
             </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-green-100 rounded-sm mr-2"></div>
-              <span>Correct</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-red-100 rounded-sm mr-2"></div>
-              <span>Incorrect</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-gray-100 rounded-sm mr-2"></div>
-              <span>Unanswered</span>
-            </div>
-          </div>
-        </motion.div>
+          )}
+        </div>
       </div>
     </div>
   );

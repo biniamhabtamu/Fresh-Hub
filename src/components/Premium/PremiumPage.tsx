@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave } from "react-icons/fa";
+import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave, FaCrown } from "react-icons/fa";
 import { MdAccountBalance, MdPayment } from "react-icons/md";
 
 // Define the duration for the timer (5 hours in milliseconds)
@@ -20,8 +20,6 @@ export default function PremiumPage() {
   const TELEGRAM_BOT_TOKEN = "7516286710:AAGlGBxpmyVQuLW1lcm4rVw-wC1UZ_dp5l4";
   const TELEGRAM_CHAT_ID = "901943741";
 
-  // New useEffect hook to fetch user data and listen for real-time updates
-  // on their submission status.
   useEffect(() => {
     const auth = getAuth();
     const authUser = auth.currentUser;
@@ -30,15 +28,20 @@ export default function PremiumPage() {
 
     const userRef = doc(db, "users", authUser.uid);
 
-    // Use onSnapshot to listen for real-time changes to the user's document.
-    // This will automatically update the component if the submission status changes.
     const unsubscribe = onSnapshot(userRef, (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
         setUserData(data);
-        // Check for the submission timestamp directly from Firestore
+        
+        // Check for the submission status
         if (data.premiumSubmission) {
           setSubmissionData(data.premiumSubmission);
+          
+          // Check if admin has approved the premium
+          if (data.premiumSubmission.status === 'approved') {
+            // Clear the timer if approved
+            setTimeLeft(0);
+          }
         } else {
           setSubmissionData(null);
         }
@@ -48,14 +51,11 @@ export default function PremiumPage() {
       }
     });
 
-    // Clean up the listener when the component unmounts
     return () => unsubscribe();
   }, []);
 
-  // New useEffect hook for the timer logic.
-  // This hook now depends on the `submissionData` state.
   useEffect(() => {
-    if (submissionData && submissionData.timestamp) {
+    if (submissionData && submissionData.timestamp && submissionData.status !== 'approved') {
       const submissionTime = submissionData.timestamp.toDate().getTime();
       const endTime = submissionTime + TIMER_DURATION_MS;
 
@@ -66,9 +66,6 @@ export default function PremiumPage() {
 
         if (remaining <= 0) {
           clearInterval(timer);
-          // Optionally, you can clear the submission data from Firestore here
-          // to make the form reappear.
-          // For now, the timer will just stop at 0.
         }
       }, 1000);
 
@@ -76,7 +73,6 @@ export default function PremiumPage() {
     }
   }, [submissionData]);
 
-  // Existing useEffect for image preview remains unchanged
   useEffect(() => {
     if (image) {
       const reader = new FileReader();
@@ -145,18 +141,14 @@ export default function PremiumPage() {
       const imgUrl = await uploadToImgBB(image);
       await sendToTelegram(userData.email, userData.phone, imgUrl);
       
-      // Update the user's document in Firestore with submission details
       const userRef = doc(db, "users", authUser.uid);
       await setDoc(userRef, {
         premiumSubmission: {
           timestamp: serverTimestamp(),
           imageUrl: imgUrl,
-          status: 'pending' // You can use a status field to track the verification process
+          status: 'pending'
         }
-      }, { merge: true }); // Use merge: true to avoid overwriting other user data
-      
-      // The `onSnapshot` listener will automatically update the state,
-      // so we don't need to manually set `submitted` here.
+      }, { merge: true });
 
     } catch (error) {
       console.error(error);
@@ -165,8 +157,37 @@ export default function PremiumPage() {
     setLoading(false);
   };
 
-  // Conditional rendering based on `submissionData` from Firebase
+  // Render different states based on submission status
   if (submissionData) {
+    if (submissionData.status === 'approved') {
+      return (
+        <div className="max-w-md mx-auto p-8 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-2xl rounded-2xl mt-10 text-center border border-purple-200">
+          <div className="flex justify-center mb-6">
+            <FaCrown className="text-yellow-500 text-6xl animate-bounce" />
+          </div>
+          <h1 className="text-3xl font-bold text-purple-700 mb-4">
+            Premium Approved!
+          </h1>
+          <p className="text-lg text-gray-700 mb-6">
+            Your premium features have been approved by admin. Thank you for using our app!
+          </p>
+          
+          <div className="bg-white p-6 rounded-xl shadow-inner mb-8">
+            <div className="flex items-center justify-center space-x-2">
+              <FaCheckCircle className="text-green-500 text-2xl" />
+              <span className="text-xl font-semibold text-gray-700">Status: Active</span>
+            </div>
+          </div>
+          
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <p className="text-gray-700">
+              Enjoy your premium features! If you have any questions, feel free to contact us.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="max-w-md mx-auto p-8 bg-gradient-to-br from-green-50 to-blue-50 shadow-2xl rounded-2xl mt-10 text-center border border-green-200">
         <div className="flex justify-center mb-6">
