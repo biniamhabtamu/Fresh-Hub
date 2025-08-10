@@ -4,7 +4,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { sampleQuestions } from '../../data/sampleQuestions';
-import { Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, HelpCircle, XCircle, Menu, BookOpen, X } from 'lucide-react';
+import { Clock, CheckCircle, ChevronLeft, ChevronRight, Award, AlertTriangle, HelpCircle, XCircle, Menu, BookOpen, X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Define the Question type for better type safety
@@ -31,6 +31,15 @@ export default function QuizPage() {
   const [isScoreSaved, setIsScoreSaved] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     // Filter questions based on subject, year, and chapter
@@ -273,51 +282,54 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans flex flex-col">
-      {/* Fixed Header */}
+    <div className="min-h-screen bg-gray-50 font-sans flex flex-col pb-16 md:pb-0">
+      {/* Fixed Header with Navigation and Notes Icons */}
       <header className="sticky top-0 z-10 bg-white shadow-md p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div>
-            <h1 className="text-xl font-bold text-gray-800">
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => setShowNav(!showNav)}
+              className="p-2 rounded-full hover:bg-gray-100 text-gray-700"
+            >
+              {showNav ? <X size={20} /> : <Menu size={20} />}
+            </button>
+            <h1 className="text-lg md:text-xl font-bold text-gray-800">
               {subjectId?.toUpperCase()} - Year {year}
             </h1>
           </div>
-          <div className="flex items-center space-x-2 bg-indigo-100 px-4 py-2 rounded-full">
-            <Clock size={20} className="text-indigo-600" />
-            <span className="font-medium text-indigo-800">{formatTime(timeElapsed)}</span>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto max-w-4xl pt-8 pb-16 flex-1 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl p-6 mb-8"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center">
-              <button 
-                onClick={() => setShowNav(!showNav)}
-                className="p-2 rounded-full hover:bg-gray-100 mr-2"
-              >
-                {showNav ? <X size={20} /> : <Menu size={20} />}
-              </button>
-              <p className="text-gray-600">
-                Question <span className="font-semibold text-indigo-600">{currentQuestion + 1}</span> of <span className="font-semibold text-gray-800">{questions.length}</span>
-              </p>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 bg-indigo-100 px-3 py-1 md:px-4 md:py-2 rounded-full">
+              <Clock size={18} className="text-indigo-600" />
+              <span className="font-medium text-indigo-800 text-sm md:text-base">
+                {formatTime(timeElapsed)}
+              </span>
             </div>
             <button 
               onClick={() => setShowNotes(!showNotes)}
-              className="p-2 rounded-full hover:bg-gray-100"
+              className="p-2 rounded-full hover:bg-gray-100 text-gray-700"
             >
               <BookOpen size={20} />
             </button>
           </div>
-          
-          <div className="w-full bg-gray-200 rounded-full h-3">
+        </div>
+      </header>
+
+      {/* Main Content Area */}
+      <main className="container mx-auto max-w-4xl pt-4 pb-16 md:pb-4 flex-1 px-4">
+        {/* Progress Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-xl p-4 mb-6"
+        >
+          <div className="flex justify-between items-center mb-2">
+            <p className="text-sm md:text-base text-gray-600">
+              Question <span className="font-semibold text-indigo-600">{currentQuestion + 1}</span> of <span className="font-semibold text-gray-800">{questions.length}</span>
+            </p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2 md:h-3">
             <motion.div
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full"
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 md:h-3 rounded-full"
               style={{ width: `${progress}%` }}
               initial={{ width: '0%' }}
               animate={{ width: `${progress}%` }}
@@ -332,10 +344,10 @@ export default function QuizPage() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-white rounded-2xl shadow-xl p-6 mb-8 overflow-hidden"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-6 mb-6 overflow-hidden"
           >
-            <h4 className="font-bold text-lg text-gray-800 mb-4">Question Navigator</h4>
-            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3">
+            <h4 className="font-bold text-gray-800 mb-3 md:mb-4">Question Navigator</h4>
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 md:gap-3">
               {questions.map((q, index) => (
                 <motion.button
                   key={index}
@@ -346,7 +358,7 @@ export default function QuizPage() {
                     setShowNav(false);
                   }}
                   className={`
-                    w-10 h-10 rounded-lg font-bold text-sm transition-all flex items-center justify-center
+                    w-8 h-8 md:w-10 md:h-10 rounded-lg font-bold text-xs md:text-sm transition-all flex items-center justify-center
                     ${index === currentQuestion
                       ? 'bg-indigo-600 text-white shadow-md'
                       : answers[index] !== -1
@@ -370,20 +382,21 @@ export default function QuizPage() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-white rounded-2xl shadow-xl p-6 mb-8 overflow-hidden"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-6 mb-6 overflow-hidden"
           >
-            <div className="flex justify-between items-center mb-4">
-              <h4 className="font-bold text-lg text-gray-800">Chapter Notes</h4>
-              <button onClick={() => setShowNotes(false)} className="p-1 rounded-full hover:bg-gray-100">
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h4 className="font-bold text-gray-800">Chapter Notes</h4>
+              <button onClick={() => setShowNotes(false)} className="p-1 rounded-full hover:bg-gray-100 text-gray-700">
                 <X size={20} />
               </button>
             </div>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-yellow-800">Notes for {subjectId} Chapter {chapter} will appear here.</p>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 md:p-4">
+              <p className="text-yellow-800 text-sm md:text-base">Notes for {subjectId} Chapter {chapter} will appear here.</p>
             </div>
           </motion.div>
         )}
 
+        {/* Question Card */}
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -392,12 +405,12 @@ export default function QuizPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-xl p-8 mb-8"
+              className="bg-white rounded-2xl shadow-xl p-6 mb-6"
             >
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6 leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 leading-relaxed">
                 {currentQ.question}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {currentQ.options.map((option, index) => (
                   <motion.button
                     key={index}
@@ -405,16 +418,16 @@ export default function QuizPage() {
                     whileTap={!isAnswerSelected ? { scale: 0.99 } : {}}
                     onClick={() => handleAnswerSelect(index)}
                     className={`
-                      w-full text-left p-5 rounded-xl border-2 transition-all
+                      w-full text-left p-4 md:p-5 rounded-xl border-2 transition-all
                       ${getOptionClasses(index)}
                       ${isAnswerSelected ? 'cursor-default' : 'cursor-pointer'}
                       flex items-center
                     `}
                   >
-                    <span className="font-bold mr-4 text-gray-500 text-lg">
+                    <span className="font-bold mr-3 md:mr-4 text-gray-500 text-base md:text-lg">
                       {String.fromCharCode(65 + index)}.
                     </span>
-                    <span className="flex-1 text-base md:text-lg text-gray-800">{option}</span>
+                    <span className="flex-1 text-sm md:text-base text-gray-800">{option}</span>
                     {isAnswerSelected && (
                       <motion.div
                         initial={{ scale: 0 }}
@@ -422,9 +435,9 @@ export default function QuizPage() {
                         className="ml-auto"
                       >
                         {currentQ.correctAnswer === index ? (
-                          <CheckCircle className="text-green-500" />
+                          <CheckCircle className="text-green-500" size={isMobile ? 18 : 20} />
                         ) : answers[currentQuestion] === index ? (
-                          <XCircle className="text-red-500" />
+                          <XCircle className="text-red-500" size={isMobile ? 18 : 20} />
                         ) : null}
                       </motion.div>
                     )}
@@ -433,12 +446,12 @@ export default function QuizPage() {
               </div>
 
               {isAnswerSelected && currentQ.explanation && (
-                <div className="mt-6">
+                <div className="mt-4 md:mt-6">
                   <button
                     onClick={() => setShowExplanation(!showExplanation)}
-                    className="flex items-center text-indigo-600 hover:text-indigo-800 font-medium"
+                    className="flex items-center text-indigo-600 hover:text-indigo-800 font-medium text-sm md:text-base"
                   >
-                    <HelpCircle size={20} className="mr-2" />
+                    <HelpCircle size={isMobile ? 16 : 20} className="mr-2" />
                     {showExplanation ? 'Hide Explanation' : 'Show Explanation'}
                   </button>
                   <AnimatePresence>
@@ -448,11 +461,11 @@ export default function QuizPage() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="overflow-hidden mt-4"
+                        className="overflow-hidden mt-2 md:mt-4"
                       >
-                        <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-200">
-                          <h4 className="font-bold text-indigo-800 mb-2">Explanation:</h4>
-                          <p className="text-gray-700">{currentQ.explanation}</p>
+                        <div className="bg-indigo-50 p-3 md:p-4 rounded-xl border border-indigo-200">
+                          <h4 className="font-bold text-indigo-800 mb-1 md:mb-2 text-sm md:text-base">Explanation:</h4>
+                          <p className="text-gray-700 text-sm md:text-base">{currentQ.explanation}</p>
                         </div>
                       </motion.div>
                     )}
@@ -461,47 +474,63 @@ export default function QuizPage() {
               )}
             </motion.div>
           </AnimatePresence>
-
-          {/* Navigation Controls */}
-          <div className="flex justify-between items-center my-6">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handlePrevious}
-              disabled={currentQuestion === 0}
-              className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <ChevronLeft size={20} className="mr-2" />
-              Back
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleNext}
-              disabled={answers[currentQuestion] === -1 || currentQuestion === questions.length - 1}
-              className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Next
-              <ChevronRight size={20} className="ml-2" />
-            </motion.button>
-          </div>
           
           {answers[questions.length - 1] !== -1 && (
-            <div className="text-center mt-6">
+            <div className="text-center mt-4 md:mt-6">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-teal-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg w-full max-w-sm"
+                className="px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-teal-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg w-full max-w-sm text-sm md:text-base"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Quiz'}
               </motion.button>
             </div>
           )}
         </div>
-      </div>
+      </main>
+
+      {/* Fixed Bottom Navigation Bar */}
+      <footer className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-10">
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="flex justify-between items-center py-3">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handlePrevious}
+              disabled={currentQuestion === 0}
+              className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all ${
+                currentQuestion === 0 
+                  ? 'text-gray-400 cursor-not-allowed' 
+                  : 'text-indigo-600 hover:bg-indigo-50'
+              }`}
+            >
+              <ArrowLeft size={20} className="mr-2" />
+              <span className="hidden sm:inline">Previous</span>
+            </motion.button>
+            
+            <div className="text-sm text-gray-500 px-4 py-2">
+              {currentQuestion + 1} / {questions.length}
+            </div>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleNext}
+              disabled={answers[currentQuestion] === -1 || currentQuestion === questions.length - 1}
+              className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all ${
+                answers[currentQuestion] === -1 || currentQuestion === questions.length - 1
+                  ? 'text-gray-400 cursor-not-allowed' 
+                  : 'text-indigo-600 hover:bg-indigo-50'
+              }`}
+            >
+              <span className="hidden sm:inline">Next</span>
+              <ArrowRight size={20} className="ml-2" />
+            </motion.button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
