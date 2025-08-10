@@ -3681,171 +3681,509 @@ export const noteCollections: Subject[] = [
       id: 'chapter1', 
       title: 'Chapter 1: Introduction to Geography', 
       content: `
-        <div class="prose max-w-none">
-          <h1 class="text-3xl font-bold mb-6">Chapter 1: Introduction to Geography</h1>
-          
-          <div class="bg-blue-50 p-6 rounded-xl mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Chapter Overview</h2>
-            <p>This chapter introduces the meaning, scope, themes, and approaches of Geography, and discusses the location, shape, and size of Ethiopia and the Horn of Africa. It also covers basic map reading skills.</p>
-          </div>
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Explorer: Ethiopia & The Horn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d47a1;
+            --secondary: #2196f3;
+            --accent: #ff9800;
+            --success: #4caf50;
+            --warning: #ff5722;
+            --light: #f0f9ff;
+            --dark: #0d2b4e;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
 
-          <div class="bg-green-50 p-6 rounded-xl mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Objectives</h2>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>Understand the meaning and scope of Geography</li>
-              <li>Explain the themes of Geography</li>
-              <li>Analyze the implications of Ethiopia's location, shape, and size on various aspects</li>
-              <li>Acquire basic map reading skills</li>
-            </ul>
-          </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-blue-600">1.1. Geography: Definition, Scope, and Themes</h2>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        .geography-app {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Header Styles */
+        .app-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 15px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .chapter-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .chapter-subtitle {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.3rem, 5vw, 1.6rem);
+            font-weight: 600;
+        }
+
+        .section-icon {
+            font-size: 1.4rem;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 5vw, 1.4rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: var(--accent);
+        }
+
+        .card-content {
+            font-size: clamp(0.95rem, 4vw, 1.1rem);
+            line-height: 1.7;
+        }
+
+        .amharic-card {
+            background: #f3f0ff;
+            border-left: 4px solid #5e35b1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-style: italic;
+            color: #5e35b1;
+            font-size: clamp(0.9rem, 4vw, 1.05rem);
+        }
+
+        .amharic-card::before {
+            content: "አማርኛ:";
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #4527a0;
+        }
+
+        /* Table Styles */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            padding: 14px;
+            text-align: center;
+            font-size: clamp(0.95rem, 4vw, 1.1rem);
+        }
+
+        td {
+            padding: 12px 14px;
+            text-align: center;
+            background: var(--card-bg);
+            border-bottom: 1px solid #e2f0ff;
+            font-size: clamp(0.9rem, 4vw, 1rem);
+        }
+
+        tr:nth-child(even) td {
+            background: #f0f9ff;
+        }
+
+        /* Review Section */
+        .review-section {
+            background: linear-gradient(135deg, var(--primary), #1e88e5);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-title {
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 20px;
+            font-size: clamp(1rem, 4vw, 1.1rem);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .menu-icon {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
             
-            <div class="ml-6">
-              <h3 class="text-xl font-medium mb-3">1.1.1. Meaning of Geography</h3>
-              <p><strong>Definition:</strong> Geography is the scientific study of the Earth that analyzes spatial and temporal variations of physical, biological, and human phenomena, and their interrelationships over the Earth's surface.</p>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.1.2. The Scope, Approaches, and Themes of Geography</h3>
-              <p><strong>Scope:</strong> Geography studies the Earth's surface, the interface of atmosphere, lithosphere, hydrosphere, and biosphere, providing the habitable zone for humans.</p>
-              
-              <div class="mt-4">
-                <h4 class="font-medium">Approaches:</h4>
-                <ul class="list-disc pl-6 space-y-2 mt-2">
-                  <li><strong>Human-Physical Continuum:</strong> Examines both human and physical phenomena</li>
-                  <li><strong>Topical-Regional Continuum:</strong> Systematic fields of Geography and regional geography, focusing on specific categories and their spatial associations</li>
-                </ul>
-              </div>
-              
-              <div class="mt-4">
-                <h4 class="font-medium">Themes of Geography:</h4>
-                <ul class="list-disc pl-6 space-y-2 mt-2">
-                  <li><strong>Location:</strong> Specific position, either absolute (latitude/longitude) or relative (compared to other locations)</li>
-                  <li><strong>Place:</strong> Physical and human aspects of a location, including toponym, site, and situation</li>
-                  <li><strong>Human-Environment Interaction:</strong> Examines how humans depend on, adapt to, and modify the environment</li>
-                  <li><strong>Movement:</strong> Covers the movement of people, goods, and ideas</li>
-                  <li><strong>Region:</strong> Areas with distinctive characteristics that set them apart, including formal regions (homogeneous features) and functional or nodal regions (functional interrelationships)</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-blue-600">1.2. Location, Shape, and Size of Ethiopia and the Horn</h2>
-            
-            <div class="ml-6">
-              <p><strong>Horn of Africa:</strong> A region extending into the northern Indian Ocean, separating it from the Gulf of Aden, including Djibouti, Eritrea, Ethiopia, and Somalia. It features diverse areas like the Ethiopian Plateau, Ogaden desert, and coastal regions.</p>
-              
-              <p class="mt-3"><strong>Ethiopia:</strong> The largest country in the Horn of Africa, with diverse physical features and a significant historical context in the region.</p>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.2.1. Location of Ethiopia</h3>
-              
-              <h4 class="font-medium">Location Types:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li>
-                  <strong>Astronomical Location:</strong> Ethiopia is located between 3°N (Moyale) and 15°N (Bademe) latitudes, and 33°E (Akobo) to 48°E (Ogaden) longitudes. This landlocked country has a greater east-west distance (150 km) compared to its north-south distance (120 km).
-                </li>
-                <li>
-                  <strong>Relative Location:</strong>
-                  <ul class="list-disc pl-6 mt-2 space-y-2">
-                    <li><strong>Vicinal Location:</strong> West/Northwest: Sudan; Southwest: South Sudan; East: Djibouti, Somalia; North/Northeast: Eritrea; South: Kenya</li>
-                    <li><strong>In Relation to Landmasses and Water Bodies:</strong> In the Horn of Africa; Southwest of the Arabian Peninsula; South of Europe; Northwest of the Indian Ocean; In the Nile Basin</li>
-                  </ul>
-                </li>
-              </ul>
-              
-              <h4 class="font-medium mt-4">Implications of Ethiopia's Location:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li><strong>Climate:</strong> Positioned between 3°N and 15°N, Ethiopia experiences a tropical climate</li>
-                <li><strong>Socio-cultural:</strong> Early adopter of Christianity, Islam, and Judaism due to proximity to Middle East</li>
-                <li><strong>Political:</strong> Geopolitical interests of superpowers; proximity to Red Sea trade route; historical resistance to invasions</li>
-              </ul>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.2.2. Size of Ethiopia</h3>
-              <p>Ethiopia covers approximately 1,106,000 square kilometers (8th largest in Africa, 25th in world).</p>
-              
-              <h4 class="font-medium mt-4">Advantages:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li>Diverse agro-ecological zones</li>
-                <li>Variety of natural resources</li>
-                <li>Extensive arable land</li>
-                <li>Larger population capacity</li>
-                <li>Home to diverse cultures</li>
-              </ul>
-              
-              <h4 class="font-medium mt-4">Disadvantages:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li>Greater capital needed for infrastructure</li>
-                <li>Large army required for defense</li>
-                <li>Challenges in effective administration</li>
-                <li>Difficulties in socio-economic integration</li>
-                <li>Greater depth needed for defense against invasion</li>
-              </ul>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.2.3. The Shape of Ethiopia and Its Implication</h3>
-              <p>Countries' shapes fall into five categories: compact, fragmented, elongated, perforated, and protruded.</p>
-              
-              <h4 class="font-medium mt-4">Indices of Compactness:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li><strong>Area-Boundary Ratio:</strong> Measures efficiency of shape (higher ratio = more compact)</li>
-                <li><strong>Boundary-Circumference Ratio:</strong> Compares boundary length to circumference of equal-area circle (closer to 1 = more circular)</li>
-                <li><strong>Area-Circumference Ratio:</strong> Compares area to circumference of smallest enclosing circle (higher = more compact)</li>
-                <li><strong>Area-Area Ratio:</strong> Compares area to area of smallest enclosing circle (closer to 1 = more circular)</li>
-              </ul>
-              
-              <p class="mt-4"><strong>Implication:</strong> Compactness affects transportation, infrastructure, and border security. More compact countries are easier to manage and develop.</p>
-            </div>
-          </section>
-
-          <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-blue-600">1.3. Basic Skills of Map Reading</h2>
-            
-            <div class="ml-6">
-              <h3 class="text-xl font-medium mb-3">1.3.1. Definition and Importance of Maps</h3>
-              <p><strong>Definition:</strong> A map is a two-dimensional, scaled representation of part or the whole of the Earth's surface on a flat medium.</p>
-              
-              <h4 class="font-medium mt-4">Marginal Information of a Map:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li>Title</li>
-                <li>Key (legend)</li>
-                <li>Scale</li>
-                <li>North arrow</li>
-                <li>Margin</li>
-                <li>Date of compilation</li>
-              </ul>
-              
-              <h4 class="font-medium mt-4">Importance of Maps:</h4>
-              <ul class="list-disc pl-6 space-y-2 mt-2">
-                <li>Provide geographical details</li>
-                <li>Support spatial analysis</li>
-                <li>Used in land use planning, military science, tourism, etc.</li>
-                <li>Help in storing and assessing geographical data</li>
-              </ul>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.3.2. Types of Maps</h3>
-              <ul class="list-disc pl-6 space-y-2">
-                <li><strong>Topographical Maps:</strong> Depict natural and cultural features</li>
-                <li><strong>Special Purpose/Statistical Maps:</strong> Show distributions of aspects like temperature, rainfall, vegetation</li>
-              </ul>
-              
-              <h3 class="text-xl font-medium mt-6 mb-3">1.3.3. Basic Principles of Map Reading</h3>
-              <ul class="list-disc pl-6 space-y-2">
-                <li><strong>Understanding Symbols:</strong> Visualize map symbols in relation to real-world features</li>
-                <li><strong>Knowledge of Directions:</strong> Crucial for orientation and locating features</li>
-                <li><strong>Grid System:</strong> Helps pinpoint locations through grid references</li>
-              </ul>
-            </div>
-          </section>
-
-          <div class="bg-yellow-50 p-6 rounded-xl">
-            <h2 class="text-2xl font-semibold mb-4">Review Questions</h2>
-            <ol class="list-decimal pl-6 space-y-3">
-              <li>What are the implications of Ethiopia's location, shape, and size on physical environment, socio-economic, and political aspects?</li>
-              <li>Explain the five themes of Geography.</li>
-              <li>Describe the basic principles of map reading.</li>
-            </ol>
-          </div>
+            .geography-app {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="geography-app">
+        <div class="app-header">
+            <h1 class="chapter-title">Geography Explorer: Ethiopia & The Horn</h1>
+            <p class="chapter-subtitle">Discover Earth's patterns, Ethiopia's geography, and master map reading skills</p>
         </div>
+
+        <!-- Section 1: Geography Fundamentals -->
+        <div class="section-container">
+            <div class="section-header">
+                <i class="fas fa-globe-africa section-icon"></i>
+                <h2 class="section-title">1.1 Geography Fundamentals</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-search"></i> Meaning of Geography</h3>
+                    <div class="card-content">
+                        Geography is the scientific study of Earth's surface that analyzes spatial patterns of physical, biological, and human phenomena and their dynamic interrelationships.
+                    </div>
+                    <div class="amharic-card">
+                        ጂኦግራፊ የምድር ገጽታ ሳይንሳዊ ጥናት ነው፣ የአካላዊ፣ ባዮሎጂካል እና የሰው ልጅ ክስተቶች ቦታዊ ንድፎችን እና ተለዋዋጭ ግንኙነቶቻቸውን የሚተነትን።
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-expand-arrows-alt"></i> Scope of Geography</h3>
+                    <div class="card-content">
+                        As a holistic science, geography bridges natural and social sciences to explain Earth's feature arrangements across time.
+                    </div>
+                    <div class="amharic-card">
+                        ጂኦግራፊ እንደ አጠቃላይ ሳይንስ፣ የተፈጥሮ እና ማህበራዊ ሳይንሶችን በማገናኘት የምድር ባህሪያትን በጊዜ ሂደት ያብራራል።
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-route"></i> Five Core Themes</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li><strong>Location:</strong> Absolute (coordinates) & Relative (context)</li>
+                            <li><strong>Place:</strong> Physical & human characteristics</li>
+                            <li><strong>Interaction:</strong> Human-environment relationships</li>
+                            <li><strong>Movement:</strong> People, goods, ideas</li>
+                            <li><strong>Region:</strong> Formal vs. functional areas</li>
+                        </ul>
+                    </div>
+                    <div class="amharic-card">
+                        <ul>
+                            <li><strong>ቦታ:</strong> ፍፁም እና አንጻራዊ</li>
+                            <li><strong>ስፍራ:</strong> አካላዊ እና ሰብዓዊ ባህሪዎች</li>
+                            <li><strong>ግንኙነት:</strong> ሰው-አካባቢ ግንኙነቶች</li>
+                            <li><strong>እንቅስቃሴ:</strong> ሰዎች፣ እቃዎች፣ ሀሳቦች</li>
+                            <li><strong>ክልል:</strong> መደበኛ እና ተግባራዊ ክልሎች</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Ethiopia & The Horn -->
+        <div class="section-container">
+            <div class="section-header">
+                <i class="fas fa-mountain section-icon"></i>
+                <h2 class="section-title">1.2 Ethiopia & The Horn</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-map-marker-alt"></i> Strategic Location</h3>
+                    <div class="card-content">
+                        <p><strong>Astronomical:</strong> 3°N-15°N / 33°E-48°E</p>
+                        <p><strong>Relative:</strong> Bordered by 6 nations</p>
+                        <p><strong>Impacts:</strong> Tropical climate, cultural crossroads</p>
+                    </div>
+                    <div class="amharic-card">
+                        <p><strong>የስነ ፈለክ:</strong> 3°ሰ-15°ሰ / 33°ም-48°ም</p>
+                        <p><strong>አንጻራዊ:</strong> በ6 ሀገራት የተከበበ</p>
+                        <p><strong>ተጽዕኖ:</strong> የሙቀት አየር፣ ባህላዊ መስቀለኛ</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-ruler-combined"></i> Size Significance</h3>
+                    <div class="card-content">
+                        <p>1,106,000 km² (8th in Africa)</p>
+                        <p><strong>Advantages:</strong> Diverse resources, large population</p>
+                        <p><strong>Challenges:</strong> Infrastructure costs, administration</p>
+                    </div>
+                    <div class="amharic-card">
+                        <p>1,106,000 ኪ.ሜ² (8ኛት በአፍሪካ)</p>
+                        <p><strong>ጥቅሞች:</strong> የተለያዩ ሀብቶች፣ ትልቅ ሕዝብ</p>
+                        <p><strong>ተግዳሮቶች:</strong> የመሠረተ ልማት ወጪ፣ አስተዳደር</p>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Area (km²)</th>
+                                <th>Compactness</th>
+                                <th>Comparison</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🇪🇹 Ethiopia</td>
+                                <td>1,106,000</td>
+                                <td>210.27</td>
+                                <td>★★★★★</td>
+                            </tr>
+                            <tr>
+                                <td>🇸🇴 Somalia</td>
+                                <td>637,657</td>
+                                <td>125.03</td>
+                                <td>★★★☆☆</td>
+                            </tr>
+                            <tr>
+                                <td>🇩🇯 Djibouti</td>
+                                <td>22,000</td>
+                                <td>26.83</td>
+                                <td>★☆☆☆☆</td>
+                            </tr>
+                            <tr>
+                                <td>🇪🇷 Eritrea</td>
+                                <td>117,400</td>
+                                <td>48.51</td>
+                                <td>★★☆☆☆</td>
+                            </tr>
+                            <tr>
+                                <td>🇰🇪 Kenya</td>
+                                <td>582,644</td>
+                                <td>161.85</td>
+                                <td>★★★★☆</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Map Reading Skills -->
+        <div class="section-container">
+            <div class="section-header">
+                <i class="fas fa-map section-icon"></i>
+                <h2 class="section-title">1.3 Map Reading Skills</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-map-marked-alt"></i> Map Fundamentals</h3>
+                    <div class="card-content">
+                        Scaled 2D Earth representations showing spatial relationships. Essential tools for visualizing geographic patterns.
+                    </div>
+                    <div class="amharic-card">
+                        የምድርን ቦታዊ ግንኙነቶች የሚያሳዩ የተመጣጠነ 2D ውክልናዎች። የጂኦግራፊያዊ ንድፎችን ለማየት የሚያስችሉ መሠረታዊ መሳሪያዎች!
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-lightbulb"></i> Why Maps Matter</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li>Spatial analysis (flood zones)</li>
+                            <li>Navigation & GPS</li>
+                            <li>Urban planning</li>
+                            <li>Historical research</li>
+                            <li>Disaster management</li>
+                        </ul>
+                    </div>
+                    <div class="amharic-card">
+                        <ul>
+                            <li>ቦታዊ ትንተና (የጎርፍ አካባቢዎች)</li>
+                            <li>አቅጣጫ መወሰን</li>
+                            <li>የከተማ እቅድ</li>
+                            <li>ታሪካዊ ምርምር</li>
+                            <li>የአደጋ አያያዝ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Section -->
+        <div class="review-section">
+            <h2 class="review-title">Knowledge Checkpoint</h2>
+            <div class="review-content">
+                <p>1. How does Ethiopia's location between 3°N-15°N impact its climate and cultural development?</p>
+                <p>2. Compare the five geography themes using Ethiopian examples</p>
+                <p>3. What are the practical applications of map reading skills in urban planning?</p>
+                
+                <div class="amharic-card" style="margin-top: 15px;">
+                    <p>1. የኢትዮጵያ አቀማመጥ በ3°ሰ-15°ሰ መካከል የአየር ንብረትን እና ባህላዊ እድገትን እንዴት ይጎዳል?</p>
+                    <p>2. የጂኦግራፊ አምስት ጭብጦችን በኢትዮጵያ ምሳሌዎች ያወዳድሩ</p>
+                    <p>3. የካርታ ንባብ ክህሎቶች ለከተማ እቅድ ተግባራዊ መተግበሪያዎች ምንድን ናቸው?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#" class="menu-item">
+            <i class="fas fa-home menu-icon"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-book menu-icon"></i>
+            <span>Chapters</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-bookmark menu-icon"></i>
+            <span>Bookmarks</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-download menu-icon"></i>
+            <span>Download</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user menu-icon"></i>
+            <span>Profile</span>
+        </a>
+    </div>
+</body>
+</html>
       `
     },
    {
