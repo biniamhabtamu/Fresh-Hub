@@ -3700,13 +3700,19 @@ export const noteCollections: Subject[] = [
             --dark: #0d2b4e;
             --card-bg: #ffffff;
             --text: #2d3748;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow: 4px 8px 25px rgba(0, 0, 0, 0.08);
+            --subtle-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
         }
 
         body {
@@ -3714,7 +3720,6 @@ export const noteCollections: Subject[] = [
             background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
             color: var(--text);
             line-height: 1.6;
-            padding: 15px;
             min-height: 100vh;
         }
 
@@ -3792,7 +3797,7 @@ export const noteCollections: Subject[] = [
         }
 
         .section-content {
-            padding: 20px;
+            padding: 20px; /* Keep padding for desktop */
         }
 
         /* Card Styles */
@@ -3801,8 +3806,14 @@ export const noteCollections: Subject[] = [
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--subtle-shadow);
             border-left: 4px solid var(--secondary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
 
         .card-title {
@@ -3842,6 +3853,14 @@ export const noteCollections: Subject[] = [
             margin-bottom: 5px;
             color: #4527a0;
         }
+        
+        .card-content ul {
+            padding-left: 25px;
+        }
+        
+        .card-content li {
+            margin-bottom: 5px;
+        }
 
         /* Table Styles */
         .table-container {
@@ -3849,7 +3868,7 @@ export const noteCollections: Subject[] = [
             overflow-x: auto;
             margin: 20px 0;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--subtle-shadow);
         }
 
         table {
@@ -3888,6 +3907,7 @@ export const noteCollections: Subject[] = [
             color: white;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         .review-title {
@@ -3908,6 +3928,10 @@ export const noteCollections: Subject[] = [
             line-height: 1.7;
             position: relative;
             z-index: 2;
+        }
+        
+        .review-content p {
+            margin-bottom: 10px;
         }
 
         .review-section::before {
@@ -3932,6 +3956,7 @@ export const noteCollections: Subject[] = [
             padding: 12px 0;
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
             z-index: 100;
+            border-top: 1px solid #e0e0e0;
         }
 
         .menu-item {
@@ -3939,20 +3964,83 @@ export const noteCollections: Subject[] = [
             flex-direction: column;
             align-items: center;
             font-size: 0.8rem;
-            color: var(--text);
+            color: var(--dark);
             text-decoration: none;
+            flex: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
         }
 
         .menu-icon {
             font-size: 1.4rem;
             margin-bottom: 5px;
             color: var(--secondary);
+            transition: color 0.3s ease;
+        }
+        
+        .menu-item:hover .menu-icon {
+            color: var(--primary);
         }
 
-        /* Responsive Adjustments */
+        /* Responsive Adjustments for Mobile */
+        @media (max-width: 767px) {
+            body {
+                padding: 0;
+            }
+            
+            .geography-app {
+                padding: 0;
+            }
+            
+            .app-header {
+                border-radius: 0 0 20px 20px;
+                padding: 20px 15px 25px;
+            }
+            
+            /* Make the section containers full width on mobile */
+            .section-container {
+                border-radius: 0;
+                margin: 0;
+                margin-bottom: 25px;
+            }
+
+            .section-header {
+                padding: 18px 15px; /* Add padding back to the header */
+            }
+
+            /* Add padding to the content inside the full-width section */
+            .section-content {
+                padding: 20px 15px;
+            }
+            
+            .card {
+                margin: 0 0 20px 0; /* Remove horizontal margin */
+                border-radius: 10px; /* Adjust border radius for a smoother look */
+            }
+
+            .review-section {
+                border-radius: 0;
+                margin: 0;
+                margin-bottom: 80px; /* Space for the fixed menu */
+            }
+            
+            .review-content {
+                border-radius: 10px;
+            }
+        }
+
+        /* Responsive Adjustments for Desktop */
         @media (min-width: 768px) {
             .mobile-menu {
                 display: none;
+            }
+            
+            body {
+                padding-bottom: 20px;
             }
             
             .geography-app {
@@ -3968,7 +4056,6 @@ export const noteCollections: Subject[] = [
             <p class="chapter-subtitle">Discover Earth's patterns, Ethiopia's geography, and master map reading skills</p>
         </div>
 
-        <!-- Section 1: Geography Fundamentals -->
         <div class="section-container">
             <div class="section-header">
                 <i class="fas fa-globe-africa section-icon"></i>
@@ -4019,7 +4106,6 @@ export const noteCollections: Subject[] = [
             </div>
         </div>
 
-        <!-- Section 2: Ethiopia & The Horn -->
         <div class="section-container">
             <div class="section-header">
                 <i class="fas fa-mountain section-icon"></i>
@@ -4101,7 +4187,6 @@ export const noteCollections: Subject[] = [
             </div>
         </div>
 
-        <!-- Section 3: Map Reading Skills -->
         <div class="section-container">
             <div class="section-header">
                 <i class="fas fa-map section-icon"></i>
@@ -4142,7 +4227,6 @@ export const noteCollections: Subject[] = [
             </div>
         </div>
 
-        <!-- Review Section -->
         <div class="review-section">
             <h2 class="review-title">Knowledge Checkpoint</h2>
             <div class="review-content">
@@ -4159,7 +4243,6 @@ export const noteCollections: Subject[] = [
         </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="#" class="menu-item">
             <i class="fas fa-home menu-icon"></i>
