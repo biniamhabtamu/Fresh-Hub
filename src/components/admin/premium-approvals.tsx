@@ -16,8 +16,7 @@ interface UserData {
   email: string;
   isPremium: boolean;
   premiumStatus: 'pending' | 'approved' | 'rejected';
-  transactionId?: string;
-  transactionUrl?: string;
+ 
   field?: string;
   phone?: string;
   paymentAmount?: number;
