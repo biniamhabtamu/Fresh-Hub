@@ -16,11 +16,13 @@ interface UserData {
   email: string;
   isPremium: boolean;
   premiumStatus: 'pending' | 'approved' | 'rejected';
- 
   field?: string;
   phone?: string;
   paymentAmount?: number;
   paymentDate?: string;
+  transactionId?: string;
+  transactionUrl?: string;
+  premiumSince?: string;
 }
 
 export default function AdminPremiumApproval() {
@@ -48,10 +50,11 @@ export default function AdminPremiumApproval() {
             premiumStatus: data.premiumStatus || 'pending',
             field: data.field || '',
             phone: data.phone || '',
-            transactionId: data.transactionId || '',
-            transactionUrl: data.transactionUrl || '',
             paymentAmount: data.paymentAmount || 0,
             paymentDate: data.paymentDate || '',
+            transactionId: data.transactionId || '',
+            transactionUrl: data.transactionUrl || '',
+            premiumSince: data.premiumSince || ''
           };
         });
 
@@ -69,16 +72,19 @@ export default function AdminPremiumApproval() {
   const handleApprove = async (userId: string) => {
     setIsUpdating(true);
     try {
-      await updateDoc(doc(db, 'users', userId), {
+      const userRef = doc(db, 'users', userId);
+      await updateDoc(userRef, {
         isPremium: true,
         premiumStatus: 'approved',
         premiumSince: new Date().toISOString()
       });
+      
       setUsers(users.map(user => 
         user.id === userId ? { 
           ...user, 
           isPremium: true, 
-          premiumStatus: 'approved' 
+          premiumStatus: 'approved',
+          premiumSince: new Date().toISOString()
         } : user
       ));
     } catch (error) {
@@ -92,16 +98,19 @@ export default function AdminPremiumApproval() {
   const handleReject = async (userId: string) => {
     setIsUpdating(true);
     try {
-      await updateDoc(doc(db, 'users', userId), {
+      const userRef = doc(db, 'users', userId);
+      await updateDoc(userRef, {
         isPremium: false,
         premiumStatus: 'rejected',
         premiumSince: null
       });
+      
       setUsers(users.map(user => 
         user.id === userId ? { 
           ...user, 
           isPremium: false, 
-          premiumStatus: 'rejected' 
+          premiumStatus: 'rejected',
+          premiumSince: ''
         } : user
       ));
     } catch (error) {
@@ -119,10 +128,7 @@ export default function AdminPremiumApproval() {
 
   const filteredUsers = users.filter(user => {
     if (filter === 'all') return true;
-    if (filter === 'pending') return user.premiumStatus === 'pending';
-    if (filter === 'approved') return user.premiumStatus === 'approved';
-    if (filter === 'rejected') return user.premiumStatus === 'rejected';
-    return true;
+    return user.premiumStatus === filter;
   });
 
   const getStatusBadge = (user: UserData) => {
