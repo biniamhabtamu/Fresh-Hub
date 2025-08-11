@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import { db } from '../../firebase/config';
 import { collection, query, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { CheckCircle2, XCircle, RefreshCw, User, Shield, Loader2, Link, Mail, Phone, FileText } from 'lucide-react';
+import { CheckCircle2, XCircle, RefreshCw, User, Shield, Loader2, Link, Mail, Phone, FileText, Gift } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const containerClasses = "min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8";
@@ -18,6 +18,7 @@ interface UserData {
   premiumStatus: 'pending' | 'approved' | 'rejected';
   field?: string;
   phone?: string;
+  referralCode?: string;
   paymentAmount?: number;
   paymentDate?: string;
   transactionId?: string;
@@ -50,6 +51,7 @@ export default function AdminPremiumApproval() {
             premiumStatus: data.premiumStatus || 'pending',
             field: data.field || '',
             phone: data.phone || '',
+            referralCode: data.referralCode || '',
             paymentAmount: data.paymentAmount || 0,
             paymentDate: data.paymentDate || '',
             transactionId: data.transactionId || '',
@@ -291,6 +293,12 @@ export default function AdminPremiumApproval() {
                                   <div className="flex items-center text-sm text-gray-600">
                                     <Phone className="h-4 w-4 mr-2 text-gray-400" />
                                     {user.phone}
+                                    {user.referralCode && (
+                                      <span className="ml-3 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                        <Gift className="h-3 w-3 mr-1" />
+                                        Ref: {user.referralCode}
+                                      </span>
+                                    )}
                                   </div>
                                 )}
                               </div>
@@ -390,6 +398,12 @@ export default function AdminPremiumApproval() {
                               <div className="flex items-center text-sm text-gray-600">
                                 <Phone className="h-4 w-4 mr-2 text-gray-400" />
                                 {user.phone}
+                                {user.referralCode && (
+                                  <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                    <Gift className="h-3 w-3 mr-1" />
+                                    {user.referralCode}
+                                  </span>
+                                )}
                               </div>
                             )}
                             {user.transactionId && (
@@ -486,6 +500,12 @@ export default function AdminPremiumApproval() {
                       <div className="flex items-center">
                         <Phone className="h-5 w-5 text-gray-400 mr-2" />
                         <span className="text-gray-700">{selectedUser.phone}</span>
+                        {selectedUser.referralCode && (
+                          <span className="ml-3 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                            <Gift className="h-3 w-3 mr-1" />
+                            Ref: {selectedUser.referralCode}
+                          </span>
+                        )}
                       </div>
                     )}
                     <div className="flex items-center">
