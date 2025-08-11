@@ -2381,330 +2381,410 @@ export const noteCollections: Subject[] = [
   "title": "🌟 Philosophy Essentials: A Structured Overview",
   "subtitle": "Clear, Concise & Easy to Review",
   "content": `
-    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 100%; padding: 15px; color: #2c3e50; box-sizing: border-box;">
-      <!-- Chapter Header -->
-      <div style="background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
-        <h1 style="margin: 0; font-size: 1.8rem;">🌟 Philosophy Essentials</h1>
-        <p style="font-size: 1rem; opacity: 0.9; margin: 10px 0 0;">Clear, Concise & Easy to Review</p>
-      </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Philosophy?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --primary-color: #3f51b5; /* A deep blue for accents */
+            --text-color: #2c3e50; /* Dark gray for main text */
+            --background-color: #f4f7f6; /* A light, soft gray background */
+            --card-background: #ffffff;
+            --secondary-color: #8c8c8c; /* Lighter gray for secondary text */
+            --border-radius: 12px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-      <!-- Chapter Overview -->
-      <div style="background: #f0f4ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4a69bd;">
-        <h2 style="color: #1e3799; margin-top: 0;">📚 Chapter One: Introducing Philosophy</h2>
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #4a69bd;">Chapter Overview</h3>
-          <ul>
-            <li><strong>Logic:</strong>
-              <ul>
-                <li>As a field: Branch of philosophy focused on arguments and principles of correct reasoning</li>
-                <li>As an instrument: Used to construct rational arguments and evaluate others' arguments</li>
-              </ul>
-            </li>
-            <li><strong>Philosophy:</strong> Study of fundamental problems related to existence, knowledge, truth, beauty, law, justice, validity, mind, and language</li>
-            <li><strong>Historically:</strong> Philosophers used logic to examine core philosophical topics</li>
-          </ul>
-          
-          <h3 style="color: #4a69bd;">Chapter Objectives</h3>
-          <ul>
-            <li>Understand the meaning, nature, and features of philosophy</li>
-            <li>Recognize the major branches of philosophy</li>
-            <li>Appreciate the importance of studying logic and philosophy</li>
-          </ul>
-        </div>
-      </div>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px; /* Consistent padding around the entire body */
+            line-height: 1.6;
+        }
 
-      <!-- Lesson 1 -->
-      <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
-        <h2 style="color: #0d47a1; margin-top: 0;">🧠 Lesson 1: Meaning and Nature of Philosophy</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Definition</h3>
-          <p>Etymologically, philosophy means "love of wisdom" (Greek: "philo" = love, "sophia" = wisdom).</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Lesson Objectives</h3>
-          <ul>
-            <li>Recognize fundamental concepts of philosophy</li>
-            <li>Understand the meaning and nature of philosophy</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #1565c0;">Key Concepts</h3>
-          <ol>
-            <li><strong>Defining Philosophy:</strong>
-              <ul>
-                <li>Addresses universal issues (existence, knowledge, values) rather than specific subjects</li>
-                <li>Requires engagement with philosophers' ideas and philosophical discussions</li>
-              </ul>
-            </li>
-            <li><strong>Philosophizing:</strong>
-              <ul>
-                <li>Involves questioning fundamental issues and developing critical mindset</li>
-                <li>Socrates: Philosophy begins in wonder and curiosity</li>
-              </ul>
-            </li>
-            <li><strong>Nature of Wisdom:</strong>
-              <ul>
-                <li>Critical thinking and respect for truth rather than technical knowledge</li>
-                <li>Socratic wisdom: Constant search for truth</li>
-              </ul>
-            </li>
-            <li><strong>Art of Questioning:</strong>
-              <ul>
-                <li>Central to philosophy, using imagination to see beyond the obvious</li>
-                <li>Leads to profound reflection and deeper understanding</li>
-              </ul>
-            </li>
-            <li><strong>Rational and Critical:</strong>
-              <ul>
-                <li>Answers fundamental questions through reason, analysis, comparison, evaluation</li>
-                <li>Constructive (developing answers) and critical (evaluating answers) sides</li>
-              </ul>
-            </li>
-            <li><strong>Philosophy as Activity:</strong>
-              <ul>
-                <li>Active process of thinking critically rather than memorizing knowledge</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-      </div>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-      <!-- Lesson 2 -->
-      <div style="background: #ffebee; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #f44336;">
-        <h2 style="color: #b71c1c; margin-top: 0;">🔍 Lesson 2: Basic Features of Philosophy</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Overview</h3>
-          <p>Philosophy has unique characteristics distinguishing it from other disciplines.</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #d32f2f;">Key Features</h3>
-          <ol>
-            <li><strong>Informal and Formal Philosophy:</strong>
-              <ul>
-                <li>Informal: Personal views about life and universe</li>
-                <li>Formal: Critically reflecting on beliefs with open-mindedness and argumentation skills</li>
-              </ul>
-            </li>
-            <li><strong>Critical and Reflective Process:</strong>
-              <ul>
-                <li>Generalizes, analyzes, and evaluates knowledge without bias</li>
-                <li>Perspectives influenced by personal/cultural backgrounds</li>
-              </ul>
-            </li>
-            <li><strong>Holistic Worldview:</strong>
-              <ul>
-                <li>Creates cohesive worldview integrating sciences and human experiences</li>
-              </ul>
-            </li>
-            <li><strong>Language Analysis:</strong>
-              <ul>
-                <li>Logical analysis to clarify meanings of words and concepts</li>
-              </ul>
-            </li>
-            <li><strong>Perennial Problems:</strong>
-              <ul>
-                <li>Explores enduring questions about truth, justice, purpose, knowledge</li>
-                <li>Leads to theories like idealism, realism, pragmatism, existentialism</li>
-              </ul>
-            </li>
-            <li><strong>Fundamental Life Questions:</strong>
-              <ul>
-                <li>What is life's purpose?</li>
-                <li>Distinction between right and wrong?</li>
-                <li>Does free will exist?</li>
-                <li>What is beauty and genuine value?</li>
-              </ul>
-            </li>
-            <li><strong>Influential Thinkers:</strong>
-              <ul>
-                <li>Socrates, Plato, Aristotle (Ancient Greek)</li>
-                <li>Aquinas, Augustine (Medieval)</li>
-                <li>Descartes, Spinoza, Locke (Early Modern)</li>
-                <li>Kant, Hegel, Nietzsche, Dewey (Modern)</li>
-              </ul>
-            </li>
-            <li><strong>Role in Society:</strong>
-              <ul>
-                <li>Encourages challenging assumptions and critical evaluation</li>
-                <li>Provides consistent principles for living</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-      </div>
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-top: 2em;
+        }
 
-      <!-- Lesson 3 -->
-      <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
-        <h2 style="color: #2e7d32; margin-top: 0;">🌌 Lesson 3: Metaphysics & Epistemology</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Lesson Overview</h3>
-          <p>Philosophy formulates and answers fundamental questions through reason. This lesson covers Metaphysics and Epistemology.</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Lesson Objectives</h3>
-          <ul>
-            <li>Understand fundamental concerns in Metaphysics/Epistemology</li>
-            <li>Identify major subsets of metaphysical questions</li>
-            <li>Recognize fundamental aspects of epistemological questions</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Metaphysics</h3>
-          <p>Studies the ultimate nature of reality/existence. Key questions:</p>
-          <ul>
-            <li>Nature of reality</li>
-            <li>Mind-body relationship</li>
-            <li>Existence of God</li>
-            <li>Meaning of life</li>
-          </ul>
-          <p><strong>Categories:</strong></p>
-          <ul>
-            <li>Cosmological: Universe's origin, nature, purpose</li>
-            <li>Theological: Existence/attributes of God</li>
-            <li>Anthropological: Human nature, morality, free will</li>
-            <li>Ontological: Nature of existence and reality</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #388e3c;">Epistemology</h3>
-          <p>Examines nature, scope, and validity of knowledge. Key issues:</p>
-          <ul>
-            <li>Nature of knowledge and truth</li>
-            <li>Sources of knowledge: experience, reason, intuition, revelation</li>
-            <li>Relationship between faith and reason</li>
-            <li>Subjectivity vs objectivity of knowledge</li>
-          </ul>
-          <p><strong>Key Concepts:</strong></p>
-          <ul>
-            <li>Skepticism, agnosticism</li>
-            <li>Reliability of sensory/rational knowledge</li>
-            <li>Complementary approach to knowledge sources</li>
-          </ul>
-        </div>
-      </div>
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
 
-      <!-- Lesson 4 -->
-      <div style="background: #f3e5f5; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
-        <h2 style="color: #7b1fa2; margin-top: 0;">⚖️ Lesson 4: Axiology & Logic</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Lesson Overview</h3>
-          <p>Philosophy addresses fundamental human issues through Axiology (study of value) and Logic (study of reasoning).</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Lesson Objectives</h3>
-          <ul>
-            <li>Understand fundamental concerns in Axiology/Logic</li>
-            <li>Identify axiological questions: ethical, aesthetic, political, social</li>
-            <li>Recognize debates about moral/political/social principles</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Axiology</h3>
-          <p>Study of value (Greek: "Axios" = value, "Logos" = study). Questions:</p>
-          <ul>
-            <li>What is value?</li>
-            <li>Sources/justification of values</li>
-            <li>Relationship between values and knowledge</li>
-          </ul>
-          <p><strong>Areas of Study:</strong></p>
-          <ul>
-            <li><strong>Ethics:</strong> Moral principles and conduct
-              <ul>
-                <li>Branches: Meta-ethics, Normative ethics, Applied ethics</li>
-                <li>Questions: Nature of good/bad, universality of moral principles</li>
-              </ul>
-            </li>
-            <li><strong>Aesthetics:</strong> Theory of beauty and artistic value
-              <ul>
-                <li>Questions: What is art/beauty? Objective standards?</li>
-              </ul>
-            </li>
-            <li><strong>Social/Political Philosophy:</strong> Value judgments in society/politics
-              <ul>
-                <li>Questions: Best form of government? Nature of justice?</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #8e24aa;">Logic</h3>
-          <p>Study of principles of right reasoning. Questions:</p>
-          <ul>
-            <li>What constitutes an argument?</li>
-            <li>Validity and soundness of arguments</li>
-            <li>Relationship between premises and conclusion</li>
-            <li>Identifying fallacies</li>
-          </ul>
-        </div>
-      </div>
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 1em;
+        }
 
-      <!-- Lesson 5 -->
-      <div style="background: #fff3e0; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #ff9800;">
-        <h2 style="color: #e65100; margin-top: 0;">💡 Lesson 5: Importance of Learning Philosophy</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #ef6c00;">Lesson Overview</h3>
-          <p>Philosophy answers fundamental questions through reason, analysis, comparison, and evaluation.</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #ef6c00;">Lesson Objectives</h3>
-          <ul>
-            <li>Understand fundamental benefits philosophy provides</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #ef6c00;">Benefits of Learning Philosophy</h3>
-          <ol>
-            <li><strong>Intellectual/Behavioral Independence:</strong> Develop personal opinions by integrating experiences</li>
-            <li><strong>Reflective Self-Awareness:</strong> Critically examine essential life aspects</li>
-            <li><strong>Flexibility/Tolerance:</strong> Exposure to perspectives fosters open-mindedness</li>
-            <li><strong>Creative/Critical Thinking:</strong> Enhance reasoning and original perspectives</li>
-            <li><strong>Conceptualized Value Systems:</strong> Formulate value systems in morality, art, politics</li>
-          </ol>
-          
-          <h4 style="color: #f57c00;">Dealing with Uncertainty</h4>
-          <p>Bertrand Russell: Philosophy addresses knowledge uncertainty by expanding thoughts and freeing from conventional biases.</p>
-          
-          <h4 style="color: #f57c00;">Chapter Summary</h4>
-          <ul>
-            <li>Philosophy = "love of wisdom" involving critical habits and truth-seeking</li>
-            <li>Dual-sided: Critical and constructive aspects</li>
-            <li>Branches: Metaphysics, Epistemology, Axiology, Logic</li>
-            <li>Helps examine life/world, promotes self-actualization, prepares for complex challenges</li>
-          </ul>
-        </div>
-      </div>
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 1.5em;
+        }
 
-      <!-- Key Takeaways -->
-      <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); padding: 20px; border-radius: 12px; text-align: center;">
-        <h2 style="color: white; margin-top: 0;">💎 Philosophical Wisdom</h2>
-        <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 8px;">
-          <p style="font-style: italic; color: #1a2980; margin: 0;">
-            "The unexamined life is not worth living." - Socrates
-          </p>
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;">
-            <span style="background: #4a69bd; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Critical Thinking</span>
-            <span style="background: #00cdac; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Wisdom Pursuit</span>
-            <span style="background: #ff6b6b; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Value Systems</span>
-          </div>
-        </div>
-      </div>
-    </div>
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .sub-text {
+            color: var(--secondary-color);
+            font-style: italic;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 2em;
+        }
+
+        .card {
+            background: var(--card-background);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: var(--primary-color);
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .card-list li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .card-list li strong {
+            color: var(--primary-color);
+        }
+
+        .card-list-nested {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <h1>What is Philosophy? 🤔</h1>
+        <p class="sub-text">An Exploration of Universal Issues and Fundamental Questions</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>What is Philosophy? 🤔</h2>
+            <p>It's tough to give a single, straightforward definition of philosophy because it doesn't have one specific subject matter like chemistry or physics. Instead, philosophy deals with universal issues and fundamental questions. It's more about a way of thinking and a continuous search for truth than a set of facts. The best way to learn it is by actively engaging with it—by philosophizing.</p>
+            <p>የፍልስፍና ትርጉም በቀላሉ መስጠት ከባድ ነው ምክንያቱም እንደ ኬሚስትሪ ወይም ፊዚክስ አንድ የተወሰነ የትምህርት ዘርፍ ስለሌለው ነው። ይልቁንም፣ ፍልስፍና የሚያተኩረው ሁለንተናዊ ጉዳዮች እና መሰረታዊ ጥያቄዎች ላይ ነው። ፍልስፍና ከእውነት ፍለጋ ጋር የተያያዘ የአስተሳሰብ መንገድ እንጂ የሀቆች ስብስብ አይደለም። እሱን ለመማር ምርጡ መንገድ ደግሞ በማፍለስፈፍ ንቁ ተሳትፎ ማድረግ ነው።</p>
+        </section>
+
+        <section class="card">
+            <h2>The Origins of the Word "Philosophy" 📜</h2>
+            <p>To get a clearer understanding, we can look at the etymology of the word itself. "Philosophy" comes from two ancient Greek words:</p>
+            <ul class="card-list">
+                <li><strong>Philo</strong> means "love" ❤️</li>
+                <li><strong>Sophia</strong> means "wisdom" 🧠</li>
+            </ul>
+            <p>So, the literal definition of philosophy is "love of wisdom." The ancient Greek thinker Pythagoras was the first to use the term "philosopher" for someone who is curious and seeks to understand the world.</p>
+            <p>የ"ፍልስፍና" የሚለውን ቃል አመጣጥ በመመልከት ትርጉሙን በተሻለ ሁኔታ መረዳት እንችላለን። "ፍልስፍና" የሚለው ቃል ከሁለት ጥንታዊ የግሪክ ቃላት የመጣ ነው፦</p>
+            <ul class="card-list">
+                <li><strong>"ፊሎ"</strong> ማለት "ፍቅር" ❤️</li>
+                <li><strong>"ሶፊያ"</strong> ማለት "ጥበብ" 🧠</li>
+            </ul>
+            <p>ስለዚህ፣ የፍልስፍና ቀጥተኛ ትርጉም "የጥበብ ፍቅር" ነው። ጥንታዊው የግሪክ ፈላስፋ ፓይታጎረስ አለምን ለመረዳት ጉጉት ላላቸው ሰዎች ለመጀመሪያ ጊዜ "ፈላስፋ" የሚለውን ስያሜ ተጠቅሟል።</p>
+        </section>
+
+        <section class="card">
+            <h2>What Kind of Wisdom Do Philosophers Seek? 💡</h2>
+            <p>The wisdom that philosophers pursue isn't just about having a lot of information or technical skills. As Socrates explained, philosophical wisdom involves:</p>
+            <ul class="card-list">
+                <li><strong>Critical habits:</strong> Continuously questioning and examining everything.</li>
+                <li><strong>A continuous search for truth:</strong> Being dedicated to finding the truth, no matter what form it takes.</li>
+                <li><strong>Questioning the obvious:</strong> Going beyond what people normally accept without question and exploring deeper possibilities.</li>
+            </ul>
+            <p>This critical and questioning mindset is the core of philosophy.</p>
+            <p>ፈላስፋዎች የሚፈልጉት ጥበብ ብዙ መረጃ ወይም ሙያዊ ክህሎት መያዝ ብቻ አይደለም። ሶቅራጥስ እንዳብራራው፣ የፍልስፍና ጥበብ የሚከተሉትን ያካትታል፦</p>
+            <ul class="card-list">
+                <li><strong>የወሳኝ አስተሳሰብ ልማድ:</strong> ነገሮችን ያለማቋረጥ መጠየቅ እና መመርመር።</li>
+                <li><strong>የእውነት ዘላለማዊ ፍለጋ:</strong> እውነትን በየትኛውም መልኩ ለመፈለግ ቁርጠኛ መሆን።</li>
+                <li><strong>ግልጽ የሚመስሉ ነገሮችን መጠየቅ:</strong> ሰዎች ያለምንም ጥርጣሬ የሚቀበሉትን ነገር አልፎ ወደ ጥልቅ ዕድሎች መግባት።</li>
+            </ul>
+            <p>ይህ ወሳኝ እና ጠያቂ አስተሳሰብ የፍልስፍና ዋና አካል ነው።</p>
+        </section>
+
+        <section class="card">
+            <h2>Philosophy as an Activity, Not Just a Product 🏃</h2>
+            <p>You can't just "learn" philosophy from a book; you have to do it. Philosophy is an active process that involves:</p>
+            <ul class="card-list">
+                <li><strong>Reason and rational criticism:</strong> Using logic to analyze and evaluate ideas.</li>
+                <li><strong>Formulating and answering fundamental questions:</strong> Asking questions like, "What is reality?" or "What is the meaning of life?" and then trying to find well-reasoned answers.</li>
+            </ul>
+            <p>A great philosopher isn't great because of the theories they came up with, but because of their exceptional ability to philosophize—to think critically, analyze, and understand.</p>
+            <p>ፍልስፍናን ከመጽሐፍ ላይ ብቻ "መማር" አይቻልም፤ መተግበር አለብህ። ፍልስፍና የሚከተሉትን ያካተተ ንቁ ሂደት ነው፦</p>
+            <ul class="card-list">
+                <li><strong>ምክንያታዊ ትችት እና አስተሳሰብ:</strong> ሀሳቦችን ለመተንተን እና ለመገምገም ምክንያትን መጠቀም።</li>
+                <li><strong>መሰረታዊ ጥያቄዎችን መቅረጽ እና መመለስ:</strong> እንደ "እውነታ ምንድን ነው?" ወይም "የህይወት ትርጉም ምንድን ነው?" የሚሉ ጥያቄዎችን በመጠየቅ እና በምክንያታዊነት መልስ ለመስጠት መሞከር።</li>
+            </ul>
+            <p>ታላቅ ፈላስፋ ታላቅ የሆነው የፈጠራቸው ንድፈ ሃሳቦች ስላሉት ሳይሆን፣ በማፍለስፈፍ—በጥልቀት በማሰብ፣ በመተንተን እና በመረዳት—ባለው ልዩ ችሎታ ነው።</p>
+        </section>
+
+        <section class="card">
+            <h2>What are the Features of Philosophy? 🤔</h2>
+            <p>Philosophy is a unique discipline with distinct characteristics that set it apart from other fields of study. Understanding these features helps us grasp what it means to "do" philosophy, rather than just "have" a philosophy.</p>
+            <p>ፍልስፍና ከሌሎች የትምህርት ዘርፎች የሚለዩት ልዩ ባህሪያት አሉት። እነዚህን ባህሪያት መረዳት፣ ፍልስፍናን "መያዝ" ብቻ ሳይሆን ፍልስፍናን "ማድረግ" ምን ማለት እንደሆነ ለመረዳት ይረዳናል።</p>
+            
+            <h3>1. Philosophy as Personal Beliefs and Critical Reflection 🧐</h3>
+            <p>There are two main senses of philosophy:</p>
+            <ul class="card-list">
+                <li><strong>"Having" a philosophy:</strong> This refers to our personal beliefs and attitudes about life and the universe. For example, when someone says, "My philosophy is to always be kind," they are expressing an informal, personal view.</li>
+                <li><strong>"Doing" philosophy:</strong> This is the more formal, academic sense. It involves actively reflecting on, questioning, and criticizing our deepest beliefs. To truly philosophize, you must be open-minded, tolerant, and willing to examine all sides of an issue without prejudice. It's about developing critical thinking and argumentation skills.</li>
+            </ul>
+            <p>ፍልስፍና በሁለት ዋና ዋና መንገዶች ሊታይ ይችላል፦</p>
+            <ul class="card-list">
+                <li><strong>"ፍልስፍና መያዝ":</strong> ይህ ስለ ሕይወት እና ስለ አጽናፈ ዓለም ያለንን ግላዊ እምነቶች እና አመለካከቶች ያመለክታል። ለምሳሌ፣ አንድ ሰው "የእኔ ፍልስፍና ሁል ጊዜ ደግ መሆን ነው" ሲል፣ ግላዊ አመለካከቱን እየገለጸ ነው።</li>
+                <li><strong>"ፍልስፍና ማድረግ":</strong> ይህ ይበልጥ መደበኛ የሆነ የአካዳሚክ ትርጉም ነው። በጥልቀት ማሰብን፣ ጥያቄዎችን ማንሳትን እና እምነቶቻችንን መተቸትን ያካትታል። በትክክል ለማፍለስፈፍ፣ አንድ ሰው ክፍት አእምሮ ያለው፣ ታጋሽ እና ማንኛውንም ጉዳይ ያለ አድሎአዊነት ለመመርመር ፈቃደኛ መሆን አለበት። ይህ ወሳኝ አስተሳሰብ እና የክርክር ክህሎቶችን ማዳበርን ይጠይቃል።</li>
+            </ul>
+            
+            <h3>2. Philosophy Seeks a Holistic Worldview 🌍</h3>
+            <p>Philosophy is a rational effort to see the world as a consistent whole. While other disciplines like science, business, or art focus on specific aspects of human experience, philosophy aims to integrate all this knowledge. It tries to combine conclusions from various sciences and human experiences to create a coherent worldview or a meaningful interpretation of life.</p>
+            <p>ፍልስፍና ዓለምን እንደ የተቀናጀ አንድነት ለማየት የሚደረግ ምክንያታዊ ጥረት ነው። እንደ ሳይንስ፣ ንግድ ወይም ስነ-ጥበብ ያሉ ሌሎች የትምህርት ዘርፎች በተወሰኑ የሰው ልምዶች ላይ ሲያተኩሩ፣ ፍልስፍና ይህንን ሁሉ እውቀት ለማዋሃድ ይጥራል። የተለያዩ የሳይንስ እና የሰው ልምዶች መደምደሚያዎችን በማጣመር ወጥ የሆነ የዓለም እይታ ወይም ትርጉም ያለው የሕይወት ትርጓሜ ለመፍጠር ይፈልጋል።</p>
+            
+            <h3>3. Philosophy is a Logical Analysis of Language 🗣️</h3>
+            <p>A key function of philosophy is the logical analysis of language. This involves clarifying the meaning of words and concepts. Many philosophers see this as a vital task, believing that clear language is essential for clear thought. They aim to expose confusion and nonsense by precisely defining terms used in science and everyday life.</p>
+            <p>የፍልስፍና ቁልፍ ተግባር የቋንቋ ምክንያታዊ ትንተና ነው። ይህ የቃላትን እና የፅንሰ-ሀሳቦችን ትርጉም ግልጽ ማድረግን ያካትታል። ብዙ ፈላስፋዎች ይህን እንደ አስፈላጊ ተግባር ይመለከቱታል፣ ግልጽ ቋንቋ ለግልጽ አስተሳሰብ አስፈላጊ እንደሆነ ያምናሉ። በሳይንስ እና በዕለት ተዕለት ሕይወት ውስጥ ጥቅም ላይ የሚውሉ ቃላትን በትክክል በመግለጽ ግራ መጋባትን እና ትርጉም የለሽነትን ለማጋለጥ ይጥራሉ።</p>
+
+            <h3>4. Philosophy Tackles Perennial and Fundamental Problems 🤯</h3>
+            <p>Philosophy digs into the deepest problems of human existence that have interested people for centuries. These are not simple questions of fact, but rather profound inquiries that often have no easy answers. Examples of these perennial questions include:</p>
+            <ul class="card-list">
+                <li>What is truth? 💡</li>
+                <li>What is the distinction between right and wrong? ⚖️</li>
+                <li>Why is there anything at all? 🌌</li>
+                <li>What is the purpose of life? 🤔</li>
+                <li>Is there a God? 🙏</li>
+            </ul>
+            <p>These fundamental questions give rise to various theories and systems of thought, such as idealism, realism, and existentialism, which are all part of philosophy's rich content.</p>
+            <p>ፍልስፍና ለብዙ መቶ ዘመናት ሰዎችን ሲያስጨንቁ የቆዩትን የሰዎች ህልውና ጥልቅ ችግሮችን ይመረምራል። እነዚህ ቀላል የእውነታ ጥያቄዎች ሳይሆኑ፣ ብዙ ጊዜ ቀላል መልስ የሌላቸው ጥልቅ ጥያቄዎች ናቸው። የእነዚህ ዘላለማዊ ጥያቄዎች ምሳሌዎች የሚከተሉትን ያካትታሉ፦</p>
+            <ul class="card-list">
+                <li>እውነት ምንድን ነው? 💡</li>
+                <li>በትክክል እና በስህተት መካከል ያለው ልዩነት ምንድን ነው? ⚖️</li>
+                <li>ለምን ምንም ነገር አለ? 🌌</li>
+                <li>የሕይወት ዓላማ ምንድን ነው? 🤔</li>
+                <li>እግዚአብሔር አለ? 🙏</li>
+            </ul>
+            <p>እነዚህ መሰረታዊ ጥያቄዎች እንደ ሃሳባዊነት (idealism)፣ እውነታነት (realism) እና ህልውናዊነት (existentialism) ያሉ የተለያዩ የንድፈ ሃሳቦችን እና የአስተሳሰብ ስርዓቶችን አስከትለዋል። እነዚህ ሁሉ የፍልስፍና የበለፀገ ይዘት አካል ናቸው።</p>
+        </section>
+
+        <section class="card">
+            <h2>Metaphysics: The Study of Reality 🌌</h2>
+            <p>Metaphysics is the core branch of philosophy that explores the ultimate nature of reality and existence. Its name comes from Greek words meaning "beyond physics," as it deals with fundamental questions that go beyond what we can observe with our senses. Metaphysicians seek to find the "first principles" from which all knowledge can be derived.</p>
+            <p>የፍልስፍና ዋና አካል የሆነው ሜታፊዚክስ የህልውናን እና የእውነታን መሰረታዊ ባህሪ የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት የተገኘ ሲሆን "ከፊዚክስ ባሻገር" የሚል ትርጉም አለው። ምክንያቱም በስሜት ህዋሳችን ከምናየው በላይ ያሉ ጥያቄዎችን ስለሚዳስስ ነው። ሜታፊዚሻኖች ሁሉም እውቀቶች ሊመነጩባቸው የሚችሉ "የመጀመሪያ መርሆችን" ይፈልጋሉ።</p>
+
+            <h3>Key Questions in Metaphysics</h3>
+            <p>Metaphysics grapples with foundational questions that shape our understanding of the world.</p>
+            <ul class="card-list">
+                <li><strong>What is real?</strong> Is what we see and touch the only reality, or is there something beyond it?</li>
+                <li><strong>What is the mind-body problem?</strong> What is the relationship between our consciousness (mind) and our physical body?</li>
+                <li><strong>Is there a God?</strong> Can we prove God's existence?</li>
+                <li><strong>Are our actions truly free?</strong> Are we in control of our choices, or are they predetermined?</li>
+            </ul>
+            <p>የሜታፊዚክስ ቁልፍ ጥያቄዎች አለምን የምንረዳበትን መንገድ የሚቀርጹ መሰረታዊ ጥያቄዎችን ያነሳሉ።</p>
+            <ul class="card-list">
+                <li><strong>እውነታ ምንድን ነው?</strong> የምናየው እና የምንነካው ብቻ ነው እውነት ወይስ ከዛ በላይ የሆነ ነገር አለ?</li>
+                <li><strong>የአእምሮ እና የሰውነት ችግር ምንድን ነው?</strong> በህሊናችን (አእምሯችን) እና በአካላዊ ሰውነታችን መካከል ያለው ግንኙነት ምንድን ነው?</li>
+                <li><strong>አምላክ አለ?</strong> የአምላክን መኖር ማረጋገጥ እንችላለን?</li>
+                <li><strong>ድርጊቶቻችን በእውነት ነፃ ናቸው?</strong> በምርጫችን ላይ ቁጥጥር አለን ወይስ አስቀድሞ የተወሰኑ ናቸው?</li>
+            </ul>
+
+            <h3>The Four Aspects of Metaphysics</h3>
+            <p>Metaphysical questions can be broken down into four key areas:</p>
+            <ul class="card-list">
+                <li><strong>Cosmology:</strong> The study of the origin and nature of the universe as an orderly system. It asks if the universe came about by accident or design, and if it has a purpose.</li>
+                <li><strong>Theology:</strong> The study of God. It asks questions about God's existence, attributes, and relationship with humanity.</li>
+                <li><strong>Anthropology:</strong> The study of human beings. It explores the mind-body relationship, our moral status (e.g., born good or evil), and the extent of our free will.</li>
+                <li><strong>Ontology:</strong> The study of existence itself. It questions what it means for something to exist and whether reality is found in matter or spirit, and if it is fixed or constantly changing.</li>
+            </ul>
+            <p>የሜታፊዚክስ ጥያቄዎች በአራት ዋና ዋና ክፍሎች ሊከፈሉ ይችላሉ፦</p>
+            <ul class="card-list">
+                <li><strong>ኮስሞሎጂ:</strong> የአጽናፈ ዓለም አመጣጥ እና ባህሪን የሚያጠና ነው። አጽናፈ ዓለሙ በአጋጣሚ ወይስ በንድፍ እንደመጣ እና ዓላማ እንዳለው ይጠይቃል።</li>
+                <li><strong>ቲዎሎጂ:</strong> የአምላክን ጽንሰ-ሀሳብ ያጠናል። የአምላክን መኖር፣ ባህሪያት እና ከሰው ልጆች ጋር ያለውን ግንኙነት በተመለከተ ጥያቄዎችን ያነሳል።</li>
+                <li><strong>አንትሮፖሎጂ:</strong> የሰው ልጆችን የሚያጠና ነው። በአእምሮ እና በአካል መካከል ያለውን ግንኙነት፣ የሞራል ሁኔታችንን (ለምሳሌ ጥሩ ሆነው መወለድ ወይም መጥፎ) እና ነፃ ምርጫችን ምን ያህል እንደሆነ ይፈትሻል።</li>
+                <li><strong>ኦንቶሎጂ:</strong> የህልውናን ባህሪ የሚያጠና ነው። አንድ ነገር መኖሩ ምን ማለት እንደሆነ እና እውነታው በቁስ ወይም በመንፈስ ላይ የተመሰረተ እንደሆነ፣ እንዲሁም ቋሚ ወይም ተለዋዋጭ እንደሆነ ይጠይቃል።</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Epistemology: The Study of Knowledge 🧐</h2>
+            <p>Epistemology, also known as the theory of knowledge, is the branch of philosophy that studies the nature, source, and validity of knowledge. The term comes from the Greek words "episteme" (knowledge) and "logos" (study). It asks foundational questions like, "What is knowledge?" and "How do we know something is true?"</p>
+            <p>ኤፒስተሞሎጂ፣ የእውቀት ቲዎሪ በመባልም የሚታወቀው፣ የእውቀትን ባህሪ፣ ምንጭ እና ተዓማኒነት የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት "ኤፒስተሜ" (እውቀት) እና "ሎጎስ" (ጥናት) የመጣ ነው። "እውቀት ምንድን ነው?" እና "አንድ ነገር እውነት መሆኑን እንዴት እናውቃለን?" የሚሉ መሰረታዊ ጥያቄዎችን ያነሳ።</p>
+
+            <h3>Key Questions in Epistemology</h3>
+            <p>Epistemology challenges us to think critically about what we accept as knowledge.</p>
+            <ul class="card-list">
+                <li><strong>What is the difference between knowledge and belief or opinion?</strong></li>
+                <li><strong>What are the reliable sources of knowledge?</strong> Is it our senses, reason, or something else?</li>
+                <li><strong>How can we be sure that our perceptions are correct?</strong> (e.g., a stick appears bent in water, but it's not)</li>
+                <li><strong>Is truth relative or absolute?</strong> Can what is true today be false tomorrow?</li>
+            </ul>
+            <p>ኤፒስተሞሎጂ እንደ እውቀት የምንቀበለውን ነገር በወሳኝ አስተሳሰብ እንድናይ ይሞግተናል።</p>
+            <ul class="card-list">
+                <li><strong>በእውቀት እና በእምነት ወይም በአስተያየት መካከል ያለው ልዩነት ምንድን ነው?</strong></li>
+                <li><strong>የእውቀት ተዓማኒ ምንጮች ምንድን ናቸው?</strong> በስሜት ህዋሳችን፣ በምክንያታችን ወይስ በሌላ ነገር ነው?</li>
+                <li><strong>የምናየው ነገር ትክክል መሆኑን እንዴት እርግጠኞች እንሆናለን?</strong> (ለምሳሌ፣ በውሃ ውስጥ ያለ እንጨት የተጣመመ ይመስላል፣ ግን አይደለም)</li>
+                <li><strong>እውነት አንፃራዊ ነው ወይስ ፍፁም?</strong> ዛሬ እውነት የሆነ ነገር ነገ ውሸት ሊሆን ይችላል?</li>
+            </ul>
+
+            <h3>The Sources of Human Knowledge</h3>
+            <p>Epistemology identifies several ways we gain knowledge. Often, people prioritize one source over others.</p>
+            <ul class="card-list">
+                <li><strong>Empiricism (Sense Experience):</strong> Knowledge comes from our senses and experience. It is immediate and universal for humans, but it can be unreliable, as senses can be deceived and are often incomplete. For instance, some light waves are invisible to the naked eye.</li>
+                <li><strong>Rationalism (Reason):</strong> Knowledge is primarily derived from reason, thought, and logic. Rationalists believe the mind organizes sensory data into a meaningful system. In its extreme form, it claims we can gain irrefutable knowledge independently of our senses.</li>
+                <li><strong>Intuition:</strong> The direct apprehension of knowledge not derived from conscious reasoning or perception. It's a sudden "flash of insight." While it can lead to breakthroughs, it's not a safe method on its own and should be checked against other sources.</li>
+                <li><strong>Revelation:</strong> Knowledge received from a supernatural or transcendent source. This is of prime importance in religion and is accepted by faith. Believers see it as an absolute and omniscient source of truth.</li>
+                <li><strong>Authority:</strong> Knowledge accepted as true because it comes from experts, tradition, or respected sources like teachers and textbooks. It is a necessary source for civilization, but its validity depends on the correctness of the authority's foundations.</li>
+            </ul>
+            <p>ኤፒስተሞሎጂ እውቀትን የምናገኝባቸውን በርካታ መንገዶች ይለያል። ብዙ ጊዜ፣ ሰዎች ከአንድ ምንጭ የበለጠ ለሌላው ቅድሚያ ይሰጣሉ።</p>
+            <ul class="card-list">
+                <li><strong>ኤምፒሪሲዝም (የስሜት ህዋሳት ልምድ):</strong> እውቀት የሚገኘው ከስሜት ህዋሳችን እና ልምዳችን ነው። ለሰዎች ቀጥተኛ እና ሁለንተናዊ ቢሆንም፣ ስሜታችን ሊታለል ስለሚችል እና ብዙ ጊዜም ያልተሟላ በመሆኑ ተዓማኒ ላይሆን ይችላል። ለምሳሌ፣ አንዳንድ የብርሃን ሞገዶች በአይን አይታዩም።</li>
+                <li><strong>ራሽናሊዝም (ምክንያት):</strong> እውቀት በዋነኝነት የሚመነጨው በምክንያት፣ በአስተሳሰብ እና በሎጂክ ነው። ራሽናሊስቶች አእምሮ የስሜት ህዋሳትን መረጃ ወደ ትርጉም ያለው ስርዓት ያደራጃል ብለው ያምናሉ። በከፍተኛ ደረጃ ደግሞ፣ ከስሜት ህዋሳት ነፃ የሆነ የማይካድ እውቀት ማግኘት እንችላለን ይላሉ።</li>
+                <li><strong>ኢንቱዊሽን (ራዕይ/ብልጭታ):</strong> ከንቃተ-ህሊና አስተሳሰብ ወይም ከስሜት ህዋሳት ግንዛቤ ያልተገኘ ቀጥተኛ የእውቀት ግንዛቤ ነው። "ድንገተኛ ግንዛቤ ብልጭታ" ተብሎም ይገለጻል። ግኝቶችን ሊያስገኝ ቢችልም፣ ብቻውን አስተማማኝ ዘዴ አይደለም እና ከሌሎች የእውቀት ምንጮች ጋር መረጋገጥ አለበት።</li>
+                <li><strong>ሬቬሌሽን (ራዕይ):</strong> ከከተፈጥሮ በላይ ወይም ከፍ ካለ ምንጭ የመጣ እውቀት ነው። በሃይማኖት መስክ ከፍተኛ ጠቀሜታ ያለው እና በእምነት ተቀባይነትን ያገኛል። አማኞች ይህንን ምንጭ ፍጹም እና ሁሉን አዋቂ የእውነት ምንጭ አድርገው ይመለከቱታል።</li>
+                <li><strong>አውቶሪቲ (ሥልጣን):</strong> እውቀት የሚቀበለው ከባለሙያዎች፣ ከወግ ወይም ከተከበሩ ምንጮች እንደ መምህራን እና የመማሪያ መጽሐፍት ስለመጣ ነው። ለሥልጣኔ አስፈላጊ ምንጭ ቢሆንም፣ ተዓማኒነቱ ግን ሥልጣኑ በተመሠረተበት መሠረት ትክክለኛነት ላይ የተመካ ነው።</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>What are Axiology and Logic? 🤔</h2>
+            <p>Axiology and Logic are two more of the core branches of philosophy, each with a distinct focus. Axiology is all about the philosophical study of value, while Logic is the study of correct reasoning and arguments. They help us understand what is good, beautiful, and just, and how to think about these things clearly.</p>
+            <p>አክሲዮሎጂ እና ሎጂክ የፍልስፍና ዋና ቅርንጫፎች ሲሆኑ፣ እያንዳንዳቸው የራሳቸው የሆነ ትኩረት አላቸው። አክሲዮሎጂ የዋጋዎች ፍልስፍናዊ ጥናት ሲሆን፣ ሎጂክ ደግሞ የትክክለኛ ምክንያታዊ አስተሳሰብ እና ክርክሮችን የሚያጠና ነው። ሁለቱም ጥሩ፣ ቆንጆ እና ፍትሃዊ የሆነውን ለመረዳት እና ስለእነዚህ ነገሮች በአግባቡ ለማሰብ ይረዱናል።</p>
+
+            <h3>Axiology: The Study of Value ⚖️</h3>
+            <p>Axiology is the philosophical study of value, or the worth of something. The word comes from the Greek words "Axios" (value, worth) and "logos" (study of). Axiology asks fundamental questions about what we consider good, preferable, or valuable, and where these ideas come from.</p>
+            <p>አክሲዮሎጂ የዋጋዎችን ወይም የአንድን ነገር ዋጋ የሚያጠና የፍልስፍና ዘርፍ ነው። ቃሉ "Axios" (ዋጋ) እና "logos" (ጥናት) ከሚሉት የግሪክ ቃላት የተገኘ ነው። አክሲዮሎጂ እንደ ጥሩ፣ ተመራጭ ወይም ጠቃሚ የምንላቸው ነገሮች ምን እንደሆኑ እና እነዚህ ሃሳቦች ከየት እንደመጡ የሚሉ መሰረታዊ ጥያቄዎችን ይጠይቃል።</p>
+            
+            <h4>Key Branches of Axiology</h4>
+            <p>Axiology is divided into three main areas of value:</p>
+            <ul class="card-list">
+                <li><strong>Ethics (Moral Philosophy):</strong> This is the study of moral principles, values, and rules that define what is good or bad, right or wrong. It's the search for standards to guide human conduct. Ethics has three sub-branches:
+                    <ul class="card-list-nested">
+                        <li><strong>Normative Ethics:</strong> Seeks to determine the actual rules and standards by which we should live.</li>
+                        <li><strong>Meta-ethics:</strong> Investigates the meaning of ethical terms like "good" and "bad" and how ethical statements can be verified.</li>
+                        <li><strong>Applied Ethics:</strong> Applies moral rules to specific practical problems, such as capital punishment or abortion.</li>
+                    </ul>
+                </li>
+                <li><strong>Aesthetics:</strong> This is the theory of beauty and art. It explores our artistic and aesthetic experiences, and asks questions about what makes something beautiful or creative. It questions if there can be an objective standard for beauty.</li>
+                <li><strong>Social and Political Philosophy:</strong> This studies the value judgments that operate within a civil society and government. It asks questions about the best forms of government, justice, and the purpose of laws.</li>
+            </ul>
+            <p>አክሲዮሎጂ በሦስት ዋና ዋና የዋጋ ዘርፎች ይከፈላል፦</p>
+            <ul class="card-list">
+                <li><strong>ሥነምግባር (ሞራል ፍልስፍና):</strong> ጥሩ ወይም መጥፎ፣ ትክክል ወይም ስህተት የሆነውን የሚገልጹትን የሞራል መርሆች፣ እሴቶች እና ደንቦች የሚያጠና ነው። የሰውን ባህሪ ለመምራት የሚያገለግሉ መመዘኛዎችን ይፈልጋል። ሥነምግባር ሦስት ንዑስ ክፍሎች አሉት፦
+                    <ul class="card-list-nested">
+                        <li><strong>ኖርማቲቭ ሥነምግባር:</strong> በምን ዓይነት ደንቦች እና መመዘኛዎች መኖር እንዳለብን ለማወቅ ይፈልጋል።</li>
+                        <li><strong>ሜታ-ሥነምግባር:</strong> እንደ "ጥሩ" እና "መጥፎ" ያሉ የሥነምግባር ቃላት ትርጉም ምን እንደሆነ ይመረምራል።</li>
+                        <li><strong>ተግባራዊ ሥነምግባር (Applied Ethics):</strong> እንደ ሞት ቅጣት ወይም ፅንስ ማቋረጥ ባሉ ልዩ የሞራል ችግሮች ላይ የሥነምግባር መርሆችን ተግባራዊ ያደርጋል።</li>
+                    </ul>
+                </li>
+                <li><strong>ውበት ጥናት (Aesthetics):</strong> የውበት እና የኪነ ጥበብ ንድፈ ሃሳብ ነው። ስለ ጥበባዊ ልምዶቻችን የሚመረምር ሲሆን አንድን ነገር ቆንጆ ወይም ፈጠራ የሚያደርገው ምን እንደሆነ ይጠይቃል። ለውበት ተጨባጭ መስፈርት ሊኖር እንደሚችልም ይጠይቃል።</li>
+                <li><strong>ማህበራዊ እና ፖለቲካዊ ፍልስፍና:</strong> በሲቪል ማህበረሰብ እና በመንግስት ውስጥ የሚሰሩ የዋጋ ፍርዶችን ያጠናል። ስለ ምርጥ የመንግስት ዓይነቶች፣ ፍትህ እና የህግ አላማ ጥያቄዎችን ያነሳል።</li>
+            </ul>
+
+            <h3>Logic: The Study of Correct Reasoning 💡</h3>
+            <p>Logic is the study of the principles of correct reasoning. It provides the tools and methods for evaluating the validity and soundness of arguments. By studying logic, we learn how to construct good arguments and identify fallacies or errors in reasoning.</p>
+            <p>ሎጂክ የትክክለኛ ምክንያታዊ አስተሳሰብ መርሆችን የሚያጠና ነው። የክርክሮችን ትክክለኛነት እና ጤናማነት ለመገምገም የሚያገለግሉ መሳሪያዎችን እና ዘዴዎችን ይሰጣል። ሎጂክን በማጥናት፣ ጥሩ ክርክሮችን እንዴት መገንባት እንደምንችል እና በማመዛዘን ውስጥ ያሉ ስህተቶችን ወይም አላስፈላጊ መደምደሚያዎችን (fallacies) እንዴት መለየት እንደምንችል እንማራለን።</p>
+
+            <h4>Key Questions in Logic</h4>
+            <ul class="card-list">
+                <li><strong>What makes an argument valid or invalid?</strong></li>
+                <li><strong>What is a fallacy?</strong> How can we spot a fallacious argument?</li>
+                <li><strong>What is the relationship between a premise and a conclusion in an argument?</strong></li>
+            </ul>
+            <p>የሎጂክ ቁልፍ ጥያቄዎች</p>
+            <ul class="card-list">
+                <li><strong>አንድ ክርክር ትክክለኛ ወይም ትክክል ያልሆነው እንዴት ነው?</strong></li>
+                <li><strong>አላስፈላጊ መደምደሚያ (fallacy) ምንድን ነው?</strong> እንዴትስ መለየት እንችላለን?</li>
+                <li><strong>በክርክር ውስጥ ባለው መነሻ ሃሳብ (premise) እና መደምደሚያ (conclusion) መካከል ያለው ግንኙነት ምንድን ነው?</strong></li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Why is Philosophy Important? 🌟</h2>
+            <p>Socrates famously said, "The unexamined life is not worth living." Studying philosophy gives us the tools to critically examine our lives and the world around us. It helps us develop key skills that are essential for self-actualization and personal growth.</p>
+            <p>ለምን ፍልስፍና አስፈላጊ ነው? 🌟</p>
+            <p>ሶቅራጥስ "ያልተመረመረ ህይወት መኖር ዋጋ የለውም" ብሏል። ፍልስፍናን ማጥናት ህይወታችንን እና በዙሪያችን ያለውን ዓለም በጥልቀት ለመመርመር የሚያስችሉ መሳሪያዎችን ይሰጠናል። ለራስ-እውን መሆን እና ለግል እድገት ወሳኝ የሆኑ ክህሎቶችን እንድናዳብር ይረዳናል።</p>
+
+            <h3>Benefits of Studying Philosophy</h3>
+            <ul class="card-list">
+                <li><strong>Intellectual Independence:</strong> Philosophy helps you develop your own beliefs and opinions, rather than just accepting those of others.</li>
+                <li><strong>Critical and Creative Thinking:</strong> It refines your ability to think critically, reason logically, and develop original perspectives on complex issues.</li>
+                <li><strong>Flexibility and Tolerance:</strong> By exploring diverse philosophical views, you learn that no single viewpoint is definitively true. This fosters open-mindedness and tolerance for different ideas.</li>
+                <li><strong>Dealing with Uncertainty:</strong> Philosophy helps us recognize that not all knowledge is absolutely certain. This frees us from rigid thinking and a sense of wonder, allowing us to see familiar things in new ways.</li>
+            </ul>
+            <p>የፍልስፍና ጥናት ጥቅሞች</p>
+            <ul class="card-list">
+                <li><strong>አስተሳሰባዊ ነጻነት:</strong> ፍልስፍና የሌሎችን እምነት ከመቀበል ይልቅ የራስዎን እምነት እና አመለካከት እንዲያዳብሩ ይረዳዎታል።</li>
+                <li><strong>ወሳኝ እና ፈጠራ ያለው አስተሳሰብ:</strong> በጥልቀት የማሰብ፣ በምክንያታዊነት የማመዛዘን እና ውስብስብ ጉዳዮች ላይ የራስዎን አመለካከት የማዳበር ችሎታዎን ያሳድጋል።</li>
+                <li><strong>ተለዋዋጭነት እና መቻቻል:</strong> የተለያዩ የፍልስፍና አመለካከቶችን በመመርመር፣ አንድ ነጠላ አመለካከት ብቻ ፍፁም እውነት እንዳልሆነ ይገነዘባሉ። ይህ ክፍት አስተሳሰብን እና ለተለያዩ ሀሳቦች መቻቻልን ያዳብራል።</li>
+                <li><strong>የማይመረመር ነገርን መቋቋም:</strong> ፍልስፍና ሁሉም እውቀቶች ፍፁም እርግጠኛ እንዳልሆኑ እንድንገነዘብ ይረዳናል። ይህ ከጥብቅ አስተሳሰብ ነፃ ያወጣን እና ነገሮችን በአዲስ መንገድ እንድንመለከት ያደርጋል።</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
   `
 }
 ,   {

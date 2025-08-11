@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../firebase/config';
-import { BookOpen, Mail, Lock, User, Phone, Brain, Leaf } from 'lucide-react';
+import { BookOpen, Mail, Lock, User, Phone, Brain, Leaf, Gift } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AuthForm() {
@@ -14,7 +14,8 @@ export default function AuthForm() {
     phone: '',
     field: 'natural' as 'natural' | 'social',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    referralCode: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -35,14 +36,23 @@ export default function AuthForm() {
 
         const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
         
-        await setDoc(doc(db, 'users', userCredential.user.uid), {
+        // Prepare user data with optional referral code
+        const userData: any = {
           fullName: formData.fullName,
           email: formData.email,
           phone: formData.phone,
           field: formData.field,
           isPremium: false,
           createdAt: new Date()
-        });
+        };
+
+        // Only add referralCode if it exists
+        if (formData.referralCode.trim() !== '') {
+          userData.referralCode = formData.referralCode.trim();
+          userData.referredAt = new Date();
+        }
+
+        await setDoc(doc(db, 'users', userCredential.user.uid), userData);
       }
     } catch (error: any) {
       alert(error.message);
@@ -219,21 +229,41 @@ export default function AuthForm() {
               </motion.div>
 
               {!isLogin && (
-                <motion.div variants={inputVariants}>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Confirm Password</label>
-                  <div className="relative">
-                    <Lock size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                    <input
-                      type="password"
-                      name="confirmPassword"
-                      value={formData.confirmPassword}
-                      onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-white"
-                      placeholder="Confirm your password"
-                      required
-                    />
-                  </div>
-                </motion.div>
+                <>
+                  <motion.div variants={inputVariants}>
+                    <label className="block text-sm font-medium text-gray-400 mb-2">Confirm Password</label>
+                    <div className="relative">
+                      <Lock size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-white"
+                        placeholder="Confirm your password"
+                        required
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={inputVariants}>
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                      Referral Code <span className="text-gray-500">(optional)</span>
+                    </label>
+                    <div className="relative">
+                      <Gift size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                      <input
+                        type="text"
+                        name="referralCode"
+                        value={formData.referralCode}
+                        onChange={handleInputChange}
+                        className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-white"
+                        placeholder="Enter referral code if you have one"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">Get bonus credits if you have a referral code</p>
+                  </motion.div>
+                </>
               )}
 
               <motion.button
