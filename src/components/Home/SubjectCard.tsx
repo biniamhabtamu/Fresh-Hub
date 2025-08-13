@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { BarChart, Lock, Trophy, Sparkles, ChevronRight } from 'lucide-react';
 import { Subject } from '../../types';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  getDoc
+} from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +20,6 @@ interface SubjectCardProps {
   isLocked: boolean;
   isPremium?: boolean;
   completionPercentage?: number;
-  hasPremiumAccess?: boolean;
 }
 
 interface UserPerformance {
@@ -22,257 +28,293 @@ interface UserPerformance {
   bestScore?: number;
 }
 
+/**
+ * Mobile-first, responsive, touch-friendly SubjectCard
+ * - Free users clicking premium -> navigate('/premium')
+ * - Paid users open subject with onClick()
+ * - Reads user's subscription status from users/{uid} (adjust to your schema)
+ * - Responsive Tailwind classes, accessible keyboard handlers
+ */
+
 const colorThemes = [
-  { 
-    bg: 'from-blue-200 to-cyan-300', 
-    text: 'text-blue-800', 
-    border: 'border-blue-300',
-    progress: 'from-blue-500 to-cyan-500',
-    lock: 'text-blue-600'
-  },
-  { 
-    bg: 'from-purple-200 to-indigo-300', 
-    text: 'text-purple-800', 
-    border: 'border-purple-300',
-    progress: 'from-purple-500 to-indigo-500',
-    lock: 'text-purple-600'
-  },
-  { 
-    bg: 'from-green-200 to-emerald-300', 
-    text: 'text-green-800', 
-    border: 'border-green-300',
-    progress: 'from-green-500 to-emerald-500',
-    lock: 'text-green-600'
-  },
-  { 
-    bg: 'from-amber-200 to-yellow-300', 
-    text: 'text-amber-800', 
-    border: 'border-amber-300',
-    progress: 'from-amber-500 to-yellow-500',
-    lock: 'text-amber-600'
-  },
-  { 
-    bg: 'from-pink-200 to-rose-300', 
-    text: 'text-pink-800', 
-    border: 'border-pink-300',
-    progress: 'from-pink-500 to-rose-500',
-    lock: 'text-pink-600'
-  },
+  { bg: 'from-blue-100 to-cyan-100', text: 'text-blue-800', border: 'border-blue-200' },
+  { bg: 'from-purple-100 to-indigo-100', text: 'text-purple-800', border: 'border-purple-200' },
+  { bg: 'from-green-100 to-emerald-100', text: 'text-green-800', border: 'border-green-200' },
+  { bg: 'from-amber-100 to-yellow-100', text: 'text-amber-800', border: 'border-amber-200' },
+  { bg: 'from-pink-100 to-rose-100', text: 'text-pink-800', border: 'border-pink-200' },
 ];
 
-export default function SubjectCard({
+export default React.memo(function SubjectCard({
   subject,
   onClick,
   isLocked,
   isPremium = false,
-  completionPercentage = 0,
-  hasPremiumAccess = false
+  completionPercentage = 0
 }: SubjectCardProps) {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+
   const [performance, setPerformance] = useState<UserPerformance | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [theme] = useState(colorThemes[Math.floor(Math.random() * colorThemes.length)]);
+  // true = free user (no premium). We'll try to detect from Firestore
+  const [isFreeUser, setIsFreeUser] = useState(true);
+
+  // Choose a deterministic theme per subject so cards don't jump on rerenders
+  const theme = useMemo(() => {
+    const idx = Math.abs(
+      subject?.id?.toString().split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
+    ) % colorThemes.length;
+    return colorThemes[idx];
+  }, [subject?.id]);
 
   useEffect(() => {
-    const fetchUserPerformance = async () => {
+    let mounted = true;
+
+    const fetchUserPerformanceAndSubscription = async () => {
       if (!currentUser?.uid) return;
-    
+
       try {
+        // --- Fetch quiz performance for this user & subject
         const resultsQuery = query(
           collection(db, 'quizResults'),
           where('userId', '==', currentUser.uid),
           where('subjectId', '==', subject.id)
         );
-      
+
         const querySnapshot = await getDocs(resultsQuery);
         let totalScore = 0;
         let totalAttempts = 0;
         let bestScore = 0;
-      
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const score = data.score || 0;
+
+        querySnapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+          const score = Number(data?.score ?? 0);
           totalScore += score;
           totalAttempts++;
           if (score > bestScore) bestScore = score;
         });
-      
+
+        if (!mounted) return;
+
         setPerformance({
-          averageScore: totalAttempts > 0 ? Math.round((totalScore / totalAttempts) * 10) / 10 : 0,
+          averageScore:
+            totalAttempts > 0 ? Math.round((totalScore / totalAttempts) * 10) / 10 : 0,
           attempts: totalAttempts,
           bestScore: totalAttempts > 0 ? bestScore : undefined
         });
+
+        // --- Try to fetch user subscription status from users/{uid}
+        // Adjust field names to your schema (isPremium, subscriptionStatus, plan, etc.)
+        try {
+          const userRef = doc(db, 'users', currentUser.uid);
+          const userSnap = await getDoc(userRef);
+          if (!mounted) return;
+
+          if (userSnap.exists()) {
+            const u = userSnap.data() as Record<string, any>;
+            const hasPremium =
+              !!u?.isPremium || u?.subscriptionStatus === 'active' || u?.plan === 'premium';
+            setIsFreeUser(!hasPremium);
+          } else {
+            // If no user document, assume free
+            setIsFreeUser(true);
+          }
+        } catch (subErr) {
+          // If subscription fetch fails, keep default (free) to be safe
+          console.warn('Error reading user subscription status:', subErr);
+          if (mounted) setIsFreeUser(true);
+        }
       } catch (error) {
         console.error('Error fetching performance data:', error);
       }
     };
 
-    fetchUserPerformance();
+    fetchUserPerformanceAndSubscription();
+
+    return () => {
+      mounted = false;
+    };
   }, [currentUser, subject.id]);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    if (isLocked && isPremium && !hasPremiumAccess) {
-      e.preventDefault();
+  // Performance / display percentage safe fallback
+  const hasAttempts = Boolean(performance?.attempts && performance.attempts > 0);
+  const displayPercentage = Number(hasAttempts ? performance?.averageScore ?? 0 : completionPercentage ?? 0);
+
+  // Card click handler: free users clicking premium -> /premium
+  const handleCardClick = useCallback(
+    (e?: React.MouseEvent | React.KeyboardEvent) => {
+      // Prevent default if called from keyboard or mouse and we will navigate
+      if (isPremium && isFreeUser) {
+        // navigate to upgrade page
+        navigate('/premium');
+        return;
+      }
+
+      // If card is locked and not premium for this user, send to premium as well
+      if (isLocked && isFreeUser) {
+        navigate('/premium');
+        return;
+      }
+
+      // otherwise open the subject using supplied handler
+      if (!isLocked) {
+        onClick();
+      }
+    },
+    [isPremium, isFreeUser, isLocked, navigate, onClick]
+  );
+
+  // Lock-icon tap: explicit affordance for upgrade
+  const handleLockClick = useCallback(
+    (e: React.MouseEvent) => {
       e.stopPropagation();
-      navigate('/premium');
-    } else if (!isLocked || (isPremium && hasPremiumAccess)) {
-      onClick();
-    }
-  };
+      if (isFreeUser) navigate('/premium');
+    },
+    [isFreeUser, navigate]
+  );
 
-  const handleLockClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate('/premium');
-  };
-
-  const shouldShowLock = isLocked && isPremium && !hasPremiumAccess;
-  const hasAttempts = performance?.attempts && performance.attempts > 0;
-  const displayPercentage = hasAttempts ? performance?.averageScore : completionPercentage;
-
-  // Determine if we should show progress or CTA
-  const showProgress = hasAttempts || completionPercentage > 0;
-  const showCTA = !hasAttempts && completionPercentage === 0;
+  // keyboard accessibility: Enter or Space should activate card
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleCardClick(e);
+      }
+    },
+    [handleCardClick]
+  );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
-      whileHover={{ scale: shouldShowLock ? 1 : 1.03 }}
+      transition={{ duration: 0.18 }}
+      whileHover={{ scale: isLocked ? 1 : 1.02 }}
       whileTap={{ scale: 0.98 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onClick={handleCardClick}
+      onClick={(e) => handleCardClick(e)}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-pressed="false"
+      aria-label={`${subject.name} subject card${isPremium ? ', premium' : ''}`}
       className={`
-        relative overflow-hidden h-full min-h-[180px] flex flex-col p-5
-        cursor-pointer transition-all duration-300 shadow-sm
-        bg-white border ${theme.border}
-        rounded-xl
-        ${isHovered ? 'shadow-lg ring-2 ring-opacity-30 ' + theme.border : 'shadow-md'}
-        ${shouldShowLock ? 'opacity-90' : ''}
-        group
+        relative flex flex-col min-h-[140px] sm:min-h-[160px] w-full p-3 sm:p-4
+        bg-white border ${theme.border} rounded-lg
+        cursor-pointer outline-none
+        transition-shadow duration-200
+        ${isHovered ? 'shadow-md' : 'shadow-sm'}
+        focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300
       `}
     >
+      {/* Lock / Premium Icon (touch-friendly) */}
+      {isLocked && (
+        <motion.button
+          onClick={handleLockClick}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Upgrade to access"
+          title="Upgrade to access"
+          className="absolute top-3 right-3 z-20 inline-flex items-center justify-center h-9 w-9 rounded-full bg-white/90 border border-gray-200 shadow-sm"
+        >
+          <Lock className="h-4 w-4 text-purple-600" />
+        </motion.button>
+      )}
 
-      {/* Premium Lock Icon - Top Right Corner */}
+      {/* Premium Badge (also shows for premium items even if unlocked) */}
       {isPremium && (
         <motion.div
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-          className="absolute top-3 right-3 z-20"
-          onClick={handleLockClick}
+          animate={{ rotate: isHovered ? [0, 7, -7, 0] : 0 }}
+          transition={{ duration: 0.45 }}
+          className="absolute left-3 top-3 z-10 inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-sm"
         >
-          <div className={`p-2 rounded-full shadow-lg flex items-center justify-center
-            ${shouldShowLock 
-              ? 'bg-gradient-to-br from-amber-100 to-yellow-100 border border-amber-200' 
-              : 'bg-gradient-to-br from-purple-100 to-indigo-100 border border-purple-200'
-            }`}
-          >
-            <Lock className={`h-5 w-5 ${shouldShowLock ? 'text-amber-600' : 'text-purple-600'}`} />
-            {shouldShowLock && (
-              <span className="absolute top-0 right-0 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-              </span>
-            )}
-          </div>
+          <Sparkles className="h-3 w-3" />
+          <span className="hidden sm:inline">Premium</span>
         </motion.div>
       )}
 
-      {/* Subject Icon with Enhanced Styling */}
+      {/* Icon / Image area */}
       <motion.div
-        animate={{ y: isHovered ? -5 : 0 }}
-        transition={{ type: 'spring', stiffness: 300 }}
+        animate={{ y: isHovered ? -2 : 0 }}
+        transition={{ type: 'spring', stiffness: 280 }}
         className={`
-          w-16 h-16 mb-4 rounded-2xl overflow-hidden flex items-center justify-center
+          w-full flex items-center justify-center rounded-lg mb-3
+          h-14 sm:h-16 overflow-hidden border ${theme.border}
           bg-gradient-to-br ${theme.bg}
-          border-2 ${theme.border}
-          shadow-inner
-          group-hover:shadow-md
-          ${shouldShowLock ? 'brightness-90' : ''}
-          mx-auto
         `}
       >
-        <div className="text-3xl">
-          {subject.icon}
-        </div>
+        <div className="text-2xl sm:text-3xl select-none">{subject.icon}</div>
       </motion.div>
 
-      {/* Subject Name */}
-      <h3 className={`
-        text-lg font-bold mb-2 ${theme.text} text-center
-        group-hover:underline decoration-2 underline-offset-2
-      `}>
+      {/* Title */}
+      <h3 className={`truncate text-sm sm:text-base font-semibold ${theme.text} mb-1`}>
         {subject.name}
       </h3>
 
-      {/* Enhanced Progress Bar */}
-      {showProgress && (
-        <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden border border-gray-200 mb-3 shadow-inner">
+      {/* Progress / bar */}
+      <div className="w-full mt-1">
+        <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden border border-gray-200">
           <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: `${displayPercentage}%` }}
+            initial={{ width: '0%' }}
+            animate={{ width: `${Math.max(0, Math.min(100, displayPercentage))}%` }}
             transition={{ duration: 0.8, type: 'spring' }}
-            className={`h-full rounded-full bg-gradient-to-r ${theme.progress} shadow-sm`}
+            className={`
+              h-full rounded-full shadow-sm
+              ${displayPercentage >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+                displayPercentage >= 50 ? 'bg-gradient-to-r from-yellow-400 to-amber-400' :
+                  'bg-gradient-to-r from-red-400 to-pink-400'}
+            `}
+            aria-valuenow={displayPercentage}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            role="progressbar"
           />
         </div>
-      )}
+      </div>
 
-      {/* Stats or CTA with Enhanced Design */}
-      <div className="mt-auto w-full">
+      {/* Stats / CTA - aligned bottom */}
+      <div className="mt-3 flex items-center justify-between gap-2">
         {hasAttempts ? (
-          <div className="flex justify-between items-center px-1">
-            <span className={`text-sm font-medium ${theme.text} flex items-center`}>
-              <BarChart className="h-4 w-4 mr-2" />
-              <span className="font-bold">{performance?.attempts}</span> attempts
-            </span>
-            {performance?.bestScore && (
-              <span className="text-sm font-medium text-amber-600 flex items-center">
-                <Trophy className="h-4 w-4 mr-2" />
-                Best: <span className="font-bold ml-1">{performance.bestScore}%</span>
-              </span>
-            )}
-          </div>
-        ) : showCTA ? (
-          <motion.div
-            animate={{ y: isHovered ? -2 : 0 }}
-            className={`text-center py-2 rounded-xl ${theme.bg} border ${theme.border} text-sm font-semibold ${theme.text} shadow-sm group-hover:shadow-md`}
+          <>
+            <div className={`flex items-center gap-2 ${theme.text} text-xs sm:text-sm`}>
+              <BarChart className="h-4 w-4" />
+              <span>{performance?.attempts} attempts</span>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-amber-600">
+              {performance?.bestScore !== undefined && (
+                <>
+                  <Trophy className="h-4 w-4" />
+                  <span>{performance.bestScore}%</span>
+                </>
+              )}
+            </div>
+          </>
+        ) : (
+          <div
+            className={`
+              text-center py-1 px-3 rounded-md text-xs sm:text-sm font-medium
+              border ${theme.border} ${theme.text}
+              bg-gradient-to-r ${theme.bg} w-full
+            `}
           >
-            {shouldShowLock ? 'Unlock Premium →' : 'Start Learning →'}
-          </motion.div>
-        ) : null}
+            {isPremium && isFreeUser ? 'Premium — Upgrade to Open' :
+              isLocked ? 'Locked' : 'Start Now'}
+          </div>
+        )}
       </div>
 
-      {/* Enhanced Hover Arrow */}
-      {isHovered && !shouldShowLock && (
+      {/* Hover arrow for non-locked, non-premium (desktop/touch hint) */}
+      {!isLocked && !(isPremium && isFreeUser) && (
         <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -10 }}
+          initial={{ opacity: 0, x: 4 }}
+          animate={{ opacity: isHovered ? 1 : 0.95, x: 0 }}
           className="absolute bottom-3 right-3"
+          aria-hidden
         >
-          <ChevronRight className={`h-5 w-5 ${theme.text} bg-white/80 rounded-full p-1 shadow-lg`} />
+          <ChevronRight className={`h-4 w-4 ${theme.text}`} />
         </motion.div>
       )}
-
-      {/* Premium Badge (only show if premium but not locked) */}
-      {isPremium && !shouldShowLock && (
-        <motion.div
-          animate={{ rotate: isHovered ? [0, 15, -15, 0] : 0 }}
-          transition={{ duration: 0.4 }}
-          className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-2 py-1 rounded-lg shadow-md flex items-center"
-        >
-          <Sparkles className="h-4 w-4 mr-1" />
-          <span className="text-xs font-bold">Premium</span>
-        </motion.div>
-      )}
-
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute right-0 top-0 w-20 h-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-      </div>
     </motion.div>
   );
-}
+});

@@ -216,7 +216,7 @@ export default function PremiumPage() {
           </p>
           <div className="flex items-center justify-center space-x-2">
             <FaTelegram className="text-blue-500" />
-            <a href="https://t.me/yourchannel" className="text-blue-600 font-medium">Contact us on Telegram</a>
+            <a href="https://t.me/bh068" className="text-blue-600 font-medium">Contact us on Telegram</a>
           </div>
           <p className="text-lg font-semibold text-blue-600 mt-2 flex items-center justify-center">
             <span className="mr-2">📞</span> 0994024681
