@@ -525,196 +525,318 @@ export const noteCollections: Subject[] = [
   title: 'Chapter 2: Sensation and Perception',
   content: `
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Chapter 2: Sensation and Perception</title>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-      <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Page</title>
+    <style>
+        /* Global styles */
         body {
-          font-family: 'Lato', sans-serif;
-          line-height: 1.7;
-          color: #4a4a4a;
-          margin: 0;
-          padding: 20px;
-          background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
         }
-        
-        .content-section {
-          background-color: #ffffff;
-          padding: 25px;
-          margin-bottom: 20px;
-          border-radius: 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Card container */
+        .note-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
         }
 
         h2 {
-          color: #0d47a1;
-          border-bottom: 2px solid #0d47a1;
-          padding-bottom: 8px;
-          margin-top: 0;
-          font-size: 2em;
-          font-weight: 700;
+            font-size: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
-        
+
         h3 {
-          color: #2e7d32;
-          font-size: 1.5em;
-          margin-top: 20px;
-          margin-bottom: 10px;
+            font-size: 20px;
         }
-        
+
+        /* Paragraphs and text */
         p {
-          margin-bottom: 15px;
-        }
-        
-        strong {
-          color: #c62828;
-          font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        ul, ol {
-          padding-left: 20px;
-          margin-bottom: 15px;
-        }
-        
-        li {
-          margin-bottom: 8px;
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 600px) {
-          body {
-            padding: 10px;
-          }
-          .content-section {
-            padding: 15px;
-          }
-          h2 {
-            font-size: 1.7em;
-          }
-          h3 {
-            font-size: 1.3em;
-          }
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-      </style>
-    </head>
-    <body>
-      <div class="content-section">
-        <h2>Sensation vs. Perception</h2>
-        <p><strong>Sensation:</strong> This is the process through which sensory receptors (e.g., eyes, ears, skin) detect stimuli from the environment and send this information to the brain. Sensation is about detecting raw data such as colors, sounds, or tastes.</p>
-        <p><strong>Perception:</strong> This is the process where the brain organizes and interprets sensory information to create meaningful experiences. Perception involves recognizing patterns, shapes, and context, turning raw sensory data into coherent experiences.</p>
-        <h3>Examples:</h3>
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .note-card {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            font-size: 14px;
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        /* Ensure Amharic text renders properly */
+        body {
+            unicode-bidi: plaintext;
+        }
+    </style>
+</head>
+<body>
+    <div class="note-card">
+        <h1>The Difference Between Sensation and Perception</h1>
+        <p>Have you ever looked at something but not truly "seen" it? That's the difference between sensation and perception! While they're almost impossible to separate in daily life, psychologists study them as two distinct processes.</p>
+        <p>የእይታ እና የማስተዋል ልዩነት ምንድን ነው? 🤔 የሆነ ነገር እያዩ ነገር ግን በትክክል ትኩረት እንዳልሰጡበት ተሰምቶዎት ያውቃል? ይህ የስሜት ህዋሳት (sensation) እና ግንዛቤ (perception) መካከል ያለው ልዩነት ነው። ምንም እንኳን በየቀኑ አብረው የሚሰሩ ቢሆንም የስነ-ልቦና ባለሙያዎች እንደ ሁለት የተለያዩ ሂደቶች ያጠኑዋቸዋል።</p>
+
+        <h2>What is Sensation? 👀👂</h2>
+        <p>Sensation is the first step. It's the process where our sensory organs—our eyes, ears, nose, and skin—receive information from the environment and send it to the brain as nerve impulses. It's the raw data, like seeing black marks on a page or hearing a sound.</p>
+        <p>Key Idea: It’s about detecting a stimulus. It's the physical process of receiving sensory input.</p>
+        <p>Example: Seeing a specific color or feeling a texture on your skin.</p>
+        <p>ስሜት ህዋሳት (Sensation) ምንድን ነው?</p>
+        <p>የስሜት ህዋሳት የአካል ክፍሎቻችን (አይን፣ ጆሮ፣ አፍንጫ፣ ቆዳ) ከአካባቢው መረጃን ተቀብለው ወደ አንጎል የሚልኩበት የመጀመሪያው ሂደት ነው።</p>
+        <p>ዋናው ነጥብ፡ ትኩረቱ የአንድን ነገር መኖር (stimulus) ማወቅ ላይ ነው። ይህ የስሜት ህዋሳትን የመቀበል አካላዊ ሂደት ነው።</p>
+        <p>ምሳሌ: በአንድ ገጽ ላይ ጥቁር ምልክቶችን ማየት ወይም የሙዚቃ ድምጽ መሰማት።</p>
+
+        <h2>What is Perception? 🧠✨</h2>
+        <p>Perception is what comes next. It's the brain's job to take that raw sensory data, organize it, and give it meaning. It's how we transform black marks into letters and words, or sounds into a beautiful melody. Perception is an active process of interpretation.</p>
+        <p>Key Idea: It’s about interpreting a stimulus. It's the psychological process of giving meaning to what we sense.</p>
+        <p>Example: Turning the sight of black marks on a page into the understanding of a sentence. A person with prosopagnosia (face blindness) has normal sensation but a problem with perception, as they can't organize facial features into a recognizable face.</p>
+        <p>ግንዛቤ (Perception) ምንድን ነው?</p>
+        <p>ግንዛቤ ደግሞ ከአንጎል የሚመጣ ሂደት ነው። አንጎላችን የተቀበለውን መረጃ አደራጅቶ ትርጉም የሚሰጥበት መንገድ ነው።</p>
+        <p>ዋናው ነጥብ፡ ትኩረቱ መረጃውን መተርጎም ላይ ነው።</p>
+        <p>ምሳሌ: የጥቁር ምልክቶችን አይተን ወደ ፊደሎችና ቃላት መለወጥ።</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sensation (ስሜት ህዋሳት)</th>
+                    <th>Perception (ግንዛቤ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Detecting a stimulus (አንድን ነገር ማወቅ)</td>
+                    <td>Interpreting a stimulus (ያንን ነገር መተርጎም)</td>
+                </tr>
+                <tr>
+                    <td>Raw, sensory data (ጥሬ መረጃ)</td>
+                    <td>Meaningful patterns (ትርጉም ያለው ቅርጽ)</td>
+                </tr>
+                <tr>
+                    <td>Example: Seeing black lines (ጥቁር መስመሮችን ማየት)</td>
+                    <td>Example: Reading the word "cat" (ድመት የሚለውን ቃል ማንበብ)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Export to Sheets</p>
+        <h2>The Sensory Laws: Thresholds & Adaptation</h2>
+        <p>Not all stimuli are equal. Our bodies have special rules for how we detect and react to them. These are known as sensory thresholds and sensory adaptation.</p>
+        <p>የስሜት ህዋሳት ህጎች</p>
+        <p>ሁሉም ነገሮች ተመሳሳይ አይደሉም። ሰውነታችን መረጃዎችን የሚቀበልበት እና ምላሽ የሚሰጥበት የራሱ የሆነ ሕግ አለው። እነዚህም የስሜት ህዋሳት ገደብ (sensory threshold) እና የስሜት ህዋሳት መላመድ (sensory adaptation) ይባላሉ።</p>
+
+        <h3>Sensory Thresholds 🧠🔬</h3>
+        <p>How much stimulation is needed for us to notice something? This is what sensory thresholds are all about.</p>
+        <p>Absolute Threshold: This is the minimum amount of stimulation needed to detect a stimulus at least 50% of the time. Think of the quietest sound you can hear or the dimmest light you can see. The absolute threshold is not fixed; it can be influenced by our physical and psychological state, like how alert we are.</p>
+        <p>Example: How little sugar you can add to coffee before you notice the sweetness.</p>
+        <p>Difference Threshold (or Just Noticeable Difference - jnd): This is the minimum amount of change in a stimulus that we can detect at least 50% of the time. This change is described by Weber's Law, which states that the change needed to notice a difference is a constant fraction of the original stimulus.</p>
+        <p>Example: If you're holding a 50-ounce weight, you might only notice a change if you add 1 ounce. But if you're holding a 100-ounce weight, you'll need to add 2 ounces to notice the same difference. The change needed is relative!</p>
+        <p>የስሜት ህዋሳት ገደብ</p>
+        <p>አንድን ነገር ለማወቅ ምን ያህል ማነቃቂያ ያስፈልገናል? ይህን የሚገልጸው የስሜት ህዋሳት ገደብ (sensory threshold) ነው።</p>
+        <p>ፍጹም ገደብ (Absolute Threshold): ይህ አንድን ማነቃቂያ ቢያንስ ከ50% በላይ ለመለየት የሚያስፈልግ ዝቅተኛው የኃይል መጠን ነው።</p>
+        <p>የልዩነት ገደብ (Difference Threshold): ይህ ደግሞ በአንድ ማነቃቂያ ላይ የሚደረግ ለውጥ ለመለየት የሚያስፈልገው ዝቅተኛው የለውጥ መጠን ነው። ይህ ደግሞ በዌበር ሕግ (Weber's Law) የሚገለጽ ሲሆን፣ ትልቁን ለውጥ ለማስተዋል የሚያስፈልገው ለውጥ በምጣኔ (ratio) ከአነስተኛው ጋር ተመሳሳይ መሆኑን ይገልጻል።</p>
+
+        <h2>What is Sensory Adaptation? 🧠⏳</h2>
+        <p>Ever stopped noticing the constant hum of the refrigerator or the feeling of the clothes you're wearing? That's sensory adaptation in action. It's the natural process where our sensory receptors become less responsive to a stimulus that remains constant over time. This allows us to focus on new, important changes in our environment rather than being overwhelmed by unchanging information.</p>
+        <p>Example: When you first jump into a cold swimming pool, you shiver. After a few minutes, your body gets used to the temperature, and the water feels "fine."</p>
+        <p>የስሜት ህዋሳት መላመድ ምንድን ነው? 🤔 በየቀኑ የሚሰሙትን ድምፅ ወይም የለበሱትን ልብስ ስሜት ማስተዋል ያቆማሉ? ይህ የስሜት ህዋሳት መላመድ (sensory adaptation) ይባላል። ይህ ሂደት የስሜት ህዋሳት ተቀባይዎቻችን ለቋሚ ማነቃቂያዎች የሚሰጡት ምላሽ እየቀነሰ የሚሄድበት ተፈጥሯዊ መንገድ ነው። ይህም በዙሪያችን ያሉ አዳዲስና አስፈላጊ ለውጦች ላይ ትኩረት እንድናደርግ ይረዳናል። ለምሳሌ፣ ቀዝቃዛ ውሃ ውስጥ ሲገቡ መጀመሪያ ይበርድዎታል፤ ከጥቂት ደቂቃዎች በኋላ ግን ይላመዱታል።</p>
+
+        <h2>Perceptual Selectivity: Attention 🔍🎯</h2>
+        <p>Our world is full of stimuli, but we can't process them all at once. Attention is the perceptual process that allows us to focus on certain inputs while ignoring others. The things we pay close attention to are in our "focus," while everything else is in the "margin" of our awareness. This focus is constantly shifting.</p>
+        <p>Example: While watching a football game, the ball carrier is in your focus, but the crowd's noise and the cold feeling in your feet are in the margin. When the play ends, your attention might shift to the cold feet.</p>
+        <p>የግንዛቤ ምርጫ፡ ትኩረት</p>
+        <p>በአንድ ጊዜ ሁሉንም ማነቃቂያዎች መቀበል አንችልም። ትኩረት (attention) የምንለው ሂደት የምንፈልገውን መረጃ መርጦ እንድናይና ሌላውን እንድንተወው የሚረዳን ነው። የምናስተውላቸው ነገሮች በአእምሯችን "ትኩረት (focus)" ውስጥ ሲሆኑ፣ ሌሎቹ ነገሮች ደብዛዛ በሆነው "ዳርቻ (margin)" ውስጥ ይሆናሉ። ለምሳሌ፣ የኳስ ጨዋታ ሲመለከቱ ትኩረትዎ ኳስ ተሸካሚው ላይ ይሆናል፣ የደጋፊዎች ጩኸትና የእግርዎ ቅዝቃዜ ግን ዳር ላይ ይሆናል።</p>
+
+        <h3>Factors That Influence Attention:</h3>
+        <p>Our attention is determined by a combination of external and internal factors.</p>
+        <p>External Factors (Characteristics of the stimulus itself)</p>
         <ul>
-          <li>Seeing black marks on a page is a sensory experience. Recognizing those marks as letters and words is a perceptual process.</li>
-          <li>In a real-life case, a patient with prosopagnosia could see faces but could not perceive them as recognizable faces.</li>
+            <li>Size and Intensity: Larger, brighter, or louder stimuli get more attention.</li>
+            <li>Repetition: A repeated stimulus is more likely to be noticed. This is why advertising jingles work!</li>
+            <li>Novelty: New or unusual stimuli stand out and grab our attention.</li>
+            <li>Movement: Moving objects are naturally attention-grabbing because our brains are wired to notice potential threats or changes.</li>
         </ul>
-      </div>
-
-      <div class="content-section">
-        <h2>Sensory Laws</h2>
-        <h3>1. Sensory Thresholds:</h3>
-        <p><strong>Absolute Threshold:</strong> The minimum intensity of a stimulus required for it to be detected 50% of the time. For instance, the minimum amount of sugar in coffee that a person can taste.</p>
-        <p><strong>Difference Threshold (<strong style="color: #c62828;">Just Noticeable Difference, jnd</strong>):</strong> The smallest change in stimulus intensity that can be detected. According to <strong>Weber's Law</strong>, the jnd is a constant proportion of the original stimulus. For example, you can detect a change in weight only if it exceeds a certain percentage of the original weight.</p>
-        <h3>2. Sensory Adaptation:</h3>
-        <p><strong>Sensory Adaptation:</strong> This occurs when the sensory system becomes less responsive to constant stimuli over time. For instance, you might stop noticing the smell of garbage after being in a room for a while.</p>
-      </div>
-
-      <div class="content-section">
-        <h2>Perception and the Meaning-Making Process</h2>
-        <p>Perception is the process through which we interpret and make sense of the sensory information we receive. It is not just a passive reception of stimuli but an active process of creating meaning from these stimuli.</p>
-        <h3>Selectivity of Perception: Attention</h3>
-        <p><strong>Concept:</strong> Attention is the cognitive process that allows us to focus on specific stimuli while ignoring others. Our sensory organs are constantly bombarded with information, but only a fraction of this reaches our conscious awareness.</p>
-        <p><strong>Focus and Margin:</strong> Our perceptual field can be divided into "focus" (what we pay clear attention to) and "margin" (background stimuli that are less clear). For example, at a football game, while the ball carrier is the focus of attention, background stimuli like the cold or crowd noise are in the margin.</p>
-        <p><strong>Shifting Attention:</strong> Attention is not static; it shifts based on relevance and need.</p>
-        <h3>Factors Determining Attention</h3>
-        <p><strong>External Factors:</strong> These include characteristics of stimuli such as size, intensity, repetition, novelty, and movement. For instance, bright colors and loud noises are more likely to capture attention. Movement is particularly attention-grabbing because it may signal a potential threat.</p>
-        <p><strong>Internal Factors:</strong> Psychological states such as expectancy (set) and motives affect attention. Expectancy refers to being "primed" for certain stimuli based on prior experiences or needs. Motives or needs influence what stimuli we focus on, such as focusing on food if you’re hungry.</p>
-      </div>
-
-      <div class="content-section">
-        <h2>Organization in Form Perception</h2>
-        <p>When observing multiple objects, we naturally perceive them as organized into coherent patterns or groups. This tendency is central to <strong>Gestalt psychology</strong>, which asserts that "the whole is more than the sum of its parts."</p>
-        <h3>Key Principles of Perceptual Organization:</h3>
+        <p>Internal Factors (Our psychological state)</p>
         <ul>
-          <li><strong>Proximity:</strong> Objects close to each other in space or time are perceived as a group.</li>
-          <li><strong>Similarity:</strong> Items that resemble each other in color, shape, or size tend to be grouped together.</li>
-          <li><strong>Symmetry (Good Figure):</strong> We prefer to perceive objects in a balanced or symmetrical form.</li>
-          <li><strong>Continuation:</strong> We perceive lines or shapes as continuing smoothly in their original direction.</li>
-          <li><strong>Closure:</strong> Our perception tends to fill in gaps to create a complete figure.</li>
+            <li>Set or Expectancy: We are more likely to notice things we are "primed" to see. A husband expecting an important phone call will hear the phone ring in the middle of the night, while his wife might not.</li>
+            <li>Motives and Needs: Our current needs influence what we pay attention to. A hungry person is more likely to notice food advertisements than a person who just ate.</li>
         </ul>
-      </div>
+        <p>ትኩረትን የሚወስኑ ምክንያቶች</p>
+        <p>ትኩረታችን የሚወሰነው በሁለት ነገሮች ነው።</p>
+        <p>ውጫዊ ምክንያቶች (የማነቃቂያው ባህሪ)</p>
+        <ul>
+            <li>መጠን እና ጥንካሬ፡ ትላልቅና ደማቅ ነገሮች በቀላሉ ትኩረት ይስባሉ።</li>
+            <li>መደጋገም፡ በተደጋጋሚ የሚታይ ወይም የሚሰማ ነገር ትኩረት ያገኛል።</li>
+            <li>ልዩነት፡ አዲስ ወይም ያልተለመደ ነገር በቀላሉ ትኩረታችንን ይይዛል።</li>
+            <li>እንቅስቃሴ፡ የሚንቀሳቀሱ ነገሮች ትኩረት የሚስቡ ናቸው።</li>
+        </ul>
+        <p>ውስጣዊ ምክንያቶች (የእኛ ስነ-ልቦናዊ ሁኔታ)</p>
+        <ul>
+            <li>ዝግጁነት (Set or Expectancy): ለመቀበል የምንጠብቃቸው ነገሮች በቀላሉ ትኩረት ይስባሉ። ለምሳሌ፣ ስልክ የሚጠብቅ ባል የስልኩን ድምፅ ብቻውን ሊሰማ ይችላል።</li>
+            <li>ፍላጎቶች፡ በአሁን ሰዓት ያለን ፍላጎት ትኩረታችንን ይወስናል። ለምሳሌ፣ የተራበ ሰው የምግብ ማስታወቂያዎችን በደንብ ያስተውላል።</p>
+        </ul>
 
-      <div class="content-section">
+        <h2>What is Form Perception? 🖼️</h2>
+        <p>Form perception is the process of organizing raw sensory data into meaningful shapes, patterns, or ideas. It's how we make sense of the visual world. The most basic element of form perception is the ability to distinguish a figure (the object) from the ground (its surroundings).</p>
+        <p>Figure-Ground Perception: Our brains are designed to separate objects from their backgrounds. For example, the words you are reading are the figure, and the page is the ground. This process is active, and sometimes the figure and ground can even swap places, depending on what we focus on.</p>
+        <p>የቅርጽ ግንዛቤ ምንድን ነው? 🖼️</p>
+        <p>የቅርጽ ግንዛቤ ጥሬ ስሜቶችን ወደ ትርጉም ያላቸው ቅርጾች፣ ቅጦች ወይም ሃሳቦች የማደራጀት ሂደት ነው። የቅርጽ ግንዛቤ መሠረታዊው ክፍል አንድን ነገር (figure) ከበስተጀርባው (ground) የመለየት ችሎታ ነው።</p>
+        <p>ነገር እና ዳራ (Figure-Ground Perception): አእምሯችን ነገሮችን ከበስተጀርባያቸው ለመለየት ተዘጋጅቷል። ለምሳሌ፣ ይህን ጽሑፍ ሲያነቡ ቃላቱ ነገሩ (figure) ሲሆኑ፣ ገጹ ደግሞ ዳራው (ground) ነው።</p>
+
+        <h3>How Contours Help Form Perception</h3>
+        <p>To separate a figure from its ground, our brains use contours. Contours are perceived lines or edges that are formed wherever there is a sharp difference in brightness or color. Without contours, it's difficult to tell where one object ends and another begins. This is why camouflage works—it disrupts the contours, making it hard to distinguish an object from its background.</p>
+        <p>Example: Writing with white ink on a white paper would be difficult to read because there is no contour (no sharp difference in color). However, writing on a blackboard with chalk creates a clear contour.</p>
+        <p>የቅርጽ ግንዛቤ እና ድንበር (Contour)</p>
+        <p>አንድን ነገር ከበስተጀርባው ለመለየት አእምሯችን ድንበር (contours) ይጠቀማል። ድንበር ማለት በቀለም ወይም በብሩህነት ልዩነት ምክንያት የሚፈጠሩ ግልጽ መስመሮች ናቸው። ድንበር ከሌለ አንድ ነገር ከሌላው የሚለየው የት እንደሆነ ለመለየት ይከብዳል። ለዚህም ነው ካሞፍላዥ (camouflage) የሚሰራው።</p>
+        <p>ምሳሌ: በነጭ ወረቀት ላይ በነጭ ቀለም መጻፍ ለማንበብ ይከብዳል ምክንያቱም የቀለም ልዩነት የለም። በጥቁር ሰሌዳ ላይ በኖራ መጻፍ ግን ድንበር ስለሚፈጥር በቀላሉ ይነበባል።</p>
+
+        <h3>Laws of Perceptual Organization (Gestalt Principles)</h3>
+        <p>Gestalt psychologists proposed that "the whole is more than the sum of its parts." They identified several principles our brains use to organize sensations into meaningful forms.</p>
+        <p>Proximity: We tend to group items that are close together.</p>
+        <p>Example: In a visual field, we see three pairs of dots, not six individual dots, because they are close to each other.</p>
+        <p>Similarity: We tend to group items that are alike in some way (e.g., color, shape, size).</p>
+        <p>Example: We see the red dots grouped together and the blue dots grouped together, not as a random mix of colors.</p>
+        <p>Good Figure (Symmetry): We tend to organize things to create a simple, symmetrical, and balanced figure.</p>
+        <p>Example: We perceive the image below as a single, six-pointed star rather than two overlapping triangles.</p>
+        <p>Continuity: We tend to perceive lines and patterns as continuing in the same way they started. A line that starts as a curve is seen as continuing its curve.</p>
+        <p>Example: We see a straight line crossing a curved line, not a straight line that suddenly becomes a curved one at the intersection.</p>
+        <p>Closure: Our brains tend to fill in gaps to create a complete, whole object.</p>
+        <p>Example: We see the image below as a triangle, even though the lines are not fully connected.</p>
+        <p>የግንዛቤ አደረጃጀት ህጎች (የጌስታልት መርሆዎች)</p>
+        <p>የጌስታልት የስነ-ልቦና ባለሙያዎች "ሙሉው ከክፍሎቹ ድምር ይበልጣል" የሚል ጽንሰ-ሀሳብ አላቸው። ስሜቶችን ወደ ትርጉም ያላቸው ቅርጾች የምናደራጅባቸውን ህጎች ለይተዋል።</p>
+        <p>ቅርበት (Proximity): ቅርብ የሆኑ ነገሮችን አንድ ላይ የመሰብሰብ ዝንባሌ አለን።</p>
+        <p>ተመሳሳይነት (Similarity): ተመሳሳይ የሆኑ ነገሮችን አንድ ላይ እናሰባስባለን (ለምሳሌ በቀለም ወይም ቅርጽ)።</p>
+        <p>ጥሩ ቅርጽ (Good Figure): ነገሮችን ቀላል፣ ሚዛናዊ እና የተሟላ ቅርጽ እንዲይዙ እናደርጋለን።</p>
+        <p>ቀጣይነት (Continuity): አንድ መስመር የጀመረበትን መንገድ እንደሚቀጥል አድርገን እናስባለን።</p>
+        <p>መሙላት (Closure): ክፍተቶች ያሉባቸውን ነገሮች ተሟልተው እንደተሳሉ አድርገን እናያለን።</p>
+
         <h2>Depth Perception</h2>
-        <p>Depth perception allows us to judge the distance of objects in a three-dimensional space, despite the two-dimensional nature of retinal images.</p>
-        <h3>Binocular Cues:</h3>
-        <ul>
-          <li><strong>Retinal Disparity:</strong> The difference in images between the two eyes provides depth information.</li>
-          <li><strong>Convergence:</strong> The inward movement of the eyes to focus on closer objects.</li>
-        </ul>
-        <h3>Monocular Cues:</h3>
-        <ul>
-          <li><strong>Accommodation:</strong> The eye's lens changes shape to focus on objects.</li>
-          <li><strong>Motion Parallax:</strong> Closer objects move faster across your field of vision compared to distant objects.</li>
-        </ul>
-        <h3>Pictorial Cues:</h3>
-        <ul>
-          <li><strong>Interposition:</strong> Objects that overlap others are perceived as closer.</li>
-          <li><strong>Relative Size:</strong> Smaller images are perceived as farther away if objects are of the same size.</li>
-          <li><strong>Linear Perspective:</strong> Parallel lines appear to converge in the distance.</li>
-          <li><strong>Elevation:</strong> Objects higher in the visual field are perceived as farther away.</li>
-          <li><strong>Shading:</strong> Areas in shadow appear farther away than those in light.</li>
-          <li><strong>Texture Gradient:</strong> Objects appear less detailed as they get farther away.</li>
-        </ul>
-      </div>
-      
-      <div class="content-section">
-        <h2>Perceptual Constancies</h2>
-        <p>Perceptual constancies ensure that objects are perceived as stable despite changes in sensory input:</p>
-        <ul>
-          <li><strong>Size Constancy:</strong> Objects are perceived as having a constant size despite changes in the retinal image due to distance.</li>
-          <li><strong>Shape Constancy:</strong> Objects are perceived as having a consistent shape despite changes in the angle of view.</li>
-          <li><strong>Brightness Constancy:</strong> Objects maintain their perceived brightness regardless of changes in lighting.</li>
-        </ul>
-      </div>
+        <p>Depth perception is our ability to judge the distance of objects in our 3D world. Even though the image on our retina is 2D, our brain uses several cues to create this sense of depth.</p>
+        <h3>Binocular Cues (Cues that require both eyes) 👁️👁️</h3>
+        <p>Retinal Disparity: Our two eyes see slightly different images of the same object. The brain uses the difference (disparity) between these two images to calculate depth. The greater the disparity, the closer the object.</p>
+        <p>Convergence: Our eyes turn inward to focus on close objects. The brain uses the amount of muscle tension in the eyes to estimate how close an object is. The more the eyes converge, the closer the object.</p>
+        <h3>Monocular Cues (Cues that require only one eye) 👁️</h3>
+        <p>Artists use these cues to create the illusion of depth in paintings.</p>
+        <p>Interposition: An object that blocks another object is perceived as being closer.</p>
+        <p>Relative Size: If two objects are the same size, the one that looks smaller on the retina is perceived as being farther away.</p>
+        <p>Linear Perspective: Parallel lines, such as railroad tracks, appear to converge in the distance.</p>
+        <p>Texture Gradient: Objects that are closer have more texture and detail. Faraway objects appear smoother.</p>
+        <p>Motion Parallax: When we are moving, nearby objects seem to pass by faster than distant objects.</p>
+        <p>Accommodation: The lens of the eye changes shape to focus on objects. The brain uses this muscle information to estimate distance.</p>
+        <p>የጥልቀት ግንዛቤ</p>
+        <p>የጥልቀት ግንዛቤ የነገሮችን ርቀት የመለየት ችሎታችን ነው። አእምሯችን 2D ምስልን ወደ 3D ዓለም ለመቀየር የተለያዩ ምልክቶችን ይጠቀማል።</p>
+        <p>በሁለት አይኖች የሚገኙ ምልክቶች</p>
+        <p>የሬቲና ልዩነት (Retinal Disparity): ሁለቱ ዓይኖቻችን የአንድን ነገር ምስል በትንሹ በተለያየ መንገድ ያዩታል።</p>
+        <p>መገጣጠም (Convergence): ዓይኖቻችን በአንድ ነገር ላይ ሲያተኩሩ ወደ ውስጥ ይገናኛሉ።</p>
+        <p>በአንድ ዓይን የሚገኙ ምልክቶች</p>
+        <p>መደራረብ (Interposition): አንድን ነገር የጋረደ ነገር ቅርብ ነው ብለን እንገምታለን።</p>
+        <p>አንጻራዊ መጠን (Relative Size): ሁለት ተመሳሳይ መጠን ካላቸው ነገሮች፣ በሬቲና ላይ ትንሽ ሆኖ የሚታየው ሩቅ ነው ብለን እናስባለን።</p>
+        <p>መስመራዊ አተያይ (Linear Perspective): ትይዩ መስመሮች (እንደ ባቡር ሀዲድ) በሩቁ አንድ ላይ የተገናኙ ይመስላሉ።</p>
+        <p>የተፈጥሮ ገጽታ ልዩነት (Texture Gradient): ቅርብ የሆኑ ነገሮች የተፈጥሮ ገጽታቸው ግልጽ ሲሆን የሩቅ ግን ደብዛዛ ይሆናል።</p>
+        <p>የእንቅስቃሴ ፓራላክስ (Motion Parallax): እየተጓዝን ሳለ ቅርብ ያሉ ነገሮች ከሩቅ ካሉት በበለጠ ፍጥነት የሚያልፉ ይመስላሉ።</p>
+        <p>ማስተካከል (Accommodation): የአይናችን ሌንስ ቅርጹን በመለወጥ ነገሮች ላይ ያተኩራል።</p>
 
-      <div class="content-section">
-        <h2>Perceptual Illusions</h2>
-        <p>Perceptual illusions reveal how our perceptual processes can lead to misinterpretations:</p>
-        <ul>
-          <li><strong>Size Constancy Illusions:</strong> For instance, the moon appears larger on the horizon than overhead.</li>
-          <li><strong>Müller-Lyer Illusion:</strong> Lines of equal length appear different due to the context of arrows at their ends.</li>
-        </ul>
-      </div>
+        <h2>What are Perceptual Constancies? 🧠✨</h2>
+        <p>Perceptual constancies are our brains' ability to perceive an object as stable and unchanging, even though the sensory information we receive from it is constantly changing. This is what allows us to see the world as a consistent and predictable place. There are three main types:</p>
+        <p>Size Constancy: We perceive an object as maintaining its actual size, regardless of how far away it is. A car a block away doesn't seem smaller than a car right in front of you, even though it produces a smaller image on your retina.</p>
+        <p>Shape Constancy: We perceive an object as retaining its familiar shape, even when we view it from different angles. A door still looks like a rectangle whether it's closed or slightly ajar, even though its retinal image changes.</p>
+        <p>Brightness Constancy: We perceive an object as having a consistent brightness, even as the amount of light shining on it changes. A white shirt looks white in a dimly lit room and a brightly lit room.</p>
+        <p>የግንዛቤ ቋሚነት ምንድነው? 🧠✨</p>
+        <p>የግንዛቤ ቋሚነት (Perceptual constancies) የምናየው ነገር የሚመጣው ስሜታዊ መረጃ ቢቀያየርም አንጎላችን ያንን ነገር እንደ ቋሚ እና የማይለወጥ አድርጎ የመመልከት ችሎታ ነው። ሶስት ዋና ዋና ዓይነቶች አሉ።</p>
+        <p>የመጠን ቋሚነት (Size Constancy): ነገሮች ከእኛ ቢርቁም መጠናቸው እንደማይቀየር አድርገን እንገነዘባለን።</p>
+        <p>የቅርጽ ቋሚነት (Shape Constancy): አንድን ነገር ከተለያዩ አቅጣጫዎች ብናየውም እንኳ ቅርጹን እንደማይቀይር አድርገን እንገነዘባለን።</p>
+        <p>የብሩህነት ቋሚነት (Brightness Constancy): በአንድ ነገር ላይ ያለው የብርሃን መጠን ቢቀየርም እንኳ ብሩህነቱን እንደማይለውጥ አድርገን እንገነዘባለን።</p>
 
-      <div class="content-section">
-        <h2>Extra Sensory Perception (ESP)</h2>
-        <p>ESP refers to the ability to perceive information without traditional sensory input. While some claim to experience ESP, scientific consensus generally regards it as lacking empirical support. Psychologists and scientists remain skeptical due to the lack of reproducible evidence and controlled studies validating ESP phenomena.</p>
-      </div>
+        <h2>What are Perceptual Illusions? 🤯❓</h2>
+        <p>A perceptual illusion is a misinterpretation of sensory information, where our perception doesn't match reality. These illusions happen when our brain's normal processes for interpreting visual cues are "tricked" or misapplied. They are useful to psychologists because they provide clues about how normal perception works.</p>
+        <p>Moon Illusion: The moon appears larger when it's on the horizon than when it's overhead. This is an illusion because the moon is the same distance from us in both cases, but our brain interprets it differently based on the surrounding context (trees, buildings on the horizon).</p>
+        <p>Müller-Lyer Illusion: This is a classic example where two lines of the same length appear to be different lengths because of the direction of the arrowheads at their ends. The lines with arrowheads pointing inward look shorter, while the lines with arrowheads pointing outward look longer. This is thought to be a misapplication of size constancy—our brain interprets the line with inward-pointing arrows as being an outside corner that is closer, and the line with outward-pointing arrows as an inside corner that is farther away, making it seem longer.</p>
+        <p>የግንዛቤ ቅዠቶች ምንድን ናቸው? 🤯❓</p>
+        <p>የግንዛቤ ቅዠት (Perceptual illusion) የስሜት ህዋሳት መረጃን በተሳሳተ መንገድ ስንተረጉም የሚከሰት ሲሆን፣ ግንዛቤያችን ከእውነታው ጋር በማይስማማበት ጊዜ ነው። እነዚህ ቅዠቶች የሚከሰቱት አእምሯችን የእይታ ምልክቶችን (visual cues) በተለምዶ የሚተረጉምበት መንገድ "ሲሳሳት" ነው። እነዚህ ቅዠቶች የስነ-ልቦና ባለሙያዎች መደበኛ ግንዛቤ እንዴት እንደሚሰራ እንዲረዱ ይረዳቸዋል።</p>
+        <p>የጨረቃ ቅዠት (Moon Illusion): ጨረቃ በአድማስ ላይ ስትሆን ከላይ ከምትሆንበት ጊዜ የበለጠ ትልቅ ትመስላለች። ይህ ቅዠት ነው ምክንያቱም ጨረቃ በሁለቱም ቦታዎች ላይ ካለን ርቀት ጋር ተመሳሳይ ነች፣ ነገር ግን አእምሯችን በአካባቢው ባሉ ነገሮች ምክንያት በተለየ መንገድ ይተረጉመዋል።</p>
+        <p>የሙለር-ላየር ቅዠት (Müller-Lyer Illusion): ይህ ሁለት ተመሳሳይ ርዝመት ያላቸው መስመሮች የተለያየ ርዝመት ያላቸው እንዲመስሉ የሚያደርግ የታወቀ ቅዠት ነው።</p>
 
-      <div class="content-section">
-        <h2>Brainstorming and Reflection Questions</h2>
-        <h3>Similarities and Differences between Sensation and Perception</h3>
-        <p><strong>Similarities:</strong> Both involve sensory systems and work together to process information. Sensory input cannot be perceived without being sensed first, highlighting their interdependence.</p>
-        <p><strong>Differences:</strong> Sensation is the detection of physical stimuli; perception is the interpretation and meaning-making of these stimuli.</p>
-
-        <h3>Sensory Differences Among People</h3>
-        <p>Differences can arise due to individual variations in sensory receptors, psychological states, attention, and experience.</p>
-
-        <h3>Limen vs. jnd</h3>
-        <p><strong>Limen (Absolute Threshold):</strong> Minimum intensity of a stimulus needed for detection.</p>
-        <p><strong>jnd (Difference Threshold):</strong> Minimum change in stimulus intensity needed to notice a difference.</p>
-
-        <h3>Sensory Adaptation</h3>
-        <p>Occurs when continuous stimulation leads to decreased sensitivity to that stimulus over time, allowing for focus on new or changing stimuli.</p>
-
-        <h3>Sensitization vs. Habituation</h3>
-        <p><strong>Sensitization:</strong> An increased reaction to a stimulus over time.</p>
-        <p><strong>Habituation:</strong> A decrease in response to a constant stimulus.</p>
-      </div>
-    </body>
-    </html>
+        <h2>What is Extrasensory Perception (ESP)? 🔮</h2>
+        <p>Extrasensory perception (ESP), also known as paranormal ability, is the alleged ability to perceive information without using the known five senses (sight, hearing, touch, taste, and smell). Examples include telepathy (mind-reading), clairvoyance (perceiving events at a distance), and precognition (foreseeing the future).</p>
+        <p>While many people believe in ESP, the scientific community has not found conclusive, reproducible evidence to support its existence. Psychologists and scientists generally remain skeptical, as such phenomena cannot be reliably demonstrated under controlled conditions.</p>
+        <p>የአማርኛ ትርጉም: ከስሜት ህዋሳት ውጪ ያለው ግንዛቤ (ESP) ምንድነው? 🔮</p>
+        <p>ከስሜት ህዋሳት ውጪ ያለ ግንዛቤ (ESP)፣ ወይም ፓራኖርማል ችሎታ፣ በአምስቱ የስሜት ህዋሳት ሳንጠቀም መረጃን የመቀበል ችሎታ ነው ተብሎ ይታሰባል። ምሳሌዎች የአእምሮ ንባብ (telepathy)፣ ሩቅ ነገሮችን ማየት (clairvoyance) እና የወደፊቱን መተንበይ (precognition) ያካትታሉ።</p>
+        <p>በብዙ ሰዎች ዘንድ ተቀባይነት ቢኖረውም፣ የሳይንስ ማህበረሰብ ግን ይህ ችሎታ እንዳለ የሚያሳይ ጠንካራ እና ተጨባጭ ማስረጃ አላገኘም።</p>
+    </div>
+</body>
+</html>
   `
 },
     {
@@ -2381,408 +2503,390 @@ export const noteCollections: Subject[] = [
   "title": "🌟 Philosophy Essentials: A Structured Overview",
   "subtitle": "Clear, Concise & Easy to Review",
   "content": `
-    <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Philosophy?</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>What is Philosophy? - A Bilingual Exploration</title>
     <style>
-        /* General Styles */
-        :root {
-            --primary-color: #3f51b5; /* A deep blue for accents */
-            --text-color: #2c3e50; /* Dark gray for main text */
-            --background-color: #f4f7f6; /* A light, soft gray background */
-            --card-background: #ffffff;
-            --secondary-color: #8c8c8c; /* Lighter gray for secondary text */
-            --border-radius: 12px;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Global Styles */
         body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px; /* Consistent padding around the entire body */
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            line-height: 1.2;
-            margin-top: 2em;
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
         }
 
         h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-bottom: 1em;
+            font-size: 2em;
+            color: #2980b9;
         }
 
         h3 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-top: 1.5em;
+            font-size: 1.5em;
+            color: #e67e22;
         }
 
         p {
-            margin-bottom: 1em;
+            margin: 15px 0;
             text-align: justify;
         }
 
-        .sub-text {
-            color: var(--secondary-color);
-            font-style: italic;
-            text-align: center;
-            margin-top: -10px;
-            margin-bottom: 2em;
-        }
-
-        .card {
-            background: var(--card-background);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+        .section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .card h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: var(--primary-color);
+        .section:hover {
+            transform: translateY(-5px);
         }
 
-        .card-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .card-list li {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--primary-color);
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 40px;
         }
 
-        .card-list li strong {
-            color: var(--primary-color);
+        li {
+            margin-bottom: 10px;
         }
 
-        .card-list-nested {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 10px;
+        .bilingual {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .highlight {
-            font-weight: bold;
-            color: var(--primary-color);
+        .english {
+            font-style: normal;
         }
 
-        /* Responsive Design for Mobile */
-        @media (max-width: 600px) {
+        .amharic {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
             body {
-                padding: 10px; /* Reduce padding for smaller screens */
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2em;
             }
 
             h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
+                font-size: 1.5em;
             }
 
-            .card {
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .section {
                 padding: 15px;
             }
+
+            .bilingual {
+                flex-direction: column;
+            }
+        }
+
+        /* Additional Attractiveness */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #e0f7fa, #fff);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header class="container">
+    <div class="container">
         <h1>What is Philosophy? 🤔</h1>
-        <p class="sub-text">An Exploration of Universal Issues and Fundamental Questions</p>
-    </header>
+        <div class="section bilingual">
+            <p class="english">It's tough to give a single, straightforward definition of philosophy because it doesn't have one specific subject matter like chemistry or physics. Instead, philosophy deals with universal issues and fundamental questions. It's more about a way of thinking and a continuous search for truth than a set of facts. The best way to learn it is by actively engaging with it—by philosophizing.</p>
+            <p class="amharic">የፍልስፍና ትርጉም በቀላሉ መስጠት ከባድ ነው ምክንያቱም እንደ ኬሚስትሪ ወይም ፊዚክስ አንድ የተወሰነ የትምህርት ዘርፍ ስለሌለው ነው። ይልቁንም፣ ፍልስፍና የሚያተኩረው ሁለንተናዊ ጉዳዮች እና መሰረታዊ ጥያቄዎች ላይ ነው። ፍልስፍና ከእውነት ፍለጋ ጋር የተያያዘ የአስተሳሰብ መንገድ እንጂ የሀቆች ስብስብ አይደለም። እሱን ለመማር ምርጡ መንገድ ደግሞ በማፍለስፈፍ ንቁ ተሳትፎ ማድረግ ነው።</p>
+        </div>
 
-    <main class="container">
-        <section class="card">
-            <h2>What is Philosophy? 🤔</h2>
-            <p>It's tough to give a single, straightforward definition of philosophy because it doesn't have one specific subject matter like chemistry or physics. Instead, philosophy deals with universal issues and fundamental questions. It's more about a way of thinking and a continuous search for truth than a set of facts. The best way to learn it is by actively engaging with it—by philosophizing.</p>
-            <p>የፍልስፍና ትርጉም በቀላሉ መስጠት ከባድ ነው ምክንያቱም እንደ ኬሚስትሪ ወይም ፊዚክስ አንድ የተወሰነ የትምህርት ዘርፍ ስለሌለው ነው። ይልቁንም፣ ፍልስፍና የሚያተኩረው ሁለንተናዊ ጉዳዮች እና መሰረታዊ ጥያቄዎች ላይ ነው። ፍልስፍና ከእውነት ፍለጋ ጋር የተያያዘ የአስተሳሰብ መንገድ እንጂ የሀቆች ስብስብ አይደለም። እሱን ለመማር ምርጡ መንገድ ደግሞ በማፍለስፈፍ ንቁ ተሳትፎ ማድረግ ነው።</p>
-        </section>
+        <h1>The Origins of the Word "Philosophy" 📜</h1>
+        <div class="section bilingual">
+            <p class="english">To get a clearer understanding, we can look at the etymology of the word itself. "Philosophy" comes from two ancient Greek words:</p>
+            <p class="english">Philo means "love" ❤️</p>
+            <p class="english">Sophia means "wisdom" 🧠</p>
+            <p class="english">So, the literal definition of philosophy is "love of wisdom." The ancient Greek thinker Pythagoras was the first to use the term "philosopher" for someone who is curious and seeks to understand the world.</p>
+            <p class="amharic">የ"ፍልስፍና" የሚለውን ቃል አመጣጥ በመመልከት ትርጉሙን በተሻለ ሁኔታ መረዳት እንችላለን። "ፍልስፍና" የሚለው ቃል ከሁለት ጥንታዊ የግሪክ ቃላት የመጣ ነው፦</p>
+            <p class="amharic">"ፊሎ" ማለት "ፍቅር" ❤️</p>
+            <p class="amharic">"ሶፊያ" ማለት "ጥበብ" 🧠</p>
+            <p class="amharic">ስለዚህ፣ የፍልስፍና ቀጥተኛ ትርጉም "የጥበብ ፍቅር" ነው። ጥንታዊው የግሪክ ፈላስፋ ፓይታጎረስ አለምን ለመረዳት ጉጉት ላላቸው ሰዎች ለመጀመሪያ ጊዜ "ፈላስፋ" የሚለውን ስያሜ ተጠቅሟል።</p>
+        </div>
 
-        <section class="card">
-            <h2>The Origins of the Word "Philosophy" 📜</h2>
-            <p>To get a clearer understanding, we can look at the etymology of the word itself. "Philosophy" comes from two ancient Greek words:</p>
-            <ul class="card-list">
-                <li><strong>Philo</strong> means "love" ❤️</li>
-                <li><strong>Sophia</strong> means "wisdom" 🧠</li>
-            </ul>
-            <p>So, the literal definition of philosophy is "love of wisdom." The ancient Greek thinker Pythagoras was the first to use the term "philosopher" for someone who is curious and seeks to understand the world.</p>
-            <p>የ"ፍልስፍና" የሚለውን ቃል አመጣጥ በመመልከት ትርጉሙን በተሻለ ሁኔታ መረዳት እንችላለን። "ፍልስፍና" የሚለው ቃል ከሁለት ጥንታዊ የግሪክ ቃላት የመጣ ነው፦</p>
-            <ul class="card-list">
-                <li><strong>"ፊሎ"</strong> ማለት "ፍቅር" ❤️</li>
-                <li><strong>"ሶፊያ"</strong> ማለት "ጥበብ" 🧠</li>
-            </ul>
-            <p>ስለዚህ፣ የፍልስፍና ቀጥተኛ ትርጉም "የጥበብ ፍቅር" ነው። ጥንታዊው የግሪክ ፈላስፋ ፓይታጎረስ አለምን ለመረዳት ጉጉት ላላቸው ሰዎች ለመጀመሪያ ጊዜ "ፈላስፋ" የሚለውን ስያሜ ተጠቅሟል።</p>
-        </section>
+        <h1>What Kind of Wisdom Do Philosophers Seek? 💡</h1>
+        <div class="section bilingual">
+            <p class="english">The wisdom that philosophers pursue isn't just about having a lot of information or technical skills. As Socrates explained, philosophical wisdom involves:</p>
+            <p class="english">Critical habits: Continuously questioning and examining everything.</p>
+            <p class="english">A continuous search for truth: Being dedicated to finding the truth, no matter what form it takes.</p>
+            <p class="english">Questioning the obvious: Going beyond what people normally accept without question and exploring deeper possibilities.</p>
+            <p class="english">This critical and questioning mindset is the core of philosophy.</p>
+            <p class="amharic">ፈላስፋዎች የሚፈልጉት ጥበብ ብዙ መረጃ ወይም ሙያዊ ክህሎት መያዝ ብቻ አይደለም። ሶቅራጥስ እንዳብራራው፣ የፍልስፍና ጥበብ የሚከተሉትን ያካትታል፦</p>
+            <p class="amharic">የወሳኝ አስተሳሰብ ልማድ: ነገሮችን ያለማቋረጥ መጠየቅ እና መመርመር።</p>
+            <p class="amharic">የእውነት ዘላለማዊ ፍለጋ: እውነትን በየትኛውም መልኩ ለመፈለግ ቁርጠኛ መሆን።</p>
+            <p class="amharic">ግልጽ የሚመስሉ ነገሮችን መጠየቅ: ሰዎች ያለምንም ጥርጣሬ የሚቀበሉትን ነገር አልፎ ወደ ጥልቅ ዕድሎች መግባት።</p>
+            <p class="amharic">ይህ ወሳኝ እና ጠያቂ አስተሳሰብ የፍልስፍና ዋና አካል ነው።</p>
+        </div>
 
-        <section class="card">
-            <h2>What Kind of Wisdom Do Philosophers Seek? 💡</h2>
-            <p>The wisdom that philosophers pursue isn't just about having a lot of information or technical skills. As Socrates explained, philosophical wisdom involves:</p>
-            <ul class="card-list">
-                <li><strong>Critical habits:</strong> Continuously questioning and examining everything.</li>
-                <li><strong>A continuous search for truth:</strong> Being dedicated to finding the truth, no matter what form it takes.</li>
-                <li><strong>Questioning the obvious:</strong> Going beyond what people normally accept without question and exploring deeper possibilities.</li>
-            </ul>
-            <p>This critical and questioning mindset is the core of philosophy.</p>
-            <p>ፈላስፋዎች የሚፈልጉት ጥበብ ብዙ መረጃ ወይም ሙያዊ ክህሎት መያዝ ብቻ አይደለም። ሶቅራጥስ እንዳብራራው፣ የፍልስፍና ጥበብ የሚከተሉትን ያካትታል፦</p>
-            <ul class="card-list">
-                <li><strong>የወሳኝ አስተሳሰብ ልማድ:</strong> ነገሮችን ያለማቋረጥ መጠየቅ እና መመርመር።</li>
-                <li><strong>የእውነት ዘላለማዊ ፍለጋ:</strong> እውነትን በየትኛውም መልኩ ለመፈለግ ቁርጠኛ መሆን።</li>
-                <li><strong>ግልጽ የሚመስሉ ነገሮችን መጠየቅ:</strong> ሰዎች ያለምንም ጥርጣሬ የሚቀበሉትን ነገር አልፎ ወደ ጥልቅ ዕድሎች መግባት።</li>
-            </ul>
-            <p>ይህ ወሳኝ እና ጠያቂ አስተሳሰብ የፍልስፍና ዋና አካል ነው።</p>
-        </section>
+        <h1>Philosophy as an Activity, Not Just a Product 🏃</h1>
+        <div class="section bilingual">
+            <p class="english">You can't just "learn" philosophy from a book; you have to do it. Philosophy is an active process that involves:</p>
+            <p class="english">Reason and rational criticism: Using logic to analyze and evaluate ideas.</p>
+            <p class="english">Formulating and answering fundamental questions: Asking questions like, "What is reality?" or "What is the meaning of life?" and then trying to find well-reasoned answers.</p>
+            <p class="english">A great philosopher isn't great because of the theories they came up with, but because of their exceptional ability to philosophize—to think critically, analyze, and understand.</p>
+            <p class="amharic">ፍልስፍናን ከመጽሐፍ ላይ ብቻ "መማር" አይቻልም፤ መተግበር አለብህ። ፍልስፍና የሚከተሉትን ያካተተ ንቁ ሂደት ነው፦</p>
+            <p class="amharic">ምክንያታዊ ትችት እና አስተሳሰብ: ሀሳቦችን ለመተንተን እና ለመገምገም ምክንያትን መጠቀም።</p>
+            <p class="amharic">መሰረታዊ ጥያቄዎችን መቅረጽ እና መመለስ: እንደ "እውነታ ምንድን ነው?" ወይም "የህይወት ትርጉም ምንድን ነው?" የሚሉ ጥያቄዎችን በመጠየቅ እና በምክንያታዊነት መልስ ለመስጠት መሞከር።</p>
+            <p class="amharic">ታላቅ ፈላስፋ ታላቅ የሆነው የፈጠራቸው ንድፈ ሃሳቦች ስላሉት ሳይሆን፣ በማፍለስፈፍ—በጥልቀት በማሰብ፣ በመተንተን እና በመረዳት—ባለው ልዩ ችሎታ ነው።</p>
+        </div>
 
-        <section class="card">
-            <h2>Philosophy as an Activity, Not Just a Product 🏃</h2>
-            <p>You can't just "learn" philosophy from a book; you have to do it. Philosophy is an active process that involves:</p>
-            <ul class="card-list">
-                <li><strong>Reason and rational criticism:</strong> Using logic to analyze and evaluate ideas.</li>
-                <li><strong>Formulating and answering fundamental questions:</strong> Asking questions like, "What is reality?" or "What is the meaning of life?" and then trying to find well-reasoned answers.</li>
-            </ul>
-            <p>A great philosopher isn't great because of the theories they came up with, but because of their exceptional ability to philosophize—to think critically, analyze, and understand.</p>
-            <p>ፍልስፍናን ከመጽሐፍ ላይ ብቻ "መማር" አይቻልም፤ መተግበር አለብህ። ፍልስፍና የሚከተሉትን ያካተተ ንቁ ሂደት ነው፦</p>
-            <ul class="card-list">
-                <li><strong>ምክንያታዊ ትችት እና አስተሳሰብ:</strong> ሀሳቦችን ለመተንተን እና ለመገምገም ምክንያትን መጠቀም።</li>
-                <li><strong>መሰረታዊ ጥያቄዎችን መቅረጽ እና መመለስ:</strong> እንደ "እውነታ ምንድን ነው?" ወይም "የህይወት ትርጉም ምንድን ነው?" የሚሉ ጥያቄዎችን በመጠየቅ እና በምክንያታዊነት መልስ ለመስጠት መሞከር።</li>
-            </ul>
-            <p>ታላቅ ፈላስፋ ታላቅ የሆነው የፈጠራቸው ንድፈ ሃሳቦች ስላሉት ሳይሆን፣ በማፍለስፈፍ—በጥልቀት በማሰብ፣ በመተንተን እና በመረዳት—ባለው ልዩ ችሎታ ነው።</p>
-        </section>
+        <h1>What are the Features of Philosophy? 🤔</h1>
+        <div class="section bilingual">
+            <p class="english">Philosophy is a unique discipline with distinct characteristics that set it apart from other fields of study. Understanding these features helps us grasp what it means to "do" philosophy, rather than just "have" a philosophy.</p>
+            <p class="amharic">ፍልስፍና ከሌሎች የትምህርት ዘርፎች የሚለዩት ልዩ ባህሪያት አሉት። እነዚህን ባህሪያት መረዳት፣ ፍልስፍናን "መያዝ" ብቻ ሳይሆን ፍልስፍናን "ማድረግ" ምን ማለት እንደሆነ ለመረዳት ይረዳናል።</p>
+        </div>
 
-        <section class="card">
-            <h2>What are the Features of Philosophy? 🤔</h2>
-            <p>Philosophy is a unique discipline with distinct characteristics that set it apart from other fields of study. Understanding these features helps us grasp what it means to "do" philosophy, rather than just "have" a philosophy.</p>
-            <p>ፍልስፍና ከሌሎች የትምህርት ዘርፎች የሚለዩት ልዩ ባህሪያት አሉት። እነዚህን ባህሪያት መረዳት፣ ፍልስፍናን "መያዝ" ብቻ ሳይሆን ፍልስፍናን "ማድረግ" ምን ማለት እንደሆነ ለመረዳት ይረዳናል።</p>
-            
-            <h3>1. Philosophy as Personal Beliefs and Critical Reflection 🧐</h3>
-            <p>There are two main senses of philosophy:</p>
-            <ul class="card-list">
-                <li><strong>"Having" a philosophy:</strong> This refers to our personal beliefs and attitudes about life and the universe. For example, when someone says, "My philosophy is to always be kind," they are expressing an informal, personal view.</li>
-                <li><strong>"Doing" philosophy:</strong> This is the more formal, academic sense. It involves actively reflecting on, questioning, and criticizing our deepest beliefs. To truly philosophize, you must be open-minded, tolerant, and willing to examine all sides of an issue without prejudice. It's about developing critical thinking and argumentation skills.</li>
-            </ul>
-            <p>ፍልስፍና በሁለት ዋና ዋና መንገዶች ሊታይ ይችላል፦</p>
-            <ul class="card-list">
-                <li><strong>"ፍልስፍና መያዝ":</strong> ይህ ስለ ሕይወት እና ስለ አጽናፈ ዓለም ያለንን ግላዊ እምነቶች እና አመለካከቶች ያመለክታል። ለምሳሌ፣ አንድ ሰው "የእኔ ፍልስፍና ሁል ጊዜ ደግ መሆን ነው" ሲል፣ ግላዊ አመለካከቱን እየገለጸ ነው።</li>
-                <li><strong>"ፍልስፍና ማድረግ":</strong> ይህ ይበልጥ መደበኛ የሆነ የአካዳሚክ ትርጉም ነው። በጥልቀት ማሰብን፣ ጥያቄዎችን ማንሳትን እና እምነቶቻችንን መተቸትን ያካትታል። በትክክል ለማፍለስፈፍ፣ አንድ ሰው ክፍት አእምሮ ያለው፣ ታጋሽ እና ማንኛውንም ጉዳይ ያለ አድሎአዊነት ለመመርመር ፈቃደኛ መሆን አለበት። ይህ ወሳኝ አስተሳሰብ እና የክርክር ክህሎቶችን ማዳበርን ይጠይቃል።</li>
-            </ul>
-            
-            <h3>2. Philosophy Seeks a Holistic Worldview 🌍</h3>
-            <p>Philosophy is a rational effort to see the world as a consistent whole. While other disciplines like science, business, or art focus on specific aspects of human experience, philosophy aims to integrate all this knowledge. It tries to combine conclusions from various sciences and human experiences to create a coherent worldview or a meaningful interpretation of life.</p>
-            <p>ፍልስፍና ዓለምን እንደ የተቀናጀ አንድነት ለማየት የሚደረግ ምክንያታዊ ጥረት ነው። እንደ ሳይንስ፣ ንግድ ወይም ስነ-ጥበብ ያሉ ሌሎች የትምህርት ዘርፎች በተወሰኑ የሰው ልምዶች ላይ ሲያተኩሩ፣ ፍልስፍና ይህንን ሁሉ እውቀት ለማዋሃድ ይጥራል። የተለያዩ የሳይንስ እና የሰው ልምዶች መደምደሚያዎችን በማጣመር ወጥ የሆነ የዓለም እይታ ወይም ትርጉም ያለው የሕይወት ትርጓሜ ለመፍጠር ይፈልጋል።</p>
-            
-            <h3>3. Philosophy is a Logical Analysis of Language 🗣️</h3>
-            <p>A key function of philosophy is the logical analysis of language. This involves clarifying the meaning of words and concepts. Many philosophers see this as a vital task, believing that clear language is essential for clear thought. They aim to expose confusion and nonsense by precisely defining terms used in science and everyday life.</p>
-            <p>የፍልስፍና ቁልፍ ተግባር የቋንቋ ምክንያታዊ ትንተና ነው። ይህ የቃላትን እና የፅንሰ-ሀሳቦችን ትርጉም ግልጽ ማድረግን ያካትታል። ብዙ ፈላስፋዎች ይህን እንደ አስፈላጊ ተግባር ይመለከቱታል፣ ግልጽ ቋንቋ ለግልጽ አስተሳሰብ አስፈላጊ እንደሆነ ያምናሉ። በሳይንስ እና በዕለት ተዕለት ሕይወት ውስጥ ጥቅም ላይ የሚውሉ ቃላትን በትክክል በመግለጽ ግራ መጋባትን እና ትርጉም የለሽነትን ለማጋለጥ ይጥራሉ።</p>
+        <h2>1. Philosophy as Personal Beliefs and Critical Reflection 🧐</h2>
+        <div class="section bilingual">
+            <p class="english">There are two main senses of philosophy:</p>
+            <p class="english">"Having" a philosophy: This refers to our personal beliefs and attitudes about life and the universe. For example, when someone says, "My philosophy is to always be kind," they are expressing an informal, personal view.</p>
+            <p class="english">"Doing" philosophy: This is the more formal, academic sense. It involves actively reflecting on, questioning, and criticizing our deepest beliefs. To truly philosophize, you must be open-minded, tolerant, and willing to examine all sides of an issue without prejudice. It's about developing critical thinking and argumentation skills.</p>
+            <p class="amharic">1. ፍልስፍና እንደ ግላዊ እምነት እና ወሳኝ ነጸብራቅ 🧐</p>
+            <p class="amharic">ፍልስፍና በሁለት ዋና ዋና መንገዶች ሊታይ ይችላል፦</p>
+            <p class="amharic">"ፍልስፍና መያዝ": ይህ ስለ ሕይወት እና ስለ አጽናፈ ዓለም ያለንን ግላዊ እምነቶች እና አመለካከቶች ያመለክታል። ለምሳሌ፣ አንድ ሰው "የእኔ ፍልስፍና ሁል ጊዜ ደግ መሆን ነው" ሲል፣ ግላዊ አመለካከቱን እየገለጸ ነው።</p>
+            <p class="amharic">"ፍልስፍና ማድረግ": ይህ ይበልጥ መደበኛ የሆነ የአካዳሚክ ትርጉም ነው። በጥልቀት ማሰብን፣ ጥያቄዎችን ማንሳትን እና እምነቶቻችንን መተቸትን ያካትታል። በትክክል ለማፍለስፈፍ፣ አንድ ሰው ክፍት አእምሮ ያለው፣ ታጋሽ እና ማንኛውንም ጉዳይ ያለ አድሎአዊነት ለመመርመር ፈቃደኛ መሆን አለበት። ይህ ወሳኝ አስተሳሰብ እና የክርክር ክህሎቶችን ማዳበርን ይጠይቃል።</p>
+        </div>
 
-            <h3>4. Philosophy Tackles Perennial and Fundamental Problems 🤯</h3>
-            <p>Philosophy digs into the deepest problems of human existence that have interested people for centuries. These are not simple questions of fact, but rather profound inquiries that often have no easy answers. Examples of these perennial questions include:</p>
-            <ul class="card-list">
-                <li>What is truth? 💡</li>
-                <li>What is the distinction between right and wrong? ⚖️</li>
-                <li>Why is there anything at all? 🌌</li>
-                <li>What is the purpose of life? 🤔</li>
-                <li>Is there a God? 🙏</li>
-            </ul>
-            <p>These fundamental questions give rise to various theories and systems of thought, such as idealism, realism, and existentialism, which are all part of philosophy's rich content.</p>
-            <p>ፍልስፍና ለብዙ መቶ ዘመናት ሰዎችን ሲያስጨንቁ የቆዩትን የሰዎች ህልውና ጥልቅ ችግሮችን ይመረምራል። እነዚህ ቀላል የእውነታ ጥያቄዎች ሳይሆኑ፣ ብዙ ጊዜ ቀላል መልስ የሌላቸው ጥልቅ ጥያቄዎች ናቸው። የእነዚህ ዘላለማዊ ጥያቄዎች ምሳሌዎች የሚከተሉትን ያካትታሉ፦</p>
-            <ul class="card-list">
-                <li>እውነት ምንድን ነው? 💡</li>
-                <li>በትክክል እና በስህተት መካከል ያለው ልዩነት ምንድን ነው? ⚖️</li>
-                <li>ለምን ምንም ነገር አለ? 🌌</li>
-                <li>የሕይወት ዓላማ ምንድን ነው? 🤔</li>
-                <li>እግዚአብሔር አለ? 🙏</li>
-            </ul>
-            <p>እነዚህ መሰረታዊ ጥያቄዎች እንደ ሃሳባዊነት (idealism)፣ እውነታነት (realism) እና ህልውናዊነት (existentialism) ያሉ የተለያዩ የንድፈ ሃሳቦችን እና የአስተሳሰብ ስርዓቶችን አስከትለዋል። እነዚህ ሁሉ የፍልስፍና የበለፀገ ይዘት አካል ናቸው።</p>
-        </section>
+        <h2>2. Philosophy Seeks a Holistic Worldview 🌍</h2>
+        <div class="section bilingual">
+            <p class="english">Philosophy is a rational effort to see the world as a consistent whole. While other disciplines like science, business, or art focus on specific aspects of human experience, philosophy aims to integrate all this knowledge. It tries to combine conclusions from various sciences and human experiences to create a coherent worldview or a meaningful interpretation of life.</p>
+            <p class="amharic">2. ፍልስፍና ሁሉን አቀፍ የአለም እይታን ይፈልጋል 🌍</p>
+            <p class="amharic">ፍልስፍና ዓለምን እንደ የተቀናጀ አንድነት ለማየት የሚደረግ ምክንያታዊ ጥረት ነው። እንደ ሳይንስ፣ ንግድ ወይም ስነ-ጥበብ ያሉ ሌሎች የትምህርት ዘርፎች በተወሰኑ የሰው ልምዶች ላይ ሲያተኩሩ፣ ፍልስፍና ይህንን ሁሉ እውቀት ለማዋሃድ ይጥራል። የተለያዩ የሳይንስ እና የሰው ልምዶች መደምደሚያዎችን በማጣመር ወጥ የሆነ የዓለም እይታ ወይም ትርጉም ያለው የሕይወት ትርጓሜ ለመፍጠር ይፈልጋል።</p>
+        </div>
 
-        <section class="card">
-            <h2>Metaphysics: The Study of Reality 🌌</h2>
-            <p>Metaphysics is the core branch of philosophy that explores the ultimate nature of reality and existence. Its name comes from Greek words meaning "beyond physics," as it deals with fundamental questions that go beyond what we can observe with our senses. Metaphysicians seek to find the "first principles" from which all knowledge can be derived.</p>
-            <p>የፍልስፍና ዋና አካል የሆነው ሜታፊዚክስ የህልውናን እና የእውነታን መሰረታዊ ባህሪ የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት የተገኘ ሲሆን "ከፊዚክስ ባሻገር" የሚል ትርጉም አለው። ምክንያቱም በስሜት ህዋሳችን ከምናየው በላይ ያሉ ጥያቄዎችን ስለሚዳስስ ነው። ሜታፊዚሻኖች ሁሉም እውቀቶች ሊመነጩባቸው የሚችሉ "የመጀመሪያ መርሆችን" ይፈልጋሉ።</p>
+        <h2>3. Philosophy is a Logical Analysis of Language 🗣️</h2>
+        <div class="section bilingual">
+            <p class="english">A key function of philosophy is the logical analysis of language. This involves clarifying the meaning of words and concepts. Many philosophers see this as a vital task, believing that clear language is essential for clear thought. They aim to expose confusion and nonsense by precisely defining terms used in science and everyday life.</p>
+            <p class="amharic">3. ፍልስፍና የቋንቋ ምክንያታዊ ትንተና ነው 🗣️</p>
+            <p class="amharic">የፍልስፍና ቁልፍ ተግባር የቋንቋ ምክንያታዊ ትንተና ነው። ይህ የቃላትን እና የፅንሰ-ሀሳቦችን ትርጉም ግልጽ ማድረግን ያካትታል። ብዙ ፈላስፋዎች ይህን እንደ አስፈላጊ ተግባር ይመለከቱታል፣ ግልጽ ቋንቋ ለግልጽ አስተሳሰብ አስፈላጊ እንደሆነ ያምናሉ። በሳይንስ እና በዕለት ተዕለት ሕይወት ውስጥ ጥቅም ላይ የሚውሉ ቃላትን በትክክል በመግለጽ ግራ መጋባትን እና ትርጉም የለሽነትን ለማጋለጥ ይጥራሉ።</p>
+        </div>
 
-            <h3>Key Questions in Metaphysics</h3>
-            <p>Metaphysics grapples with foundational questions that shape our understanding of the world.</p>
-            <ul class="card-list">
-                <li><strong>What is real?</strong> Is what we see and touch the only reality, or is there something beyond it?</li>
-                <li><strong>What is the mind-body problem?</strong> What is the relationship between our consciousness (mind) and our physical body?</li>
-                <li><strong>Is there a God?</strong> Can we prove God's existence?</li>
-                <li><strong>Are our actions truly free?</strong> Are we in control of our choices, or are they predetermined?</li>
-            </ul>
-            <p>የሜታፊዚክስ ቁልፍ ጥያቄዎች አለምን የምንረዳበትን መንገድ የሚቀርጹ መሰረታዊ ጥያቄዎችን ያነሳሉ።</p>
-            <ul class="card-list">
-                <li><strong>እውነታ ምንድን ነው?</strong> የምናየው እና የምንነካው ብቻ ነው እውነት ወይስ ከዛ በላይ የሆነ ነገር አለ?</li>
-                <li><strong>የአእምሮ እና የሰውነት ችግር ምንድን ነው?</strong> በህሊናችን (አእምሯችን) እና በአካላዊ ሰውነታችን መካከል ያለው ግንኙነት ምንድን ነው?</li>
-                <li><strong>አምላክ አለ?</strong> የአምላክን መኖር ማረጋገጥ እንችላለን?</li>
-                <li><strong>ድርጊቶቻችን በእውነት ነፃ ናቸው?</strong> በምርጫችን ላይ ቁጥጥር አለን ወይስ አስቀድሞ የተወሰኑ ናቸው?</li>
-            </ul>
+        <h2>4. Philosophy Tackles Perennial and Fundamental Problems 🤯</h2>
+        <div class="section bilingual">
+            <p class="english">Philosophy digs into the deepest problems of human existence that have interested people for centuries. These are not simple questions of fact, but rather profound inquiries that often have no easy answers. Examples of these perennial questions include:</p>
+            <p class="english">What is truth? 💡</p>
+            <p class="english">What is the distinction between right and wrong? ⚖️</p>
+            <p class="english">Why is there anything at all? 🌌</p>
+            <p class="english">What is the purpose of life? 🤔</p>
+            <p class="english">Is there a God? 🙏</p>
+            <p class="english">These fundamental questions give rise to various theories and systems of thought, such as idealism, realism, and existentialism, which are all part of philosophy's rich content.</p>
+            <p class="amharic">4. ፍልስፍና ዘላለማዊ እና መሰረታዊ ችግሮችን ይፈታል 🤯</p>
+            <p class="amharic">ፍልስፍና ለብዙ መቶ ዘመናት ሰዎችን ሲያስጨንቁ የቆዩትን የሰዎች ህልውና ጥልቅ ችግሮችን ይመረምራል። እነዚህ ቀላል የእውነታ ጥያቄዎች ሳይሆኑ፣ ብዙ ጊዜ ቀላል መልስ የሌላቸው ጥልቅ ጥያቄዎች ናቸው። የእነዚህ ዘላለማዊ ጥያቄዎች ምሳሌዎች የሚከተሉትን ያካትታሉ፦</p>
+            <p class="amharic">እውነት ምንድን ነው? 💡</p>
+            <p class="amharic">በትክክል እና በስህተት መካከል ያለው ልዩነት ምንድን ነው? ⚖️</p>
+            <p class="amharic">ለምን ምንም ነገር አለ? 🌌</p>
+            <p class="amharic">የሕይወት ዓላማ ምንድን ነው? 🤔</p>
+            <p class="amharic">እግዚአብሔር አለ? 🙏</p>
+            <p class="amharic">እነዚህ መሰረታዊ ጥያቄዎች እንደ ሃሳባዊነት (idealism)፣ እውነታነት (realism) እና ህልውናዊነት (existentialism) ያሉ የተለያዩ የንድፈ ሃሳቦችን እና የአስተሳሰብ ስርዓቶችን አስከትለዋል። እነዚህ ሁሉ የፍልስፍና የበለፀገ ይዘት አካል ናቸው።</p>
+        </div>
 
-            <h3>The Four Aspects of Metaphysics</h3>
-            <p>Metaphysical questions can be broken down into four key areas:</p>
-            <ul class="card-list">
-                <li><strong>Cosmology:</strong> The study of the origin and nature of the universe as an orderly system. It asks if the universe came about by accident or design, and if it has a purpose.</li>
-                <li><strong>Theology:</strong> The study of God. It asks questions about God's existence, attributes, and relationship with humanity.</li>
-                <li><strong>Anthropology:</strong> The study of human beings. It explores the mind-body relationship, our moral status (e.g., born good or evil), and the extent of our free will.</li>
-                <li><strong>Ontology:</strong> The study of existence itself. It questions what it means for something to exist and whether reality is found in matter or spirit, and if it is fixed or constantly changing.</li>
-            </ul>
-            <p>የሜታፊዚክስ ጥያቄዎች በአራት ዋና ዋና ክፍሎች ሊከፈሉ ይችላሉ፦</p>
-            <ul class="card-list">
-                <li><strong>ኮስሞሎጂ:</strong> የአጽናፈ ዓለም አመጣጥ እና ባህሪን የሚያጠና ነው። አጽናፈ ዓለሙ በአጋጣሚ ወይስ በንድፍ እንደመጣ እና ዓላማ እንዳለው ይጠይቃል።</li>
-                <li><strong>ቲዎሎጂ:</strong> የአምላክን ጽንሰ-ሀሳብ ያጠናል። የአምላክን መኖር፣ ባህሪያት እና ከሰው ልጆች ጋር ያለውን ግንኙነት በተመለከተ ጥያቄዎችን ያነሳል።</li>
-                <li><strong>አንትሮፖሎጂ:</strong> የሰው ልጆችን የሚያጠና ነው። በአእምሮ እና በአካል መካከል ያለውን ግንኙነት፣ የሞራል ሁኔታችንን (ለምሳሌ ጥሩ ሆነው መወለድ ወይም መጥፎ) እና ነፃ ምርጫችን ምን ያህል እንደሆነ ይፈትሻል።</li>
-                <li><strong>ኦንቶሎጂ:</strong> የህልውናን ባህሪ የሚያጠና ነው። አንድ ነገር መኖሩ ምን ማለት እንደሆነ እና እውነታው በቁስ ወይም በመንፈስ ላይ የተመሰረተ እንደሆነ፣ እንዲሁም ቋሚ ወይም ተለዋዋጭ እንደሆነ ይጠይቃል።</li>
-            </ul>
-        </section>
+        <h1>Metaphysics: The Study of Reality 🌌</h1>
+        <div class="section bilingual">
+            <p class="english">Metaphysics is the core branch of philosophy that explores the ultimate nature of reality and existence. Its name comes from Greek words meaning "beyond physics," as it deals with fundamental questions that go beyond what we can observe with our senses. Metaphysicians seek to find the "first principles" from which all knowledge can be derived.</p>
+            <p class="amharic">የፍልስፍና ዋና አካል የሆነው ሜታፊዚክስ የህልውናን እና የእውነታን መሰረታዊ ባህሪ የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት የተገኘ ሲሆን "ከፊዚክስ ባሻገር" የሚል ትርጉም አለው። ምክንያቱም በስሜት ህዋሳችን ከምናየው በላይ ያሉ ጥያቄዎችን ስለሚዳስስ ነው። ሜታፊዚሻኖች ሁሉም እውቀቶች ሊመነጩባቸው የሚችሉ "የመጀመሪያ መርሆችን" ይፈልጋሉ።</p>
+        </div>
 
-        <section class="card">
-            <h2>Epistemology: The Study of Knowledge 🧐</h2>
-            <p>Epistemology, also known as the theory of knowledge, is the branch of philosophy that studies the nature, source, and validity of knowledge. The term comes from the Greek words "episteme" (knowledge) and "logos" (study). It asks foundational questions like, "What is knowledge?" and "How do we know something is true?"</p>
-            <p>ኤፒስተሞሎጂ፣ የእውቀት ቲዎሪ በመባልም የሚታወቀው፣ የእውቀትን ባህሪ፣ ምንጭ እና ተዓማኒነት የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት "ኤፒስተሜ" (እውቀት) እና "ሎጎስ" (ጥናት) የመጣ ነው። "እውቀት ምንድን ነው?" እና "አንድ ነገር እውነት መሆኑን እንዴት እናውቃለን?" የሚሉ መሰረታዊ ጥያቄዎችን ያነሳ።</p>
+        <h2>Key Questions in Metaphysics</h2>
+        <div class="section bilingual">
+            <p class="english">Metaphysics grapples with foundational questions that shape our understanding of the world.</p>
+            <p class="english">What is real? Is what we see and touch the only reality, or is there something beyond it?</p>
+            <p class="english">What is the mind-body problem? What is the relationship between our consciousness (mind) and our physical body?</p>
+            <p class="english">Is there a God? Can we prove God's existence?</p>
+            <p class="english">Are our actions truly free? Are we in control of our choices, or are they predetermined?</p>
+            <p class="amharic">የሜታፊዚክስ ቁልፍ ጥያቄዎች አለምን የምንረዳበትን መንገድ የሚቀርጹ መሰረታዊ ጥያቄዎችን ያነሳሉ።</p>
+            <p class="amharic">እውነታ ምንድን ነው? የምናየው እና የምንነካው ብቻ ነው እውነት ወይስ ከዛ በላይ የሆነ ነገር አለ?</p>
+            <p class="amharic">የአእምሮ እና የሰውነት ችግር ምንድን ነው? በህሊናችን (አእምሯችን) እና በአካላዊ ሰውነታችን መካከል ያለው ግንኙነት ምንድን ነው?</p>
+            <p class="amharic">አምላክ አለ? የአምላክን መኖር ማረጋገጥ እንችላለን?</p>
+            <p class="amharic">ድርጊቶቻችን በእውነት ነፃ ናቸው? በምርጫችን ላይ ቁጥጥር አለን ወይስ አስቀድሞ የተወሰኑ ናቸው?</p>
+        </div>
 
-            <h3>Key Questions in Epistemology</h3>
-            <p>Epistemology challenges us to think critically about what we accept as knowledge.</p>
-            <ul class="card-list">
-                <li><strong>What is the difference between knowledge and belief or opinion?</strong></li>
-                <li><strong>What are the reliable sources of knowledge?</strong> Is it our senses, reason, or something else?</li>
-                <li><strong>How can we be sure that our perceptions are correct?</strong> (e.g., a stick appears bent in water, but it's not)</li>
-                <li><strong>Is truth relative or absolute?</strong> Can what is true today be false tomorrow?</li>
-            </ul>
-            <p>ኤፒስተሞሎጂ እንደ እውቀት የምንቀበለውን ነገር በወሳኝ አስተሳሰብ እንድናይ ይሞግተናል።</p>
-            <ul class="card-list">
-                <li><strong>በእውቀት እና በእምነት ወይም በአስተያየት መካከል ያለው ልዩነት ምንድን ነው?</strong></li>
-                <li><strong>የእውቀት ተዓማኒ ምንጮች ምንድን ናቸው?</strong> በስሜት ህዋሳችን፣ በምክንያታችን ወይስ በሌላ ነገር ነው?</li>
-                <li><strong>የምናየው ነገር ትክክል መሆኑን እንዴት እርግጠኞች እንሆናለን?</strong> (ለምሳሌ፣ በውሃ ውስጥ ያለ እንጨት የተጣመመ ይመስላል፣ ግን አይደለም)</li>
-                <li><strong>እውነት አንፃራዊ ነው ወይስ ፍፁም?</strong> ዛሬ እውነት የሆነ ነገር ነገ ውሸት ሊሆን ይችላል?</li>
-            </ul>
+        <h2>The Four Aspects of Metaphysics</h2>
+        <div class="section bilingual">
+            <p class="english">Metaphysical questions can be broken down into four key areas:</p>
+            <p class="english">Cosmology: The study of the origin and nature of the universe as an orderly system. It asks if the universe came about by accident or design, and if it has a purpose.</p>
+            <p class="english">Theology: The study of God. It asks questions about God's existence, attributes, and relationship with humanity.</p>
+            <p class="english">Anthropology: The study of human beings. It explores the mind-body relationship, our moral status (e.g., born good or evil), and the extent of our free will.</p>
+            <p class="english">Ontology: The study of existence itself. It questions what it means for something to exist and whether reality is found in matter or spirit, and if it is fixed or constantly changing.</p>
+            <p class="amharic">የሜታፊዚክስ አራት ገጽታዎች</p>
+            <p class="amharic">የሜታፊዚክስ ጥያቄዎች በአራት ዋና ዋና ክፍሎች ሊከፈሉ ይችላሉ፦</p>
+            <p class="amharic">ኮስሞሎጂ: የአጽናፈ ዓለም አመጣጥ እና ባህሪን የሚያጠና ነው። አጽናፈ ዓለሙ በአጋጣሚ ወይስ በንድፍ እንደመጣ እና ዓላማ እንዳለው ይጠይቃል።</p>
+            <p class="amharic">ቲዎሎጂ: የአምላክን ጽንሰ-ሀሳብ ያጠናል። የአምላክን መኖር፣ ባህሪያት እና ከሰው ልጆች ጋር ያለውን ግንኙነት በተመለከተ ጥያቄዎችን ያነሳል።</p>
+            <p class="amharic">አንትሮፖሎጂ: የሰው ልጆችን የሚያጠና ነው። በአእምሮ እና በአካል መካከል ያለውን ግንኙነት፣ የሞራል ሁኔታችንን (ለምሳሌ ጥሩ ሆነው መወለድ ወይም መጥፎ) እና ነፃ ምርጫችን ምን ያህል እንደሆነ ይፈትሻል።</p>
+            <p class="amharic">ኦንቶሎጂ: የህልውናን ባህሪ የሚያጠና ነው። አንድ ነገር መኖሩ ምን ማለት እንደሆነ እና እውነታው በቁስ ወይም በመንፈስ ላይ የተመሰረተ እንደሆነ፣ እንዲሁም ቋሚ ወይም ተለዋዋጭ እንደሆነ ይጠይቃል።</p>
+        </div>
 
-            <h3>The Sources of Human Knowledge</h3>
-            <p>Epistemology identifies several ways we gain knowledge. Often, people prioritize one source over others.</p>
-            <ul class="card-list">
-                <li><strong>Empiricism (Sense Experience):</strong> Knowledge comes from our senses and experience. It is immediate and universal for humans, but it can be unreliable, as senses can be deceived and are often incomplete. For instance, some light waves are invisible to the naked eye.</li>
-                <li><strong>Rationalism (Reason):</strong> Knowledge is primarily derived from reason, thought, and logic. Rationalists believe the mind organizes sensory data into a meaningful system. In its extreme form, it claims we can gain irrefutable knowledge independently of our senses.</li>
-                <li><strong>Intuition:</strong> The direct apprehension of knowledge not derived from conscious reasoning or perception. It's a sudden "flash of insight." While it can lead to breakthroughs, it's not a safe method on its own and should be checked against other sources.</li>
-                <li><strong>Revelation:</strong> Knowledge received from a supernatural or transcendent source. This is of prime importance in religion and is accepted by faith. Believers see it as an absolute and omniscient source of truth.</li>
-                <li><strong>Authority:</strong> Knowledge accepted as true because it comes from experts, tradition, or respected sources like teachers and textbooks. It is a necessary source for civilization, but its validity depends on the correctness of the authority's foundations.</li>
-            </ul>
-            <p>ኤፒስተሞሎጂ እውቀትን የምናገኝባቸውን በርካታ መንገዶች ይለያል። ብዙ ጊዜ፣ ሰዎች ከአንድ ምንጭ የበለጠ ለሌላው ቅድሚያ ይሰጣሉ።</p>
-            <ul class="card-list">
-                <li><strong>ኤምፒሪሲዝም (የስሜት ህዋሳት ልምድ):</strong> እውቀት የሚገኘው ከስሜት ህዋሳችን እና ልምዳችን ነው። ለሰዎች ቀጥተኛ እና ሁለንተናዊ ቢሆንም፣ ስሜታችን ሊታለል ስለሚችል እና ብዙ ጊዜም ያልተሟላ በመሆኑ ተዓማኒ ላይሆን ይችላል። ለምሳሌ፣ አንዳንድ የብርሃን ሞገዶች በአይን አይታዩም።</li>
-                <li><strong>ራሽናሊዝም (ምክንያት):</strong> እውቀት በዋነኝነት የሚመነጨው በምክንያት፣ በአስተሳሰብ እና በሎጂክ ነው። ራሽናሊስቶች አእምሮ የስሜት ህዋሳትን መረጃ ወደ ትርጉም ያለው ስርዓት ያደራጃል ብለው ያምናሉ። በከፍተኛ ደረጃ ደግሞ፣ ከስሜት ህዋሳት ነፃ የሆነ የማይካድ እውቀት ማግኘት እንችላለን ይላሉ።</li>
-                <li><strong>ኢንቱዊሽን (ራዕይ/ብልጭታ):</strong> ከንቃተ-ህሊና አስተሳሰብ ወይም ከስሜት ህዋሳት ግንዛቤ ያልተገኘ ቀጥተኛ የእውቀት ግንዛቤ ነው። "ድንገተኛ ግንዛቤ ብልጭታ" ተብሎም ይገለጻል። ግኝቶችን ሊያስገኝ ቢችልም፣ ብቻውን አስተማማኝ ዘዴ አይደለም እና ከሌሎች የእውቀት ምንጮች ጋር መረጋገጥ አለበት።</li>
-                <li><strong>ሬቬሌሽን (ራዕይ):</strong> ከከተፈጥሮ በላይ ወይም ከፍ ካለ ምንጭ የመጣ እውቀት ነው። በሃይማኖት መስክ ከፍተኛ ጠቀሜታ ያለው እና በእምነት ተቀባይነትን ያገኛል። አማኞች ይህንን ምንጭ ፍጹም እና ሁሉን አዋቂ የእውነት ምንጭ አድርገው ይመለከቱታል።</li>
-                <li><strong>አውቶሪቲ (ሥልጣን):</strong> እውቀት የሚቀበለው ከባለሙያዎች፣ ከወግ ወይም ከተከበሩ ምንጮች እንደ መምህራን እና የመማሪያ መጽሐፍት ስለመጣ ነው። ለሥልጣኔ አስፈላጊ ምንጭ ቢሆንም፣ ተዓማኒነቱ ግን ሥልጣኑ በተመሠረተበት መሠረት ትክክለኛነት ላይ የተመካ ነው።</li>
-            </ul>
-        </section>
+        <h1>Epistemology: The Study of Knowledge 🧐</h1>
+        <div class="section bilingual">
+            <p class="english">Epistemology, also known as the theory of knowledge, is the branch of philosophy that studies the nature, source, and validity of knowledge. The term comes from the Greek words "episteme" (knowledge) and "logos" (study). It asks foundational questions like, "What is knowledge?" and "How do we know something is true?"</p>
+            <p class="amharic">ኤፒስተሞሎጂ፣ የእውቀት ቲዎሪ በመባልም የሚታወቀው፣ የእውቀትን ባህሪ፣ ምንጭ እና ተዓማኒነት የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት "ኤፒስተሜ" (እውቀት) እና "ሎጎስ" (ጥናት) የመጣ ነው። "እውቀት ምንድን ነው?" እና "አንድ ነገር እውነት መሆኑን እንዴት እናውቃለን?" የሚሉ መሰረታዊ ጥያቄዎችን ያነሳል።</p>
+        </div>
 
-        <section class="card">
-            <h2>What are Axiology and Logic? 🤔</h2>
-            <p>Axiology and Logic are two more of the core branches of philosophy, each with a distinct focus. Axiology is all about the philosophical study of value, while Logic is the study of correct reasoning and arguments. They help us understand what is good, beautiful, and just, and how to think about these things clearly.</p>
-            <p>አክሲዮሎጂ እና ሎጂክ የፍልስፍና ዋና ቅርንጫፎች ሲሆኑ፣ እያንዳንዳቸው የራሳቸው የሆነ ትኩረት አላቸው። አክሲዮሎጂ የዋጋዎች ፍልስፍናዊ ጥናት ሲሆን፣ ሎጂክ ደግሞ የትክክለኛ ምክንያታዊ አስተሳሰብ እና ክርክሮችን የሚያጠና ነው። ሁለቱም ጥሩ፣ ቆንጆ እና ፍትሃዊ የሆነውን ለመረዳት እና ስለእነዚህ ነገሮች በአግባቡ ለማሰብ ይረዱናል።</p>
+        <h2>Key Questions in Epistemology</h2>
+        <div class="section bilingual">
+            <p class="english">Epistemology challenges us to think critically about what we accept as knowledge.</p>
+            <p class="english">What is the difference between knowledge and belief or opinion?</p>
+            <p class="english">What are the reliable sources of knowledge? Is it our senses, reason, or something else?</p>
+            <p class="english">How can we be sure that our perceptions are correct? (e.g., a stick appears bent in water, but it's not)</p>
+            <p class="english">Is truth relative or absolute? Can what is true today be false tomorrow?</p>
+            <p class="amharic">ኤፒስተሞሎጂ ቁልፍ ጥያቄዎች</p>
+            <p class="amharic">ኤፒስተሞሎጂ እንደ እውቀት የምንቀበለውን ነገር በወሳኝ አስተሳሰብ እንድንመለከት ይሞግተናል።</p>
+            <p class="amharic">በእውቀት እና በእምነት ወይም በአስተያየት መካከል ያለው ልዩነት ምንድን ነው?</p>
+            <p class="amharic">የእውቀት ተዓማኒ ምንጮች ምንድን ናቸው? በስሜት ህዋሳችን፣ በምክንያታችን ወይስ በሌላ ነገር ነው?</p>
+            <p class="amharic">የምናየው ነገር ትክክል መሆኑን እንዴት እርግጠኞች እንሆናለን? (ለምሳሌ፣ በውሃ ውስጥ ያለ እንጨት የተጣመመ ይመስላል፣ ግን አይደለም)</p>
+            <p class="amharic">እውነት አንፃራዊ ነው ወይስ ፍፁም? ዛሬ እውነት የሆነ ነገር ነገ ውሸት ሊሆን ይችላል?</p>
+        </div>
 
-            <h3>Axiology: The Study of Value ⚖️</h3>
-            <p>Axiology is the philosophical study of value, or the worth of something. The word comes from the Greek words "Axios" (value, worth) and "logos" (study of). Axiology asks fundamental questions about what we consider good, preferable, or valuable, and where these ideas come from.</p>
-            <p>አክሲዮሎጂ የዋጋዎችን ወይም የአንድን ነገር ዋጋ የሚያጠና የፍልስፍና ዘርፍ ነው። ቃሉ "Axios" (ዋጋ) እና "logos" (ጥናት) ከሚሉት የግሪክ ቃላት የተገኘ ነው። አክሲዮሎጂ እንደ ጥሩ፣ ተመራጭ ወይም ጠቃሚ የምንላቸው ነገሮች ምን እንደሆኑ እና እነዚህ ሃሳቦች ከየት እንደመጡ የሚሉ መሰረታዊ ጥያቄዎችን ይጠይቃል።</p>
-            
-            <h4>Key Branches of Axiology</h4>
-            <p>Axiology is divided into three main areas of value:</p>
-            <ul class="card-list">
-                <li><strong>Ethics (Moral Philosophy):</strong> This is the study of moral principles, values, and rules that define what is good or bad, right or wrong. It's the search for standards to guide human conduct. Ethics has three sub-branches:
-                    <ul class="card-list-nested">
-                        <li><strong>Normative Ethics:</strong> Seeks to determine the actual rules and standards by which we should live.</li>
-                        <li><strong>Meta-ethics:</strong> Investigates the meaning of ethical terms like "good" and "bad" and how ethical statements can be verified.</li>
-                        <li><strong>Applied Ethics:</strong> Applies moral rules to specific practical problems, such as capital punishment or abortion.</li>
-                    </ul>
-                </li>
-                <li><strong>Aesthetics:</strong> This is the theory of beauty and art. It explores our artistic and aesthetic experiences, and asks questions about what makes something beautiful or creative. It questions if there can be an objective standard for beauty.</li>
-                <li><strong>Social and Political Philosophy:</strong> This studies the value judgments that operate within a civil society and government. It asks questions about the best forms of government, justice, and the purpose of laws.</li>
-            </ul>
-            <p>አክሲዮሎጂ በሦስት ዋና ዋና የዋጋ ዘርፎች ይከፈላል፦</p>
-            <ul class="card-list">
-                <li><strong>ሥነምግባር (ሞራል ፍልስፍና):</strong> ጥሩ ወይም መጥፎ፣ ትክክል ወይም ስህተት የሆነውን የሚገልጹትን የሞራል መርሆች፣ እሴቶች እና ደንቦች የሚያጠና ነው። የሰውን ባህሪ ለመምራት የሚያገለግሉ መመዘኛዎችን ይፈልጋል። ሥነምግባር ሦስት ንዑስ ክፍሎች አሉት፦
-                    <ul class="card-list-nested">
-                        <li><strong>ኖርማቲቭ ሥነምግባር:</strong> በምን ዓይነት ደንቦች እና መመዘኛዎች መኖር እንዳለብን ለማወቅ ይፈልጋል።</li>
-                        <li><strong>ሜታ-ሥነምግባር:</strong> እንደ "ጥሩ" እና "መጥፎ" ያሉ የሥነምግባር ቃላት ትርጉም ምን እንደሆነ ይመረምራል።</li>
-                        <li><strong>ተግባራዊ ሥነምግባር (Applied Ethics):</strong> እንደ ሞት ቅጣት ወይም ፅንስ ማቋረጥ ባሉ ልዩ የሞራል ችግሮች ላይ የሥነምግባር መርሆችን ተግባራዊ ያደርጋል።</li>
-                    </ul>
-                </li>
-                <li><strong>ውበት ጥናት (Aesthetics):</strong> የውበት እና የኪነ ጥበብ ንድፈ ሃሳብ ነው። ስለ ጥበባዊ ልምዶቻችን የሚመረምር ሲሆን አንድን ነገር ቆንጆ ወይም ፈጠራ የሚያደርገው ምን እንደሆነ ይጠይቃል። ለውበት ተጨባጭ መስፈርት ሊኖር እንደሚችልም ይጠይቃል።</li>
-                <li><strong>ማህበራዊ እና ፖለቲካዊ ፍልስፍና:</strong> በሲቪል ማህበረሰብ እና በመንግስት ውስጥ የሚሰሩ የዋጋ ፍርዶችን ያጠናል። ስለ ምርጥ የመንግስት ዓይነቶች፣ ፍትህ እና የህግ አላማ ጥያቄዎችን ያነሳል።</li>
-            </ul>
+        <h2>The Sources of Human Knowledge</h2>
+        <div class="section bilingual">
+            <p class="english">Epistemology identifies several ways we gain knowledge. Often, people prioritize one source over others.</p>
+            <p class="english">Empiricism (Sense Experience): Knowledge comes from our senses and experience. It is immediate and universal for humans, but it can be unreliable, as senses can be deceived and are often incomplete. For instance, some light waves are invisible to the naked eye.</p>
+            <p class="english">Rationalism (Reason): Knowledge is primarily derived from reason, thought, and logic. Rationalists believe the mind organizes sensory data into a meaningful system. In its extreme form, it claims we can gain irrefutable knowledge independently of our senses.</p>
+            <p class="english">Intuition: The direct apprehension of knowledge not derived from conscious reasoning or perception. It's a sudden "flash of insight." While it can lead to breakthroughs, it's not a safe method on its own and should be checked against other sources.</p>
+            <p class="english">Revelation: Knowledge received from a supernatural or transcendent source. This is of prime importance in religion and is accepted by faith. Believers see it as an absolute and omniscient source of truth.</p>
+            <p class="english">Authority: Knowledge accepted as true because it comes from experts, tradition, or respected sources like teachers and textbooks. It is a necessary source for civilization, but its validity depends on the correctness of the authority's foundations.</p>
+            <p class="english">Licensed by Google</p>
+            <p class="amharic">የሰው ልጅ እውቀት ምንጮች</p>
+            <p class="amharic">ኤፒስተሞሎጂ እውቀትን የምናገኝባቸውን በርካታ መንገዶች ይለያል። ብዙ ጊዜ፣ ሰዎች ከአንድ ምንጭ የበለጠ ለሌላው ቅድሚያ ይሰጣሉ።</p>
+            <p class="amharic">ኤምፒሪሲዝም (የስሜት ህዋሳት ልምድ): እውቀት የሚገኘው ከስሜት ህዋሳችን እና ልምዳችን ነው። ለሰዎች ቀጥተኛ እና ሁለንተናዊ ቢሆንም፣ ስሜታችን ሊታለል ስለሚችል እና ብዙ ጊዜም ያልተሟላ በመሆኑ ተዓማኒ ላይሆን ይችላል። ለምሳሌ፣ አንዳንድ የብርሃን ሞገዶች በአይን አይታዩም።</p>
+            <p class="amharic">ራሽናሊዝም (ምክንያት): እውቀት በዋነኝነት የሚመነጨው በምክንያት፣ በአስተሳሰብ እና በሎጂክ ነው። ራሽናሊስቶች አእምሮ የስሜት ህዋሳትን መረጃ ወደ ትርጉም ያለው ስርዓት ያደራጃል ብለው ያምናሉ። በከፍተኛ ደረጃ ደግሞ፣ ከስሜት ህዋሳት ነፃ የሆነ የማይካድ እውቀት ማግኘት እንችላለን ይላሉ።</p>
+            <p class="amharic">ኢንቱዊሽን (ራዕይ/ብልጭታ): ከንቃተ-ህሊና አስተሳሰብ ወይም ከስሜት ህዋሳት ግንዛቤ ያልተገኘ ቀጥተኛ የእውቀት ግንዛቤ ነው። "ድንገተኛ ግንዛቤ ብልጭታ" ተብሎም ይገለጻል። ግኝቶችን ሊያስገኝ ቢችልም፣ ብቻውን አስተማማኝ ዘዴ አይደለም እና ከሌሎች የእውቀት ምንጮች ጋር መረጋገጥ አለበት።</p>
+            <p class="amharic">ሬቬሌሽን (ራዕይ): ከከተፈጥሮ በላይ ወይም ከፍ ካለ ምንጭ የመጣ እውቀት ነው። በሃይማኖት መስክ ከፍተኛ ጠቀሜታ ያለው እና በእምነት ተቀባይነትን ያገኛል። አማኞች ይህንን ምንጭ ፍጹም እና ሁሉን አዋቂ የእውነት ምንጭ አድርገው ይመለከቱታል።</p>
+            <p class="amharic">አውቶሪቲ (ሥልጣን): እውቀት የሚቀበለው ከባለሙያዎች፣ ከወግ ወይም ከተከበሩ ምንጮች እንደ መምህራን እና የመማሪያ መጽሐፍት ስለመጣ ነው። ለሥልጣኔ አስፈላጊ ምንጭ ቢሆንም፣ ተዓማኒነቱ ግን ሥልጣኑ በተመሠረተበት መሠረት ትክክለኛነት ላይ የተመካ ነው።</p>
+        </div>
 
-            <h3>Logic: The Study of Correct Reasoning 💡</h3>
-            <p>Logic is the study of the principles of correct reasoning. It provides the tools and methods for evaluating the validity and soundness of arguments. By studying logic, we learn how to construct good arguments and identify fallacies or errors in reasoning.</p>
-            <p>ሎጂክ የትክክለኛ ምክንያታዊ አስተሳሰብ መርሆችን የሚያጠና ነው። የክርክሮችን ትክክለኛነት እና ጤናማነት ለመገምገም የሚያገለግሉ መሳሪያዎችን እና ዘዴዎችን ይሰጣል። ሎጂክን በማጥናት፣ ጥሩ ክርክሮችን እንዴት መገንባት እንደምንችል እና በማመዛዘን ውስጥ ያሉ ስህተቶችን ወይም አላስፈላጊ መደምደሚያዎችን (fallacies) እንዴት መለየት እንደምንችል እንማራለን።</p>
+        <h1>What are Axiology and Logic? 🤔</h1>
+        <div class="section bilingual">
+            <p class="english">Axiology and Logic are two more of the core branches of philosophy, each with a distinct focus. Axiology is all about the philosophical study of value, while Logic is the study of correct reasoning and arguments. They help us understand what is good, beautiful, and just, and how to think about these things clearly.</p>
+            <p class="amharic">አክሲዮሎጂ እና ሎጂክ የፍልስፍና ዋና ቅርንጫፎች ሲሆኑ፣ እያንዳንዳቸው የራሳቸው የሆነ ትኩረት አላቸው። አክሲዮሎጂ የዋጋዎች ፍልስፍናዊ ጥናት ሲሆን፣ ሎጂክ ደግሞ የትክክለኛ ምክንያታዊ አስተሳሰብ እና ክርክሮችን የሚያጠና ነው። ሁለቱም ጥሩ፣ ቆንጆ እና ፍትሃዊ የሆነውን ለመረዳት እና ስለእነዚህ ነገሮች በአግባቡ ለማሰብ ይረዱናል።</p>
+        </div>
 
-            <h4>Key Questions in Logic</h4>
-            <ul class="card-list">
-                <li><strong>What makes an argument valid or invalid?</strong></li>
-                <li><strong>What is a fallacy?</strong> How can we spot a fallacious argument?</li>
-                <li><strong>What is the relationship between a premise and a conclusion in an argument?</strong></li>
-            </ul>
-            <p>የሎጂክ ቁልፍ ጥያቄዎች</p>
-            <ul class="card-list">
-                <li><strong>አንድ ክርክር ትክክለኛ ወይም ትክክል ያልሆነው እንዴት ነው?</strong></li>
-                <li><strong>አላስፈላጊ መደምደሚያ (fallacy) ምንድን ነው?</strong> እንዴትስ መለየት እንችላለን?</li>
-                <li><strong>በክርክር ውስጥ ባለው መነሻ ሃሳብ (premise) እና መደምደሚያ (conclusion) መካከል ያለው ግንኙነት ምንድን ነው?</strong></li>
-            </ul>
-        </section>
+        <h2>Axiology: The Study of Value ⚖️</h2>
+        <div class="section bilingual">
+            <p class="english">Axiology is the philosophical study of value, or the worth of something. The word comes from the Greek words "Axios" (value, worth) and "logos" (study of). Axiology asks fundamental questions about what we consider good, preferable, or valuable, and where these ideas come from.</p>
+            <p class="amharic">አክሲዮሎጂ የዋጋዎችን ወይም የአንድን ነገር ዋጋ የሚያጠና የፍልስፍና ዘርፍ ነው። ቃሉ "Axios" (ዋጋ) እና "logos" (ጥናት) ከሚሉት የግሪክ ቃላት የተገኘ ነው። አክሲዮሎጂ እንደ ጥሩ፣ ተመራጭ ወይም ጠቃሚ የምንላቸው ነገሮች ምን እንደሆኑ እና እነዚህ ሃሳቦች ከየት እንደመጡ የሚሉ መሰረታዊ ጥያቄዎችን ይጠይቃል።</p>
+        </div>
 
-        <section class="card">
-            <h2>Why is Philosophy Important? 🌟</h2>
-            <p>Socrates famously said, "The unexamined life is not worth living." Studying philosophy gives us the tools to critically examine our lives and the world around us. It helps us develop key skills that are essential for self-actualization and personal growth.</p>
-            <p>ለምን ፍልስፍና አስፈላጊ ነው? 🌟</p>
-            <p>ሶቅራጥስ "ያልተመረመረ ህይወት መኖር ዋጋ የለውም" ብሏል። ፍልስፍናን ማጥናት ህይወታችንን እና በዙሪያችን ያለውን ዓለም በጥልቀት ለመመርመር የሚያስችሉ መሳሪያዎችን ይሰጠናል። ለራስ-እውን መሆን እና ለግል እድገት ወሳኝ የሆኑ ክህሎቶችን እንድናዳብር ይረዳናል።</p>
+        <h3>Key Branches of Axiology</h3>
+        <div class="section bilingual">
+            <p class="english">Axiology is divided into three main areas of value:</p>
+            <p class="english">Ethics (Moral Philosophy): This is the study of moral principles, values, and rules that define what is good or bad, right or wrong. It's the search for standards to guide human conduct. Ethics has three sub-branches:</p>
+            <p class="english">Normative Ethics: Seeks to determine the actual rules and standards by which we should live.</p>
+            <p class="english">Meta-ethics: Investigates the meaning of ethical terms like "good" and "bad" and how ethical statements can be verified.</p>
+            <p class="english">Applied Ethics: Applies moral rules to specific practical problems, such as capital punishment or abortion.</p>
+            <p class="english">Aesthetics: This is the theory of beauty and art. It explores our artistic and aesthetic experiences, and asks questions about what makes something beautiful or creative. It questions if there can be an objective standard for beauty.</p>
+            <p class="english">Social and Political Philosophy: This studies the value judgments that operate within a civil society and government. It asks questions about the best forms of government, justice, and the purpose of laws.</p>
+            <p class="amharic">የአክሲዮሎጂ ዋና ዋና ክፍሎች</p>
+            <p class="amharic">አክሲዮሎጂ በሦስት ዋና ዋና የዋጋ ዘርፎች ይከፈላል፦</p>
+            <p class="amharic">ሥነምግባር (ሞራል ፍልስፍና): ጥሩ ወይም መጥፎ፣ ትክክል ወይም ስህተት የሆነውን የሚገልጹትን የሞራል መርሆች፣ እሴቶች እና ደንቦች የሚያጠና ነው። የሰውን ባህሪ ለመምራት የሚያገለግሉ መመዘኛዎችን ይፈልጋል። ሥነምግባር ሦስት ንዑስ ክፍሎች አሉት፦</p>
+            <p class="amharic">ኖርማቲቭ ሥነምግባር: በምን ዓይነት ደንቦች እና መመዘኛዎች መኖር እንዳለብን ለማወቅ ይፈልጋል።</p>
+            <p class="amharic">ሜታ-ሥነምግባር: እንደ "ጥሩ" እና "መጥፎ" ያሉ የሥነምግባር ቃላት ትርጉም ምን እንደሆነ ይመረምራል።</p>
+            <p class="amharic">ተግባራዊ ሥነምግባር (Applied Ethics): እንደ ሞት ቅጣት ወይም ፅንስ ማቋረጥ ባሉ ልዩ የሞራል ችግሮች ላይ የሥነምግባር መርሆችን ተግባራዊ ያደርጋል።</p>
+            <p class="amharic">ውበት ጥናት (Aesthetics): የውበት እና የኪነ ጥበብ ንድፈ ሃሳብ ነው። ስለ ጥበባዊ ልምዶቻችን የሚመረምር ሲሆን አንድን ነገር ቆንጆ ወይም ፈጠራ የሚያደርገው ምን እንደሆነ ይጠይቃል። ለውበት ተጨባጭ መስፈርት ሊኖር እንደሚችልም ይጠይቃል።</p>
+            <p class="amharic">ማህበራዊ እና ፖለቲካዊ ፍልስፍና: በሲቪል ማህበረሰብ እና በመንግስት ውስጥ የሚሰሩ የዋጋ ፍርዶችን ያጠናል። ስለ ምርጥ የመንግስት ዓይነቶች፣ ፍትህ እና የህግ አላማ ጥያቄዎችን ያነሳል።</p>
+        </div>
 
-            <h3>Benefits of Studying Philosophy</h3>
-            <ul class="card-list">
-                <li><strong>Intellectual Independence:</strong> Philosophy helps you develop your own beliefs and opinions, rather than just accepting those of others.</li>
-                <li><strong>Critical and Creative Thinking:</strong> It refines your ability to think critically, reason logically, and develop original perspectives on complex issues.</li>
-                <li><strong>Flexibility and Tolerance:</strong> By exploring diverse philosophical views, you learn that no single viewpoint is definitively true. This fosters open-mindedness and tolerance for different ideas.</li>
-                <li><strong>Dealing with Uncertainty:</strong> Philosophy helps us recognize that not all knowledge is absolutely certain. This frees us from rigid thinking and a sense of wonder, allowing us to see familiar things in new ways.</li>
-            </ul>
-            <p>የፍልስፍና ጥናት ጥቅሞች</p>
-            <ul class="card-list">
-                <li><strong>አስተሳሰባዊ ነጻነት:</strong> ፍልስፍና የሌሎችን እምነት ከመቀበል ይልቅ የራስዎን እምነት እና አመለካከት እንዲያዳብሩ ይረዳዎታል።</li>
-                <li><strong>ወሳኝ እና ፈጠራ ያለው አስተሳሰብ:</strong> በጥልቀት የማሰብ፣ በምክንያታዊነት የማመዛዘን እና ውስብስብ ጉዳዮች ላይ የራስዎን አመለካከት የማዳበር ችሎታዎን ያሳድጋል።</li>
-                <li><strong>ተለዋዋጭነት እና መቻቻል:</strong> የተለያዩ የፍልስፍና አመለካከቶችን በመመርመር፣ አንድ ነጠላ አመለካከት ብቻ ፍፁም እውነት እንዳልሆነ ይገነዘባሉ። ይህ ክፍት አስተሳሰብን እና ለተለያዩ ሀሳቦች መቻቻልን ያዳብራል።</li>
-                <li><strong>የማይመረመር ነገርን መቋቋም:</strong> ፍልስፍና ሁሉም እውቀቶች ፍፁም እርግጠኛ እንዳልሆኑ እንድንገነዘብ ይረዳናል። ይህ ከጥብቅ አስተሳሰብ ነፃ ያወጣን እና ነገሮችን በአዲስ መንገድ እንድንመለከት ያደርጋል።</li>
-            </ul>
-        </section>
-    </main>
+        <h2>Logic: The Study of Correct Reasoning 💡</h2>
+        <div class="section bilingual">
+            <p class="english">Logic is the study of the principles of correct reasoning. It provides the tools and methods for evaluating the validity and soundness of arguments. By studying logic, we learn how to construct good arguments and identify fallacies or errors in reasoning.</p>
+            <p class="amharic">ሎጂክ የትክክለኛ ምክንያታዊ አስተሳሰብ መርሆችን የሚያጠና ነው። የክርክሮችን ትክክለኛነት እና ጤናማነት ለመገምገም የሚያገለግሉ መሳሪያዎችን እና ዘዴዎችን ይሰጣል። ሎጂክን በማጥናት፣ ጥሩ ክርክሮችን እንዴት መገንባት እንደምንችል እና በማመዛዘን ውስጥ ያሉ ስህተቶችን ወይም አላስፈላጊ መደምደሚያዎችን (fallacies) እንዴት መለየት እንደምንችል እንማራለን።</p>
+        </div>
+
+        <h3>Key Questions in Logic</h3>
+        <div class="section bilingual">
+            <p class="english">What makes an argument valid or invalid?</p>
+            <p class="english">What is a fallacy? How can we spot a fallacious argument?</p>
+            <p class="english">What is the relationship between a premise and a conclusion in an argument?</p>
+            <p class="amharic">የሎጂክ ቁልፍ ጥያቄዎች</p>
+            <p class="amharic">አንድ ክርክር ትክክለኛ ወይም ትክክል ያልሆነው እንዴት ነው?</p>
+            <p class="amharic">አላስፈላጊ መደምደሚያ (fallacy) ምንድን ነው? እንዴትስ መለየት እንችላለን?</p>
+            <p class="amharic">በክርክር ውስጥ ባለው መነሻ ሃሳብ (premise) እና መደምደሚያ (conclusion) መካከል ያለው ግንኙነት ምንድን ነው?</p>
+        </div>
+
+        <h1>Why is Philosophy Important? 🌟</h1>
+        <div class="section bilingual">
+            <p class="english">Socrates famously said, "The unexamined life is not worth living." Studying philosophy gives us the tools to critically examine our lives and the world around us. It helps us develop key skills that are essential for self-actualization and personal growth.</p>
+            <p class="amharic">ለምን ፍልስፍና አስፈላጊ ነው? 🌟</p>
+            <p class="amharic">ሶቅራጥስ "ያልተመረመረ ህይወት መኖር ዋጋ የለውም" ብሏል። ፍልስፍናን ማጥናት ህይወታችንን እና በዙሪያችን ያለውን ዓለም በጥልቀት ለመመርመር የሚያስችሉ መሳሪያዎችን ይሰጠናል። ለራስ-እውን መሆን እና ለግል ᥍ድገት ወሳኝ የሆኑ ክህሎቶችን እንድናዳብር ይረዳናል።</p>
+        </div>
+
+        <h2>Benefits of Studying Philosophy</h2>
+        <div class="section bilingual">
+            <p class="english">Intellectual Independence: Philosophy helps you develop your own beliefs and opinions, rather than just accepting those of others.</p>
+            <p class="english">Critical and Creative Thinking: It refines your ability to think critically, reason logically, and develop original perspectives on complex issues.</p>
+            <p class="english">Flexibility and Tolerance: By exploring diverse philosophical views, you learn that no single viewpoint is definitively true. This fosters open-mindedness and tolerance for different ideas.</p>
+            <p class="english">Dealing with Uncertainty: Philosophy helps us recognize that not all knowledge is absolutely certain. This frees us from rigid thinking and a sense of wonder, allowing us to see familiar things in new ways.</p>
+            <p class="amharic">የፍልስፍና ጥናት ጥቅሞች</p>
+            <p class="amharic">አስተሳሰባዊ ነጻነት: ፍልስፍና የሌሎችን እምነት ከመቀበል ይልቅ የራስዎን እምነት እና አመለካከት እንዲያዳብሩ ይረዳዎታል።</p>
+            <p class="amharic">ወሳኝ እና ፈጠራ ያለው አስተሳሰብ: በጥልቀት የማሰብ፣ በምክንያታዊነት የማመዛዘን እና ውስብስብ ጉዳዮች ላይ የራስዎን አመለካከት የማዳበር ችሎታዎን ያሳድጋል።</p>
+            <p class="amharic">ተለዋዋጭነት እና መቻቻል: የተለያዩ የፍልስፍና አመለካከቶችን በመመርመር፣ አንድ ነጠላ አመለካከት ብቻ ፍፁም እውነት እንዳልሆነ ይገነዘባሉ። ይህ ክፍት አስተሳሰብን እና ለተለያዩ ሀሳቦች መቻቻልን ያዳብራል።</p>
+            <p class="amharic">የማይመረመር ነገርን መቋቋም: ፍልስፍና ሁሉም እውቀቶች ፍፁም እርግጠኛ እንዳልሆኑ እንድንገነዘብ ይረዳናል። ይህ ከጥብቅ አስተሳሰብ ነፃ ያወጣን እና ነገሮችን በአዲስ መንገድ እንድንመለከት ያደርጋል</p>
+        </div>
+    </div>
 </body>
 </html>
   `
@@ -2791,334 +2895,8 @@ export const noteCollections: Subject[] = [
   "id": "Chapter2",
   "title": "Chapter 2: Basic Concepts of Logic",
   "content": `
-    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 100%; padding: 15px; color: #2c3e50; box-sizing: border-box;">
-      <!-- Header -->
-      <div style="background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
-        <h1 style="margin: 0; font-size: 1.8rem;">🔍 Chapter 2: Basic Concepts of Logic</h1>
-        <p style="font-size: 1rem; opacity: 0.9; margin: 10px 0 0;">Organized body of knowledge for evaluating arguments</p>
-      </div>
+   
 
-      <!-- Chapter Overview -->
-      <div style="background: #f0f4ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4a69bd;">
-        <h2 style="color: #1e3799; margin-top: 0;">📚 Chapter Overview</h2>
-        <ul style="padding-left: 20px;">
-          <li><strong>Definition:</strong> Logic is the organized body of knowledge that evaluates arguments. It aims to develop methods and principles for evaluating and constructing arguments.</li>
-          <li><strong>Argument:</strong> A systematic combination of statements, including premises (supporting evidence) and a conclusion (what is claimed to follow from the evidence).</li>
-          <li><strong>Types of Arguments:</strong>
-            <ul>
-              <li>Deductive Arguments: Premises support the conclusion such that it is impossible for the premises to be true and the conclusion false.</li>
-              <li>Inductive Arguments: Premises support the conclusion such that it is improbable for the premises to be true and the conclusion false.</li>
-            </ul>
-          </li>
-          <li><strong>Evaluation:</strong>
-            <ul>
-              <li>Deductive Arguments: Valid (if premises support conclusion properly) or Invalid</li>
-              <li>Inductive Arguments: Strong (if premises support conclusion properly) or Weak</li>
-              <li>Additional Evaluation:
-                <ul>
-                  <li>Deductive Arguments: Sound (valid and all premises true) or Unsound</li>
-                  <li>Inductive Arguments: Cogent (strong and all premises probably true) or Uncogent</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Objectives:</strong> Understand basic concepts of logic, components and types of arguments, and techniques for recognizing and evaluating arguments.</li>
-        </ul>
-      </div>
-
-      <!-- Lesson 1: Basic Concepts -->
-      <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
-        <h2 style="color: #0d47a1; margin-top: 0;">🧩 Lesson 1: Arguments, Premises, and Conclusions</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Definition</h3>
-          <p>Logic is a philosophical science that evaluates arguments.</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Components of an Argument</h3>
-          <ul>
-            <li><strong>Premises:</strong> Statements claimed to provide support or evidence</li>
-            <li><strong>Conclusion:</strong> The statement claimed to follow logically from the premises</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Objectives</h3>
-          <ul>
-            <li>Understand the meaning of logic and arguments</li>
-            <li>Identify components of an argument (premises and conclusion)</li>
-            <li>Recognize techniques for identifying premises and conclusions</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Meaning of Logic</h3>
-          <ul>
-            <li>Origin: Greek word "logos" (sentence, discourse, reason, truth, rule)</li>
-            <li>Logic evaluates arguments using a structured approach</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #1565c0;">Definitions and Benefits of Logic</h3>
-          <p><strong>Definitions:</strong></p>
-          <ol>
-            <li>Science of Evaluating Arguments: Focuses on methods for assessing if premises adequately support conclusions</li>
-            <li>Study of Methods: Studies methods for evaluating whether premises provide good evidence for conclusions</li>
-            <li>Development of Methods and Principles: Helps develop methods for evaluating others' arguments and constructing one's own</li>
-            <li>Codification of Rational Thought: Aims to codify rules of rational thought, exploring structures of arguments that preserve truth</li>
-            <li>Philosophical Tool: Primary tool for philosophers, aiding in analysis of philosophical problems</li>
-          </ol>
-          
-          <p><strong>Benefits:</strong></p>
-          <ul>
-            <li>Construct and Evaluate Arguments</li>
-            <li>Defense Against Prejudice</li>
-            <li>Distinguish Good from Bad Arguments</li>
-            <li>Identify Logical Errors</li>
-            <li>Analyze Policies</li>
-            <li>Refinement of Reasoning Skills</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 2: Recognizing Arguments -->
-      <div style="background: #ffebee; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #f44336;">
-        <h2 style="color: #b71c1c; margin-top: 0;">🔎 Lesson 2: Techniques of Recognizing Arguments</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Definition of an Argument</h3>
-          <p>An argument consists of statements (premises) that support another statement (conclusion). Not all passages with multiple statements are argumentative; some are non-argumentative. Arguments aim to prove something.</p>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Lesson Objectives</h3>
-          <ul>
-            <li>Recognize argumentative passages</li>
-            <li>Recognize non-argumentative passages</li>
-            <li>Distinguish between argumentative and non-argumentative passages</li>
-            <li>Understand inferential claims and factual claims</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Recognizing Argumentative Passages</h3>
-          <ul>
-            <li>Primary Goal: To prove something</li>
-            <li>Two Conditions:
-              <ol>
-                <li>At least one statement must present evidence or reasons (premise)</li>
-                <li>There must be a claim that the evidence supports something (conclusion)</li>
-              </ol>
-            </li>
-            <li>Factual Claims vs. Inferential Claims:
-              <ul>
-                <li>Factual Claims: Concern whether premises actually provide evidence</li>
-                <li>Inferential Claims: Concern whether premises support a conclusion</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #d32f2f;">Challenges and Cautions</h3>
-          <p><strong>Indicator Words:</strong></p>
-          <ul>
-            <li>Can be misleading when used in non-argumentative contexts</li>
-            <li>Example: "Since Edison invented..." (temporal vs. logical use)</li>
-          </ul>
-          
-          <p><strong>Detecting Inferential Relationships:</strong></p>
-          <ul>
-            <li>Sometimes tricky to identify true support relationships</li>
-            <li>Tip: Insert indicator words to test logical connections</li>
-          </ul>
-          
-          <p><strong>Conditional Answers:</strong></p>
-          <ul>
-            <li>Some passages can be interpreted multiple ways</li>
-            <li>Example: "If interpreted this way, it's an argument; another way, not"</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 3: Types of Arguments -->
-      <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
-        <h2 style="color: #2e7d32; margin-top: 0;">⚖️ Lesson 3: Types of Arguments</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Overview</h3>
-          <ul>
-            <li>Arguments involve an inferential claim that the conclusion follows from the premises</li>
-            <li><strong>Deductive Arguments:</strong> Claim conclusion follows with strict certainty</li>
-            <li><strong>Inductive Arguments:</strong> Claim conclusion follows probably from premises</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Differentiation</h3>
-          <ul>
-            <li>Deductive: Conclusion follows necessarily from premises</li>
-            <li>Inductive: Conclusion follows with some probability</li>
-            <li>Evaluate how strongly the conclusion is claimed to follow</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Factors Influencing Classification</h3>
-          <ol>
-            <li><strong>Certainty vs. Probability:</strong>
-              <ul>
-                <li>Deductive: Aim for certainty</li>
-                <li>Inductive: Aim for probability</li>
-              </ul>
-            </li>
-            <li><strong>Strength of Inferential Claim:</strong>
-              <ul>
-                <li>Deductive: Logical necessity</li>
-                <li>Inductive: Likelihood</li>
-              </ul>
-            </li>
-            <li><strong>Objective Features:</strong>
-              <ul>
-                <li>Evaluate support strength</li>
-                <li>Assess necessity vs probability</li>
-              </ul>
-            </li>
-            <li><strong>Indicator Words:</strong>
-              <ul>
-                <li>Deductive: "certainly," "necessarily"</li>
-                <li>Inductive: "probable," "likely"</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #388e3c;">Argument Forms</h3>
-          <p><strong>Deductive Forms:</strong></p>
-          <ul>
-            <li>Mathematical Arguments</li>
-            <li>Arguments from Definition</li>
-            <li>Syllogisms (categorical, hypothetical, disjunctive)</li>
-          </ul>
-          
-          <p><strong>Inductive Forms:</strong></p>
-          <ul>
-            <li>Prediction</li>
-            <li>Argument from Analogy</li>
-            <li>Inductive Generalization</li>
-            <li>Argument from Authority</li>
-            <li>Arguments Based on Signs</li>
-            <li>Causal Inference</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 4: Evaluating Arguments -->
-      <div style="background: #f3e5f5; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
-        <h2 style="color: #7b1fa2; margin-top: 0;">📊 Lesson 4: Evaluating Arguments</h2>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Lesson Overview</h3>
-          <ul>
-            <li>Every argument has two claims:
-              <ol>
-                <li>Factual Claim: Evidence exists</li>
-                <li>Inferential Claim: Evidence supports conclusion</li>
-              </ol>
-            </li>
-            <li>Evaluation Focus: Inferential claim is more crucial</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Evaluating Deductive Arguments</h3>
-          <p><strong>Validity:</strong></p>
-          <ul>
-            <li>Valid if conclusion necessarily follows from premises</li>
-            <li>Invalid if conclusion doesn't necessarily follow</li>
-            <li>Examples:
-              <ul>
-                <li>Valid: "All men are mammals. All bulls are men. ∴ All bulls are mammals"</li>
-                <li>Invalid: "All philosophers are rational. Socrates was rational. ∴ Socrates was a philosopher"</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Validity vs Truth:</strong></p>
-          <ul>
-            <li>Validity concerns argument structure</li>
-            <li>Truth Value Possibilities:
-              <ol>
-                <li>True Premises + True Conclusion: Can be valid or invalid</li>
-                <li>True Premises + False Conclusion: Only invalid</li>
-                <li>False Premises + True Conclusion: Can be valid or invalid</li>
-                <li>False Premises + False Conclusion: Can be valid or invalid</li>
-              </ol>
-            </li>
-          </ul>
-          
-          <p><strong>Soundness:</strong></p>
-          <ul>
-            <li>Sound = Valid + All premises true</li>
-            <li>Unsound if invalid or has false premises</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #8e24aa;">Evaluating Inductive Arguments</h3>
-          <p><strong>Strength:</strong></p>
-          <ul>
-            <li>Strong if premises make conclusion probable</li>
-            <li>Weak if conclusion doesn't likely follow</li>
-            <li>Examples:
-              <ul>
-                <li>Strong: "100 apples, 80 tasty ∴ All probably tasty"</li>
-                <li>Weak: "100 apples, 3 tasty ∴ All probably tasty"</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Key Differences from Deductive:</strong></p>
-          <ul>
-            <li>Degrees of strength (not absolute)</li>
-            <li>Strength can change with additional premises</li>
-            <li>Truth Value Relationships:
-              <ul>
-                <li>True Premises + True Conclusion: Can be strong or weak</li>
-                <li>True Premises + False Conclusion: Weak</li>
-                <li>False Premises + True Conclusion: Can be strong or weak</li>
-                <li>False Premises + False Conclusion: Can be strong or weak</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Cogency:</strong></p>
-          <ul>
-            <li>Cogent = Strong + Premises probably true</li>
-            <li>Uncogent if weak or premises probably false</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Key Takeaways -->
-      <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 12px; text-align: center;">
-        <h2 style="color: #c2185b; margin-top: 0;">💎 Key Takeaways</h2>
-        <div style="background: rgba(255,255,255,0.85); padding: 15px; border-radius: 8px;">
-          <p style="font-style: italic; color: #bf360c;">
-            "Logic provides the systematic tools to distinguish sound reasoning from flawed arguments, 
-            enabling critical analysis of ideas through proper evaluation of premises and conclusions."
-          </p>
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;">
-            <span style="background: #6a11cb; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Premise Identification</span>
-            <span style="background: #ff6b6b; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Argument Evaluation</span>
-            <span style="background: #00cdac; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Logical Analysis</span>
-          </div>
-        </div>
-      </div>
-    </div>
   `
 },
     {
