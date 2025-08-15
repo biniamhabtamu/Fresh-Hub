@@ -12,6 +12,13 @@ export interface User {
   screenshotUrl?: string;
   submittedAt?: Date;
   createdAt: Date;
+  averageScore: number;
+  totalQuizzes: number;
+  rank: number;
+  points: number;
+  avatar?: string;
+  recentPoints?: number;
+  lastActive?: string;
 }
 
 // ... rest of your existing types
