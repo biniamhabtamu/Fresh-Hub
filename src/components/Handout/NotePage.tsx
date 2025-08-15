@@ -243,6 +243,18 @@ const NotePage = () => {
     recordViewIfNeeded();
   }, [currentUser, userViewed, recordView]);
 
+  // Add IDs to headings for TOC if not present
+  useEffect(() => {
+    if (contentRef.current) {
+      const headings = contentRef.current.querySelectorAll('h1, h2, h3');
+      headings.forEach(heading => {
+        if (!heading.id) {
+          heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+        }
+      });
+    }
+  }, [content]);
+
   const currentSubject = noteCollections.find(s => s.id === subjectId);
   const currentChapter = currentSubject?.chapters.find(c => c.id === chapterId);
 
@@ -327,7 +339,7 @@ const NotePage = () => {
     if (!contentRef.current) return [];
     const headings = contentRef.current.querySelectorAll('h1, h2, h3');
     return Array.from(headings).map(heading => ({
-      id: heading.id || heading.textContent.replace(/\s+/g, '-').toLowerCase(),
+      id: heading.id,
       text: heading.textContent,
       level: parseInt(heading.tagName[1])
     }));
@@ -375,40 +387,40 @@ const NotePage = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className={`fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-20 py-3 px-4 sm:px-6 border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-800`}
+            className={`fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-20 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-800`}
           >
             <div className="max-w-4xl mx-auto flex justify-between items-center">
               <button
                 onClick={() => navigate('/handouts')}
-                className={`flex items-center text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors dark:text-gray-300 dark:hover:text-white`}
+                className={`flex items-center text-xs sm:text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors dark:text-gray-300 dark:hover:text-white`}
               >
-                <ArrowLeft className="h-4 w-4 mr-2" />
+                <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Back to Subjects</span>
               </button>
-              <h2 className="text-sm sm:text-base font-semibold text-gray-800 truncate max-w-[50%] dark:text-white">
+              <h2 className="text-xs sm:text-sm font-semibold text-gray-800 truncate max-w-[40%] sm:max-w-[50%] dark:text-white">
                 {currentChapter?.title}
               </h2>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2">
                 <button
                   onClick={() => setShowTableOfContents(true)}
                   className="p-2 rounded-full text-gray-500 hover:text-indigo-500 transition-colors dark:text-gray-400 dark:hover:text-indigo-400"
                   aria-label="Table of contents"
                 >
-                  <BookText className="h-5 w-5" />
+                  <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
                   onClick={toggleBookmark}
                   className={`p-2 rounded-full transition-colors ${isBookmarked ? 'text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30' : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
                   aria-label={isBookmarked ? 'Remove bookmark' : 'Add bookmark'}
                 >
-                  {isBookmarked ? <BookmarkCheck className="h-5 w-5" /> : <Bookmark className="h-5 w-5" />}
+                  {isBookmarked ? <BookmarkCheck className="h-4 w-4 sm:h-5 sm:w-5" /> : <Bookmark className="h-4 w-4 sm:h-5 sm:w-5" />}
                 </button>
                 <button
                   onClick={toggleLike}
                   className={`p-2 rounded-full transition-colors ${userLiked ? 'text-rose-500 bg-rose-50 dark:bg-rose-900/30' : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
                   aria-label={userLiked ? 'Unlike' : 'Like'}
                 >
-                  <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+                  <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
                 </button>
               </div>
             </div>
@@ -424,16 +436,16 @@ const NotePage = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-40 dark:bg-gray-900 dark:border-l dark:border-gray-800"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto dark:bg-gray-900 dark:border-l dark:border-gray-800"
           >
-            <div className="p-6 h-full flex flex-col">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Table of Contents</h2>
+            <div className="p-4 sm:p-6 h-full flex flex-col">
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Table of Contents</h2>
                 <button 
                   onClick={() => setShowTableOfContents(false)}
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
               </div>
               
@@ -443,9 +455,9 @@ const NotePage = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToHeading(item.id)}
-                        className={`w-full text-left px-4 py-2 rounded-lg transition-colors hover:bg-indigo-50 dark:hover:bg-indigo-900/30 ${
-                          item.level === 1 ? 'font-bold text-lg' : 
-                          item.level === 2 ? 'font-medium pl-6' : 'pl-10 text-sm'
+                        className={`w-full text-left px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-colors hover:bg-indigo-50 dark:hover:bg-indigo-900/30 ${
+                          item.level === 1 ? 'font-bold text-base sm:text-lg' : 
+                          item.level === 2 ? 'font-medium pl-4 sm:pl-6' : 'pl-8 sm:pl-10 text-sm'
                         }`}
                       >
                         {item.text}
@@ -455,13 +467,13 @@ const NotePage = () => {
                 </ul>
               </div>
               
-              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                    <BookOpen className="h-5 w-5" />
+              <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200 dark:border-gray-800">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
+                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span>Estimated reading time: {calculateReadingTime()} min</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4 text-sm">
                     <div className="flex items-center gap-1">
                       <Eye className="h-4 w-4" />
                       <span>{viewsCount} views</span>
@@ -486,16 +498,16 @@ const NotePage = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-40 dark:bg-gray-900 dark:border-l dark:border-gray-800"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto dark:bg-gray-900 dark:border-l dark:border-gray-800"
           >
-            <div className="p-6 h-full flex flex-col">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Your Notes</h2>
+            <div className="p-4 sm:p-6 h-full flex flex-col">
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Your Notes</h2>
                 <button 
                   onClick={() => setShowNoteTaking(false)}
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
               </div>
               
@@ -503,21 +515,21 @@ const NotePage = () => {
                 <textarea
                   value={userNotes}
                   onChange={(e) => setUserNotes(e.target.value)}
-                  className="w-full h-full p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                  className="w-full h-full p-3 sm:p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-sm sm:text-base"
                   placeholder="Write your notes here..."
                 />
               </div>
               
-              <div className="mt-6 flex gap-3">
+              <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
                 <button
                   onClick={() => setShowNoteTaking(false)}
-                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 text-sm"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={saveUserNotes}
-                  className="flex-1 px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600"
+                  className="flex-1 px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 text-sm"
                 >
                   Save Notes
                 </button>
@@ -534,14 +546,14 @@ const NotePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-24 right-6 bg-white rounded-xl shadow-2xl p-4 z-40 dark:bg-gray-800"
+            className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 bg-white rounded-xl shadow-2xl p-3 sm:p-4 z-40 dark:bg-gray-800"
           >
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 sm:gap-3">
               <button
                 onClick={shareContent}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
               >
-                <Share2 className="h-5 w-5 text-indigo-500" />
+                <Share2 className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500" />
                 <span>Share via link</span>
               </button>
               <button
@@ -549,9 +561,9 @@ const NotePage = () => {
                   navigator.clipboard.writeText(contentRef.current?.textContent || '');
                   setShowShareOptions(false);
                 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
               >
-                <Copy className="h-5 w-5 text-indigo-500" />
+                <Copy className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500" />
                 <span>Copy content</span>
               </button>
             </div>
@@ -559,60 +571,60 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 pt-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-16 sm:pt-20">
         
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 text-center"
+          className="mb-6 sm:mb-8 text-center"
         >
-          <div className="flex items-center justify-center gap-2 text-sm font-semibold text-gray-500 mb-2 dark:text-gray-400">
+          <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2 dark:text-gray-400">
             <button
               onClick={() => navigate('/handouts')}
               className={`flex items-center gap-1 text-indigo-500 hover:underline transition-colors`}
             >
-              <Layers className="h-4 w-4" />
+              <Layers className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>{currentSubject?.name}</span>
             </button>
             <span className="text-gray-300 dark:text-gray-600">/</span>
             <span className="text-gray-500 dark:text-gray-400">Chapter</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight dark:text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight dark:text-white">
             {currentChapter?.title}
           </h1>
-          <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {currentChapter?.description}
           </p>
           
-          <div className="mt-8 flex justify-center items-center gap-6">
-            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-              <Eye className="h-5 w-5" />
+          <div className="mt-4 sm:mt-8 flex justify-center items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-1 sm:gap-2 text-gray-500 dark:text-gray-400 text-sm">
+              <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>{viewsCount} views</span>
             </div>
             <button 
               onClick={toggleLike}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 dark:bg-rose-900/30 dark:text-rose-300"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 dark:bg-rose-900/30 dark:text-rose-300 text-sm"
             >
-              <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+              <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
               <span>{likesCount} likes</span>
             </button>
           </div>
           
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
             <button
               onClick={() => setShowTableOfContents(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 text-sm"
             >
-              <BookText className="h-4 w-4" />
+              <BookText className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>Table of Contents</span>
             </button>
             <button
               onClick={() => setShowNoteTaking(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 dark:bg-amber-900/30 dark:text-amber-300"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 dark:bg-amber-900/30 dark:text-amber-300 text-sm"
             >
-              <BookOpen className="h-4 w-4" />
+              <BookOpen className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>Take Notes</span>
             </button>
           </div>
@@ -623,12 +635,12 @@ const NotePage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative bg-white rounded-3xl shadow-xl border border-gray-200 dark:bg-gray-900 dark:border-gray-800"
+          className="relative bg-white rounded-2xl sm:rounded-3xl shadow-md sm:shadow-xl border border-gray-200 dark:bg-gray-900 dark:border-gray-800"
         >
-          <div className="p-6 sm:p-10">
+          <div className="p-4 sm:p-6 md:p-10">
             <div 
               ref={contentRef}
-              className="prose prose-lg max-w-none leading-relaxed content-text dark:prose-invert"
+              className="prose prose-sm sm:prose-lg max-w-none leading-relaxed content-text dark:prose-invert"
               style={{ fontSize: `${fontSize}%` }}
             >
               {content ? (
@@ -651,28 +663,28 @@ const NotePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white rounded-full px-4 py-2 flex items-center gap-3 z-50 shadow-lg"
+              className="fixed bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white rounded-full px-3 py-2 sm:px-4 sm:py-2 flex items-center gap-2 sm:gap-3 z-50 shadow-lg"
             >
               <button 
                 onClick={addHighlight}
-                className="flex items-center gap-1 text-sm hover:text-amber-300"
+                className="flex items-center gap-1 text-xs sm:text-sm hover:text-amber-300"
               >
-                <Star className="h-4 w-4" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4" />
                 Highlight
               </button>
-              <div className="h-4 w-px bg-gray-600"></div>
+              <div className="h-3 sm:h-4 w-px bg-gray-600"></div>
               <button 
                 onClick={saveHighlightAsNote}
-                className="flex items-center gap-1 text-sm hover:text-indigo-300"
+                className="flex items-center gap-1 text-xs sm:text-sm hover:text-indigo-300"
               >
-                <BookmarkPlus className="h-4 w-4" />
+                <BookmarkPlus className="h-3 w-3 sm:h-4 sm:w-4" />
                 Save as Note
               </button>
               <button 
                 onClick={() => setHighlightedText('')}
-                className="ml-2 text-gray-400 hover:text-white"
+                className="ml-1 sm:ml-2 text-gray-400 hover:text-white"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
             </motion.div>
           )}
@@ -684,35 +696,35 @@ const NotePage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12"
+            className="mt-8 sm:mt-12"
           >
-            <h3 className={`text-xl font-bold text-gray-900 mb-6 text-center dark:text-white`}>
+            <h3 className={`text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 text-center dark:text-white`}>
               Explore More Chapters
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {currentSubject.chapters.map((chapter) => (
                 <button
                   key={chapter.id}
                   onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
-                  className={`group p-5 rounded-2xl border transition-all text-left shadow-sm hover:shadow-md dark:border-gray-800 ${
+                  className={`group p-4 sm:p-5 rounded-xl sm:rounded-2xl border transition-all text-left shadow-sm hover:shadow-md dark:border-gray-800 ${
                     chapterId === chapter.id
                       ? 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/30 dark:border-indigo-800 font-bold'
                       : 'bg-white hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800'
                   }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg ${
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className={`p-1 sm:p-2 rounded-lg ${
                       chapterId === chapter.id 
                         ? 'bg-indigo-100 dark:bg-indigo-900/50' 
                         : 'bg-gray-100 dark:bg-gray-800'
                     }`}>
-                      <BookOpen className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+                      <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500 dark:text-indigo-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 group-hover:text-indigo-600 dark:text-gray-200 dark:group-hover:text-indigo-400 transition-colors">
+                      <h4 className="font-semibold text-sm sm:text-base text-gray-800 group-hover:text-indigo-600 dark:text-gray-200 dark:group-hover:text-indigo-400 transition-colors">
                         {chapter.title}
                       </h4>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 sm:mt-2 line-clamp-2">
                         {chapter.description || 'Chapter content'}
                       </p>
                     </div>
@@ -729,21 +741,21 @@ const NotePage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: isScrolled ? 1 : 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed bottom-24 right-6 flex flex-col space-y-3 z-30"
+        className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 flex flex-col space-y-2 sm:space-y-3 z-30"
       >
         <button
           onClick={scrollToTop}
-          className={`p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
+          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
           aria-label="Scroll to top"
         >
-          <ChevronUp className="h-6 w-6" />
+          <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
         <button
           onClick={scrollToBottom}
-          className={`p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
+          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
           aria-label="Scroll to bottom"
         >
-          <ChevronDown className="h-6 w-6" />
+          <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
       </motion.div>
 
@@ -754,76 +766,76 @@ const NotePage = () => {
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 dark:bg-gray-900/80 dark:border-gray-800 z-30"
       >
-        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
           
           {/* Left side: Font controls */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
               onClick={decreaseFontSize} 
-              className="control-btn" 
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
               aria-label="Decrease font size"
             >
-              <Minus className="h-5 w-5" />
+              <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
-            <div className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12 text-center select-none">
+            <div className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 w-10 sm:w-12 text-center select-none">
               {fontSize}%
             </div>
             <button 
               onClick={increaseFontSize} 
-              className="control-btn" 
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
               aria-label="Increase font size"
             >
-              <Plus className="h-5 w-5" />
+              <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
           
           {/* Center: Quick actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
               onClick={toggleLike}
-              className={`control-btn ${userLiked ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400' : ''}`}
+              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${userLiked ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400' : ''}`}
               aria-label={userLiked ? 'Unlike' : 'Like'}
             >
-              <Heart className={`h-5 w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
+              <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
             </button>
             <button 
               onClick={() => setShowShareOptions(!showShareOptions)}
-              className={`control-btn ${showShareOptions ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400' : ''}`}
+              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${showShareOptions ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400' : ''}`}
               aria-label="Share options"
             >
-              <Share2 className="h-5 w-5" />
+              <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
             <button 
               onClick={toggleTextToSpeech}
-              className={`control-btn ${isSpeaking ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400' : ''}`}
+              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${isSpeaking ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400' : ''}`}
               aria-label={isSpeaking ? "Stop reading" : "Read aloud"}
             >
-              <Volume2 className="h-5 w-5" />
+              <Volume2 className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
             <button 
               onClick={() => setShowNoteTaking(true)}
-              className="control-btn"
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
               aria-label="Take notes"
             >
-              <BookOpen className="h-5 w-5" />
+              <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
           
           {/* Right side: Actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
               onClick={toggleDarkMode} 
-              className="control-btn" 
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDarkMode ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
             </button>
             <button 
               onClick={toggleFullscreen} 
-              className="control-btn" 
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
               aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
             >
-              {isFullscreen ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
+              {isFullscreen ? <Minimize2 className="h-4 w-4 sm:h-5 sm:w-5" /> : <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5" />}
             </button>
           </div>
           

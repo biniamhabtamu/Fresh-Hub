@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { BookOpen, BarChart, Clock, Edit3, Settings, Star, Zap, ChevronRight, Flame, Trophy, Award, CheckCircle, GraduationCap, TrendingUp, TrendingDown, UserCircle2 } from 'lucide-react';
-import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
+import { BookOpen, BarChart, Clock, Edit3, Settings, Star, Zap, ChevronRight, Flame, Trophy, Award, CheckCircle, GraduationCap, TrendingUp, TrendingDown, UserCircle2, Upload } from 'lucide-react';
+import { collection, query, where, getDocs, orderBy, limit, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { motion } from 'framer-motion';
+import { createClient } from '@supabase/supabase-js';
 import Header from '../Layout/Header';
 import BottomBar from '../Layout/BottomBar';
 import toast from 'react-hot-toast';
+
+// Initialize Supabase client
+const supabaseUrl = 'https://toezpblzbyizwroawevb.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRvZXpwYmx6Ynlpendyb2F3ZXZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5ODg5MjUsImV4cCI6MjA2NzU2NDkyNX0.H7DoDO8Yl0xxWOB809aT5xXCTdxYXrxsnIKaeHmxfwE';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface QuizResult {
   id: string;
@@ -36,7 +42,7 @@ interface UserStats {
 }
 
 export default function ProfilePage() {
-  const { currentUser } = useAuth();
+  const { currentUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const [stats, setStats] = useState<UserStats>({
     averageScore: 0,
@@ -58,6 +64,81 @@ export default function ProfilePage() {
   const [todayActivity, setTodayActivity] = useState<QuizResult[]>([]);
   const [subjectPerformance, setSubjectPerformance] = useState<Record<string, { count: number, total: number, points: number }>>({});
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Handle profile image upload
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !currentUser?.uid) return;
+
+    // Validate file type
+    if (!file.type.match('image.*')) {
+      toast.error('Please select an image file (JPEG, PNG, etc.)');
+      return;
+    }
+
+    // Validate file size (max 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error('Image size should be less than 2MB');
+      return;
+    }
+
+    try {
+      setUploading(true);
+      const toastId = toast.loading('Uploading profile image...');
+      
+      // Generate unique filename
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${currentUser.uid}-${Date.now()}.${fileExt}`;
+      const filePath = `profile-images/${fileName}`;
+
+      // Upload to Supabase storage with public access
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('profile-images')
+        .upload(filePath, file, {
+          cacheControl: '3600',
+          upsert: true,
+          contentType: file.type
+        });
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      // Get public URL - using the public URL directly from the upload response
+      const publicUrl = `${supabaseUrl}/storage/v1/object/public/profile-images/${filePath}`;
+
+      // Update user profile in Firebase Auth
+      await updateUserProfile({
+        photoURL: publicUrl
+      });
+
+      // Update Firestore user document
+      const userDocRef = doc(db, 'users', currentUser.uid);
+      await updateDoc(userDocRef, {
+        photoURL: publicUrl,
+        updatedAt: new Date()
+      });
+
+      toast.success('Profile image updated successfully!', { id: toastId });
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast.error('Failed to upload profile image. Please try again.');
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  // Trigger file input click
+  const triggerFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -268,14 +349,26 @@ export default function ProfilePage() {
                   </div>
                 )}
               </div>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleImageUpload}
+                accept="image/*"
+                className="hidden"
+              />
               <motion.button
-                onClick={() => navigate('/profile/edit')}
+                onClick={triggerFileInput}
                 className="absolute bottom-0 right-0 p-2 bg-white rounded-full shadow-md transition-transform hover:scale-110 border border-gray-200"
-                aria-label="Edit profile"
+                aria-label="Upload profile image"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                disabled={uploading}
               >
-                <Edit3 size={16} className="text-gray-600" />
+                {uploading ? (
+                  <div className="w-4 h-4 border-2 border-gray-400 border-t-indigo-600 rounded-full animate-spin"></div>
+                ) : (
+                  <Upload size={16} className="text-gray-600" />
+                )}
               </motion.button>
             </div>
 

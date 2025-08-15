@@ -180,20 +180,26 @@ export default function Header() {
                     <div className="p-4 border-b border-gray-100">
                       <h3 className="text-xl font-bold text-indigo-700">FreshHub</h3>
                       <p className="text-sm text-gray-500 mt-1">
-                        An innovative learning platform.
+                        Transforming education through interactive learning
                       </p>
                     </div>
                     <div className="py-2 space-y-1">
-                      <button 
-                        onClick={() => { setShowDropdown(false); navigate('/about'); }}
-                        className="flex items-center w-full px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
-                      >
-                        <Info size={20} className="mr-3" />
-                        About Us
-                      </button>
+                      
+                      <div className="px-4 py-3 text-sm text-gray-600 border-t border-gray-100">
+                        <p className="font-medium mb-2">Our Mission:</p>
+                        <p className="mb-2">FreshHub is revolutionizing education by making learning engaging, accessible, and effective for everyone.</p>
+                        <p className="font-medium mb-2">Key Features:</p>
+                        <ul className="list-disc list-inside space-y-1">
+                          <li>Interactive quizzes and assessments</li>
+                          <li>Personalized learning paths</li>
+                          <li>Real-time progress tracking</li>
+                          <li>Competitive leaderboards</li>
+                          <li>Comprehensive subject coverage</li>
+                        </ul>
+                      </div>
                       <button 
                         onClick={() => { setShowDropdown(false); navigate('/settings'); }}
-                        className="flex items-center w-full px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                        className="flex items-center w-full px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors border-t border-gray-100"
                       >
                         <Settings size={20} className="mr-3" />
                         Settings
@@ -201,7 +207,7 @@ export default function Header() {
                       {currentUser && (
                         <button 
                           onClick={() => { setShowDropdown(false); handleLogout(); }}
-                          className="flex items-center w-full px-4 py-2 text-red-600 hover:bg-red-50 transition-colors"
+                          className="flex items-center w-full px-4 py-2 text-red-600 hover:bg-red-50 transition-colors border-t border-gray-100"
                         >
                           <LogOut size={20} className="mr-3" />
                           Log Out
