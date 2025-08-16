@@ -3090,837 +3090,732 @@ export const noteCollections: Subject[] = [
   "title": "Chapter 2: Basic Concepts of Logic",
   "content": `
    
-<!DOCTYPE html>
+               <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note Page</title>
+    <title>Basic Concepts of Logic - Chapter Two</title>
     <style>
-        body {
+        :root {
+            --card1: #e3f2fd;
+            --card2: #e8f5e9;
+            --card3: #fff8e1;
+            --card4: #fce4ec;
+            --card5: #f3e5f5;
+            --card6: #e0f7fa;
+            --card7: #fffde7;
+            --card8: #efebe9;
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f9;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
-
-        .note-container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            margin: 20px;
-            overflow-y: auto;
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        h1, h2, h3 {
+        
+        h1, h2, h3, h4 {
             color: #2c3e50;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-
+        
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 30px 0;
+            color: #1a237e;
+        }
+        
         h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #eee;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #1a237e;
             padding-bottom: 10px;
+            margin-top: 30px;
         }
-
+        
         h3 {
-            font-size: 1.5em;
+            font-size: 1.4rem;
+            margin-top: 25px;
+            color: #283593;
         }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
+        
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #3949ab;
         }
-
-        ul, ol {
-            margin-bottom: 15px;
-            padding-left: 20px;
+        
+        .card {
+            background-color: var(--card1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-wrap: break-word;
         }
-
-        li {
+        
+        .card:nth-child(odd) {
+            background-color: var(--card2);
+        }
+        
+        .card:nth-child(3n) {
+            background-color: var(--card3);
+        }
+        
+        .card:nth-child(4n) {
+            background-color: var(--card4);
+        }
+        
+        .card:nth-child(5n) {
+            background-color: var(--card5);
+        }
+        
+        .card:nth-child(6n) {
+            background-color: var(--card6);
+        }
+        
+        .card:nth-child(7n) {
+            background-color: var(--card7);
+        }
+        
+        .card:nth-child(8n) {
+            background-color: var(--card8);
+        }
+        
+        p, li {
             margin-bottom: 10px;
+            font-size: 1.1rem;
         }
-
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            background-color: white;
         }
-
+        
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
-
+        
         th {
-            background-color: #f9f9f9;
-            font-weight: bold;
+            background-color: #1a237e;
+            color: white;
         }
-
-        /* Responsive design */
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .example {
+            background-color: white;
+            border-left: 4px solid #1a237e;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #fffde7;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
         @media (max-width: 768px) {
-            .note-container {
-                width: 100%;
-                padding: 20px;
-                margin: 0;
-                border-radius: 0;
+            body {
+                padding: 10px;
             }
-
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
             h2 {
-                font-size: 1.6em;
+                font-size: 1.5rem;
             }
-
-            p, li {
-                font-size: 1em;
+            
+            h3 {
+                font-size: 1.3rem;
             }
-
+            
+            .card {
+                padding: 15px;
+            }
+            
             table {
-                font-size: 0.9em;
+                display: block;
+                overflow-x: auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="note-container">
-        <h2>What is Logic? 🤔</h2>
-        <p>Logic is a philosophical science that evaluates arguments. Think of it as a set of tools and principles that help us determine the difference between good reasoning and bad reasoning. Studying logic can make you a sharper, more confident thinker! 💪</p>
-
-        <h2>የሎጂክ ምንነት 🤔</h2>
-        <p>ሎጂክን እንደ ፍልስፍና ዘርፍ ከምንረዳው፣ ክርክሮችን (Arguments) የምንመረምርበት መሣሪያ ነው። ጥሩ እና መጥፎ የሆነን አስተሳሰብ ለይተን እንድናውቅ የሚረዳን የሕጎች እና መርሆች ስብስብ ነው። ሎጂክን ማጥናት ደግሞ ለራሳችን ያለንን እምነት በመገንባት፣ ትክክለኛ እና ውጤታማ በሆነ መንገድ እንድናስብና ክርክሮችን እንድናቀርብ ይረዳናል! 💪</p>
-
-        <hr>
-
-        <h2>The Benefits of Studying Logic 🌟</h2>
-        <p>Studying logic isn't just for philosophers! It's a skill we use every day. Logic helps us sharpen our natural ability to think and reason. It provides a fundamental defense against bad arguments and helps us identify common errors in reasoning, whether they come from a friend or a politician. 🗣️</p>
+    <h1>Basic Concepts of Logic</h1>
+    
+    <div class="card">
+        <h2>Chapter Two: Basic Concepts of Logic</h2>
+        
+        <h3>2.1 Argument, Premises, and Conclusions</h3>
+        <p>Logic is the science that systematically evaluates arguments. Its main goal is to develop a system of methods and principles to assess arguments and to help us construct our own. It helps us determine if the premises of an argument provide good evidence for its conclusion.</p>
+        
+        <p><strong>Logic (ሎጂክ):</strong> Logic is a field of study that focuses on analyzing arguments to see if they are valid or sound. The purpose is to create a system of rules that helps us tell good arguments from bad ones. It is a systematic study of methods for evaluating whether the premises of an argument adequately support the conclusion.</p>
+        
+        <p>ሎጂክ ማለት ክርክሮችን እና ሀሳቦችን ለመገምገም የሚያገለግል የሳይንስ ዘርፍ ነው። ዋና አላማው አንድ ሀሳብ ወይም ክርክር ትክክል መሆኑን ወይም አለመሆኑን ለመለየት የሚያስችል መመሪያዎችንና መርሆችን ማዘጋጀት ነው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>I. Conceptual Framework</h4>
+        
+        <h4>1. Statement (አረፍተ ነገር)</h4>
+        <p>A statement is a sentence or a group of sentences that is either true or false, but not both at the same time. These are the building blocks of an argument.</p>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>Ethiopia is located in Africa. (True Statement)</li>
+                <li>The sun rises in the west. (False Statement)</li>
+                <li>Two plus two equals four. (True Statement)</li>
+                <li>All squares have five sides. (False Statement)</li>
+            </ul>
+        </div>
+        
+        <p>አረፍተ ነገር (Statement): እውነት ወይም ሀሰት ሊሆን የሚችል ነገር ግን ሁለቱንም በአንድ ጊዜ ሊሆን የማይችል ዓረፍተ ነገር ነው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>2. Argument (ክርክር)</h4>
+        <p>An argument is a group of statements where one or more premises are claimed to support a conclusion. Arguments can be categorized into two groups:</p>
         <ul>
-            <li>Builds Strong Arguments: It helps us create arguments that are sound and free from mistakes.</li>
-            <li>Identifies Flaws: It trains us to spot logical errors and fallacies in the arguments of others.</li>
-            <li>Promotes Clear Thinking: It helps us distinguish good reasoning from poor reasoning and avoid confusion that often comes from misused language.</li>
-            <li>Fosters Critical Thinking: It makes us more critical, rational, and reasonable individuals.</li>
+            <li><strong>Good Arguments:</strong> The premises genuinely support the conclusion.</li>
+            <li><strong>Bad Arguments:</strong> The premises claim to support the conclusion but fail to do so.</li>
         </ul>
-
-        <h2>ሎጂክን በማጥናት የምናገኛቸው ጥቅሞች 🌟</h2>
-        <p>ሎጂክን ማጥናት ለፍልስፍና ተማሪዎች ብቻ የተወሰነ አይደለም! በየቀኑ በምንኖርበት ህይወታችን የምንጠቀምበት ጠቃሚ ችሎታ ነው። ሎጂክ የማሰብ እና የማመዛዘን ተፈጥሯዊ ችሎታችንን እንድናዳብር ይረዳናል። ሎጂክ ጥሩ ያልሆኑ ክርክሮችን ለመከላከል መሰረታዊ መሳሪያ ከመሆኑም በላይ፣ ከጓደኞቻችንም ይሁን ከሌላ ማንኛውም ሰው በሚመጡ አስተሳሰቦች ውስጥ ያሉ የተለመዱ ስህተቶችን ለይተን እንድናውቅ ይረዳናል። 🗣️</p>
+        
+        <p><strong>Argument (ክርክር):</strong> አንድ ወይም ከዚያ በላይ የሆኑ ሀሳቦች (Premises) አንድን ድምዳሜ (Conclusion) ለመደገፍ በሚቀርቡበት ጊዜ የሚፈጠር የዓረፍተ ነገሮች ስብስብ ነው። ክርክር ሀሳቦቹ ድምዳሜውን የሚደግፉ ከሆነ "ጥሩ ክርክር" ይባላል፤ ካልደገፉት ደግሞ "መጥፎ ክርክር" ይባላል።</p>
+    </div>
+    
+    <div class="card">
+        <h4>Non-Statement Expressions</h4>
+        <p>These are sentences that cannot be classified as either true or false.</p>
+        
+        <table>
+            <tr>
+                <th>Expression Type</th>
+                <th>Examples</th>
+                <th>Extra Examples</th>
+            </tr>
+            <tr>
+                <td>Questions</td>
+                <td>What is your name?</td>
+                <td>How are you today?</td>
+            </tr>
+            <tr>
+                <td>Proposals</td>
+                <td>Let's go to the party today.</td>
+                <td>Let's study for the exam together.</td>
+            </tr>
+            <tr>
+                <td>Suggestions</td>
+                <td>You would better go by bus.</td>
+                <td>You should take a break.</td>
+            </tr>
+            <tr>
+                <td>Commands</td>
+                <td>Stand up!</td>
+                <td>Turn the light on!</td>
+            </tr>
+            <tr>
+                <td>Exclamations</td>
+                <td>Right on!</td>
+                <td>Wow!</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h4>3. Premises (መነሻ ሀሳቦች)</h4>
+        <p>Premises are statements that provide reasons or evidence to support the conclusion. They are the foundation upon which the argument is built.</p>
+        
+        <p><strong>Premises (መነሻ ሀሳቦች):</strong> ለድምዳሜው እንደ ማስረጃ ወይም ምክንያት ሆነው የሚያገለግሉ ዓረፍተ ነገሮች ናቸው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>4. Conclusion (ድምዳሜ)</h4>
+        <p>The conclusion is the statement that the premises are claimed to support. It is the main point the argument is trying to prove.</p>
+        
+        <p><strong>Conclusion (ድምዳሜ):</strong> በመነሻ ሀሳቦቹ የሚደገፍ ነው ተብሎ የሚታሰበው ዋናው ሀሳብ ወይም ዓረፍተ ነገር ነው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>Examples of Arguments</h4>
+        
+        <div class="example">
+            <p><strong>Example 1 (Good Argument):</strong></p>
+            <p>Premise: All crimes are violations of the law. <span class="emoji">📜</span></p>
+            <p>Premise: Theft is a crime. <span class="emoji">👮</span></p>
+            <p>Conclusion: Therefore, theft is a violation of the law. <span class="emoji">⚖️</span></p>
+            <p><strong>Explanation:</strong> The premises provide strong, logical support for the conclusion. The argument is well-constructed and the conclusion follows directly from the premises.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2 (Good Argument):</strong></p>
+            <p>Premise: All uncles are male. <span class="emoji">👨</span></p>
+            <p>Premise: Tola is an uncle. <span class="emoji">👦</span></p>
+            <p>Conclusion: So, Tola is a male. <span class="emoji">💪</span></p>
+            <p><strong>Explanation:</strong> The premises clearly and adequately support the conclusion. This is another example of a good argument.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 3 (Bad Argument):</strong></p>
+            <p>Premise: Some crimes are misdemeanors. <span class="emoji">⚖️</span></p>
+            <p>Premise: Murder is a crime. <span class="emoji">🔪</span></p>
+            <p>Conclusion: Therefore, murder is a misdemeanor. <span class="emoji">❌</span></p>
+            <p><strong>Explanation:</strong> The premises do not support the conclusion. Murder is a felony, not a misdemeanor, and the premises, while true, don't logically lead to this specific conclusion. The evidence is inadequate.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 4 (Bad Argument):</strong></p>
+            <p>Premise: Some uncles are skinny. <span class="emoji">🧍‍♂️</span></p>
+            <p>Premise: Gemechu is an uncle. <span class="emoji">👴</span></p>
+            <p>Conclusion: So, Gemechu is skinny. <span class="emoji">🤷‍♂️</span></p>
+            <p><strong>Explanation:</strong> The evidence from the premises is weak. Just because some uncles are skinny doesn't mean Gemechu must be skinny. The premises do not provide sufficient support for the conclusion.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.2 How to Differentiate a Conclusion from its Premise(s)</h3>
+        <p>Arguments often contain special indicator words that help us identify which statements are premises and which is the conclusion.</p>
+        
+        <h4>Premise Indicators</h4>
+        <p>These words often introduce a premise.</p>
         <ul>
-            <li>ጠንካራ ክርክሮችን እንድናቀርብ ያደርገናል: ስህተት የሌለባቸውና ምክንያታዊ ክርክሮችን እንድንገነባ ይረዳናል።</li>
-            <li>ስህተቶችን እንድንለይ ይረዳናል: በሌሎች ክርክሮች ውስጥ ያሉ ምክንያታዊ ስህተቶችንና የተሳሳቱ አመለካከቶችን እንድንለይ ያሠለጥነናል።</li>
-            <li>ግልጽ አስተሳሰብ እንድናዳብር ይረዳል: ጥሩ የሆነን ምክንያት ከመጥፎው እንድንለይና ቋንቋን በአግባቡ ካለመጠቀም የሚመጡ ስህተቶችን እንድንርቅ ያደርጋል።</li>
-            <li>የወሳኝ አስተሳሰብ ችሎታን ያዳብራል: የበለጠ ወሳኝ፣ ምክንያታዊ እና አስተዋይ ሰዎች እንድንሆን ያደርገናል።</li>
+            <li>Since</li>
+            <li>Because</li>
+            <li>As indicated by</li>
+            <li>For the reason that</li>
+            <li>Given that</li>
+            <li>Seeing that</li>
+            <li>Inasmuch as</li>
+            <li>For</li>
+            <li>Owing to</li>
+            <li>May be inferred from</li>
         </ul>
-
-        <hr>
-
-        <h2>What is an Argument? 💬</h2>
-        <p>In everyday language, an argument might mean a verbal fight. But in logic, it has a very specific meaning! An argument is a set of statements, where one or more statements (called premises) are claimed to provide support or evidence for another single statement (called the conclusion).</p>
-        <p>The goal of an argument is to prove or justify a claim.</p>
-        <ul>
-            <li>An argument must have at least two statements.</li>
-            <li>It must contain at least one premise and only one conclusion.</li>
-        </ul>
-
-        <h3>Example of a Good Argument:</h3>
-        <ol>
-            <li>All students are hardworking. (Premise)</li>
-            <li>Zelalem is a student. (Premise)</li>
-            <li>Therefore, Zelalem is hardworking. (Conclusion)</li>
-        </ol>
-        <p>In this example, the premises logically lead to the conclusion, so it's a good argument.</p>
-
-        <h3>Example of a Bad Argument:</h3>
-        <ol>
-            <li>All dogs are mammals. (Premise)</li>
-            <li>My pet is a mammal. (Premise)</li>
-            <li>Therefore, my pet is a dog. (Conclusion)</li>
-        </ol>
-        <p>Here, even though the premises might be true, they don't guarantee the conclusion. Your pet could be a cat, a hamster, or any other mammal! So, this is a bad argument, even though it's still considered an argument from a logical perspective.</p>
-
-        <h2>ክርክር (Argument) ምንድን ነው? 💬</h2>
-        <p>በዕለት ተዕለት ውይይት ክርክር የሚለው ቃል የቃል ፍልሚያን ሊያመለክት ይችላል። ነገር ግን፣ በሎጂክ ዓለም ውስጥ በጣም የተለየ ትርጉም አለው! ክርክር ማለት አንድ ወይም ከዚያ በላይ የሆኑ መግለጫዎች (Statements)፣ ለሌላ አንድ መግለጫ ማስረጃ ወይም ድጋፍ ለመስጠት የሚቀርቡበት አወቃቀር ነው።</p>
-        <p>የክርክር ዋና ዓላማ አንድን ሀሳብ ወይም አቋም ለማረጋገጥ ነው።</p>
-        <ul>
-            <li>አንድ ክርክር ቢያንስ ሁለት መግለጫዎችን ማካተት አለበት።</li>
-            <li>ቢያንስ አንድ መነሻ ሀሳብ (Premise) እና አንድ ብቻ መደምደሚያ (Conclusion) ሊኖረው ይገባል።</li>
-        </ul>
-
-        <h3>የጥሩ ክርክር ምሳሌ:</h3>
-        <ol>
-            <li>ሁሉም ተማሪዎች ታታሪ ናቸው። (መነሻ ሀሳብ)</li>
-            <li>ዘለዓለም ተማሪ ነው። (መነሻ ሀሳብ)</li>
-            <li>ስለዚህ ዘለዓለም ታታሪ ነው። (መደምደሚያ)</li>
-        </ol>
-        <p>በዚህ ምሳሌ፣ መነሻዎቹ ሀሳቦች መደምደሚያውን በምክንያታዊነት ስለሚደግፉ፣ ጥሩ ክርክር ነው።</p>
-
-        <h3>መጥፎ ክርክር ምሳሌ:</h3>
-        <ol>
-            <li>ሁሉም ውሾች አጥቢ እንስሳት ናቸው። (መነሻ ሀሳብ)</li>
-            <li>የእኔ የቤት እንስሳ አጥቢ እንስሳ ነው። (መነሻ ሀሳብ)</li>
-            <li>ስለዚህ የእኔ የቤት እንስሳ ውሻ ነው። (መደምደሚያ)</li>
-        </ol>
-        <p>እዚህ ላይ፣ መነሻዎቹ ሀሳቦች እውነት ቢሆኑም እንኳ፣ መደምደሚያውን አያረጋግጡም። የቤት እንስሳው ድመት፣ ጥንቸል ወይም ሌላ አጥቢ እንስሳ ሊሆን ይችላል! ስለዚህ፣ ይህ መጥፎ ክርክር ነው፣ ምንም እንኳን በሎጂክ እይታ ክርክር ተብሎ ቢታሰብም።</p>
-
-        <hr>
-
-        <h2>How to Identify Premises and Conclusions 🗝️</h2>
-        <p>Identifying the parts of an argument is crucial. We can often use special indicator words to tell the difference between a premise and a conclusion.</p>
-
-        <h3>Conclusion Indicators ➡️</h3>
-        <p>These words often signal that a conclusion is about to follow.</p>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>Since the road is closed, we must find an alternative route.</li>
+                <li>The team will win because they have the best players.</li>
+                <li>As indicated by the latest report, the economy is recovering.</li>
+            </ul>
+        </div>
+        
+        <h4>Conclusion Indicators</h4>
+        <p>These words often introduce the conclusion.</p>
         <ul>
             <li>Therefore</li>
             <li>Hence</li>
             <li>So</li>
-            <li>As a result</li>
+            <li>Accordingly</li>
             <li>Consequently</li>
+            <li>Thus</li>
             <li>It follows that</li>
+            <li>It must be that</li>
+            <li>As a result</li>
+            <li>We may infer</li>
         </ul>
-        <p>Example: "It's raining outside, and I left my umbrella at home. Therefore, I will get wet."</p>
-
-        <h3>Premise Indicators ⬅️</h3>
-        <p>These words often show that a premise is about to be presented.</p>
-        <ul>
-            <li>Because</li>
-            <li>Since</li>
-            <li>For</li>
-            <li>Given that</li>
-            <li>As indicated by</li>
-        </ul>
-        <p>Example: "You should study hard because studying hard leads to good grades."</p>
-        <p>Remember, sometimes arguments don't have any indicator words at all! In these cases, you have to ask yourself: "What is the main point the author is trying to prove?" The answer to that question is the conclusion.</p>
-
-        <h2>መነሻ ሀሳብ እና መደምደሚያ መለየት 🗝️</h2>
-        <p>አንድ ክርክርን ለመረዳት ዋና ዋና ክፍሎቹን ለይቶ ማወቅ ወሳኝ ነው። ብዙ ጊዜ፣ መነሻ ሀሳብን ከመደምደሚያ ለመለየት የሚረዱ ልዩ ጠቋሚ ቃላት እንጠቀማለን።</p>
-
-        <h3>መደምደሚያ ጠቋሚዎች ➡️</h3>
-        <p>እነዚህ ቃላት ብዙውን ጊዜ መደምደሚያው ሊመጣ እንደሆነ ያመለክታሉ።</p>
-        <ul>
-            <li>ስለዚህ (Therefore)</li>
-            <li>ስለሆነም (Hence)</li>
-            <li>ስለዚህ (So)</li>
-            <li>በዚህም ምክንያት (As a result)</li>
-            <li>በመሆኑም (Consequently)</li>
-        </ul>
-        <p>ምሳሌ: "ውጭ ዝናብ እየዘነበ ነው፣ ጃንጥላዬንም ቤት ረሳሁት። ስለዚህ እረሰሳለሁ።"</p>
-
-        <h3>መነሻ ሀሳብ ጠቋሚዎች ⬅️</h3>
-        <p>እነዚህ ቃላት ደግሞ መነሻ ሀሳብ ሊቀርብ መሆኑን ያሳያሉ።</p>
-        <ul>
-            <li>ምክንያቱም (Because)</li>
-            <li>በመሆኑም (Since)</li>
-            <li>ለዚህም (For)</li>
-            <li>ይህን ከግምት ውስጥ በማስገባት (Given that)</li>
-        </ul>
-        <p>ምሳሌ: "የምትፈልገውን ውጤት ለማምጣት ምክንያቱም ጠንክሮ ማጥናት ስለሚያስፈልግህ ጠንክረህ ማጥናት አለብህ።"</p>
-        <p>አንዳንድ ጊዜ፣ ክርክሮች ምንም ዓይነት ጠቋሚ ቃላት ላይኖራቸው ይችላል! በዚህ ጊዜ፣ ራስህን መጠየቅ ያለብህ፡ "ጸሐፊው ለማረጋገጥ እየሞከረ ያለው ዋናው ነጥብ ምንድን ነው?" የሚለውን ጥያቄ ነው። የዚህ ጥያቄ መልስ መደምደሚያው ይሆናል።</p>
-
-        <hr>
-
-        <h2>Inference: The Heart of an Argument ❤️</h2>
-        <p>An argument is a group of statements where one or more premises are claimed to provide evidence for a conclusion. The inference is the reasoning process that links the premises to the conclusion.</p>
-        <ul>
-            <li>Narrower Sense: Inference is the reasoning itself, the logical connection between the evidence and the claim.</li>
-            <li>Broader Sense: Inference can also refer to the argument as a whole.</li>
-        </ul>
-        <p>For this course, we'll focus on the narrower sense: the inferential link that connects the premises to the conclusion. This link is what makes a passage an argument.</p>
-
-        <h2>የምክንያታዊ ትስስር (Inference): የክርክር ልብ ❤️</h2>
-        <p>ክርክር ማለት አንድ ወይም ከዚያ በላይ የሆኑ መነሻ ሀሳቦች ለመደምደሚያው ማስረጃ ለመሆን የሚቀርቡበት መግለጫ ነው። ምክንያታዊ ትስስር (Inference) ደግሞ መነሻ ሀሳቦችን ከመደምደሚያው ጋር የሚያገናኘው የአመዛዘን ሂደት ነው።</p>
-        <ul>
-            <li>በጠባቡ ትርጉም: ምክንያታዊ ትስስር ማለት አመዛዘኑ ራሱ፣ ማለትም ማስረጃውን ከክርክሩ ጋር የሚያገናኘው ሎጂካዊ ግንኙነት ነው።</li>
-            <li>በሰፊው ትርጉም: ምክንያታዊ ትስስር አጠቃላይ ክርክሩን ሊያመለክት ይችላል።</li>
-        </ul>
-        <p>በዚህ ትምህርት ውስጥ፣ በጠባቡ ትርጉም ላይ እናተኩራለን፡ ማለትም፣ መነሻ ሀሳቦችን ከመደምደሚያው ጋር የሚያገናኘው ምክንያታዊ ትስስር ላይ ነው። ይህ ትስስር አንድን መግለጫ ክርክር የሚያደርገው ዋናው ነገር ነው።</p>
-
-        <hr>
-
-        <h2>Recognizing an Argumentative Passage ✅</h2>
-        <p>Not all passages containing multiple statements are arguments. A passage is an argument only if it tries to prove something. To prove something, a passage must fulfill two key conditions:</p>
-        <ol>
-            <li>Factual Claim: At least one statement must claim to present evidence or reasons.</li>
-            <li>Inferential Claim: There must be a claim that the evidence supports or implies something else. This is the core reasoning process.</li>
-        </ol>
-        <p>The inferential claim can be either explicit or implicit:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type of Claim</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Explicit</td>
-                    <td>The claim is stated directly using indicator words like "therefore," "since," or "because."</td>
-                    <td>"He is a great singer because he sings in tune."</td>
-                </tr>
-                <tr>
-                    <td>Implicit</td>
-                    <td>The inferential relationship is present, but there are no indicator words. You must infer the connection.</td>
-                    <td>"The genetic modification of food is risky. Genetic engineering can introduce unintended changes that can be toxic."</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-        <p>❗ Special Note: Be careful! Just because you see an indicator word like "since" doesn't mean it's an argument. Check to see if it's used in a logical sense (to support a claim) or in a temporal sense (to indicate time).</p>
-
-        <h2>የክርክር መግለጫን መለየት ✅</h2>
-        <p>ሁለት ወይም ከዚያ በላይ መግለጫዎች ያሉባቸው ሁሉም ጽሁፎች ክርክሮች አይደሉም። አንድ መግለጫ ክርክር የሚሆነው አንድን ነገር ለማረጋገጥ ሲሞክር ብቻ ነው። ይህን ለማድረግ ደግሞ ሁለት ዋና ዋና መስፈርቶችን ማሟላት አለበት፡</p>
-        <ol>
-            <li>የእውነት መነሻ: ቢያንስ አንድ መግለጫ ማስረጃ ወይም ምክንያት እያቀረበ እንደሆነ መናገር አለበት።</li>
-            <li>የምክንያት ትስስር: የቀረበው ማስረጃ ሌላን ነገር እንደሚደግፍ ወይም እንደሚያረጋግጥ የሚያሳይ ሀሳብ መኖር አለበት። ይህም የክርክሩን ዋና አመዛዘን ያሳያል።</li>
-        </ol>
-        <p>ይህ የምክንያት ትስስር ግልጽ (explicit) ወይም ውስጣዊ (implicit) ሊሆን ይችላል፡</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>የምክንያት ትስስር አይነት</th>
-                    <th>ማብራሪያ</th>
-                    <th>ምሳሌ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ግልጽ</td>
-                    <td>ትስስሩ እንደ "ስለዚህ"፣ "ምክንያቱም"፣ "ስለሆነም" ባሉ ጠቋሚ ቃላት በግልጽ ተቀምጧል።</td>
-                    <td>"የውጭ ቋንቋ ማጥናት ጠቃሚ ነው ምክንያቱም ተጨማሪ የስራ እድል ይሰጣልና።"</td>
-                </tr>
-                <tr>
-                    <td>ውስጣዊ</td>
-                    <td>በመግለጫዎቹ መካከል የምክንያት ትስስር ቢኖርም፣ ምንም ጠቋሚ ቃላት የሉም። ትስስሩን እራስዎ ማገናዘብ ይኖርብዎታል።</td>
-                    <td>"የምግብ ጂን ማሻሻል አደገኛ ነው። የጂን ኢንጂነሪንግ ያልተፈለጉ ለውጦችን ወደ ምግብ ዲ.ኤን.ኤው ውስጥ ሊያስገባ ይችላል፣ ይህም ለመመገቢያው መርዝ ሊሆን ይችላል።"</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-        <p>❗ ልዩ ማስታወሻ፡ መጠንቀቅ ያስፈልጋል! "ምክንያቱም" የሚል ጠቋሚ ቃል ማየት ብቻውን ክርክር መሆኑን አያረጋግጥም። ቃሉ በሎጂካዊ ትርጉም (ሀሳብን ለመደገፍ) ወይም በጊዜያዊ ትርጉም (ጊዜን ለማሳየት) ጥቅም ላይ መዋሉን ማረጋገጥ አለብዎት።</p>
-
-        <hr>
-
-        <h2>Types of Non-Argumentative Passages 🚫</h2>
-        <p>Many passages look like arguments but aren't. They lack an inferential claim—the goal isn't to prove something, but to inform, explain, or illustrate.</p>
-
-        <h3>1. Simple Non-Inferential Passages</h3>
-        <p>These are basic statements that don't try to prove anything.</p>
-        <ul>
-            <li>Warnings/Advice: "Watch out for that car!" or "You should study for the test."</li>
-            <li>Statements of Belief/Opinion: "I believe that honesty is the best policy."</li>
-            <li>Loosely Associated Statements: A list of related facts without a claim that one proves the other.</li>
-            <li>Reports: A group of statements conveying information without claiming to prove a point.</li>
-        </ul>
-
-        <h3>2. Expository Passages 📖</h3>
-        <p>These passages start with a topic sentence and then expand on it. If the purpose is to simply elaborate on the topic, it's not an argument.</p>
-        <ul>
-            <li>Not an argument: "Baseball players have unique styles. One player's style is to swagger as he steps to the plate..." (It just describes the style).</li>
-            <li>Can be an argument: "Skin and mucous membranes are barriers to microbes. Oil gland secretions kill bacteria. The stomach's acid inhibits bacterial growth." (The subsequent sentences serve to prove the initial claim).</li>
-        </ul>
-
-        <h3>3. Illustrations 🖼️</h3>
-        <p>An illustration gives an example to show what something means or how it is done. It's not an argument if its purpose is simply to clarify, not to prove.</p>
-        <ul>
-            <li>Not an argument: "Chemical elements can be represented by formulas. Thus, water is H₂O." (This just explains how it's done).</li>
-            <li>Can be an argument: "Not all cancers are life-threatening. For example, basal cell carcinoma almost never results in death." (The example is used to prove the claim).</li>
-        </ul>
-
-        <h3>4. Explanations 💡</h3>
-        <p>An explanation clarifies why something is an accepted fact. It has two parts:</p>
-        <ul>
-            <li>Explanandum: The accepted fact to be explained.</li>
-            <li>Explanans: The statement that does the explaining.</li>
-        </ul>
-        <p>Example: "Cows digest grass while humans cannot, because their digestive systems contain a special enzyme." The fact that cows digest grass isn't being proven; it's being explained.</p>
-        <p>Argument vs. Explanation: An argument moves from premises (accepted facts) to a conclusion (a new claim). An explanation moves from an accepted fact to the cause or reason why it's a fact.</p>
-
-        <h3>5. Conditional Statements ➡️</h3>
-        <p>A single "if... then..." statement is not an argument.</p>
-        <ul>
-            <li>A conditional statement has an antecedent (the "if" clause) and a consequent (the "then" clause).</li>
-            <li>It doesn't claim that the antecedent or consequent are true. It only claims that if the antecedent is true, then the consequent will also be true.</li>
-            <li>Example: "If you study hard, then you will get a good grade."</li>
-            <li>This is not an argument because it doesn't assert that you have studied hard or that you will get a good grade.</li>
-            <li>However, a conditional statement can be a premise in an argument.</li>
-        </ul>
-
-        <hr>
-
-        <h2>Putting It All Together: How to Recognize an Argument</h2>
-        <p>To decide if a passage is an argument, look for these three things:</p>
-        <ol>
-            <li>Indicator words like "therefore," "since," or "because."</li>
-            <li>An inferential relationship between the statements.</li>
-            <li>Whether the passage is a typical non-argument like a warning, a report, or an explanation.</li>
-        </ol>
-
-        <p>Based on the text you provided, here are special notes on how to recognize arguments and distinguish them from other types of passages. 📝</p>
-
-        <h2>What Makes a Passage an Argument? 🤔</h2>
-        <p>The central concern of logic is evaluating arguments. To do this, we first need to know what an argument is and what it isn't. Not every passage with multiple sentences is an argument. An argument's primary goal is to prove something.</p>
-        <p>For a passage to be considered an argument, two conditions must be met:</p>
-        <ol>
-            <li>Factual Claim: At least one statement must claim to provide evidence or reasons. These are the premises.</li>
-            <li>Inferential Claim: There must be a claim that the evidence supports or implies something else. This is the conclusion.</li>
-        </ol>
-        <p>The most important part is the inferential claim, which shows a reasoning process. This claim can be either explicit (using indicator words) or implicit (implied by the relationship between statements).</p>
-        <ul>
-            <li>Explicit Claim: Look for indicator words like "because," "since," "therefore," "thus," and "hence."</li>
-            <li>Example: "The sun is shining, therefore it's a good day for a picnic."</li>
-            <li>Implicit Claim: No indicator words are present, but the structure of the sentences shows that some statements are meant to support another.</li>
-            <li>Example: "The genetic modification of food is risky. Genetic engineering can introduce unintended changes into the DNA, which can be toxic."</li>
-        </ul>
-
-        <h2>ክርክር የሚያደርገው ምንድነው? 🤔</h2>
-        <p>የሎጂክ ዋና ዓላማ ክርክሮችን መገምገም ነው። ይህንን ለማድረግ፣ በመጀመሪያ ክርክር ምን እንደሆነ እና ምን እንዳልሆነ ማወቅ አለብን። ሁሉም ብዙ ዓረፍተ ነገሮች ያሉት ጽሑፍ ክርክር አይደለም። የክርክር ዋና ዓላማ አንድን ነገር ማረጋገጥ ነው።</p>
-        <p>አንድ ጽሑፍ ክርክር ተብሎ እንዲታሰብ፣ ሁለት ሁኔታዎች መሟላት አለባቸው፦</p>
-        <ol>
-            <li>የእውነታ ጥያቄ (Factual Claim): ቢያንስ አንድ መግለጫ ማስረጃ ወይም ምክንያት እንደሚያቀርብ መግለጽ አለበት። እነዚህ መነሻ ሀሳቦች ናቸው።</li>
-            <li>የምክንያታዊነት ጥያቄ (Inferential Claim): ማስረጃው ሌላ ነገርን እንደሚደግፍ ወይም እንደሚያመለክት የሚገልጽ ጥያቄ መኖር አለበት። ይህ ደግሞ መደምደሚያ ነው።</li>
-        </ol>
-        <p>በጣም አስፈላጊው ክፍል የምክንያታዊነት ጥያቄ ነው፣ ይህም የአመክንዮ ሂደት መኖሩን ያሳያል። ይህ ጥያቄ ግልጽ (ጠቋሚ ቃላትን በመጠቀም) ወይም ተዘዋዋሪ (በመግለጫዎቹ መካከል ባለው ግንኙነት) ሊሆን ይችላል።</p>
-        <ul>
-            <li>ግልጽ ጥያቄ: እንደ "ምክንያቱም፣" "ስለዚህ፣" እና "ስለሆነም" ያሉ ጠቋሚ ቃላትን ይፈልጉ።</li>
-            <li>ተዘዋዋሪ ጥያቄ: ጠቋሚ ቃላት የሉም፣ ግን የአረፍተ ነገሮቹ አወቃቀር አንዳንድ መግለጫዎች ሌላውን ለመደገፍ የታሰቡ መሆናቸውን ያሳያል።</li>
-        </ul>
-
-        <hr>
-
-        <h2>Non-Argumentative Passages 🚫</h2>
-        <p>These passages lack an inferential claim, meaning they don't try to prove anything. Even if they contain statements that could serve as premises or conclusions, they are not arguments because there's no claim that one statement supports another.</p>
-        <p>Here are some common types of non-argumentative passages:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type of Passage</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Simple Non-inferential</td>
-                    <td>Unproblematic passages with no claim of proof, such as warnings, advice, statements of belief, or reports.</td>
-                    <td>"Whatever you promise to tell, never confide political secrets to your wife." (Warning)</td>
-                </tr>
-                <tr>
-                    <td>Expository Passages</td>
-                    <td>A passage that begins with a topic sentence and then explains or elaborates on it. It does not aim to prove the topic sentence.</td>
-                    <td>"There is a stylized relation of artist to mass audience in sports... Each player develops a style of his own."</td>
-                </tr>
-                <tr>
-                    <td>Illustrations</td>
-                    <td>Passages that give one or more examples to show what something means or how it's done. They often use words like "thus," but not in a logical sense.</td>
-                    <td>"Chemical elements can be represented by molecular formulas. Thus, oxygen is represented by 'O2'."</td>
-                </tr>
-                <tr>
-                    <td>Explanations</td>
-                    <td>Passages that shed light on a phenomenon that is already accepted as a fact. They tell you why something is the case, not that it is the case.</td>
-                    <td>"Cows digest grass while humans cannot because their digestive systems contain an enzyme not found in humans."</td>
-                </tr>
-                <tr>
-                    <td>Conditional Statements</td>
-                    <td>An "if... then..." statement. It asserts a relationship between an antecedent and a consequent but does not claim either part is true.</td>
-                    <td>"If you study hard, then you will score an 'A' grade."</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-
-        <h3>Note on Ambiguity ⚠️</h3>
-        <p>Sometimes, a passage can be interpreted as either an argument or a non-argument. In these cases, you must look at the context and the intended audience. If the claim being made is widely accepted, it's likely an explanation or illustration. If the claim is controversial or new, it's more likely to be an argument.</p>
-
-        <h2>Non-Argumentative Passages (ክርክር ያልሆኑ ጽሑፎች) 🚫</h2>
-        <p>እነዚህ ጽሑፎች የምክንያታዊነት ጥያቄ የላቸውም፣ ይህም ማለት አንድን ነገር ለማረጋገጥ አይሞክሩም። እንደ መነሻ ሀሳብ ወይም መደምደሚያ ሊያገለግሉ የሚችሉ መግለጫዎች ቢኖራቸውም፣ አንድ መግለጫ ሌላውን እንደሚደግፍ የሚገልጽ ጥያቄ ስለሌለ ክርክር አይደሉም።</p>
-        <p>በጣም የተለመዱ ክርክር ያልሆኑ ጽሑፎች ምሳሌዎች እነሆ፦</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>የጽሑፍ ዓይነት</th>
-                    <th>መግለጫ</th>
-                    <th>ምሳሌ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ቀላል ምክንያት የለሽ ጽሑፎች</td>
-                    <td>እንደ ማስጠንቀቂያ፣ ምክር፣ የእምነት መግለጫ ወይም ሪፖርቶች ያሉ ምንም ነገር ለማረጋገጥ የማይሞክሩ ጽሑፎች ናቸው።</td>
-                    <td>"ለመናገር የገባኸው ቃል ምንም ይሁን ምን፣ የፖለቲካ ሚስጥሮችን ለሚስትህ በፍጹም አትንገር።" (ማስጠንቀቂያ)</td>
-                </tr>
-                <tr>
-                    <td>የገለጻ ጽሑፎች (Expository Passages)</td>
-                    <td>በዋና ጭብጥ ጀምሮ ከዚያም ስለዚያ ጭብጥ የሚዘረዝር ወይም የሚያብራራ ጽሑፍ ነው። የዋናውን ጭብጥ ትክክለኛነት ለማረጋገጥ አይሞክርም።</td>
-                    <td>"በስፖርት በተለይም በቤዝቦል በአርቲስቱ እና በተመልካቹ መካከል ልዩ ግንኙነት አለ... እያንዳንዱ ተጫዋች የራሱን ዘይቤ ያዳብራል።"</td>
-                </tr>
-                <tr>
-                    <td>ምሳሌዎች (Illustrations)</td>
-                    <td>አንድን ነገር ምን ማለት እንደሆነ ወይም እንዴት እንደሚሰራ ለማሳየት አንድ ወይም ከዚያ በላይ ምሳሌዎችን የሚሰጡ ጽሑፎች ናቸው። እንደ "ስለሆነም" ያሉ ቃላትን ሊጠቀሙ ይችላሉ፣ ግን በሎጂካዊ መንገድ አይደለም።</td>
-                    <td>"የኬሚካል ንጥረ ነገሮች በሞለኪዩላር ፎርሙላ ሊወከሉ ይችላሉ። ስለዚህ፣ ኦክስጅን 'O2' ተብሎ ይወከላል።"</td>
-                </tr>
-                <tr>
-                    <td>ማብራሪያዎች (Explanations)</td>
-                    <td>ቀድሞውኑ እውነት ተብሎ በተቀበለ ክስተት ወይም ሀሳብ ላይ ብርሃን የሚሰጡ ጽሑፎች ናቸው። አንድ ነገር ለምን እንደተከሰተ ይነግሩናል፣ እንጂ መከሰቱን አያረጋግጡም።</td>
-                    <td>"ላሞች ሣርን መፍጨት የሚችሉት በምግብ መፍጫ ስርዓታቸው ውስጥ በሰው ልጆች ላይ የማይገኝ ኢንዛይም ስላላቸው ነው።"</td>
-                </tr>
-                <tr>
-                    <td>ሁኔታዊ መግለጫዎች (Conditional Statements)</td>
-                    <td>"if... then..." ("... ከሆነ... እንግዲያውስ...") የሚል አወቃቀር ያላቸው መግለጫዎች ናቸው። በአንድ ሀሳብ (antecedent) እና በውጤቱ (consequent) መካከል ያለውን ግንኙነት ያሳያሉ፣ ግን ሁለቱም እውነት መሆናቸውን አያረጋግጡም።</td>
-                    <td>"ጠንክረህ ካጠናህ፣ እንግዲያውስ 'A' ውጤት ታገኛለህ።"</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-
-        <h3>ስለ አሻሚነት ማስታወሻ ⚠️</h3>
-        <p>አንዳንድ ጊዜ፣ አንድ ጽሑፍ ክርክርም ላይሆንም ይችላል። በእንደዚህ ዓይነት ሁኔታዎች፣ የጽሑፉን ዐውደ-አውቀት እና ለማን እንደታሰበ (የታሰበው ታዳሚ) መመልከት አለብዎት። እየተሰጠ ያለው ሀሳብ በብዙ ሰዎች ዘንድ ተቀባይነት ካለው፣ ምናልባት ማብራሪያ ወይም ምሳሌ ሊሆን ይችላል። ሀሳቡ አዲስ ወይም አከራካሪ ከሆነ ግን ክርክር ሊሆን ይችላል።</p>
-
-        <hr>
-
-        <h2>Recognizing Arguments from Non-Arguments 🤔</h2>
-        <p>Not every passage that contains two or more statements is an argument. The central goal of logic is to evaluate arguments, so we must first be able to recognize them. The key difference lies in whether the passage is trying to prove something.</p>
-        <p>To be an argument, a passage must have two key components:</p>
-        <ol>
-            <li>A factual claim: At least one statement must present evidence or a reason.</li>
-            <li>An inferential claim: There must be an implicit or explicit claim that the evidence supports or implies something.</li>
-        </ol>
-        <p>An inferential claim is the most important part to look for. It's the logical connection that links the premises to the conclusion.</p>
-
-        <h2>ክርክርን እና ክርክር ያልሆኑ መግለጫዎችን መለየት 🤔</h2>
-        <p>ሁለት ወይም ከዚያ በላይ ዓረፍተ ነገሮችን የያዘ ማንኛውም ጽሑፍ ክርክር አይደለም። የሎጂክ ዋና ዓላማ ክርክሮችን መገምገም ስለሆነ፣ በመጀመሪያ ክርክሮችን ለይተን ማወቅ መቻል አለብን። ዋናው ልዩነት ጽሑፉ አንድን ነገር ለማረጋገጥ እየሞከረ ነው ወይስ አይደለም በሚለው ላይ ነው።</p>
-        <p>አንድ ጽሑፍ ክርክር ለመሆን ሁለት ቁልፍ አካላትን ማሟላት አለበት።</p>
-        <ol>
-            <li>የእውነት ክርክር (Factual claim): ቢያንስ አንድ ዓረፍተ ነገር ማስረጃ ወይም ምክንያት ማቅረብ አለበት።</li>
-            <li>የምክንያታዊነት ክርክር (Inferential claim): ማስረጃው አንድን ነገር እንደሚደግፍ ወይም እንደሚያመለክት ግልጽ ወይም ድብቅ ክርክር መኖር አለበት።</li>
-        </ol>
-        <p>የምክንያታዊነት ክርክር (Inferential claim) የሚለው ሀሳብ ለማስተዋል እጅግ በጣም አስፈላጊው ክፍል ነው። የመነሻ ሀሳቦችን ከመደምደሚያው ጋር የሚያገናኘው አመክንዮአዊ ግንኙነት ነው።</p>
-
-        <hr>
-
-        <h2>Types of Inferential Claims 💡</h2>
-        <p>An inferential claim is the most important component of an argument, and it can appear in two forms:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type of Claim</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Explicit</td>
-                    <td>The claim is clearly stated using indicator words. These are words like "therefore," "since," and "because."</td>
-                    <td>"I will get wet because it's raining."</td>
-                </tr>
-                <tr>
-                    <td>Implicit</td>
-                    <td>The claim exists, but there are no indicator words. The inferential link is present in the logical flow of the statements.</td>
-                    <td>"The genetic modification of food is risky. Genetic engineering can introduce unintended changes into the DNA of the organism."</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-        <p>Important Note: The presence of an indicator word doesn't always mean it's an argument! The word "since" can refer to a time ("Since I was a child...") rather than a reason. Always check if the indicator word is being used to show a logical connection.</p>
-
-        <h2>የምክንያታዊነት ክርክር አይነቶች 💡</h2>
-        <p>የምክንያታዊነት ክርክር (Inferential claim) የአንድ ክርክር በጣም ወሳኝ አካል ሲሆን በሁለት መንገድ ሊቀርብ ይችላል።</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>የክርክር ዓይነት</th>
-                    <th>ገለጻ</th>
-                    <th>ምሳሌ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ግልጽ</td>
-                    <td>ክርክሩ በግልጽ ጠቋሚ ቃላትን በመጠቀም ይገለጻል። እነዚህ ቃላት "ስለዚህ፣" "ምክንያቱም" እና "በመሆኑም" የመሳሰሉ ናቸው።</td>
-                    <td>"ዝናብ እየጣለ ስለሆነ እርሳለሁ።"</td>
-                </tr>
-                <tr>
-                    <td>ድብቅ</td>
-                    <td>ክርክሩ አለ፣ ነገር ግን ጠቋሚ ቃላት የሉትም። ምክንያታዊው ግንኙነት በመግለጫዎቹ የአመክንዮ ፍሰት ውስጥ ይገኛል።</td>
-                    <td>"የምግብ ጄኔቲክ ማሻሻያ አደገኛ ንግድ ነው። የጄኔቲክ ምህንድስና በማምረት ፍጡር ዲኤንኤ ውስጥ ያልታሰቡ ለውጦችን ሊያስከትል ይችላል።"</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-        <p>አስፈላጊ ማሳሰቢያ: የጠቋሚ ቃል መኖር ሁልጊዜ ክርክር መሆኑን አያረጋግጥም! "ከ" የሚለው ቃል ጊዜን ለማመልከት ("ከህፃንነቴ ጀምሮ...") እንጂ ምክንያት ለማመልከት ላይጠቅም ይችላል። ጠቋሚ ቃሉ አመክንዮአዊ ግንኙነትን ለማሳየት ጥቅም ላይ እንደዋለ ሁልጊዜ ያረጋግጡ።</p>
-
-        <hr>
-
-        <h2>Non-Argumentative Passages 🙅</h2>
-        <p>Non-argumentative passages lack an inferential claim. They might contain statements that could be premises or conclusions, but they aren't structured to prove anything.</p>
-        <p>Here's a breakdown of different types of non-arguments:</p>
-        <ul>
-            <li>Simple Non-Inferential Passages: These are straightforward statements that don't try to prove anything. They include:</li>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
             <ul>
-                <li>Warnings: "Never confide political secrets to your wife."</li>
-                <li>Advice: "I would suggest that you give careful consideration to the subject matter."</li>
-                <li>Statements of Belief or Opinion: "We believe our university must develop outstanding students."</li>
-                <li>Loosely Associated Statements: Statements that share a common theme but don't support each other.</li>
-                <li>Reports: Simple factual accounts of events, like a news report.</li>
+                <li>The evidence is overwhelming; therefore, the defendant is guilty.</li>
+                <li>She studied hard for the exam, so she will pass.</li>
+                <li>He is late to work every day; thus, he will likely be fired.</li>
             </ul>
-            <li>Expository Passages: These begin with a topic sentence and the following sentences simply expand or elaborate on it, rather than trying to prove it. For example, a passage that describes the characteristics of baseball players is expository, not argumentative.</li>
-            <li>Illustrations: These use one or more examples to show what something means or how it's done. An illustration of a chemical formula is not an argument because it's showing you something, not trying to prove it.</li>
-            <li>Explanations: These are often confused with arguments because they use words like "because." However, their purpose is to clarify a fact that is already accepted, not to prove it.</li>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.3 Recognizing Arguments</h3>
+        <p>Not every passage contains an argument. A passage contains an argument only if it attempts to prove something. Two conditions must be met for a passage to be considered an argument:</p>
+        <ol>
+            <li><strong>Factual Claim:</strong> At least one statement must claim to provide evidence or a reason. We ask, "Are the premises true or false?"</li>
+            <li><strong>Inferential Claim:</strong> There must be a claim that the evidence supports or implies something. We ask, "Do the premises support the conclusion?"</li>
+        </ol>
+        <p>Both conditions must be present for a passage to be an argument. It's not about whether the evidence is true or the support is good, but whether the claim to provide evidence and support is present.</p>
+        
+        <h4>Non-Argument Expressions</h4>
+        <p>These passages lack an inferential claim and are considered Unsupported Assertions. They do not attempt to prove anything.</p>
+        
+        <h4>Warnings:</h4>
+        <p>Statements intended to alert someone to danger. They are not arguments because they don't provide reasons to support a conclusion.</p>
+        <div class="example">
+            <p><strong>Example:</strong> Watch out that you do not slip on the mud.</p>
+            <p><strong>Extra Example:</strong> Look both ways before you cross the street.</p>
+        </div>
+        
+        <h4>Pieces of Advice:</h4>
+        <p>Recommendations on what someone should do. They can be part of an argument but, by themselves, don't contain a claim of support.</p>
+        <div class="example">
+            <p><strong>Example:</strong> I suggest you take Logic during your first year.</p>
+            <p><strong>Extra Example:</strong> You should drink more water.</p>
+        </div>
+        
+        <h4>Statements of Belief/Opinion:</h4>
+        <p>Expressions of what someone thinks or believes without providing evidence.</p>
+        <div class="example">
+            <p><strong>Example:</strong> I think a nation like ours, with its high moral traditions, has a further responsibility to know how we became involved in this conflict.</p>
+            <p><strong>Extra Example:</strong> I believe that honesty is the best policy.</p>
+        </div>
+        
+        <h4>Reports:</h4>
+        <p>Statements that simply convey information about an event or situation. They don't draw any inferences.</p>
+        <div class="example">
+            <p><strong>Example:</strong> A bomb exploded near the national museum, injuring 25 people and causing millions of birrs in damage.</p>
+            <p><strong>Extra Example:</strong> The weather report stated that there would be heavy rainfall tomorrow.</p>
+        </div>
+        
+        <h4>Illustrations:</h4>
+        <p>Statements about a subject combined with one or more specific examples to explain the statement. They are often confused with arguments because they may use indicator words like "thus" or "for example."</p>
+        <div class="example">
+            <p><strong>Example:</strong> Mammals are animals that nourish their young with milk. For example, cats, dogs, goats, monkeys, and humans are mammals.</p>
+            <p><strong>Extra Example:</strong> Chemical elements, as well as compounds, can be represented by molecular formulas. Thus, oxygen is represented by O<sub>2</sub>.</p>
+            <p><strong>Extra Example:</strong> Whole numbers can be represented as fractions. Thus, 2 can be represented as 8/4.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>🔑 Key Note:</strong> The crucial difference between an illustration and an argument is the purpose. An illustration explains a concept with examples, while an argument uses evidence to prove a conclusion. If the examples are used to support a claim, the passage becomes an argument.</p>
+        </div>
+        
+        <h4>6. Conditional Statements</h4>
+        <p>A conditional statement is an "if..., then..." statement. It's important to know that, by itself, a conditional statement is never an argument. It simply states a relationship between two things without asserting either one as true.</p>
+        
+        <ul>
+            <li>The part that follows "if" is called the antecedent (መነሻ).</li>
+            <li>The part that follows "then" is called the consequent (ውጤት).</li>
+        </ul>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>"If Galgalo works hard, then he will get a promotion."</p>
             <ul>
-                <li>Argument: The purpose of the premises is to prove a conclusion that may or may not be true.</li>
-                <li>Explanation: The purpose of the explanans is to shed light on or clarify a fact (the explanandum) that is already accepted.</li>
+                <li>This statement does not claim that Galgalo works hard.</li>
+                <li>This statement does not claim that he will get a promotion.</li>
+                <li>It only asserts that if the first part happens, the second part will follow.</li>
             </ul>
-            <li>Conditional Statements: These are "if...then..." statements. A single conditional statement is never an argument because it only asserts a relationship, not the truth of its parts. It says, "if this is true, then that is true," but it doesn't claim that the "if" part (the antecedent) is actually true. A conditional statement can, however, be a premise or a conclusion within a larger argument.</li>
-        </ul>
-
-        <h2>ክርክር ያልሆኑ ጽሑፎች 🙅</h2>
-        <p>ክርክር ያልሆኑ ጽሑፎች የምክንያታዊነት ክርክር (inferential claim) የሌላቸው ናቸው። መነሻ ሀሳቦች ወይም መደምደሚያዎች ሊመስሉ የሚችሉ ዓረፍተ ነገሮች ቢኖራቸውም፣ አንድን ነገር ለማረጋገጥ የታቀዱ አይደሉም።</p>
-        <p>የተለያዩ ክርክር ያልሆኑ ጽሑፎች እነሆ፡-</p>
+        </div>
+        
+        <p><strong>Contrast this with an argument:</strong></p>
+        <div class="example">
+            <p><strong>Example 2 (Argument):</strong></p>
+            <p>Premise: If Galgalo works hard, then he will get a promotion.</p>
+            <p>Premise: Galgalo has worked hard.</p>
+            <p>Conclusion: Therefore, Galgalo will get a promotion.</p>
+            <p>In this case, the conclusion is asserted based on the premises, making it a valid argument.</p>
+        </div>
+        
+        <h4>Relationship Between a Conditional Statement and an Argument:</h4>
         <ul>
-            <li>ቀላል ክርክር የሌላቸው ጽሑፎች: እነዚህ ምንም ነገር ለማረጋገጥ የማይሞክሩ ቀጥተኛ መግለጫዎች ናቸው። እነዚህም የሚከተሉትን ያካትታሉ:</li>
+            <li>A single conditional statement cannot be an argument. <span class="emoji">🙅</span></li>
+            <li>A conditional statement can serve as a premise, a conclusion, or both in an argument.</li>
+            <li>The logic within a conditional statement can be restated to form an argument.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>Conditions in Conditional Statements</h4>
+        <p>Conditional statements express the relationship between necessary and sufficient conditions.</p>
+        
+        <h4>Sufficient Condition:</h4>
+        <p>'A' is a sufficient condition for 'B' if the occurrence of 'A' is all that's needed for 'B' to occur.</p>
+        <div class="example">
+            <p><strong>Example 1:</strong> If I am stabbed by a dagger, then a scar will appear on my skin.</p>
+            <p>Stabbing with a dagger is sufficient to cause a scar, but it is not the only way to get a scar. A burn or a gunshot wound could also cause a scar.</p>
+            
+            <p><strong>Extra Examples:</strong></p>
             <ul>
-                <li>ማስጠንቀቂያዎች: "የፖለቲካ ምስጢሮችን ለሚስትህ በፍጹም አትግለጽ።"</li>
-                <li>ምክር: "ትምህርቱ ካለቀ በኋላ በተወያያችሁበት ርዕስ ላይ በጥንቃቄ እንድታስቡበት እመክራለሁ።"</li>
-                <li>የእምነት ወይም የሐሳብ መግለጫዎች: "ዩኒቨርሲቲያችን ለሀገራችን የሚጠቅሙ የላቁ ደጋፊ ተማሪዎችን ማፍራት እንዳለበት እናምናለን።"</li>
-                <li>ባዶ መግለጫዎች: ተመሳሳይ ጭብጥ ያላቸው ነገር ግን አንዱ ለሌላው ድጋፍ የማይሰጡ ዓረፍተ ነገሮች።</li>
-                <li>ሪፖርቶች: እንደ የዜና ዘገባዎች ያሉ ቀላል የክስተቶች የሰነድ መግለጫዎች።</li>
+                <li>If it's raining, the ground is wet. (Rain is sufficient for a wet ground, but a sprinkler could also make it wet).</li>
+                <li>If you get a perfect score on the exam, you will pass the class. (A perfect score is sufficient to pass, but you could also pass with a lower score).</li>
             </ul>
-            <li>የማብራሪያ ጽሑፎች (Expository Passages): እነዚህ በአንድ ርዕስ ዓረፍተ ነገር ይጀምራሉ፣ እና ቀጣዮቹ ዓረፍተ ነገሮች ደግሞ ርዕሱን ለማረጋገጥ ሳይሆን ለማስፋትና ለማብራራት ያገለግላሉ። ለምሳሌ፣ የቤዝቦል ተጫዋቾችን ባህሪያት የሚገልጽ ጽሑፍ የማብራሪያ እንጂ የክርክር ጽሑፍ አይደለም።</li>
-            <li>ምሳሌዎች (Illustrations): እነዚህ አንድን ነገር ምን ማለት እንደሆነ ወይም እንዴት እንደሚሰራ ለማሳየት አንድ ወይም ከዚያ በላይ ምሳሌዎችን ይጠቀማሉ። የኬሚካል ቀመር ምሳሌ ክርክር አይደለም፣ ምክንያቱም አንድን ነገር እያሳየን እንጂ እያረጋገጠልን አይደለም።</li>
-            <li>ማብራሪያዎች (Explanations): እነዚህ ክርክርን ሊመስሉ ይችላሉ ምክንያቱም ብዙ ጊዜ እንደ "ምክንያቱም" ያሉ ቃላትን ስለሚጠቀሙ። ሆኖም ግን፣ ዓላማቸው ቀድሞውኑ እውነት ተብሎ የተገመተን እውነታ ማብራራት ነው እንጂ ማረጋገጥ አይደለም።</li>
+        </div>
+        
+        <h4>Necessary Condition:</h4>
+        <p>'B' is a necessary condition for 'A' if 'A' cannot occur without 'B' also occurring.</p>
+        <div class="example">
+            <p><strong>Example 1:</strong> If "X" is an uncle, then "X" is a male.</p>
+            <p>Being a male is a necessary condition to be an uncle; you cannot be an uncle without being male.</p>
+            
+            <p><strong>Extra Examples:</strong></p>
             <ul>
-                <li>ክርክር: የመነሻ ሀሳቡ ዓላማ እውነት ሊሆንም ላይሆንም የሚችልን መደምደሚያ ማረጋገጥ ነው።</li>
-                <li>ማብራሪያ: የማብራሪያው ዓላማ አስቀድሞ ተቀባይነት ያገኘን እውነታ (explanandum) ማብራት ወይም ግልጽ ማድረግ ነው።</li>
+                <li>If you are a doctor, you have a medical degree. (A medical degree is a necessary condition to be a doctor).</li>
+                <li>If you drive a car, you have gasoline in the tank. (Having gasoline is a necessary condition for driving a gasoline-powered car).</li>
             </ul>
-            <li>ሁኔታዊ ዓረፍተ ነገሮች (Conditional Statements): እነዚህ "ከሆነ...ያኔ..." የሚሉ ዓረፍተ ነገሮች ናቸው። አንድ ነጠላ ሁኔታዊ ዓረፍተ ነገር ፍፁም ክርክር አይደለም፣ ምክንያቱም የሁለቱን ክፍሎች እውነታ ሳይሆን፣ ግንኙነታቸውን ብቻ ነው የሚያሳየው። "ይህ እውነት ከሆነ፣ ያም እውነት ነው" ይላል እንጂ የ"ከ" ክፍሉ (antecedent) በትክክል እውነት ነው ብሎ አይከራከርም። ሆኖም፣ ሁኔታዊ ዓረፍተ ነገር በትልቅ ክርክር ውስጥ የመነሻ ሀሳብ ወይም የመደምደሚያ አካል ሆኖ ሊያገለግል ይችላል።</li>
-        </ul>
-
-        <hr>
-
-        <h2>Deductive vs. Inductive Arguments 🤔</h2>
-        <p>All arguments make a claim that their premises support their conclusion. The main difference between deductive and inductive arguments lies in the strength of this claim.</p>
-        <ul>
-            <li>A deductive argument claims that the conclusion follows with strict certainty or necessity. If the premises are true, it is impossible for the conclusion to be false.</li>
-            <li>An inductive argument claims that the conclusion follows with some degree of probability. If the premises are true, it is improbable for the conclusion to be false, but not impossible.</li>
-        </ul>
-
-        <h2>የ deductive እና inductive ክርክሮች ልዩነት 🤔</h2>
-        <p>ሁሉም ክርክሮች መነሻ ሀሳቦቻቸው መደምደሚያውን እንደሚደግፉ ይገልጻሉ። በዲዳክቲቭ (deductive) እና ኢንዳክቲቭ (inductive) ክርክሮች መካከል ያለው ዋና ልዩነት የዚህ የድጋፍ ጥንካሬ ነው።</p>
-        <ul>
-            <li>አንድ ዲዳክቲቭ ክርክር መደምደሚያው በፍፁም እርግጠኝነት ወይም አስፈላጊነት እንደሚከተል ይናገራል። መነሻ ሀሳቦቹ እውነት ከሆኑ፣ መደምደሚያው ሐሰት ሊሆን አይችልም።</li>
-            <li>አንድ ኢንዳክቲቭ ክርክር መደምደሚያው በተወሰነ ደረጃ በእርግጠኝነት እንደሚከተል ይናገራል። መነሻ ሀሳቦቹ እውነት ከሆኑ፣ መደምደሚያው ሐሰት የመሆን እድሉ አናሳ ነው፣ ነገር ግን ፈጽሞ የማይቻል አይደለም።</li>
-        </ul>
-
-        <hr>
-
-        <h2>Deductive Arguments in Detail 🧐</h2>
-        <p>Deductive arguments are all about certainty. The conclusion is already contained within the premises, even if it's not immediately obvious.</p>
-
-        <h3>Key Features:</h3>
-        <ul>
-            <li>Necessary Reasoning: The premises guarantee the conclusion. There is no room for doubt.</li>
-            <li>Impossibility of being false: If the premises are true, the conclusion cannot be false.</li>
-        </ul>
-
-        <h3>Forms of Deductive Arguments:</h3>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h4>7. Explanations</h4>
+        <p>Explanations are statements or groups of statements that shed light on a phenomenon that is already accepted as fact. They are not arguments because their purpose is to clarify, not to prove.</p>
+        
+        <p>Every explanation has two parts:</p>
+        <ol>
+            <li><strong>Explanandum (የሚብራራው ነገር):</strong> The statement that describes the event or phenomenon to be explained.</li>
+            <li><strong>Explanans (ማብራሪያ):</strong> The statement(s) that provide the explanation.</li>
+        </ol>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>"The sky appears blue from the earth's surface because light rays are scattered by particles from the atmosphere."</p>
+            <p>The purpose here is to explain why the sky is blue, not to prove that it is blue. We already accept that the sky is blue as a fact.</p>
+        </div>
+        
+        <h4>Argument vs. Explanation</h4>
         <table>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mathematics</td>
-                    <td>The conclusion is based on a mathematical computation.</td>
-                    <td>The area of a 10m x 10m square is 100 square meters.</td>
-                </tr>
-                <tr>
-                    <td>Definition</td>
-                    <td>The conclusion is based on the definition of a word.</td>
-                    <td>Kebede is a physician; therefore, he is a doctor.</td>
-                </tr>
-                <tr>
-                    <td>Categorical Syllogism</td>
-                    <td>A syllogism where statements start with words like "all," "no," or "some."</td>
-                    <td>All philosophers are critical thinkers. Socrates is a philosopher. Therefore, Socrates is a critical thinker.</td>
-                </tr>
-                <tr>
-                    <td>Hypothetical Syllogism</td>
-                    <td>A syllogism with "if...then..." statements.</td>
-                    <td>If you study hard, you will get a good job. Therefore, if you study hard, you will get a rewarding job.</td>
-                </tr>
-                <tr>
-                    <td>Disjunctive Syllogism</td>
-                    <td>A syllogism with "either...or..." statements.</td>
-                    <td>Rewina is either Ethiopian or Eritrean. Rewina is not Eritrean. Therefore, Rewina is Ethiopian.</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>Feature</th>
+                <th>Argument</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>Premise/Explanans</td>
+                <td>The premise is claimed to prove the conclusion.</td>
+                <td>The explanans is claimed to explain the explanandum.</td>
+            </tr>
+            <tr>
+                <td>Conclusion/Explanandum</td>
+                <td>The conclusion is a point to be proven.</td>
+                <td>The explanandum is an accepted fact.</td>
+            </tr>
         </table>
-        <p>Export to Sheets</p>
-
-        <h2>የዲዳክቲቭ ክርክሮች ገለጻ 🧐</h2>
-        <p>ዲዳክቲቭ ክርክሮች ስለ እርግጠኝነት ብቻ የሚያወሩ ናቸው። መደምደሚያው፣ ወዲያውኑ ግልጽ ባይሆንም እንኳ፣ በመነሻ ሀሳቦቹ ውስጥ ቀድሞውኑ ይገኛል።</p>
-
-        <h3>ቁልፍ መለያዎች:</h3>
+        
+        <div class="example">
+            <p><strong>Example 2 (An explanation re-expressed as an argument):</strong></p>
+            <p>Premise: Light rays from the sun are scattered by particles in the atmosphere.</p>
+            <p>Conclusion: Therefore, the sky appears blue from the earth's surface.</p>
+            <p>In this form, the statement is now attempting to prove the conclusion, making it an argument.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.4 Types of Arguments</h3>
+        <p>Arguments are divided into two main categories: Deductive and Inductive.</p>
+        
+        <h4>Deductive Arguments</h4>
+        <p>A deductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is impossible for the conclusion to be false. The conclusion is claimed to follow necessarily from the premises.</p>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>All fruits are beverages. <span class="emoji">🍏</span></p>
+            <p>Oranges are fruits. <span class="emoji">🍊</span></p>
+            <p>So, oranges are beverages. <span class="emoji">🍹</span></p>
+            <p>This is a deductive argument because the conclusion follows with strict necessity from the premises.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2:</strong></p>
+            <p>All mammals are vertebrates. <span class="emoji">🦴</span></p>
+            <p>All humans are mammals. <span class="emoji">🧍</span></p>
+            <p>Therefore, all humans are vertebrates. <span class="emoji">🧠</span></p>
+            <p>The conclusion is a necessary consequence of the premises.</p>
+        </div>
+        
+        <h4>Subcategories of Deductive Arguments</h4>
         <ul>
-            <li>አስፈላጊነት ላይ የተመሠረተ አመክንዮ: መነሻ ሀሳቦቹ መደምደሚያውን ያረጋግጣሉ። ጥርጣሬ የሚባል ነገር የለም።</li>
-            <li>ሐሰት መሆን አለመቻሉ: መነሻ ሀሳቦቹ እውነት ከሆኑ፣ መደምደሚያው ሐሰት ሊሆን አይችልም።</li>
+            <li><strong>Arguments based on Mathematics:</strong> The conclusion is based on mathematical computation or measurement.
+                <div class="example">
+                    <p><strong>Example:</strong> A shopper places two apples and three oranges into a bag and concludes that the bag contains five pieces of fruit. <span class="emoji">🍎+🍊=5</span>.</p>
+                </div>
+            </li>
+            <li><strong>Arguments from Definition:</strong> The conclusion depends on the definition of a word or phrase used in the premises.
+                <div class="example">
+                    <p><strong>Example:</strong> Michael is mendacious, therefore he tells lies. (Mendacious is defined as telling lies).</p>
+                </div>
+            </li>
+            <li><strong>Categorical Syllogism:</strong> A syllogism where each statement begins with "all," "no," or "some."
+                <div class="example">
+                    <p><strong>Example:</strong> No cats are dogs. No dogs are mammals that can fly. Therefore, no cats are mammals that can fly. <span class="emoji">🐾</span></p>
+                </div>
+            </li>
+            <li><strong>Hypothetical Syllogism:</strong> A syllogism that has a conditional ("if..., then...") statement for one or both of its premises.
+                <div class="example">
+                    <p><strong>Example:</strong> If you trespass on campus, then the campus police will catch you. If the campus police catch you, then you will face disciplinary penalty. Therefore, if you trespass on campus, then you will face disciplinary penalty.</p>
+                </div>
+            </li>
+            <li><strong>Disjunctive Syllogism:</strong> A syllogism with a disjunctive ("either...or...") statement for one of its premises.
+                <div class="example">
+                    <p><strong>Example:</strong> Either breach of contract is a crime or it is not punishable by law. Breach of contract is not a crime. So, breach of contract is not punishable by law.</p>
+                </div>
+            </li>
         </ul>
-
-        <h3>የዲዳክቲቭ ክርክሮች አይነቶች:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>ዓይነት</th>
-                    <th>ገለጻ</th>
-                    <th>ምሳሌ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>የሒሳብ ስሌት</td>
-                    <td>መደምደሚያው በሒሳብ ስሌት ላይ የተመሠረተ ነው።</td>
-                    <td>የ10ሜ x 10ሜ ስፋት ያለው ካሬ ስፋት 100 ካሬ ሜትር ነው።</td>
-                </tr>
-                <tr>
-                    <td>ፍቺ</td>
-                    <td>መደምደሚያው የአንድ ቃል ፍቺ ላይ የተመሠረተ ነው።</td>
-                    <td>ከበደ ሐኪም ነው; ስለዚህ, እሱ ዶክተር ነው.</td>
-                </tr>
-                <tr>
-                    <td>ምድባዊ ሰሎጊዝም</td>
-                    <td>መግለጫዎቹ እንደ "ሁሉም," "ማንም," ወይም "አንዳንድ" ባሉ ቃላት የሚጀምሩበት ነው።</td>
-                    <td>ሁሉም ፈላስፎች ወሳኝ አስተሳሰብ ያላቸው ናቸው። ሶቅራጥስ ፈላስፋ ነው። ስለዚህ ሶቅራጥስ ወሳኝ አስተሳሰብ ያለው ነው።</td>
-                </tr>
-                <tr>
-                    <td>ግምታዊ ሰሎጊዝም</td>
-                    <td>"ከሆነ...ያኔ..." የሚሉ መግለጫዎችን የያዘ ነው።</td>
-                    <td>ጠንክረህ ካጠናህ ጥሩ ስራ ታገኛለህ። ስለዚህ ጠንክረህ ካጠናህ ጥሩ ስራ ታገኛለህ።</td>
-                </tr>
-                <tr>
-                    <td>አማራጭ ሰሎጊዝም</td>
-                    <td>"ወይ...ወይ..." የሚሉ መግለጫዎችን የያዘ ነው።</td>
-                    <td>ረዊና ወይ ኢትዮጵያዊት ወይ ኤርትራዊት ነች። ረዊና ኤርትራዊት አይደለችም። ስለዚህ ረዊና ኢትዮጵያዊት ነች።</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-
-        <hr>
-
-        <h2>Inductive Arguments in Detail 🔬</h2>
-        <p>Inductive arguments are about probability. The conclusion goes beyond the information given in the premises. The premises provide strong evidence, but they don't guarantee the conclusion's truth.</p>
-
-        <h3>Key Features:</h3>
+    </div>
+    
+    <div class="card">
+        <h4>Inductive Arguments</h4>
+        <p>An inductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is improbable that the conclusion is false. The conclusion is claimed to follow probably from the premises.</p>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>The vast majority of the saleswomen in this supermarket are hospitable. <span class="emoji">🙂</span></p>
+            <p>Obse is a saleswoman in this supermarket. <span class="emoji">👩‍💼</span></p>
+            <p>Therefore, probably, Obse is hospitable. <span class="emoji">😊</span></p>
+            <p>The conclusion is not certain, but it is probable.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2:</strong></p>
+            <p>80 oranges selected at random from a basket containing 100 oranges were found to be ripe. <span class="emoji">🍊</span></p>
+            <p>Probably, all 100 oranges are ripe. <span class="emoji">✅</span></p>
+            <p>The conclusion is a probable generalization based on the sample.</p>
+        </div>
+        
+        <h4>Subcategories of Inductive Arguments</h4>
         <ul>
-            <li>Probabilistic Reasoning: The premises make the conclusion likely, but not certain.</li>
-            <li>Possibility of being false: Even if the premises are true, the conclusion could still be false.</li>
+            <li><strong>Arguments from Analogy:</strong> These arguments depend on a comparison between two or more similar things.
+                <div class="example">
+                    <p><strong>Example:</strong> Abebe's 2006 Chevolet has luxurious seats and excellent gas mileage. Matiyas's 2006 Chevolet also has luxurious seats and excellent gas mileage. Therefore, Matiyas's car probably has a computer set. <span class="emoji">🚘</span></p>
+                </div>
+            </li>
+            <li><strong>Inductive Generalization:</strong> An argument that moves from knowledge of a selected sample to a claim about the entire group.
+                <div class="example">
+                    <p><strong>Example:</strong> 10 apples selected randomly from a basket of 100 were ripe. Probably, all 90 remaining apples are also ripe. <span class="emoji">🍎</span></p>
+                </div>
+            </li>
+            <li><strong>Arguments based on Signs:</strong> These arguments draw a conclusion from signs or symbols.
+                <div class="example">
+                    <p><strong>Example:</strong> If a traffic sign is in a certain position, a driver might conclude that a turn is coming up. The conclusion is probable but not certain, as the sign could be misplaced. <span class="emoji">🚦</span></p>
+                </div>
+            </li>
+            <li><strong>Causal Inference:</strong> These arguments proceed from a cause to an effect, or from an effect to a cause.
+                <ul>
+                    <li><strong>Cause to Effect:</strong> Example: A bottle of wine was accidentally put in the freezer. Therefore, the bottle of wine has been frozen. <span class="emoji">❄️</span></li>
+                    <li><strong>Effect to Cause:</strong> Example: I tasted a piece of chicken and found it dry and crunchy. Therefore, the chicken had been overcooked. <span class="emoji">🍗</span></li>
+                </ul>
+            </li>
         </ul>
-
-        <h3>Forms of Inductive Arguments:</h3>
+    </div>
+    
+    <div class="card">
+        <h3>2.5 Evaluating Arguments</h3>
+        <p>Evaluating arguments involves assessing two key claims: the factual claim (that evidence exists) and the inferential claim (that the evidence supports the conclusion). The inferential claim is more crucial; if the premises don't support the conclusion, the argument is worthless. Therefore, we always test the inferential claim first.</p>
+        
+        <h4>Evaluating Deductive Arguments</h4>
+        <p>Deductive arguments are evaluated based on their validity and soundness.</p>
+        
+        <h4>Validity and Invalidity</h4>
+        <p><strong>Valid Deductive Argument (ትክክለኛ ቅነሳዊ ክርክር):</strong> An argument where if the premises are assumed true, it is impossible for the conclusion to be false. The conclusion follows with strict necessity from the premises. There is no middle ground; an argument is either valid or invalid.</p>
+        
+        <p><strong>Invalid Deductive Argument (ትክክል ያልሆነ ቅነሳዊ ክርክር):</strong> An argument where even if the premises are assumed true, it is still possible for the conclusion to be false. The conclusion does not follow necessarily from the premises.</p>
+        
+        <h4>Truth and Validity</h4>
+        <p>Validity and truth are separate concepts. An argument's validity doesn't depend on the actual truth of its premises or conclusion. It's about the logical structure: if the premises were true, would the conclusion have to be true?</p>
+        
         <table>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Prediction</td>
-                    <td>A conclusion about a future event based on past or present knowledge.</td>
-                    <td>The clouds are dark, so it will probably rain soon.</td>
-                </tr>
-                <tr>
-                    <td>Analogy</td>
-                    <td>A conclusion about one thing based on its similarity to another.</td>
-                    <td>This computer is fast, just like that other brand. Therefore, it will probably also last a long time.</td>
-                </tr>
-                <tr>
-                    <td>Generalization</td>
-                    <td>A conclusion about an entire group based on a sample.</td>
-                    <td>Three of the first four people I met in this town were friendly. Therefore, most people in this town are probably friendly.</td>
-                </tr>
-                <tr>
-                    <td>Argument from Authority</td>
-                    <td>A conclusion based on the testimony of a presumed expert.</td>
-                    <td>My doctor says this medicine will help. Therefore, it will probably help.</td>
-                </tr>
-                <tr>
-                    <td>Causal Inference</td>
-                    <td>A conclusion about a cause or effect.</td>
-                    <td>The car won't start; the battery must be dead.</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>Scenario</th>
+                <th>Valid</th>
+                <th>Invalid</th>
+            </tr>
+            <tr>
+                <td>True Premises, True Conclusion</td>
+                <td>Sound ✅<br>All wines are beverages. (TP)<br>Gouder is a wine. (TP)<br>So, Gouder is a beverage. (TC)</td>
+                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Gouder is a beverage. (TP)<br>So, Gouder is a wine. (TC)</td>
+            </tr>
+            <tr>
+                <td>True Premises, False Conclusion</td>
+                <td>Non-existent 🚫<br>A valid deductive argument cannot have true premises and a false conclusion by definition.</td>
+                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Orange juice is a beverage. (TP)<br>So, orange juice is a wine. (FC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, True Conclusion</td>
+                <td>Unsound ❌<br>All wines are soft drinks. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a soft drink. (TC)</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Gouder is a whiskey. (FP)<br>So, Gouder is a wine. (TC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, False Conclusion</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a whiskey. (FC)</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a whiskey. (FP)<br>So, Coca Cola is a wine. (FC)</td>
+            </tr>
         </table>
-        <p>Export to Sheets</p>
-
-        <h2>የኢንዳክቲቭ ክርክሮች ገለጻ 🔬</h2>
-        <p>ኢንዳክቲቭ ክርክሮች ስለ ዕድል (probability) የሚያወሩ ናቸው። መደምደሚያው በመነሻ ሀሳቦቹ ውስጥ ከተሰጠው መረጃ በላይ ይሄዳል። መነሻ ሀሳቦቹ ጠንካራ ማስረጃዎችን ይሰጣሉ፣ ነገር ግን የመደምደሚያውን እውነትነት አያረጋግጡም።</p>
-
-        <h3>ቁልፍ መለያዎች:</h3>
-        <ul>
-            <li>የዕድል አመክንዮ: መነሻ ሀሳቦቹ መደምደሚያው የመሆን እድሉ ከፍተኛ መሆኑን ያሳያሉ፣ ግን እርግጠኛነት የለም።</li>
-            <li>ሐሰት የመሆን ዕድል: መነሻ ሀሳቦቹ እውነት ቢሆኑም እንኳ፣ መደምደሚያው አሁንም ሐሰት ሊሆን ይችላል።</li>
-        </ul>
-
-        <h3>የኢንዳክቲቭ ክርክሮች አይነቶች:</h3>
+        
+        <h4>Soundness and Unsoundness</h4>
+        <p><strong>Sound Argument (ጠንካራ ክርክር):</strong> A valid deductive argument that also has all true premises. By definition, a sound argument will always have a true conclusion. This is considered a "good" deductive argument.</p>
+        <p><strong>Formula:</strong> Sound Argument = Valid + All True Premises.</p>
+        
+        <p><strong>Unsound Argument (ደካማ ክርክር):</strong> Any deductive argument that is either invalid or has at least one false premise.</p>
+    </div>
+    
+    <div class="card">
+        <h4>Evaluating Inductive Arguments</h4>
+        <p>Inductive arguments are evaluated based on their strength and cogency. Here, the premises support the conclusion with a degree of probability.</p>
+        
+        <h4>Strength and Weakness</h4>
+        <p><strong>Strong Inductive Argument (ጠንካራ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is probable that the conclusion is also true. The premises provide strong evidence.</p>
+        
+        <p><strong>Weak Inductive Argument (ደካማ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is not probable that the conclusion is also true. The premises provide weak evidence.</p>
+        
+        <h4>Cogency and Uncogency</h4>
+        <p><strong>Cogent Inductive Argument (አሳማኝ ክርክር):</strong> A strong inductive argument with all true premises. This is the inductive equivalent of a sound deductive argument. The conclusion of a cogent argument is probably true.</p>
+        <p><strong>Formula:</strong> Cogent Argument = Strong + All True Premises.</p>
+        <p><strong>Extra Condition:</strong> For an argument to be cogent, the premises must also be sufficient; they must not ignore any important evidence that outweighs the given evidence.</p>
+        
+        <p><strong>Uncogent Argument (አሳማኝ ያልሆነ ክርክር):</strong> An inductive argument that falls into one of three categories:</p>
+        <ol>
+            <li>It is strong, but has at least one false premise.</li>
+            <li>It is weak, but has all true premises.</li>
+            <li>It is weak, and has at least one false premise.</li>
+        </ol>
+        
         <table>
-            <thead>
-                <tr>
-                    <th>ዓይነት</th>
-                    <th>ገለጻ</th>
-                    <th>ምሳሌ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ትንበያ</td>
-                    <td>ስለ ወደፊት ክስተት ያለፉ ወይም አሁን ባሉ መረጃዎች ላይ ተመስርቶ መደምደሚያ መስጠት።</td>
-                    <td>ሰማዩ ጨልሟል፣ ስለዚህ ምናልባት በቅርቡ ዝናብ ይዘንባል።</td>
-                </tr>
-                <tr>
-                    <td>አመሳስሎ</td>
-                    <td>በአንድ ነገር እና በሌላ ነገር መካከል ባለው ተመሳሳይነት ላይ የተመሠረተ መደምደሚያ።</td>
-                    <td>ይህ ኮምፒዩተር ልክ እንደ ሌላኛው ብራንድ ፈጣን ነው። ስለዚህ ምናልባት ለረጅም ጊዜ ያገለግላል።</td>
-                </tr>
-                <tr>
-                    <td>አጠቃላይ መግለጫ</td>
-                    <td>ስለ አንድ ቡድን በሙሉ በናሙና ላይ የተመሠረተ መደምደሚያ።</td>
-                    <td>በከተማዋ ያገኘኋቸው የመጀመሪያዎቹ አራት ሰዎች ሦስቱ ተግባቢ ነበሩ። ስለዚህ የከተማዋ አብዛኛው ህዝብ ተግባቢ ነው።</td>
-                </tr>
-                <tr>
-                    <td>በባለሙያ ማስረጃ ላይ የተመሠረተ ክርክር</td>
-                    <td>አንድ ባለሙያ በሰጠው አስተያየት ላይ የተመሠረተ መደምደሚያ።</td>
-                    <td>ዶክተሬ ይህ መድሃኒት እንደሚረዳኝ ተናግሯል። ስለዚህ ምናልባት ይረዳኛል።</td>
-                </tr>
-                <tr>
-                    <td>ምክንያታዊ መደምደሚያ</td>
-                    <td>ስለ መንስኤ ወይም ውጤት መደምደሚያ።</td>
-                    <td>መኪናው አልነሳም; ባትሪው ሞቶ ሊሆን ይችላል።</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>Scenario</th>
+                <th>Strong</th>
+                <th>Weak</th>
+            </tr>
+            <tr>
+                <td>True Premises, True Conclusion</td>
+                <td>Cogent ✅<br>All previous American presidents were men. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
+            </tr>
+            <tr>
+                <td>True Premises, False Conclusion</td>
+                <td>Non-existent 🚫</td>
+                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a Federalist. (FC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, True Conclusion</td>
+                <td>Uncogent ❌<br>All previous American presidents were television debaters. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, False Conclusion</td>
+                <td>Uncogent ❌<br>All previous American presidents were women. (FP)<br>Therefore, probably the next president will be a woman. (FC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a Libertarian. (FC)</td>
+            </tr>
         </table>
-        <p>Export to Sheets</p>
-
-        <hr>
-
-        <h2>Lesson 4: Evaluating Arguments 🧐</h2>
-        <p>Evaluating an argument is a two-step process to determine if it is "good." We must check the inferential claim (does the conclusion follow from the premises?) and the factual claim (are the premises actually true?). The method for this evaluation changes depending on the type of argument: deductive or inductive.</p>
-
-        <h2>የትምህርት ክፍል 4: ክርክሮችን መገምገም 🧐</h2>
-        <p>አንድን ክርክር "ጥሩ" መሆኑን ለመገምገም ሁለት እርምጃዎችን እንወስዳለን። መጀመሪያ የመደምደሚያ ክርክሩን (መደምደሚያው ከመነሻ ሐሳቦቹ ይከተላል ወይ?)፣ ከዚያም የእውነት ክርክሩን (መነሻ ሐሳቦቹ በእርግጥ እውነት ናቸው ወይ?) እንመረምራለን። ይህ የግምገማ ዘዴ በክርክሩ ዓይነት ላይ 
-  `
+    </div>
+</body>
+</html> `
 },
     {
   "id": "Chapter3",
