@@ -1,8 +1,24 @@
-import React, { useEffect, useRef } from 'react';
-import { X, User, Settings, Crown, LogOut, Mail, Users, BookOpen, Calculator, ChevronRight, Award, Home, LayoutDashboard, Shield, Star } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef, useMemo } from "react";
+import {
+  X,
+  User,
+  Settings,
+  Crown,
+  LogOut,
+  Mail,
+  Users,
+  BookOpen,
+  Calculator,
+  ChevronRight,
+  Award,
+  Home,
+  LayoutDashboard,
+  Shield,
+  Star,
+} from "lucide-react";
+import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -22,16 +38,14 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, onClose]);
 
   const handleLogout = async () => {
     await logout();
     onClose();
-    navigate('/auth');
+    navigate("/auth");
   };
 
   const handleNavigation = (path: string) => {
@@ -39,45 +53,38 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
     onClose();
   };
 
-  interface MenuItem {
-    path: string;
-    icon: React.ComponentType<{ size?: number; className?: string }>;
-    label: string;
-    isPro?: boolean;
-  }
+  const isAdminUser = currentUser?.email === "biniamhabtamu320@gmail.com";
 
-  const menuItems: MenuItem[] = [
-    { path: '/', icon: Home, label: 'Home' },
-    { path: '/profilepage', icon: User, label: 'Profile' },
-    { path: '/handouts', icon: BookOpen, label: 'Handouts' },
-    { path: '/gpa-calculator', icon: Calculator, label: 'GPA Calculator' },
-    { path: '/leaderboard', icon: Award, label: 'Leaderboard' },
-    { path: '/community', icon: Users, label: 'Community' },
-    { path: '/settings', icon: Settings, label: 'Settings' },
-    { path: '/contactus', icon: Mail, label: 'Contact Us' },
-  ];
-
-  const adminMenuItem: MenuItem = {
-    path: '/admin/premium-approvals',
-    icon: LayoutDashboard,
-    label: 'Admin Dashboard',
-  };
-
-  const menuItemsFinal = [
-    ...menuItems,
-    ...(currentUser?.email === 'biniamhabtamu320@gmail.com' ? [adminMenuItem] : [])
-  ];
-
-  const isAdminUser = currentUser?.email === 'biniamhabtamu320@gmail.com';
+  const menuItems = useMemo(
+    () => [
+      { path: "/", icon: Home, label: "Home" },
+      { path: "/profilepage", icon: User, label: "Profile" },
+      { path: "/handouts", icon: BookOpen, label: "Handouts" },
+      { path: "/gpa-calculator", icon: Calculator, label: "GPA Calculator" },
+      { path: "/leaderboard", icon: Award, label: "Leaderboard" },
+      { path: "/community", icon: Users, label: "Community" },
+      { path: "/settings", icon: Settings, label: "Settings" },
+      { path: "/contactus", icon: Mail, label: "Contact Us" },
+      ...(isAdminUser
+        ? [{ path: "/admin/premium-approvals", icon: LayoutDashboard, label: "Admin Dashboard" }]
+        : []),
+    ],
+    [isAdminUser]
+  );
 
   const sidebarVariants = {
-    open: { x: 0 },
-    closed: { x: '-100%' },
+    open: { x: 0, transition: { type: "spring", stiffness: 260, damping: 25 } },
+    closed: { x: "-100%", transition: { duration: 0.3 } },
   };
 
   const listItemVariants = {
     hidden: { x: -20, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 200, damping: 20 } },
+    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20 } },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
   };
 
   return (
@@ -90,30 +97,28 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
             animate={{ opacity: 0.5 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-gray-900 z-40"
+            className="fixed inset-0 bg-black z-40 md:hidden"
             onClick={onClose}
           />
         )}
       </AnimatePresence>
-       
+
       {/* Sidebar */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <motion.aside
             ref={sidebarRef}
             initial="closed"
             animate="open"
             exit="closed"
             variants={sidebarVariants}
-            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-            className={`
-              fixed top-0 left-0 h-full w-72 bg-gradient-to-br from-teal-900 to-blue-950 backdrop-blur-3xl shadow-2xl z-50  
-              flex flex-col text-white transform transition-all duration-300 border-r border-gray-800
-            `}
+            className="fixed top-0 left-0 h-full w-[85%] sm:w-72 bg-gradient-to-br from-teal-900 to-blue-950 backdrop-blur-2xl shadow-2xl z-50 flex flex-col text-white border-r border-gray-800"
+            role="navigation"
+            aria-label="Sidebar"
           >
-            <div className="p-6 h-full flex flex-col">
+            <div className="p-6 flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between mb-10">
+              <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                   Dashboard
                 </h2>
@@ -121,47 +126,43 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={onClose}
-                  className="p-2 hover:bg-white/10 rounded-full transition-all duration-200"
+                  className="p-2 hover:bg-white/10 rounded-full"
                   aria-label="Close menu"
                 >
                   <X size={24} className="text-gray-300" />
                 </motion.button>
               </div>
 
-              {/* User Info Card */}
-              <motion.div 
+              {/* User Info */}
+              <motion.div
                 whileHover={{ scale: 1.02 }}
-                onClick={() => handleNavigation('/profilepage')}
-                className="bg-white/10 rounded-3xl p-5 mb-8 shadow-inner border border-white/20 cursor-pointer transition-transform duration-200"
+                onClick={() => handleNavigation("/profilepage")}
+                className="bg-white/10 rounded-3xl p-5 mb-6 shadow-inner border border-white/20 cursor-pointer"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center p-1 bg-white/20 ring-2 ring-blue-500/50">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center p-1 bg-white/20 ring-2 ring-blue-500/50">
                     {currentUser?.photoURL ? (
-                      <img 
-                        src={currentUser.photoURL} 
-                        alt="Profile" 
+                      <img
+                        src={currentUser.photoURL}
+                        alt="Profile"
                         className="w-full h-full rounded-full object-cover"
                       />
                     ) : (
-                      <User size={30} className="text-gray-300" />
+                      <User size={28} className="text-gray-300" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-lg text-white leading-tight truncate">
-                      {currentUser?.displayName || 'Guest'}
-                    </h3>
-                    <p className="text-sm text-gray-400 truncate mt-1">{currentUser?.email || 'No email'}</p>
-                    <div className="flex items-center space-x-2 mt-2">
+                    <h3 className="font-bold text-lg truncate">{currentUser?.displayName || "Guest"}</h3>
+                    <p className="text-sm text-gray-400 truncate">{currentUser?.email || "No email"}</p>
+                    <div className="flex items-center space-x-2 mt-1">
                       {currentUser?.isPremium && (
                         <span className="flex items-center text-yellow-300 text-xs font-semibold px-2 py-1 rounded-full bg-yellow-900/40">
-                          <Crown size={14} className="mr-1" />
-                          Premium
+                          <Crown size={12} className="mr-1" /> Premium
                         </span>
                       )}
                       {isAdminUser && (
                         <span className="flex items-center text-emerald-300 text-xs font-semibold px-2 py-1 rounded-full bg-emerald-900/40">
-                          <Shield size={14} className="mr-1" />
-                          Admin
+                          <Shield size={12} className="mr-1" /> Admin
                         </span>
                       )}
                     </div>
@@ -169,37 +170,37 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
                 </div>
               </motion.div>
 
-              {/* Menu Items */}
-              <motion.nav 
+              {/* Menu */}
+              <motion.nav
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
                 className="space-y-2 flex-1 overflow-y-auto pr-2 custom-scrollbar"
               >
-                {menuItemsFinal.map((item, index) => (
+                {menuItems.map((item) => (
                   <motion.button
                     key={item.path}
                     variants={listItemVariants}
                     onClick={() => handleNavigation(item.path)}
-                    className="w-full flex items-center justify-between p-3 text-left rounded-xl transition-all duration-200 hover:bg-white/10 hover:text-white group"
+                    className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-white/10 group"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="p-2 bg-white/5 rounded-lg group-hover:bg-blue-600 transition-colors">
-                        <item.icon size={20} className="text-gray-300 group-hover:text-white transition-colors" />
+                        <item.icon size={20} className="text-gray-300 group-hover:text-white" />
                       </div>
-                      <span className="font-medium text-gray-200 group-hover:text-white transition-colors">{item.label}</span>
+                      <span className="font-medium">{item.label}</span>
                     </div>
-                    <ChevronRight size={18} className="text-gray-400 group-hover:text-white transition-all group-hover:translate-x-1" />
+                    <ChevronRight size={18} className="text-gray-400 group-hover:text-white group-hover:translate-x-1" />
                   </motion.button>
                 ))}
               </motion.nav>
-               
-              {/* Premium Upgrade Button */}
+
+              {/* Premium Button */}
               {!currentUser?.isPremium && (
                 <motion.button
                   variants={listItemVariants}
-                  onClick={() => handleNavigation('/premium')}
-                  className="w-full flex items-center justify-between p-4 text-left rounded-xl transition-all duration-300 mt-6 border border-yellow-400 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 shadow-md transform hover:scale-[1.02] active:scale-[0.98] animate-pulse"
+                  onClick={() => handleNavigation("/premium")}
+                  className="w-full flex items-center justify-between p-4 mt-4 border border-yellow-400 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-xl hover:scale-105 transition-transform shadow-md"
                 >
                   <div className="flex items-center space-x-4">
                     <div className="p-2 bg-yellow-400 rounded-lg">
@@ -210,39 +211,29 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
                   <ChevronRight size={18} className="text-yellow-300" />
                 </motion.button>
               )}
-               
-              {/* Logout Button */}
+
+              {/* Logout */}
               <div className="pt-4 border-t border-gray-800 mt-4">
                 <motion.button
                   onClick={handleLogout}
                   whileHover={{ x: 5 }}
-                  className="w-full flex items-center space-x-3 p-3 text-left hover:bg-red-500/20 text-red-400 rounded-lg transition-all duration-200"
+                  className="w-full flex items-center space-x-3 p-3 hover:bg-red-500/20 text-red-400 rounded-lg"
                 >
-                  <div className="p-2 bg-red-500/10 rounded-lg transition-colors">
+                  <div className="p-2 bg-red-500/10 rounded-lg">
                     <LogOut size={20} className="text-red-400" />
                   </div>
                   <span className="font-medium">Logout</span>
                 </motion.button>
               </div>
 
-              <h1 className='pt-4 text-sm text-gray-600 text-center'>Version 1.0.0</h1>
+              {/* Version */}
+              <p className="pt-4 text-xs text-gray-600 text-center">Version 1.0.0</p>
             </div>
-          </motion.div>
+          </motion.aside>
         )}
       </AnimatePresence>
     </>
   );
-};
-
-// Define container variants for the menu items to enable stagger effect
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
 };
 
 export default Sidebar;

@@ -370,58 +370,7 @@ export default function Dashboard() {
         </section>
 
         {/* Additional information cards */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
-            onClick={() => navigate('/handouts')}
-            role="button"
-            tabIndex={0}
-            aria-label="Study Handouts"
-          >
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-5 flex flex-col justify-center h-full">
-              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
-                <FiFileText className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-1">Study Handouts</h3>
-              <p className="text-indigo-100 text-sm">Access comprehensive study materials and notes.</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
-            onClick={() => navigate('/code-of-conduct')}
-            role="button"
-            tabIndex={0}
-            aria-label="Code of Conduct"
-          >
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-5 flex flex-col justify-center h-full">
-              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
-                <FiShield className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-1">Code of Conduct</h3>
-              <p className="text-teal-100 text-sm">Our community guidelines for a great environment.</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
-            onClick={() => navigate('/challenges')}
-            role="button"
-            tabIndex={0}
-            aria-label="Active Challenges"
-          >
-            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-5 flex flex-col justify-center h-full">
-              <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
-                <FiFlag className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-1">Active Challenges</h3>
-              <p className="text-orange-100 text-sm">Test your knowledge against other students.</p>
-            </div>
-          </motion.div>
-        </section>
+       
       </main>
 
       <BottomBar />

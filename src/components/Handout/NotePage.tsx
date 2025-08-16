@@ -11,13 +11,9 @@ import {
   Minus,
   Maximize2,
   Minimize2,
-  Sun,
-  Moon,
   X,
-  Volume2,
   BookOpen,
   BookText,
-  Share2,
   Copy,
   Star,
   Search,
@@ -39,24 +35,16 @@ const NotePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [fontSize, setFontSize] = useState(100);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  });
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showTableOfContents, setShowTableOfContents] = useState(false);
   const [showNoteTaking, setShowNoteTaking] = useState(false);
   const [userNotes, setUserNotes] = useState('');
-  const [showShareOptions, setShowShareOptions] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
   const [highlightedText, setHighlightedText] = useState('');
   const [viewsCount, setViewsCount] = useState(0);
   const [likesCount, setLikesCount] = useState(0);
   const [userLiked, setUserLiked] = useState(false);
   const [userViewed, setUserViewed] = useState(false);
   const contentRef = useRef(null);
-  const synthRef = useRef(null);
-  const utteranceRef = useRef(null);
   const { currentUser } = useAuth();
 
   // Firebase document references
@@ -180,9 +168,6 @@ const NotePage = () => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
-
-    // Initialize text-to-speech
-    synthRef.current = window.speechSynthesis;
     
     // Get highlighted text
     const handleSelection = () => {
@@ -200,21 +185,8 @@ const NotePage = () => {
       document.removeEventListener('selectionchange', handleSelection);
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      if (synthRef.current && synthRef.current.speaking) {
-        synthRef.current.cancel();
-      }
     };
   }, [subjectId, chapterId, navigate]);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
 
   useEffect(() => {
     // Initialize Firebase stats
@@ -261,7 +233,6 @@ const NotePage = () => {
   // Navigation functions
   const scrollToBottom = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
   const increaseFontSize = () => setFontSize(prev => Math.min(prev + 5, 150));
   const decreaseFontSize = () => setFontSize(prev => Math.max(prev - 5, 70));
   
@@ -290,41 +261,12 @@ const NotePage = () => {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     setIsBookmarked(!isBookmarked);
   };
-  
-  const toggleTextToSpeech = () => {
-    if (isSpeaking) {
-      synthRef.current.cancel();
-      setIsSpeaking(false);
-    } else {
-      const contentText = contentRef.current?.textContent || '';
-      if (contentText) {
-        utteranceRef.current = new SpeechSynthesisUtterance(contentText);
-        utteranceRef.current.onend = () => setIsSpeaking(false);
-        synthRef.current.speak(utteranceRef.current);
-        setIsSpeaking(true);
-      }
-    }
-  };
 
   const saveUserNotes = () => {
     const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
     notes[chapterId] = userNotes;
     localStorage.setItem('userNotes', JSON.stringify(notes));
     setShowNoteTaking(false);
-  };
-
-  const shareContent = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: currentChapter?.title,
-        text: `Check out this note on ${currentSubject?.name}`,
-        url: window.location.href
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-    setShowShareOptions(false);
   };
 
   // Calculate reading time
@@ -358,7 +300,7 @@ const NotePage = () => {
     if (selection.rangeCount > 0) {
       const range = selection.getRangeAt(0);
       const span = document.createElement('span');
-      span.className = 'bg-yellow-200 dark:bg-yellow-800';
+      span.className = 'bg-yellow-200';
       range.surroundContents(span);
       selection.removeAllRanges();
       setHighlightedText('');
@@ -377,7 +319,7 @@ const NotePage = () => {
   };
 
   return (
-    <div className={`min-h-screen font-sans antialiased transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200' : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800'}`}>
+    <div className={`min-h-screen font-sans antialiased transition-colors duration-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800`}>
       
       {/* Floating Navigation (Fixed header on scroll) */}
       <AnimatePresence>
@@ -387,37 +329,37 @@ const NotePage = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className={`fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-20 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-800`}
+            className={`fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-20 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200`}
           >
             <div className="max-w-4xl mx-auto flex justify-between items-center">
               <button
                 onClick={() => navigate('/handouts')}
-                className={`flex items-center text-xs sm:text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors dark:text-gray-300 dark:hover:text-white`}
+                className={`flex items-center text-xs sm:text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors`}
               >
                 <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Back to Subjects</span>
               </button>
-              <h2 className="text-xs sm:text-sm font-semibold text-gray-800 truncate max-w-[40%] sm:max-w-[50%] dark:text-white">
+              <h2 className="text-xs sm:text-sm font-semibold text-gray-800 truncate max-w-[40%] sm:max-w-[50%]">
                 {currentChapter?.title}
               </h2>
               <div className="flex items-center gap-1 sm:gap-2">
                 <button
                   onClick={() => setShowTableOfContents(true)}
-                  className="p-2 rounded-full text-gray-500 hover:text-indigo-500 transition-colors dark:text-gray-400 dark:hover:text-indigo-400"
+                  className="p-2 rounded-full text-gray-500 hover:text-indigo-500 transition-colors"
                   aria-label="Table of contents"
                 >
                   <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
                   onClick={toggleBookmark}
-                  className={`p-2 rounded-full transition-colors ${isBookmarked ? 'text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30' : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
+                  className={`p-2 rounded-full transition-colors ${isBookmarked ? 'text-indigo-500 bg-indigo-50' : 'text-gray-400 hover:text-gray-600'}`}
                   aria-label={isBookmarked ? 'Remove bookmark' : 'Add bookmark'}
                 >
                   {isBookmarked ? <BookmarkCheck className="h-4 w-4 sm:h-5 sm:w-5" /> : <Bookmark className="h-4 w-4 sm:h-5 sm:w-5" />}
                 </button>
                 <button
                   onClick={toggleLike}
-                  className={`p-2 rounded-full transition-colors ${userLiked ? 'text-rose-500 bg-rose-50 dark:bg-rose-900/30' : 'text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300'}`}
+                  className={`p-2 rounded-full transition-colors ${userLiked ? 'text-rose-500 bg-rose-50' : 'text-gray-400 hover:text-gray-600'}`}
                   aria-label={userLiked ? 'Unlike' : 'Like'}
                 >
                   <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
@@ -436,14 +378,14 @@ const NotePage = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto dark:bg-gray-900 dark:border-l dark:border-gray-800"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto"
           >
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex justify-between items-center mb-4 sm:mb-6">
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Table of Contents</h2>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Table of Contents</h2>
                 <button 
                   onClick={() => setShowTableOfContents(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="p-2 rounded-full hover:bg-gray-100"
                 >
                   <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
@@ -455,7 +397,7 @@ const NotePage = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToHeading(item.id)}
-                        className={`w-full text-left px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-colors hover:bg-indigo-50 dark:hover:bg-indigo-900/30 ${
+                        className={`w-full text-left px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-colors hover:bg-indigo-50 ${
                           item.level === 1 ? 'font-bold text-base sm:text-lg' : 
                           item.level === 2 ? 'font-medium pl-4 sm:pl-6' : 'pl-8 sm:pl-10 text-sm'
                         }`}
@@ -467,9 +409,9 @@ const NotePage = () => {
                 </ul>
               </div>
               
-              <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200 dark:border-gray-800">
+              <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600 text-sm">
                     <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span>Estimated reading time: {calculateReadingTime()} min</span>
                   </div>
@@ -498,14 +440,14 @@ const NotePage = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto dark:bg-gray-900 dark:border-l dark:border-gray-800"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[90%] sm:max-w-sm bg-white shadow-2xl z-40 overflow-y-auto"
           >
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex justify-between items-center mb-4 sm:mb-6">
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Your Notes</h2>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Your Notes</h2>
                 <button 
                   onClick={() => setShowNoteTaking(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="p-2 rounded-full hover:bg-gray-100"
                 >
                   <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
@@ -515,7 +457,7 @@ const NotePage = () => {
                 <textarea
                   value={userNotes}
                   onChange={(e) => setUserNotes(e.target.value)}
-                  className="w-full h-full p-3 sm:p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-sm sm:text-base"
+                  className="w-full h-full p-3 sm:p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm sm:text-base"
                   placeholder="Write your notes here..."
                 />
               </div>
@@ -523,7 +465,7 @@ const NotePage = () => {
               <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
                 <button
                   onClick={() => setShowNoteTaking(false)}
-                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 text-sm"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 text-sm"
                 >
                   Cancel
                 </button>
@@ -539,38 +481,6 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Share Options Panel */}
-      <AnimatePresence>
-        {showShareOptions && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 bg-white rounded-xl shadow-2xl p-3 sm:p-4 z-40 dark:bg-gray-800"
-          >
-            <div className="flex flex-col gap-2 sm:gap-3">
-              <button
-                onClick={shareContent}
-                className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
-              >
-                <Share2 className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500" />
-                <span>Share via link</span>
-              </button>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(contentRef.current?.textContent || '');
-                  setShowShareOptions(false);
-                }}
-                className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm"
-              >
-                <Copy className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500" />
-                <span>Copy content</span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-16 sm:pt-20">
         
         {/* Header Section */}
@@ -580,7 +490,7 @@ const NotePage = () => {
           transition={{ duration: 0.5 }}
           className="mb-6 sm:mb-8 text-center"
         >
-          <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2 dark:text-gray-400">
+          <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2">
             <button
               onClick={() => navigate('/handouts')}
               className={`flex items-center gap-1 text-indigo-500 hover:underline transition-colors`}
@@ -588,24 +498,24 @@ const NotePage = () => {
               <Layers className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>{currentSubject?.name}</span>
             </button>
-            <span className="text-gray-300 dark:text-gray-600">/</span>
-            <span className="text-gray-500 dark:text-gray-400">Chapter</span>
+            <span className="text-gray-300">/</span>
+            <span className="text-gray-500">Chapter</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight dark:text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
             {currentChapter?.title}
           </h1>
-          <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             {currentChapter?.description}
           </p>
           
           <div className="mt-4 sm:mt-8 flex justify-center items-center gap-4 sm:gap-6">
-            <div className="flex items-center gap-1 sm:gap-2 text-gray-500 dark:text-gray-400 text-sm">
+            <div className="flex items-center gap-1 sm:gap-2 text-gray-500 text-sm">
               <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>{viewsCount} views</span>
             </div>
             <button 
               onClick={toggleLike}
-              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 dark:bg-rose-900/30 dark:text-rose-300 text-sm"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 text-sm"
             >
               <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
               <span>{likesCount} likes</span>
@@ -615,14 +525,14 @@ const NotePage = () => {
           <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
             <button
               onClick={() => setShowTableOfContents(true)}
-              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 text-sm"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 text-sm"
             >
               <BookText className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>Table of Contents</span>
             </button>
             <button
               onClick={() => setShowNoteTaking(true)}
-              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 dark:bg-amber-900/30 dark:text-amber-300 text-sm"
+              className="flex items-center gap-1 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 text-sm"
             >
               <BookOpen className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>Take Notes</span>
@@ -635,19 +545,19 @@ const NotePage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative bg-white rounded-2xl sm:rounded-3xl shadow-md sm:shadow-xl border border-gray-200 dark:bg-gray-900 dark:border-gray-800"
+          className="relative bg-white rounded-2xl sm:rounded-3xl shadow-md sm:shadow-xl border border-gray-200"
         >
           <div className="p-4 sm:p-6 md:p-10">
             <div 
               ref={contentRef}
-              className="prose prose-sm sm:prose-lg max-w-none leading-relaxed content-text dark:prose-invert"
+              className="prose prose-sm sm:prose-lg max-w-none leading-relaxed content-text"
               style={{ fontSize: `${fontSize}%` }}
             >
               {content ? (
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               ) : (
                 <div className="flex justify-center items-center h-64">
-                  <div className="animate-pulse text-gray-400 dark:text-gray-600">
+                  <div className="animate-pulse text-gray-400">
                     Loading note content...
                   </div>
                 </div>
@@ -698,7 +608,7 @@ const NotePage = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 sm:mt-12"
           >
-            <h3 className={`text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 text-center dark:text-white`}>
+            <h3 className={`text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 text-center`}>
               Explore More Chapters
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -706,25 +616,25 @@ const NotePage = () => {
                 <button
                   key={chapter.id}
                   onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
-                  className={`group p-4 sm:p-5 rounded-xl sm:rounded-2xl border transition-all text-left shadow-sm hover:shadow-md dark:border-gray-800 ${
+                  className={`group p-4 sm:p-5 rounded-xl sm:rounded-2xl border transition-all text-left shadow-sm hover:shadow-md ${
                     chapterId === chapter.id
-                      ? 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/30 dark:border-indigo-800 font-bold'
-                      : 'bg-white hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800'
+                      ? 'bg-indigo-50 border-indigo-200 font-bold'
+                      : 'bg-white hover:bg-gray-50'
                   }`}
                 >
                   <div className="flex items-start gap-2 sm:gap-3">
                     <div className={`p-1 sm:p-2 rounded-lg ${
                       chapterId === chapter.id 
-                        ? 'bg-indigo-100 dark:bg-indigo-900/50' 
-                        : 'bg-gray-100 dark:bg-gray-800'
+                        ? 'bg-indigo-100' 
+                        : 'bg-gray-100'
                     }`}>
-                      <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500 dark:text-indigo-400" />
+                      <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-500" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-gray-800 group-hover:text-indigo-600 dark:text-gray-200 dark:group-hover:text-indigo-400 transition-colors">
+                      <h4 className="font-semibold text-sm sm:text-base text-gray-800 group-hover:text-indigo-600 transition-colors">
                         {chapter.title}
                       </h4>
-                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 sm:mt-2 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2 line-clamp-2">
                         {chapter.description || 'Chapter content'}
                       </p>
                     </div>
@@ -745,14 +655,14 @@ const NotePage = () => {
       >
         <button
           onClick={scrollToTop}
-          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
+          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all`}
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
         <button
           onClick={scrollToBottom}
-          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all dark:bg-gray-800 dark:text-gray-200`}
+          className={`p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all`}
           aria-label="Scroll to bottom"
         >
           <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -764,7 +674,7 @@ const NotePage = () => {
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 dark:bg-gray-900/80 dark:border-gray-800 z-30"
+        className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 z-30"
       >
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
           
@@ -772,17 +682,17 @@ const NotePage = () => {
           <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
               onClick={decreaseFontSize} 
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
               aria-label="Decrease font size"
             >
               <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
-            <div className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 w-10 sm:w-12 text-center select-none">
+            <div className="text-xs sm:text-sm font-medium text-gray-700 w-10 sm:w-12 text-center select-none">
               {fontSize}%
             </div>
             <button 
               onClick={increaseFontSize} 
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
               aria-label="Increase font size"
             >
               <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -793,28 +703,14 @@ const NotePage = () => {
           <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
               onClick={toggleLike}
-              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${userLiked ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400' : ''}`}
+              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all ${userLiked ? 'bg-rose-100 text-rose-600' : ''}`}
               aria-label={userLiked ? 'Unlike' : 'Like'}
             >
               <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`} />
             </button>
             <button 
-              onClick={() => setShowShareOptions(!showShareOptions)}
-              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${showShareOptions ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400' : ''}`}
-              aria-label="Share options"
-            >
-              <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-            <button 
-              onClick={toggleTextToSpeech}
-              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all ${isSpeaking ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400' : ''}`}
-              aria-label={isSpeaking ? "Stop reading" : "Read aloud"}
-            >
-              <Volume2 className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-            <button 
               onClick={() => setShowNoteTaking(true)}
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
               aria-label="Take notes"
             >
               <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -824,15 +720,8 @@ const NotePage = () => {
           {/* Right side: Actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
             <button 
-              onClick={toggleDarkMode} 
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
-            </button>
-            <button 
               onClick={toggleFullscreen} 
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-all"
+              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
               aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
             >
               {isFullscreen ? <Minimize2 className="h-4 w-4 sm:h-5 sm:w-5" /> : <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5" />}
