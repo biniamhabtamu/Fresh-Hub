@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { subjects } from '../../data/subjects';
@@ -14,7 +14,7 @@ import {
 } from 'react-icons/fi';
 import { FaCrown, FaBookOpen } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { ClipLoader } from 'react-spinners';
 
@@ -31,6 +31,10 @@ interface UserStats {
 export default function Dashboard() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+
+  // Use flexible uid accessor (some contexts have uid, some use id)
+  const uid = useMemo(() => currentUser?.uid ?? currentUser?.id ?? null, [currentUser]);
+
   const [stats, setStats] = useState<UserStats>({
     quizzesCompleted: 0,
     averageScore: 0,
@@ -41,43 +45,57 @@ export default function Dashboard() {
     percentile: 100,
   });
   const [loadingStats, setLoadingStats] = useState(true);
+  const [isPremiumUser, setIsPremiumUser] = useState<boolean>(Boolean(currentUser?.isPremium));
+  const [loadingSubjects] = useState(false); // placeholder if you want subject-level loading
 
+  // Responsive subset of subjects by user's field (safe fallback to show all)
+  const allFieldSubjects = useMemo(
+    () =>
+      subjects.filter((subject) =>
+        currentUser?.field ? subject.field === currentUser.field : true
+      ),
+    [subjects, currentUser?.field]
+  );
+
+  // Fetch subscription status (safe read from users/{uid}) and stats
   useEffect(() => {
+    let mounted = true;
     const fetchUserStats = async () => {
-      if (!currentUser) return;
+      if (!uid) {
+        // If no user, just stop loading stats
+        if (mounted) setLoadingStats(false);
+        return;
+      }
 
       try {
-        const resultsQuery = query(
-          collection(db, 'results'),
-          where('userId', '==', currentUser.id)
-        );
+        // === Stats: user-level results
+        const resultsQuery = query(collection(db, 'results'), where('userId', '==', uid));
         const resultsSnapshot = await getDocs(resultsQuery);
-        const results = resultsSnapshot.docs.map((doc) => doc.data());
+        const results = resultsSnapshot.docs.map((d) => d.data() as any);
 
         const quizzesCompleted = results.length;
         const totalScore =
           quizzesCompleted > 0
-            ? results.reduce((sum, r) => sum + r.percentage, 0)
+            ? results.reduce((sum, r) => sum + (Number(r.percentage) || 0), 0)
             : 0;
         const averageScore =
           quizzesCompleted > 0 ? totalScore / quizzesCompleted : 0;
 
+        // === Get all users and all results for ranking
         const usersQuery = query(collection(db, 'users'));
         const usersSnapshot = await getDocs(usersQuery);
-        const users = usersSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+        const users = usersSnapshot.docs.map((d) => ({ id: d.id, ...(d.data() as any) }));
 
         const allResultsQuery = query(collection(db, 'results'));
         const allResultsSnapshot = await getDocs(allResultsQuery);
-        const allResults = allResultsSnapshot.docs.map((doc) => doc.data());
+        const allResults = allResultsSnapshot.docs.map((d) => d.data() as any);
 
+        // compute ranking summary (lightweight)
         const userRankings = users.map((user) => {
           const userResults = allResults.filter((r) => r.userId === user.id);
           const userQuizzesCompleted = userResults.length;
           const userTotalScore = userResults.reduce(
-            (sum, r) => sum + r.percentage,
+            (sum: number, r: any) => sum + (Number(r.percentage) || 0),
             0
           );
           const userAverageScore =
@@ -86,24 +104,21 @@ export default function Dashboard() {
           return {
             id: user.id,
             fullName: user.fullName || 'Anonymous',
-            field: user.field || 'unknown',
             averageScore: userAverageScore,
             quizzesCompleted: userQuizzesCompleted,
             totalScore: userTotalScore,
           };
         });
 
+        // filter active and sort by totalScore, then average
         const activeUsers = userRankings.filter((u) => u.quizzesCompleted > 0);
-
         activeUsers.sort((a, b) => {
-          if (b.totalScore !== a.totalScore) {
-            return b.totalScore - a.totalScore;
-          }
+          if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
           return b.averageScore - a.averageScore;
         });
 
         let currentUserRank =
-          activeUsers.findIndex((user) => user.id === currentUser.id) + 1;
+          activeUsers.findIndex((user) => user.id === uid) + 1;
         if (currentUserRank === 0 && quizzesCompleted > 0) {
           currentUserRank = activeUsers.length + 1;
         } else if (quizzesCompleted === 0) {
@@ -112,14 +127,16 @@ export default function Dashboard() {
 
         const percentile =
           currentUserRank > 0
-            ? Math.round((currentUserRank / activeUsers.length) * 100)
+            ? Math.round((currentUserRank / Math.max(1, activeUsers.length)) * 100)
             : 100;
+
+        if (!mounted) return;
 
         setStats({
           quizzesCompleted,
           averageScore,
           rank: currentUserRank,
-          gpa: 3.2 + Math.random() * 0.8,
+          gpa: 3.2 + Math.random() * 0.8, // keep your random styling
           handoutsCompleted: Math.floor(Math.random() * 15),
           totalScore,
           percentile,
@@ -127,245 +144,286 @@ export default function Dashboard() {
       } catch (error) {
         console.error('Error fetching user stats:', error);
       } finally {
-        setLoadingStats(false);
+        if (mounted) setLoadingStats(false);
       }
     };
 
-    fetchUserStats();
-  }, [currentUser]);
+    const fetchSubscription = async () => {
+      if (!uid) return;
+      try {
+        const userRef = doc(db, 'users', uid);
+        const snap = await getDoc(userRef);
+        if (snap.exists()) {
+          const data = snap.data() as any;
+          const premium =
+            !!data?.isPremium ||
+            data?.subscriptionStatus === 'active' ||
+            data?.plan === 'premium';
+          if (mounted) setIsPremiumUser(!!premium);
+        } else {
+          if (mounted) setIsPremiumUser(Boolean(currentUser?.isPremium));
+        }
+      } catch (err) {
+        console.warn('Failed to read user subscription status, defaulting to currentUser flag', err);
+        if (mounted) setIsPremiumUser(Boolean(currentUser?.isPremium));
+      }
+    };
 
-  const allFieldSubjects = subjects.filter(
-    (subject) => subject.field === currentUser?.field
+    // Run both in parallel (not strictly dependent)
+    fetchSubscription();
+    fetchUserStats();
+
+    return () => {
+      mounted = false;
+    };
+  }, [uid, currentUser?.isPremium]);
+
+  // Handlers for navigation (memoized)
+  const handleSubjectClick = useCallback(
+    (subject: any) => {
+      // If subject is free or user is premium -> go to subject, otherwise to premium
+      if (subject.isFree || isPremiumUser) {
+        navigate(`/subject/${subject.id}`);
+      } else {
+        navigate('/premium');
+      }
+    },
+    [navigate, isPremiumUser]
   );
 
-  const handleSubjectClick = (subject) => {
-    if (subject.isFree || currentUser?.isPremium) {
-      navigate(`/subject/${subject.id}`);
-    } else {
-      navigate('/premium');
-    }
-  };
-
-  const handlePremiumClick = () => {
+  const handlePremiumClick = useCallback(() => {
     navigate('/premium');
-  };
+  }, [navigate]);
+
+  // UI helpers
+  const welcomeName = useMemo(
+    () => (currentUser?.fullName ? currentUser.fullName.split(' ')[0] : ''),
+    [currentUser?.fullName]
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <Header />
 
-      <div className="container mx-auto px-4 py-8 pt-20">
-        
-        {/* All Subjects Section - Combined */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+      <main className="container mx-auto px-4 py-6 pt-20 max-w-6xl">
+        {/* Top: Subjects header + CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-10"
+          transition={{ duration: 0.45, delay: 0.15 }}
+          className="mb-8"
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-              <FiBook className="h-6 w-6 text-green-500" /> All Practice Questions
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+              <FiBook className="h-6 w-6 text-green-500" />
+              <span>All Practice Questions</span>
             </h3>
-            {!currentUser?.isPremium && (
+
+            {!isPremiumUser && (
               <button
                 onClick={handlePremiumClick}
-                className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2 self-start md:self-auto mt-2 md:mt-0"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-shadow shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                aria-label="Unlock all premium content"
               >
                 <FaCrown className="h-4 w-4" />
-                <span>Unlock All Premium</span>
+                <span className="whitespace-nowrap">Unlock All Premium</span>
               </button>
             )}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+          {/* Subjects grid - responsive and touch-friendly */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {allFieldSubjects.map((subject) => (
-              <SubjectCard
-                key={subject.id}
-                subject={subject}
-                isLocked={!subject.isFree && !currentUser?.isPremium}
-                onClick={() => handleSubjectClick(subject)}
-                completionPercentage={
-                  subject.isFree || currentUser?.isPremium
-                    ? Math.floor(Math.random() * 100)
-                    : 0
-                }
-              />
+              <div key={subject.id} className="w-full">
+                <SubjectCard
+                  subject={subject}
+                  isLocked={!subject.isFree && !isPremiumUser}
+                  onClick={() => handleSubjectClick(subject)}
+                  completionPercentage={
+                    subject.isFree || isPremiumUser ? Math.floor(Math.random() * 100) : 0
+                  }
+                />
+              </div>
             ))}
           </div>
-        </motion.div>
-        
-        {/* User Stats and Motivation Combined Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2 bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden flex flex-col justify-between"
-          >
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full -m-8"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/20 rounded-full -m-6"></div>
+        </motion.section>
 
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between">
-              <div className="mb-4 md:mb-0 max-w-xl">
-                <h2 className="text-3xl font-extrabold mb-2 leading-tight">
-                  {currentUser?.fullName
-                    ? `Welcome, ${currentUser.fullName.split(' ')[0]}!`
-                    : 'Welcome!'}
+        {/* Stats & Quick Actions */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          {/* Stats Panel (big) */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="lg:col-span-2 bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden flex flex-col"
+          >
+            {/* Decorative circles */}
+            <div className="absolute -right-10 -top-10 w-44 h-44 bg-purple-500/20 rounded-full pointer-events-none"></div>
+            <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-indigo-500/20 rounded-full pointer-events-none"></div>
+
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
+                  {welcomeName ? `Welcome, ${welcomeName}!` : 'Welcome!'}
                 </h2>
-                <p className="opacity-90">
+                <p className="mt-1 max-w-xl text-sm opacity-90">
                   {stats.quizzesCompleted > 0
                     ? `You've completed ${stats.quizzesCompleted} quizzes with an average score of ${stats.averageScore.toFixed(
                         1
-                      )}%. Keep up the fantastic work and let's reach the next milestone!`
-                    : 'Start your learning journey today by taking your first quiz. Let’s get you on the leaderboard!'}
+                      )}%. Keep going — the leaderboard awaits!`
+                    : 'Start your journey by taking your first quiz. Let’s get you to the top!'}
                 </p>
               </div>
-              <button
-                onClick={() => navigate('/')}
-                className="bg-white text-indigo-700 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl whitespace-nowrap self-start md:self-auto"
-              >
-                {stats.quizzesCompleted > 0 ? 'Continue Learning →' : 'Start Your First Quiz'}
-              </button>
+
+              <div className="self-start sm:self-auto">
+                <button
+                  onClick={() => navigate('/')}
+                  className="bg-white text-indigo-700 hover:bg-gray-100 px-4 py-2.5 rounded-lg font-bold transition-shadow shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
+                >
+                  {stats.quizzesCompleted > 0 ? 'Continue Learning →' : 'Start Your First Quiz'}
+                </button>
+              </div>
             </div>
-            
-            <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-4 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold">{stats.quizzesCompleted}</div>
-                <div className="text-xs opacity-80 mt-1">Quizzes</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">{stats.averageScore.toFixed(1)}%</div>
-                <div className="text-xs opacity-80 mt-1">Avg Score</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">
-                  {stats.rank > 0 ? `#${stats.rank}` : '--'}
+
+            <div className="relative z-10 mt-6 pt-4 border-t border-white/20 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {loadingStats ? (
+                <div className="col-span-2 sm:col-span-4 flex items-center justify-center py-6">
+                  <ClipLoader size={34} color="#ffffff" />
                 </div>
-                <div className="text-xs opacity-80 mt-1">Global Rank</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">
-                  {stats.gpa?.toFixed(1) || '3.5'}
-                </div>
-                <div className="text-xs opacity-80 mt-1">Predicted GPA</div>
-              </div>
+              ) : (
+                <>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold">{stats.quizzesCompleted}</div>
+                    <div className="text-xs opacity-80 mt-1">Quizzes</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold">{stats.averageScore.toFixed(1)}%</div>
+                    <div className="text-xs opacity-80 mt-1">Avg Score</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold">{stats.rank > 0 ? `#${stats.rank}` : '--'}</div>
+                    <div className="text-xs opacity-80 mt-1">Global Rank</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold">{stats.gpa?.toFixed(1) || '3.5'}</div>
+                    <div className="text-xs opacity-80 mt-1">Predicted GPA</div>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
 
-          {/* New combined card for handouts and challenges */}
+          {/* Quick Actions (small) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100 flex flex-col justify-between"
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 border border-gray-100 flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <FaBookOpen className="text-blue-500 h-6 w-6" /> Quick Actions
+              <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                <FaBookOpen className="text-blue-500 h-5 w-5" /> Quick Actions
               </h3>
-              
-              <div className="space-y-4">
-                {/* Handout Quick Link */}
+
+              <div className="space-y-3">
                 <button
                   onClick={() => navigate('/handouts')}
-                  className="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-2xl transition-colors"
+                  className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors flex items-center justify-between"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-blue-200 p-2 rounded-lg">
-                        <FiFileText className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <span className="font-medium text-gray-800">Study Handouts</span>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-blue-200 p-2 rounded-lg">
+                      <FiFileText className="h-4 w-4 text-blue-600" />
                     </div>
-                    <span className="text-blue-500 font-medium text-sm">View All →</span>
+                    <div className="text-sm font-medium text-gray-800">Study Handouts</div>
                   </div>
+                  <div className="text-blue-500 text-sm font-medium">View All →</div>
                 </button>
 
-                {/* Challenge Quick Link */}
                 <button
                   onClick={() => navigate('/challenges')}
-                  className="w-full text-left p-4 bg-amber-50 hover:bg-amber-100 rounded-2xl transition-colors"
+                  className="w-full text-left p-3 bg-amber-50 hover:bg-amber-100 rounded-xl transition-colors flex items-center justify-between"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-amber-200 p-2 rounded-lg">
-                        <FiFlag className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <span className="font-medium text-gray-800">Challenges</span>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-amber-200 p-2 rounded-lg">
+                      <FiFlag className="h-4 w-4 text-amber-600" />
                     </div>
-                    <span className="text-amber-500 font-medium text-sm">Join Now →</span>
+                    <div className="text-sm font-medium text-gray-800">Challenges</div>
                   </div>
+                  <div className="text-amber-500 text-sm font-medium">Join Now →</div>
                 </button>
 
-                {/* Leaderboard Quick Link */}
                 <button
                   onClick={() => navigate('/leaderboard')}
-                  className="w-full text-left p-4 bg-purple-50 hover:bg-purple-100 rounded-2xl transition-colors"
+                  className="w-full text-left p-3 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors flex items-center justify-between"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-purple-200 p-2 rounded-lg">
-                        <FiBarChart2 className="h-5 w-5 text-purple-600" />
-                      </div>
-                      <span className="font-medium text-gray-800">Leaderboard</span>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-purple-200 p-2 rounded-lg">
+                      <FiBarChart2 className="h-4 w-4 text-purple-600" />
                     </div>
-                    <span className="text-purple-500 font-medium text-sm">View Ranks →</span>
+                    <div className="text-sm font-medium text-gray-800">Leaderboard</div>
                   </div>
+                  <div className="text-purple-500 text-sm font-medium">View Ranks →</div>
                 </button>
               </div>
             </div>
           </motion.div>
-        </div>
+        </section>
 
         {/* Additional information cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {/* Handout Card */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            whileHover={{ y: -6 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
             onClick={() => navigate('/handouts')}
+            role="button"
+            tabIndex={0}
+            aria-label="Study Handouts"
           >
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 flex flex-col justify-center h-full">
+            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-5 flex flex-col justify-center h-full">
               <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
                 <FiFileText className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">Study Handouts</h3>
+              <h3 className="text-lg font-bold text-white mb-1">Study Handouts</h3>
               <p className="text-indigo-100 text-sm">Access comprehensive study materials and notes.</p>
             </div>
           </motion.div>
 
-          {/* COC Card */}
           <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            whileHover={{ y: -6 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
             onClick={() => navigate('/code-of-conduct')}
+            role="button"
+            tabIndex={0}
+            aria-label="Code of Conduct"
           >
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-6 flex flex-col justify-center h-full">
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-5 flex flex-col justify-center h-full">
               <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
                 <FiShield className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">Code of Conduct</h3>
+              <h3 className="text-lg font-bold text-white mb-1">Code of Conduct</h3>
               <p className="text-teal-100 text-sm">Our community guidelines for a great environment.</p>
             </div>
           </motion.div>
 
-          {/* Challenges Card */}
           <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 transition-transform cursor-pointer"
+            whileHover={{ y: -6 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
             onClick={() => navigate('/challenges')}
+            role="button"
+            tabIndex={0}
+            aria-label="Active Challenges"
           >
-            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-6 flex flex-col justify-center h-full">
+            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-5 flex flex-col justify-center h-full">
               <div className="bg-white/20 p-3 rounded-xl mb-4 self-start">
                 <FiFlag className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">Active Challenges</h3>
+              <h3 className="text-lg font-bold text-white mb-1">Active Challenges</h3>
               <p className="text-orange-100 text-sm">Test your knowledge against other students.</p>
             </div>
           </motion.div>
-        </div>
-      </div>
+        </section>
+      </main>
+
       <BottomBar />
     </div>
   );

@@ -1,100 +1,208 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { collection, getDocs, query, where, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import Header from '../Layout/Header';
-import { Trophy, Medal, Award, Crown, Star, Zap, Flame, User, Rocket, ChevronDown, ChevronUp } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import BottomBar from '../Layout/BottomBar';
+import {
+  Trophy,
+  Medal,
+  Award,
+  Crown,
+  Star,
+  Zap,
+  Flame,
+  Rocket,
+  ChevronDown,
+  ChevronUp,
+  Share2,
+  Download,
+  RefreshCw,
+  Search,
+  UserPlus,
+  MessageCircle,
+  BarChart2,
+  TrendingUp,
+  Filter,
+  Users,
+  Calendar,
+  Clock,
+  Globe,
+  X
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
+// --- Types ---
 interface LeaderboardEntry {
   id: string;
   fullName: string;
-  field: string;
+  field?: string;
   averageScore: number;
   totalQuizzes: number;
   rank: number;
   points: number;
   avatar?: string;
+  recentPoints?: number;
+  lastActive?: string;
 }
 
-const getPodiumStyle = (rank: number) => {
-  if (rank === 1) return "bg-gradient-to-br from-yellow-200 to-yellow-400 border-yellow-500 shadow-lg";
-  if (rank === 2) return "bg-gradient-to-br from-gray-200 to-gray-400 border-gray-500 shadow-md";
-  if (rank === 3) return "bg-gradient-to-br from-orange-200 to-orange-400 border-orange-500 shadow-sm";
-  return "";
+interface UserDoc {
+  id: string;
+  fullName?: string;
+  field?: string;
+  photoURL?: string;
+  lastActive?: Timestamp;
+}
+
+interface ResultDoc {
+  userId: string;
+  percentage: number;
+  pointsEarned?: number;
+  createdAt?: any;
+}
+
+// --- Helpers ---
+const chunk = <T,>(arr: T[], size: number) => {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
 };
 
-const getPodiumAvatarSize = (rank: number) => {
-  if (rank === 1) return "w-24 h-24 text-4xl";
-  if (rank === 2) return "w-20 h-20 text-3xl";
-  if (rank === 3) return "w-16 h-16 text-2xl";
-  return "";
+const now = () => new Date();
+const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const daysAgo = (d: Date, n: number) => {
+  const x = new Date(d);
+  x.setDate(x.getDate() - n);
+  return x;
 };
 
-const getRankIcon = (rank: number, size = 24) => {
-  if (rank === 1) return <Crown size={size} className="text-yellow-600 fill-yellow-500" />;
-  if (rank === 2) return <Medal size={size} className="text-gray-500 fill-gray-400" />;
-  if (rank === 3) return <Award size={size} className="text-orange-500 fill-orange-400" />;
-  return <span className="text-lg font-bold text-gray-600">#{rank}</span>;
+const formatLastActive = (date?: Date) => {
+  if (!date) return 'Unknown';
+  const diff = now().getTime() - date.getTime();
+  const minutes = Math.floor(diff / 60000);
+  if (minutes < 1) return 'Just now';
+  if (minutes < 60) return `${minutes}m ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
 };
 
-// Reusable component for each leaderboard list item
-const LeaderboardItem = ({ entry, isCurrentUser, expandedUser, toggleExpandUser, leaderboard }) => {
+const RankIcon: React.FC<{ rank: number; size?: number }> = ({ rank, size = 24 }) => {
+  if (rank === 1) return <Crown size={size} className="text-yellow-600" />;
+  if (rank === 2) return <Medal size={size} className="text-gray-500" />;
+  if (rank === 3) return <Award size={size} className="text-orange-500" />;
+  return <span className="text-sm font-bold text-gray-600">#{rank}</span>;
+};
+
+const ScoreBar: React.FC<{ score: number }> = ({ score }) => {
+  const pct = Math.min(100, Math.max(0, Math.round(score)));
+  return (
+    <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+      <div className="h-2 rounded-full" style={{ width: `${pct}%`, background: `linear-gradient(90deg,#7c3aed,#06b6d4)` }} />
+    </div>
+  );
+};
+
+// --- Leaderboard Item ---
+interface LeaderboardItemProps {
+  entry: LeaderboardEntry;
+  isCurrentUser?: boolean;
+  expandedUser: string | null;
+  toggleExpandUser: (id: string) => void;
+  leaderboard: LeaderboardEntry[];
+  onShare?: (entry: LeaderboardEntry) => void;
+  onFollow?: (id: string) => void;
+  isFollowing?: boolean;
+  onProfilePreview: (entry: LeaderboardEntry) => void;
+}
+
+const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({
+  entry,
+  isCurrentUser,
+  expandedUser,
+  toggleExpandUser,
+  leaderboard,
+  onShare,
+  onFollow,
+  isFollowing,
+  onProfilePreview
+}) => {
   const isExpanded = expandedUser === entry.id;
+  const isMobile = useMediaQuery({ maxWidth: 640 });
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, height: 0 }}
-      transition={{ duration: 0.3 }}
-      className={`bg-white rounded-xl shadow-md transition-all hover:shadow-xl p-4 cursor-pointer relative overflow-hidden
-        ${isCurrentUser ? 'ring-2 ring-blue-500 bg-blue-50 border-l-4 border-blue-500' : 'border-l-4 border-gray-200'}`}
-      onClick={() => toggleExpandUser(entry.id)}
+      transition={{ duration: 0.28 }}
+      className={`bg-white dark:bg-gray-900 rounded-xl shadow-sm transition-all p-3 sm:p-4 overflow-hidden ${
+        isCurrentUser ? 'ring-2 ring-indigo-200 border-l-4 border-indigo-400' : 'border-l-4 border-gray-100'
+      }`}
     >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <div className="w-10 flex-shrink-0 text-center">
-            {getRankIcon(entry.rank, 24)}
+      <div className="flex items-center justify-between gap-2" onClick={() => onProfilePreview(entry)}>
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <div className="flex-shrink-0 w-8 sm:w-11 text-center">
+            <RankIcon rank={entry.rank} size={isMobile ? 18 : 22} />
           </div>
-          <div className="flex items-center space-x-4">
+
+          <div className="flex items-center gap-2 min-w-0 flex-1">
             {entry.avatar ? (
               <img
                 src={entry.avatar}
+                loading="lazy"
                 alt={entry.fullName}
-                className="w-12 h-12 rounded-full object-cover border-2 border-white shadow"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm"
               />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xl font-bold border-2 border-white shadow">
-                {entry.fullName.charAt(0)}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-200 font-bold">
+                {entry.fullName.charAt(0) || '?'}
               </div>
             )}
-            <div>
-              <h3 className={`text-lg font-semibold ${isCurrentUser ? 'text-blue-800' : 'text-gray-900'}`}>
-                {entry.fullName}
-              </h3>
-              {isCurrentUser && <span className="text-xs text-blue-500 font-medium">Your Ranking</span>}
-              {!isCurrentUser && <span className="text-xs text-gray-500 font-medium capitalize">{entry.field}</span>}
+
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1">
+                <h3 className={`text-sm sm:text-md font-semibold truncate ${isCurrentUser ? 'text-indigo-700 dark:text-indigo-400' : 'text-gray-900 dark:text-gray-100'}`}>
+                  {entry.fullName}
+                </h3>
+                {!isMobile && (
+                  <span className="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
+                    {entry.field || '—'}
+                  </span>
+                )}
+              </div>
+
+              <div className="mt-1">
+                <ScoreBar score={entry.averageScore} />
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+
+        <div className="flex items-center gap-2">
           <div className="flex flex-col items-end">
-            <div className={`text-xl font-extrabold ${isCurrentUser ? 'text-blue-600' : 'text-gray-800'}`}>
+            <div className={`text-md sm:text-lg font-extrabold ${isCurrentUser ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-800 dark:text-gray-100'}`}>
               {entry.averageScore.toFixed(1)}%
             </div>
-            <div className="flex items-center mt-1 space-x-1 text-sm text-gray-500">
-              <Star className="text-yellow-400 fill-yellow-400" size={16} />
+            <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+              <Star size={isMobile ? 12 : 14} className="text-yellow-400" />
               <span>{entry.points} pts</span>
             </div>
           </div>
-          <motion.div
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {isExpanded ? <ChevronUp className="text-gray-400" size={24} /> : <ChevronDown className="text-gray-400" size={24} />}
-          </motion.div>
+
+          <div className="flex flex-col items-center">
+            <button
+              onClick={(e) => { e.stopPropagation(); toggleExpandUser(entry.id); }}
+              aria-expanded={isExpanded}
+              className="p-1 sm:p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+              aria-label={isExpanded ? 'Collapse' : 'Expand'}
+            >
+              {isExpanded ? <ChevronUp className="text-gray-500" size={isMobile ? 16 : 20} /> : <ChevronDown className="text-gray-500" size={isMobile ? 16 : 20} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -104,345 +212,512 @@ const LeaderboardItem = ({ entry, isCurrentUser, expandedUser, toggleExpandUser,
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden pt-4 mt-4 border-t border-gray-100"
+            transition={{ duration: 0.26 }}
+            className="mt-3 border-t border-gray-100 dark:border-gray-800 pt-2"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-blue-100 p-4 rounded-lg flex items-center justify-between shadow-inner">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 dark:from-indigo-900/10 dark:to-cyan-900/10 rounded-lg p-2 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-blue-600 font-bold uppercase tracking-wider">Performance</p>
-                  <p className="text-lg font-extrabold text-blue-800 mt-1">
-                    Top {leaderboard.length > 0 ? Math.round((entry.rank / leaderboard.length) * 100) : 0}%
-                  </p>
+                  <div className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wide">Performance</div>
+                  <div className="text-md sm:text-lg font-extrabold text-indigo-800 dark:text-indigo-200 mt-1">
+                    Top {leaderboard.length ? Math.max(1, Math.round(((leaderboard.length - entry.rank + 1) / leaderboard.length) * 100)) : 0}%
+                  </div>
                 </div>
-                <div className="p-2 bg-blue-50 rounded-full">
-                  <Rocket className="text-blue-500" size={24} />
+                <div className="p-1 sm:p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">
+                  <Rocket size={isMobile ? 16 : 20} className="text-indigo-600 dark:text-indigo-400" />
                 </div>
               </div>
 
-              <div className="bg-purple-100 p-4 rounded-lg flex items-center justify-between shadow-inner">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 rounded-lg p-2 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-purple-600 font-bold uppercase tracking-wider">Stats</p>
-                  <div className="mt-1 space-y-1">
-                    <div className="text-lg font-extrabold text-purple-800 flex items-center">
-                      <Zap className="text-purple-500 mr-2" size={18} />
-                      {entry.totalQuizzes} quizzes
-                    </div>
+                  <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold uppercase tracking-wide">Stats</div>
+                  <div className="mt-1 text-md sm:text-lg font-extrabold text-purple-800 dark:text-purple-200 flex items-center gap-1">
+                    {entry.totalQuizzes} quizzes
                   </div>
+                  {entry.lastActive && (
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-1">
+                      <Clock size={10} /> Last active: {entry.lastActive}
+                    </div>
+                  )}
                 </div>
-                <div className="p-2 bg-purple-50 rounded-full">
-                  <Trophy className="text-purple-500" size={24} />
+                <div className="p-1 sm:p-2 bg-purple-100 dark:bg-purple-900/30 rounded-full">
+                  <Trophy size={isMobile ? 16 : 20} className="text-purple-600 dark:text-purple-400" />
                 </div>
               </div>
+            </div>
+
+            <div className="mt-2 flex gap-2">
+              <button
+                onClick={() => onProfilePreview(entry)}
+                className="px-2 py-1 text-xs sm:text-sm bg-indigo-600 text-white rounded-md flex items-center gap-1"
+              >
+                <MessageCircle size={isMobile ? 12 : 14} /> Message
+              </button>
+              <button
+                onClick={() => onFollow && onFollow(entry.id)}
+                className="px-2 py-1 text-xs sm:text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md flex items-center gap-1"
+              >
+                <UserPlus size={isMobile ? 12 : 14} /> {isFollowing ? 'Unfollow' : 'Follow'}
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
   );
-};
+});
 
-export default function LeaderboardPage() {
+// --- Main Page ---
+export default function LeaderboardPage(): JSX.Element {
   const { currentUser } = useAuth();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'field'>('field');
+  const [period, setPeriod] = useState<'today' | 'week' | 'month' | 'all'>('all');
+  const [search, setSearch] = useState('');
+  const [sortBy, setSortBy] = useState<'score' | 'points' | 'quizzes' | 'recentPoints'>('score');
+  const [following, setFollowing] = useState<Record<string, boolean>>(() => {
+    try { return JSON.parse(localStorage.getItem('leaderboard_following') || '{}'); } catch { return {}; }
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(10);
+  const [showFilters, setShowFilters] = useState(false);
+  const [showMobilePreview, setShowMobilePreview] = useState(false);
+  const searchRef = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery({ maxWidth: 640 });
 
-  useEffect(() => {
-    // Only attempt to load the leaderboard if a user is authenticated.
-    if (currentUser) {
-      loadLeaderboard();
-    }
-  }, [currentUser, activeTab]);
+  // New helper function for point calculation
+  const calculatePoints = useCallback((results: ResultDoc[]) => {
+    return results.reduce((sum, result) => sum + (result.pointsEarned || 0), 0);
+  }, []);
 
-  const loadLeaderboard = async () => {
-    // Ensure we have a user before proceeding.
+  const loadLeaderboard = useCallback(async () => {
     if (!currentUser) return;
+    setLoading(true);
+    setError(null);
 
     try {
-      setLoading(true);
-      let usersQuery = query(collection(db, 'users'));
+      const usersRef = collection(db, 'users');
+      let usersQuery = query(usersRef);
+      if (activeTab === 'field' && (currentUser as any).field) {
+        usersQuery = query(usersRef, where('field', '==', (currentUser as any).field));
+      }
+      const usersSnapshot = await getDocs(usersQuery);
+      const users: UserDoc[] = usersSnapshot.docs.map(d => ({ id: d.id, ...(d.data() as any) }));
 
-      // This is the key fix: only apply the 'field' filter if the activeTab is 'field' AND
-      // the currentUser object has a 'field' property.
-      if (activeTab === 'field' && currentUser.field) {
-        usersQuery = query(usersQuery, where('field', '==', currentUser.field));
+      if (users.length === 0) {
+        setLeaderboard([]);
+        setLoading(false);
+        return;
       }
 
-      const usersSnapshot = await getDocs(usersQuery);
-      const users = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-      const resultsSnapshot = await getDocs(collection(db, 'results'));
-      const results = resultsSnapshot.docs.map(doc => doc.data());
-
-      const leaderboardData = users.map(user => {
-        const userResults = results.filter(r => r.userId === user.id);
-        const averageScore = userResults.length > 0
-          ? userResults.reduce((sum, r) => sum + r.percentage, 0) / userResults.length
-          : 0;
-        const totalPoints = userResults.reduce((sum, r) => sum + (r.pointsEarned || 0), 0);
-
-        return {
-          id: user.id,
-          fullName: user.fullName || 'Anonymous',
-          field: user.field,
-          averageScore,
-          totalQuizzes: userResults.length,
-          points: totalPoints,
-          avatar: user.photoURL
-        };
+      const userIds = users.map(u => u.id);
+      const resultsRef = collection(db, 'results');
+      const idChunks = chunk(userIds, 10);
+      const resultsPromises = idChunks.map(async (chunkIds) => {
+        const q = query(resultsRef, where('userId', 'in', chunkIds));
+        const snap = await getDocs(q);
+        return snap.docs.map(d => d.data() as ResultDoc);
       });
 
-      const sortedLeaderboard = leaderboardData
-        .sort((a, b) => b.averageScore - a.averageScore)
-        .map((entry, index) => ({
-          ...entry,
-          rank: index + 1
-        }));
+      const resultsArrays = await Promise.all(resultsPromises);
+      const allResults: ResultDoc[] = resultsArrays.flat();
 
-      setLeaderboard(sortedLeaderboard);
-    } catch (error) {
-      console.error('Error loading leaderboard:', error);
+      const todayStart = startOfDay(now());
+      const weekStart = daysAgo(todayStart, 7);
+      const monthStart = daysAgo(todayStart, 30);
+
+      const leaderboardData: LeaderboardEntry[] = users.map(u => {
+        const userResults = allResults.filter(r => r.userId === u.id);
+        const totalQuizzes = userResults.length;
+        const averageScore = totalQuizzes > 0
+          ? (userResults.reduce((s, r) => s + (r.percentage || 0), 0) / totalQuizzes)
+          : 0;
+        const totalPoints = calculatePoints(userResults);
+
+        const recentPoints = userResults.reduce((s, r) => {
+          const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
+          if (!created) return s;
+          if (created >= weekStart) return s + (r.pointsEarned || 0);
+          return s;
+        }, 0);
+
+        const lastActive = u.lastActive ?
+          formatLastActive(u.lastActive.toDate ? u.lastActive.toDate() : new Date(u.lastActive)) : undefined;
+
+        return {
+          id: u.id,
+          fullName: u.fullName || 'Anonymous',
+          field: u.field,
+          averageScore,
+          totalQuizzes,
+          points: totalPoints,
+          avatar: u.photoURL,
+          rank: 0,
+          recentPoints,
+          lastActive
+        } as LeaderboardEntry;
+      });
+
+      let list = leaderboardData;
+
+      if (period === 'today') {
+        list = leaderboardData.filter(l => {
+          const userResults = allResults.filter(r => r.userId === l.id);
+          return userResults.some(r => {
+            const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
+            return created && created >= todayStart;
+          });
+        }).map(l => {
+            const dailyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= todayStart);
+            return {
+                ...l,
+                points: calculatePoints(dailyResults),
+                totalQuizzes: dailyResults.length,
+                averageScore: dailyResults.length > 0 ? (dailyResults.reduce((s, r) => s + (r.percentage || 0), 0) / dailyResults.length) : 0
+            };
+        });
+      } else if (period === 'week') {
+        list = leaderboardData.filter(l => {
+          const userResults = allResults.filter(r => r.userId === l.id);
+          return userResults.some(r => {
+            const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
+            return created && created >= weekStart;
+          });
+        }).map(l => {
+            const weeklyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= weekStart);
+            return {
+                ...l,
+                points: calculatePoints(weeklyResults),
+                totalQuizzes: weeklyResults.length,
+                averageScore: weeklyResults.length > 0 ? (weeklyResults.reduce((s, r) => s + (r.percentage || 0), 0) / weeklyResults.length) : 0
+            };
+        });
+      } else if (period === 'month') {
+        list = leaderboardData.filter(l => {
+          const userResults = allResults.filter(r => r.userId === l.id);
+          return userResults.some(r => {
+            const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
+            return created && created >= monthStart;
+          });
+        }).map(l => {
+            const monthlyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= monthStart);
+            return {
+                ...l,
+                points: calculatePoints(monthlyResults),
+                totalQuizzes: monthlyResults.length,
+                averageScore: monthlyResults.length > 0 ? (monthlyResults.reduce((s, r) => s + (r.percentage || 0), 0) / monthlyResults.length) : 0
+            };
+        });
+      }
+
+      const sorted = list.sort((a, b) => {
+        if (sortBy === 'score') return b.averageScore - a.averageScore || b.points - a.points;
+        if (sortBy === 'points') return b.points - a.points || b.averageScore - a.averageScore;
+        if (sortBy === 'quizzes') return b.totalQuizzes - a.totalQuizzes || b.averageScore - a.averageScore;
+        return (b.recentPoints || 0) - (a.recentPoints || 0);
+      });
+
+      const ranked = sorted.map((entry, idx) => ({ ...entry, rank: idx + 1 }));
+      setLeaderboard(ranked);
+    } catch (err) {
+      console.error('Error loading leaderboard', err);
+      setError('Failed to load leaderboard.');
+      setLeaderboard([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeTab, currentUser, period, sortBy, calculatePoints]);
 
-  const toggleExpandUser = (userId: string) => {
-    setExpandedUser(expandedUser === userId ? null : userId);
-  };
+  useEffect(() => {
+    if (!currentUser) return;
+    loadLeaderboard();
+  }, [currentUser, activeTab, period, sortBy, loadLeaderboard]);
 
-  const navigate = (path: string) => {
-    console.log(`Navigating to ${path}`);
-  };
+  const toggleExpandUser = useCallback((id: string) => {
+    setExpandedUser(prev => (prev === id ? null : id));
+  }, []);
 
-  const top3 = leaderboard.slice(0, 3);
-  const remainingLeaderboard = leaderboard.slice(3);
-  const currentUserRank = leaderboard.find(entry => entry.id === currentUser?.id);
+  const onShare = useCallback(async (entry: LeaderboardEntry) => {
+    const link = `${window.location.origin}/profile/${entry.id}`;
+    try {
+      if ((navigator as any).share) {
+        await (navigator as any).share({
+          title: `${entry.fullName} - Leaderboard`,
+          text: `Check out ${entry.fullName} on the leaderboard with ${entry.averageScore.toFixed(1)}% average score!`,
+          url: link
+        });
+      } else {
+        await navigator.clipboard.writeText(link);
+        alert('Profile link copied to clipboard');
+      }
+    } catch (e) {
+      console.error('Share failed', e);
+      alert('Unable to share');
+    }
+  }, []);
 
-  if (!currentUser) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50">
-        <Header />
-        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-4">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-            className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full"
-          ></motion.div>
-          <p className="mt-4 text-gray-600 text-lg">Authenticating user...</p>
-        </div>
-      </div>
+  const exportCSV = useCallback(() => {
+    if (!leaderboard.length) return;
+    const headers = ['rank', 'fullName', 'field', 'averageScore', 'totalQuizzes', 'points', 'recentPoints'];
+    const rows = leaderboard.map(l => [l.rank, l.fullName, l.field || '', l.averageScore.toFixed(2), l.totalQuizzes, l.points, l.recentPoints || 0]);
+    const csv = [headers, ...rows].map(r => r.map(String).map(v => `"${v.replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `leaderboard-${period}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [leaderboard, period]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return leaderboard;
+    return leaderboard.filter(l =>
+      l.fullName.toLowerCase().includes(q) ||
+      (l.field || '').toLowerCase().includes(q)
     );
-  }
+  }, [leaderboard, search]);
+
+  const toggleFollow = useCallback((id: string) => {
+    setFollowing(prev => {
+      const copy = { ...prev, [id]: !prev[id] };
+      try { localStorage.setItem('leaderboard_following', JSON.stringify(copy)); } catch { }
+      return copy;
+    });
+  }, []);
+
+  const loadMore = useCallback(() => setVisibleCount(v => v + 10), []);
+
+  const goToProfile = useCallback((id: string) => navigate(`/profile/${id}`), [navigate]);
+
+  const [previewUser, setPreviewUser] = useState<LeaderboardEntry | null>(null);
+
+  const toggleFilters = useCallback(() => setShowFilters(prev => !prev), []);
+
+  const handleProfilePreview = useCallback((entry: LeaderboardEntry) => {
+    setPreviewUser(entry);
+    if (isMobile) {
+      setShowMobilePreview(true);
+    }
+  }, [isMobile]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" style={{ paddingTop: 'env(safe-area-inset-top, 12px)' }}>
       <Header />
-      <div className="container mx-auto px-4 py-8">
+
+      <main className="w-full max-w-screen-lg mx-auto px-3 sm:px-4 py-4 sm:py-6">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          transition={{ duration: 0.45 }}
+          className="text-center mb-4 sm:mb-6"
         >
-          <div className="inline-flex items-center justify-center p-3 rounded-full bg-blue-100 mb-2 shadow-md">
-            <Trophy className="h-8 w-8 text-blue-500" />
-          </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-1">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center justify-center p-2 sm:p-3 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 mb-2 shadow-md"
+          >
+            <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 dark:text-blue-400" />
+          </motion.div>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-gray-100 mb-1">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               Academic Leaderboard
             </span>
           </h1>
-          <p className="text-gray-500 text-md max-w-sm mx-auto">
-            See where you stand among your peers and climb to the top!
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+            Track your progress and compete with peers in real-time rankings
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-white rounded-full p-1 shadow-lg">
+        {isMobile && (
+          <div className="mb-3">
             <button
-              onClick={() => setActiveTab('field')}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-colors ${activeTab === 'field' ? 'bg-blue-600 text-white shadow' : 'text-gray-600 hover:bg-gray-100'}`}
+              onClick={toggleFilters}
+              className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-sm"
             >
-              My Field
+              <Filter size={16} />
+              <span>Filters & Options</span>
+              {showFilters ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
-            <button
-              onClick={() => setActiveTab('all')}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-colors ${activeTab === 'all' ? 'bg-blue-600 text-white shadow' : 'text-gray-600 hover:bg-gray-100'}`}
+          </div>
+        )}
+
+        <div className={`${isMobile ? (showFilters ? 'block' : 'hidden') : 'flex'} flex-col lg:flex-row items-stretch lg:items-center gap-3 mb-4 sm:mb-5`}>
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-3 text-gray-400" size={16} />
+            <input
+              ref={searchRef}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search name or field..."
+              className="w-full pl-9 pr-3 py-2 sm:py-3 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-sm sm:text-base"
+            />
+          </div>
+
+          <div className="flex-none flex items-center gap-2 overflow-x-auto lg:overflow-visible pb-2">
+            <div className="flex gap-1 sm:gap-2 bg-white dark:bg-gray-800 rounded-lg p-1 shadow-sm">
+              {(['today', 'week', 'month', 'all'] as const).map(p => (
+                <motion.button
+                  key={p}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => { setPeriod(p); setVisibleCount(10); }}
+                  className={`px-2 py-1 sm:px-3 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                    period === p ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  {p === 'today' ? 'Today' : p === 'week' ? 'Week' : p === 'month' ? 'Month' : 'All time'}
+                </motion.button>
+              ))}
+            </div>
+
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-xs sm:text-sm"
             >
-              Global
-            </button>
+              <option value="score">Score</option>
+              <option value="points">Points</option>
+              <option value="quizzes">Quizzes</option>
+              <option value="recentPoints">Trending</option>
+            </select>
+
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => { setActiveTab(prev => prev === 'field' ? 'all' : 'field'); setVisibleCount(10); }}
+              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
+            >
+              {activeTab === 'field' ? <Users size={14} /> : <Globe size={14} />}
+              <span>{activeTab === 'field' ? 'Field' : 'Global'}</span>
+            </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => loadLeaderboard()}
+              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
+              aria-label="Refresh"
+            >
+              <RefreshCw size={14} />
+              {!isMobile && <span>Refresh</span>}
+            </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={exportCSV}
+              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-sm hover:opacity-95 flex items-center gap-1 text-xs sm:text-sm"
+            >
+              <Download size={14} />
+              {!isMobile && <span>Export</span>}
+            </motion.button>
           </div>
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="flex gap-2 sm:gap-3 overflow-x-auto py-2 mb-3 sm:mb-4 scrollbar-hide"
+        >
+          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+            <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <Users size={12} /> Users
+            </div>
+            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100">{leaderboard.length}</div>
+          </div>
+
+          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+            <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <TrendingUp size={12} /> Active (7d)
+            </div>
+            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100">
+              {leaderboard.filter(l => (l.recentPoints || 0) > 0).length}
+            </div>
+          </div>
+
+          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+            <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <BarChart2 size={12} /> Sort
+            </div>
+            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100 capitalize">
+              {sortBy === 'recentPoints' ? 'Trending' : sortBy}
+            </div>
+          </div>
+
+          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+            <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <Calendar size={12} /> Period
+            </div>
+            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100 capitalize">
+              {period === 'all' ? 'All' : period}
+            </div>
+          </div>
+        </motion.div>
+
+        {error && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-700 dark:text-red-200 text-sm mb-4"
+          >
+            {error}
+          </motion.div>
+        )}
+
         {loading ? (
-           <div className="flex flex-col items-center justify-center py-16">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full"
-            ></motion.div>
-            <p className="mt-4 text-gray-600 text-lg">Fetching leaderboard data...</p>
+          <div className="space-y-3">
+            {[1, 2, 3, 4].map(i => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: i * 0.1 }}
+                className="animate-pulse bg-white dark:bg-gray-900 rounded-xl p-4 h-20 border border-gray-100 dark:border-gray-800"
+              />
+            ))}
           </div>
         ) : (
           <>
-            {top3.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="mb-12 max-w-3xl mx-auto"
-              >
-                <div className="flex items-end justify-center gap-4">
-                  {/* 2nd Place */}
-                  {top3[1] && (
-                    <div className="w-1/3 text-center flex flex-col items-center">
-                      <div className={`p-1.5 rounded-full ${getPodiumStyle(2)} ring-2 ring-gray-400`}>
-                        {top3[1].avatar ? (
-                          <img src={top3[1].avatar} alt={top3[1].fullName} className="w-20 h-20 rounded-full object-cover border border-gray-500" />
-                        ) : (
-                          <div className={`rounded-full bg-gray-300 flex items-center justify-center font-bold text-gray-700 ${getPodiumAvatarSize(2)}`}>
-                            {top3[1].fullName.charAt(0)}
-                          </div>
-                        )}
-                      </div>
-                      <h3 className="mt-3 font-extrabold text-lg text-gray-800 truncate">{top3[1].fullName}</h3>
-                      <p className="text-md text-gray-600 font-semibold">{top3[1].averageScore.toFixed(1)}%</p>
-                      <div className="mt-2 text-gray-500 flex items-center">
-                        <Medal className="text-gray-400 fill-gray-300 mr-1" size={20} />
-                        <span className="font-semibold">#2</span>
-                      </div>
-                    </div>
-                  )}
-                  {/* 1st Place */}
-                  {top3[0] && (
-                    <div className="w-1/3 text-center flex flex-col items-center mb-6 relative">
-                      <motion.div
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                        className="absolute -top-10"
-                      >
-                        <Crown className="text-yellow-500 fill-yellow-400" size={50} />
-                      </motion.div>
-                      <div className={`p-2 rounded-full ${getPodiumStyle(1)} ring-2 ring-yellow-400`}>
-                        {top3[0].avatar ? (
-                          <img src={top3[0].avatar} alt={top3[0].fullName} className="w-24 h-24 rounded-full object-cover border border-yellow-500" />
-                        ) : (
-                          <div className={`rounded-full bg-yellow-200 flex items-center justify-center font-bold text-yellow-700 ${getPodiumAvatarSize(1)}`}>
-                            {top3[0].fullName.charAt(0)}
-                          </div>
-                        )}
-                      </div>
-                      <h3 className="mt-3 font-extrabold text-xl text-yellow-800 truncate">{top3[0].fullName}</h3>
-                      <p className="text-lg text-yellow-600 font-bold">{top3[0].averageScore.toFixed(1)}%</p>
-                      <div className="mt-2 text-yellow-600 flex items-center">
-                        <span className="font-bold text-lg">#1</span>
-                      </div>
-                    </div>
-                  )}
-                  {/* 3rd Place */}
-                  {top3[2] && (
-                    <div className="w-1/3 text-center flex flex-col items-center">
-                      <div className={`p-1 rounded-full ${getPodiumStyle(3)} ring-2 ring-orange-400`}>
-                        {top3[2].avatar ? (
-                          <img src={top3[2].avatar} alt={top3[2].fullName} className="w-16 h-16 rounded-full object-cover border border-orange-500" />
-                        ) : (
-                          <div className={`rounded-full bg-orange-200 flex items-center justify-center font-bold text-orange-600 ${getPodiumAvatarSize(3)}`}>
-                            {top3[2].fullName.charAt(0)}
-                          </div>
-                        )}
-                      </div>
-                      <h3 className="mt-3 font-extrabold text-lg text-gray-800 truncate">{top3[2].fullName}</h3>
-                      <p className="text-md text-gray-600 font-semibold">{top3[2].averageScore.toFixed(1)}%</p>
-                      <div className="mt-2 text-orange-500 flex items-center">
-                        <Award className="text-orange-500 fill-orange-400 mr-1" size={20} />
-                        <span className="font-semibold">#3</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+            {leaderboard.length === 0 && (
+              <div className="text-center p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 text-gray-600 dark:text-gray-400">
+                <Zap size={36} className="mx-auto mb-3 text-indigo-400" />
+                <h3 className="text-lg sm:text-xl font-bold">No results found</h3>
+                <p className="mt-1 text-sm">Try adjusting your filters or check back later!</p>
+              </div>
             )}
 
-            <div className="max-w-3xl mx-auto">
-              <div className="flex justify-between items-center mb-6 border-b border-gray-200 pb-2">
-                <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-                  <Flame className="text-orange-500 mr-2" size={24} />
-                  {activeTab === 'field' ? 'Field Rankings' : 'Global Rankings'}
-                </h2>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
-                    {leaderboard.length} users
-                  </span>
-                  {activeTab === 'field' && currentUser?.field && (
-                    <span className="text-sm text-blue-600 bg-blue-100 px-3 py-1 rounded-full capitalize">
-                      {currentUser.field}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-4 mb-6">
-                <AnimatePresence>
-                  {remainingLeaderboard.map((entry) => (
-                    <LeaderboardItem
-                      key={entry.id}
-                      entry={entry}
-                      isCurrentUser={entry.id === currentUser?.id}
-                      expandedUser={expandedUser}
-                      toggleExpandUser={toggleExpandUser}
-                      leaderboard={leaderboard}
-                    />
-                  ))}
-                </AnimatePresence>
-              </div>
-
-              {leaderboard.length === 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center py-16 bg-white rounded-xl shadow-lg"
-                >
-                  <div className="inline-flex bg-gray-100 p-4 rounded-full mb-4">
-                    <Zap className="h-10 w-10 text-yellow-500" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-2">
-                    No rankings for this field yet.
-                  </h3>
-                  <p className="text-gray-600 text-lg mb-6 max-w-sm mx-auto">
-                    Be the first to complete a quiz in your field and claim the top spot!
-                  </p>
-                  <button
-                    onClick={() => navigate('/subjects')}
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all"
-                  >
-                    Start Learning
-                  </button>
-                </motion.div>
-              )}
+            <div className="space-y-2 sm:space-y-3">
+              <AnimatePresence mode="popLayout">
+                {filtered.slice(0, visibleCount).map((entry) => (
+                  <LeaderboardItem
+                    key={entry.id}
+                    entry={entry}
+                    isCurrentUser={currentUser?.uid === entry.id}
+                    expandedUser={expandedUser}
+                    toggleExpandUser={toggleExpandUser}
+                    leaderboard={filtered}
+                    onShare={onShare}
+                    onFollow={toggleFollow}
+                    isFollowing={following[entry.id]}
+                    onProfilePreview={handleProfilePreview}
+                  />
+                ))}
+              </AnimatePresence>
             </div>
-
-            {currentUser && currentUserRank && currentUserRank.rank > 3 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="mt-8"
-              >
-                <LeaderboardItem
-                  entry={currentUserRank}
-                  isCurrentUser={true}
-                  expandedUser={expandedUser}
-                  toggleExpandUser={toggleExpandUser}
-                  leaderboard={leaderboard}
-                />
-              </motion.div>
+            {visibleCount < filtered.length && (
+              <div className="mt-4 sm:mt-6 flex justify-center">
+                <button
+                  onClick={loadMore}
+                  className="px-4 py-1.5 sm:px-6 sm:py-2 rounded-full border border-gray-300 dark:border-gray-700 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm sm:text-base"
+                >
+                  Load More
+                </button>
+              </div>
             )}
           </>
         )}
-      </div>
+      </main>
       <BottomBar />
     </div>
   );

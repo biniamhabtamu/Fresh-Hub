@@ -525,196 +525,318 @@ export const noteCollections: Subject[] = [
   title: 'Chapter 2: Sensation and Perception',
   content: `
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Chapter 2: Sensation and Perception</title>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-      <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Page</title>
+    <style>
+        /* Global styles */
         body {
-          font-family: 'Lato', sans-serif;
-          line-height: 1.7;
-          color: #4a4a4a;
-          margin: 0;
-          padding: 20px;
-          background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
         }
-        
-        .content-section {
-          background-color: #ffffff;
-          padding: 25px;
-          margin-bottom: 20px;
-          border-radius: 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Card container */
+        .note-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
         }
 
         h2 {
-          color: #0d47a1;
-          border-bottom: 2px solid #0d47a1;
-          padding-bottom: 8px;
-          margin-top: 0;
-          font-size: 2em;
-          font-weight: 700;
+            font-size: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
-        
+
         h3 {
-          color: #2e7d32;
-          font-size: 1.5em;
-          margin-top: 20px;
-          margin-bottom: 10px;
+            font-size: 20px;
         }
-        
+
+        /* Paragraphs and text */
         p {
-          margin-bottom: 15px;
-        }
-        
-        strong {
-          color: #c62828;
-          font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        ul, ol {
-          padding-left: 20px;
-          margin-bottom: 15px;
-        }
-        
-        li {
-          margin-bottom: 8px;
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 600px) {
-          body {
-            padding: 10px;
-          }
-          .content-section {
-            padding: 15px;
-          }
-          h2 {
-            font-size: 1.7em;
-          }
-          h3 {
-            font-size: 1.3em;
-          }
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-      </style>
-    </head>
-    <body>
-      <div class="content-section">
-        <h2>Sensation vs. Perception</h2>
-        <p><strong>Sensation:</strong> This is the process through which sensory receptors (e.g., eyes, ears, skin) detect stimuli from the environment and send this information to the brain. Sensation is about detecting raw data such as colors, sounds, or tastes.</p>
-        <p><strong>Perception:</strong> This is the process where the brain organizes and interprets sensory information to create meaningful experiences. Perception involves recognizing patterns, shapes, and context, turning raw sensory data into coherent experiences.</p>
-        <h3>Examples:</h3>
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .note-card {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            font-size: 14px;
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        /* Ensure Amharic text renders properly */
+        body {
+            unicode-bidi: plaintext;
+        }
+    </style>
+</head>
+<body>
+    <div class="note-card">
+        <h1>The Difference Between Sensation and Perception</h1>
+        <p>Have you ever looked at something but not truly "seen" it? That's the difference between sensation and perception! While they're almost impossible to separate in daily life, psychologists study them as two distinct processes.</p>
+        <p>የእይታ እና የማስተዋል ልዩነት ምንድን ነው? 🤔 የሆነ ነገር እያዩ ነገር ግን በትክክል ትኩረት እንዳልሰጡበት ተሰምቶዎት ያውቃል? ይህ የስሜት ህዋሳት (sensation) እና ግንዛቤ (perception) መካከል ያለው ልዩነት ነው። ምንም እንኳን በየቀኑ አብረው የሚሰሩ ቢሆንም የስነ-ልቦና ባለሙያዎች እንደ ሁለት የተለያዩ ሂደቶች ያጠኑዋቸዋል።</p>
+
+        <h2>What is Sensation? 👀👂</h2>
+        <p>Sensation is the first step. It's the process where our sensory organs—our eyes, ears, nose, and skin—receive information from the environment and send it to the brain as nerve impulses. It's the raw data, like seeing black marks on a page or hearing a sound.</p>
+        <p>Key Idea: It’s about detecting a stimulus. It's the physical process of receiving sensory input.</p>
+        <p>Example: Seeing a specific color or feeling a texture on your skin.</p>
+        <p>ስሜት ህዋሳት (Sensation) ምንድን ነው?</p>
+        <p>የስሜት ህዋሳት የአካል ክፍሎቻችን (አይን፣ ጆሮ፣ አፍንጫ፣ ቆዳ) ከአካባቢው መረጃን ተቀብለው ወደ አንጎል የሚልኩበት የመጀመሪያው ሂደት ነው።</p>
+        <p>ዋናው ነጥብ፡ ትኩረቱ የአንድን ነገር መኖር (stimulus) ማወቅ ላይ ነው። ይህ የስሜት ህዋሳትን የመቀበል አካላዊ ሂደት ነው።</p>
+        <p>ምሳሌ: በአንድ ገጽ ላይ ጥቁር ምልክቶችን ማየት ወይም የሙዚቃ ድምጽ መሰማት።</p>
+
+        <h2>What is Perception? 🧠✨</h2>
+        <p>Perception is what comes next. It's the brain's job to take that raw sensory data, organize it, and give it meaning. It's how we transform black marks into letters and words, or sounds into a beautiful melody. Perception is an active process of interpretation.</p>
+        <p>Key Idea: It’s about interpreting a stimulus. It's the psychological process of giving meaning to what we sense.</p>
+        <p>Example: Turning the sight of black marks on a page into the understanding of a sentence. A person with prosopagnosia (face blindness) has normal sensation but a problem with perception, as they can't organize facial features into a recognizable face.</p>
+        <p>ግንዛቤ (Perception) ምንድን ነው?</p>
+        <p>ግንዛቤ ደግሞ ከአንጎል የሚመጣ ሂደት ነው። አንጎላችን የተቀበለውን መረጃ አደራጅቶ ትርጉም የሚሰጥበት መንገድ ነው።</p>
+        <p>ዋናው ነጥብ፡ ትኩረቱ መረጃውን መተርጎም ላይ ነው።</p>
+        <p>ምሳሌ: የጥቁር ምልክቶችን አይተን ወደ ፊደሎችና ቃላት መለወጥ።</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sensation (ስሜት ህዋሳት)</th>
+                    <th>Perception (ግንዛቤ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Detecting a stimulus (አንድን ነገር ማወቅ)</td>
+                    <td>Interpreting a stimulus (ያንን ነገር መተርጎም)</td>
+                </tr>
+                <tr>
+                    <td>Raw, sensory data (ጥሬ መረጃ)</td>
+                    <td>Meaningful patterns (ትርጉም ያለው ቅርጽ)</td>
+                </tr>
+                <tr>
+                    <td>Example: Seeing black lines (ጥቁር መስመሮችን ማየት)</td>
+                    <td>Example: Reading the word "cat" (ድመት የሚለውን ቃል ማንበብ)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Export to Sheets</p>
+        <h2>The Sensory Laws: Thresholds & Adaptation</h2>
+        <p>Not all stimuli are equal. Our bodies have special rules for how we detect and react to them. These are known as sensory thresholds and sensory adaptation.</p>
+        <p>የስሜት ህዋሳት ህጎች</p>
+        <p>ሁሉም ነገሮች ተመሳሳይ አይደሉም። ሰውነታችን መረጃዎችን የሚቀበልበት እና ምላሽ የሚሰጥበት የራሱ የሆነ ሕግ አለው። እነዚህም የስሜት ህዋሳት ገደብ (sensory threshold) እና የስሜት ህዋሳት መላመድ (sensory adaptation) ይባላሉ።</p>
+
+        <h3>Sensory Thresholds 🧠🔬</h3>
+        <p>How much stimulation is needed for us to notice something? This is what sensory thresholds are all about.</p>
+        <p>Absolute Threshold: This is the minimum amount of stimulation needed to detect a stimulus at least 50% of the time. Think of the quietest sound you can hear or the dimmest light you can see. The absolute threshold is not fixed; it can be influenced by our physical and psychological state, like how alert we are.</p>
+        <p>Example: How little sugar you can add to coffee before you notice the sweetness.</p>
+        <p>Difference Threshold (or Just Noticeable Difference - jnd): This is the minimum amount of change in a stimulus that we can detect at least 50% of the time. This change is described by Weber's Law, which states that the change needed to notice a difference is a constant fraction of the original stimulus.</p>
+        <p>Example: If you're holding a 50-ounce weight, you might only notice a change if you add 1 ounce. But if you're holding a 100-ounce weight, you'll need to add 2 ounces to notice the same difference. The change needed is relative!</p>
+        <p>የስሜት ህዋሳት ገደብ</p>
+        <p>አንድን ነገር ለማወቅ ምን ያህል ማነቃቂያ ያስፈልገናል? ይህን የሚገልጸው የስሜት ህዋሳት ገደብ (sensory threshold) ነው።</p>
+        <p>ፍጹም ገደብ (Absolute Threshold): ይህ አንድን ማነቃቂያ ቢያንስ ከ50% በላይ ለመለየት የሚያስፈልግ ዝቅተኛው የኃይል መጠን ነው።</p>
+        <p>የልዩነት ገደብ (Difference Threshold): ይህ ደግሞ በአንድ ማነቃቂያ ላይ የሚደረግ ለውጥ ለመለየት የሚያስፈልገው ዝቅተኛው የለውጥ መጠን ነው። ይህ ደግሞ በዌበር ሕግ (Weber's Law) የሚገለጽ ሲሆን፣ ትልቁን ለውጥ ለማስተዋል የሚያስፈልገው ለውጥ በምጣኔ (ratio) ከአነስተኛው ጋር ተመሳሳይ መሆኑን ይገልጻል።</p>
+
+        <h2>What is Sensory Adaptation? 🧠⏳</h2>
+        <p>Ever stopped noticing the constant hum of the refrigerator or the feeling of the clothes you're wearing? That's sensory adaptation in action. It's the natural process where our sensory receptors become less responsive to a stimulus that remains constant over time. This allows us to focus on new, important changes in our environment rather than being overwhelmed by unchanging information.</p>
+        <p>Example: When you first jump into a cold swimming pool, you shiver. After a few minutes, your body gets used to the temperature, and the water feels "fine."</p>
+        <p>የስሜት ህዋሳት መላመድ ምንድን ነው? 🤔 በየቀኑ የሚሰሙትን ድምፅ ወይም የለበሱትን ልብስ ስሜት ማስተዋል ያቆማሉ? ይህ የስሜት ህዋሳት መላመድ (sensory adaptation) ይባላል። ይህ ሂደት የስሜት ህዋሳት ተቀባይዎቻችን ለቋሚ ማነቃቂያዎች የሚሰጡት ምላሽ እየቀነሰ የሚሄድበት ተፈጥሯዊ መንገድ ነው። ይህም በዙሪያችን ያሉ አዳዲስና አስፈላጊ ለውጦች ላይ ትኩረት እንድናደርግ ይረዳናል። ለምሳሌ፣ ቀዝቃዛ ውሃ ውስጥ ሲገቡ መጀመሪያ ይበርድዎታል፤ ከጥቂት ደቂቃዎች በኋላ ግን ይላመዱታል።</p>
+
+        <h2>Perceptual Selectivity: Attention 🔍🎯</h2>
+        <p>Our world is full of stimuli, but we can't process them all at once. Attention is the perceptual process that allows us to focus on certain inputs while ignoring others. The things we pay close attention to are in our "focus," while everything else is in the "margin" of our awareness. This focus is constantly shifting.</p>
+        <p>Example: While watching a football game, the ball carrier is in your focus, but the crowd's noise and the cold feeling in your feet are in the margin. When the play ends, your attention might shift to the cold feet.</p>
+        <p>የግንዛቤ ምርጫ፡ ትኩረት</p>
+        <p>በአንድ ጊዜ ሁሉንም ማነቃቂያዎች መቀበል አንችልም። ትኩረት (attention) የምንለው ሂደት የምንፈልገውን መረጃ መርጦ እንድናይና ሌላውን እንድንተወው የሚረዳን ነው። የምናስተውላቸው ነገሮች በአእምሯችን "ትኩረት (focus)" ውስጥ ሲሆኑ፣ ሌሎቹ ነገሮች ደብዛዛ በሆነው "ዳርቻ (margin)" ውስጥ ይሆናሉ። ለምሳሌ፣ የኳስ ጨዋታ ሲመለከቱ ትኩረትዎ ኳስ ተሸካሚው ላይ ይሆናል፣ የደጋፊዎች ጩኸትና የእግርዎ ቅዝቃዜ ግን ዳር ላይ ይሆናል።</p>
+
+        <h3>Factors That Influence Attention:</h3>
+        <p>Our attention is determined by a combination of external and internal factors.</p>
+        <p>External Factors (Characteristics of the stimulus itself)</p>
         <ul>
-          <li>Seeing black marks on a page is a sensory experience. Recognizing those marks as letters and words is a perceptual process.</li>
-          <li>In a real-life case, a patient with prosopagnosia could see faces but could not perceive them as recognizable faces.</li>
+            <li>Size and Intensity: Larger, brighter, or louder stimuli get more attention.</li>
+            <li>Repetition: A repeated stimulus is more likely to be noticed. This is why advertising jingles work!</li>
+            <li>Novelty: New or unusual stimuli stand out and grab our attention.</li>
+            <li>Movement: Moving objects are naturally attention-grabbing because our brains are wired to notice potential threats or changes.</li>
         </ul>
-      </div>
-
-      <div class="content-section">
-        <h2>Sensory Laws</h2>
-        <h3>1. Sensory Thresholds:</h3>
-        <p><strong>Absolute Threshold:</strong> The minimum intensity of a stimulus required for it to be detected 50% of the time. For instance, the minimum amount of sugar in coffee that a person can taste.</p>
-        <p><strong>Difference Threshold (<strong style="color: #c62828;">Just Noticeable Difference, jnd</strong>):</strong> The smallest change in stimulus intensity that can be detected. According to <strong>Weber's Law</strong>, the jnd is a constant proportion of the original stimulus. For example, you can detect a change in weight only if it exceeds a certain percentage of the original weight.</p>
-        <h3>2. Sensory Adaptation:</h3>
-        <p><strong>Sensory Adaptation:</strong> This occurs when the sensory system becomes less responsive to constant stimuli over time. For instance, you might stop noticing the smell of garbage after being in a room for a while.</p>
-      </div>
-
-      <div class="content-section">
-        <h2>Perception and the Meaning-Making Process</h2>
-        <p>Perception is the process through which we interpret and make sense of the sensory information we receive. It is not just a passive reception of stimuli but an active process of creating meaning from these stimuli.</p>
-        <h3>Selectivity of Perception: Attention</h3>
-        <p><strong>Concept:</strong> Attention is the cognitive process that allows us to focus on specific stimuli while ignoring others. Our sensory organs are constantly bombarded with information, but only a fraction of this reaches our conscious awareness.</p>
-        <p><strong>Focus and Margin:</strong> Our perceptual field can be divided into "focus" (what we pay clear attention to) and "margin" (background stimuli that are less clear). For example, at a football game, while the ball carrier is the focus of attention, background stimuli like the cold or crowd noise are in the margin.</p>
-        <p><strong>Shifting Attention:</strong> Attention is not static; it shifts based on relevance and need.</p>
-        <h3>Factors Determining Attention</h3>
-        <p><strong>External Factors:</strong> These include characteristics of stimuli such as size, intensity, repetition, novelty, and movement. For instance, bright colors and loud noises are more likely to capture attention. Movement is particularly attention-grabbing because it may signal a potential threat.</p>
-        <p><strong>Internal Factors:</strong> Psychological states such as expectancy (set) and motives affect attention. Expectancy refers to being "primed" for certain stimuli based on prior experiences or needs. Motives or needs influence what stimuli we focus on, such as focusing on food if you’re hungry.</p>
-      </div>
-
-      <div class="content-section">
-        <h2>Organization in Form Perception</h2>
-        <p>When observing multiple objects, we naturally perceive them as organized into coherent patterns or groups. This tendency is central to <strong>Gestalt psychology</strong>, which asserts that "the whole is more than the sum of its parts."</p>
-        <h3>Key Principles of Perceptual Organization:</h3>
+        <p>Internal Factors (Our psychological state)</p>
         <ul>
-          <li><strong>Proximity:</strong> Objects close to each other in space or time are perceived as a group.</li>
-          <li><strong>Similarity:</strong> Items that resemble each other in color, shape, or size tend to be grouped together.</li>
-          <li><strong>Symmetry (Good Figure):</strong> We prefer to perceive objects in a balanced or symmetrical form.</li>
-          <li><strong>Continuation:</strong> We perceive lines or shapes as continuing smoothly in their original direction.</li>
-          <li><strong>Closure:</strong> Our perception tends to fill in gaps to create a complete figure.</li>
+            <li>Set or Expectancy: We are more likely to notice things we are "primed" to see. A husband expecting an important phone call will hear the phone ring in the middle of the night, while his wife might not.</li>
+            <li>Motives and Needs: Our current needs influence what we pay attention to. A hungry person is more likely to notice food advertisements than a person who just ate.</li>
         </ul>
-      </div>
+        <p>ትኩረትን የሚወስኑ ምክንያቶች</p>
+        <p>ትኩረታችን የሚወሰነው በሁለት ነገሮች ነው።</p>
+        <p>ውጫዊ ምክንያቶች (የማነቃቂያው ባህሪ)</p>
+        <ul>
+            <li>መጠን እና ጥንካሬ፡ ትላልቅና ደማቅ ነገሮች በቀላሉ ትኩረት ይስባሉ።</li>
+            <li>መደጋገም፡ በተደጋጋሚ የሚታይ ወይም የሚሰማ ነገር ትኩረት ያገኛል።</li>
+            <li>ልዩነት፡ አዲስ ወይም ያልተለመደ ነገር በቀላሉ ትኩረታችንን ይይዛል።</li>
+            <li>እንቅስቃሴ፡ የሚንቀሳቀሱ ነገሮች ትኩረት የሚስቡ ናቸው።</li>
+        </ul>
+        <p>ውስጣዊ ምክንያቶች (የእኛ ስነ-ልቦናዊ ሁኔታ)</p>
+        <ul>
+            <li>ዝግጁነት (Set or Expectancy): ለመቀበል የምንጠብቃቸው ነገሮች በቀላሉ ትኩረት ይስባሉ። ለምሳሌ፣ ስልክ የሚጠብቅ ባል የስልኩን ድምፅ ብቻውን ሊሰማ ይችላል።</li>
+            <li>ፍላጎቶች፡ በአሁን ሰዓት ያለን ፍላጎት ትኩረታችንን ይወስናል። ለምሳሌ፣ የተራበ ሰው የምግብ ማስታወቂያዎችን በደንብ ያስተውላል።</p>
+        </ul>
 
-      <div class="content-section">
+        <h2>What is Form Perception? 🖼️</h2>
+        <p>Form perception is the process of organizing raw sensory data into meaningful shapes, patterns, or ideas. It's how we make sense of the visual world. The most basic element of form perception is the ability to distinguish a figure (the object) from the ground (its surroundings).</p>
+        <p>Figure-Ground Perception: Our brains are designed to separate objects from their backgrounds. For example, the words you are reading are the figure, and the page is the ground. This process is active, and sometimes the figure and ground can even swap places, depending on what we focus on.</p>
+        <p>የቅርጽ ግንዛቤ ምንድን ነው? 🖼️</p>
+        <p>የቅርጽ ግንዛቤ ጥሬ ስሜቶችን ወደ ትርጉም ያላቸው ቅርጾች፣ ቅጦች ወይም ሃሳቦች የማደራጀት ሂደት ነው። የቅርጽ ግንዛቤ መሠረታዊው ክፍል አንድን ነገር (figure) ከበስተጀርባው (ground) የመለየት ችሎታ ነው።</p>
+        <p>ነገር እና ዳራ (Figure-Ground Perception): አእምሯችን ነገሮችን ከበስተጀርባያቸው ለመለየት ተዘጋጅቷል። ለምሳሌ፣ ይህን ጽሑፍ ሲያነቡ ቃላቱ ነገሩ (figure) ሲሆኑ፣ ገጹ ደግሞ ዳራው (ground) ነው።</p>
+
+        <h3>How Contours Help Form Perception</h3>
+        <p>To separate a figure from its ground, our brains use contours. Contours are perceived lines or edges that are formed wherever there is a sharp difference in brightness or color. Without contours, it's difficult to tell where one object ends and another begins. This is why camouflage works—it disrupts the contours, making it hard to distinguish an object from its background.</p>
+        <p>Example: Writing with white ink on a white paper would be difficult to read because there is no contour (no sharp difference in color). However, writing on a blackboard with chalk creates a clear contour.</p>
+        <p>የቅርጽ ግንዛቤ እና ድንበር (Contour)</p>
+        <p>አንድን ነገር ከበስተጀርባው ለመለየት አእምሯችን ድንበር (contours) ይጠቀማል። ድንበር ማለት በቀለም ወይም በብሩህነት ልዩነት ምክንያት የሚፈጠሩ ግልጽ መስመሮች ናቸው። ድንበር ከሌለ አንድ ነገር ከሌላው የሚለየው የት እንደሆነ ለመለየት ይከብዳል። ለዚህም ነው ካሞፍላዥ (camouflage) የሚሰራው።</p>
+        <p>ምሳሌ: በነጭ ወረቀት ላይ በነጭ ቀለም መጻፍ ለማንበብ ይከብዳል ምክንያቱም የቀለም ልዩነት የለም። በጥቁር ሰሌዳ ላይ በኖራ መጻፍ ግን ድንበር ስለሚፈጥር በቀላሉ ይነበባል።</p>
+
+        <h3>Laws of Perceptual Organization (Gestalt Principles)</h3>
+        <p>Gestalt psychologists proposed that "the whole is more than the sum of its parts." They identified several principles our brains use to organize sensations into meaningful forms.</p>
+        <p>Proximity: We tend to group items that are close together.</p>
+        <p>Example: In a visual field, we see three pairs of dots, not six individual dots, because they are close to each other.</p>
+        <p>Similarity: We tend to group items that are alike in some way (e.g., color, shape, size).</p>
+        <p>Example: We see the red dots grouped together and the blue dots grouped together, not as a random mix of colors.</p>
+        <p>Good Figure (Symmetry): We tend to organize things to create a simple, symmetrical, and balanced figure.</p>
+        <p>Example: We perceive the image below as a single, six-pointed star rather than two overlapping triangles.</p>
+        <p>Continuity: We tend to perceive lines and patterns as continuing in the same way they started. A line that starts as a curve is seen as continuing its curve.</p>
+        <p>Example: We see a straight line crossing a curved line, not a straight line that suddenly becomes a curved one at the intersection.</p>
+        <p>Closure: Our brains tend to fill in gaps to create a complete, whole object.</p>
+        <p>Example: We see the image below as a triangle, even though the lines are not fully connected.</p>
+        <p>የግንዛቤ አደረጃጀት ህጎች (የጌስታልት መርሆዎች)</p>
+        <p>የጌስታልት የስነ-ልቦና ባለሙያዎች "ሙሉው ከክፍሎቹ ድምር ይበልጣል" የሚል ጽንሰ-ሀሳብ አላቸው። ስሜቶችን ወደ ትርጉም ያላቸው ቅርጾች የምናደራጅባቸውን ህጎች ለይተዋል።</p>
+        <p>ቅርበት (Proximity): ቅርብ የሆኑ ነገሮችን አንድ ላይ የመሰብሰብ ዝንባሌ አለን።</p>
+        <p>ተመሳሳይነት (Similarity): ተመሳሳይ የሆኑ ነገሮችን አንድ ላይ እናሰባስባለን (ለምሳሌ በቀለም ወይም ቅርጽ)።</p>
+        <p>ጥሩ ቅርጽ (Good Figure): ነገሮችን ቀላል፣ ሚዛናዊ እና የተሟላ ቅርጽ እንዲይዙ እናደርጋለን።</p>
+        <p>ቀጣይነት (Continuity): አንድ መስመር የጀመረበትን መንገድ እንደሚቀጥል አድርገን እናስባለን።</p>
+        <p>መሙላት (Closure): ክፍተቶች ያሉባቸውን ነገሮች ተሟልተው እንደተሳሉ አድርገን እናያለን።</p>
+
         <h2>Depth Perception</h2>
-        <p>Depth perception allows us to judge the distance of objects in a three-dimensional space, despite the two-dimensional nature of retinal images.</p>
-        <h3>Binocular Cues:</h3>
-        <ul>
-          <li><strong>Retinal Disparity:</strong> The difference in images between the two eyes provides depth information.</li>
-          <li><strong>Convergence:</strong> The inward movement of the eyes to focus on closer objects.</li>
-        </ul>
-        <h3>Monocular Cues:</h3>
-        <ul>
-          <li><strong>Accommodation:</strong> The eye's lens changes shape to focus on objects.</li>
-          <li><strong>Motion Parallax:</strong> Closer objects move faster across your field of vision compared to distant objects.</li>
-        </ul>
-        <h3>Pictorial Cues:</h3>
-        <ul>
-          <li><strong>Interposition:</strong> Objects that overlap others are perceived as closer.</li>
-          <li><strong>Relative Size:</strong> Smaller images are perceived as farther away if objects are of the same size.</li>
-          <li><strong>Linear Perspective:</strong> Parallel lines appear to converge in the distance.</li>
-          <li><strong>Elevation:</strong> Objects higher in the visual field are perceived as farther away.</li>
-          <li><strong>Shading:</strong> Areas in shadow appear farther away than those in light.</li>
-          <li><strong>Texture Gradient:</strong> Objects appear less detailed as they get farther away.</li>
-        </ul>
-      </div>
-      
-      <div class="content-section">
-        <h2>Perceptual Constancies</h2>
-        <p>Perceptual constancies ensure that objects are perceived as stable despite changes in sensory input:</p>
-        <ul>
-          <li><strong>Size Constancy:</strong> Objects are perceived as having a constant size despite changes in the retinal image due to distance.</li>
-          <li><strong>Shape Constancy:</strong> Objects are perceived as having a consistent shape despite changes in the angle of view.</li>
-          <li><strong>Brightness Constancy:</strong> Objects maintain their perceived brightness regardless of changes in lighting.</li>
-        </ul>
-      </div>
+        <p>Depth perception is our ability to judge the distance of objects in our 3D world. Even though the image on our retina is 2D, our brain uses several cues to create this sense of depth.</p>
+        <h3>Binocular Cues (Cues that require both eyes) 👁️👁️</h3>
+        <p>Retinal Disparity: Our two eyes see slightly different images of the same object. The brain uses the difference (disparity) between these two images to calculate depth. The greater the disparity, the closer the object.</p>
+        <p>Convergence: Our eyes turn inward to focus on close objects. The brain uses the amount of muscle tension in the eyes to estimate how close an object is. The more the eyes converge, the closer the object.</p>
+        <h3>Monocular Cues (Cues that require only one eye) 👁️</h3>
+        <p>Artists use these cues to create the illusion of depth in paintings.</p>
+        <p>Interposition: An object that blocks another object is perceived as being closer.</p>
+        <p>Relative Size: If two objects are the same size, the one that looks smaller on the retina is perceived as being farther away.</p>
+        <p>Linear Perspective: Parallel lines, such as railroad tracks, appear to converge in the distance.</p>
+        <p>Texture Gradient: Objects that are closer have more texture and detail. Faraway objects appear smoother.</p>
+        <p>Motion Parallax: When we are moving, nearby objects seem to pass by faster than distant objects.</p>
+        <p>Accommodation: The lens of the eye changes shape to focus on objects. The brain uses this muscle information to estimate distance.</p>
+        <p>የጥልቀት ግንዛቤ</p>
+        <p>የጥልቀት ግንዛቤ የነገሮችን ርቀት የመለየት ችሎታችን ነው። አእምሯችን 2D ምስልን ወደ 3D ዓለም ለመቀየር የተለያዩ ምልክቶችን ይጠቀማል።</p>
+        <p>በሁለት አይኖች የሚገኙ ምልክቶች</p>
+        <p>የሬቲና ልዩነት (Retinal Disparity): ሁለቱ ዓይኖቻችን የአንድን ነገር ምስል በትንሹ በተለያየ መንገድ ያዩታል።</p>
+        <p>መገጣጠም (Convergence): ዓይኖቻችን በአንድ ነገር ላይ ሲያተኩሩ ወደ ውስጥ ይገናኛሉ።</p>
+        <p>በአንድ ዓይን የሚገኙ ምልክቶች</p>
+        <p>መደራረብ (Interposition): አንድን ነገር የጋረደ ነገር ቅርብ ነው ብለን እንገምታለን።</p>
+        <p>አንጻራዊ መጠን (Relative Size): ሁለት ተመሳሳይ መጠን ካላቸው ነገሮች፣ በሬቲና ላይ ትንሽ ሆኖ የሚታየው ሩቅ ነው ብለን እናስባለን።</p>
+        <p>መስመራዊ አተያይ (Linear Perspective): ትይዩ መስመሮች (እንደ ባቡር ሀዲድ) በሩቁ አንድ ላይ የተገናኙ ይመስላሉ።</p>
+        <p>የተፈጥሮ ገጽታ ልዩነት (Texture Gradient): ቅርብ የሆኑ ነገሮች የተፈጥሮ ገጽታቸው ግልጽ ሲሆን የሩቅ ግን ደብዛዛ ይሆናል።</p>
+        <p>የእንቅስቃሴ ፓራላክስ (Motion Parallax): እየተጓዝን ሳለ ቅርብ ያሉ ነገሮች ከሩቅ ካሉት በበለጠ ፍጥነት የሚያልፉ ይመስላሉ።</p>
+        <p>ማስተካከል (Accommodation): የአይናችን ሌንስ ቅርጹን በመለወጥ ነገሮች ላይ ያተኩራል።</p>
 
-      <div class="content-section">
-        <h2>Perceptual Illusions</h2>
-        <p>Perceptual illusions reveal how our perceptual processes can lead to misinterpretations:</p>
-        <ul>
-          <li><strong>Size Constancy Illusions:</strong> For instance, the moon appears larger on the horizon than overhead.</li>
-          <li><strong>Müller-Lyer Illusion:</strong> Lines of equal length appear different due to the context of arrows at their ends.</li>
-        </ul>
-      </div>
+        <h2>What are Perceptual Constancies? 🧠✨</h2>
+        <p>Perceptual constancies are our brains' ability to perceive an object as stable and unchanging, even though the sensory information we receive from it is constantly changing. This is what allows us to see the world as a consistent and predictable place. There are three main types:</p>
+        <p>Size Constancy: We perceive an object as maintaining its actual size, regardless of how far away it is. A car a block away doesn't seem smaller than a car right in front of you, even though it produces a smaller image on your retina.</p>
+        <p>Shape Constancy: We perceive an object as retaining its familiar shape, even when we view it from different angles. A door still looks like a rectangle whether it's closed or slightly ajar, even though its retinal image changes.</p>
+        <p>Brightness Constancy: We perceive an object as having a consistent brightness, even as the amount of light shining on it changes. A white shirt looks white in a dimly lit room and a brightly lit room.</p>
+        <p>የግንዛቤ ቋሚነት ምንድነው? 🧠✨</p>
+        <p>የግንዛቤ ቋሚነት (Perceptual constancies) የምናየው ነገር የሚመጣው ስሜታዊ መረጃ ቢቀያየርም አንጎላችን ያንን ነገር እንደ ቋሚ እና የማይለወጥ አድርጎ የመመልከት ችሎታ ነው። ሶስት ዋና ዋና ዓይነቶች አሉ።</p>
+        <p>የመጠን ቋሚነት (Size Constancy): ነገሮች ከእኛ ቢርቁም መጠናቸው እንደማይቀየር አድርገን እንገነዘባለን።</p>
+        <p>የቅርጽ ቋሚነት (Shape Constancy): አንድን ነገር ከተለያዩ አቅጣጫዎች ብናየውም እንኳ ቅርጹን እንደማይቀይር አድርገን እንገነዘባለን።</p>
+        <p>የብሩህነት ቋሚነት (Brightness Constancy): በአንድ ነገር ላይ ያለው የብርሃን መጠን ቢቀየርም እንኳ ብሩህነቱን እንደማይለውጥ አድርገን እንገነዘባለን።</p>
 
-      <div class="content-section">
-        <h2>Extra Sensory Perception (ESP)</h2>
-        <p>ESP refers to the ability to perceive information without traditional sensory input. While some claim to experience ESP, scientific consensus generally regards it as lacking empirical support. Psychologists and scientists remain skeptical due to the lack of reproducible evidence and controlled studies validating ESP phenomena.</p>
-      </div>
+        <h2>What are Perceptual Illusions? 🤯❓</h2>
+        <p>A perceptual illusion is a misinterpretation of sensory information, where our perception doesn't match reality. These illusions happen when our brain's normal processes for interpreting visual cues are "tricked" or misapplied. They are useful to psychologists because they provide clues about how normal perception works.</p>
+        <p>Moon Illusion: The moon appears larger when it's on the horizon than when it's overhead. This is an illusion because the moon is the same distance from us in both cases, but our brain interprets it differently based on the surrounding context (trees, buildings on the horizon).</p>
+        <p>Müller-Lyer Illusion: This is a classic example where two lines of the same length appear to be different lengths because of the direction of the arrowheads at their ends. The lines with arrowheads pointing inward look shorter, while the lines with arrowheads pointing outward look longer. This is thought to be a misapplication of size constancy—our brain interprets the line with inward-pointing arrows as being an outside corner that is closer, and the line with outward-pointing arrows as an inside corner that is farther away, making it seem longer.</p>
+        <p>የግንዛቤ ቅዠቶች ምንድን ናቸው? 🤯❓</p>
+        <p>የግንዛቤ ቅዠት (Perceptual illusion) የስሜት ህዋሳት መረጃን በተሳሳተ መንገድ ስንተረጉም የሚከሰት ሲሆን፣ ግንዛቤያችን ከእውነታው ጋር በማይስማማበት ጊዜ ነው። እነዚህ ቅዠቶች የሚከሰቱት አእምሯችን የእይታ ምልክቶችን (visual cues) በተለምዶ የሚተረጉምበት መንገድ "ሲሳሳት" ነው። እነዚህ ቅዠቶች የስነ-ልቦና ባለሙያዎች መደበኛ ግንዛቤ እንዴት እንደሚሰራ እንዲረዱ ይረዳቸዋል።</p>
+        <p>የጨረቃ ቅዠት (Moon Illusion): ጨረቃ በአድማስ ላይ ስትሆን ከላይ ከምትሆንበት ጊዜ የበለጠ ትልቅ ትመስላለች። ይህ ቅዠት ነው ምክንያቱም ጨረቃ በሁለቱም ቦታዎች ላይ ካለን ርቀት ጋር ተመሳሳይ ነች፣ ነገር ግን አእምሯችን በአካባቢው ባሉ ነገሮች ምክንያት በተለየ መንገድ ይተረጉመዋል።</p>
+        <p>የሙለር-ላየር ቅዠት (Müller-Lyer Illusion): ይህ ሁለት ተመሳሳይ ርዝመት ያላቸው መስመሮች የተለያየ ርዝመት ያላቸው እንዲመስሉ የሚያደርግ የታወቀ ቅዠት ነው።</p>
 
-      <div class="content-section">
-        <h2>Brainstorming and Reflection Questions</h2>
-        <h3>Similarities and Differences between Sensation and Perception</h3>
-        <p><strong>Similarities:</strong> Both involve sensory systems and work together to process information. Sensory input cannot be perceived without being sensed first, highlighting their interdependence.</p>
-        <p><strong>Differences:</strong> Sensation is the detection of physical stimuli; perception is the interpretation and meaning-making of these stimuli.</p>
-
-        <h3>Sensory Differences Among People</h3>
-        <p>Differences can arise due to individual variations in sensory receptors, psychological states, attention, and experience.</p>
-
-        <h3>Limen vs. jnd</h3>
-        <p><strong>Limen (Absolute Threshold):</strong> Minimum intensity of a stimulus needed for detection.</p>
-        <p><strong>jnd (Difference Threshold):</strong> Minimum change in stimulus intensity needed to notice a difference.</p>
-
-        <h3>Sensory Adaptation</h3>
-        <p>Occurs when continuous stimulation leads to decreased sensitivity to that stimulus over time, allowing for focus on new or changing stimuli.</p>
-
-        <h3>Sensitization vs. Habituation</h3>
-        <p><strong>Sensitization:</strong> An increased reaction to a stimulus over time.</p>
-        <p><strong>Habituation:</strong> A decrease in response to a constant stimulus.</p>
-      </div>
-    </body>
-    </html>
+        <h2>What is Extrasensory Perception (ESP)? 🔮</h2>
+        <p>Extrasensory perception (ESP), also known as paranormal ability, is the alleged ability to perceive information without using the known five senses (sight, hearing, touch, taste, and smell). Examples include telepathy (mind-reading), clairvoyance (perceiving events at a distance), and precognition (foreseeing the future).</p>
+        <p>While many people believe in ESP, the scientific community has not found conclusive, reproducible evidence to support its existence. Psychologists and scientists generally remain skeptical, as such phenomena cannot be reliably demonstrated under controlled conditions.</p>
+        <p>የአማርኛ ትርጉም: ከስሜት ህዋሳት ውጪ ያለው ግንዛቤ (ESP) ምንድነው? 🔮</p>
+        <p>ከስሜት ህዋሳት ውጪ ያለ ግንዛቤ (ESP)፣ ወይም ፓራኖርማል ችሎታ፣ በአምስቱ የስሜት ህዋሳት ሳንጠቀም መረጃን የመቀበል ችሎታ ነው ተብሎ ይታሰባል። ምሳሌዎች የአእምሮ ንባብ (telepathy)፣ ሩቅ ነገሮችን ማየት (clairvoyance) እና የወደፊቱን መተንበይ (precognition) ያካትታሉ።</p>
+        <p>በብዙ ሰዎች ዘንድ ተቀባይነት ቢኖረውም፣ የሳይንስ ማህበረሰብ ግን ይህ ችሎታ እንዳለ የሚያሳይ ጠንካራ እና ተጨባጭ ማስረጃ አላገኘም።</p>
+    </div>
+</body>
+</html>
   `
 },
     {
@@ -2381,408 +2503,584 @@ export const noteCollections: Subject[] = [
   "title": "🌟 Philosophy Essentials: A Structured Overview",
   "subtitle": "Clear, Concise & Easy to Review",
   "content": `
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Philosophy?</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Philosophy Notes</title>
     <style>
-        /* General Styles */
-        :root {
-            --primary-color: #3f51b5; /* A deep blue for accents */
-            --text-color: #2c3e50; /* Dark gray for main text */
-            --background-color: #f4f7f6; /* A light, soft gray background */
-            --card-background: #ffffff;
-            --secondary-color: #8c8c8c; /* Lighter gray for secondary text */
-            --border-radius: 12px;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px; /* Consistent padding around the entire body */
+            background-color: #f5f7fa;
+            color: #333;
             line-height: 1.6;
+            padding: 20px;
         }
 
-        .container {
-            max-width: 900px;
+        /* Card Container */
+        .note-container {
+            max-width: 800px;
             margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            overflow: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            line-height: 1.2;
-            margin-top: 2em;
-        }
-
+        /* Typography */
         h1 {
-            font-size: 2.5rem;
-            text-align: center;
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
         h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-bottom: 1em;
+            font-size: 22px;
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
         }
 
         h3 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-top: 1.5em;
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
         }
 
-        p {
-            margin-bottom: 1em;
-            text-align: justify;
+        p, li {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 12px;
         }
 
-        .sub-text {
-            color: var(--secondary-color);
-            font-style: italic;
-            text-align: center;
-            margin-top: -10px;
-            margin-bottom: 2em;
-        }
-
-        .card {
-            background: var(--card-background);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            border-bottom: none;
-            color: var(--primary-color);
-        }
-
-        .card-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .card-list li {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
+        ul, ol {
+            margin-left: 20px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--primary-color);
         }
 
-        .card-list li strong {
-            color: var(--primary-color);
+        li {
+            margin-bottom: 8px;
         }
 
-        .card-list-nested {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 10px;
+        /* Special Elements */
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
         }
 
-        .highlight {
-            font-weight: bold;
-            color: var(--primary-color);
+        .definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
         }
 
-        /* Responsive Design for Mobile */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px; /* Reduce padding for smaller screens */
+        .key-ideas {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .key-ideas li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .key-ideas li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        .compare-table th, .compare-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .compare-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .compare-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .section-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        .section-table th, .section-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .section-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .amharic {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .note-container {
+                padding: 20px;
+                border-radius: 0;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 24px;
             }
 
             h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
+                font-size: 20px;
             }
 
-            .card {
+            .compare-table, .section-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .note-container {
                 padding: 15px;
             }
+
+            p, li {
+                font-size: 15px;
+            }
+        }
+
+        /* Decorative Elements */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 30px 0;
+        }
+
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .indent {
+            margin-left: 20px;
+        }
+
+        .question-list {
+            margin-left: 30px;
+        }
+
+        .question-list li {
+            position: relative;
+        }
+
+        .question-list li:before {
+            content: "•";
+            position: absolute;
+            left: -15px;
+            color: #3498db;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header class="container">
-        <h1>What is Philosophy? 🤔</h1>
-        <p class="sub-text">An Exploration of Universal Issues and Fundamental Questions</p>
-    </header>
-
-    <main class="container">
-        <section class="card">
-            <h2>What is Philosophy? 🤔</h2>
-            <p>It's tough to give a single, straightforward definition of philosophy because it doesn't have one specific subject matter like chemistry or physics. Instead, philosophy deals with universal issues and fundamental questions. It's more about a way of thinking and a continuous search for truth than a set of facts. The best way to learn it is by actively engaging with it—by philosophizing.</p>
-            <p>የፍልስፍና ትርጉም በቀላሉ መስጠት ከባድ ነው ምክንያቱም እንደ ኬሚስትሪ ወይም ፊዚክስ አንድ የተወሰነ የትምህርት ዘርፍ ስለሌለው ነው። ይልቁንም፣ ፍልስፍና የሚያተኩረው ሁለንተናዊ ጉዳዮች እና መሰረታዊ ጥያቄዎች ላይ ነው። ፍልስፍና ከእውነት ፍለጋ ጋር የተያያዘ የአስተሳሰብ መንገድ እንጂ የሀቆች ስብስብ አይደለም። እሱን ለመማር ምርጡ መንገድ ደግሞ በማፍለስፈፍ ንቁ ተሳትፎ ማድረግ ነው።</p>
-        </section>
-
-        <section class="card">
-            <h2>The Origins of the Word "Philosophy" 📜</h2>
-            <p>To get a clearer understanding, we can look at the etymology of the word itself. "Philosophy" comes from two ancient Greek words:</p>
-            <ul class="card-list">
-                <li><strong>Philo</strong> means "love" ❤️</li>
-                <li><strong>Sophia</strong> means "wisdom" 🧠</li>
-            </ul>
-            <p>So, the literal definition of philosophy is "love of wisdom." The ancient Greek thinker Pythagoras was the first to use the term "philosopher" for someone who is curious and seeks to understand the world.</p>
-            <p>የ"ፍልስፍና" የሚለውን ቃል አመጣጥ በመመልከት ትርጉሙን በተሻለ ሁኔታ መረዳት እንችላለን። "ፍልስፍና" የሚለው ቃል ከሁለት ጥንታዊ የግሪክ ቃላት የመጣ ነው፦</p>
-            <ul class="card-list">
-                <li><strong>"ፊሎ"</strong> ማለት "ፍቅር" ❤️</li>
-                <li><strong>"ሶፊያ"</strong> ማለት "ጥበብ" 🧠</li>
-            </ul>
-            <p>ስለዚህ፣ የፍልስፍና ቀጥተኛ ትርጉም "የጥበብ ፍቅር" ነው። ጥንታዊው የግሪክ ፈላስፋ ፓይታጎረስ አለምን ለመረዳት ጉጉት ላላቸው ሰዎች ለመጀመሪያ ጊዜ "ፈላስፋ" የሚለውን ስያሜ ተጠቅሟል።</p>
-        </section>
-
-        <section class="card">
-            <h2>What Kind of Wisdom Do Philosophers Seek? 💡</h2>
-            <p>The wisdom that philosophers pursue isn't just about having a lot of information or technical skills. As Socrates explained, philosophical wisdom involves:</p>
-            <ul class="card-list">
-                <li><strong>Critical habits:</strong> Continuously questioning and examining everything.</li>
-                <li><strong>A continuous search for truth:</strong> Being dedicated to finding the truth, no matter what form it takes.</li>
-                <li><strong>Questioning the obvious:</strong> Going beyond what people normally accept without question and exploring deeper possibilities.</li>
-            </ul>
-            <p>This critical and questioning mindset is the core of philosophy.</p>
-            <p>ፈላስፋዎች የሚፈልጉት ጥበብ ብዙ መረጃ ወይም ሙያዊ ክህሎት መያዝ ብቻ አይደለም። ሶቅራጥስ እንዳብራራው፣ የፍልስፍና ጥበብ የሚከተሉትን ያካትታል፦</p>
-            <ul class="card-list">
-                <li><strong>የወሳኝ አስተሳሰብ ልማድ:</strong> ነገሮችን ያለማቋረጥ መጠየቅ እና መመርመር።</li>
-                <li><strong>የእውነት ዘላለማዊ ፍለጋ:</strong> እውነትን በየትኛውም መልኩ ለመፈለግ ቁርጠኛ መሆን።</li>
-                <li><strong>ግልጽ የሚመስሉ ነገሮችን መጠየቅ:</strong> ሰዎች ያለምንም ጥርጣሬ የሚቀበሉትን ነገር አልፎ ወደ ጥልቅ ዕድሎች መግባት።</li>
-            </ul>
-            <p>ይህ ወሳኝ እና ጠያቂ አስተሳሰብ የፍልስፍና ዋና አካል ነው።</p>
-        </section>
-
-        <section class="card">
-            <h2>Philosophy as an Activity, Not Just a Product 🏃</h2>
-            <p>You can't just "learn" philosophy from a book; you have to do it. Philosophy is an active process that involves:</p>
-            <ul class="card-list">
-                <li><strong>Reason and rational criticism:</strong> Using logic to analyze and evaluate ideas.</li>
-                <li><strong>Formulating and answering fundamental questions:</strong> Asking questions like, "What is reality?" or "What is the meaning of life?" and then trying to find well-reasoned answers.</li>
-            </ul>
-            <p>A great philosopher isn't great because of the theories they came up with, but because of their exceptional ability to philosophize—to think critically, analyze, and understand.</p>
-            <p>ፍልስፍናን ከመጽሐፍ ላይ ብቻ "መማር" አይቻልም፤ መተግበር አለብህ። ፍልስፍና የሚከተሉትን ያካተተ ንቁ ሂደት ነው፦</p>
-            <ul class="card-list">
-                <li><strong>ምክንያታዊ ትችት እና አስተሳሰብ:</strong> ሀሳቦችን ለመተንተን እና ለመገምገም ምክንያትን መጠቀም።</li>
-                <li><strong>መሰረታዊ ጥያቄዎችን መቅረጽ እና መመለስ:</strong> እንደ "እውነታ ምንድን ነው?" ወይም "የህይወት ትርጉም ምንድን ነው?" የሚሉ ጥያቄዎችን በመጠየቅ እና በምክንያታዊነት መልስ ለመስጠት መሞከር።</li>
-            </ul>
-            <p>ታላቅ ፈላስፋ ታላቅ የሆነው የፈጠራቸው ንድፈ ሃሳቦች ስላሉት ሳይሆን፣ በማፍለስፈፍ—በጥልቀት በማሰብ፣ በመተንተን እና በመረዳት—ባለው ልዩ ችሎታ ነው።</p>
-        </section>
-
-        <section class="card">
-            <h2>What are the Features of Philosophy? 🤔</h2>
-            <p>Philosophy is a unique discipline with distinct characteristics that set it apart from other fields of study. Understanding these features helps us grasp what it means to "do" philosophy, rather than just "have" a philosophy.</p>
-            <p>ፍልስፍና ከሌሎች የትምህርት ዘርፎች የሚለዩት ልዩ ባህሪያት አሉት። እነዚህን ባህሪያት መረዳት፣ ፍልስፍናን "መያዝ" ብቻ ሳይሆን ፍልስፍናን "ማድረግ" ምን ማለት እንደሆነ ለመረዳት ይረዳናል።</p>
-            
-            <h3>1. Philosophy as Personal Beliefs and Critical Reflection 🧐</h3>
-            <p>There are two main senses of philosophy:</p>
-            <ul class="card-list">
-                <li><strong>"Having" a philosophy:</strong> This refers to our personal beliefs and attitudes about life and the universe. For example, when someone says, "My philosophy is to always be kind," they are expressing an informal, personal view.</li>
-                <li><strong>"Doing" philosophy:</strong> This is the more formal, academic sense. It involves actively reflecting on, questioning, and criticizing our deepest beliefs. To truly philosophize, you must be open-minded, tolerant, and willing to examine all sides of an issue without prejudice. It's about developing critical thinking and argumentation skills.</li>
-            </ul>
-            <p>ፍልስፍና በሁለት ዋና ዋና መንገዶች ሊታይ ይችላል፦</p>
-            <ul class="card-list">
-                <li><strong>"ፍልስፍና መያዝ":</strong> ይህ ስለ ሕይወት እና ስለ አጽናፈ ዓለም ያለንን ግላዊ እምነቶች እና አመለካከቶች ያመለክታል። ለምሳሌ፣ አንድ ሰው "የእኔ ፍልስፍና ሁል ጊዜ ደግ መሆን ነው" ሲል፣ ግላዊ አመለካከቱን እየገለጸ ነው።</li>
-                <li><strong>"ፍልስፍና ማድረግ":</strong> ይህ ይበልጥ መደበኛ የሆነ የአካዳሚክ ትርጉም ነው። በጥልቀት ማሰብን፣ ጥያቄዎችን ማንሳትን እና እምነቶቻችንን መተቸትን ያካትታል። በትክክል ለማፍለስፈፍ፣ አንድ ሰው ክፍት አእምሮ ያለው፣ ታጋሽ እና ማንኛውንም ጉዳይ ያለ አድሎአዊነት ለመመርመር ፈቃደኛ መሆን አለበት። ይህ ወሳኝ አስተሳሰብ እና የክርክር ክህሎቶችን ማዳበርን ይጠይቃል።</li>
-            </ul>
-            
-            <h3>2. Philosophy Seeks a Holistic Worldview 🌍</h3>
-            <p>Philosophy is a rational effort to see the world as a consistent whole. While other disciplines like science, business, or art focus on specific aspects of human experience, philosophy aims to integrate all this knowledge. It tries to combine conclusions from various sciences and human experiences to create a coherent worldview or a meaningful interpretation of life.</p>
-            <p>ፍልስፍና ዓለምን እንደ የተቀናጀ አንድነት ለማየት የሚደረግ ምክንያታዊ ጥረት ነው። እንደ ሳይንስ፣ ንግድ ወይም ስነ-ጥበብ ያሉ ሌሎች የትምህርት ዘርፎች በተወሰኑ የሰው ልምዶች ላይ ሲያተኩሩ፣ ፍልስፍና ይህንን ሁሉ እውቀት ለማዋሃድ ይጥራል። የተለያዩ የሳይንስ እና የሰው ልምዶች መደምደሚያዎችን በማጣመር ወጥ የሆነ የዓለም እይታ ወይም ትርጉም ያለው የሕይወት ትርጓሜ ለመፍጠር ይፈልጋል።</p>
-            
-            <h3>3. Philosophy is a Logical Analysis of Language 🗣️</h3>
-            <p>A key function of philosophy is the logical analysis of language. This involves clarifying the meaning of words and concepts. Many philosophers see this as a vital task, believing that clear language is essential for clear thought. They aim to expose confusion and nonsense by precisely defining terms used in science and everyday life.</p>
-            <p>የፍልስፍና ቁልፍ ተግባር የቋንቋ ምክንያታዊ ትንተና ነው። ይህ የቃላትን እና የፅንሰ-ሀሳቦችን ትርጉም ግልጽ ማድረግን ያካትታል። ብዙ ፈላስፋዎች ይህን እንደ አስፈላጊ ተግባር ይመለከቱታል፣ ግልጽ ቋንቋ ለግልጽ አስተሳሰብ አስፈላጊ እንደሆነ ያምናሉ። በሳይንስ እና በዕለት ተዕለት ሕይወት ውስጥ ጥቅም ላይ የሚውሉ ቃላትን በትክክል በመግለጽ ግራ መጋባትን እና ትርጉም የለሽነትን ለማጋለጥ ይጥራሉ።</p>
-
-            <h3>4. Philosophy Tackles Perennial and Fundamental Problems 🤯</h3>
-            <p>Philosophy digs into the deepest problems of human existence that have interested people for centuries. These are not simple questions of fact, but rather profound inquiries that often have no easy answers. Examples of these perennial questions include:</p>
-            <ul class="card-list">
-                <li>What is truth? 💡</li>
-                <li>What is the distinction between right and wrong? ⚖️</li>
-                <li>Why is there anything at all? 🌌</li>
-                <li>What is the purpose of life? 🤔</li>
-                <li>Is there a God? 🙏</li>
-            </ul>
-            <p>These fundamental questions give rise to various theories and systems of thought, such as idealism, realism, and existentialism, which are all part of philosophy's rich content.</p>
-            <p>ፍልስፍና ለብዙ መቶ ዘመናት ሰዎችን ሲያስጨንቁ የቆዩትን የሰዎች ህልውና ጥልቅ ችግሮችን ይመረምራል። እነዚህ ቀላል የእውነታ ጥያቄዎች ሳይሆኑ፣ ብዙ ጊዜ ቀላል መልስ የሌላቸው ጥልቅ ጥያቄዎች ናቸው። የእነዚህ ዘላለማዊ ጥያቄዎች ምሳሌዎች የሚከተሉትን ያካትታሉ፦</p>
-            <ul class="card-list">
-                <li>እውነት ምንድን ነው? 💡</li>
-                <li>በትክክል እና በስህተት መካከል ያለው ልዩነት ምንድን ነው? ⚖️</li>
-                <li>ለምን ምንም ነገር አለ? 🌌</li>
-                <li>የሕይወት ዓላማ ምንድን ነው? 🤔</li>
-                <li>እግዚአብሔር አለ? 🙏</li>
-            </ul>
-            <p>እነዚህ መሰረታዊ ጥያቄዎች እንደ ሃሳባዊነት (idealism)፣ እውነታነት (realism) እና ህልውናዊነት (existentialism) ያሉ የተለያዩ የንድፈ ሃሳቦችን እና የአስተሳሰብ ስርዓቶችን አስከትለዋል። እነዚህ ሁሉ የፍልስፍና የበለፀገ ይዘት አካል ናቸው።</p>
-        </section>
-
-        <section class="card">
-            <h2>Metaphysics: The Study of Reality 🌌</h2>
-            <p>Metaphysics is the core branch of philosophy that explores the ultimate nature of reality and existence. Its name comes from Greek words meaning "beyond physics," as it deals with fundamental questions that go beyond what we can observe with our senses. Metaphysicians seek to find the "first principles" from which all knowledge can be derived.</p>
-            <p>የፍልስፍና ዋና አካል የሆነው ሜታፊዚክስ የህልውናን እና የእውነታን መሰረታዊ ባህሪ የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት የተገኘ ሲሆን "ከፊዚክስ ባሻገር" የሚል ትርጉም አለው። ምክንያቱም በስሜት ህዋሳችን ከምናየው በላይ ያሉ ጥያቄዎችን ስለሚዳስስ ነው። ሜታፊዚሻኖች ሁሉም እውቀቶች ሊመነጩባቸው የሚችሉ "የመጀመሪያ መርሆችን" ይፈልጋሉ።</p>
-
-            <h3>Key Questions in Metaphysics</h3>
-            <p>Metaphysics grapples with foundational questions that shape our understanding of the world.</p>
-            <ul class="card-list">
-                <li><strong>What is real?</strong> Is what we see and touch the only reality, or is there something beyond it?</li>
-                <li><strong>What is the mind-body problem?</strong> What is the relationship between our consciousness (mind) and our physical body?</li>
-                <li><strong>Is there a God?</strong> Can we prove God's existence?</li>
-                <li><strong>Are our actions truly free?</strong> Are we in control of our choices, or are they predetermined?</li>
-            </ul>
-            <p>የሜታፊዚክስ ቁልፍ ጥያቄዎች አለምን የምንረዳበትን መንገድ የሚቀርጹ መሰረታዊ ጥያቄዎችን ያነሳሉ።</p>
-            <ul class="card-list">
-                <li><strong>እውነታ ምንድን ነው?</strong> የምናየው እና የምንነካው ብቻ ነው እውነት ወይስ ከዛ በላይ የሆነ ነገር አለ?</li>
-                <li><strong>የአእምሮ እና የሰውነት ችግር ምንድን ነው?</strong> በህሊናችን (አእምሯችን) እና በአካላዊ ሰውነታችን መካከል ያለው ግንኙነት ምንድን ነው?</li>
-                <li><strong>አምላክ አለ?</strong> የአምላክን መኖር ማረጋገጥ እንችላለን?</li>
-                <li><strong>ድርጊቶቻችን በእውነት ነፃ ናቸው?</strong> በምርጫችን ላይ ቁጥጥር አለን ወይስ አስቀድሞ የተወሰኑ ናቸው?</li>
-            </ul>
-
-            <h3>The Four Aspects of Metaphysics</h3>
-            <p>Metaphysical questions can be broken down into four key areas:</p>
-            <ul class="card-list">
-                <li><strong>Cosmology:</strong> The study of the origin and nature of the universe as an orderly system. It asks if the universe came about by accident or design, and if it has a purpose.</li>
-                <li><strong>Theology:</strong> The study of God. It asks questions about God's existence, attributes, and relationship with humanity.</li>
-                <li><strong>Anthropology:</strong> The study of human beings. It explores the mind-body relationship, our moral status (e.g., born good or evil), and the extent of our free will.</li>
-                <li><strong>Ontology:</strong> The study of existence itself. It questions what it means for something to exist and whether reality is found in matter or spirit, and if it is fixed or constantly changing.</li>
-            </ul>
-            <p>የሜታፊዚክስ ጥያቄዎች በአራት ዋና ዋና ክፍሎች ሊከፈሉ ይችላሉ፦</p>
-            <ul class="card-list">
-                <li><strong>ኮስሞሎጂ:</strong> የአጽናፈ ዓለም አመጣጥ እና ባህሪን የሚያጠና ነው። አጽናፈ ዓለሙ በአጋጣሚ ወይስ በንድፍ እንደመጣ እና ዓላማ እንዳለው ይጠይቃል።</li>
-                <li><strong>ቲዎሎጂ:</strong> የአምላክን ጽንሰ-ሀሳብ ያጠናል። የአምላክን መኖር፣ ባህሪያት እና ከሰው ልጆች ጋር ያለውን ግንኙነት በተመለከተ ጥያቄዎችን ያነሳል።</li>
-                <li><strong>አንትሮፖሎጂ:</strong> የሰው ልጆችን የሚያጠና ነው። በአእምሮ እና በአካል መካከል ያለውን ግንኙነት፣ የሞራል ሁኔታችንን (ለምሳሌ ጥሩ ሆነው መወለድ ወይም መጥፎ) እና ነፃ ምርጫችን ምን ያህል እንደሆነ ይፈትሻል።</li>
-                <li><strong>ኦንቶሎጂ:</strong> የህልውናን ባህሪ የሚያጠና ነው። አንድ ነገር መኖሩ ምን ማለት እንደሆነ እና እውነታው በቁስ ወይም በመንፈስ ላይ የተመሰረተ እንደሆነ፣ እንዲሁም ቋሚ ወይም ተለዋዋጭ እንደሆነ ይጠይቃል።</li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>Epistemology: The Study of Knowledge 🧐</h2>
-            <p>Epistemology, also known as the theory of knowledge, is the branch of philosophy that studies the nature, source, and validity of knowledge. The term comes from the Greek words "episteme" (knowledge) and "logos" (study). It asks foundational questions like, "What is knowledge?" and "How do we know something is true?"</p>
-            <p>ኤፒስተሞሎጂ፣ የእውቀት ቲዎሪ በመባልም የሚታወቀው፣ የእውቀትን ባህሪ፣ ምንጭ እና ተዓማኒነት የሚያጠና የፍልስፍና ዘርፍ ነው። ስሙም ከግሪክ ቃላት "ኤፒስተሜ" (እውቀት) እና "ሎጎስ" (ጥናት) የመጣ ነው። "እውቀት ምንድን ነው?" እና "አንድ ነገር እውነት መሆኑን እንዴት እናውቃለን?" የሚሉ መሰረታዊ ጥያቄዎችን ያነሳ።</p>
-
-            <h3>Key Questions in Epistemology</h3>
-            <p>Epistemology challenges us to think critically about what we accept as knowledge.</p>
-            <ul class="card-list">
-                <li><strong>What is the difference between knowledge and belief or opinion?</strong></li>
-                <li><strong>What are the reliable sources of knowledge?</strong> Is it our senses, reason, or something else?</li>
-                <li><strong>How can we be sure that our perceptions are correct?</strong> (e.g., a stick appears bent in water, but it's not)</li>
-                <li><strong>Is truth relative or absolute?</strong> Can what is true today be false tomorrow?</li>
-            </ul>
-            <p>ኤፒስተሞሎጂ እንደ እውቀት የምንቀበለውን ነገር በወሳኝ አስተሳሰብ እንድናይ ይሞግተናል።</p>
-            <ul class="card-list">
-                <li><strong>በእውቀት እና በእምነት ወይም በአስተያየት መካከል ያለው ልዩነት ምንድን ነው?</strong></li>
-                <li><strong>የእውቀት ተዓማኒ ምንጮች ምንድን ናቸው?</strong> በስሜት ህዋሳችን፣ በምክንያታችን ወይስ በሌላ ነገር ነው?</li>
-                <li><strong>የምናየው ነገር ትክክል መሆኑን እንዴት እርግጠኞች እንሆናለን?</strong> (ለምሳሌ፣ በውሃ ውስጥ ያለ እንጨት የተጣመመ ይመስላል፣ ግን አይደለም)</li>
-                <li><strong>እውነት አንፃራዊ ነው ወይስ ፍፁም?</strong> ዛሬ እውነት የሆነ ነገር ነገ ውሸት ሊሆን ይችላል?</li>
-            </ul>
-
-            <h3>The Sources of Human Knowledge</h3>
-            <p>Epistemology identifies several ways we gain knowledge. Often, people prioritize one source over others.</p>
-            <ul class="card-list">
-                <li><strong>Empiricism (Sense Experience):</strong> Knowledge comes from our senses and experience. It is immediate and universal for humans, but it can be unreliable, as senses can be deceived and are often incomplete. For instance, some light waves are invisible to the naked eye.</li>
-                <li><strong>Rationalism (Reason):</strong> Knowledge is primarily derived from reason, thought, and logic. Rationalists believe the mind organizes sensory data into a meaningful system. In its extreme form, it claims we can gain irrefutable knowledge independently of our senses.</li>
-                <li><strong>Intuition:</strong> The direct apprehension of knowledge not derived from conscious reasoning or perception. It's a sudden "flash of insight." While it can lead to breakthroughs, it's not a safe method on its own and should be checked against other sources.</li>
-                <li><strong>Revelation:</strong> Knowledge received from a supernatural or transcendent source. This is of prime importance in religion and is accepted by faith. Believers see it as an absolute and omniscient source of truth.</li>
-                <li><strong>Authority:</strong> Knowledge accepted as true because it comes from experts, tradition, or respected sources like teachers and textbooks. It is a necessary source for civilization, but its validity depends on the correctness of the authority's foundations.</li>
-            </ul>
-            <p>ኤፒስተሞሎጂ እውቀትን የምናገኝባቸውን በርካታ መንገዶች ይለያል። ብዙ ጊዜ፣ ሰዎች ከአንድ ምንጭ የበለጠ ለሌላው ቅድሚያ ይሰጣሉ።</p>
-            <ul class="card-list">
-                <li><strong>ኤምፒሪሲዝም (የስሜት ህዋሳት ልምድ):</strong> እውቀት የሚገኘው ከስሜት ህዋሳችን እና ልምዳችን ነው። ለሰዎች ቀጥተኛ እና ሁለንተናዊ ቢሆንም፣ ስሜታችን ሊታለል ስለሚችል እና ብዙ ጊዜም ያልተሟላ በመሆኑ ተዓማኒ ላይሆን ይችላል። ለምሳሌ፣ አንዳንድ የብርሃን ሞገዶች በአይን አይታዩም።</li>
-                <li><strong>ራሽናሊዝም (ምክንያት):</strong> እውቀት በዋነኝነት የሚመነጨው በምክንያት፣ በአስተሳሰብ እና በሎጂክ ነው። ራሽናሊስቶች አእምሮ የስሜት ህዋሳትን መረጃ ወደ ትርጉም ያለው ስርዓት ያደራጃል ብለው ያምናሉ። በከፍተኛ ደረጃ ደግሞ፣ ከስሜት ህዋሳት ነፃ የሆነ የማይካድ እውቀት ማግኘት እንችላለን ይላሉ።</li>
-                <li><strong>ኢንቱዊሽን (ራዕይ/ብልጭታ):</strong> ከንቃተ-ህሊና አስተሳሰብ ወይም ከስሜት ህዋሳት ግንዛቤ ያልተገኘ ቀጥተኛ የእውቀት ግንዛቤ ነው። "ድንገተኛ ግንዛቤ ብልጭታ" ተብሎም ይገለጻል። ግኝቶችን ሊያስገኝ ቢችልም፣ ብቻውን አስተማማኝ ዘዴ አይደለም እና ከሌሎች የእውቀት ምንጮች ጋር መረጋገጥ አለበት።</li>
-                <li><strong>ሬቬሌሽን (ራዕይ):</strong> ከከተፈጥሮ በላይ ወይም ከፍ ካለ ምንጭ የመጣ እውቀት ነው። በሃይማኖት መስክ ከፍተኛ ጠቀሜታ ያለው እና በእምነት ተቀባይነትን ያገኛል። አማኞች ይህንን ምንጭ ፍጹም እና ሁሉን አዋቂ የእውነት ምንጭ አድርገው ይመለከቱታል።</li>
-                <li><strong>አውቶሪቲ (ሥልጣን):</strong> እውቀት የሚቀበለው ከባለሙያዎች፣ ከወግ ወይም ከተከበሩ ምንጮች እንደ መምህራን እና የመማሪያ መጽሐፍት ስለመጣ ነው። ለሥልጣኔ አስፈላጊ ምንጭ ቢሆንም፣ ተዓማኒነቱ ግን ሥልጣኑ በተመሠረተበት መሠረት ትክክለኛነት ላይ የተመካ ነው።</li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>What are Axiology and Logic? 🤔</h2>
-            <p>Axiology and Logic are two more of the core branches of philosophy, each with a distinct focus. Axiology is all about the philosophical study of value, while Logic is the study of correct reasoning and arguments. They help us understand what is good, beautiful, and just, and how to think about these things clearly.</p>
-            <p>አክሲዮሎጂ እና ሎጂክ የፍልስፍና ዋና ቅርንጫፎች ሲሆኑ፣ እያንዳንዳቸው የራሳቸው የሆነ ትኩረት አላቸው። አክሲዮሎጂ የዋጋዎች ፍልስፍናዊ ጥናት ሲሆን፣ ሎጂክ ደግሞ የትክክለኛ ምክንያታዊ አስተሳሰብ እና ክርክሮችን የሚያጠና ነው። ሁለቱም ጥሩ፣ ቆንጆ እና ፍትሃዊ የሆነውን ለመረዳት እና ስለእነዚህ ነገሮች በአግባቡ ለማሰብ ይረዱናል።</p>
-
-            <h3>Axiology: The Study of Value ⚖️</h3>
-            <p>Axiology is the philosophical study of value, or the worth of something. The word comes from the Greek words "Axios" (value, worth) and "logos" (study of). Axiology asks fundamental questions about what we consider good, preferable, or valuable, and where these ideas come from.</p>
-            <p>አክሲዮሎጂ የዋጋዎችን ወይም የአንድን ነገር ዋጋ የሚያጠና የፍልስፍና ዘርፍ ነው። ቃሉ "Axios" (ዋጋ) እና "logos" (ጥናት) ከሚሉት የግሪክ ቃላት የተገኘ ነው። አክሲዮሎጂ እንደ ጥሩ፣ ተመራጭ ወይም ጠቃሚ የምንላቸው ነገሮች ምን እንደሆኑ እና እነዚህ ሃሳቦች ከየት እንደመጡ የሚሉ መሰረታዊ ጥያቄዎችን ይጠይቃል።</p>
-            
-            <h4>Key Branches of Axiology</h4>
-            <p>Axiology is divided into three main areas of value:</p>
-            <ul class="card-list">
-                <li><strong>Ethics (Moral Philosophy):</strong> This is the study of moral principles, values, and rules that define what is good or bad, right or wrong. It's the search for standards to guide human conduct. Ethics has three sub-branches:
-                    <ul class="card-list-nested">
-                        <li><strong>Normative Ethics:</strong> Seeks to determine the actual rules and standards by which we should live.</li>
-                        <li><strong>Meta-ethics:</strong> Investigates the meaning of ethical terms like "good" and "bad" and how ethical statements can be verified.</li>
-                        <li><strong>Applied Ethics:</strong> Applies moral rules to specific practical problems, such as capital punishment or abortion.</li>
-                    </ul>
-                </li>
-                <li><strong>Aesthetics:</strong> This is the theory of beauty and art. It explores our artistic and aesthetic experiences, and asks questions about what makes something beautiful or creative. It questions if there can be an objective standard for beauty.</li>
-                <li><strong>Social and Political Philosophy:</strong> This studies the value judgments that operate within a civil society and government. It asks questions about the best forms of government, justice, and the purpose of laws.</li>
-            </ul>
-            <p>አክሲዮሎጂ በሦስት ዋና ዋና የዋጋ ዘርፎች ይከፈላል፦</p>
-            <ul class="card-list">
-                <li><strong>ሥነምግባር (ሞራል ፍልስፍና):</strong> ጥሩ ወይም መጥፎ፣ ትክክል ወይም ስህተት የሆነውን የሚገልጹትን የሞራል መርሆች፣ እሴቶች እና ደንቦች የሚያጠና ነው። የሰውን ባህሪ ለመምራት የሚያገለግሉ መመዘኛዎችን ይፈልጋል። ሥነምግባር ሦስት ንዑስ ክፍሎች አሉት፦
-                    <ul class="card-list-nested">
-                        <li><strong>ኖርማቲቭ ሥነምግባር:</strong> በምን ዓይነት ደንቦች እና መመዘኛዎች መኖር እንዳለብን ለማወቅ ይፈልጋል።</li>
-                        <li><strong>ሜታ-ሥነምግባር:</strong> እንደ "ጥሩ" እና "መጥፎ" ያሉ የሥነምግባር ቃላት ትርጉም ምን እንደሆነ ይመረምራል።</li>
-                        <li><strong>ተግባራዊ ሥነምግባር (Applied Ethics):</strong> እንደ ሞት ቅጣት ወይም ፅንስ ማቋረጥ ባሉ ልዩ የሞራል ችግሮች ላይ የሥነምግባር መርሆችን ተግባራዊ ያደርጋል።</li>
-                    </ul>
-                </li>
-                <li><strong>ውበት ጥናት (Aesthetics):</strong> የውበት እና የኪነ ጥበብ ንድፈ ሃሳብ ነው። ስለ ጥበባዊ ልምዶቻችን የሚመረምር ሲሆን አንድን ነገር ቆንጆ ወይም ፈጠራ የሚያደርገው ምን እንደሆነ ይጠይቃል። ለውበት ተጨባጭ መስፈርት ሊኖር እንደሚችልም ይጠይቃል።</li>
-                <li><strong>ማህበራዊ እና ፖለቲካዊ ፍልስፍና:</strong> በሲቪል ማህበረሰብ እና በመንግስት ውስጥ የሚሰሩ የዋጋ ፍርዶችን ያጠናል። ስለ ምርጥ የመንግስት ዓይነቶች፣ ፍትህ እና የህግ አላማ ጥያቄዎችን ያነሳል።</li>
-            </ul>
-
-            <h3>Logic: The Study of Correct Reasoning 💡</h3>
-            <p>Logic is the study of the principles of correct reasoning. It provides the tools and methods for evaluating the validity and soundness of arguments. By studying logic, we learn how to construct good arguments and identify fallacies or errors in reasoning.</p>
-            <p>ሎጂክ የትክክለኛ ምክንያታዊ አስተሳሰብ መርሆችን የሚያጠና ነው። የክርክሮችን ትክክለኛነት እና ጤናማነት ለመገምገም የሚያገለግሉ መሳሪያዎችን እና ዘዴዎችን ይሰጣል። ሎጂክን በማጥናት፣ ጥሩ ክርክሮችን እንዴት መገንባት እንደምንችል እና በማመዛዘን ውስጥ ያሉ ስህተቶችን ወይም አላስፈላጊ መደምደሚያዎችን (fallacies) እንዴት መለየት እንደምንችል እንማራለን።</p>
-
-            <h4>Key Questions in Logic</h4>
-            <ul class="card-list">
-                <li><strong>What makes an argument valid or invalid?</strong></li>
-                <li><strong>What is a fallacy?</strong> How can we spot a fallacious argument?</li>
-                <li><strong>What is the relationship between a premise and a conclusion in an argument?</strong></li>
-            </ul>
-            <p>የሎጂክ ቁልፍ ጥያቄዎች</p>
-            <ul class="card-list">
-                <li><strong>አንድ ክርክር ትክክለኛ ወይም ትክክል ያልሆነው እንዴት ነው?</strong></li>
-                <li><strong>አላስፈላጊ መደምደሚያ (fallacy) ምንድን ነው?</strong> እንዴትስ መለየት እንችላለን?</li>
-                <li><strong>በክርክር ውስጥ ባለው መነሻ ሃሳብ (premise) እና መደምደሚያ (conclusion) መካከል ያለው ግንኙነት ምንድን ነው?</strong></li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>Why is Philosophy Important? 🌟</h2>
-            <p>Socrates famously said, "The unexamined life is not worth living." Studying philosophy gives us the tools to critically examine our lives and the world around us. It helps us develop key skills that are essential for self-actualization and personal growth.</p>
-            <p>ለምን ፍልስፍና አስፈላጊ ነው? 🌟</p>
-            <p>ሶቅራጥስ "ያልተመረመረ ህይወት መኖር ዋጋ የለውም" ብሏል። ፍልስፍናን ማጥናት ህይወታችንን እና በዙሪያችን ያለውን ዓለም በጥልቀት ለመመርመር የሚያስችሉ መሳሪያዎችን ይሰጠናል። ለራስ-እውን መሆን እና ለግል እድገት ወሳኝ የሆኑ ክህሎቶችን እንድናዳብር ይረዳናል።</p>
-
-            <h3>Benefits of Studying Philosophy</h3>
-            <ul class="card-list">
-                <li><strong>Intellectual Independence:</strong> Philosophy helps you develop your own beliefs and opinions, rather than just accepting those of others.</li>
-                <li><strong>Critical and Creative Thinking:</strong> It refines your ability to think critically, reason logically, and develop original perspectives on complex issues.</li>
-                <li><strong>Flexibility and Tolerance:</strong> By exploring diverse philosophical views, you learn that no single viewpoint is definitively true. This fosters open-mindedness and tolerance for different ideas.</li>
-                <li><strong>Dealing with Uncertainty:</strong> Philosophy helps us recognize that not all knowledge is absolutely certain. This frees us from rigid thinking and a sense of wonder, allowing us to see familiar things in new ways.</li>
-            </ul>
-            <p>የፍልስፍና ጥናት ጥቅሞች</p>
-            <ul class="card-list">
-                <li><strong>አስተሳሰባዊ ነጻነት:</strong> ፍልስፍና የሌሎችን እምነት ከመቀበል ይልቅ የራስዎን እምነት እና አመለካከት እንዲያዳብሩ ይረዳዎታል።</li>
-                <li><strong>ወሳኝ እና ፈጠራ ያለው አስተሳሰብ:</strong> በጥልቀት የማሰብ፣ በምክንያታዊነት የማመዛዘን እና ውስብስብ ጉዳዮች ላይ የራስዎን አመለካከት የማዳበር ችሎታዎን ያሳድጋል።</li>
-                <li><strong>ተለዋዋጭነት እና መቻቻል:</strong> የተለያዩ የፍልስፍና አመለካከቶችን በመመርመር፣ አንድ ነጠላ አመለካከት ብቻ ፍፁም እውነት እንዳልሆነ ይገነዘባሉ። ይህ ክፍት አስተሳሰብን እና ለተለያዩ ሀሳቦች መቻቻልን ያዳብራል።</li>
-                <li><strong>የማይመረመር ነገርን መቋቋም:</strong> ፍልስፍና ሁሉም እውቀቶች ፍፁም እርግጠኛ እንዳልሆኑ እንድንገነዘብ ይረዳናል። ይህ ከጥብቅ አስተሳሰብ ነፃ ያወጣን እና ነገሮችን በአዲስ መንገድ እንድንመለከት ያደርጋል።</li>
-            </ul>
-        </section>
-    </main>
+    <div class="note-container">
+        <h1><span class="emoji">🤔</span> What is Philosophy?</h1>
+        
+        <div class="definition">
+            <p><strong>Definition:</strong> Philosophy is the "love of wisdom." It is the practice of developing critical thinking, constantly searching for the truth, and questioning what seems obvious. It is not about having a specific subject matter, but about exploring fundamental issues and questions about the world and human existence.</p>
+            <p class="amharic">Amharic Translation: ፍልስፍና ማለት "የጥበብ ፍቅር" ማለት ነው::</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2><span class="emoji">✨</span> Key Ideas</h2>
+        
+        <ul class="key-ideas">
+            <li><strong>🎯 Universal Nature:</strong> Philosophy is hard to define because it doesn't have a specific subject like chemistry or physics. Instead, it deals with universal issues and questions.</li>
+            <li><strong>📖 Philosophy as an Activity:</strong> The best way to learn philosophy is to do it. You must philosophize by asking questions, reading philosophers, and grappling with ideas yourself.</li>
+            <li><strong>💡 Beginning in Wonder:</strong> As Socrates said, "Wonder is the feeling of a philosopher, and philosophy begins in wonder." Curiosity and questioning are at the heart of the philosophical process.</li>
+            <li><strong>🔥 Critical Habits:</strong> Philosophy is a rational and critical enterprise. It involves analysis, comparison, and evaluation to formulate and defend answers to fundamental questions. It's not just about raising questions but also about providing reasoned, well-thought-out responses.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h2><span class="emoji">💡</span> Examples of Philosophical Questions</h2>
+        <ul>
+            <li>Does God exist?</li>
+            <li>What is the nature of reality?</li>
+            <li>What is knowledge and how do we acquire it?</li>
+            <li>What is the ultimate source of Being?</li>
+            <li>What does it mean to live a good life?</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Compare & Contrast: Philosophy vs. Other Disciplines</h2>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Characteristic</th>
+                    <th>Philosophy</th>
+                    <th>Other Disciplines (e.g., Chemistry, Physics)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Subject Matter</strong></td>
+                    <td>Deals with universal issues and fundamental questions (e.g., reality, truth, knowledge).</td>
+                    <td>Deals with a specific subject matter (e.g., chemical elements, physical laws).</td>
+                </tr>
+                <tr>
+                    <td><strong>Method</strong></td>
+                    <td>An activity of rational criticism, analysis, and asking questions.</td>
+                    <td>Primarily an organized body of knowledge to be mastered and applied.</td>
+                </tr>
+                <tr>
+                    <td><strong>End Goal</strong></td>
+                    <td>The pursuit of wisdom and truth; a continuous process.</td>
+                    <td>To gain expertise or technical skills in a specific field.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="section-divider"></div>
+        
+        <h2><span class="emoji">🎯</span> Study Tips for Philosophy</h2>
+        <ul>
+            <li><strong>Read Philosophers Directly:</strong> The best way to understand philosophy is to read the works of philosophers themselves.</li>
+            <li><strong>Ask "Why?":</strong> Don't just accept information. Always question assumptions and think about the deeper reasons behind ideas.</li>
+            <li><strong>Discuss with Others:</strong> Engaging in conversations with others helps you clarify your own thoughts and see different perspectives.</li>
+            <li><strong>Reflect on Your Own Beliefs:</strong> Philosophy starts with you. Reflect on the questions and issues that matter most to you personally.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h1><span class="emoji">🤔</span> What Are the Features of Philosophy?</h1>
+        <div class="definition">
+            <p><strong>Definition:</strong> Philosophy is a unique academic discipline because it has several core features that distinguish it from other fields. These features go beyond simply having beliefs and involve a critical and comprehensive way of thinking.</p>
+            <p class="amharic">Amharic Translation: ፍልስፍና ከሌሎች የትምህርት ዘርፎች የሚለይባቸው መሰረታዊ ባህሪያት አሉት።</p>
+        </div>
+        
+        <h2><span class="emoji">✨</span> Key Features of Philosophy</h2>
+        <ul class="key-ideas">
+            <li><strong>🎯 A Set of Beliefs (Informal Sense):</strong> Everyone has a personal "philosophy" or set of views about life and the world, often held uncritically. This is the informal, everyday sense of the term.</li>
+            <li><strong>📖 A Critical Process (Formal Sense):</strong> The formal practice of philosophy is an active process of reflection and criticism. It requires mastering skills like argumentation and analysis to critically evaluate our deepest beliefs. Simply "having" a philosophy isn't enough; you must "do" philosophy by actively questioning and exploring ideas.</li>
+            <li><strong>💡 A Rational Worldview:</strong> Philosophy attempts to create a unified, rational picture of the world as a whole. It combines knowledge from various disciplines—science, history, religion—to form a consistent and coherent worldview. It seeks to see life not in fragments but as a totality.</li>
+            <li><strong>🔥 Logical Analysis:</strong> One of the core functions of philosophy is the logical analysis of language and concepts. Philosophers clarify the meaning of words and ideas to avoid confusion and nonsense, especially in scientific and everyday discourse.</li>
+            <li><strong>❓ A Study of Perennial Problems:</strong> Philosophy grapples with timeless, fundamental questions that have interested people for centuries, such as: "What is truth?" "What is justice?" "What is the meaning of life?" These are not simple questions of fact but deep inquiries into the nature of existence itself.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Why Do Philosophers Disagree?</h2>
+        <ul>
+            <li><strong>Different Perspectives:</strong> Philosophers have varied personal experiences, cultural backgrounds, and assumptions, leading them to view the same issues from different angles.</li>
+            <li><strong>A Changing World:</strong> Society, people, and nature are constantly changing, and philosophers respond to these changes in different ways. Some embrace new ideas, while others hold on to tradition.</li>
+            <li><strong>Incomplete Evidence:</strong> When dealing with fundamental questions, the evidence is often incomplete, allowing for diverse interpretations and conclusions.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h2><span class="emoji">🎯</span> Tips for Studying Philosophy</h2>
+        <ul>
+            <li><strong>Be Open-Minded:</strong> A genuine philosophical attitude requires you to be tolerant and willing to look at all sides of an issue without prejudice.</li>
+            <li><strong>Go Beyond Knowledge:</strong> Simply accumulating facts isn't enough. Focus on how to critically evaluate those facts to form a coherent and consistent judgment.</li>
+            <li><strong>Recognize the Influence:</strong> Be aware that you are constantly influenced by philosophical ideas from the past, even if you don't realize it. Understanding these ideas will help you better understand your own beliefs and society.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h1>Core Fields of Philosophy: Metaphysics & Epistemology</h1>
+        
+        <h2>Metaphysics <span class="emoji">🌌</span></h2>
+        <div class="definition">
+            <p><strong>Definition:</strong> Metaphysics is the branch of philosophy that studies the fundamental nature of reality, existence, and being. It explores the most basic questions about what is real and how things are. The word comes from the Greek meta ("beyond") and physika ("physics"), literally meaning "beyond the physics."</p>
+            <p class="amharic">Amharic Translation: ሜታፊዚክስ ማለት የህልውና፣ የእውነታና የተፈጥሮ ምንነትን የሚያጠና የፍልስፍና ዘርፍ ነው።</p>
+        </div>
+        
+        <h3><span class="emoji">✨</span> Key Ideas and Questions in Metaphysics</h3>
+        <ul>
+            <li><strong>Ultimate Reality:</strong> Metaphysics seeks to understand what is ultimately real. Is reality a single thing or many? Can we grasp it through our senses, or is it something transcendent?</li>
+            <li><strong>Mind-Body Problem:</strong> A central question is the relationship between the mind and the body. Is the mind a separate, non-physical entity, or is it simply a product of the physical brain?</li>
+            <li><strong>Causality:</strong> It explores the relationship between cause and effect. Is everything predetermined, or do we have free will?</li>
+            <li><strong>God and Immortality:</strong> Metaphysics also asks about the existence of God and the possibility of a soul or life after death.</li>
+        </ul>
+        
+        <h3>Subsets of Metaphysical Questions</h3>
+        <p>Metaphysics can be divided into four main areas of inquiry:</p>
+        <ul class="question-list">
+            <li><strong>Cosmology <span class="emoji">🌍</span>:</strong> The study of the origin, nature, and development of the universe.
+                <ul class="indent">
+                    <li><strong>Questions:</strong> How did the universe begin? Does it have a purpose?</li>
+                </ul>
+            </li>
+            <li><strong>Theology <span class="emoji">🙏</span>:</strong> The study of God and religious beliefs.
+                <ul class="indent">
+                    <li><strong>Questions:</strong> Does God exist? What are God's attributes? Why does evil exist if God is all-powerful and all-good?</li>
+                </ul>
+            </li>
+            <li><strong>Anthropology <span class="emoji">🧍</span>:</strong> The study of human beings.
+                <ul class="indent">
+                    <li><strong>Questions:</strong> What is the relationship between the mind and the body? Are humans born good or evil? Do we have free will?</li>
+                </ul>
+            </li>
+            <li><strong>Ontology <span class="emoji">🧐</span>:</strong> The study of existence itself, or "what it means to be."
+                <ul class="indent">
+                    <li><strong>Questions:</strong> Is reality made of matter or spirit? Is reality stable or constantly changing?</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3><span class="emoji">📖</span> Tips for Studying Metaphysics</h3>
+        <ul>
+            <li><strong>Think Beyond the Obvious:</strong> Metaphysics challenges you to look past what seems simple and straightforward. A floor, for example, can be seen as solid wood to a layperson, but to a physicist, it's a complex arrangement of energy and particles.</li>
+            <li><strong>Connect Ideas:</strong> The answers to metaphysical questions have a significant impact on our beliefs in other areas, such as politics, religion, and education. When you study a metaphysical concept, try to think about its broader implications.</li>
+            <li><strong>Embrace the "Why":</strong> Rather than focusing on finding the "correct" answer, focus on understanding the different arguments and reasoning behind each philosophical position.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Core Fields of Philosophy: Epistemology <span class="emoji">🧠</span></h2>
+        <div class="definition">
+            <p><strong>Definition:</strong> Epistemology is the branch of philosophy concerned with the nature, scope, and possibility of knowledge. It examines what it means to know something, the sources of knowledge, and how we can be sure that our knowledge is valid. The word comes from the Greek episteme ("knowledge") and logos ("study of").</p>
+            <p class="amharic">Amharic Translation: ኤፒስቲሞሎጂ ወይም የእውቀት ንድፈ ሐሳብ ማለት የእውቀትን ምንነት፣ ምንጭ �ና አስተማማኝነት የሚያጠና የፍልስፍና ዘርፍ ነው።</p>
+        </div>
+        
+        <h3><span class="emoji">🤔</span> Key Questions in Epistemology</h3>
+        <ul>
+            <li>What is the difference between knowledge, belief, and opinion?</li>
+            <li>What is the source of knowledge: Is it reason, experience, or a combination of both?</li>
+            <li>How can we determine if a statement is true?</li>
+            <li>Can we truly know reality, or is reliable knowledge impossible to achieve?</li>
+        </ul>
+        
+        <h3>Major Debates in Epistemology</h3>
+        <p>Epistemology explores fundamental issues about the nature of truth and the limits of human knowledge.</p>
+        <table class="section-table">
+            <thead>
+                <tr>
+                    <th>Issue</th>
+                    <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Skepticism vs. Dogmatism</strong></td>
+                    <td>Skepticism is the belief that we cannot acquire reliable knowledge and that the search for truth is futile. Dogmatism is the opposing view that absolute knowledge is attainable.</td>
+                </tr>
+                <tr>
+                    <td><strong>Relativism vs. Absolutism</strong></td>
+                    <td>Relativism argues that all truth is relative and subjective, changing based on time, place, or individual perspective. Absolutism holds that some truths are universal and eternally true, regardless of who believes them.</td>
+                </tr>
+                <tr>
+                    <td><strong>Subjectivity vs. Objectivity</strong></td>
+                    <td>Epistemology questions whether knowledge is subjective (dependent on the individual's mind) or objective (existing independently of the knower).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3><span class="emoji">💡</span> Sources of Knowledge</h3>
+        <p>Epistemology also examines the various ways humans can acquire knowledge. While one source might be favored, they are often seen as complementary.</p>
+        <table class="section-table">
+            <thead>
+                <tr>
+                    <th>Source</th>
+                    <th>Explanation</th>
+                    <th>Strengths & Weaknesses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Empiricism</strong></td>
+                    <td>Knowledge gained through the senses and direct experience. It is the foundation of scientific inquiry.</td>
+                    <td><strong>Strengths:</strong> Open to public examination and replication. <br> <strong>Weaknesses:</strong> Senses can be unreliable, incomplete, and easily distorted by factors like fatigue or illness.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rationalism</strong></td>
+                    <td>Knowledge obtained through reason, thought, and logic. It argues that the mind organizes sensory data into meaningful systems.</td>
+                    <td><strong>Strengths:</strong> Provides a way to make sense of the world and can lead to irrefutable truths (e.g., mathematics). <br> <strong>Weaknesses:</strong> Can become disconnected from the real world if not grounded in experience.</td>
+                </tr>
+                <tr>
+                    <td><strong>Intuition</strong></td>
+                    <td>A direct and immediate apprehension of knowledge that doesn't rely on conscious reasoning or senses. Often described as a "flash of insight."</td>
+                    <td><strong>Strengths:</strong> Can bypass the limitations of experience and lead to sudden breakthroughs. <br> <strong>Weaknesses:</strong> Not a reliable method on its own and can easily lead to absurd claims unless checked against other sources.</td>
+                </tr>
+                <tr>
+                    <td><strong>Revelation</strong></td>
+                    <td>Knowledge that is believed to be communicated by a supernatural or divine source. It is central to many religious beliefs.</td>
+                    <td><strong>Strengths:</strong> Provides a source of absolute and uncontaminated truth for believers. <br> <strong>Weaknesses:</strong> Must be accepted by faith and cannot be empirically proven or disproven.</td>
+                </tr>
+                <tr>
+                    <td><strong>Authority</strong></td>
+                    <td>Knowledge accepted as true because it comes from an expert or an established tradition.</td>
+                    <td><strong>Strengths:</strong> Allows society to build upon existing knowledge without needing to verify everything firsthand. <br> <strong>Weaknesses:</strong> If the source is flawed, the knowledge derived from it will also be distorted.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="definition">
+            <p><strong>Final Thought:</strong> How do you personally determine what is true? Do you rely more on your senses, reason, or another source of knowledge?</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h1>Core Fields of Philosophy: Axiology and Logic <span class="emoji">💡</span></h1>
+        
+        <h2>Axiology <span class="emoji">⚖️</span></h2>
+        <div class="definition">
+            <p><strong>Definition:</strong> Axiology is the philosophical study of value. The term comes from the Greek words axios ("value" or "worth") and logos ("study of"). It explores what a person or society considers good, desirable, or valuable.</p>
+            <p class="amharic">Amharic Translation: አክሲዮሎጂ የዋጋ ወይም የመልካምነት ፍልስፍናዊ ጥናት ነው።</p>
+        </div>
+        
+        <h3>Branches of Axiology</h3>
+        <p>Axiology is divided into three primary areas:</p>
+        <ol>
+            <li><strong>Ethics (Moral Philosophy) <span class="emoji">🤝</span>:</strong> This is the study of moral values and principles. It seeks to establish standards for determining what is considered good or bad, right or wrong.
+                <ul class="indent">
+                    <li><strong>Normative Ethics:</strong> Focuses on establishing moral rules and principles to guide human conduct. Examples include Deontological Ethics (duty-based) and Consequentialism (outcome-based).</li>
+                    <li><strong>Meta-ethics:</strong> Investigates the meaning of ethical terms like "good" and "bad." It's concerned with the nature of morality itself.</li>
+                    <li><strong>Applied Ethics:</strong> Applies ethical principles to specific moral problems, such as abortion, euthanasia, or animal rights.</li>
+                </ul>
+            </li>
+            <li><strong>Aesthetics (Theory of Beauty) <span class="emoji">🎨</span>:</strong> This field studies the values of our artistic and aesthetic experiences. It explores questions about beauty, art, and taste.
+                <ul class="indent">
+                    <li><strong>Questions:</strong> What is art? What is beauty? Are there objective standards for judging art, or is beauty subjective?</li>
+                </ul>
+            </li>
+            <li><strong>Social/Political Philosophy <span class="emoji">🗳️</span>:</strong> This branch studies values that operate within a civil society.
+                <ul class="indent">
+                    <li><strong>Questions:</strong> What is justice? What is the best form of government? What is the purpose of society?</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Logic <span class="emoji">🧠</span></h2>
+        <div class="definition">
+            <p><strong>Definition:</strong> Logic is the philosophical study of right reasoning. It provides the principles and methods for evaluating the validity and soundness of arguments. It helps us distinguish between good reasoning and fallacious (flawed) reasoning.</p>
+            <p class="amharic">Amharic Translation: ሎጂክ ትክክለኛ የማመዛዘን መርሆዎችን የሚያጠና የፍልስፍና ዘርፍ ነው።</p>
+        </div>
+        
+        <h3>Key Concepts in Logic</h3>
+        <ul>
+            <li><strong>Argument:</strong> A set of statements, where one statement (the conclusion) is supported by the others (the premises). Logic examines the relationship between premises and conclusions.</li>
+            <li><strong>Validity:</strong> An argument is valid if its conclusion logically follows from its premises. In a valid argument, if the premises are true, the conclusion must also be true.</li>
+            <li><strong>Soundness:</strong> An argument is sound if it is both valid and has true premises.</li>
+            <li><strong>Fallacy:</strong> A flaw or error in reasoning that makes an argument weak or invalid.</li>
+        </ul>
+        
+        <h3>Example of a Logical Argument</h3>
+        <ul>
+            <li><strong>Premise 1:</strong> All humans are mortal.</li>
+            <li><strong>Premise 2:</strong> Socrates is a human.</li>
+            <li><strong>Conclusion:</strong> Therefore, Socrates is mortal.</li>
+        </ul>
+        <p>This is an example of a valid and sound argument. The conclusion logically follows from the premises, and the premises are true.</p>
+        
+        <h3><span class="emoji">💡</span> Study Tips for Axiology & Logic</h3>
+        <ul>
+            <li><strong>For Axiology:</strong> Reflect on your own values. When you make a decision, think about the ethical, aesthetic, or social principles that guided you.</li>
+            <li><strong>For Logic:</strong> Practice identifying arguments in everyday conversations and media. Try to break them down into their premises and conclusions to see if they are valid and sound. The goal is to think more critically and spot flawed reasoning.</li>
+        </ul>
+        
+        <div class="section-divider"></div>
+        
+        <h1>Why is Learning Philosophy Important?</h1>
+        <p>Learning philosophy provides students with the tools to critically examine their own lives and the world around them. It helps people move beyond simple, uncritical beliefs to a more reflective and self-aware existence.</p>
+        
+        <h2><span class="emoji">✨</span> Key Benefits of Studying Philosophy</h2>
+        <ul class="key-ideas">
+            <li><strong>Intellectual and Behavioral Independence:</strong> Philosophy encourages you to develop your own beliefs and opinions rather than simply adopting those of others. By studying different philosophical worldviews, you learn to integrate your own experiences, thoughts, and feelings into a coherent perspective.</li>
+            <li><strong>Reflective Self-Awareness:</strong> Studying philosophy intensifies your self-awareness by prompting you to critically examine the intellectual foundations of your life. It encourages the examined life, a concept famously championed by Socrates.</li>
+            <li><strong>Flexibility and Open-Mindedness:</strong> By engaging with diverse philosophical perspectives, you realize that different viewpoints can have value and that truth isn't always absolute. This process fosters tolerance and makes you more open and sympathetic to views that may clash with your own.</li>
+            <li><strong>Creative and Critical Thinking:</strong> Philosophy refines your ability to analyze, reason, evaluate, and theorize. It provides the skills necessary to develop original perspectives and engage with complex issues on a deeper level.</li>
+            <li><strong>Conceptualized Value Systems:</strong> Philosophy helps you formulate well-thought-out value systems in areas like morality, art, and politics. This allows you to find deeper meaning in your life by providing a framework for your beliefs and actions.</li>
+            <li><strong>Dealing with Uncertainty:</strong> Philosophy helps you realize that absolute certainty is often elusive. As Bertrand Russell noted, this uncertainty is a core value of philosophy. It frees us from rigid prejudices and opens our minds to new possibilities, replacing arrogant dogmatism with a sense of wonder.</li>
+        </ul>
+        
+        <div class="definition">
+            <h3>The Unexamined Life <span class="emoji">🧐</span></h3>
+            <p>The famous quote by Socrates, "The unexamined life is not worth living," summarizes a central reason for studying philosophy. He believed that the best thing a person can do is to engage in constant self-examination and discussion about the nature of goodness and other important topics. Without this critical reflection, a life is lived without purpose or true understanding.</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h1>Summary: The Essence and Importance of Philosophy</h1>
+        
+        <h2>What is Philosophy?</h2>
+        <p>Philosophy is the "love of wisdom." It is a rational and critical discipline that involves the continuous search for truth and the development of critical habits. It encourages questioning the apparent, not to deny reality, but to creatively explore ideas beyond common understanding. Philosophy is both critical (analyzing and evaluating existing ideas) and constructive (formulating new, defensible answers to fundamental questions).</p>
+        
+        <h2>Key Features and Fields of Philosophy</h2>
+        <p>Philosophy is unique due to its systematic, logical, and flexible approach. Its holistic and evolutionary nature allows it to address the most important issues facing humanity through its major branches:</p>
+        <ul>
+            <li><strong>Metaphysics:</strong> The study of ultimate reality and existence.</li>
+            <li><strong>Epistemology:</strong> The study of knowledge—its nature, sources, and limits.</li>
+            <li><strong>Axiology:</strong> The study of values, including morality (ethics), beauty (aesthetics), and social or political values.</li>
+            <li><strong>Logic:</strong> The study of right reasoning and the principles and methods for evaluating arguments.</li>
+        </ul>
+        
+        <h2>The Importance of Studying Philosophy</h2>
+        <p>Learning philosophy provides numerous benefits that contribute to self-actualization and personal growth. It gives you the tools to critically examine your life and the world. The key advantages include:</p>
+        <ul>
+            <li><strong>Intellectual and Behavioral Independence:</strong> It helps you develop your own beliefs and a coherent worldview.</li>
+            <li><strong>Reflective Self-Awareness:</strong> It encourages you to critically examine your life, embodying the Socratic ideal of the "unexamined life is not worth living."</li>
+            <li><strong>Flexibility and Open-Mindedness:</strong> By exposing you to diverse viewpoints, it promotes tolerance and a willingness to consider different perspectives.</li>
+            <li><strong>Creative and Critical Thinking:</strong> It hones your analytical skills, allowing you to think critically and engage with complex problems on a deeper level.</li>
+            <li><strong>Conceptualized Value Systems:</strong> It provides a framework for developing well-thought-out values in morality, art, and politics, helping you find meaning in life.</li>
+            <li><strong>Dealing with Uncertainty:</strong> Philosophy teaches you to be comfortable with the absence of absolute certainty. This frees you from dogmatism and fosters a sense of wonder, opening your mind to new possibilities.</li>
+        </ul>
+    </div>
 </body>
 </html>
   `
@@ -2790,732 +3088,335 @@ export const noteCollections: Subject[] = [
 ,   {
   "id": "Chapter2",
   "title": "Chapter 2: Basic Concepts of Logic",
-  "content": `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Concepts of Logic - Chapter Two</title>
-    <style>
-        :root {
-            --card1: #e3f2fd;
-            --card2: #e8f5e9;
-            --card3: #fff8e1;
-            --card4: #fce4ec;
-            --card5: #f3e5f5;
-            --card6: #e0f7fa;
-            --card7: #fffde7;
-            --card8: #efebe9;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1, h2, h3, h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            text-align: center;
-            margin: 30px 0;
-            color: #1a237e;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid #1a237e;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 25px;
-            color: #283593;
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            color: #3949ab;
-        }
-        
-        .card {
-            background-color: var(--card1);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow-wrap: break-word;
-        }
-        
-        .card:nth-child(odd) {
-            background-color: var(--card2);
-        }
-        
-        .card:nth-child(3n) {
-            background-color: var(--card3);
-        }
-        
-        .card:nth-child(4n) {
-            background-color: var(--card4);
-        }
-        
-        .card:nth-child(5n) {
-            background-color: var(--card5);
-        }
-        
-        .card:nth-child(6n) {
-            background-color: var(--card6);
-        }
-        
-        .card:nth-child(7n) {
-            background-color: var(--card7);
-        }
-        
-        .card:nth-child(8n) {
-            background-color: var(--card8);
-        }
-        
-        p, li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        ul, ol {
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: white;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #1a237e;
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        .example {
-            background-color: white;
-            border-left: 4px solid #1a237e;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .note {
-            background-color: #fffde7;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .emoji {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.3rem;
-            }
-            
-            .card {
-                padding: 15px;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-    </style>
-</head>
-<body>
-    <h1>Basic Concepts of Logic</h1>
-    
-    <div class="card">
-        <h2>Chapter Two: Basic Concepts of Logic</h2>
-        
-        <h3>2.1 Argument, Premises, and Conclusions</h3>
-        <p>Logic is the science that systematically evaluates arguments. Its main goal is to develop a system of methods and principles to assess arguments and to help us construct our own. It helps us determine if the premises of an argument provide good evidence for its conclusion.</p>
-        
-        <p><strong>Logic (ሎጂክ):</strong> Logic is a field of study that focuses on analyzing arguments to see if they are valid or sound. The purpose is to create a system of rules that helps us tell good arguments from bad ones. It is a systematic study of methods for evaluating whether the premises of an argument adequately support the conclusion.</p>
-        
-        <p>ሎጂክ ማለት ክርክሮችን እና ሀሳቦችን ለመገምገም የሚያገለግል የሳይንስ ዘርፍ ነው። ዋና አላማው አንድ ሀሳብ ወይም ክርክር ትክክል መሆኑን ወይም አለመሆኑን ለመለየት የሚያስችል መመሪያዎችንና መርሆችን ማዘጋጀት ነው።</p>
-    </div>
-    
-    <div class="card">
-        <h4>I. Conceptual Framework</h4>
-        
-        <h4>1. Statement (አረፍተ ነገር)</h4>
-        <p>A statement is a sentence or a group of sentences that is either true or false, but not both at the same time. These are the building blocks of an argument.</p>
-        
-        <div class="example">
-            <p><strong>Extra Examples:</strong></p>
+  "content": `
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 100%; padding: 15px; color: #2c3e50; box-sizing: border-box;">
+      <!-- Header -->
+      <div style="background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
+        <h1 style="margin: 0; font-size: 1.8rem;">🔍 Chapter 2: Basic Concepts of Logic</h1>
+        <p style="font-size: 1rem; opacity: 0.9; margin: 10px 0 0;">Organized body of knowledge for evaluating arguments</p>
+      </div>
+
+      <!-- Chapter Overview -->
+      <div style="background: #f0f4ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4a69bd;">
+        <h2 style="color: #1e3799; margin-top: 0;">📚 Chapter Overview</h2>
+        <ul style="padding-left: 20px;">
+          <li><strong>Definition:</strong> Logic is the organized body of knowledge that evaluates arguments. It aims to develop methods and principles for evaluating and constructing arguments.</li>
+          <li><strong>Argument:</strong> A systematic combination of statements, including premises (supporting evidence) and a conclusion (what is claimed to follow from the evidence).</li>
+          <li><strong>Types of Arguments:</strong>
             <ul>
-                <li>Ethiopia is located in Africa. (True Statement)</li>
-                <li>The sun rises in the west. (False Statement)</li>
-                <li>Two plus two equals four. (True Statement)</li>
-                <li>All squares have five sides. (False Statement)</li>
+              <li>Deductive Arguments: Premises support the conclusion such that it is impossible for the premises to be true and the conclusion false.</li>
+              <li>Inductive Arguments: Premises support the conclusion such that it is improbable for the premises to be true and the conclusion false.</li>
             </ul>
-        </div>
-        
-        <p>አረፍተ ነገር (Statement): እውነት ወይም ሀሰት ሊሆን የሚችል ነገር ግን ሁለቱንም በአንድ ጊዜ ሊሆን የማይችል ዓረፍተ ነገር ነው።</p>
-    </div>
-    
-    <div class="card">
-        <h4>2. Argument (ክርክር)</h4>
-        <p>An argument is a group of statements where one or more premises are claimed to support a conclusion. Arguments can be categorized into two groups:</p>
-        <ul>
-            <li><strong>Good Arguments:</strong> The premises genuinely support the conclusion.</li>
-            <li><strong>Bad Arguments:</strong> The premises claim to support the conclusion but fail to do so.</li>
-        </ul>
-        
-        <p><strong>Argument (ክርክር):</strong> አንድ ወይም ከዚያ በላይ የሆኑ ሀሳቦች (Premises) አንድን ድምዳሜ (Conclusion) ለመደገፍ በሚቀርቡበት ጊዜ የሚፈጠር የዓረፍተ ነገሮች ስብስብ ነው። ክርክር ሀሳቦቹ ድምዳሜውን የሚደግፉ ከሆነ "ጥሩ ክርክር" ይባላል፤ ካልደገፉት ደግሞ "መጥፎ ክርክር" ይባላል።</p>
-    </div>
-    
-    <div class="card">
-        <h4>Non-Statement Expressions</h4>
-        <p>These are sentences that cannot be classified as either true or false.</p>
-        
-        <table>
-            <tr>
-                <th>Expression Type</th>
-                <th>Examples</th>
-                <th>Extra Examples</th>
-            </tr>
-            <tr>
-                <td>Questions</td>
-                <td>What is your name?</td>
-                <td>How are you today?</td>
-            </tr>
-            <tr>
-                <td>Proposals</td>
-                <td>Let's go to the party today.</td>
-                <td>Let's study for the exam together.</td>
-            </tr>
-            <tr>
-                <td>Suggestions</td>
-                <td>You would better go by bus.</td>
-                <td>You should take a break.</td>
-            </tr>
-            <tr>
-                <td>Commands</td>
-                <td>Stand up!</td>
-                <td>Turn the light on!</td>
-            </tr>
-            <tr>
-                <td>Exclamations</td>
-                <td>Right on!</td>
-                <td>Wow!</td>
-            </tr>
-        </table>
-    </div>
-    
-    <div class="card">
-        <h4>3. Premises (መነሻ ሀሳቦች)</h4>
-        <p>Premises are statements that provide reasons or evidence to support the conclusion. They are the foundation upon which the argument is built.</p>
-        
-        <p><strong>Premises (መነሻ ሀሳቦች):</strong> ለድምዳሜው እንደ ማስረጃ ወይም ምክንያት ሆነው የሚያገለግሉ ዓረፍተ ነገሮች ናቸው።</p>
-    </div>
-    
-    <div class="card">
-        <h4>4. Conclusion (ድምዳሜ)</h4>
-        <p>The conclusion is the statement that the premises are claimed to support. It is the main point the argument is trying to prove.</p>
-        
-        <p><strong>Conclusion (ድምዳሜ):</strong> በመነሻ ሀሳቦቹ የሚደገፍ ነው ተብሎ የሚታሰበው ዋናው ሀሳብ ወይም ዓረፍተ ነገር ነው።</p>
-    </div>
-    
-    <div class="card">
-        <h4>Examples of Arguments</h4>
-        
-        <div class="example">
-            <p><strong>Example 1 (Good Argument):</strong></p>
-            <p>Premise: All crimes are violations of the law. <span class="emoji">📜</span></p>
-            <p>Premise: Theft is a crime. <span class="emoji">👮</span></p>
-            <p>Conclusion: Therefore, theft is a violation of the law. <span class="emoji">⚖️</span></p>
-            <p><strong>Explanation:</strong> The premises provide strong, logical support for the conclusion. The argument is well-constructed and the conclusion follows directly from the premises.</p>
-        </div>
-        
-        <div class="example">
-            <p><strong>Example 2 (Good Argument):</strong></p>
-            <p>Premise: All uncles are male. <span class="emoji">👨</span></p>
-            <p>Premise: Tola is an uncle. <span class="emoji">👦</span></p>
-            <p>Conclusion: So, Tola is a male. <span class="emoji">💪</span></p>
-            <p><strong>Explanation:</strong> The premises clearly and adequately support the conclusion. This is another example of a good argument.</p>
-        </div>
-        
-        <div class="example">
-            <p><strong>Example 3 (Bad Argument):</strong></p>
-            <p>Premise: Some crimes are misdemeanors. <span class="emoji">⚖️</span></p>
-            <p>Premise: Murder is a crime. <span class="emoji">🔪</span></p>
-            <p>Conclusion: Therefore, murder is a misdemeanor. <span class="emoji">❌</span></p>
-            <p><strong>Explanation:</strong> The premises do not support the conclusion. Murder is a felony, not a misdemeanor, and the premises, while true, don't logically lead to this specific conclusion. The evidence is inadequate.</p>
-        </div>
-        
-        <div class="example">
-            <p><strong>Example 4 (Bad Argument):</strong></p>
-            <p>Premise: Some uncles are skinny. <span class="emoji">🧍‍♂️</span></p>
-            <p>Premise: Gemechu is an uncle. <span class="emoji">👴</span></p>
-            <p>Conclusion: So, Gemechu is skinny. <span class="emoji">🤷‍♂️</span></p>
-            <p><strong>Explanation:</strong> The evidence from the premises is weak. Just because some uncles are skinny doesn't mean Gemechu must be skinny. The premises do not provide sufficient support for the conclusion.</p>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h3>2.2 How to Differentiate a Conclusion from its Premise(s)</h3>
-        <p>Arguments often contain special indicator words that help us identify which statements are premises and which is the conclusion.</p>
-        
-        <h4>Premise Indicators</h4>
-        <p>These words often introduce a premise.</p>
-        <ul>
-            <li>Since</li>
-            <li>Because</li>
-            <li>As indicated by</li>
-            <li>For the reason that</li>
-            <li>Given that</li>
-            <li>Seeing that</li>
-            <li>Inasmuch as</li>
-            <li>For</li>
-            <li>Owing to</li>
-            <li>May be inferred from</li>
-        </ul>
-        
-        <div class="example">
-            <p><strong>Extra Examples:</strong></p>
+          </li>
+          <li><strong>Evaluation:</strong>
             <ul>
-                <li>Since the road is closed, we must find an alternative route.</li>
-                <li>The team will win because they have the best players.</li>
-                <li>As indicated by the latest report, the economy is recovering.</li>
-            </ul>
-        </div>
-        
-        <h4>Conclusion Indicators</h4>
-        <p>These words often introduce the conclusion.</p>
-        <ul>
-            <li>Therefore</li>
-            <li>Hence</li>
-            <li>So</li>
-            <li>Accordingly</li>
-            <li>Consequently</li>
-            <li>Thus</li>
-            <li>It follows that</li>
-            <li>It must be that</li>
-            <li>As a result</li>
-            <li>We may infer</li>
-        </ul>
-        
-        <div class="example">
-            <p><strong>Extra Examples:</strong></p>
-            <ul>
-                <li>The evidence is overwhelming; therefore, the defendant is guilty.</li>
-                <li>She studied hard for the exam, so she will pass.</li>
-                <li>He is late to work every day; thus, he will likely be fired.</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h3>2.3 Recognizing Arguments</h3>
-        <p>Not every passage contains an argument. A passage contains an argument only if it attempts to prove something. Two conditions must be met for a passage to be considered an argument:</p>
-        <ol>
-            <li><strong>Factual Claim:</strong> At least one statement must claim to provide evidence or a reason. We ask, "Are the premises true or false?"</li>
-            <li><strong>Inferential Claim:</strong> There must be a claim that the evidence supports or implies something. We ask, "Do the premises support the conclusion?"</li>
-        </ol>
-        <p>Both conditions must be present for a passage to be an argument. It's not about whether the evidence is true or the support is good, but whether the claim to provide evidence and support is present.</p>
-        
-        <h4>Non-Argument Expressions</h4>
-        <p>These passages lack an inferential claim and are considered Unsupported Assertions. They do not attempt to prove anything.</p>
-        
-        <h4>Warnings:</h4>
-        <p>Statements intended to alert someone to danger. They are not arguments because they don't provide reasons to support a conclusion.</p>
-        <div class="example">
-            <p><strong>Example:</strong> Watch out that you do not slip on the mud.</p>
-            <p><strong>Extra Example:</strong> Look both ways before you cross the street.</p>
-        </div>
-        
-        <h4>Pieces of Advice:</h4>
-        <p>Recommendations on what someone should do. They can be part of an argument but, by themselves, don't contain a claim of support.</p>
-        <div class="example">
-            <p><strong>Example:</strong> I suggest you take Logic during your first year.</p>
-            <p><strong>Extra Example:</strong> You should drink more water.</p>
-        </div>
-        
-        <h4>Statements of Belief/Opinion:</h4>
-        <p>Expressions of what someone thinks or believes without providing evidence.</p>
-        <div class="example">
-            <p><strong>Example:</strong> I think a nation like ours, with its high moral traditions, has a further responsibility to know how we became involved in this conflict.</p>
-            <p><strong>Extra Example:</strong> I believe that honesty is the best policy.</p>
-        </div>
-        
-        <h4>Reports:</h4>
-        <p>Statements that simply convey information about an event or situation. They don't draw any inferences.</p>
-        <div class="example">
-            <p><strong>Example:</strong> A bomb exploded near the national museum, injuring 25 people and causing millions of birrs in damage.</p>
-            <p><strong>Extra Example:</strong> The weather report stated that there would be heavy rainfall tomorrow.</p>
-        </div>
-        
-        <h4>Illustrations:</h4>
-        <p>Statements about a subject combined with one or more specific examples to explain the statement. They are often confused with arguments because they may use indicator words like "thus" or "for example."</p>
-        <div class="example">
-            <p><strong>Example:</strong> Mammals are animals that nourish their young with milk. For example, cats, dogs, goats, monkeys, and humans are mammals.</p>
-            <p><strong>Extra Example:</strong> Chemical elements, as well as compounds, can be represented by molecular formulas. Thus, oxygen is represented by O<sub>2</sub>.</p>
-            <p><strong>Extra Example:</strong> Whole numbers can be represented as fractions. Thus, 2 can be represented as 8/4.</p>
-        </div>
-        
-        <div class="note">
-            <p><strong>🔑 Key Note:</strong> The crucial difference between an illustration and an argument is the purpose. An illustration explains a concept with examples, while an argument uses evidence to prove a conclusion. If the examples are used to support a claim, the passage becomes an argument.</p>
-        </div>
-        
-        <h4>6. Conditional Statements</h4>
-        <p>A conditional statement is an "if..., then..." statement. It's important to know that, by itself, a conditional statement is never an argument. It simply states a relationship between two things without asserting either one as true.</p>
-        
-        <ul>
-            <li>The part that follows "if" is called the antecedent (መነሻ).</li>
-            <li>The part that follows "then" is called the consequent (ውጤት).</li>
-        </ul>
-        
-        <div class="example">
-            <p><strong>Example 1:</strong></p>
-            <p>"If Galgalo works hard, then he will get a promotion."</p>
-            <ul>
-                <li>This statement does not claim that Galgalo works hard.</li>
-                <li>This statement does not claim that he will get a promotion.</li>
-                <li>It only asserts that if the first part happens, the second part will follow.</li>
-            </ul>
-        </div>
-        
-        <p><strong>Contrast this with an argument:</strong></p>
-        <div class="example">
-            <p><strong>Example 2 (Argument):</strong></p>
-            <p>Premise: If Galgalo works hard, then he will get a promotion.</p>
-            <p>Premise: Galgalo has worked hard.</p>
-            <p>Conclusion: Therefore, Galgalo will get a promotion.</p>
-            <p>In this case, the conclusion is asserted based on the premises, making it a valid argument.</p>
-        </div>
-        
-        <h4>Relationship Between a Conditional Statement and an Argument:</h4>
-        <ul>
-            <li>A single conditional statement cannot be an argument. <span class="emoji">🙅</span></li>
-            <li>A conditional statement can serve as a premise, a conclusion, or both in an argument.</li>
-            <li>The logic within a conditional statement can be restated to form an argument.</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h4>Conditions in Conditional Statements</h4>
-        <p>Conditional statements express the relationship between necessary and sufficient conditions.</p>
-        
-        <h4>Sufficient Condition:</h4>
-        <p>'A' is a sufficient condition for 'B' if the occurrence of 'A' is all that's needed for 'B' to occur.</p>
-        <div class="example">
-            <p><strong>Example 1:</strong> If I am stabbed by a dagger, then a scar will appear on my skin.</p>
-            <p>Stabbing with a dagger is sufficient to cause a scar, but it is not the only way to get a scar. A burn or a gunshot wound could also cause a scar.</p>
-            
-            <p><strong>Extra Examples:</strong></p>
-            <ul>
-                <li>If it's raining, the ground is wet. (Rain is sufficient for a wet ground, but a sprinkler could also make it wet).</li>
-                <li>If you get a perfect score on the exam, you will pass the class. (A perfect score is sufficient to pass, but you could also pass with a lower score).</li>
-            </ul>
-        </div>
-        
-        <h4>Necessary Condition:</h4>
-        <p>'B' is a necessary condition for 'A' if 'A' cannot occur without 'B' also occurring.</p>
-        <div class="example">
-            <p><strong>Example 1:</strong> If "X" is an uncle, then "X" is a male.</p>
-            <p>Being a male is a necessary condition to be an uncle; you cannot be an uncle without being male.</p>
-            
-            <p><strong>Extra Examples:</strong></p>
-            <ul>
-                <li>If you are a doctor, you have a medical degree. (A medical degree is a necessary condition to be a doctor).</li>
-                <li>If you drive a car, you have gasoline in the tank. (Having gasoline is a necessary condition for driving a gasoline-powered car).</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h4>7. Explanations</h4>
-        <p>Explanations are statements or groups of statements that shed light on a phenomenon that is already accepted as fact. They are not arguments because their purpose is to clarify, not to prove.</p>
-        
-        <p>Every explanation has two parts:</p>
-        <ol>
-            <li><strong>Explanandum (የሚብራራው ነገር):</strong> The statement that describes the event or phenomenon to be explained.</li>
-            <li><strong>Explanans (ማብራሪያ):</strong> The statement(s) that provide the explanation.</li>
-        </ol>
-        
-        <div class="example">
-            <p><strong>Example 1:</strong></p>
-            <p>"The sky appears blue from the earth's surface because light rays are scattered by particles from the atmosphere."</p>
-            <p>The purpose here is to explain why the sky is blue, not to prove that it is blue. We already accept that the sky is blue as a fact.</p>
-        </div>
-        
-        <h4>Argument vs. Explanation</h4>
-        <table>
-            <tr>
-                <th>Feature</th>
-                <th>Argument</th>
-                <th>Explanation</th>
-            </tr>
-            <tr>
-                <td>Premise/Explanans</td>
-                <td>The premise is claimed to prove the conclusion.</td>
-                <td>The explanans is claimed to explain the explanandum.</td>
-            </tr>
-            <tr>
-                <td>Conclusion/Explanandum</td>
-                <td>The conclusion is a point to be proven.</td>
-                <td>The explanandum is an accepted fact.</td>
-            </tr>
-        </table>
-        
-        <div class="example">
-            <p><strong>Example 2 (An explanation re-expressed as an argument):</strong></p>
-            <p>Premise: Light rays from the sun are scattered by particles in the atmosphere.</p>
-            <p>Conclusion: Therefore, the sky appears blue from the earth's surface.</p>
-            <p>In this form, the statement is now attempting to prove the conclusion, making it an argument.</p>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h3>2.4 Types of Arguments</h3>
-        <p>Arguments are divided into two main categories: Deductive and Inductive.</p>
-        
-        <h4>Deductive Arguments</h4>
-        <p>A deductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is impossible for the conclusion to be false. The conclusion is claimed to follow necessarily from the premises.</p>
-        
-        <div class="example">
-            <p><strong>Example 1:</strong></p>
-            <p>All fruits are beverages. <span class="emoji">🍏</span></p>
-            <p>Oranges are fruits. <span class="emoji">🍊</span></p>
-            <p>So, oranges are beverages. <span class="emoji">🍹</span></p>
-            <p>This is a deductive argument because the conclusion follows with strict necessity from the premises.</p>
-        </div>
-        
-        <div class="example">
-            <p><strong>Example 2:</strong></p>
-            <p>All mammals are vertebrates. <span class="emoji">🦴</span></p>
-            <p>All humans are mammals. <span class="emoji">🧍</span></p>
-            <p>Therefore, all humans are vertebrates. <span class="emoji">🧠</span></p>
-            <p>The conclusion is a necessary consequence of the premises.</p>
-        </div>
-        
-        <h4>Subcategories of Deductive Arguments</h4>
-        <ul>
-            <li><strong>Arguments based on Mathematics:</strong> The conclusion is based on mathematical computation or measurement.
-                <div class="example">
-                    <p><strong>Example:</strong> A shopper places two apples and three oranges into a bag and concludes that the bag contains five pieces of fruit. <span class="emoji">🍎+🍊=5</span>.</p>
-                </div>
-            </li>
-            <li><strong>Arguments from Definition:</strong> The conclusion depends on the definition of a word or phrase used in the premises.
-                <div class="example">
-                    <p><strong>Example:</strong> Michael is mendacious, therefore he tells lies. (Mendacious is defined as telling lies).</p>
-                </div>
-            </li>
-            <li><strong>Categorical Syllogism:</strong> A syllogism where each statement begins with "all," "no," or "some."
-                <div class="example">
-                    <p><strong>Example:</strong> No cats are dogs. No dogs are mammals that can fly. Therefore, no cats are mammals that can fly. <span class="emoji">🐾</span></p>
-                </div>
-            </li>
-            <li><strong>Hypothetical Syllogism:</strong> A syllogism that has a conditional ("if..., then...") statement for one or both of its premises.
-                <div class="example">
-                    <p><strong>Example:</strong> If you trespass on campus, then the campus police will catch you. If the campus police catch you, then you will face disciplinary penalty. Therefore, if you trespass on campus, then you will face disciplinary penalty.</p>
-                </div>
-            </li>
-            <li><strong>Disjunctive Syllogism:</strong> A syllogism with a disjunctive ("either...or...") statement for one of its premises.
-                <div class="example">
-                    <p><strong>Example:</strong> Either breach of contract is a crime or it is not punishable by law. Breach of contract is not a crime. So, breach of contract is not punishable by law.</p>
-                </div>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h4>Inductive Arguments</h4>
-        <p>An inductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is improbable that the conclusion is false. The conclusion is claimed to follow probably from the premises.</p>
-        
-        <div class="example">
-            <p><strong>Example 1:</strong></p>
-            <p>The vast majority of the saleswomen in this supermarket are hospitable. <span class="emoji">🙂</span></p>
-            <p>Obse is a saleswoman in this supermarket. <span class="emoji">👩‍💼</span></p>
-            <p>Therefore, probably, Obse is hospitable. <span class="emoji">😊</span></p>
-            <p>The conclusion is not certain, but it is probable.</p>
-        </div>
-        
-        <div class="example">
-            <p><strong>Example 2:</strong></p>
-            <p>80 oranges selected at random from a basket containing 100 oranges were found to be ripe. <span class="emoji">🍊</span></p>
-            <p>Probably, all 100 oranges are ripe. <span class="emoji">✅</span></p>
-            <p>The conclusion is a probable generalization based on the sample.</p>
-        </div>
-        
-        <h4>Subcategories of Inductive Arguments</h4>
-        <ul>
-            <li><strong>Arguments from Analogy:</strong> These arguments depend on a comparison between two or more similar things.
-                <div class="example">
-                    <p><strong>Example:</strong> Abebe's 2006 Chevolet has luxurious seats and excellent gas mileage. Matiyas's 2006 Chevolet also has luxurious seats and excellent gas mileage. Therefore, Matiyas's car probably has a computer set. <span class="emoji">🚘</span></p>
-                </div>
-            </li>
-            <li><strong>Inductive Generalization:</strong> An argument that moves from knowledge of a selected sample to a claim about the entire group.
-                <div class="example">
-                    <p><strong>Example:</strong> 10 apples selected randomly from a basket of 100 were ripe. Probably, all 90 remaining apples are also ripe. <span class="emoji">🍎</span></p>
-                </div>
-            </li>
-            <li><strong>Arguments based on Signs:</strong> These arguments draw a conclusion from signs or symbols.
-                <div class="example">
-                    <p><strong>Example:</strong> If a traffic sign is in a certain position, a driver might conclude that a turn is coming up. The conclusion is probable but not certain, as the sign could be misplaced. <span class="emoji">🚦</span></p>
-                </div>
-            </li>
-            <li><strong>Causal Inference:</strong> These arguments proceed from a cause to an effect, or from an effect to a cause.
+              <li>Deductive Arguments: Valid (if premises support conclusion properly) or Invalid</li>
+              <li>Inductive Arguments: Strong (if premises support conclusion properly) or Weak</li>
+              <li>Additional Evaluation:
                 <ul>
-                    <li><strong>Cause to Effect:</strong> Example: A bottle of wine was accidentally put in the freezer. Therefore, the bottle of wine has been frozen. <span class="emoji">❄️</span></li>
-                    <li><strong>Effect to Cause:</strong> Example: I tasted a piece of chicken and found it dry and crunchy. Therefore, the chicken had been overcooked. <span class="emoji">🍗</span></li>
+                  <li>Deductive Arguments: Sound (valid and all premises true) or Unsound</li>
+                  <li>Inductive Arguments: Cogent (strong and all premises probably true) or Uncogent</li>
                 </ul>
-            </li>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Objectives:</strong> Understand basic concepts of logic, components and types of arguments, and techniques for recognizing and evaluating arguments.</li>
         </ul>
+      </div>
+
+      <!-- Lesson 1: Basic Concepts -->
+      <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
+        <h2 style="color: #0d47a1; margin-top: 0;">🧩 Lesson 1: Arguments, Premises, and Conclusions</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Definition</h3>
+          <p>Logic is a philosophical science that evaluates arguments.</p>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Components of an Argument</h3>
+          <ul>
+            <li><strong>Premises:</strong> Statements claimed to provide support or evidence</li>
+            <li><strong>Conclusion:</strong> The statement claimed to follow logically from the premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Objectives</h3>
+          <ul>
+            <li>Understand the meaning of logic and arguments</li>
+            <li>Identify components of an argument (premises and conclusion)</li>
+            <li>Recognize techniques for identifying premises and conclusions</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Meaning of Logic</h3>
+          <ul>
+            <li>Origin: Greek word "logos" (sentence, discourse, reason, truth, rule)</li>
+            <li>Logic evaluates arguments using a structured approach</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #1565c0;">Definitions and Benefits of Logic</h3>
+          <p><strong>Definitions:</strong></p>
+          <ol>
+            <li>Science of Evaluating Arguments: Focuses on methods for assessing if premises adequately support conclusions</li>
+            <li>Study of Methods: Studies methods for evaluating whether premises provide good evidence for conclusions</li>
+            <li>Development of Methods and Principles: Helps develop methods for evaluating others' arguments and constructing one's own</li>
+            <li>Codification of Rational Thought: Aims to codify rules of rational thought, exploring structures of arguments that preserve truth</li>
+            <li>Philosophical Tool: Primary tool for philosophers, aiding in analysis of philosophical problems</li>
+          </ol>
+          
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Construct and Evaluate Arguments</li>
+            <li>Defense Against Prejudice</li>
+            <li>Distinguish Good from Bad Arguments</li>
+            <li>Identify Logical Errors</li>
+            <li>Analyze Policies</li>
+            <li>Refinement of Reasoning Skills</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 2: Recognizing Arguments -->
+      <div style="background: #ffebee; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #f44336;">
+        <h2 style="color: #b71c1c; margin-top: 0;">🔎 Lesson 2: Techniques of Recognizing Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Definition of an Argument</h3>
+          <p>An argument consists of statements (premises) that support another statement (conclusion). Not all passages with multiple statements are argumentative; some are non-argumentative. Arguments aim to prove something.</p>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Lesson Objectives</h3>
+          <ul>
+            <li>Recognize argumentative passages</li>
+            <li>Recognize non-argumentative passages</li>
+            <li>Distinguish between argumentative and non-argumentative passages</li>
+            <li>Understand inferential claims and factual claims</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Recognizing Argumentative Passages</h3>
+          <ul>
+            <li>Primary Goal: To prove something</li>
+            <li>Two Conditions:
+              <ol>
+                <li>At least one statement must present evidence or reasons (premise)</li>
+                <li>There must be a claim that the evidence supports something (conclusion)</li>
+              </ol>
+            </li>
+            <li>Factual Claims vs. Inferential Claims:
+              <ul>
+                <li>Factual Claims: Concern whether premises actually provide evidence</li>
+                <li>Inferential Claims: Concern whether premises support a conclusion</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #d32f2f;">Challenges and Cautions</h3>
+          <p><strong>Indicator Words:</strong></p>
+          <ul>
+            <li>Can be misleading when used in non-argumentative contexts</li>
+            <li>Example: "Since Edison invented..." (temporal vs. logical use)</li>
+          </ul>
+          
+          <p><strong>Detecting Inferential Relationships:</strong></p>
+          <ul>
+            <li>Sometimes tricky to identify true support relationships</li>
+            <li>Tip: Insert indicator words to test logical connections</li>
+          </ul>
+          
+          <p><strong>Conditional Answers:</strong></p>
+          <ul>
+            <li>Some passages can be interpreted multiple ways</li>
+            <li>Example: "If interpreted this way, it's an argument; another way, not"</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 3: Types of Arguments -->
+      <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
+        <h2 style="color: #2e7d32; margin-top: 0;">⚖️ Lesson 3: Types of Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Overview</h3>
+          <ul>
+            <li>Arguments involve an inferential claim that the conclusion follows from the premises</li>
+            <li><strong>Deductive Arguments:</strong> Claim conclusion follows with strict certainty</li>
+            <li><strong>Inductive Arguments:</strong> Claim conclusion follows probably from premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Differentiation</h3>
+          <ul>
+            <li>Deductive: Conclusion follows necessarily from premises</li>
+            <li>Inductive: Conclusion follows with some probability</li>
+            <li>Evaluate how strongly the conclusion is claimed to follow</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Factors Influencing Classification</h3>
+          <ol>
+            <li><strong>Certainty vs. Probability:</strong>
+              <ul>
+                <li>Deductive: Aim for certainty</li>
+                <li>Inductive: Aim for probability</li>
+              </ul>
+            </li>
+            <li><strong>Strength of Inferential Claim:</strong>
+              <ul>
+                <li>Deductive: Logical necessity</li>
+                <li>Inductive: Likelihood</li>
+              </ul>
+            </li>
+            <li><strong>Objective Features:</strong>
+              <ul>
+                <li>Evaluate support strength</li>
+                <li>Assess necessity vs probability</li>
+              </ul>
+            </li>
+            <li><strong>Indicator Words:</strong>
+              <ul>
+                <li>Deductive: "certainly," "necessarily"</li>
+                <li>Inductive: "probable," "likely"</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #388e3c;">Argument Forms</h3>
+          <p><strong>Deductive Forms:</strong></p>
+          <ul>
+            <li>Mathematical Arguments</li>
+            <li>Arguments from Definition</li>
+            <li>Syllogisms (categorical, hypothetical, disjunctive)</li>
+          </ul>
+          
+          <p><strong>Inductive Forms:</strong></p>
+          <ul>
+            <li>Prediction</li>
+            <li>Argument from Analogy</li>
+            <li>Inductive Generalization</li>
+            <li>Argument from Authority</li>
+            <li>Arguments Based on Signs</li>
+            <li>Causal Inference</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 4: Evaluating Arguments -->
+      <div style="background: #f3e5f5; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
+        <h2 style="color: #7b1fa2; margin-top: 0;">📊 Lesson 4: Evaluating Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #8e24aa;">Lesson Overview</h3>
+          <ul>
+            <li>Every argument has two claims:
+              <ol>
+                <li>Factual Claim: Evidence exists</li>
+                <li>Inferential Claim: Evidence supports conclusion</li>
+              </ol>
+            </li>
+            <li>Evaluation Focus: Inferential claim is more crucial</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #8e24aa;">Evaluating Deductive Arguments</h3>
+          <p><strong>Validity:</strong></p>
+          <ul>
+            <li>Valid if conclusion necessarily follows from premises</li>
+            <li>Invalid if conclusion doesn't necessarily follow</li>
+            <li>Examples:
+              <ul>
+                <li>Valid: "All men are mammals. All bulls are men. ∴ All bulls are mammals"</li>
+                <li>Invalid: "All philosophers are rational. Socrates was rational. ∴ Socrates was a philosopher"</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Validity vs Truth:</strong></p>
+          <ul>
+            <li>Validity concerns argument structure</li>
+            <li>Truth Value Possibilities:
+              <ol>
+                <li>True Premises + True Conclusion: Can be valid or invalid</li>
+                <li>True Premises + False Conclusion: Only invalid</li>
+                <li>False Premises + True Conclusion: Can be valid or invalid</li>
+                <li>False Premises + False Conclusion: Can be valid or invalid</li>
+              </ol>
+            </li>
+          </ul>
+          
+          <p><strong>Soundness:</strong></p>
+          <ul>
+            <li>Sound = Valid + All premises true</li>
+            <li>Unsound if invalid or has false premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #8e24aa;">Evaluating Inductive Arguments</h3>
+          <p><strong>Strength:</strong></p>
+          <ul>
+            <li>Strong if premises make conclusion probable</li>
+            <li>Weak if conclusion doesn't likely follow</li>
+            <li>Examples:
+              <ul>
+                <li>Strong: "100 apples, 80 tasty ∴ All probably tasty"</li>
+                <li>Weak: "100 apples, 3 tasty ∴ All probably tasty"</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Key Differences from Deductive:</strong></p>
+          <ul>
+            <li>Degrees of strength (not absolute)</li>
+            <li>Strength can change with additional premises</li>
+            <li>Truth Value Relationships:
+              <ul>
+                <li>True Premises + True Conclusion: Can be strong or weak</li>
+                <li>True Premises + False Conclusion: Weak</li>
+                <li>False Premises + True Conclusion: Can be strong or weak</li>
+                <li>False Premises + False Conclusion: Can be strong or weak</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Cogency:</strong></p>
+          <ul>
+            <li>Cogent = Strong + Premises probably true</li>
+            <li>Uncogent if weak or premises probably false</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 12px; text-align: center;">
+        <h2 style="color: #c2185b; margin-top: 0;">💎 Key Takeaways</h2>
+        <div style="background: rgba(255,255,255,0.85); padding: 15px; border-radius: 8px;">
+          <p style="font-style: italic; color: #bf360c;">
+            "Logic provides the systematic tools to distinguish sound reasoning from flawed arguments, 
+            enabling critical analysis of ideas through proper evaluation of premises and conclusions."
+          </p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;">
+            <span style="background: #6a11cb; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Premise Identification</span>
+            <span style="background: #ff6b6b; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Argument Evaluation</span>
+            <span style="background: #00cdac; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Logical Analysis</span>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="card">
-        <h3>2.5 Evaluating Arguments</h3>
-        <p>Evaluating arguments involves assessing two key claims: the factual claim (that evidence exists) and the inferential claim (that the evidence supports the conclusion). The inferential claim is more crucial; if the premises don't support the conclusion, the argument is worthless. Therefore, we always test the inferential claim first.</p>
-        
-        <h4>Evaluating Deductive Arguments</h4>
-        <p>Deductive arguments are evaluated based on their validity and soundness.</p>
-        
-        <h4>Validity and Invalidity</h4>
-        <p><strong>Valid Deductive Argument (ትክክለኛ ቅነሳዊ ክርክር):</strong> An argument where if the premises are assumed true, it is impossible for the conclusion to be false. The conclusion follows with strict necessity from the premises. There is no middle ground; an argument is either valid or invalid.</p>
-        
-        <p><strong>Invalid Deductive Argument (ትክክል ያልሆነ ቅነሳዊ ክርክር):</strong> An argument where even if the premises are assumed true, it is still possible for the conclusion to be false. The conclusion does not follow necessarily from the premises.</p>
-        
-        <h4>Truth and Validity</h4>
-        <p>Validity and truth are separate concepts. An argument's validity doesn't depend on the actual truth of its premises or conclusion. It's about the logical structure: if the premises were true, would the conclusion have to be true?</p>
-        
-        <table>
-            <tr>
-                <th>Scenario</th>
-                <th>Valid</th>
-                <th>Invalid</th>
-            </tr>
-            <tr>
-                <td>True Premises, True Conclusion</td>
-                <td>Sound ✅<br>All wines are beverages. (TP)<br>Gouder is a wine. (TP)<br>So, Gouder is a beverage. (TC)</td>
-                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Gouder is a beverage. (TP)<br>So, Gouder is a wine. (TC)</td>
-            </tr>
-            <tr>
-                <td>True Premises, False Conclusion</td>
-                <td>Non-existent 🚫<br>A valid deductive argument cannot have true premises and a false conclusion by definition.</td>
-                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Orange juice is a beverage. (TP)<br>So, orange juice is a wine. (FC)</td>
-            </tr>
-            <tr>
-                <td>False Premises, True Conclusion</td>
-                <td>Unsound ❌<br>All wines are soft drinks. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a soft drink. (TC)</td>
-                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Gouder is a whiskey. (FP)<br>So, Gouder is a wine. (TC)</td>
-            </tr>
-            <tr>
-                <td>False Premises, False Conclusion</td>
-                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a whiskey. (FC)</td>
-                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a whiskey. (FP)<br>So, Coca Cola is a wine. (FC)</td>
-            </tr>
-        </table>
-        
-        <h4>Soundness and Unsoundness</h4>
-        <p><strong>Sound Argument (ጠንካራ ክርክር):</strong> A valid deductive argument that also has all true premises. By definition, a sound argument will always have a true conclusion. This is considered a "good" deductive argument.</p>
-        <p><strong>Formula:</strong> Sound Argument = Valid + All True Premises.</p>
-        
-        <p><strong>Unsound Argument (ደካማ ክርክር):</strong> Any deductive argument that is either invalid or has at least one false premise.</p>
-    </div>
-    
-    <div class="card">
-        <h4>Evaluating Inductive Arguments</h4>
-        <p>Inductive arguments are evaluated based on their strength and cogency. Here, the premises support the conclusion with a degree of probability.</p>
-        
-        <h4>Strength and Weakness</h4>
-        <p><strong>Strong Inductive Argument (ጠንካራ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is probable that the conclusion is also true. The premises provide strong evidence.</p>
-        
-        <p><strong>Weak Inductive Argument (ደካማ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is not probable that the conclusion is also true. The premises provide weak evidence.</p>
-        
-        <h4>Cogency and Uncogency</h4>
-        <p><strong>Cogent Inductive Argument (አሳማኝ ክርክር):</strong> A strong inductive argument with all true premises. This is the inductive equivalent of a sound deductive argument. The conclusion of a cogent argument is probably true.</p>
-        <p><strong>Formula:</strong> Cogent Argument = Strong + All True Premises.</p>
-        <p><strong>Extra Condition:</strong> For an argument to be cogent, the premises must also be sufficient; they must not ignore any important evidence that outweighs the given evidence.</p>
-        
-        <p><strong>Uncogent Argument (አሳማኝ ያልሆነ ክርክር):</strong> An inductive argument that falls into one of three categories:</p>
-        <ol>
-            <li>It is strong, but has at least one false premise.</li>
-            <li>It is weak, but has all true premises.</li>
-            <li>It is weak, and has at least one false premise.</li>
-        </ol>
-        
-        <table>
-            <tr>
-                <th>Scenario</th>
-                <th>Strong</th>
-                <th>Weak</th>
-            </tr>
-            <tr>
-                <td>True Premises, True Conclusion</td>
-                <td>Cogent ✅<br>All previous American presidents were men. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
-                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
-            </tr>
-            <tr>
-                <td>True Premises, False Conclusion</td>
-                <td>Non-existent 🚫</td>
-                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a Federalist. (FC)</td>
-            </tr>
-            <tr>
-                <td>False Premises, True Conclusion</td>
-                <td>Uncogent ❌<br>All previous American presidents were television debaters. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
-                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
-            </tr>
-            <tr>
-                <td>False Premises, False Conclusion</td>
-                <td>Uncogent ❌<br>All previous American presidents were women. (FP)<br>Therefore, probably the next president will be a woman. (FC)</td>
-                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a Libertarian. (FC)</td>
-            </tr>
-        </table>
-    </div>
-</body>
-</html>
   `
 },
     {
@@ -3603,319 +3504,273 @@ export const noteCollections: Subject[] = [
           </div>
         </div>
 
-        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-          <h3 style="color: #6a1b9a; margin-top: 0;">🧩 Theories of Meaning</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
-            <div style="border-left: 4px solid #2196f3; padding-left: 12px;">
-              <h4 style="color: #2196f3; margin: 0 0 8px;">Idea Theories</h4>
-              <p style="margin: 0;">Meanings are mental contents triggered by signs (Locke, Hume)</p>
-            </div>
-            <div style="border-left: 4px solid #4caf50; padding-left: 12px;">
-              <h4 style="color: #4caf50; margin: 0 0 8px;">Truth-Conditional</h4>
-              <p style="margin: 0;">Meaning defined by truth conditions (Frege)</p>
-            </div>
-            <div style="border-left: 4px solid #ff9800; padding-left: 12px;">
-              <h4 style="color: #ff9800; margin: 0 0 8px;">Use Theories</h4>
-              <p style="margin: 0;">Meaning from speech acts (Wittgenstein)</p>
-            </div>
-            <div style="border-left: 4px solid #e91e63; padding-left: 12px;">
-              <h4 style="color: #e91e63; margin: 0 0 8px;">Reference Theories</h4>
-              <p style="margin: 0;">Meaning corresponds to real-world entities (Kripke)</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <hr>
 
-      <!-- Lesson 2 -->
-      <div style="background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #0288d1; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(2, 136, 209, 0.2);">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-          <div style="background: #0288d1; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <span style="font-size: 24px; color: white;">2</span>
-          </div>
-          <h2 style="color: #0277bd; margin: 0;">Logic and Meaning</h2>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #01579b; margin-top: 0;">💡 Language Functions</h3>
-            <div style="display: flex; gap: 15px; margin-top: 15px;">
-              <div style="flex: 1; text-align: center; padding: 15px; background: #e3f2fd; border-radius: 8px;">
-                <div style="font-size: 24px; color: #0d47a1;">🧠</div>
-                <h4 style="color: #0d47a1; margin: 10px 0;">Cognitive</h4>
-                <p style="margin: 0; font-size: 0.9em;">Conveys factual information</p>
-                <p style="margin: 5px 0 0; font-style: italic; color: #0288d1;">"Legal in 36 states"</p>
-              </div>
-              <div style="flex: 1; text-align: center; padding: 15px; background: #ffebee; border-radius: 8px;">
-                <div style="font-size: 24px; color: #c62828;">❤️</div>
-                <h4 style="color: #c62828; margin: 10px 0;">Emotive</h4>
-                <p style="margin: 0; font-size: 0.9em;">Expresses feelings/evokes emotions</p>
-                <p style="margin: 5px 0 0; font-style: italic; color: #d32f2f;">"Cruel and inhuman punishment"</p>
-              </div>
-            </div>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #01579b; margin-top: 0;">⚠️ Meaning Deficiencies</h3>
-            <div style="margin-top: 15px;">
-              <div style="border-left: 4px solid #ff9800; padding-left: 12px; margin-bottom: 15px;">
-                <h4 style="color: #ef6c00; margin: 0 0 8px;">Vagueness</h4>
-                <p style="margin: 0;">Borderline cases where application is unclear</p>
-                <p style="margin: 5px 0 0; font-style: italic; color: #ff8f00;">"Love", "happiness", "fresh"</p>
-              </div>
-              <div style="border-left: 4px solid #9c27b0; padding-left: 12px;">
-                <h4 style="color: #7b1fa2; margin: 0 0 8px;">Ambiguity</h4>
-                <p style="margin: 0;">Multiple distinct meanings in context</p>
-                <p style="margin: 5px 0 0; font-style: italic; color: #7b1fa2;">"Light", "bank", "critical"</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-          <h3 style="color: #01579b; margin-top: 0;">⚖️ Forms of Disputes</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-top: 4px solid #7b1fa2;">
-              <h4 style="color: #7b1fa2; margin-top: 0;">Verbal Disputes</h4>
-              <p>Arise from misunderstandings about word meanings</p>
-              <div style="background: #f3e5f5; padding: 10px; border-radius: 6px; margin-top: 10px;">
-                <p style="margin: 0; font-size: 0.9em;">"Is disciplining children abuse?"</p>
-              </div>
-            </div>
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-top: 4px solid #2196f3;">
-              <h4 style="color: #0d47a1; margin-top: 0;">Factual Disputes</h4>
-              <p>Based on disagreements about evidence</p>
-              <div style="background: #e3f2fd; padding: 10px; border-radius: 6px; margin-top: 10px;">
-                <p style="margin: 0; font-size: 0.9em;">"Did Fisseha steal the computer?"</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-          <h3 style="color: #01579b; margin-top: 0;">🧭 Intension vs Extension</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
-            <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 8px;">
-              <h4 style="color: #2e7d32; margin-top: 0;">Intension (Sense)</h4>
-              <p style="margin: 10px 0;">Qualities/attributes connoted by a term</p>
-              <div style="background: white; padding: 10px; border-radius: 6px; font-style: italic; color: #388e3c;">
-                "Cat": furry, domesticated, carnivorous mammal
-              </div>
-            </div>
-            <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); border-radius: 8px;">
-              <h4 style="color: #bf360c; margin-top: 0;">Extension (Reference)</h4>
-              <p style="margin: 10px 0;">Actual members denoted by a term</p>
-              <div style="background: white; padding: 10px; border-radius: 6px; font-style: italic; color: #d84315;">
-                "Cat": all existing cats in the universe
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <h2>The Two Main Techniques of Definition ✍️</h2>
+        <p>Definitions can be created using two main approaches, based on whether they focus on a term's extension (the members it denotes) or its intension (the qualities it connotes).</p>
 
-      <!-- Lesson 3 -->
-      <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #4caf50; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-          <div style="background: #4caf50; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <span style="font-size: 24px; color: white;">3</span>
-          </div>
-          <h2 style="color: #2e7d32; margin: 0;">Types of Definitions</h2>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #ff9800;">
-            <h3 style="color: #ef6c00; margin-top: 0;">✨ Stipulative</h3>
-            <p>Assigns new meaning to a word</p>
-            <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 10px;">
-              <p style="margin: 0; font-style: italic; color: #ef6c00;">"Let's call tiger-lion hybrids 'tigons'"</p>
-            </div>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #2196f3;">
-            <h3 style="color: #0d47a1; margin-top: 0;">📖 Lexical</h3>
-            <p>Reports standard dictionary meaning</p>
-            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
-              <p style="margin: 0; font-style: italic; color: #0d47a1;">"Nice: pleasant, agreeable, satisfactory"</p>
-            </div>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #9c27b0;">
-            <h3 style="color: #7b1fa2; margin-top: 0;">🎯 Précising</h3>
-            <p>Reduces vagueness in specific contexts</p>
-            <div style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-top: 10px;">
-              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Adult: person aged 18+"</p>
-            </div>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #009688;">
-            <h3 style="color: #00695c; margin-top: 0;">🔬 Theoretical</h3>
-            <p>Explains within a conceptual framework</p>
-            <div style="background: #e0f2f1; padding: 12px; border-radius: 8px; margin-top: 10px;">
-              <p style="margin: 0; font-style: italic; color: #00695c;">"Gravity: curvature of spacetime"</p>
-            </div>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 4px solid #f44336;">
-            <h3 style="color: #c62828; margin-top: 0;">🎭 Persuasive</h3>
-            <p>Influences attitudes or opinions</p>
-            <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
-              <p style="margin: 0; font-style: italic; color: #c62828;">"Freedom: absence of government control"</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lesson 4 -->
-      <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ff9800; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-          <div style="background: #ff9800; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <span style="font-size: 24px; color: white;">4</span>
-          </div>
-          <h2 style="color: #ef6c00; margin: 0;">Definition Techniques</h2>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-          <h3 style="color: #e65100; margin-top: 0;">📍 Extensional Techniques</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
-            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
-              <div style="font-size: 32px; margin-bottom: 10px;">👉</div>
-              <h4 style="color: #ff8f00; margin: 0;">Demonstrative</h4>
-              <p style="margin: 10px 0 0;">Pointing to examples</p>
-            </div>
-            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
-              <div style="font-size: 32px; margin-bottom: 10px;">🔢</div>
-              <h4 style="color: #ff8f00; margin: 0;">Enumerative</h4>
-              <p style="margin: 10px 0 0;">Listing specific members</p>
-            </div>
-            <div style="text-align: center; padding: 20px; background: #fff8e1; border-radius: 8px;">
-              <div style="font-size: 32px; margin-bottom: 10px;">🗂️</div>
-              <h4 style="color: #ff8f00; margin: 0;">Subclass</h4>
-              <p style="margin: 10px 0 0;">Naming subcategories</p>
-            </div>
-          </div>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-          <h3 style="color: #e65100; margin-top: 0;">🔍 Intensional Techniques</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #2196f3;">
-              <h4 style="color: #0d47a1; margin-top: 0;">Synonymous</h4>
-              <p>Using equivalent terms</p>
-              <p style="margin: 5px 0 0; font-style: italic; color: #0d47a1;">"Physician means doctor"</p>
-            </div>
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #7b1fa2;">
-              <h4 style="color: #7b1fa2; margin-top: 0;">Etymological</h4>
-              <p>Historical word origins</p>
-              <p style="margin: 5px 0 0; font-style: italic; color: #7b1fa2;">"License: from Latin 'licere' (to be permitted)"</p>
-            </div>
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #4caf50;">
-              <h4 style="color: #2e7d32; margin-top: 0;">Operational</h4>
-              <p>Testing procedures</p>
-              <p style="margin: 5px 0 0; font-style: italic; color: #2e7d32;">"Acid: turns litmus paper red"</p>
-            </div>
-            <div style="padding: 15px; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #ff9800;">
-              <h4 style="color: #ef6c00; margin-top: 0;">Genus & Difference</h4>
-              <p>Category + distinguishing features</p>
-              <p style="margin: 5px 0 0; font-style: italic; color: #ef6c00;">"Ice: frozen water"</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lesson 5 -->
-      <div style="background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #f44336; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(244, 67, 54, 0.2);">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-          <div style="background: #f44336; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <span style="font-size: 24px; color: white;">5</span>
-          </div>
-          <h2 style="color: #c62828; margin: 0;">Lexical Definition Rules</h2>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #b71c1c; margin-top: 0;">📝 Essential Guidelines</h3>
-            <ul style="padding-left: 20px;">
-              <li>Be grammatically correct</li>
-              <li>Convey essential meaning</li>
-              <li>Avoid being too broad/narrow</li>
-              <li>No circular definitions</li>
-              <li>Prefer affirmative statements</li>
-              <li>Avoid figurative language</li>
-              <li>Indicate context when needed</li>
+        <h3>1. Extensional (Denotative) Techniques 🎯</h3>
+        <p>These methods define a term by pointing to, naming, or listing the members of the group it refers to.</p>
+        <ul>
+            <li>Demonstrative (Ostensive) Definition: You define a term by physically pointing to the objects it denotes. It's the most basic form of definition.</li>
+            <ul>
+                <li>Example: Saying "chair" means this, and this, and this while pointing at several chairs.</li>
+                <li>Limitation: It's limited to objects that are physically present and can lead to misunderstandings (e.g., someone might think "chair" means "wood").</li>
             </ul>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #b71c1c; margin-top: 0;">🚫 Common Mistakes</h3>
-            <div style="margin-top: 15px;">
-              <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
-                <div style="color: #f44336; font-size: 24px;">❌</div>
-                <div>
-                  <p style="margin: 0; font-weight: bold;">Too broad:</p>
-                  <p style="margin: 5px 0 0;">"Bird: warm-blooded animal with wings"</p>
-                </div>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px;">
-                <div style="color: #f44336; font-size: 24px;">❌</div>
-                <div>
-                  <p style="margin: 0; font-weight: bold;">Circular:</p>
-                  <p style="margin: 5px 0 0;">"Science: what scientists do"</p>
-                </div>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 10px;">
-                <div style="color: #f44336; font-size: 24px;">❌</div>
-                <div>
-                  <p style="margin: 0; font-weight: bold;">Emotive:</p>
-                  <p style="margin: 5px 0 0;">"Communism: evil economic system"</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <li>Enumerative Definition: You define a term by naming all or some of the individual members of the class.</li>
+            <ul>
+                <li>Example: Defining "actor" as "A person such as Abebe Balicha, Samsom Taddesse, or Mahder Assefa."</li>
+                <li>Limitation: This is only practical for very small groups, and the list may not be exhaustive.</li>
+            </ul>
+            <li>Definition by Subclass: You define a term by listing its subclasses or smaller groups.</li>
+            <ul>
+                <li>Example: Defining "fictional work" as "a poem, a play, a novel, or a short story."</li>
+                <li>Limitation: Similar to enumerative definitions, this is often impossible for very large or numerous subclasses.</li>
+            </ul>
+        </ul>
+        <p>Extensional techniques are often used for stipulative and lexical definitions, but they are limited because they can't fully capture the intension of a term.</p>
 
-      <!-- Chapter Summary -->
-      <div style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #ffd600; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(255, 214, 0, 0.2);">
-        <h2 style="color: #f57f17; margin-top: 0; text-align: center;">📚 Chapter Summary</h2>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #5d4037; margin-top: 0;">🔤 Language Fundamentals</h3>
-            <ul style="padding-left: 20px;">
-              <li>Arguments depend on clear language</li>
-              <li>Distinguish cognitive vs emotive meaning</li>
-              <li>Vagueness and ambiguity create confusion</li>
-              <li>Verbal vs factual disputes</li>
+        <h3>1. የውጫዊ ትርጉም (Denotative) ዘዴዎች 🎯</h3>
+        <p>እነዚህ ዘዴዎች የቃሉን ትርጉም የሚሰጡት የሚያመለክታቸውን ነገሮች በመጠቆም፣ በመሰየም ወይም በመዘርዘር ነው።</p>
+        <ul>
+            <li>ማሳያ (Demonstrative) ትርጉም፡ አንድን ቃል ትርጉም የምትሰጠው የሚያመለክታቸውን ነገሮች አካላዊ በሆነ መንገድ በመጠቆም ነው። ይህ በጣም መሰረታዊ የትርጉም አይነት ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ወንበር” ማለት ይህ፣ እና ይህ፣ እና ይህ ማለት ነው” እያሉ በርካታ ወንበሮችን መጠቆም።</li>
+                <li>ገደብ፡ ነገሮቹ በአካል መገኘት አለባቸው፣ እና ወደ የተሳሳተ ግንዛቤ ሊመራ ይችላል (ለምሳሌ፣ አንድ ሰው “ወንበር” ማለት “ከእንጨት የተሰራ” ማለት ነው ብሎ ሊያስብ ይችላል)።</li>
             </ul>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #5d4037; margin-top: 0;">🧩 Meaning Concepts</h3>
-            <ul style="padding-left: 20px;">
-              <li>Intension: attributes connoted</li>
-              <li>Extension: members denoted</li>
-              <li>Intension determines extension</li>
-              <li>Proper names have unique challenges</li>
+            <li>ዝርዝር (Enumerative) ትርጉም፡ የአንድን ምድብ አባላት በሙሉ ወይም የተወሰኑትን በመዘርዘር ትርጉም መስጠት ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ተዋናይ” ማለት “እንደ አበበ ባልቻ፣ ሳምሶን ታደሰ ወይም ማህደር አሰፋ ያለ ሰው” ማለት ነው።</li>
+                <li>ገደብ፡ ይህ ዘዴ ለጥቂት አባላት ላላቸው ቡድኖች ብቻ የሚሰራ ሲሆን፣ ዝርዝሩም ሙሉ ላይሆን ይችላል።</li>
             </ul>
-          </div>
-          
-          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-            <h3 style="color: #5d4037; margin-top: 0;">📖 Definition Mastery</h3>
-            <ul style="padding-left: 20px;">
-              <li>5 types serve different purposes</li>
-              <li>4 extensional techniques</li>
-              <li>4 intensional techniques</li>
-              <li>8 rules for lexical definitions</li>
+            <li>ንዑስ ምድብ (Subclass) ትርጉም፡ አንድን ቃል ትርጉም የምትሰጠው ንዑስ ምድቦቹን በመጥቀስ ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ልቦለድ ስራ” ማለት “ግጥም፣ ተውኔት፣ ረጅም ልቦለድ ወይም አጭር ልቦለድ” ማለት ነው።</li>
+                <li>ገደብ፡ እንደ ዝርዝር ትርጉም፣ ለብዙ ንዑስ ምድቦች ይህን ማድረግ አስቸጋሪ ነው።</li>
             </ul>
-          </div>
-        </div>
-        
-        <div style="background: rgba(255, 193, 7, 0.2); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
-          <p style="font-size: 1.2em; font-style: italic; color: #5d4037; margin: 0;">
-            "Clear language is the foundation of logical reasoning - master definitions to master arguments"
-          </p>
-        </div>
-      </div>
+        </ul>
+        <p>የውጫዊ ትርጉም ዘዴዎች ብዙውን ጊዜ የቅድሚያ (stipulative) እና የቃላት (lexical) ትርጉሞችን ለማምረት ያገለግላሉ፣ ነገር ግን የቃሉን ትክክለኛ የውስጣዊ ትርጉም (intension) ሙሉ በሙሉ ለመያዝ አለመቻላቸው ትልቅ ድክመታቸው ነው።</p>
+
+        <hr>
+
+        <h3>2. Intensional (Connotative) Techniques 🧠</h3>
+        <p>These methods define a term by indicating the qualities or attributes that the term connotes. These are generally more effective and precise.</p>
+        <ul>
+            <li>Synonymous Definition: This technique uses a single word that has the same meaning as the term being defined. It's concise but not always possible.</li>
+            <ul>
+                <li>Example: "Physician" means doctor.</li>
+                <li>Limitation: Many words have subtle meanings that cannot be captured by a single synonym.</li>
+            </ul>
+            <li>Etymological Definition: You define a word by tracing its origin or history in its own language or others. This helps you understand its "root meaning."</li>
+            <ul>
+                <li>Example: The word "license" comes from the Latin "licere," meaning "to be permitted." This helps clarify its core meaning.</li>
+            </ul>
+            <li>Operational Definition: You define a term by specifying a specific procedure or test to determine if the term applies. This is common in science.</li>
+            <ul>
+                <li>Example: "One substance is 'harder than' another if it scratches the other when the two are rubbed together."</li>
+                <li>Limitation: These definitions often capture only a part of a word's meaning and are not suitable for abstract concepts like "love" or "freedom."</li>
+            </ul>
+            <li>Definition by Genus and Difference: This is the most powerful and effective technique. It defines a term by identifying a larger class it belongs to (the genus) and then specifying the attributes that distinguish it from other members of that class (the specific difference). The formula is simple:</li>
+            <p>Species = Genus + Specific Difference</p>
+            <ul>
+                <li>Example: "Ice" means frozen (specific difference) water (genus).</li>
+                <li>Example: "Husband" means a married (specific difference) man (genus).</li>
+            </ul>
+            <p>This method is highly applicable and can be used to create all five types of definitions we discussed previously, making it a central tool in logic.</p>
+        </ul>
+
+        <h3>2. የውስጣዊ ትርጉም (Connotative) ዘዴዎች 🧠</h3>
+        <p>እነዚህ ዘዴዎች የአንድን ቃል ትርጉም የሚሰጡት ቃሉ የሚያመለክታቸውን ባህሪያት ወይም መገለጫዎች በመጠቆም ነው። እነዚህ በአጠቃላይ የበለጠ ውጤታማ እና ትክክለኛ ናቸው።</p>
+        <ul>
+            <li>ተመሳሳይ ቃል (Synonymous) ትርጉም፡ ይህ ዘዴ ትርጉም እየተሰጠው ካለው ቃል ጋር ተመሳሳይ ትርጉም ያለው ነጠላ ቃል ይጠቀማል። አጭር ቢሆንም፣ ሁልጊዜ አይቻልም።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ሀኪም” ማለት ዶክተር ማለት ነው።</li>
+                <li>ገደብ፡ ብዙ ቃላት በአንድ ቃል ሊገለጹ የማይችሉ ስውር ትርጉሞች አሏቸው።</li>
+            </ul>
+            <li>ሥርወ-ቃል (Etymological) ትርጉም፡ አንድን ቃል ትርጉም የምትሰጠው በራሱ ቋንቋ ወይም በሌሎች ቋንቋዎች ያለውን ታሪካዊ አመጣጥ በመፈለግ ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “license” የሚለው ቃል የመጣው ከላቲን “licere” ሲሆን ትርጉሙም “መፈቀድ” ነው። ይህ የቃሉን ዋና ትርጉም ለመረዳት ይረዳል።</li>
+            </ul>
+            <li>ተግባራዊ (Operational) ትርጉም፡ አንድ ቃል ትክክል መሆኑን ወይም አለመሆኑን ለመወሰን የተለየ የሙከራ ሂደት በመግለጽ ትርጉም መስጠት ነው። ይህ በሳይንስ ውስጥ የተለመደ ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “አንድ ነገር ከሌላው ‘የጠነከረ ነው’ የሚባለው ሁለቱ እርስ በእርሳቸው ሲፋተጉ አንዱ ሌላውን ሲቧጭ ነው።”</li>
+                <li>ገደብ፡ እነዚህ ትርጉሞች የቃሉን ክፍል ብቻ የሚገልጹ ሲሆኑ እንደ “ፍቅር” ወይም “ነጻነት” ላሉ ረቂቅ ጽንሰ-ሀሳቦች ተስማሚ አይደሉም።</li>
+            </ul>
+            <li>በዓይነት እና ልዩነት (Genus and Difference) ትርጉም፡ ይህ በጣም ኃይለኛ እና ውጤታማ ዘዴ ነው። የአንድን ቃል ትርጉም የምትሰጠው አባል የሆነበትን ትልቅ ምድብ (genus) በመለየት እና ከሌሎች የዚያ ምድብ አባላት የሚለዩትን ባህሪያት (specific difference) በመጥቀስ ነው። ቀመሩ ቀላል ነው፡</li>
+            <p>ዝርያ = ዓይነት + ልዩነት</p>
+            <ul>
+                <li>ለምሳሌ፡ “በረዶ” ማለት የቀዘቀዘ (ልዩነት) ውሃ (ዓይነት) ማለት ነው።</li>
+                <li>ለምሳሌ፡ “ባል” ማለት ያገባ (ልዩነት) ወንድ (ዓይነት) ማለት ነው።</li>
+            </ul>
+            <p>ይህ ዘዴ በስፋት ጥቅም ላይ የዋለ ሲሆን ቀደም ብለን የተነጋገርናቸውን አምስቱ የትርጉም ዓይነቶች በሙሉ ለመፍጠር ሊያገለግል ይችላል።</p>
+
+        <hr>
+
+        <h2>Rules for Lexical Definitions ✅</h2>
+        <p>A lexical definition reports the meaning a word already has in a language. To create a good one, or to evaluate someone else's, we follow a set of rules.</p>
+
+        <h3>Rule 1: A Definition Should Be Grammatically Correct. 📝</h3>
+        <p>A definition is a statement, and it should follow proper grammar. A common mistake is to use a definition like a clause.</p>
+        <ul>
+            <li>Incorrect: "Vacation is when you don’t have to go to work or school."</li>
+            <li>Correct: "'Vacation' means a period during which activity is suspended from work or school."</li>
+        </ul>
+
+        <h3>መመሪያ 1፡ ትርጉም ሰዋሰዋዊ ትክክለኛነት ሊኖረው ይገባል። 📝</h3>
+        <p>ትርጉም እንደ ማንኛውም አረፍተ ነገር ሰዋሰዋዊ ትክክለኛ መሆን አለበት። የተለመደ ስህተት ትርጉሙን እንደ ቅጥያ ዓረፍተ ነገር መጠቀም ነው።</p>
+        <ul>
+            <li>ስህተት: “እረፍት ማለት ወደ ሥራ ወይም ትምህርት ቤት መሄድ የሌለብህ ጊዜ ነው።”</li>
+            <li>ትክክል: “'እረፍት' ማለት ከሥራ ወይም ከትምህርት ቤት እንቅስቃሴ የሚቋረጥበት ጊዜ ነው።”</li>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 2: A Definition Should Convey the Essential Meaning. 💡</h3>
+        <p>The definition must capture the most important qualities that distinguish the word from others. For example, defining "human" as "featherless biped" is inadequate because it misses the essential qualities of reason and language.</p>
+        <ul>
+            <li>Adequate: "'Human' means the animal that has the capacity to reason and to speak."</li>
+        </ul>
+
+        <h3>መመሪያ 2፡ ትርጉሙ ዋናውን ትርጉም ማስተላለፍ አለበት። 💡</h3>
+        <p>ትርጉሙ አንድን ቃል ከሌሎች የሚለዩት በጣም አስፈላጊ ባህሪያትን መያዝ አለበት። ለምሳሌ፣ “ሰው”ን “ላባ የሌለው ባለ ሁለት እግር እንስሳ” ብሎ መተርጎም በቂ አይደለም ምክንያቱም የምክንያታዊነት እና የቋንቋ አጠቃቀምን ዋና ባህሪያት ስለሚስት።</p>
+        <ul>
+            <li>በቂ: “'ሰው' ማለት ማሰብና መናገር የሚችል እንስሳ ማለት ነው።”</li>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 3: Avoid Being Too Broad or Too Narrow. 📏</h3>
+        <p>A definition should fit the word perfectly, like a glove.</p>
+        <ul>
+            <li>Too Broad: The definiens includes too much.</li>
+            <ul>
+                <li>Example: "Bird" means a warm-blooded animal with wings. (This includes bats, which aren't birds).</li>
+            </ul>
+            <li>Too Narrow: The definiens includes too little.</li>
+            <ul>
+                <li>Example: "Bird" means a warm-blooded, feathered animal that can fly. (This excludes ostriches and penguins, which are birds).</li>
+            </ul>
+        </ul>
+
+        <h3>መመሪያ 3፡ ትርጉሙ በጣም ሰፊም ሆነ ጠባብ መሆን የለበትም። 📏</h3>
+        <p>ትርጉም ቃሉን በትክክል መግለጽ አለበት።</p>
+        <ul>
+            <li>በጣም ሰፊ: ትርጉሙ ብዙ ነገሮችን ያካትታል።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ወፍ” ማለት ክንፍ ያለው ሙቅ ደም ያለው እንስሳ ነው። (ይህ ወፍ ያልሆኑትን የሌሊት ወፎችን ያካትታል)።</li>
+            </ul>
+            <li>በጣም ጠባብ: ትርጉሙ ጥቂት ነገሮችን ብቻ ያካትታል።</li>
+            <ul>
+                <li>ለምሳሌ፡ “ወፍ” ማለት መብረር የሚችል ላባ ያለው ሙቅ ደም ያለው እንስሳ ነው። (ይህ ወፍ የሆኑትን ሰጎኖችን እና ፔንግዊኖችን ያገለላል)።</li>
+            </ul>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 4: Avoid Circularity. 🔄</h3>
+        <p>A definition is circular if the definiendum is used in the definiens. It doesn't actually tell you anything new.</p>
+        <ul>
+            <li>Example: "'Science' means the activity engaged in by scientists." (And a scientist is defined as someone who engages in science).</li>
+            <li>Example: "'Silence' means the state of being silent."</li>
+        </ul>
+
+        <h3>መመሪያ 4፡ ትርጉም ተዘዋዋሪ መሆን የለበትም። 🔄</h3>
+        <p>አንድ ትርጉም ተዘዋዋሪ የሚሆነው ትርጉም እየተሰጠው ያለው ቃል (definiendum) ራሱ ትርጉም በሚሰጠው ክፍል (definiens) ውስጥ ሲገባ ነው። ይህ ምንም አዲስ መረጃ አይሰጥም።</p>
+        <ul>
+            <li>ለምሳሌ: “'ሳይንስ' ማለት በሳይንቲስቶች የሚካሄድ ተግባር ነው።” (ሳይንቲስት ደግሞ ሳይንስን የሚሰራ ሰው ነው)።</li>
+            <li>ለምሳሌ: “'ዝምታ' ማለት ዝም ያለ መሆን ነው።”</li>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 5: A Definition Should Not Be Negative When It Can Be Affirmative. ➕</h3>
+        <p>Whenever possible, an affirmative definition is better than a negative one.</p>
+        <ul>
+            <li>Affirmative: "'Concord' means harmony."</li>
+            <li>Negative: "'Concord' means the absence of discord."</li>
+            <li>Note: This rule doesn't apply to words that are inherently negative, such as "bald" or "darkness."</li>
+        </ul>
+
+        <h3>መመሪያ 5፡ ትርጉም በአዎንታዊ መልኩ መገለጽ በሚችልበት ጊዜ በአሉታዊ መልኩ የለበትም። ➕</h3>
+        <p>በተቻለ መጠን፣ አዎንታዊ ትርጉም ከአሉታዊ ትርጉም ይሻላል።</p>
+        <ul>
+            <li>አዎንታዊ: “'ስምምነት' ማለት የአንድነት ስሜት ነው።”</li>
+            <li>አሉታዊ: “'ስምምነት' ማለት አለመግባባት አለመኖር ነው።”</li>
+            <li>ማስታወሻ፡ ይህ መመሪያ “ራሰ በራ” ወይም “ጨለማ” ለመሳሰሉ በመሰረቱ አሉታዊ ለሆኑ ቃላት አይተገበርም።</li>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 6: Avoid Figurative, Obscure, Vague, or Ambiguous Language. ❌</h3>
+        <p>The language of a definition must be clear and direct to convey the meaning effectively.</p>
+        <ul>
+            <li>Figurative: Uses metaphors or poetry.</li>
+            <ul>
+                <li>Example: "'Camel' means a ship of the desert."</li>
+            </ul>
+            <li>Obscure: Uses overly technical or confusing language.</li>
+            <ul>
+                <li>Example: "'Bunny' means a mammalian of the family Leporidae..." (It's better to just say "a rabbit").</li>
+            </ul>
+            <li>Vague: Lacks precision.</li>
+            <ul>
+                <li>Example: "'Democracy' means a kind of government where the people are in control." (This doesn't specify how or who).</li>
+            </ul>
+            <li>Ambiguous: Can be interpreted in more than one way.</li>
+            <ul>
+                <li>Example: "'Triangle' means a figure composed of three straight lines in which all the angles are equal to 180." (Is each angle 180 or are they all together 180?).</li>
+            </ul>
+        </ul>
+
+        <h3>መመሪያ 6፡ ዘይቤያዊ፣ ግልጽ ያልሆነ፣ ወይም አሻሚ ቋንቋን ማስወገድ። ❌</h3>
+        <p>የአንድ ትርጉም ቋንቋ ትርጉሙን በብቃት ለማስተላለፍ ግልጽ እና ቀጥተኛ መሆን አለበት።</p>
+        <ul>
+            <li>ዘይቤያዊ (Figurative): ምሳሌያዊ አነጋገሮችን ወይም ቅኔዎችን ይጠቀማል።</li>
+            <ul>
+                <li>ለምሳሌ፡ “'ግመል' ማለት የሰሃራ በረሃ መርከብ ነው።”</li>
+            </ul>
+            <li>ግልጽ ያልሆነ (Obscure): በጣም ቴክኒካዊ ወይም ግራ የሚያጋባ ቋንቋ ይጠቀማል።</li>
+            <ul>
+                <li>ለምሳሌ፡ “'ጥንቸል' ማለት ከሌፖሪዳ ቤተሰብ የተገኘ አጥቢ እንስሳ ነው…” (“ጥንቸል ማለት ጥንቸል ነው” ማለት ይሻላል)።</li>
+            </ul>
+            <li>አሻሚ (Vague): ትክክለኛነት የጎደለው ነው።</li>
+            <ul>
+                <li>ለምሳሌ፡ “'ዲሞክራሲ' ማለት ህዝብ የሚቆጣጠረው መንግስት አይነት ነው።” (ማን እንደሚቆጣጠር ወይም እንዴት እንደሚቆጣጠር ግልጽ አይደለም)።</li>
+            </ul>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 7: Avoid Affective Terminology. 🚫</h3>
+        <p>Do not use language that appeals to emotions or tries to persuade the reader.</p>
+        <ul>
+            <li>Example: "'Communism' means that 'brilliant' invention of Karl Marx and other foolish political visionaries..."</li>
+        </ul>
+
+        <h3>መመሪያ 7፡ ስሜታዊ ቃላትን ማስወገድ። 🚫</h3>
+        <p>የአንባቢውን ወይም የአድማጩን ስሜት የሚነኩ ቃላትን አይጠቀሙ።</p>
+        <ul>
+            <li>ለምሳሌ: “'ኮሚኒዝም' ማለት በካርል ማርክስ እና በሌሎች ሞኝ የፖለቲካ አራማጆች የተፈጠረ 'ድንቅ' ሀሳብ ሲሆን የሀገሪቱ ሀብት በህዝብ ይዞታ ስር ይሆናል ተብሎ ይታሰባል።”</li>
+        </ul>
+
+        <hr>
+
+        <h3>Rule 8: Indicate the Context if Necessary. 🌐</h3>
+        <p>If a word has different meanings in different contexts, the definition should specify which context it applies to.</p>
+        <ul>
+            <li>Example: "'Strike' means (in baseball) a pitch at which a batter swings and misses."</li>
+            <li>Example: "'Strike' means (in bowling) the act of knocking down all the pins with the first ball of a frame."</li>
+        </ul>
+
+        <h3>መመሪያ 8፡ አስፈላጊ ከሆነ አውዱን መግለጽ። 🌐</h3>
+        <p>አንድ ቃል በተለያየ አውድ ውስጥ የተለያዩ ትርጉሞች ካሉት፣ ትርጉሙ የትኛውን አውድ እንደሚያመለክት መግለጽ አለበት።</p>
+        <ul>
+            <li>ለምሳሌ፡ “'ስትራይክ' ማለት (በቤዝቦል) አንድ ባተር ምቱ የተሳሳተበት ሙከራ ነው።”</li>
+            <li>ለምሳሌ፡ “'ስትራይክ' ማለት (በቦውሊንግ) የመጀመሪያውን ኳስ በመወርወር ሁሉንም ፒኖች መጣል ነው።”</li>
+        </ul>
     </div>
+</body>
+</html>
   `
 },
     { 

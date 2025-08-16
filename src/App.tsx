@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { App as CapacitorApp } from '@capacitor/app';
+import { Toast } from '@capacitor/toast';
 import AuthForm from './components/Auth/AuthForm';
 import Dashboard from './components/Home/Dashboard';
 import YearSelection from './components/Subject/YearSelection';
@@ -18,7 +20,7 @@ import NotePage from './components/Handout/NotePage';
 import ContactUs from './components/Layout/ContactUs';
 import CommunityPage from './components/Community/CommunityPage';
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
 }
@@ -32,114 +34,86 @@ function AppRoutes() {
         path="/auth" 
         element={currentUser ? <Navigate to="/dashboard" /> : <AuthForm />} 
       />
-      <Route 
-        path="/dashboard" 
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/subject/:subjectId" 
-        element={
-          <ProtectedRoute>
-            <YearSelection />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/subject/:subjectId/year/:year" 
-        element={
-          <ProtectedRoute>
-            <ChapterSelection />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/subject/:subjectId/year/:year/chapter/:chapter" 
-        element={
-          <ProtectedRoute>
-            <QuizPage />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/premium" 
-        element={
-          <ProtectedRoute>
-            <PremiumPage />
-          </ProtectedRoute>
-        } 
-      />
-        <Route 
-        path="/admin/premium-approvals" 
-        element={
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/leaderboard" 
-        element={
-          <ProtectedRoute>
-            <LeaderboardPage />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/profilepage" 
-        element={
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/handouts" 
-        element={
-          <ProtectedRoute>
-            <HandoutPage />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/notes/:subjectId/:chapterId" 
-        element={
-          <ProtectedRoute>
-            <NotePage />
-          </ProtectedRoute>
-        } 
-      />
-
-      <Route 
-        path="/settings" 
-        element={
-          <ProtectedRoute>
-            <SettingsPage />
-          </ProtectedRoute>
-        } 
-      />
-      <Route 
-        path="/ContactUs" 
-        element={
-          <ProtectedRoute>
-            <ContactUs />
-          </ProtectedRoute>
-        } />
-        <Route 
-        path="/Community" 
-        element={
-          <ProtectedRoute>
-            <CommunityPage />
-          </ProtectedRoute>
-        } />
-        
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/subject/:subjectId" element={<ProtectedRoute><YearSelection /></ProtectedRoute>} />
+      <Route path="/subject/:subjectId/year/:year" element={<ProtectedRoute><ChapterSelection /></ProtectedRoute>} />
+      <Route path="/subject/:subjectId/year/:year/chapter/:chapter" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
+      <Route path="/premium" element={<ProtectedRoute><PremiumPage /></ProtectedRoute>} />
+      <Route path="/admin/premium-approvals" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+      <Route path="/leaderboard" element={<ProtectedRoute><LeaderboardPage /></ProtectedRoute>} />
+      <Route path="/profilepage" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+      <Route path="/handouts" element={<ProtectedRoute><HandoutPage /></ProtectedRoute>} />
+      <Route path="/notes/:subjectId/:chapterId" element={<ProtectedRoute><NotePage /></ProtectedRoute>} />
+      <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+      <Route path="/ContactUs" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
+      <Route path="/Community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
       <Route path="/" element={<Navigate to="/dashboard" />} />
-      
     </Routes>
   );
+}
+
+function AppContent() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [lastBackPress, setLastBackPress] = useState(0);
+  const { currentUser } = useAuth();
+
+  const showToast = async (message) => {
+    await Toast.show({
+      text: message,
+      duration: 'short'
+    });
+  };
+
+  useEffect(() => {
+    const backHandler = CapacitorApp.addListener('backButton', ({ canGoBack }) => {
+      // If not authenticated, always go to auth page
+      if (!currentUser) {
+        navigate('/auth', { replace: true });
+        return;
+      }
+
+      // Define exit routes where we want to show exit confirmation
+      const exitRoutes = ['/auth', '/dashboard'];
+      const isExitRoute = exitRoutes.includes(location.pathname);
+
+      // Define home routes where we want to navigate to dashboard
+      const homeRoutes = ['/subject', '/premium', '/leaderboard', '/profilepage', 
+                        '/handouts', '/notes', '/settings', '/ContactUs', '/Community'];
+      const isHomeRoute = homeRoutes.some(route => location.pathname.startsWith(route));
+
+      if (isExitRoute) {
+        // Handle exit confirmation on exit routes
+        const now = Date.now();
+        if (now - lastBackPress < 2000) {
+          CapacitorApp.exitApp();
+        } else {
+          showToast('Press back again to exit');
+          setLastBackPress(now);
+        }
+      } else if (isHomeRoute) {
+        // For home routes, navigate to dashboard if can't go back
+        if (window.history.length > 1) {
+          navigate(-1);
+        } else {
+          navigate('/dashboard', { replace: true });
+        }
+      } else {
+        // Default behavior for other routes
+        if (canGoBack) {
+          navigate(-1);
+        } else {
+          navigate('/dashboard', { replace: true });
+        }
+      }
+    });
+
+    return () => {
+      backHandler.remove();
+    };
+  }, [navigate, location, lastBackPress, currentUser]);
+
+  return <AppRoutes />;
 }
 
 function App() {
@@ -166,7 +140,6 @@ function App() {
   if (loading) {
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-indigo-900 to-purple-900 flex flex-col items-center justify-center overflow-hidden">
-        {/* Animated particles */}
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
@@ -191,9 +164,7 @@ function App() {
           />
         ))}
 
-        {/* Main content container */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
-          {/* Animated app logo/name */}
           <motion.div
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -229,7 +200,6 @@ function App() {
             </motion.p>
           </motion.div>
 
-          {/* Loading indicator with bouncing dots */}
           <motion.div
             className="flex items-center justify-center mb-8"
             initial={{ opacity: 0 }}
@@ -256,7 +226,6 @@ function App() {
             </div>
           </motion.div>
 
-          {/* Progress bar */}
           <motion.div 
             className="w-64 h-2 bg-white/20 rounded-full overflow-hidden mb-2"
             initial={{ scaleX: 0 }}
@@ -277,7 +246,6 @@ function App() {
             </motion.div>
           </motion.div>
 
-          {/* Progress percentage */}
           <motion.span 
             className="text-white text-sm"
             initial={{ opacity: 0 }}
@@ -294,7 +262,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <AppRoutes />
+        <AppContent />
       </Router>
     </AuthProvider>
   );

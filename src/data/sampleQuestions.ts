@@ -2372,7 +2372,406 @@ export const sampleQuestions: Question[] = [
     year: 2013,
     chapter: 1
   },
-
+ {
+    id: 'psych-2013-1-1',
+    question: 'What is the best short definition of psychology given in the text?',
+    options: ['The study of plants and animals', 'The scientific study of human behavior and mental processes', 'A branch of art concerned with emotion', 'The study of only observable actions'],
+    correctAnswer: 1,
+    explanation: 'The text defines psychology as a scientific discipline that studies both observable behavior and internal mental processes, so choice B matches exactly.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-2',
+    question: '"Behavior" refers to actions we can directly see and observe, like talking or facial expressions.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'By definition in the text, behavior is the set of actions visible to others (e.g., talking, moving, facial expressions).',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-3',
+    question: 'Which of the following is an example of a "mental process" as defined in the text?',
+    options: ['Running', 'Smiling', 'Remembering', 'Waving'],
+    correctAnswer: 2,
+    explanation: 'Mental processes are internal activities we can’t directly see (like remembering), while running, smiling, and waving are observable behaviors.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-4',
+    question: 'The word "psychology" comes from the Greek roots "psyche" and "logos." What do these roots mean?',
+    options: ['mind & love', 'soul/mind & study/knowledge', 'behaviour & method', 'brain & analysis'],
+    correctAnswer: 1,
+    explanation: 'The text explains “psyche” means soul/mind and “logos” means study or knowledge, so B is correct.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-5',
+    question: 'Psychology is simply the same as common sense and does not use scientific methods.',
+    options: ['True', 'False'],
+    correctAnswer: 1,
+    explanation: 'The text stresses psychology uses the scientific method rather than just common sense, so this statement is false.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-6',
+    question: 'In the acronym D.E.P.C. (the four goals of psychology), what does the "P" stand for?',
+    options: ['Practice', 'Progress', 'Prediction', 'Perception'],
+    correctAnswer: 2,
+    explanation: 'D.E.P.C. stands for Description, Explanation, Prediction, Control — so P = Prediction.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-7',
+    question: 'According to the text, "Control" (changing a behavior) is described as the final and most important goal of psychology.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'The text lists Control as the final goal—using knowledge to change undesirable behaviors into desirable ones.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-8',
+    question: 'Which goal of psychology involves observing and noting everything about a behavior (asking "What is happening? Where? To whom?")?',
+    options: ['Control', 'Prediction', 'Description', 'Explanation'],
+    correctAnswer: 2,
+    explanation: 'Description is the step that focuses on observing and recording what is happening, where, and to whom.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-9',
+    question: 'If a teacher and counselor apply learning strategies to improve a student\'s grades, which of the four goals are they primarily pursuing?',
+    options: ['Description', 'Explanation', 'Prediction', 'Control'],
+    correctAnswer: 3,
+    explanation: 'Applying strategies to change behavior (improve grades) is an example of Control.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-10',
+    question: 'Prediction in psychology guarantees that the predicted outcome will always occur.',
+    options: ['True', 'False'],
+    correctAnswer: 1,
+    explanation: 'Prediction means estimating probable outcomes based on evidence — it does not guarantee the outcome will always happen.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-11',
+    question: 'Who is called the "father of modern psychology" and opened the first psychological laboratory in 1879?',
+    options: ['William James', 'Sigmund Freud', 'Wilhelm Wundt', 'B. F. Skinner'],
+    correctAnswer: 2,
+    explanation: 'The text explicitly names Wilhelm Wundt as starting the first lab in 1879 and calls him the father of modern psychology.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-12',
+    question: 'Edward Titchener is associated with founding Structuralism.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'Titchener, a student of Wundt, promoted Structuralism and used introspection to break down mental experiences.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-13',
+    question: 'Which research method is described by the term "introspection"?',
+    options: ['Observing people in nature', 'Looking within oneself to report conscious experiences', 'Running statistical analyses', 'Using surveys to collect feelings from many people'],
+    correctAnswer: 1,
+    explanation: 'Introspection means “looking within” — reporting one’s own conscious experiences — which matches option B.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-14',
+    question: 'Which early school of psychology emphasized that "the whole is greater than the sum of its parts"?',
+    options: ['Structuralism', 'Functionalism', 'Behaviorism', 'Gestalt Psychology'],
+    correctAnswer: 3,
+    explanation: 'Gestalt psychology argued perception must be studied as whole patterns; their slogan is exactly “the whole is greater than the sum of its parts.”',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-15',
+    question: 'Which psychologist is especially known for emphasizing reinforcement within Behaviorism?',
+    options: ['John B. Watson', 'Wilhelm Wundt', 'B. F. Skinner', 'Sigmund Freud'],
+    correctAnswer: 2,
+    explanation: 'B. F. Skinner developed operant conditioning and emphasized reinforcement as a key mechanism of learning.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-16',
+    question: 'Psychoanalysis emphasizes the role of unconscious conflicts, early childhood experiences, and hidden desires in shaping behavior.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'The text explains Freud’s psychoanalytic view centers on the unconscious and early experiences influencing behavior.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-17',
+    question: 'The psychodynamic perspective focuses primarily on:',
+    options: ['Unconscious motives and childhood conflicts', 'Workplace productivity', 'Social roles', 'Brain chemistry only'],
+    correctAnswer: 0,
+    explanation: 'Psychodynamic perspective (from Freud) emphasizes unconscious motives and childhood influences, so A is correct.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-18',
+    question: 'According to the text, behavioral psychologists often treat the mind as a "black box" and focus on observable stimuli and responses.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'Behaviorists focus on observable input (environment) and output (behavior) without analyzing internal mental processes.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-19',
+    question: 'The humanistic perspective most emphasizes which of the following?',
+    options: ['Unconscious conflict', 'Classical conditioning', 'Genetic determinism', 'Free will and self-actualization'],
+    correctAnswer: 3,
+    explanation: 'Humanistic psychology stresses free will, personal values, and achieving one’s potential (self-actualization).',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-20',
+    question: 'Which perspective is most directly concerned with studying thinking, memory, language, and using methods such as measuring brain activity to understand internal mental processes?',
+    options: ['Behavioral', 'Cognitive', 'Sociocultural', 'Psychoanalytic'],
+    correctAnswer: 1,
+    explanation: 'The cognitive perspective studies internal mental processes (thinking, memory, language) and uses scientific measures like brain activity.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-21',
+    question: 'The biological perspective in psychology focuses mainly on:',
+    options: ['How brain and nervous system processes affect behavior', 'Only learning histories and rewards', 'Social roles and cultural values', 'Dream interpretation'],
+    correctAnswer: 0,
+    explanation: 'The biological perspective links bodily systems (brain, neurotransmitters, genes) to behavior, thoughts, and feelings.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-22',
+    question: 'The sociocultural perspective would be least likely to emphasize which of the following as an explanation for behavior?',
+    options: ['Cultural values and social roles', 'Group influences', 'Genetic inheritance', 'Social environment'],
+    correctAnswer: 2,
+    explanation: 'Sociocultural perspective focuses on social and cultural influences, so genetic inheritance (biology) is least emphasized.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-23',
+    question: 'The text states that many modern perspectives grew out of or were influenced by the early schools of thought.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'The text explains modern perspectives often developed from, or were reactions to, the early schools (structuralism, behaviorism, etc.).',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-24',
+    question: 'Which subfield studies physical, cognitive, and psychological changes from birth to old age?',
+    options: ['Social Psychology', 'Developmental Psychology', 'Clinical Psychology', 'Industrial Psychology'],
+    correctAnswer: 1,
+    explanation: 'Developmental psychology examines changes across the lifespan — from infancy through old age.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-25',
+    question: 'Which statement correctly distinguishes clinical and counseling psychology according to the text?',
+    options: ['Clinical psychology treats serious psychological disorders; counseling psychology focuses on less severe life problems', 'Counseling psychology treats serious disorders; clinical is school-focused', 'Both are the same with different names', 'Clinical focuses only on children; counseling only on adults'],
+    correctAnswer: 0,
+    explanation: 'The text differentiates clinical (serious disorders) from counseling (less severe problems), matching option A.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-26',
+    question: 'Industrial (or industrial-organizational) psychology applies psychological principles to improve workplace productivity and employee well-being.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'The text explicitly describes industrial psychology as applying psychology to workplace performance and worker welfare.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-27',
+    question: 'Which subfield uses psychological principles specifically to prevent and treat physical illnesses?',
+    options: ['Educational Psychology', 'Personality Psychology', 'Social Psychology', 'Health Psychology'],
+    correctAnswer: 3,
+    explanation: 'Health psychology focuses on psychological approaches that prevent and help treat physical health issues.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-28',
+    question: 'Social psychology primarily examines:',
+    options: ['Genetic causes of personality', 'Workplace ergonomics', 'How social interactions and perceptions affect behavior', 'Neural mechanisms of memory'],
+    correctAnswer: 2,
+    explanation: 'Social psychology studies how social interactions, relationships, and perceptions influence behavior and attitudes.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-29',
+    question: 'Which statement best captures the "scientific method" as described in the text?',
+    options: ['Testing ideas through observation, experimentation, and analysis', 'Accepting beliefs based on tradition', 'Intuition only', 'Anecdotal reporting without systematic tests'],
+    correctAnswer: 0,
+    explanation: 'The scientific method involves systematic observation, experiments, and statistical analysis — which is option A.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-30',
+    question: 'What is a "hypothesis" according to the text?',
+    options: ['A broad integrated explanation for many observations', 'A survey instrument', 'A specific, testable prediction about relationships between variables', 'An unrelated assumption'],
+    correctAnswer: 2,
+    explanation: 'The text defines a hypothesis as a specific testable prediction about how variables relate.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-31',
+    question: 'A single case study is usually easy to generalize to many people in the population.',
+    options: ['True', 'False'],
+    correctAnswer: 1,
+    explanation: 'Case studies give deep detail about one person but are hard to generalize to the larger population.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-32',
+    question: 'Which descriptive research method is best for collecting quick information from many people?',
+    options: ['Case study', 'Survey', 'Naturalistic observation', 'Experimental manipulation'],
+    correctAnswer: 1,
+    explanation: 'Surveys collect data quickly from large groups, making them ideal for broad, fast information gathering.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-33',
+    question: 'According to the text, what is a major drawback of naturalistic observation?',
+    options: ['It always provides causal explanations', 'It requires manipulation of variables', 'It is only used in laboratories', 'People may change their behavior when they know they are being observed (reactivity)'],
+    correctAnswer: 3,
+    explanation: 'Naturalistic observation can cause reactivity — subjects may alter behavior if they know they’re observed — which limits validity.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-34',
+    question: 'The strength of a correlation is measured on a scale ranging from:',
+    options: ['+1.00 to -1.00', '0 to 100', '-100 to +100', '0 to 1.0 only'],
+    correctAnswer: 0,
+    explanation: 'Correlation coefficients run from -1.00 (perfect negative) through 0 (no relation) to +1.00 (perfect positive), so A is correct.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-35',
+    question: 'A positive correlation between two variables means that as one variable increases, the other tends to increase as well.',
+    options: ['True', 'False'],
+    correctAnswer: 0,
+    explanation: 'A positive correlation indicates both variables move in the same direction (both increase or both decrease).',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-36',
+    question: 'Correlational research can by itself prove that one variable causes changes in another (i.e., it establishes cause and effect).',
+    options: ['True', 'False'],
+    correctAnswer: 1,
+    explanation: 'Correlation shows relationships but cannot confirm causation because other variables or direction-of-effect may be involved.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-37',
+    question: 'In experimental research, which term describes the variable that the researcher manipulates?',
+    options: ['Dependent variable', 'Confounding variable', 'Outcome variable', 'Independent variable'],
+    correctAnswer: 3,
+    explanation: 'The independent variable is what the researcher changes to see its effect; the dependent variable measures that effect.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-38',
+    question: 'In an experiment testing whether study time affects test scores, which would be the dependent variable?',
+    options: ['Study method', 'Students\' test scores', 'Number of students in the class', 'Time of day the test is taken'],
+    correctAnswer: 1,
+    explanation: 'The dependent variable is the outcome measured (test scores), while study time would be the independent variable.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-39',
+    question: 'What is the main purpose of a control group in an experiment?',
+    options: ['To receive the experimental treatment', 'To be excluded from data analysis', 'To provide a baseline for comparison and not receive the experimental manipulation', 'To manipulate extra variables'],
+    correctAnswer: 2,
+    explanation: 'A control group does not get the experimental manipulation and serves as a baseline to compare effects.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'psych-2013-1-40',
+    question: 'Which of the following lists the correct basic order of the five steps of scientific research presented in the text?',
+    options: ['Perceive the problem → Form a hypothesis → Test the hypothesis → Draw conclusions → Report results', 'Test the hypothesis → Perceive the problem → Report results → Draw conclusions → Form a hypothesis', 'Report results → Draw conclusions → Form a hypothesis → Perceive the problem → Test the hypothesis', 'Form a hypothesis → Report results → Perceive the problem → Test the hypothesis → Draw conclusions'],
+    correctAnswer: 0,
+    explanation: 'The text lists the research steps in that logical order: perceive the problem, form a hypothesis, test it, draw conclusions, then report results.',
+    subject: 'psychology',
+    year: 2013,
+    chapter: 1
+  },
   // ==================== C++ QUESTIONS ====================
   
   //cpp-2017-1-1
