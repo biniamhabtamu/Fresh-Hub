@@ -2790,335 +2790,732 @@ export const noteCollections: Subject[] = [
 ,   {
   "id": "Chapter2",
   "title": "Chapter 2: Basic Concepts of Logic",
-  "content": `
-    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 100%; padding: 15px; color: #2c3e50; box-sizing: border-box;">
-      <!-- Header -->
-      <div style="background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
-        <h1 style="margin: 0; font-size: 1.8rem;">🔍 Chapter 2: Basic Concepts of Logic</h1>
-        <p style="font-size: 1rem; opacity: 0.9; margin: 10px 0 0;">Organized body of knowledge for evaluating arguments</p>
-      </div>
-
-      <!-- Chapter Overview -->
-      <div style="background: #f0f4ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4a69bd;">
-        <h2 style="color: #1e3799; margin-top: 0;">📚 Chapter Overview</h2>
-        <ul style="padding-left: 20px;">
-          <li><strong>Definition:</strong> Logic is the organized body of knowledge that evaluates arguments. It aims to develop methods and principles for evaluating and constructing arguments.</li>
-          <li><strong>Argument:</strong> A systematic combination of statements, including premises (supporting evidence) and a conclusion (what is claimed to follow from the evidence).</li>
-          <li><strong>Types of Arguments:</strong>
-            <ul>
-              <li>Deductive Arguments: Premises support the conclusion such that it is impossible for the premises to be true and the conclusion false.</li>
-              <li>Inductive Arguments: Premises support the conclusion such that it is improbable for the premises to be true and the conclusion false.</li>
-            </ul>
-          </li>
-          <li><strong>Evaluation:</strong>
-            <ul>
-              <li>Deductive Arguments: Valid (if premises support conclusion properly) or Invalid</li>
-              <li>Inductive Arguments: Strong (if premises support conclusion properly) or Weak</li>
-              <li>Additional Evaluation:
-                <ul>
-                  <li>Deductive Arguments: Sound (valid and all premises true) or Unsound</li>
-                  <li>Inductive Arguments: Cogent (strong and all premises probably true) or Uncogent</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Objectives:</strong> Understand basic concepts of logic, components and types of arguments, and techniques for recognizing and evaluating arguments.</li>
-        </ul>
-      </div>
-
-      <!-- Lesson 1: Basic Concepts -->
-      <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
-        <h2 style="color: #0d47a1; margin-top: 0;">🧩 Lesson 1: Arguments, Premises, and Conclusions</h2>
+  "content": `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Concepts of Logic - Chapter Two</title>
+    <style>
+        :root {
+            --card1: #e3f2fd;
+            --card2: #e8f5e9;
+            --card3: #fff8e1;
+            --card4: #fce4ec;
+            --card5: #f3e5f5;
+            --card6: #e0f7fa;
+            --card7: #fffde7;
+            --card8: #efebe9;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Definition</h3>
-          <p>Logic is a philosophical science that evaluates arguments.</p>
-        </div>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Components of an Argument</h3>
-          <ul>
-            <li><strong>Premises:</strong> Statements claimed to provide support or evidence</li>
-            <li><strong>Conclusion:</strong> The statement claimed to follow logically from the premises</li>
-          </ul>
-        </div>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Objectives</h3>
-          <ul>
-            <li>Understand the meaning of logic and arguments</li>
-            <li>Identify components of an argument (premises and conclusion)</li>
-            <li>Recognize techniques for identifying premises and conclusions</li>
-          </ul>
-        </div>
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #1565c0;">Meaning of Logic</h3>
-          <ul>
-            <li>Origin: Greek word "logos" (sentence, discourse, reason, truth, rule)</li>
-            <li>Logic evaluates arguments using a structured approach</li>
-          </ul>
-        </div>
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 30px 0;
+            color: #1a237e;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #1565c0;">Definitions and Benefits of Logic</h3>
-          <p><strong>Definitions:</strong></p>
-          <ol>
-            <li>Science of Evaluating Arguments: Focuses on methods for assessing if premises adequately support conclusions</li>
-            <li>Study of Methods: Studies methods for evaluating whether premises provide good evidence for conclusions</li>
-            <li>Development of Methods and Principles: Helps develop methods for evaluating others' arguments and constructing one's own</li>
-            <li>Codification of Rational Thought: Aims to codify rules of rational thought, exploring structures of arguments that preserve truth</li>
-            <li>Philosophical Tool: Primary tool for philosophers, aiding in analysis of philosophical problems</li>
-          </ol>
-          
-          <p><strong>Benefits:</strong></p>
-          <ul>
-            <li>Construct and Evaluate Arguments</li>
-            <li>Defense Against Prejudice</li>
-            <li>Distinguish Good from Bad Arguments</li>
-            <li>Identify Logical Errors</li>
-            <li>Analyze Policies</li>
-            <li>Refinement of Reasoning Skills</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 2: Recognizing Arguments -->
-      <div style="background: #ffebee; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #f44336;">
-        <h2 style="color: #b71c1c; margin-top: 0;">🔎 Lesson 2: Techniques of Recognizing Arguments</h2>
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Definition of an Argument</h3>
-          <p>An argument consists of statements (premises) that support another statement (conclusion). Not all passages with multiple statements are argumentative; some are non-argumentative. Arguments aim to prove something.</p>
-        </div>
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+            color: #283593;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Lesson Objectives</h3>
-          <ul>
-            <li>Recognize argumentative passages</li>
-            <li>Recognize non-argumentative passages</li>
-            <li>Distinguish between argumentative and non-argumentative passages</li>
-            <li>Understand inferential claims and factual claims</li>
-          </ul>
-        </div>
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #3949ab;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #d32f2f;">Recognizing Argumentative Passages</h3>
-          <ul>
-            <li>Primary Goal: To prove something</li>
-            <li>Two Conditions:
-              <ol>
-                <li>At least one statement must present evidence or reasons (premise)</li>
-                <li>There must be a claim that the evidence supports something (conclusion)</li>
-              </ol>
-            </li>
-            <li>Factual Claims vs. Inferential Claims:
-              <ul>
-                <li>Factual Claims: Concern whether premises actually provide evidence</li>
-                <li>Inferential Claims: Concern whether premises support a conclusion</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        .card {
+            background-color: var(--card1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-wrap: break-word;
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #d32f2f;">Challenges and Cautions</h3>
-          <p><strong>Indicator Words:</strong></p>
-          <ul>
-            <li>Can be misleading when used in non-argumentative contexts</li>
-            <li>Example: "Since Edison invented..." (temporal vs. logical use)</li>
-          </ul>
-          
-          <p><strong>Detecting Inferential Relationships:</strong></p>
-          <ul>
-            <li>Sometimes tricky to identify true support relationships</li>
-            <li>Tip: Insert indicator words to test logical connections</li>
-          </ul>
-          
-          <p><strong>Conditional Answers:</strong></p>
-          <ul>
-            <li>Some passages can be interpreted multiple ways</li>
-            <li>Example: "If interpreted this way, it's an argument; another way, not"</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 3: Types of Arguments -->
-      <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
-        <h2 style="color: #2e7d32; margin-top: 0;">⚖️ Lesson 3: Types of Arguments</h2>
+        .card:nth-child(odd) {
+            background-color: var(--card2);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Overview</h3>
-          <ul>
-            <li>Arguments involve an inferential claim that the conclusion follows from the premises</li>
-            <li><strong>Deductive Arguments:</strong> Claim conclusion follows with strict certainty</li>
-            <li><strong>Inductive Arguments:</strong> Claim conclusion follows probably from premises</li>
-          </ul>
-        </div>
+        .card:nth-child(3n) {
+            background-color: var(--card3);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Differentiation</h3>
-          <ul>
-            <li>Deductive: Conclusion follows necessarily from premises</li>
-            <li>Inductive: Conclusion follows with some probability</li>
-            <li>Evaluate how strongly the conclusion is claimed to follow</li>
-          </ul>
-        </div>
+        .card:nth-child(4n) {
+            background-color: var(--card4);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #388e3c;">Factors Influencing Classification</h3>
-          <ol>
-            <li><strong>Certainty vs. Probability:</strong>
-              <ul>
-                <li>Deductive: Aim for certainty</li>
-                <li>Inductive: Aim for probability</li>
-              </ul>
-            </li>
-            <li><strong>Strength of Inferential Claim:</strong>
-              <ul>
-                <li>Deductive: Logical necessity</li>
-                <li>Inductive: Likelihood</li>
-              </ul>
-            </li>
-            <li><strong>Objective Features:</strong>
-              <ul>
-                <li>Evaluate support strength</li>
-                <li>Assess necessity vs probability</li>
-              </ul>
-            </li>
-            <li><strong>Indicator Words:</strong>
-              <ul>
-                <li>Deductive: "certainly," "necessarily"</li>
-                <li>Inductive: "probable," "likely"</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
+        .card:nth-child(5n) {
+            background-color: var(--card5);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #388e3c;">Argument Forms</h3>
-          <p><strong>Deductive Forms:</strong></p>
-          <ul>
-            <li>Mathematical Arguments</li>
-            <li>Arguments from Definition</li>
-            <li>Syllogisms (categorical, hypothetical, disjunctive)</li>
-          </ul>
-          
-          <p><strong>Inductive Forms:</strong></p>
-          <ul>
-            <li>Prediction</li>
-            <li>Argument from Analogy</li>
-            <li>Inductive Generalization</li>
-            <li>Argument from Authority</li>
-            <li>Arguments Based on Signs</li>
-            <li>Causal Inference</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lesson 4: Evaluating Arguments -->
-      <div style="background: #f3e5f5; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
-        <h2 style="color: #7b1fa2; margin-top: 0;">📊 Lesson 4: Evaluating Arguments</h2>
+        .card:nth-child(6n) {
+            background-color: var(--card6);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Lesson Overview</h3>
-          <ul>
-            <li>Every argument has two claims:
-              <ol>
-                <li>Factual Claim: Evidence exists</li>
-                <li>Inferential Claim: Evidence supports conclusion</li>
-              </ol>
-            </li>
-            <li>Evaluation Focus: Inferential claim is more crucial</li>
-          </ul>
-        </div>
+        .card:nth-child(7n) {
+            background-color: var(--card7);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-          <h3 style="color: #8e24aa;">Evaluating Deductive Arguments</h3>
-          <p><strong>Validity:</strong></p>
-          <ul>
-            <li>Valid if conclusion necessarily follows from premises</li>
-            <li>Invalid if conclusion doesn't necessarily follow</li>
-            <li>Examples:
-              <ul>
-                <li>Valid: "All men are mammals. All bulls are men. ∴ All bulls are mammals"</li>
-                <li>Invalid: "All philosophers are rational. Socrates was rational. ∴ Socrates was a philosopher"</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Validity vs Truth:</strong></p>
-          <ul>
-            <li>Validity concerns argument structure</li>
-            <li>Truth Value Possibilities:
-              <ol>
-                <li>True Premises + True Conclusion: Can be valid or invalid</li>
-                <li>True Premises + False Conclusion: Only invalid</li>
-                <li>False Premises + True Conclusion: Can be valid or invalid</li>
-                <li>False Premises + False Conclusion: Can be valid or invalid</li>
-              </ol>
-            </li>
-          </ul>
-          
-          <p><strong>Soundness:</strong></p>
-          <ul>
-            <li>Sound = Valid + All premises true</li>
-            <li>Unsound if invalid or has false premises</li>
-          </ul>
-        </div>
+        .card:nth-child(8n) {
+            background-color: var(--card8);
+        }
         
-        <div style="background: white; padding: 15px; border-radius: 8px;">
-          <h3 style="color: #8e24aa;">Evaluating Inductive Arguments</h3>
-          <p><strong>Strength:</strong></p>
-          <ul>
-            <li>Strong if premises make conclusion probable</li>
-            <li>Weak if conclusion doesn't likely follow</li>
-            <li>Examples:
-              <ul>
-                <li>Strong: "100 apples, 80 tasty ∴ All probably tasty"</li>
-                <li>Weak: "100 apples, 3 tasty ∴ All probably tasty"</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Key Differences from Deductive:</strong></p>
-          <ul>
-            <li>Degrees of strength (not absolute)</li>
-            <li>Strength can change with additional premises</li>
-            <li>Truth Value Relationships:
-              <ul>
-                <li>True Premises + True Conclusion: Can be strong or weak</li>
-                <li>True Premises + False Conclusion: Weak</li>
-                <li>False Premises + True Conclusion: Can be strong or weak</li>
-                <li>False Premises + False Conclusion: Can be strong or weak</li>
-              </ul>
-            </li>
-          </ul>
-          
-          <p><strong>Cogency:</strong></p>
-          <ul>
-            <li>Cogent = Strong + Premises probably true</li>
-            <li>Uncogent if weak or premises probably false</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Key Takeaways -->
-      <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 12px; text-align: center;">
-        <h2 style="color: #c2185b; margin-top: 0;">💎 Key Takeaways</h2>
-        <div style="background: rgba(255,255,255,0.85); padding: 15px; border-radius: 8px;">
-          <p style="font-style: italic; color: #bf360c;">
-            "Logic provides the systematic tools to distinguish sound reasoning from flawed arguments, 
-            enabling critical analysis of ideas through proper evaluation of premises and conclusions."
-          </p>
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;">
-            <span style="background: #6a11cb; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Premise Identification</span>
-            <span style="background: #ff6b6b; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Argument Evaluation</span>
-            <span style="background: #00cdac; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Logical Analysis</span>
-          </div>
-        </div>
-      </div>
+        p, li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #1a237e;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .example {
+            background-color: white;
+            border-left: 4px solid #1a237e;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #fffde7;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Concepts of Logic</h1>
+    
+    <div class="card">
+        <h2>Chapter Two: Basic Concepts of Logic</h2>
+        
+        <h3>2.1 Argument, Premises, and Conclusions</h3>
+        <p>Logic is the science that systematically evaluates arguments. Its main goal is to develop a system of methods and principles to assess arguments and to help us construct our own. It helps us determine if the premises of an argument provide good evidence for its conclusion.</p>
+        
+        <p><strong>Logic (ሎጂክ):</strong> Logic is a field of study that focuses on analyzing arguments to see if they are valid or sound. The purpose is to create a system of rules that helps us tell good arguments from bad ones. It is a systematic study of methods for evaluating whether the premises of an argument adequately support the conclusion.</p>
+        
+        <p>ሎጂክ ማለት ክርክሮችን እና ሀሳቦችን ለመገምገም የሚያገለግል የሳይንስ ዘርፍ ነው። ዋና አላማው አንድ ሀሳብ ወይም ክርክር ትክክል መሆኑን ወይም አለመሆኑን ለመለየት የሚያስችል መመሪያዎችንና መርሆችን ማዘጋጀት ነው።</p>
     </div>
+    
+    <div class="card">
+        <h4>I. Conceptual Framework</h4>
+        
+        <h4>1. Statement (አረፍተ ነገር)</h4>
+        <p>A statement is a sentence or a group of sentences that is either true or false, but not both at the same time. These are the building blocks of an argument.</p>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>Ethiopia is located in Africa. (True Statement)</li>
+                <li>The sun rises in the west. (False Statement)</li>
+                <li>Two plus two equals four. (True Statement)</li>
+                <li>All squares have five sides. (False Statement)</li>
+            </ul>
+        </div>
+        
+        <p>አረፍተ ነገር (Statement): እውነት ወይም ሀሰት ሊሆን የሚችል ነገር ግን ሁለቱንም በአንድ ጊዜ ሊሆን የማይችል ዓረፍተ ነገር ነው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>2. Argument (ክርክር)</h4>
+        <p>An argument is a group of statements where one or more premises are claimed to support a conclusion. Arguments can be categorized into two groups:</p>
+        <ul>
+            <li><strong>Good Arguments:</strong> The premises genuinely support the conclusion.</li>
+            <li><strong>Bad Arguments:</strong> The premises claim to support the conclusion but fail to do so.</li>
+        </ul>
+        
+        <p><strong>Argument (ክርክር):</strong> አንድ ወይም ከዚያ በላይ የሆኑ ሀሳቦች (Premises) አንድን ድምዳሜ (Conclusion) ለመደገፍ በሚቀርቡበት ጊዜ የሚፈጠር የዓረፍተ ነገሮች ስብስብ ነው። ክርክር ሀሳቦቹ ድምዳሜውን የሚደግፉ ከሆነ "ጥሩ ክርክር" ይባላል፤ ካልደገፉት ደግሞ "መጥፎ ክርክር" ይባላል።</p>
+    </div>
+    
+    <div class="card">
+        <h4>Non-Statement Expressions</h4>
+        <p>These are sentences that cannot be classified as either true or false.</p>
+        
+        <table>
+            <tr>
+                <th>Expression Type</th>
+                <th>Examples</th>
+                <th>Extra Examples</th>
+            </tr>
+            <tr>
+                <td>Questions</td>
+                <td>What is your name?</td>
+                <td>How are you today?</td>
+            </tr>
+            <tr>
+                <td>Proposals</td>
+                <td>Let's go to the party today.</td>
+                <td>Let's study for the exam together.</td>
+            </tr>
+            <tr>
+                <td>Suggestions</td>
+                <td>You would better go by bus.</td>
+                <td>You should take a break.</td>
+            </tr>
+            <tr>
+                <td>Commands</td>
+                <td>Stand up!</td>
+                <td>Turn the light on!</td>
+            </tr>
+            <tr>
+                <td>Exclamations</td>
+                <td>Right on!</td>
+                <td>Wow!</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h4>3. Premises (መነሻ ሀሳቦች)</h4>
+        <p>Premises are statements that provide reasons or evidence to support the conclusion. They are the foundation upon which the argument is built.</p>
+        
+        <p><strong>Premises (መነሻ ሀሳቦች):</strong> ለድምዳሜው እንደ ማስረጃ ወይም ምክንያት ሆነው የሚያገለግሉ ዓረፍተ ነገሮች ናቸው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>4. Conclusion (ድምዳሜ)</h4>
+        <p>The conclusion is the statement that the premises are claimed to support. It is the main point the argument is trying to prove.</p>
+        
+        <p><strong>Conclusion (ድምዳሜ):</strong> በመነሻ ሀሳቦቹ የሚደገፍ ነው ተብሎ የሚታሰበው ዋናው ሀሳብ ወይም ዓረፍተ ነገር ነው።</p>
+    </div>
+    
+    <div class="card">
+        <h4>Examples of Arguments</h4>
+        
+        <div class="example">
+            <p><strong>Example 1 (Good Argument):</strong></p>
+            <p>Premise: All crimes are violations of the law. <span class="emoji">📜</span></p>
+            <p>Premise: Theft is a crime. <span class="emoji">👮</span></p>
+            <p>Conclusion: Therefore, theft is a violation of the law. <span class="emoji">⚖️</span></p>
+            <p><strong>Explanation:</strong> The premises provide strong, logical support for the conclusion. The argument is well-constructed and the conclusion follows directly from the premises.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2 (Good Argument):</strong></p>
+            <p>Premise: All uncles are male. <span class="emoji">👨</span></p>
+            <p>Premise: Tola is an uncle. <span class="emoji">👦</span></p>
+            <p>Conclusion: So, Tola is a male. <span class="emoji">💪</span></p>
+            <p><strong>Explanation:</strong> The premises clearly and adequately support the conclusion. This is another example of a good argument.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 3 (Bad Argument):</strong></p>
+            <p>Premise: Some crimes are misdemeanors. <span class="emoji">⚖️</span></p>
+            <p>Premise: Murder is a crime. <span class="emoji">🔪</span></p>
+            <p>Conclusion: Therefore, murder is a misdemeanor. <span class="emoji">❌</span></p>
+            <p><strong>Explanation:</strong> The premises do not support the conclusion. Murder is a felony, not a misdemeanor, and the premises, while true, don't logically lead to this specific conclusion. The evidence is inadequate.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 4 (Bad Argument):</strong></p>
+            <p>Premise: Some uncles are skinny. <span class="emoji">🧍‍♂️</span></p>
+            <p>Premise: Gemechu is an uncle. <span class="emoji">👴</span></p>
+            <p>Conclusion: So, Gemechu is skinny. <span class="emoji">🤷‍♂️</span></p>
+            <p><strong>Explanation:</strong> The evidence from the premises is weak. Just because some uncles are skinny doesn't mean Gemechu must be skinny. The premises do not provide sufficient support for the conclusion.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.2 How to Differentiate a Conclusion from its Premise(s)</h3>
+        <p>Arguments often contain special indicator words that help us identify which statements are premises and which is the conclusion.</p>
+        
+        <h4>Premise Indicators</h4>
+        <p>These words often introduce a premise.</p>
+        <ul>
+            <li>Since</li>
+            <li>Because</li>
+            <li>As indicated by</li>
+            <li>For the reason that</li>
+            <li>Given that</li>
+            <li>Seeing that</li>
+            <li>Inasmuch as</li>
+            <li>For</li>
+            <li>Owing to</li>
+            <li>May be inferred from</li>
+        </ul>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>Since the road is closed, we must find an alternative route.</li>
+                <li>The team will win because they have the best players.</li>
+                <li>As indicated by the latest report, the economy is recovering.</li>
+            </ul>
+        </div>
+        
+        <h4>Conclusion Indicators</h4>
+        <p>These words often introduce the conclusion.</p>
+        <ul>
+            <li>Therefore</li>
+            <li>Hence</li>
+            <li>So</li>
+            <li>Accordingly</li>
+            <li>Consequently</li>
+            <li>Thus</li>
+            <li>It follows that</li>
+            <li>It must be that</li>
+            <li>As a result</li>
+            <li>We may infer</li>
+        </ul>
+        
+        <div class="example">
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>The evidence is overwhelming; therefore, the defendant is guilty.</li>
+                <li>She studied hard for the exam, so she will pass.</li>
+                <li>He is late to work every day; thus, he will likely be fired.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.3 Recognizing Arguments</h3>
+        <p>Not every passage contains an argument. A passage contains an argument only if it attempts to prove something. Two conditions must be met for a passage to be considered an argument:</p>
+        <ol>
+            <li><strong>Factual Claim:</strong> At least one statement must claim to provide evidence or a reason. We ask, "Are the premises true or false?"</li>
+            <li><strong>Inferential Claim:</strong> There must be a claim that the evidence supports or implies something. We ask, "Do the premises support the conclusion?"</li>
+        </ol>
+        <p>Both conditions must be present for a passage to be an argument. It's not about whether the evidence is true or the support is good, but whether the claim to provide evidence and support is present.</p>
+        
+        <h4>Non-Argument Expressions</h4>
+        <p>These passages lack an inferential claim and are considered Unsupported Assertions. They do not attempt to prove anything.</p>
+        
+        <h4>Warnings:</h4>
+        <p>Statements intended to alert someone to danger. They are not arguments because they don't provide reasons to support a conclusion.</p>
+        <div class="example">
+            <p><strong>Example:</strong> Watch out that you do not slip on the mud.</p>
+            <p><strong>Extra Example:</strong> Look both ways before you cross the street.</p>
+        </div>
+        
+        <h4>Pieces of Advice:</h4>
+        <p>Recommendations on what someone should do. They can be part of an argument but, by themselves, don't contain a claim of support.</p>
+        <div class="example">
+            <p><strong>Example:</strong> I suggest you take Logic during your first year.</p>
+            <p><strong>Extra Example:</strong> You should drink more water.</p>
+        </div>
+        
+        <h4>Statements of Belief/Opinion:</h4>
+        <p>Expressions of what someone thinks or believes without providing evidence.</p>
+        <div class="example">
+            <p><strong>Example:</strong> I think a nation like ours, with its high moral traditions, has a further responsibility to know how we became involved in this conflict.</p>
+            <p><strong>Extra Example:</strong> I believe that honesty is the best policy.</p>
+        </div>
+        
+        <h4>Reports:</h4>
+        <p>Statements that simply convey information about an event or situation. They don't draw any inferences.</p>
+        <div class="example">
+            <p><strong>Example:</strong> A bomb exploded near the national museum, injuring 25 people and causing millions of birrs in damage.</p>
+            <p><strong>Extra Example:</strong> The weather report stated that there would be heavy rainfall tomorrow.</p>
+        </div>
+        
+        <h4>Illustrations:</h4>
+        <p>Statements about a subject combined with one or more specific examples to explain the statement. They are often confused with arguments because they may use indicator words like "thus" or "for example."</p>
+        <div class="example">
+            <p><strong>Example:</strong> Mammals are animals that nourish their young with milk. For example, cats, dogs, goats, monkeys, and humans are mammals.</p>
+            <p><strong>Extra Example:</strong> Chemical elements, as well as compounds, can be represented by molecular formulas. Thus, oxygen is represented by O<sub>2</sub>.</p>
+            <p><strong>Extra Example:</strong> Whole numbers can be represented as fractions. Thus, 2 can be represented as 8/4.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>🔑 Key Note:</strong> The crucial difference between an illustration and an argument is the purpose. An illustration explains a concept with examples, while an argument uses evidence to prove a conclusion. If the examples are used to support a claim, the passage becomes an argument.</p>
+        </div>
+        
+        <h4>6. Conditional Statements</h4>
+        <p>A conditional statement is an "if..., then..." statement. It's important to know that, by itself, a conditional statement is never an argument. It simply states a relationship between two things without asserting either one as true.</p>
+        
+        <ul>
+            <li>The part that follows "if" is called the antecedent (መነሻ).</li>
+            <li>The part that follows "then" is called the consequent (ውጤት).</li>
+        </ul>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>"If Galgalo works hard, then he will get a promotion."</p>
+            <ul>
+                <li>This statement does not claim that Galgalo works hard.</li>
+                <li>This statement does not claim that he will get a promotion.</li>
+                <li>It only asserts that if the first part happens, the second part will follow.</li>
+            </ul>
+        </div>
+        
+        <p><strong>Contrast this with an argument:</strong></p>
+        <div class="example">
+            <p><strong>Example 2 (Argument):</strong></p>
+            <p>Premise: If Galgalo works hard, then he will get a promotion.</p>
+            <p>Premise: Galgalo has worked hard.</p>
+            <p>Conclusion: Therefore, Galgalo will get a promotion.</p>
+            <p>In this case, the conclusion is asserted based on the premises, making it a valid argument.</p>
+        </div>
+        
+        <h4>Relationship Between a Conditional Statement and an Argument:</h4>
+        <ul>
+            <li>A single conditional statement cannot be an argument. <span class="emoji">🙅</span></li>
+            <li>A conditional statement can serve as a premise, a conclusion, or both in an argument.</li>
+            <li>The logic within a conditional statement can be restated to form an argument.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>Conditions in Conditional Statements</h4>
+        <p>Conditional statements express the relationship between necessary and sufficient conditions.</p>
+        
+        <h4>Sufficient Condition:</h4>
+        <p>'A' is a sufficient condition for 'B' if the occurrence of 'A' is all that's needed for 'B' to occur.</p>
+        <div class="example">
+            <p><strong>Example 1:</strong> If I am stabbed by a dagger, then a scar will appear on my skin.</p>
+            <p>Stabbing with a dagger is sufficient to cause a scar, but it is not the only way to get a scar. A burn or a gunshot wound could also cause a scar.</p>
+            
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>If it's raining, the ground is wet. (Rain is sufficient for a wet ground, but a sprinkler could also make it wet).</li>
+                <li>If you get a perfect score on the exam, you will pass the class. (A perfect score is sufficient to pass, but you could also pass with a lower score).</li>
+            </ul>
+        </div>
+        
+        <h4>Necessary Condition:</h4>
+        <p>'B' is a necessary condition for 'A' if 'A' cannot occur without 'B' also occurring.</p>
+        <div class="example">
+            <p><strong>Example 1:</strong> If "X" is an uncle, then "X" is a male.</p>
+            <p>Being a male is a necessary condition to be an uncle; you cannot be an uncle without being male.</p>
+            
+            <p><strong>Extra Examples:</strong></p>
+            <ul>
+                <li>If you are a doctor, you have a medical degree. (A medical degree is a necessary condition to be a doctor).</li>
+                <li>If you drive a car, you have gasoline in the tank. (Having gasoline is a necessary condition for driving a gasoline-powered car).</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h4>7. Explanations</h4>
+        <p>Explanations are statements or groups of statements that shed light on a phenomenon that is already accepted as fact. They are not arguments because their purpose is to clarify, not to prove.</p>
+        
+        <p>Every explanation has two parts:</p>
+        <ol>
+            <li><strong>Explanandum (የሚብራራው ነገር):</strong> The statement that describes the event or phenomenon to be explained.</li>
+            <li><strong>Explanans (ማብራሪያ):</strong> The statement(s) that provide the explanation.</li>
+        </ol>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>"The sky appears blue from the earth's surface because light rays are scattered by particles from the atmosphere."</p>
+            <p>The purpose here is to explain why the sky is blue, not to prove that it is blue. We already accept that the sky is blue as a fact.</p>
+        </div>
+        
+        <h4>Argument vs. Explanation</h4>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Argument</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>Premise/Explanans</td>
+                <td>The premise is claimed to prove the conclusion.</td>
+                <td>The explanans is claimed to explain the explanandum.</td>
+            </tr>
+            <tr>
+                <td>Conclusion/Explanandum</td>
+                <td>The conclusion is a point to be proven.</td>
+                <td>The explanandum is an accepted fact.</td>
+            </tr>
+        </table>
+        
+        <div class="example">
+            <p><strong>Example 2 (An explanation re-expressed as an argument):</strong></p>
+            <p>Premise: Light rays from the sun are scattered by particles in the atmosphere.</p>
+            <p>Conclusion: Therefore, the sky appears blue from the earth's surface.</p>
+            <p>In this form, the statement is now attempting to prove the conclusion, making it an argument.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>2.4 Types of Arguments</h3>
+        <p>Arguments are divided into two main categories: Deductive and Inductive.</p>
+        
+        <h4>Deductive Arguments</h4>
+        <p>A deductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is impossible for the conclusion to be false. The conclusion is claimed to follow necessarily from the premises.</p>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>All fruits are beverages. <span class="emoji">🍏</span></p>
+            <p>Oranges are fruits. <span class="emoji">🍊</span></p>
+            <p>So, oranges are beverages. <span class="emoji">🍹</span></p>
+            <p>This is a deductive argument because the conclusion follows with strict necessity from the premises.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2:</strong></p>
+            <p>All mammals are vertebrates. <span class="emoji">🦴</span></p>
+            <p>All humans are mammals. <span class="emoji">🧍</span></p>
+            <p>Therefore, all humans are vertebrates. <span class="emoji">🧠</span></p>
+            <p>The conclusion is a necessary consequence of the premises.</p>
+        </div>
+        
+        <h4>Subcategories of Deductive Arguments</h4>
+        <ul>
+            <li><strong>Arguments based on Mathematics:</strong> The conclusion is based on mathematical computation or measurement.
+                <div class="example">
+                    <p><strong>Example:</strong> A shopper places two apples and three oranges into a bag and concludes that the bag contains five pieces of fruit. <span class="emoji">🍎+🍊=5</span>.</p>
+                </div>
+            </li>
+            <li><strong>Arguments from Definition:</strong> The conclusion depends on the definition of a word or phrase used in the premises.
+                <div class="example">
+                    <p><strong>Example:</strong> Michael is mendacious, therefore he tells lies. (Mendacious is defined as telling lies).</p>
+                </div>
+            </li>
+            <li><strong>Categorical Syllogism:</strong> A syllogism where each statement begins with "all," "no," or "some."
+                <div class="example">
+                    <p><strong>Example:</strong> No cats are dogs. No dogs are mammals that can fly. Therefore, no cats are mammals that can fly. <span class="emoji">🐾</span></p>
+                </div>
+            </li>
+            <li><strong>Hypothetical Syllogism:</strong> A syllogism that has a conditional ("if..., then...") statement for one or both of its premises.
+                <div class="example">
+                    <p><strong>Example:</strong> If you trespass on campus, then the campus police will catch you. If the campus police catch you, then you will face disciplinary penalty. Therefore, if you trespass on campus, then you will face disciplinary penalty.</p>
+                </div>
+            </li>
+            <li><strong>Disjunctive Syllogism:</strong> A syllogism with a disjunctive ("either...or...") statement for one of its premises.
+                <div class="example">
+                    <p><strong>Example:</strong> Either breach of contract is a crime or it is not punishable by law. Breach of contract is not a crime. So, breach of contract is not punishable by law.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>Inductive Arguments</h4>
+        <p>An inductive argument is one in which the premises are claimed to support the conclusion in such a way that if the premises are true, it is improbable that the conclusion is false. The conclusion is claimed to follow probably from the premises.</p>
+        
+        <div class="example">
+            <p><strong>Example 1:</strong></p>
+            <p>The vast majority of the saleswomen in this supermarket are hospitable. <span class="emoji">🙂</span></p>
+            <p>Obse is a saleswoman in this supermarket. <span class="emoji">👩‍💼</span></p>
+            <p>Therefore, probably, Obse is hospitable. <span class="emoji">😊</span></p>
+            <p>The conclusion is not certain, but it is probable.</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Example 2:</strong></p>
+            <p>80 oranges selected at random from a basket containing 100 oranges were found to be ripe. <span class="emoji">🍊</span></p>
+            <p>Probably, all 100 oranges are ripe. <span class="emoji">✅</span></p>
+            <p>The conclusion is a probable generalization based on the sample.</p>
+        </div>
+        
+        <h4>Subcategories of Inductive Arguments</h4>
+        <ul>
+            <li><strong>Arguments from Analogy:</strong> These arguments depend on a comparison between two or more similar things.
+                <div class="example">
+                    <p><strong>Example:</strong> Abebe's 2006 Chevolet has luxurious seats and excellent gas mileage. Matiyas's 2006 Chevolet also has luxurious seats and excellent gas mileage. Therefore, Matiyas's car probably has a computer set. <span class="emoji">🚘</span></p>
+                </div>
+            </li>
+            <li><strong>Inductive Generalization:</strong> An argument that moves from knowledge of a selected sample to a claim about the entire group.
+                <div class="example">
+                    <p><strong>Example:</strong> 10 apples selected randomly from a basket of 100 were ripe. Probably, all 90 remaining apples are also ripe. <span class="emoji">🍎</span></p>
+                </div>
+            </li>
+            <li><strong>Arguments based on Signs:</strong> These arguments draw a conclusion from signs or symbols.
+                <div class="example">
+                    <p><strong>Example:</strong> If a traffic sign is in a certain position, a driver might conclude that a turn is coming up. The conclusion is probable but not certain, as the sign could be misplaced. <span class="emoji">🚦</span></p>
+                </div>
+            </li>
+            <li><strong>Causal Inference:</strong> These arguments proceed from a cause to an effect, or from an effect to a cause.
+                <ul>
+                    <li><strong>Cause to Effect:</strong> Example: A bottle of wine was accidentally put in the freezer. Therefore, the bottle of wine has been frozen. <span class="emoji">❄️</span></li>
+                    <li><strong>Effect to Cause:</strong> Example: I tasted a piece of chicken and found it dry and crunchy. Therefore, the chicken had been overcooked. <span class="emoji">🍗</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>2.5 Evaluating Arguments</h3>
+        <p>Evaluating arguments involves assessing two key claims: the factual claim (that evidence exists) and the inferential claim (that the evidence supports the conclusion). The inferential claim is more crucial; if the premises don't support the conclusion, the argument is worthless. Therefore, we always test the inferential claim first.</p>
+        
+        <h4>Evaluating Deductive Arguments</h4>
+        <p>Deductive arguments are evaluated based on their validity and soundness.</p>
+        
+        <h4>Validity and Invalidity</h4>
+        <p><strong>Valid Deductive Argument (ትክክለኛ ቅነሳዊ ክርክር):</strong> An argument where if the premises are assumed true, it is impossible for the conclusion to be false. The conclusion follows with strict necessity from the premises. There is no middle ground; an argument is either valid or invalid.</p>
+        
+        <p><strong>Invalid Deductive Argument (ትክክል ያልሆነ ቅነሳዊ ክርክር):</strong> An argument where even if the premises are assumed true, it is still possible for the conclusion to be false. The conclusion does not follow necessarily from the premises.</p>
+        
+        <h4>Truth and Validity</h4>
+        <p>Validity and truth are separate concepts. An argument's validity doesn't depend on the actual truth of its premises or conclusion. It's about the logical structure: if the premises were true, would the conclusion have to be true?</p>
+        
+        <table>
+            <tr>
+                <th>Scenario</th>
+                <th>Valid</th>
+                <th>Invalid</th>
+            </tr>
+            <tr>
+                <td>True Premises, True Conclusion</td>
+                <td>Sound ✅<br>All wines are beverages. (TP)<br>Gouder is a wine. (TP)<br>So, Gouder is a beverage. (TC)</td>
+                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Gouder is a beverage. (TP)<br>So, Gouder is a wine. (TC)</td>
+            </tr>
+            <tr>
+                <td>True Premises, False Conclusion</td>
+                <td>Non-existent 🚫<br>A valid deductive argument cannot have true premises and a false conclusion by definition.</td>
+                <td>Unsound ❌<br>All wines are beverages. (TP)<br>Orange juice is a beverage. (TP)<br>So, orange juice is a wine. (FC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, True Conclusion</td>
+                <td>Unsound ❌<br>All wines are soft drinks. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a soft drink. (TC)</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Gouder is a whiskey. (FP)<br>So, Gouder is a wine. (TC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, False Conclusion</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a wine. (FP)<br>So, Coca Cola is a whiskey. (FC)</td>
+                <td>Unsound ❌<br>All wines are whiskeys. (FP)<br>Coca Cola is a whiskey. (FP)<br>So, Coca Cola is a wine. (FC)</td>
+            </tr>
+        </table>
+        
+        <h4>Soundness and Unsoundness</h4>
+        <p><strong>Sound Argument (ጠንካራ ክርክር):</strong> A valid deductive argument that also has all true premises. By definition, a sound argument will always have a true conclusion. This is considered a "good" deductive argument.</p>
+        <p><strong>Formula:</strong> Sound Argument = Valid + All True Premises.</p>
+        
+        <p><strong>Unsound Argument (ደካማ ክርክር):</strong> Any deductive argument that is either invalid or has at least one false premise.</p>
+    </div>
+    
+    <div class="card">
+        <h4>Evaluating Inductive Arguments</h4>
+        <p>Inductive arguments are evaluated based on their strength and cogency. Here, the premises support the conclusion with a degree of probability.</p>
+        
+        <h4>Strength and Weakness</h4>
+        <p><strong>Strong Inductive Argument (ጠንካራ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is probable that the conclusion is also true. The premises provide strong evidence.</p>
+        
+        <p><strong>Weak Inductive Argument (ደካማ አስረጂ ክርክር):</strong> An argument where if the premises are assumed true, it is not probable that the conclusion is also true. The premises provide weak evidence.</p>
+        
+        <h4>Cogency and Uncogency</h4>
+        <p><strong>Cogent Inductive Argument (አሳማኝ ክርክር):</strong> A strong inductive argument with all true premises. This is the inductive equivalent of a sound deductive argument. The conclusion of a cogent argument is probably true.</p>
+        <p><strong>Formula:</strong> Cogent Argument = Strong + All True Premises.</p>
+        <p><strong>Extra Condition:</strong> For an argument to be cogent, the premises must also be sufficient; they must not ignore any important evidence that outweighs the given evidence.</p>
+        
+        <p><strong>Uncogent Argument (አሳማኝ ያልሆነ ክርክር):</strong> An inductive argument that falls into one of three categories:</p>
+        <ol>
+            <li>It is strong, but has at least one false premise.</li>
+            <li>It is weak, but has all true premises.</li>
+            <li>It is weak, and has at least one false premise.</li>
+        </ol>
+        
+        <table>
+            <tr>
+                <th>Scenario</th>
+                <th>Strong</th>
+                <th>Weak</th>
+            </tr>
+            <tr>
+                <td>True Premises, True Conclusion</td>
+                <td>Cogent ✅<br>All previous American presidents were men. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a man. (TC)</td>
+            </tr>
+            <tr>
+                <td>True Premises, False Conclusion</td>
+                <td>Non-existent 🚫</td>
+                <td>Uncogent ❌<br>A few American presidents were Federalists. (TP)<br>Therefore, probably the next president will be a Federalist. (FC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, True Conclusion</td>
+                <td>Uncogent ❌<br>All previous American presidents were television debaters. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a television debater. (TC)</td>
+            </tr>
+            <tr>
+                <td>False Premises, False Conclusion</td>
+                <td>Uncogent ❌<br>All previous American presidents were women. (FP)<br>Therefore, probably the next president will be a woman. (FC)</td>
+                <td>Uncogent ❌<br>A few American presidents were Libertarians. (FP)<br>Therefore, probably the next president will be a Libertarian. (FC)</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
   `
 },
     {

@@ -147,7 +147,7 @@ function App() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 5000;
+    const totalDuration = 2000;
     const interval = 16;
     let currentProgress = 0;
 

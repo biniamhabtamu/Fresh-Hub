@@ -12,6 +12,7 @@ export interface User {
   screenshotUrl?: string;
   submittedAt?: Date;
   createdAt: Date;
+  referralCode?: string;
 }
 
 // ... rest of your existing types
