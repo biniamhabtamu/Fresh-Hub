@@ -6256,7 +6256,7 @@ export const noteCollections: Subject[] = [
     },
     { 
       id: 'chapter4', 
-      title: ' Chapter 3:  The Topography of Ethiopia and the Horn of Africa', 
+      title: ' Chapter 4:  The Topography of Ethiopia and the Horn of Africa', 
       content: `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6920,7 +6920,905 @@ export const noteCollections: Subject[] = [
      { 
         id: 'geography5', 
         title: 'Chapter 5: ', 
-        content: 'g'
+        content:`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenses - English Grammar</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3f7;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--info-color);
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: var(--success-color);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .card.present {
+            border-top: 5px solid #4CAF50;
+        }
+        
+        .card.past {
+            border-top: 5px solid #FF9800;
+        }
+        
+        .card.future {
+            border-top: 5px solid #2196F3;
+        }
+        
+        .card.definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--info-color);
+        }
+        
+        .card.rules {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .card.examples {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">⏳</span>Tenses</h1>
+        
+        <div class="card">
+            <p>Tenses are a fundamental concept in grammar. They denote the time of an action and indicate when a particular event or state of being takes place. In English, there are three main tenses:</p>
+            
+            <ul>
+                <li><strong>Present Tense</strong> <span class="emoji">⏳</span></li>
+                <li><strong>Past Tense</strong> <span class="emoji">🔙</span></li>
+                <li><strong>Future Tense</strong> <span class="emoji">🔜</span></li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">✍️</span>Simple Present Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Simple Present Tense is used to describe actions that are habitual, facts that are universally true, and scheduled events in the near future. It's often used for things that happen on a daily basis.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li><strong>Assertive/Affirmative:</strong> Subject + V1 + (s/es) + Object</li>
+                <li class="note"><strong>Rule:</strong> For third-person singular subjects (he, she, it), add -s or -es to the base form of the verb (V1). For all other subjects (I, you, we, they), use the base form of the verb without any changes.</li>
+                
+                <li><strong>Negative:</strong> Subject + do/does not + V1 + Object</li>
+                <li class="note"><strong>Rule:</strong> Use 'does not' for third-person singular subjects and 'do not' for all others.</li>
+                
+                <li><strong>Interrogative (Question):</strong> Do/Does + Subject + V1 + Object?</li>
+                <li class="note"><strong>Rule:</strong> Start the sentence with 'Does' for third-person singular subjects and 'Do' for all others.</li>
+                
+                <li><strong>Interrogative Negative:</strong> Do/Does + Subject + not + V1 + Object?</li>
+                <li class="note"><strong>Rule:</strong> This form combines the negative and interrogative structures.</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She writes a letter.</li>
+                <li>He works at a hospital.</li>
+                <li>The sun rises in the east. (Universal truth)</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She does not write a letter.</li>
+                <li>I do not like coffee.</li>
+                <li>They do not live here.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Does she write a letter?</li>
+                <li>Do they go to school?</li>
+                <li>Does the bus arrive at 8 AM?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Does she not write a letter?</li>
+                <li>Don't you want to play?</li>
+                <li>Doesn't he know the answer?</li>
+            </ul>
+        </div>
+        
+        <h2>Present Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Present Continuous Tense, also known as the Present Progressive, is used to express an action that is currently taking place at the moment of speaking or a temporary action happening around the present time.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure:</h3>
+            
+            <ul>
+                <li><strong>Assertive/Affirmative:</strong> Subject + is/am/are + V1 + -ing + Object</li>
+                <li class="note"><strong>Rule:</strong> Use 'is' for third-person singular subjects, 'am' for the first-person singular (I), and 'are' for plural subjects and second-person singular/plural (you, we, they).</li>
+                
+                <li><strong>Negative:</strong> Subject + is/am/are + not + V1 + -ing + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Is/Am/Are + Subject + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Is/Am/Are + Subject + not + V1 + -ing + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She is writing a letter.</li>
+                <li>I am eating lunch right now.</li>
+                <li>They are playing outside.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She is not writing a letter.</li>
+                <li>We are not watching TV.</li>
+                <li>He is not studying for the test.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Is she writing a letter?</li>
+                <li>Are they listening to music?</li>
+                <li>Is it raining outside?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Is she not writing a letter?</li>
+                <li>Aren't you coming with us?</li>
+                <li>Isn't he working today?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">✅</span>Present Perfect Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Present Perfect Tense is used to show an action that started in the past and has either just been completed or has a connection to the present. The exact time the action happened is often not specified.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + V3 + Object</li>
+                <li class="note"><strong>Rule:</strong> Use 'has' for third-person singular subjects and 'have' for all other subjects. V3 refers to the past participle form of the verb.</li>
+                
+                <li><strong>Negative:</strong> Subject + has/have + not + V3 + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + V3 + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + V3 + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She has written a letter.</li>
+                <li>They have finished their homework.</li>
+                <li>I have visited London.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She has not written a letter.</li>
+                <li>He hasn't eaten his dinner yet.</li>
+                <li>We have not seen that movie.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Has she written a letter?</li>
+                <li>Have you ever tried sushi?</li>
+                <li>Has he arrived?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Has she not written a letter?</li>
+                <li>Haven't they left yet?</li>
+                <li>Hasn't she called you back?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">⏳➡️</span>Present Perfect Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Present Perfect Continuous Tense is used to describe an action that began in the past and is still ongoing in the present. It emphasizes the duration of the action.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + been + V1 + -ing + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + has/have + not + been + V1 + -ing + Object</li>
+                <li class="note">The word "not" goes between "has/have" and "been."</li>
+                
+                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + been + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + been + V1 + -ing + Object?</li>
+                <li class="note">The provided rule seems to have a typo. It should be Has/Have + Subject + not + been + ....</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She has been writing a letter.</li>
+                <li>He has been studying for three hours.</li>
+                <li>We have been waiting since noon.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She has not been writing a letter.</li>
+                <li>I haven't been feeling well lately.</li>
+                <li>They have not been practicing the song.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Has she been writing a letter?</li>
+                <li>Have you been sleeping?</li>
+                <li>Has it been raining all day?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Has she not been writing a letter?</li>
+                <li>Haven't they been working on this project?</li>
+                <li>Hasn't he been training for the race?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🔙</span>Past Tense</h2>
+        
+        <div class="card">
+            <p>The Past Tense is a grammatical form that expresses actions or states that have already happened. It's used to talk about events that occurred in the past, whether a moment ago or a long time ago. The four aspects of the Past Tense are Simple Past, Past Continuous, Past Perfect, and Past Perfect Continuous.</p>
+        </div>
+        
+        <h2><span class="emoji">🚶‍♀️</span>Simple Past Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Simple Past Tense is used to indicate an action that was completed at a specific time in the past. It can also describe past habits. This tense often uses adverbs of time (like yesterday, last week, an hour ago), but sometimes the time is implied.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The basic structure uses the past tense form of the verb (V2).</li>
+                
+                <li><strong>Assertive/Affirmative:</strong> Subject + V2 + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + did not + V1 + Object</li>
+                <li class="note">The auxiliary verb did is used, and the main verb returns to its base form (V1).</li>
+                
+                <li><strong>Interrogative (Question):</strong> Did + Subject + V1 + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Did + Subject + not + V1 + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She wrote a letter.</li>
+                <li>They played football yesterday.</li>
+                <li>I lived in New York for five years.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She did not write a letter.</li>
+                <li>He didn't finish his work.</li>
+                <li>We didn't go to the party.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Did she write a letter?</li>
+                <li>Did you see that movie?</li>
+                <li>Did they visit you last month?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Did she not write a letter?</li>
+                <li>Didn't you call me?</li>
+                <li>Didn't he come to the meeting?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">⏰</span>Past Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Past Continuous Tense is used to describe an action that was ongoing at a particular point in the past. It emphasizes the duration of the action rather than its completion. It is often used to set the scene for another action in the simple past.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses was/were followed by the present participle (-ing form of the verb).</li>
+                
+                <li><strong>Assertive/Affirmative:</strong> Subject + was/were + V1 + -ing + Object</li>
+                <li class="note">Use was for singular subjects (I, he, she, it) and were for plural subjects (we, you, they).</li>
+                
+                <li><strong>Negative:</strong> Subject + was/were + not + V1 + -ing + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Was/Were + Subject + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Was/Were + Subject + not + V1 + -ing + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She was writing a letter.</li>
+                <li>They were playing video games when I arrived.</li>
+                <li>He was studying for the test all afternoon.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She was not writing a letter.</li>
+                <li>We were not listening to the radio.</li>
+                <li>The kids were not sleeping yet.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Was she writing a letter?</li>
+                <li>Were you driving to work?</li>
+                <li>Was he talking on the phone?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Was she not writing a letter?</li>
+                <li>Weren't they going to the cinema?</li>
+                <li>Wasn't it raining when you left?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🗓️</span>Past Perfect Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Past Perfect Tense is used to describe an action that was completed before another action in the past. It's often called the "past of the past." It helps to establish a clear sequence of events.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses had followed by the past participle (V3 form of the verb).</li>
+                
+                <li><strong>Assertive/Affirmative:</strong> Subject + had + V3 + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + had + not + V3 + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Had + Subject + V3 + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Had + Subject + not + V3 + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She had written a letter.</li>
+                <li>The patient had died before the doctor came.</li>
+                <li>I had eaten dinner before they arrived.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She had not written a letter.</li>
+                <li>He hadn't done the homework.</li>
+                <li>We had not heard the news before you told us.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Had she written a letter?</li>
+                <li>Had you finished your work by then?</li>
+                <li>Had they left when you got there?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Had she not written a letter?</li>
+                <li>Hadn't you seen that movie before?</li>
+                <li>Hadn't the train departed yet?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🕰️</span>Past Perfect Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Past Perfect Continuous Tense is used to describe an action that started in the past and continued up to a certain point in the past. It emphasizes the duration of the action.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses had been followed by the present participle (-ing form of the verb).</li>
+                
+                <li><strong>Assertive/Affirmative:</strong> Subject + had been + V1 + -ing + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + had + not + been + V1 + -ing + Object</li>
+                <li class="note">The word not comes after had and before been.</li>
+                
+                <li><strong>Interrogative (Question):</strong> Had + Subject + been + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Had + Subject + not + been + V1 + -ing + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Assertive:</h4>
+            <ul>
+                <li>She had been writing a letter.</li>
+                <li>He had been running for an hour before he collapsed.</li>
+                <li>I had been learning English for a month when I moved abroad.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She had not been writing a letter.</li>
+                <li>The company had not been doing well financially.</li>
+                <li>They hadn't been sleeping much before the trip.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Had she been writing a letter?</li>
+                <li>Had you been waiting long?</li>
+                <li>Had it been snowing all night?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Had she not been writing a letter?</li>
+                <li>Hadn't you been working here since January?</li>
+                <li>Hadn't he been practicing for the show?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">➡️</span>Future Tense</h2>
+        
+        <div class="card">
+            <p>The Future Tense is a grammatical form that describes actions or states that have not yet occurred and will happen after the present moment. It's used to talk about events that will happen in a period of time following the moment of speaking or writing.</p>
+        </div>
+        
+        <h2><span class="emoji">➡️</span>Simple Future Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Simple Future Tense tells us about an action that has not occurred yet and will occur in the future. It's used for predictions, decisions made at the moment of speaking, and promises.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The basic structure uses the auxiliary verb will or shall followed by the base form of the verb (V1).</li>
+                
+                <li class="note"><strong>Usage of Will and Shall:</strong></li>
+                <li>General Rule: Traditionally, shall is used with I and we, while will is used with all other subjects (he, she, it, you, they).</li>
+                <li>Emphasis/Commitment: This rule is reversed for emphasis, promises, or threats. Will is used with I and we, and shall is used with others.</li>
+                <li>Modern Usage: In modern, everyday speech, there is little distinction, and will is commonly used with all subjects.</li>
+                
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + V1 + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + will/shall + not + V1 + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + V1 + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + V1 + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Positive/Affirmative:</h4>
+            <ul>
+                <li>She will write a letter.</li>
+                <li>I will go to the store tomorrow.</li>
+                <li>The team will win the game.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She will not write a letter.</li>
+                <li>We shall not be late for the meeting.</li>
+                <li>He will not eat his vegetables.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Will she write a letter?</li>
+                <li>Will you help me with this?</li>
+                <li>Will they arrive on time?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Will she not write a letter?</li>
+                <li>Won't you stay for dinner?</li>
+                <li>Will they not attend the conference?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🏃‍♀️➡️</span>Future Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Future Continuous Tense is used to express an action that will be ongoing at a specific time in the future. It emphasizes that the action is in progress and not yet completed.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses will/shall be followed by the present participle (-ing form of the verb).</li>
+                
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + be + V1 + -ing + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + will/shall + not + be + V1 + -ing + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + be + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + be + V1 + -ing + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Positive/Affirmative:</h4>
+            <ul>
+                <li>She will be writing a letter.</li>
+                <li>He will be distributing sweets tomorrow at 12 o'clock.</li>
+                <li>This time next week, I will be relaxing on the beach.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She will not be writing a letter.</li>
+                <li>They will not be attending the party.</li>
+                <li>The kids will not be sleeping when you get home.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Will she be writing a letter?</li>
+                <li>Will you be working late tonight?</li>
+                <li>Will they be staying for the weekend?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Will she not be writing a letter?</li>
+                <li>Won't you be coming with us?</li>
+                <li>Will he not be studying for the exam?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">✅➡️</span>Future Perfect Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Future Perfect Tense is used to describe an action that will be completed by a certain time in the future. It's used to look back at a future event from a later point in time.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses will/shall have followed by the past participle (V3 form of the verb).</li>
+                
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have + V3 + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + will/shall + not + have + V3 + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have + V3 + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have + V3 + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Positive/Affirmative:</h4>
+            <ul>
+                <li>She will have written a letter.</li>
+                <li>They will have shifted the house by Sunday morning.</li>
+                <li>By next year, I will have graduated from college.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She will not have written a letter.</li>
+                <li>He will not have finished the report by the deadline.</li>
+                <li>We will not have seen that movie by the time it leaves theaters.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Will she have written a letter?</li>
+                <li>Will you have completed the project by next week?</li>
+                <li>Will they have arrived before the sun sets?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Will she not have written a letter?</li>
+                <li>Won't you have eaten dinner by then?</li>
+                <li>Will he not have left by the time we get there?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">⏳➡️</span>Future Perfect Continuous Tense</h2>
+        
+        <div class="card definition">
+            <h3>Definition</h3>
+            <p>The Future Perfect Continuous Tense is used to describe an action that will have been in progress for a certain duration before another point or event in the future. It emphasizes the duration of the future action.</p>
+        </div>
+        
+        <div class="card rules">
+            <h3>Rules & Structure</h3>
+            
+            <ul>
+                <li class="note"><strong>Rule:</strong> The structure uses will/shall have been followed by the present participle (-ing form of the verb).</li>
+                
+                <li class="note"><strong>Key Point:</strong> This tense requires a time reference to show the duration. Without a continued time reference, the sentence would be a Future Continuous Tense.</li>
+                
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have been + V1 + -ing + Object</li>
+                
+                <li><strong>Negative:</strong> Subject + will/shall + not + have been + V1 + -ing + Object</li>
+                
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have been + V1 + -ing + Object?</li>
+                
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have been + V1 + -ing + Object?</li>
+            </ul>
+        </div>
+        
+        <div class="card examples">
+            <h3>Examples</h3>
+            
+            <h4>Positive/Affirmative:</h4>
+            <ul>
+                <li>She will have been writing a letter.</li>
+                <li>By July, I will have been working here for five years.</li>
+                <li>This time tomorrow, I will have been traveling for 24 hours.</li>
+            </ul>
+            
+            <h4>Negative:</h4>
+            <ul>
+                <li>She will not have been writing a letter.</li>
+                <li>By the time you get back, the plants will not have been growing for a week.</li>
+                <li>We will not have been studying for long when the test starts.</li>
+            </ul>
+            
+            <h4>Interrogative:</h4>
+            <ul>
+                <li>Will she have been writing a letter?</li>
+                <li>Will you have been living here for a decade by then?</li>
+                <li>Will he have been playing that game for hours?</li>
+            </ul>
+            
+            <h4>Interrogative Negative:</h4>
+            <ul>
+                <li>Will she not have been writing a letter?</li>
+                <li>Won't you have been practicing for a month by the competition?</li>
+                <li>Will he not have been sleeping much before his flight?</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> `
       }
   ]
 },
@@ -6930,9 +7828,824 @@ export const noteCollections: Subject[] = [
     icon: '📖',
     chapters: [
       { 
-        id: 'Chapter1', 
+        id: 'Englishskill1', 
         title: 'Chapter 1: Tense', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+        content: ` <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenses in English Grammar</title>
+    <style>
+        :root {
+            --color-light-blue: #e0f7fa;
+            --color-teal: #e0f2f1;
+            --color-light-green: #f1f8e9;
+            --color-yellow: #fffde7;
+            --color-orange: #fff3e0;
+            --color-light-pink: #fbe9e7;
+            --color-purple: #ede7f6;
+            --color-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card.main-intro {
+            background-color: var(--color-light-blue);
+        }
+
+        .card.present-tense-group {
+            background-color: var(--color-teal);
+        }
+
+        .card.past-tense-group {
+            background-color: var(--color-orange);
+        }
+
+        .card.future-tense-group {
+            background-color: var(--color-purple);
+        }
+
+        .sub-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid;
+        }
+        
+        .sub-card.simple-present { border-color: #4CAF50; }
+        .sub-card.present-continuous { border-color: #2196F3; }
+        .sub-card.present-perfect { border-color: #FFC107; }
+        .sub-card.present-perfect-continuous { border-color: #9C27B0; }
+        .sub-card.simple-past { border-color: #FF5722; }
+        .sub-card.past-continuous { border-color: #00BCD4; }
+        .sub-card.past-perfect { border-color: #8BC34A; }
+        .sub-card.past-perfect-continuous { border-color: #673AB7; }
+        .sub-card.simple-future { border-color: #F44336; }
+        .sub-card.future-continuous { border-color: #3F51B5; }
+        .sub-card.future-perfect { border-color: #E91E63; }
+        .sub-card.future-perfect-continuous { border-color: #009688; }
+        
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+
+        .structure-list, .examples-list {
+            padding-left: 20px;
+        }
+        
+        .structure-list li, .examples-list li {
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .structure-list li:before, .examples-list li:before {
+            content: "→";
+            color: #e74c3c;
+            left: 0;
+        }
+
+        .examples-list li {
+            font-style: italic;
+            color: #555;
+        }
+
+        .note {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card main-intro">
+        <h1>Tenses</h1>
+        <p>Tenses are a fundamental concept in grammar. They denote the time of an action and indicate when a particular event or state of being takes place. In English, there are three main tenses:</p>
+        <ul>
+            <li>Present Tense ⏳</li>
+            <li>Past Tense 🔙</li>
+            <li>Future Tense 🔜</li>
+        </ul>
+    </div>
+    
+    <div class="card present-tense-group">
+        <h2>Present Tense ⏳</h2>
+
+        <div class="sub-card simple-present">
+            <h3>Simple Present Tense ✍️</h3>
+            <h4>Definition</h4>
+            <p>The Simple Present Tense is used to describe actions that are habitual, facts that are universally true, and scheduled events in the near future. It's often used for things that happen on a daily basis.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><strong>Assertive/Affirmative:</strong> Subject + V1 + (s/es) + Object
+                    <div class="note"><strong>Rule:</strong> For third-person singular subjects (he, she, it), add -s or -es to the base form of the verb (V1). For all other subjects (I, you, we, they), use the base form of the verb without any changes.</div>
+                </li>
+                <li><strong>Negative:</strong> Subject + do/does not + V1 + Object
+                    <div class="note"><strong>Rule:</strong> Use 'does not' for third-person singular subjects and 'do not' for all others.</div>
+                </li>
+                <li><strong>Interrogative (Question):</strong> Do/Does + Subject + V1 + Object?
+                    <div class="note"><strong>Rule:</strong> Start the sentence with 'Does' for third-person singular subjects and 'Do' for all others.</div>
+                </li>
+                <li><strong>Interrogative Negative:</strong> Do/Does + Subject + not + V1 + Object?
+                    <div class="note"><strong>Rule:</strong> This form combines the negative and interrogative structures.</div>
+                </li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She writes a letter.</li>
+                        <li>He works at a hospital.</li>
+                        <li>The sun rises in the east. (Universal truth)</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She does not write a letter.</li>
+                        <li>I do not like coffee.</li>
+                        <li>They do not live here.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Does she write a letter?</li>
+                        <li>Do they go to school?</li>
+                        <li>Does the bus arrive at 8 AM?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Does she not write a letter?</li>
+                        <li>Don't you want to play?</li>
+                        <li>Doesn't he know the answer?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card present-continuous">
+            <h3>Present Continuous Tense</h3>
+            <h4>Definition</h4>
+            <p>The Present Continuous Tense, also known as the Present Progressive, is used to express an action that is currently taking place at the moment of speaking or a temporary action happening around the present time.</p>
+            
+            <h4>Rules & Structure:</h4>
+            <ul class="structure-list">
+                <li><strong>Assertive/Affirmative:</strong> Subject + is/am/are + V1 + -ing + Object
+                    <div class="note"><strong>Rule:</strong> Use 'is' for third-person singular subjects, 'am' for the first-person singular (I), and 'are' for plural subjects and second-person singular/plural (you, we, they).</div>
+                </li>
+                <li><strong>Negative:</strong> Subject + is/am/are + not + V1 + -ing + Object</li>
+                <li><strong>Interrogative (Question):</strong> Is/Am/Are + Subject + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Is/Am/Are + Subject + not + V1 + -ing + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She is writing a letter.</li>
+                        <li>I am eating lunch right now.</li>
+                        <li>They are playing outside.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She is not writing a letter.</li>
+                        <li>We are not watching TV.</li>
+                        <li>He is not studying for the test.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Is she writing a letter?</li>
+                        <li>Are they listening to music?</li>
+                        <li>Is it raining outside?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Is she not writing a letter?</li>
+                        <li>Aren't you coming with us?</li>
+                        <li>Isn't he working today?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-card present-perfect">
+            <h3>Present Perfect Tense ✅</h3>
+            <h4>Definition</h4>
+            <p>The Present Perfect Tense is used to show an action that started in the past and has either just been completed or has a connection to the present. The exact time the action happened is often not specified.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + V3 + Object
+                    <div class="note"><strong>Rule:</strong> Use 'has' for third-person singular subjects and 'have' for all other subjects. V3 refers to the past participle form of the verb.</div>
+                </li>
+                <li><strong>Negative:</strong> Subject + has/have + not + V3 + Object</li>
+                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + V3 + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + V3 + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She has written a letter.</li>
+                        <li>They have finished their homework.</li>
+                        <li>I have visited London.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She has not written a letter.</li>
+                        <li>He hasn't eaten his dinner yet.</li>
+                        <li>We have not seen that movie.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Has she written a letter?</li>
+                        <li>Have you ever tried sushi?</li>
+                        <li>Has he arrived?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Has she not written a letter?</li>
+                        <li>Haven't they left yet?</li>
+                        <li>Hasn't she called you back?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card present-perfect-continuous">
+            <h3>Present Perfect Continuous Tense ⏳➡️</h3>
+            <h4>Definition</h4>
+            <p>The Present Perfect Continuous Tense is used to describe an action that began in the past and is still ongoing in the present. It emphasizes the duration of the action.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + been + V1 + -ing + Object</li>
+                <li><strong>Negative:</strong> Subject + has/have + not + been + V1 + -ing + Object
+                    <div class="note"><strong>Note:</strong> The word "not" goes between "has/have" and "been."</div>
+                </li>
+                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + been + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + been + V1 + -ing + Object?
+                    <div class="note"><strong>Note:</strong> The provided rule seems to have a typo. It should be Has/Have + Subject + not + been + ....</div>
+                </li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She has been writing a letter.</li>
+                        <li>He has been studying for three hours.</li>
+                        <li>We have been waiting since noon.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She has not been writing a letter.</li>
+                        <li>I haven't been feeling well lately.</li>
+                        <li>They have not been practicing the song.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Has she been writing a letter?</li>
+                        <li>Have you been sleeping?</li>
+                        <li>Has it been raining all day?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Has she not been writing a letter?</li>
+                        <li>Haven't they been working on this project?</li>
+                        <li>Hasn't he been training for the race?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card past-tense-group">
+        <h2>Past Tense 🔙</h2>
+        <p>The Past Tense is a grammatical form that expresses actions or states that have already happened. It's used to talk about events that occurred in the past, whether a moment ago or a long time ago. The four aspects of the Past Tense are Simple Past, Past Continuous, Past Perfect, and Past Perfect Continuous.</p>
+
+        <div class="sub-card simple-past">
+            <h3>Simple Past Tense 🚶‍♀️</h3>
+            <h4>Definition</h4>
+            <p>The Simple Past Tense is used to indicate an action that was completed at a specific time in the past. It can also describe past habits. This tense often uses adverbs of time (like yesterday, last week, an hour ago), but sometimes the time is implied.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The basic structure uses the past tense form of the verb (V2).</div></li>
+                <li><strong>Assertive/Affirmative:</strong> Subject + V2 + Object</li>
+                <li><strong>Negative:</strong> Subject + did not + V1 + Object
+                    <div class="note"><strong>Note:</strong> The auxiliary verb did is used, and the main verb returns to its base form (V1).</div>
+                </li>
+                <li><strong>Interrogative (Question):</strong> Did + Subject + V1 + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Did + Subject + not + V1 + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She wrote a letter.</li>
+                        <li>They played football yesterday.</li>
+                        <li>I lived in New York for five years.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She did not write a letter.</li>
+                        <li>He didn't finish his work.</li>
+                        <li>We didn't go to the party.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Did she write a letter?</li>
+                        <li>Did you see that movie?</li>
+                        <li>Did they visit you last month?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Did she not write a letter?</li>
+                        <li>Didn't you call me?</li>
+                        <li>Didn't he come to the meeting?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card past-continuous">
+            <h3>Past Continuous Tense ⏰</h3>
+            <h4>Definition</h4>
+            <p>The Past Continuous Tense is used to describe an action that was ongoing at a particular point in the past. It emphasizes the duration of the action rather than its completion. It is often used to set the scene for another action in the simple past.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses was/were followed by the present participle (-ing form of the verb).</div></li>
+                <li><strong>Assertive/Affirmative:</strong> Subject + was/were + V1 + -ing + Object
+                    <div class="note"><strong>Note:</strong> Use was for singular subjects (I, he, she, it) and were for plural subjects (we, you, they).</div>
+                </li>
+                <li><strong>Negative:</strong> Subject + was/were + not + V1 + -ing + Object</li>
+                <li><strong>Interrogative (Question):</strong> Was/Were + Subject + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Was/Were + Subject + not + V1 + -ing + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She was writing a letter.</li>
+                        <li>They were playing video games when I arrived.</li>
+                        <li>He was studying for the test all afternoon.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She was not writing a letter.</li>
+                        <li>We were not listening to the radio.</li>
+                        <li>The kids were not sleeping yet.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Was she writing a letter?</li>
+                        <li>Were you driving to work?</li>
+                        <li>Was he talking on the phone?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Was she not writing a letter?</li>
+                        <li>Weren't they going to the cinema?</li>
+                        <li>Wasn't it raining when you left?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card past-perfect">
+            <h3>Past Perfect Tense 🗓️</h3>
+            <h4>Definition</h4>
+            <p>The Past Perfect Tense is used to describe an action that was completed before another action in the past. It's often called the "past of the past." It helps to establish a clear sequence of events.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses had followed by the past participle (V3 form of the verb).</div></li>
+                <li><strong>Assertive/Affirmative:</strong> Subject + had + V3 + Object</li>
+                <li><strong>Negative:</strong> Subject + had + not + V3 + Object</li>
+                <li><strong>Interrogative (Question):</strong> Had + Subject + V3 + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Had + Subject + not + V3 + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She had written a letter.</li>
+                        <li>The patient had died before the doctor came.</li>
+                        <li>I had eaten dinner before they arrived.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She had not written a letter.</li>
+                        <li>He hadn't done the homework.</li>
+                        <li>We had not heard the news before you told us.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Had she written a letter?</li>
+                        <li>Had you finished your work by then?</li>
+                        <li>Had they left when you got there?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Had she not written a letter?</li>
+                        <li>Hadn't you seen that movie before?</li>
+                        <li>Hadn't the train departed yet?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-card past-perfect-continuous">
+            <h3>Past Perfect Continuous Tense 🕰️</h3>
+            <h4>Definition</h4>
+            <p>The Past Perfect Continuous Tense is used to describe an action that started in the past and continued up to a certain point in the past. It emphasizes the duration of the action.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses had been followed by the present participle (-ing form of the verb).</div></li>
+                <li><strong>Assertive/Affirmative:</strong> Subject + had been + V1 + -ing + Object</li>
+                <li><strong>Negative:</strong> Subject + had + not + been + V1 + -ing + Object
+                    <div class="note"><strong>Note:</strong> The word not comes after had and before been.</div>
+                </li>
+                <li><strong>Interrogative (Question):</strong> Had + Subject + been + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Had + Subject + not + been + V1 + -ing + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Assertive:</strong>
+                    <ul class="examples-list">
+                        <li>She had been writing a letter.</li>
+                        <li>He had been running for an hour before he collapsed.</li>
+                        <li>I had been learning English for a month when I moved abroad.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She had not been writing a letter.</li>
+                        <li>The company had not been doing well financially.</li>
+                        <li>They hadn't been sleeping much before the trip.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Had she been writing a letter?</li>
+                        <li>Had you been waiting long?</li>
+                        <li>Had it been snowing all day?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Had she not been writing a letter?</li>
+                        <li>Hadn't you been working here since January?</li>
+                        <li>Hadn't he been practicing for the show?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card future-tense-group">
+        <h2>Future Tense ➡️</h2>
+        <p>The Future Tense is a grammatical form that describes actions or states that have not yet occurred and will happen after the present moment. It's used to talk about events that will happen in a period of time following the moment of speaking or writing.</p>
+
+        <div class="sub-card simple-future">
+            <h3>Simple Future Tense ➡️</h3>
+            <h4>Definition</h4>
+            <p>The Simple Future Tense tells us about an action that has not occurred yet and will occur in the future. It's used for predictions, decisions made at the moment of speaking, and promises.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The basic structure uses the auxiliary verb will or shall followed by the base form of the verb (V1).</div></li>
+                <li><strong>Usage of Will and Shall:</strong>
+                    <ul class="examples-list">
+                        <li><strong>General Rule:</strong> Traditionally, shall is used with I and we, while will is used with all other subjects (he, she, it, you, they).</li>
+                        <li><strong>Emphasis/Commitment:</strong> This rule is reversed for emphasis, promises, or threats. Will is used with I and we, and shall is used with others.</li>
+                        <li><strong>Modern Usage:</strong> In modern, everyday speech, there is little distinction, and will is commonly used with all subjects.</li>
+                    </ul>
+                </li>
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + V1 + Object</li>
+                <li><strong>Negative:</strong> Subject + will/shall + not + V1 + Object</li>
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + V1 + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + V1 + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Positive/Affirmative:</strong>
+                    <ul class="examples-list">
+                        <li>She will write a letter.</li>
+                        <li>I will go to the store tomorrow.</li>
+                        <li>The team will win the game.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She will not write a letter.</li>
+                        <li>We shall not be late for the meeting.</li>
+                        <li>He will not eat his vegetables.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she write a letter?</li>
+                        <li>Will you help me with this?</li>
+                        <li>Will they arrive on time?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she not write a letter?</li>
+                        <li>Won't you stay for dinner?</li>
+                        <li>Will they not attend the conference?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card future-continuous">
+            <h3>Future Continuous Tense 🏃‍♀️➡️</h3>
+            <h4>Definition</h4>
+            <p>The Future Continuous Tense is used to express an action that will be ongoing at a specific time in the future. It emphasizes that the action is in progress and not yet completed.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall be followed by the present participle (-ing form of the verb).</div></li>
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + be + V1 + -ing + Object</li>
+                <li><strong>Negative:</strong> Subject + will/shall + not + be + V1 + -ing + Object</li>
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + be + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + be + V1 + -ing + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Positive/Affirmative:</strong>
+                    <ul class="examples-list">
+                        <li>She will be writing a letter.</li>
+                        <li>He will be distributing sweets tomorrow at 12 o'clock.</li>
+                        <li>This time next week, I will be relaxing on the beach.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She will not be writing a letter.</li>
+                        <li>They will not be attending the party.</li>
+                        <li>The kids will not be sleeping when you get home.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she be writing a letter?</li>
+                        <li>Will you be working late tonight?</li>
+                        <li>Will they be staying for the weekend?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she not be writing a letter?</li>
+                        <li>Won't you be coming with us?</li>
+                        <li>Will he not be studying for the exam?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-card future-perfect">
+            <h3>Future Perfect Tense ✅➡️</h3>
+            <h4>Definition</h4>
+            <p>The Future Perfect Tense is used to describe an action that will be completed by a certain time in the future. It's used to look back at a future event from a later point in time.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall have followed by the past participle (V3 form of the verb).</div></li>
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have + V3 + Object</li>
+                <li><strong>Negative:</strong> Subject + will/shall + not + have + V3 + Object</li>
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have + V3 + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have + V3 + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Positive/Affirmative:</strong>
+                    <ul class="examples-list">
+                        <li>She will have written a letter.</li>
+                        <li>They will have shifted the house by Sunday morning.</li>
+                        <li>By next year, I will have graduated from college.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She will not have written a letter.</li>
+                        <li>He will not have finished the report by the deadline.</li>
+                        <li>We will not have seen that movie by the time it leaves theaters.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she have written a letter?</li>
+                        <li>Will you have completed the project by next week?</li>
+                        <li>Will they have arrived before the sun sets?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she not have written a letter?</li>
+                        <li>Won't you have eaten dinner by then?</li>
+                        <li>Will he not have left by the time we get there?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sub-card future-perfect-continuous">
+            <h3>Future Perfect Continuous Tense ⏳➡️</h3>
+            <h4>Definition</h4>
+            <p>The Future Perfect Continuous Tense is used to describe an action that will have been in progress for a certain duration before another point or event in the future. It emphasizes the duration of the future action.</p>
+            
+            <h4>Rules & Structure</h4>
+            <ul class="structure-list">
+                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall have been followed by the present participle (-ing form of the verb).</div></li>
+                <li><strong>Key Point:</strong> This tense requires a time reference to show the duration. Without a continued time reference, the sentence would be a Future Continuous Tense.</li>
+                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have been + V1 + -ing + Object</li>
+                <li><strong>Negative:</strong> Subject + will/shall + not + have been + V1 + -ing + Object</li>
+                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have been + V1 + -ing + Object?</li>
+                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have been + V1 + -ing + Object?</li>
+            </ul>
+            
+            <h4>Examples</h4>
+            <ul class="examples-list">
+                <li><strong>Positive/Affirmative:</strong>
+                    <ul class="examples-list">
+                        <li>She will have been writing a letter.</li>
+                        <li>By July, I will have been working here for five years.</li>
+                        <li>This time tomorrow, I will have been traveling for 24 hours.</li>
+                    </ul>
+                </li>
+                <li><strong>Negative:</strong>
+                    <ul class="examples-list">
+                        <li>She will not have been writing a letter.</li>
+                        <li>By the time you get back, the plants will not have been growing for a week.</li>
+                        <li>We will not have been studying for long when the test starts.</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she have been writing a letter?</li>
+                        <li>Will you have been living here for a decade by then?</li>
+                        <li>Will he have been playing that game for hours?</li>
+                    </ul>
+                </li>
+                <li><strong>Interrogative Negative:</strong>
+                    <ul class="examples-list">
+                        <li>Will she not have been writing a letter?</li>
+                        <li>Won't you have been practicing for a month by the competition?</li>
+                        <li>Will he not have been sleeping much before his flight?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>`
       },
       { 
         id: 'Chapter2', 
@@ -6964,7 +8677,7 @@ export const noteCollections: Subject[] = [
       { 
         id: 'composition', 
         title: 'Essay Writing', 
-        content: '<h2>Academic Writing</h2><p>Thesis statements, paragraph structure...</p>'
+        "content": '<h2>Academic Writing</h2><p>Thesis statements, paragraph structure...</p>'
       }
     ]
   },
