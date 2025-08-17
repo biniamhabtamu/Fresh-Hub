@@ -6920,7 +6920,769 @@ export const noteCollections: Subject[] = [
      { 
         id: 'geography5', 
         title: 'Chapter 5: ', 
-        content:`<!DOCTYPE html>
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather and Climate in Ethiopia</title>
+<style>
+/* Global Styles */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    body {
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2, h3, h4 {
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin: 30px 0;
+        color: #2980b9;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: #16a085;
+    }
+
+    h4 {
+        font-size: 1.3rem;
+        color: #e67e22;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    /* Card Styles */
+    .card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+
+    .card-blue {
+        border-left: 5px solid #3498db;
+    }
+
+    .card-green {
+        border-left: 5px solid #27ae60;
+    }
+
+    .card-orange {
+        border-left: 5px solid #e67e22;
+    }
+
+    .card-purple {
+        border-left: 5px solid #9b59b6;
+    }
+
+    .card-red {
+        border-left: 5px solid #e74c3c;
+    }
+
+    .card-teal {
+        border-left: 5px solid #1abc9c;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* List Styles */
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        .card {
+            padding: 15px;
+        }
+
+        th, td {
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+
+    /* Special Elements */
+    .emoji {
+        font-size: 1.2em;
+        margin-right: 5px;
+    }
+
+    .highlight {
+        background-color: #fffde7;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
+    .note {
+        background-color: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .definition-table {
+        margin: 20px 0;
+    }
+
+    .definition-table th {
+        background-color: #e8f4f8;
+    }
+
+    .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .two-column > div {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .img-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .img-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .img-caption {
+        font-style: italic;
+        margin-top: 8px;
+        color: #666;
+    }
+</style>
+
+​
+</head>
+<body>
+<div class="container">
+<h1><span class="emoji">🌎</span> Weather and Climate in Ethiopia: A Detailed Overview</h1>
+    <div class="card card-blue">
+        <h2><span class="emoji">📝</span> Introduction</h2>
+
+        <p>Ethiopia, a large country in the Horn of Africa, is characterized by its wide range of altitudes and diverse climatic conditions. Its proximity to the equator and the Indian Ocean makes it susceptible to significant temporal and spatial variations in weather and climate. The primary factors controlling Ethiopia's climate are the seasonal migration of the Inter-Tropical Convergence Zone (ITCZ) and the country's complex topography.</p>
+
+        <p class="highlight">የኢትዮጵያ የአየር ንብረት አጭር መግቢያ: ኢትዮጵያ በአፍሪካ ቀንድ የምትገኝ ትልቅ ሀገር ስትሆን፣ ከፍተኛ ከፍታዎችን እና የተለያዩ የአየር ንብረት ሁኔታዎችን ታሳያለች። ለምድር ወገብ እና ለህንድ ውቅያኖስ ቅርብ በመሆኗ፣ በአየር ሁኔታ እና በአየር ንብረት አካላት ላይ ከፍተኛ የጊዜ እና የቦታ ልዩነቶች ይታዩባታል። የኢትዮጵያ የአየር ንብረት ዋና መቆጣጠሪያዎች ወቅታዊው የኢንተር ትሮፒካል ኮንቨርጀንስ ዞን (ITCZ) እንቅስቃሴ እና የሀገሪቱ ውስብስብ የገጽታ አቀማመጥ ናቸው።</p>
+    </div>
+
+    <div class="card card-green">
+        <h2><span class="emoji">🌦️</span> Definitions of Key Terms</h2>
+
+        <table class="definition-table">
+            <tr>
+                <th>Term</th>
+                <th>English Definition</th>
+                <th>Amharic Definition</th>
+            </tr>
+            <tr>
+                <td>Weather</td>
+                <td><span class="emoji">☀️</span> Is the short-term, daily condition of the atmosphere, including elements like temperature, precipitation, and wind.</td>
+                <td><span class="emoji">☀️</span> የከባቢ አየር የአጭር ጊዜ ሁኔታን የሚያመለክት ሲሆን የዕለት ተዕለት ሙቀት፣ ዝናብ እና ነፋስን ያጠቃልላል።</td>
+            </tr>
+            <tr>
+                <td>Climate</td>
+                <td><span class="emoji">🌍</span> Is the long-term, average condition of the atmosphere over decades or more. It is a composite of daily weather conditions recorded over an extended period.</td>
+                <td><span class="emoji">🌍</span> የከባቢ አየር የረጅም ጊዜ አማካይ ሁኔታ ሲሆን፣ በአስርተ ዓመታት ወይም ከዚያ በላይ የተመዘገበ የዕለት ተዕለት የአየር ሁኔታ ድምር ነው።</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <h4>Export to Sheets</h4>
+        </div>
+
+        <h3>Extra Examples:</h3>
+        <ul>
+            <li><strong>Weather:</strong> "It's sunny and warm today," or "A thunderstorm is expected this afternoon." <span class="emoji">🌩️</span></li>
+            <li><strong>Climate:</strong> "The Sahara has a hot, dry climate," or "Ethiopia's highland regions have a temperate climate." <span class="emoji">🏔️</span></li>
+        </ul>
+    </div>
+
+    <div class="card card-orange">
+        <h2><span class="emoji">🌡️</span> Elements and Controls of Weather and Climate</h2>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> Most changes in weather are the result of wind, which is the large-scale horizontal movement of air. The climate of a region is determined by the amount, distribution, and temporal fluctuations of solar radiation.</p>
+            <p class="highlight">ዋና ማስታወሻ: በአየር ሁኔታ ላይ የሚከሰቱ አብዛኛዎቹ ለውጦች በነፋስ ምክንያት ናቸው። ነፋስ ትላልቅ የአየር ክምችቶች በአግድም አቅጣጫ የሚንቀሳቀሱበት ሁኔታ ነው። የአንድ ክልል የአየር ንብረት የሚወሰነው በፀሐይ ጨረር መጠን፣ ስርጭት እና ወቅታዊ መለዋወጥ ነው።</p>
+        </div>
+
+        <div class="img-container">
+            <img src="<https://via.placeholder.com/800x400?text=Climatic+Zones+Map>" alt="World map showing climatic zones">
+            <p class="img-caption">Licensed by Google</p>
+        </div>
+
+        <div class="two-column">
+            <div>
+                <h3>Elements of Weather and Climate</h3>
+                <ol>
+                    <li>Temperature</li>
+                    <li>Precipitation and humidity</li>
+                    <li>Winds and air pressure</li>
+                </ol>
+            </div>
+            <div>
+                <h3>Controls of Weather and Climate</h3>
+                <ol>
+                    <li>Latitude/angle of the Sun</li>
+                    <li>Land and water distribution</li>
+                    <li>Winds and air pressure</li>
+                    <li>Altitude and mountain barriers</li>
+                    <li>Ocean currents</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note">
+            <h4>Export to Sheets</h4>
+        </div>
+    </div>
+
+    <div class="card card-purple">
+        <h2><span class="emoji">🧭</span> Climatic Controls in Detail</h2>
+
+        <h3>A. Latitude</h3>
+        <p><strong>Definition:</strong> Latitude is the distance of a location from the equator. As you move away from the equator towards the poles, the amount of solar radiation received decreases, causing temperatures to become colder.</p>
+
+        <p class="highlight">ትርጉም: ኬክሮስ ከአንድ ቦታ እስከ ወገብ መስመር ያለው ርቀት ነው። ከወገብ መስመር ወደ ምሰሶዎች ሲርቁ፣ የሚደርሰው የፀሐይ ጨረር መጠን ስለሚቀንስ የሙቀት መጠኑ ይቀንሳል።</p>
+
+        <h4>Ethiopia's Latitudinal Location:</h4>
+        <p>Ethiopia's position has a direct bearing on its temperature. It results in high average temperatures and a small annual range of temperature. It also means there's no significant variation in the length of day and night between summer and winter.</p>
+
+        <p class="highlight">የኢትዮጵያ ኬክሮሳዊ አቀማመጥ: የኢትዮጵያ አቀማመጥ በሙቀቷ ላይ ቀጥተኛ ተጽእኖ አለው። ይህም ከፍተኛ አማካይ ሙቀት እና አነስተኛ ዓመታዊ የሙቀት ልዩነት ያስከትላል። እንዲሁም በበጋ እና በክረምት መካከል በቀንና በሌሊት ርዝመት ላይ ከፍተኛ ልዩነት እንዳይኖር ያደርጋል።</p>
+
+        <h4>Extra Examples:</h4>
+        <ul>
+            <li><strong>Ecuador (near the equator):</strong> Has a consistent, warm climate year-round with little seasonal change. <span class="emoji">🇪🇨</span></li>
+            <li><strong>Canada (far from the equator):</strong> Experiences cold winters and receives less direct sunlight annually. <span class="emoji">🇨🇦</span></li>
+            <li><strong>The Sahara Desert (near the Tropic of Cancer):</strong> Receives intense, direct sunlight, leading to extremely high temperatures. <span class="emoji">🔥</span></li>
+        </ul>
+
+        <h3>B. Inclination of the Earth's Axis</h3>
+        <p><strong>Definition:</strong> The Earth's rotation axis is tilted at approximately 23.5° from the perpendicular to its orbital plane around the sun. This tilt is the primary reason for the occurrence of seasons. As the Earth revolves, this inclination changes the directness of the sun's rays, causing variations in the length of day and night.</p>
+
+        <p class="highlight">ትርጉም: የምድር የማሽከርከር ዘንግ ከፀሐይን ከምትዞርበት አውሮፕላን ጋር ቀጥተኛ በሆነ መስመር 23.5° ያጋደለ ነው። ይህ መዞር ወቅቶችን ለመከሰት ዋና ምክንያት ነው። ምድር ስትዞር፣ ይህ ማዘንበል የፀሐይ ጨረሮች ቀጥተኛነት እንዲለዋወጥ ያደርጋል፣ ይህም በቀንና በሌሊት ርዝመት ላይ ልዩነት ያስከትላል።</p>
+
+        <h4><span class="emoji">☀️</span> Equinoxes and Solstices</h4>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> The changing seasons and day lengths are caused by the Earth's revolution, the tilt of its axis, and the constant parallelism of the axis.</p>
+            <p class="highlight">ዋና ማስታወሻ: ወቅቶች እና የቀን ርዝመቶች መለወጥ የሚከሰተው በምድር ዙረት፣ በዘንግዋ ማዘንበል እና የዘንግዋ ቋሚ ትይዩ አቀማመጥ ነው።</p>
+        </div>
+
+        <h5>Equinoxes:</h5>
+        <p>An equinox is the moment when the Sun is directly above the Earth's equator. This results in nearly equal lengths of day and night across the globe. Equinoxes occur twice a year. <span class="emoji">⚖️</span></p>
+
+        <ul>
+            <li><strong>Vernal (Spring) Equinox:</strong> Occurs around March 21st. The Sun crosses the equator moving northward. It marks the beginning of spring in the Northern Hemisphere.</li>
+            <li><strong>Autumn Equinox:</strong> Occurs around September 23rd. The Sun crosses the equator moving southward. It marks the beginning of autumn in the Northern Hemisphere.</li>
+        </ul>
+
+        <p class="highlight">ተመጣጣኝ ምሽትና ቀን (Equinoxes): ተመጣጣኝ ምሽትና ቀን የሚከሰተው ፀሐይ በቀጥታ ከምድር ወገብ በላይ ስትሆን ነው። በዚህ ጊዜ በመላው ዓለም የቀንና የሌሊት ርዝመት እኩል ይሆናል። ይህ በዓመት ሁለት ጊዜ ይከሰታል።
+        የጸደይ ኢኩዊኖክስ: በመጋቢት 21 አካባቢ ይከሰታል። ፀሐይ ከምድር ወገብ ወደ ሰሜን ስትንቀሳቀስ ነው። በሰሜን ንፍቀ ክበብ የጸደይ ወቅት መጀመርን ያመለክታል።
+        የመኸር ኢኩዊኖክስ: በመስከረም 23 አካባቢ ይከሰታል። ፀሐይ ከምድር ወገብ ወደ ደቡብ ስትንቀሳቀስ ነው። በሰሜን ንፍቀ ክበብ የመኸር ወቅት መጀመርን ያመለክታል።</p>
+
+        <h5>Solstices:</h5>
+        <p>An event when the overhead Sun reaches its northernmost or southernmost points relative to the celestial equator, resulting in the most unequal lengths of day and night. <span class="emoji">🌞</span></p>
+
+        <ul>
+            <li><strong>Summer Solstice:</strong> Occurs around June 21st. The Northern Hemisphere is tilted most towards the sun, experiencing the longest daylight of the year. The sun is directly above the Tropic of Cancer (23.5∘ N).</li>
+            <li><strong>Winter Solstice:</strong> Occurs around December 22nd. The Northern Hemisphere is tilted most away from the sun, experiencing the shortest daylight and longest night. The sun is directly above the Tropic of Capricorn (23.5∘ S).</li>
+        </ul>
+
+        <p class="highlight">ረጅም/አጭር ቀንና ሌሊት (Solstices): ረጅሙ ወይም አጭሩ ቀንና ሌሊት የሚከሰተው ፀሐይ ከምድር ወገብ አንጻር በጣም ሰሜናዊ ወይም ደቡባዊ ጫፍ ላይ ስትደርስ ነው። በዚህ ጊዜ በቀንና በሌሊት ርዝመት ከፍተኛ ልዩነት ይኖራል።
+        የበጋ ሶልስቲስ: በሰኔ 21 አካባቢ ይከሰታል። የሰሜን ንፍቀ ክበብ ወደ ፀሐይ በጣም ያጋደለ ሲሆን፣ በዓመቱ ውስጥ ረጅሙን ቀን ያገኛል። ፀሐይ በቀጥታ ከየካንሰር ወገብ (23.5∘ ሰሜን) በላይ ትሆናለች።
+        የክረምት ሶልስቲስ: በታህሳስ 22 ቀን ይከሰታል። የሰሜን ንፍቀ ክበብ ከፀሐይ በጣም ያፈነገጠ ሲሆን፣ አጭሩን ቀንና ረጅሙን ሌሊት ያገኛል። ፀሐይ በቀጥታ ከካፕሪኮርን ወገብ (23.5∘ ደቡብ) በላይ ትሆናለች።</p>
+    </div>
+
+    <div class="card card-red">
+        <h2><span class="emoji">🏔️</span> Altitude and its Impact on Climate</h2>
+
+        <p><strong>Definition:</strong> Altitude is the height of a location above sea level. In normal conditions, temperature generally decreases as altitude increases. The average rate of this change is known as the lapse rate.</p>
+
+        <p class="highlight">ከፍታ ከአንድ ቦታ እስከ የባህር ወለል ያለው ከፍታ ነው። በመደበኛ ሁኔታዎች፣ ከፍታ ሲጨምር ሙቀት በአጠቃላይ ይቀንሳል። ይህ የሙቀት ለውጥ የሚከሰትበት አማካይ መጠን ላፕስ ሬት (Lapse Rate) በመባል ይታወቃል።</p>
+
+        <h3><span class="emoji">🌡️</span> Types of Lapse Rate</h3>
+
+        <h4>1. Dry Adiabatic Lapse Rate (DALR)</h4>
+        <p><strong>Definition:</strong> This is the rate at which the temperature of an unsaturated parcel of air changes as it rises or sinks. The temperature change is adiabatic, meaning it happens without heat being added or removed from an outside source. It's a result of internal processes of expansion and compression.</p>
+
+        <p class="highlight">ይህ በደረቅ አየር ውስጥ የሚከሰት የሙቀት ለውጥ መጠን ነው። የአየር ብዛቱ ሲነሳ ወይም ሲወርድ፣ ሙቀቱ የሚለወጠው ከውጭ ሙቀት ሳይጨመር ወይም ሳይቀነስ ነው። ይህ አዲያባቲክ የሙቀት ለውጥ በመባል ይታወቃል፣ እና በውስጣዊ የማስፋፋትና የመጨናነቅ ሂደት ምክንያት ነው።</p>
+
+        <div class="note">
+            <p><strong>Key Notes:</strong></p>
+            <ul>
+                <li>When air rises, it expands due to lower atmospheric pressure, causing it to cool.</li>
+                <li>When air sinks, it compresses due to higher pressure, causing it to warm.</li>
+                <li>This rate applies only to air with a relative humidity of less than 100% (unsaturated air).</li>
+                <li>The rate is a constant 10°C per 1,000 meters of elevation change.</li>
+            </ul>
+        </div>
+
+        <h4>Extra Examples:</h4>
+        <ul>
+            <li>An air parcel at sea level with a temperature of 20°C rises to 1,000 m. Its new temperature will be 10°C (20 - 10).</li>
+            <li>An air parcel at 2,000 m with a temperature of 5°C sinks to 1,000 m. Its new temperature will be 15°C (5 + 10).</li>
+            <li>If an air mass at 5,000 m with a temperature of -30°C sinks to sea level, its final temperature will be 20°C (-30 + 5 * 10).</li>
+        </ul>
+
+        <h4>2. Wet Adiabatic Lapse Rate (WALR)</h4>
+        <p><strong>Definition:</strong> This is the rate at which the temperature of a saturated air parcel changes as it rises or sinks. It is a slower rate of change than the DALR because the latent heat released during condensation counteracts the cooling caused by expansion.</p>
+
+        <p class="highlight">ይህ በውሃ እንፋሎት የጠገበ የአየር ብዛት ሲነሳ ወይም ሲወርድ የሚከሰት የሙቀት ለውጥ መጠን ነው። ይህ የሙቀት መጠን ለውጥ ከደረቁ የአየር ብዛት ለውጥ ያነሰ ነው ምክንያቱም በውሃ እንፋሎት ውስጥ ያለው ምስጢራዊ ሙቀት በመቀዝቀዝ ሂደት ወቅት ይለቀቃል፣ ይህም የማስፋፋት ቅዝቃዜን ይቃወማል።</p>
+
+        <div class="note">
+            <p><strong>Key Notes:</strong></p>
+            <ul>
+                <li>When rising air cools to its dew point, condensation occurs, forming clouds and releasing latent heat.</li>
+                <li>This latent heat slows the cooling process. Therefore, the WALR is always less than the DALR.</li>
+                <li>The rate of cooling is approximately 5°C per 1,000 meters of ascent.</li>
+            </ul>
+        </div>
+
+        <h4>Extra Examples:</h4>
+        <ul>
+            <li>An air parcel at sea level with a temperature of 25°C rises to 1,000 m and becomes saturated. Its new temperature will be 20°C (25 - 5).</li>
+            <li>An air mass with a temperature of 10°C at 2,000 m, which is fully saturated, sinks to 1,000 m. Its temperature will warm to 15°C (10 + 5).</li>
+            <li>A saturated cloud at 4,000 m with a temperature of -10°C rises to 5,000 m. Its temperature will be -15°C (-10 - 5).</li>
+        </ul>
+
+        <h4>3. Environmental Lapse Rate (ELR) or Atmospheric Lapse Rate</h4>
+        <p><strong>Definition:</strong> This is the actual, observed rate of temperature change with altitude in a specific place and time. It is not a fixed rate but varies with different weather conditions.</p>
+
+        <p class="highlight">ይህ በአንድ የተወሰነ ቦታ እና ጊዜ የሙቀት መጠን ከከፍታ ጋር የሚለወጥበት ትክክለኛ እና የታየ መጠን ነው። ይህ መጠን ቋሚ ሳይሆን እንደ የአየር ሁኔታ ይለያያል።</p>
+
+        <div class="note">
+            <p><strong>Key Notes:</strong></p>
+            <ul>
+                <li>The lower atmosphere (troposphere) is warmest because it is closest to the Earth's surface, which absorbs solar radiation and radiates heat back.</li>
+                <li>The higher density of air, water vapor, and dust in the lower atmosphere makes it a more efficient heat absorber.</li>
+                <li>The normal or average ELR is approximately 6.5°C per 1,000 meters of altitude gain.</li>
+                <li>A temperature inversion is an exception to this rule, where temperature increases with altitude instead of decreasing.</li>
+            </ul>
+        </div>
+
+        <h4>Extra Examples:</h4>
+        <ul>
+            <li>On a sunny day with clear skies, the actual ELR might be steeper than the average, perhaps 8°C per 1,000 m.</li>
+            <li>In a valley on a cold night, a layer of cold air can settle at the bottom, causing a temperature inversion where the air gets warmer as you go up from the valley floor.</li>
+            <li>The ELR is what meteorologists measure using weather balloons to determine atmospheric stability and forecast conditions.</li>
+        </ul>
+    </div>
+
+    <div class="card card-teal">
+        <h2>I. Spatiotemporal Distribution of Temperature in Ethiopia</h2>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> The spatial distribution of temperature in Ethiopia is primarily determined by altitude and latitude. Due to its closeness to the equator, all parts of the country experience overhead sun twice a year. However, as a highland country, tropical temperatures are limited to the low-lying peripheral areas.</p>
+            <p class="highlight">ዋና ማስታወሻ: በኢትዮጵያ ውስጥ የሙቀት ስርጭት በዋናነት የሚወሰነው በከፍታ እና በኬክሮስ ነው። ለምድር ወገብ ቅርብ በመሆኗ ምክንያት፣ የሀገሪቱ ሁሉም ክፍሎች በዓመት ሁለት ጊዜ ፀሐይ ቀጥታ የምትታይበት ጊዜ አላቸው። ነገር ግን፣ ኢትዮጵያ ከፍታማ ሀገር በመሆኗ፣ የሞቃታማ የአየር ሁኔታ የሙቀት መጠን በሁሉም አካባቢ አይገኝም፣ ይልቁንም በዳርቻው በታችኛው ምድር ላይ የተወሰነ ነው።</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Altitude Zone</th>
+                <th>Temperature Range</th>
+                <th>Amharic Description</th>
+            </tr>
+            <tr>
+                <td>Lowlands (Peripheries)</td>
+                <td>> 30∘C</td>
+                <td>የሙቀት መጠኑ ከ 30∘C በላይ ሲሆን፣ እነዚህ አካባቢዎች በሀገሪቱ ዳርቻዎች የሚገኙ ናቸው።</td>
+            </tr>
+            <tr>
+                <td>Interior Highlands</td>
+                <td><10∘C</td>
+                <td>ወደ ሀገሪቱ ውስጠኛው ክፍል ስንሄድ፣ ሙቀቱ እየቀነሰ ወደ 10∘C እና ከዚያ በታች ይሆናል።</td>
+            </tr>
+        </table>
+
+        <h4>Extra Examples:</h4>
+        <ul>
+            <li><strong>Afar Depression:</strong> Records the highest mean maximum temperatures in the country. <span class="emoji">🔥</span></li>
+            <li><strong>Bale Mountains:</strong> Among the highlands where the lowest mean annual temperatures are recorded. <span class="emoji">❄️</span></li>
+            <li><strong>Western and South-eastern lowlands:</strong> Experience mean maximum temperatures above 30∘C. <span class="emoji">🥵</span></li>
+        </ul>
+
+        <h3>A. Temporal (Daily and Annual) Variation of Temperature</h3>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> Ethiopia's daily temperature range is more extreme than its annual range. In the tropics, the daily temperature range is higher, while the annual range is small.</p>
+            <p class="highlight">ዋና ማስታወሻ: በኢትዮጵያ የቀን ሙቀት ልዩነት ከዓመታዊው ልዩነት የበለጠ ነው። በሐሩር ክልል ውስጥ፣ የዕለታዊ የሙቀት ልዩነት ከፍተኛ ሲሆን፣ ዓመታዊው ልዩነት ግን አነስተኛ ነው።</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Temperature Characteristics</th>
+                <th>Amharic Description</th>
+            </tr>
+            <tr>
+                <td>Daily Variation</td>
+                <td>Maximum difference in daily range.</td>
+                <td>በቀን ውስጥ ባለው የሙቀት መጠን ውስጥ ከፍተኛ ልዩነት ይታያል።</td>
+            </tr>
+            <tr>
+                <td>Annual Variation</td>
+                <td>Minimal monthly average temperature variation.</td>
+                <td>ወርሃዊ አማካይ የሙቀት ልዩነት በጣም ትንሽ ነው።</td>
+            </tr>
+        </table>
+
+        <h4>Seasonal Trends:</h4>
+        <ul>
+            <li><strong>March to June:</strong> Record the highest temperatures.</li>
+            <li><strong>November to February:</strong> Record the lowest temperatures.</li>
+        </ul>
+
+        <h4>Regional Variations:</h4>
+        <ul>
+            <li><strong>Southern Ethiopia:</strong> Highest temperatures are recorded in Autumn and Spring.</li>
+            <li><strong>Northern Ethiopia:</strong> Higher temperatures are experienced during the Summer.</li>
+            <li><strong>Southern & Southwestern Highlands:</strong> Experience reduced temperatures due to the directness of the sun and wind patterns.</li>
+        </ul>
+    </div>
+
+    <div class="card card-blue">
+        <h2>II. Spatiotemporal Distribution of Rainfall in Ethiopia</h2>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> The rainfall system in Ethiopia is complex and highly variable, both spatially and temporally. It is mainly influenced by the position of the Inter-Tropical Convergence Zone (ITCZ), a low-pressure zone formed by the convergence of the Northeast Trade Winds and the Equatorial Westerlies.</p>
+            <p class="highlight">ዋና ማስታወሻ: በኢትዮጵያ ያለው የዝናብ ስርዓት ውስብስብ እና በቦታም ሆነ በጊዜ ከፍተኛ ተለዋዋጭነት አለው። በዋናነት የሚወሰነው በኢንተር �ሮፒካል ኮንቨርጀንስ ዞን (ITCZ) አቀማመጥ ነው። ይህም የሰሜን ምስራቅ የንግድ ነፋሶች እና የምድር ወገብ ምዕራባዊ ነፋሶች መጋጠሚያ ሲሆን ዝቅተኛ ግፊት ያለው ክልል ነው።</p>
+        </div>
+
+        <h3><span class="emoji">🌧️</span> Seasonal (Temporal) Rainfall Variability</h3>
+        <p>The seasonal and annual rainfall variations are results of macro-scale pressure systems and monsoon flows.</p>
+
+        <h4>1. Summer (June, July, August)</h4>
+        <p><strong>Precipitation:</strong> The majority of Ethiopian regions, except the lowlands in Afar and the Southeast, receive rainfall.</p>
+        <p><strong>Wind Systems:</strong> Ethiopia and the Horn come under the influence of the Equatorial Westerlies (Guinea monsoon) and Easterlies. High-pressure cells over the Atlantic and Indian Oceans provide the moisture.</p>
+        <p><strong>Mechanism:</strong> As the sun moves north of the equator, the ITCZ shifts northward, bringing moist winds from the southwest (Guinea monsoon) and southeast.</p>
+
+        <div class="note">
+            <h4>Extra Examples:</h4>
+            <ul>
+                <li>This is the main rainy season (Kiremt) for the central highlands. <span class="emoji">🏔️</span></li>
+                <li>The heavy rains during this season are crucial for agriculture in Ethiopia. <span class="emoji">🌾</span></li>
+                <li>The Guinea monsoon is a major driver of this rainfall, originating from the Atlantic Ocean. <span class="emoji">🌊</span></li>
+            </ul>
+        </div>
+
+        <h4>2. Autumn (September, October, November)</h4>
+        <p><strong>Precipitation:</strong> The ITCZ shifts back towards the equator, weakening the equatorial westerlies. Rainfall is concentrated in the southeastern lowlands of Ethiopia, brought by southeasterly winds from the Indian Ocean.</p>
+        <p><strong>Mechanism:</strong> The southward shift of the ITCZ and the weakening of the Guinea monsoon allows the southeasterlies to become more dominant.</p>
+
+        <div class="note">
+            <h4>Extra Examples:</h4>
+            <ul>
+                <li>This season is often a transition period with decreasing rainfall in most parts of the country. <span class="emoji">🍂</span></li>
+                <li>The rains in the southeastern lowlands are vital for pastoral communities in that region. <span class="emoji">🐪</span></li>
+            </ul>
+        </div>
+
+        <h4>3. Winter (December, January, February)</h4>
+        <p><strong>Precipitation:</strong> Rainfall is minimal and limited to the Afar lowlands and Red Sea coastal areas.</p>
+        <p><strong>Wind Systems:</strong> The Northeasterly Trade Winds, originating from the dry landmass of Asia, dominate the region. They carry very little moisture.</p>
+        <p><strong>Mechanism:</strong> The overhead sun is far south of the equator (at the Tropic of Capricorn), so the ITCZ is also in the Southern Hemisphere. This allows the dry northeasterly winds to prevail.</p>
+
+        <div class="note">
+            <h4>Extra Examples:</h4>
+            <ul>
+                <li>This is the dry season in most of Ethiopia. <span class="emoji">☀️</span></li>
+                <li>The limited rainfall is called "Bega" in some parts of Ethiopia.</li>
+                <li>The lack of moisture-laden winds makes this the coldest period for some regions, as there's less cloud cover to trap heat.</li>
+            </ul>
+        </div>
+
+        <h4>4. Spring (March, April, May)</h4>
+        <p><strong>Precipitation:</strong> Rainfall is provided by the Southeasterlies from the Indian Ocean. This rain affects the highlands of Somalia, and the central and southeastern parts of Ethiopia.</p>
+        <p><strong>Mechanism:</strong> The noonday sun shines directly on the equator as it shifts north. This reduces the effect of the northeasterly winds and allows the moisture-laden southeasterlies to bring rain.</p>
+
+        <div class="note">
+            <h4>Extra Examples:</h4>
+            <ul>
+                <li>This is the "Belg" rainy season, which is crucial for short-cycle crops. <span class="emoji">🌧️</span></li>
+                <li>The shifting ITCZ brings increased solar radiation and warmer weather.</li>
+            </ul>
+        </div>
+
+        <h3><span class="emoji">💧</span> Rainfall Regions of Ethiopia</h3>
+        <p>Based on rainfall distribution, Ethiopia and the Horn can be divided into four distinct rainfall regions.</p>
+
+        <h4>1. Summer Rainfall Region <span class="emoji">☀️</span></h4>
+        <p><strong>Location:</strong> This region covers almost all parts of the country, excluding the southeastern and northeastern lowlands.</p>
+        <p><strong>Season:</strong> Most of the rain falls during the summer (called Kiremt). Some areas also receive rain in the spring (called Belg).</p>
+        <p><strong>Division:</strong> It's split into a dry and a wet summer rainfall region. The wet areas receive 1,000 mm or more of rainfall, typically found at high altitudes and on the windward side of mountains.</p>
+        <p class="highlight">ይህ አካባቢ አብዛኛውን ዝናቡን የሚያገኘው በክረምት ወራት ሲሆን፣ አንዳንድ ቦታዎች በበልግ ወራትም ዝናብ ያገኛሉ። አካባቢው በደረቅና እርጥብ ክረምት ዝናብ አካባቢዎች የተከፈለ ሲሆን፣ እርጥብ አካባቢዎች በዓመት 1,000 ሚሊ ሜትር ወይም ከዚያ በላይ ዝናብ ያገኛሉ።</p>
+
+        <h4>2. All-Year-Round Rainfall Region <span class="emoji">🌧️</span></h4>
+        <p><strong>Location:</strong> Located in the southwestern part of the country.</p>
+        <p><strong>Reason for Rain:</strong> The consistent wetness is due to the dominant influence of the moist air currents of the Equatorial Westerlies, also known as the Guinea Monsoons.</p>
+        <p><strong>Rainfall Pattern:</strong> Both the duration and amount of rainfall decrease as one moves from the southwest to the north and east. Summer months receive the highest rainfall.</p>
+        <p><strong>Amount:</strong> The average rainfall ranges from 1,400 to over 2,200 mm/year.</p>
+        <p class="highlight">ይህ አካባቢ ከሀገሪቱ በሙሉ የበለጠ የዝናብ ቀናት አሉት። ዋናው ምክንያት የጊኒ ሞንሱን ተብለው የሚጠሩት እርጥበት አዘል የንፋስ ዝውውሮች ናቸው። አማካይ የዝናብ መጠን በዓመት ከ1,400 እስከ 2,200 ሚሊ ሜትር ይደርሳል።</p>
+
+        <h4>3. Autumn and Spring Rainfall Regions <span class="emoji">🍂🌱</span></h4>
+        <p><strong>Location:</strong> Comprises the southeastern lowlands of Ethiopia.</p>
+        <p><strong>Season:</strong> These areas receive rain during the autumn and spring seasons when the northeast and equatorial westerlies are weak.</p>
+        <p><strong>Wind Source:</strong> The rainfall is brought by southeasterly winds originating from the Indian Ocean.</p>
+        <p><strong>Amount:</strong> About 60% of the rain falls in autumn and 40% in spring. The average rainfall ranges from less than 500 to 1,000 mm.</p>
+        <p class="highlight">ይህ አካባቢ ዝናብ የሚያገኘው በበልግ እና በመኸር ወራት ሲሆን፣ ይህም በደቡብ ምስራቅ ነፋሶች ምክንያት ነው። እነዚህ ነፋሶች ከህንድ ውቅያኖስ ዝናብ ያመጣሉ። አማካይ የዝናብ መጠን ከ500 እስከ 1,000 ሚሊ ሜትር ይደርሳል።</p>
+
+        <h4>4. Winter Rainfall Region <span class="emoji">❄️</span></h4>
+        <p><strong>Location:</strong> Includes the Red Sea escarpments and some parts of the Afar region.</p>
+        <p><strong>Season:</strong> Rain falls during the winter season.</p>
+        <p><strong>Wind Source:</strong> The rain is brought by northeasterly winds.</p>
+        <p class="highlight">ይህ አካባቢ ዝናብ የሚያገኘው በክረምት ወራት ሲሆን፣ መንስኤውም ከሰሜን ምስራቅ የሚመጡ ነፋሶች ናቸው። ይህ የሚከሰተው በቀይ ባህር ዳርቻ እና በአፋር ክልል አንዳንድ ክፍሎች ላይ ነው።</p>
+    </div>
+
+    <div class="card card-green">
+        <h2><span class="emoji">🏞️</span> Agro-ecological Zones of Ethiopia</h2>
+
+        <p>Ethiopia's diverse altitude and climate have created a wide range of agro-ecological zones. These zones are traditionally defined by temperature and altitude, and there are five major categories:</p>
+
+        <h4>The Wurch Zone (Alpine) <span class="emoji">🏔️</span></h4>
+        <p><strong>Altitude:</strong> Higher than 3,200 meters above sea level.</p>
+        <p><strong>Temperature:</strong> Mean annual temperature is less than 10∘C.</p>
+        <p><strong>Example Locations:</strong> Ras Dashen, Guna, Choke, and Batu mountain systems.</p>
+        <p class="highlight">የወርጭ ዞን ከ3,200 ሜትር በላይ ከፍታ ያለው ሲሆን፣ አማካይ የሙቀት መጠኑ ከ<strong>10∘C</strong> በታች ነው።</p>
+
+        <h4>The Dega Zone (Highlands) <span class="emoji">🌄</span></h4>
+        <p><strong>Altitude:</strong> Lower than the Wurch zone but still high.</p>
+        <p><strong>Characteristics:</strong> Densely populated due to reliable rainfall and the absence of vector-borne diseases like malaria.</p>
+        <p class="highlight">የደጋ ዞን ከወርጭ ዞን አንጻር ሲታይ ዝቅተኛ ከፍታ አለው። በብዛት የሰፈራ ዞን ነው ምክንያቱም ለግብርና የሚሆን በቂ ዝናብ እና የወባ በሽታ የሌለበት አካባቢ ነው።</p>
+
+        <h4>The Weyna Dega Zone (Midlands) <span class="emoji">🌳</span></h4>
+        <p><strong>Altitude:</strong> From 1,500 to 2,300 meters above sea level.</p>
+        <p><strong>Size:</strong> This is the second-largest zone, covering more than 26% of Ethiopia's landmass.</p>
+        <p><strong>Suitability:</strong> The temperature and moderate rainfall make it highly suitable for most crops grown in the country. It also has two growing seasons.</p>
+        <p class="highlight">የወይና ደጋ ዞን ከ1,500 እስከ 2,300 ሜትር ከፍታ ያለው ሲሆን፣ የሀገሪቱን ከ26% በላይ ይሸፍናል። ለብዙ የሰብል አይነቶች ተስማሚ ነው።</p>
+
+        <h4>The Kolla Zone (Hot Lowlands) <span class="emoji">🏜️</span></h4>
+        <p><strong>Altitude:</strong> From 500 to 1,500 meters above sea level.</p>
+        <p><strong>Location:</strong> Mainly the geographic peripheries in the south, southeast, west, and northeast.</p>
+        <p><strong>Temperature:</strong> Average annual temperature ranges between 20∘C and 30∘C.</p>
+        <p><strong>Rainfall:</strong> Rainfall is often erratic, but in some areas like the western lowlands of Gambella, it can be as high as 1,500 mm.</p>
+        <p class="highlight">የቆላ ዞን ከ500 እስከ 1,500 ሜትር ከፍታ ያለው ሲሆን፣ አማካይ የሙቀት መጠኑ ከ<strong>20∘C እስከ 30∘C</strong> ይደርሳል። ዝናቡ መደበኛ ያልሆነ ቢሆንም በጋምቤላ አካባቢ እስከ 1,500 ሚሊ ሜትር ሊደርስ ይችላል።</p>
+
+        <h4>The Bereha Zone (Desert Lowlands) <span class="emoji">🔥</span></h4>
+        <p><strong>Altitude:</strong> Lower than 500 meters above sea level. In some areas like the Danakil Depression, the elevation is below sea level.</p>
+        <p><strong>Temperature:</strong> Average annual temperature is over 27.5∘C.</p>
+        <p><strong>Rainfall:</strong> Average annual rainfall is less than 200 mm.</p>
+        <p><strong>Characteristics:</strong> Characterized by strong winds, high temperatures, low humidity, and minimal cloud cover. Evapo-transpiration is always higher than rainfall.</p>
+        <p class="highlight">የበረሃ ዞን ከ500 ሜትር በታች ከፍታ ያለው ሲሆን፣ አማካይ የሙቀት መጠኑ ከ<strong>27.5∘C</strong> በላይ ነው። አማካይ የዝናብ መጠኑ ከ200 ሚሊ ሜትር በታች ሲሆን፣ በጠንካራ ነፋስ እና ከፍተኛ ሙቀት ይታወቃል።</p>
+    </div>
+
+    <div class="card card-purple">
+        <h2><span class="emoji">🌍</span> Climate Change/Global Warming: Causes, Consequences, and Response Mechanisms</h2>
+
+        <p><strong>Definition:</strong> Climate change refers to a significant and long-lasting change in the state of the climate, identified by shifts in the mean and/or variability of its properties. It can be caused by natural factors or human activities.</p>
+        <p class="highlight">የአየር ንብረት ለውጥ በአየር ንብረት ሁኔታ ላይ የሚከሰት ከፍተኛ እና ዘላቂ ለውጥ ሲሆን፣ በተፈጥሮ ምክንያቶች ወይም በሰው ሰራሽ ተግባራት ሊመጣ ይችላል።</p>
+
+        <h3>A. Causes of Climate Change</h3>
+        <p>The causes are broadly categorized as Natural and Man-made (Anthropogenic).</p>
+
+        <h4>1. Natural Causes <span class="emoji">🍃</span></h4>
+        <p>These are long-term, naturally occurring factors that contribute to climate change.</p>
+        <ul>
+            <li><strong>Earth Orbital Changes:</strong> Changes in the Earth's tilt (23.5∘) and its orbit can lead to small but significant changes in seasonal strength. A greater tilt means warmer summers and colder winters.</li>
+            <li><strong>Energy Budget:</strong> The Sun's energy output is not perfectly constant. It has been gradually increasing over billions of years, making the Earth's climate warmer.</li>
+            <li><strong>Volcanic Eruptions:</strong> Volcanic eruptions release large amounts of gases like Sulfur Dioxide (SO2) and Carbon Dioxide (CO2), as well as dust and ash. These can increase atmospheric reflectivity, causing a cooling effect.</li>
+        </ul>
+
+        <h4>2. Man-made (Anthropogenic) Causes <span class="emoji">🏭</span></h4>
+        <p>Human activities are the primary driver of climate change in the last 50 years.</p>
+        <ul>
+            <li><strong>Greenhouse Gas Emissions:</strong> The increase in gases such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) is the main cause of rising temperatures.</li>
+            <li><strong>Sources of Human-Induced Gases:</strong>
+                <ul>
+                    <li>Decomposition of waste in landfills.</li>
+                    <li>Use of agricultural chemicals.</li>
+                    <li>Ruminant digestion and manure management.</li>
+                    <li>Industrial activities and synthetic compound manufacturing.</li>
+                    <li>Clearing of land for agriculture (deforestation).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> While less abundant, methane is a much more potent greenhouse gas than carbon dioxide.</p>
+        </div>
+
+        <h3>B. Consequences of Climate Change <span class="emoji">🔥</span></h3>
+        <p>Climate change has severe impacts on a global scale, affecting various aspects of life.</p>
+
+        <h4>Impacts on Human Health:</h4>
+        <ul>
+            <li>Increased heat-related deaths and illnesses.</li>
+            <li>Higher frequency of infectious disease epidemics (e.g., following floods).</li>
+            <li>Health problems from population displacement due to extreme weather.</li>
+            <li>Increased incidence of diseases like malaria.</li>
+        </ul>
+
+        <h4>Impact on Water Resources:</h4>
+        <ul>
+            <li>Melting of snow and glaciers, leading to rising sea levels.</li>
+            <li>Increased frequency and severity of droughts and floods.</li>
+            <li>Changes in wind flow patterns and a decrease in water tables.</li>
+            <li>Reduced runoff into rivers and lakes due to longer droughts.</li>
+        </ul>
+
+        <h4>Impact on Agriculture:</h4>
+        <ul>
+            <li>Significant effects on crop production due to changes in temperature and rainfall patterns.</li>
+            <li>Increased stress on crops and a reduction in the quality and availability of food and fodder.</li>
+        </ul>
+
+        <h4>Impact on Ecosystems:</h4>
+        <ul>
+            <li>Climate change can exceed the rate at which species can adapt.</li>
+            <li>This can lead to the serious endangerment or even extinction of species that cannot cope with rapid shifts in their environment.</li>
+        </ul>
+
+        <h3><span class="emoji">🛡️</span> Climate Response Mechanisms</h3>
+        <p>There are three major mechanisms to respond to climate change: Mitigation, Adaptation, and Resilience.</p>
+
+        <h4>1. Mitigation and its Strategies <span class="emoji">📉</span></h4>
+        <p><strong>Definition:</strong> Mitigation involves actions to reduce and control greenhouse gas emissions. The goal is to avoid significant human interference with the climate system.</p>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> This is done by either reducing the sources of these gases or enhancing the "sinks" (such as oceans and forests) that absorb them.</p>
+        </div>
+
+        <p><strong>Strategies:</strong></p>
+        <ul>
+            <li><strong>Energy Efficiency:</strong> Reducing energy consumption in homes and industries.</li>
+            <li><strong>Renewable Energy:</strong> Increasing the use of solar, wind, and hydropower.</li>
+            <li><strong>Efficient Transport:</strong> Using electric public transport, bicycles, and shared cars.</li>
+        </ul>
+
+        <h4>2. Adaptation and its Strategies <span class="emoji">⛵</span></h4>
+        <p><strong>Definition:</strong> Adaptation is the process of adjusting to life in a changing climate. The goal is to reduce vulnerability to the harmful effects of climate change.</p>
+
+        <div class="note">
+            <p><strong>Key Note:</strong> Adaptation can also involve capitalizing on potential benefits, such as longer growing seasons in some regions.</p>
+        </div>
+
+        <p><strong>Strategies:</strong></p>
+        <ul>
+            <li>Building flood defenses and installing water-permeable pavements.</li>
+            <li>Developing plans for heat waves and higher temperatures.</li>
+            <li>Improving water storage and management.</li>
+            <li>Reforestation and landscape restoration.</li>
+            <li>Implementing preventive measures like evacuation and health plans.</li>
+        </ul>
+
+        <h4>3. Resilience and its Strategy <span class="emoji">💪</span></h4>
+        <p><strong>Definition:</strong> Resilience is the capacity to recover quickly from difficulties and to withstand adversity. It is the ability to adapt to a difficult situation.</p>
+        <p><strong>Example:</strong> A safety net program to support vulnerable communities after a climate-related disaster.</p>
+        <p class="highlight">የመቋቋም አቅም (Resilience) ከአስቸጋሪ ሁኔታዎች በፍጥነት የማገገም ችሎታ ነው። የችግር ጊዜን የመቋቋም እና የመላመድ ችሎታ ነው። ለምሳሌ የደህንነት መረብ ፕሮግራም (Safety net program)።</p>
+    </div>
+</div>
+
+​
+</body>
+</html>`
+      }
+  ]
+},
+  {
+    id: 'english1',
+    name: 'English Skill 1',
+    icon: '📖',
+    chapters: [
+      { 
+        id: 'Englishskill1', 
+        title: 'Chapter 1: Tense', 
+        content: ` <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7817,833 +8579,6 @@ export const noteCollections: Subject[] = [
             </ul>
         </div>
     </div>
-</body>
-</html> `
-      }
-  ]
-},
-  {
-    id: 'english1',
-    name: 'English Skill 1',
-    icon: '📖',
-    chapters: [
-      { 
-        id: 'Englishskill1', 
-        title: 'Chapter 1: Tense', 
-        content: ` <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenses in English Grammar</title>
-    <style>
-        :root {
-            --color-light-blue: #e0f7fa;
-            --color-teal: #e0f2f1;
-            --color-light-green: #f1f8e9;
-            --color-yellow: #fffde7;
-            --color-orange: #fff3e0;
-            --color-light-pink: #fbe9e7;
-            --color-purple: #ede7f6;
-            --color-gray: #f5f5f5;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .card.main-intro {
-            background-color: var(--color-light-blue);
-        }
-
-        .card.present-tense-group {
-            background-color: var(--color-teal);
-        }
-
-        .card.past-tense-group {
-            background-color: var(--color-orange);
-        }
-
-        .card.future-tense-group {
-            background-color: var(--color-purple);
-        }
-
-        .sub-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid;
-        }
-        
-        .sub-card.simple-present { border-color: #4CAF50; }
-        .sub-card.present-continuous { border-color: #2196F3; }
-        .sub-card.present-perfect { border-color: #FFC107; }
-        .sub-card.present-perfect-continuous { border-color: #9C27B0; }
-        .sub-card.simple-past { border-color: #FF5722; }
-        .sub-card.past-continuous { border-color: #00BCD4; }
-        .sub-card.past-perfect { border-color: #8BC34A; }
-        .sub-card.past-perfect-continuous { border-color: #673AB7; }
-        .sub-card.simple-future { border-color: #F44336; }
-        .sub-card.future-continuous { border-color: #3F51B5; }
-        .sub-card.future-perfect { border-color: #E91E63; }
-        .sub-card.future-perfect-continuous { border-color: #009688; }
-        
-        h1, h2, h3, h4 {
-            color: #2c3e50;
-            font-weight: 600;
-            margin-top: 0;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 2em;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 10px;
-        }
-        
-        h3 {
-            font-size: 1.5em;
-        }
-        
-        h4 {
-            font-size: 1.2em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        p {
-            margin: 0 0 15px 0;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        li:before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            position: absolute;
-            left: 0;
-        }
-        
-        strong {
-            font-weight: 700;
-        }
-
-        .structure-list, .examples-list {
-            padding-left: 20px;
-        }
-        
-        .structure-list li, .examples-list li {
-            padding-left: 15px;
-            position: relative;
-        }
-        
-        .structure-list li:before, .examples-list li:before {
-            content: "→";
-            color: #e74c3c;
-            left: 0;
-        }
-
-        .examples-list li {
-            font-style: italic;
-            color: #555;
-        }
-
-        .note {
-            background-color: #f0f0f0;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        .highlight {
-            background-color: rgba(255, 255, 0, 0.3);
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="card main-intro">
-        <h1>Tenses</h1>
-        <p>Tenses are a fundamental concept in grammar. They denote the time of an action and indicate when a particular event or state of being takes place. In English, there are three main tenses:</p>
-        <ul>
-            <li>Present Tense ⏳</li>
-            <li>Past Tense 🔙</li>
-            <li>Future Tense 🔜</li>
-        </ul>
-    </div>
-    
-    <div class="card present-tense-group">
-        <h2>Present Tense ⏳</h2>
-
-        <div class="sub-card simple-present">
-            <h3>Simple Present Tense ✍️</h3>
-            <h4>Definition</h4>
-            <p>The Simple Present Tense is used to describe actions that are habitual, facts that are universally true, and scheduled events in the near future. It's often used for things that happen on a daily basis.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><strong>Assertive/Affirmative:</strong> Subject + V1 + (s/es) + Object
-                    <div class="note"><strong>Rule:</strong> For third-person singular subjects (he, she, it), add -s or -es to the base form of the verb (V1). For all other subjects (I, you, we, they), use the base form of the verb without any changes.</div>
-                </li>
-                <li><strong>Negative:</strong> Subject + do/does not + V1 + Object
-                    <div class="note"><strong>Rule:</strong> Use 'does not' for third-person singular subjects and 'do not' for all others.</div>
-                </li>
-                <li><strong>Interrogative (Question):</strong> Do/Does + Subject + V1 + Object?
-                    <div class="note"><strong>Rule:</strong> Start the sentence with 'Does' for third-person singular subjects and 'Do' for all others.</div>
-                </li>
-                <li><strong>Interrogative Negative:</strong> Do/Does + Subject + not + V1 + Object?
-                    <div class="note"><strong>Rule:</strong> This form combines the negative and interrogative structures.</div>
-                </li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She writes a letter.</li>
-                        <li>He works at a hospital.</li>
-                        <li>The sun rises in the east. (Universal truth)</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She does not write a letter.</li>
-                        <li>I do not like coffee.</li>
-                        <li>They do not live here.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Does she write a letter?</li>
-                        <li>Do they go to school?</li>
-                        <li>Does the bus arrive at 8 AM?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Does she not write a letter?</li>
-                        <li>Don't you want to play?</li>
-                        <li>Doesn't he know the answer?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card present-continuous">
-            <h3>Present Continuous Tense</h3>
-            <h4>Definition</h4>
-            <p>The Present Continuous Tense, also known as the Present Progressive, is used to express an action that is currently taking place at the moment of speaking or a temporary action happening around the present time.</p>
-            
-            <h4>Rules & Structure:</h4>
-            <ul class="structure-list">
-                <li><strong>Assertive/Affirmative:</strong> Subject + is/am/are + V1 + -ing + Object
-                    <div class="note"><strong>Rule:</strong> Use 'is' for third-person singular subjects, 'am' for the first-person singular (I), and 'are' for plural subjects and second-person singular/plural (you, we, they).</div>
-                </li>
-                <li><strong>Negative:</strong> Subject + is/am/are + not + V1 + -ing + Object</li>
-                <li><strong>Interrogative (Question):</strong> Is/Am/Are + Subject + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Is/Am/Are + Subject + not + V1 + -ing + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She is writing a letter.</li>
-                        <li>I am eating lunch right now.</li>
-                        <li>They are playing outside.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She is not writing a letter.</li>
-                        <li>We are not watching TV.</li>
-                        <li>He is not studying for the test.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Is she writing a letter?</li>
-                        <li>Are they listening to music?</li>
-                        <li>Is it raining outside?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Is she not writing a letter?</li>
-                        <li>Aren't you coming with us?</li>
-                        <li>Isn't he working today?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="sub-card present-perfect">
-            <h3>Present Perfect Tense ✅</h3>
-            <h4>Definition</h4>
-            <p>The Present Perfect Tense is used to show an action that started in the past and has either just been completed or has a connection to the present. The exact time the action happened is often not specified.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + V3 + Object
-                    <div class="note"><strong>Rule:</strong> Use 'has' for third-person singular subjects and 'have' for all other subjects. V3 refers to the past participle form of the verb.</div>
-                </li>
-                <li><strong>Negative:</strong> Subject + has/have + not + V3 + Object</li>
-                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + V3 + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + V3 + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She has written a letter.</li>
-                        <li>They have finished their homework.</li>
-                        <li>I have visited London.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She has not written a letter.</li>
-                        <li>He hasn't eaten his dinner yet.</li>
-                        <li>We have not seen that movie.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Has she written a letter?</li>
-                        <li>Have you ever tried sushi?</li>
-                        <li>Has he arrived?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Has she not written a letter?</li>
-                        <li>Haven't they left yet?</li>
-                        <li>Hasn't she called you back?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card present-perfect-continuous">
-            <h3>Present Perfect Continuous Tense ⏳➡️</h3>
-            <h4>Definition</h4>
-            <p>The Present Perfect Continuous Tense is used to describe an action that began in the past and is still ongoing in the present. It emphasizes the duration of the action.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><strong>Assertive/Affirmative:</strong> Subject + has/have + been + V1 + -ing + Object</li>
-                <li><strong>Negative:</strong> Subject + has/have + not + been + V1 + -ing + Object
-                    <div class="note"><strong>Note:</strong> The word "not" goes between "has/have" and "been."</div>
-                </li>
-                <li><strong>Interrogative (Question):</strong> Has/Have + Subject + been + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Has/Have + Subject + not + been + V1 + -ing + Object?
-                    <div class="note"><strong>Note:</strong> The provided rule seems to have a typo. It should be Has/Have + Subject + not + been + ....</div>
-                </li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She has been writing a letter.</li>
-                        <li>He has been studying for three hours.</li>
-                        <li>We have been waiting since noon.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She has not been writing a letter.</li>
-                        <li>I haven't been feeling well lately.</li>
-                        <li>They have not been practicing the song.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Has she been writing a letter?</li>
-                        <li>Have you been sleeping?</li>
-                        <li>Has it been raining all day?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Has she not been writing a letter?</li>
-                        <li>Haven't they been working on this project?</li>
-                        <li>Hasn't he been training for the race?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="card past-tense-group">
-        <h2>Past Tense 🔙</h2>
-        <p>The Past Tense is a grammatical form that expresses actions or states that have already happened. It's used to talk about events that occurred in the past, whether a moment ago or a long time ago. The four aspects of the Past Tense are Simple Past, Past Continuous, Past Perfect, and Past Perfect Continuous.</p>
-
-        <div class="sub-card simple-past">
-            <h3>Simple Past Tense 🚶‍♀️</h3>
-            <h4>Definition</h4>
-            <p>The Simple Past Tense is used to indicate an action that was completed at a specific time in the past. It can also describe past habits. This tense often uses adverbs of time (like yesterday, last week, an hour ago), but sometimes the time is implied.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The basic structure uses the past tense form of the verb (V2).</div></li>
-                <li><strong>Assertive/Affirmative:</strong> Subject + V2 + Object</li>
-                <li><strong>Negative:</strong> Subject + did not + V1 + Object
-                    <div class="note"><strong>Note:</strong> The auxiliary verb did is used, and the main verb returns to its base form (V1).</div>
-                </li>
-                <li><strong>Interrogative (Question):</strong> Did + Subject + V1 + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Did + Subject + not + V1 + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She wrote a letter.</li>
-                        <li>They played football yesterday.</li>
-                        <li>I lived in New York for five years.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She did not write a letter.</li>
-                        <li>He didn't finish his work.</li>
-                        <li>We didn't go to the party.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Did she write a letter?</li>
-                        <li>Did you see that movie?</li>
-                        <li>Did they visit you last month?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Did she not write a letter?</li>
-                        <li>Didn't you call me?</li>
-                        <li>Didn't he come to the meeting?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card past-continuous">
-            <h3>Past Continuous Tense ⏰</h3>
-            <h4>Definition</h4>
-            <p>The Past Continuous Tense is used to describe an action that was ongoing at a particular point in the past. It emphasizes the duration of the action rather than its completion. It is often used to set the scene for another action in the simple past.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses was/were followed by the present participle (-ing form of the verb).</div></li>
-                <li><strong>Assertive/Affirmative:</strong> Subject + was/were + V1 + -ing + Object
-                    <div class="note"><strong>Note:</strong> Use was for singular subjects (I, he, she, it) and were for plural subjects (we, you, they).</div>
-                </li>
-                <li><strong>Negative:</strong> Subject + was/were + not + V1 + -ing + Object</li>
-                <li><strong>Interrogative (Question):</strong> Was/Were + Subject + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Was/Were + Subject + not + V1 + -ing + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She was writing a letter.</li>
-                        <li>They were playing video games when I arrived.</li>
-                        <li>He was studying for the test all afternoon.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She was not writing a letter.</li>
-                        <li>We were not listening to the radio.</li>
-                        <li>The kids were not sleeping yet.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Was she writing a letter?</li>
-                        <li>Were you driving to work?</li>
-                        <li>Was he talking on the phone?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Was she not writing a letter?</li>
-                        <li>Weren't they going to the cinema?</li>
-                        <li>Wasn't it raining when you left?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card past-perfect">
-            <h3>Past Perfect Tense 🗓️</h3>
-            <h4>Definition</h4>
-            <p>The Past Perfect Tense is used to describe an action that was completed before another action in the past. It's often called the "past of the past." It helps to establish a clear sequence of events.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses had followed by the past participle (V3 form of the verb).</div></li>
-                <li><strong>Assertive/Affirmative:</strong> Subject + had + V3 + Object</li>
-                <li><strong>Negative:</strong> Subject + had + not + V3 + Object</li>
-                <li><strong>Interrogative (Question):</strong> Had + Subject + V3 + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Had + Subject + not + V3 + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She had written a letter.</li>
-                        <li>The patient had died before the doctor came.</li>
-                        <li>I had eaten dinner before they arrived.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She had not written a letter.</li>
-                        <li>He hadn't done the homework.</li>
-                        <li>We had not heard the news before you told us.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Had she written a letter?</li>
-                        <li>Had you finished your work by then?</li>
-                        <li>Had they left when you got there?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Had she not written a letter?</li>
-                        <li>Hadn't you seen that movie before?</li>
-                        <li>Hadn't the train departed yet?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="sub-card past-perfect-continuous">
-            <h3>Past Perfect Continuous Tense 🕰️</h3>
-            <h4>Definition</h4>
-            <p>The Past Perfect Continuous Tense is used to describe an action that started in the past and continued up to a certain point in the past. It emphasizes the duration of the action.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses had been followed by the present participle (-ing form of the verb).</div></li>
-                <li><strong>Assertive/Affirmative:</strong> Subject + had been + V1 + -ing + Object</li>
-                <li><strong>Negative:</strong> Subject + had + not + been + V1 + -ing + Object
-                    <div class="note"><strong>Note:</strong> The word not comes after had and before been.</div>
-                </li>
-                <li><strong>Interrogative (Question):</strong> Had + Subject + been + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Had + Subject + not + been + V1 + -ing + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Assertive:</strong>
-                    <ul class="examples-list">
-                        <li>She had been writing a letter.</li>
-                        <li>He had been running for an hour before he collapsed.</li>
-                        <li>I had been learning English for a month when I moved abroad.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She had not been writing a letter.</li>
-                        <li>The company had not been doing well financially.</li>
-                        <li>They hadn't been sleeping much before the trip.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Had she been writing a letter?</li>
-                        <li>Had you been waiting long?</li>
-                        <li>Had it been snowing all day?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Had she not been writing a letter?</li>
-                        <li>Hadn't you been working here since January?</li>
-                        <li>Hadn't he been practicing for the show?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="card future-tense-group">
-        <h2>Future Tense ➡️</h2>
-        <p>The Future Tense is a grammatical form that describes actions or states that have not yet occurred and will happen after the present moment. It's used to talk about events that will happen in a period of time following the moment of speaking or writing.</p>
-
-        <div class="sub-card simple-future">
-            <h3>Simple Future Tense ➡️</h3>
-            <h4>Definition</h4>
-            <p>The Simple Future Tense tells us about an action that has not occurred yet and will occur in the future. It's used for predictions, decisions made at the moment of speaking, and promises.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The basic structure uses the auxiliary verb will or shall followed by the base form of the verb (V1).</div></li>
-                <li><strong>Usage of Will and Shall:</strong>
-                    <ul class="examples-list">
-                        <li><strong>General Rule:</strong> Traditionally, shall is used with I and we, while will is used with all other subjects (he, she, it, you, they).</li>
-                        <li><strong>Emphasis/Commitment:</strong> This rule is reversed for emphasis, promises, or threats. Will is used with I and we, and shall is used with others.</li>
-                        <li><strong>Modern Usage:</strong> In modern, everyday speech, there is little distinction, and will is commonly used with all subjects.</li>
-                    </ul>
-                </li>
-                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + V1 + Object</li>
-                <li><strong>Negative:</strong> Subject + will/shall + not + V1 + Object</li>
-                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + V1 + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + V1 + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Positive/Affirmative:</strong>
-                    <ul class="examples-list">
-                        <li>She will write a letter.</li>
-                        <li>I will go to the store tomorrow.</li>
-                        <li>The team will win the game.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She will not write a letter.</li>
-                        <li>We shall not be late for the meeting.</li>
-                        <li>He will not eat his vegetables.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she write a letter?</li>
-                        <li>Will you help me with this?</li>
-                        <li>Will they arrive on time?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she not write a letter?</li>
-                        <li>Won't you stay for dinner?</li>
-                        <li>Will they not attend the conference?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card future-continuous">
-            <h3>Future Continuous Tense 🏃‍♀️➡️</h3>
-            <h4>Definition</h4>
-            <p>The Future Continuous Tense is used to express an action that will be ongoing at a specific time in the future. It emphasizes that the action is in progress and not yet completed.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall be followed by the present participle (-ing form of the verb).</div></li>
-                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + be + V1 + -ing + Object</li>
-                <li><strong>Negative:</strong> Subject + will/shall + not + be + V1 + -ing + Object</li>
-                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + be + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + be + V1 + -ing + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Positive/Affirmative:</strong>
-                    <ul class="examples-list">
-                        <li>She will be writing a letter.</li>
-                        <li>He will be distributing sweets tomorrow at 12 o'clock.</li>
-                        <li>This time next week, I will be relaxing on the beach.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She will not be writing a letter.</li>
-                        <li>They will not be attending the party.</li>
-                        <li>The kids will not be sleeping when you get home.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she be writing a letter?</li>
-                        <li>Will you be working late tonight?</li>
-                        <li>Will they be staying for the weekend?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she not be writing a letter?</li>
-                        <li>Won't you be coming with us?</li>
-                        <li>Will he not be studying for the exam?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="sub-card future-perfect">
-            <h3>Future Perfect Tense ✅➡️</h3>
-            <h4>Definition</h4>
-            <p>The Future Perfect Tense is used to describe an action that will be completed by a certain time in the future. It's used to look back at a future event from a later point in time.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall have followed by the past participle (V3 form of the verb).</div></li>
-                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have + V3 + Object</li>
-                <li><strong>Negative:</strong> Subject + will/shall + not + have + V3 + Object</li>
-                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have + V3 + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have + V3 + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Positive/Affirmative:</strong>
-                    <ul class="examples-list">
-                        <li>She will have written a letter.</li>
-                        <li>They will have shifted the house by Sunday morning.</li>
-                        <li>By next year, I will have graduated from college.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She will not have written a letter.</li>
-                        <li>He will not have finished the report by the deadline.</li>
-                        <li>We will not have seen that movie by the time it leaves theaters.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she have written a letter?</li>
-                        <li>Will you have completed the project by next week?</li>
-                        <li>Will they have arrived before the sun sets?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she not have written a letter?</li>
-                        <li>Won't you have eaten dinner by then?</li>
-                        <li>Will he not have left by the time we get there?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="sub-card future-perfect-continuous">
-            <h3>Future Perfect Continuous Tense ⏳➡️</h3>
-            <h4>Definition</h4>
-            <p>The Future Perfect Continuous Tense is used to describe an action that will have been in progress for a certain duration before another point or event in the future. It emphasizes the duration of the future action.</p>
-            
-            <h4>Rules & Structure</h4>
-            <ul class="structure-list">
-                <li><div class="note"><strong>Rule:</strong> The structure uses will/shall have been followed by the present participle (-ing form of the verb).</div></li>
-                <li><strong>Key Point:</strong> This tense requires a time reference to show the duration. Without a continued time reference, the sentence would be a Future Continuous Tense.</li>
-                <li><strong>Positive/Affirmative:</strong> Subject + will/shall + have been + V1 + -ing + Object</li>
-                <li><strong>Negative:</strong> Subject + will/shall + not + have been + V1 + -ing + Object</li>
-                <li><strong>Interrogative (Question):</strong> Will/Shall + Subject + have been + V1 + -ing + Object?</li>
-                <li><strong>Interrogative Negative:</strong> Will/Shall + Subject + not + have been + V1 + -ing + Object?</li>
-            </ul>
-            
-            <h4>Examples</h4>
-            <ul class="examples-list">
-                <li><strong>Positive/Affirmative:</strong>
-                    <ul class="examples-list">
-                        <li>She will have been writing a letter.</li>
-                        <li>By July, I will have been working here for five years.</li>
-                        <li>This time tomorrow, I will have been traveling for 24 hours.</li>
-                    </ul>
-                </li>
-                <li><strong>Negative:</strong>
-                    <ul class="examples-list">
-                        <li>She will not have been writing a letter.</li>
-                        <li>By the time you get back, the plants will not have been growing for a week.</li>
-                        <li>We will not have been studying for long when the test starts.</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she have been writing a letter?</li>
-                        <li>Will you have been living here for a decade by then?</li>
-                        <li>Will he have been playing that game for hours?</li>
-                    </ul>
-                </li>
-                <li><strong>Interrogative Negative:</strong>
-                    <ul class="examples-list">
-                        <li>Will she not have been writing a letter?</li>
-                        <li>Won't you have been practicing for a month by the competition?</li>
-                        <li>Will he not have been sleeping much before his flight?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
 </body>
 </html>`
       },
