@@ -8584,18 +8584,1550 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       },
       { 
         id: 'Chapter2', 
-        title: 'Chapter 2: Conditonal Sentence', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+        title: 'Chapter 2: Modal Verb', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Verbs - English Grammar</title>
+    <style>
+        :root {
+            --primary-color: #5D6D7E;
+            --secondary-color: #2E4053;
+            --accent-color: #3498DB;
+            --light-color: #F8F9F9;
+            --dark-color: #212F3D;
+            --success-color: #27AE60;
+            --info-color: #2980B9;
+            --warning-color: #F39C12;
+            --danger-color: #E74C3C;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--info-color);
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: var(--success-color);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .card.definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--info-color);
+        }
+        
+        .card.rules {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .card.examples {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .card.table {
+            background-color: #fef9e7;
+            border-left: 4px solid var(--warning-color);
+            overflow-x: auto;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">📚</span>Modal Verbs</h1>
+        
+        <div class="card definition">
+            <h3><span class="emoji">❓</span>What are Modal Verbs?</h3>
+            <p>Modal verbs are a type of helping or auxiliary verb that express the 'mode' or 'manner' of the action indicated by the main verb. They add extra meaning to a sentence by showing a speaker's attitude or opinion about the action. They express ideas such as:</p>
+            
+            <ul>
+                <li>Ability (<span class="highlight">can, could</span>)</li>
+                <li>Possibility (<span class="highlight">may, might, could</span>)</li>
+                <li>Probability (<span class="highlight">should, ought to</span>)</li>
+                <li>Permission (<span class="highlight">can, may</span>)</li>
+                <li>Obligation/Necessity (<span class="highlight">must, have to</span>)</li>
+            </ul>
+            
+            <p>The most common modal verbs are: <span class="highlight">shall, should, will, would, can, could, may, might, must, ought to, used to,</span> and <span class="highlight">need to</span>.</p>
+        </div>
+        
+        <h2><span class="emoji">📝</span>Grammatical Form</h2>
+        
+        <div class="card rules">
+            <p>Modal verbs have a simple and consistent structure in sentences. They are always followed by the base form of the main verb (V1) without "to."</p>
+            
+            <h4>Affirmative Statements: Subject + Modal + Verb (base form)</h4>
+            <ul>
+                <li>Example: You <span class="highlight">should see</span> a doctor about the cough.</li>
+                <li>Extra Example: He <span class="highlight">might be</span> home already.</li>
+                <li>Extra Example: We <span class="highlight">can start</span> the project now.</li>
+            </ul>
+            
+            <h4>Negative Statements: Subject + Modal + not + Verb (base form)</h4>
+            <ul>
+                <li>Example: They <span class="highlight">can't speak</span> Chinese very well.</li>
+                <li>Extra Example: She <span class="highlight">must not be</span> late for the interview.</li>
+                <li>Extra Example: I <span class="highlight">would not do</span> that if I were you.</li>
+            </ul>
+            
+            <h4>Yes/No Questions: Modal + Subject + Verb (base form)?</h4>
+            <ul>
+                <li>Example: <span class="highlight">Could you swim</span> when you were five?</li>
+                <li>Extra Example: <span class="highlight">Should I call</span> him later?</li>
+                <li>Extra Example: <span class="highlight">Will they arrive</span> on time?</li>
+            </ul>
+            
+            <h4>Short Answers: Yes/No + Pronoun + Modal (+ not)</h4>
+            <ul>
+                <li>Example: Yes, I <span class="highlight">could</span>. / No, I <span class="highlight">couldn't</span>.</li>
+                <li>Extra Example: Yes, she <span class="highlight">can</span>. / No, she <span class="highlight">can't</span>.</li>
+                <li>Extra Example: Yes, we <span class="highlight">will</span>. / No, we <span class="highlight">won't</span>.</li>
+            </ul>
+            
+            <h4>Wh-Questions: Wh-word + Modal + Subject + Verb (base form)?</h4>
+            <ul>
+                <li>Example: When <span class="highlight">should the children eat</span> their dinner?</li>
+                <li>Extra Example: Where <span class="highlight">can I find</span> a good restaurant?</li>
+                <li>Extra Example: Why <span class="highlight">must we leave</span> so early?</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">💪</span>1. Modals to Express Ability</h2>
+        
+        <div class="card definition">
+            <p>This category uses <span class="highlight">can, could,</span> and <span class="highlight">be able to</span> to show a person's capability to do something.</p>
+        </div>
+        
+        <div class="card rules">
+            <h4>Can</h4>
+            <p><strong>Definition:</strong> Used to talk about ability in the present and future.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>Sara <span class="highlight">can speak</span> English, but she <span class="highlight">can't speak</span> Chinese.</li>
+                <li>I <span class="highlight">can play</span> the guitar. My brother <span class="highlight">can play</span> the guitar too.</li>
+                <li>When John comes home, he <span class="highlight">can help</span> you with your homework.</li>
+            </ul>
+            
+            <h4>Could</h4>
+            <p><strong>Definition:</strong> Used to talk about ability in the past.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>I <span class="highlight">could swim</span> when I was four years old.</li>
+                <li>I was tired last night, but I <span class="highlight">couldn't sleep</span>.</li>
+                <li>When she was younger, she <span class="highlight">could run</span> a marathon.</li>
+            </ul>
+            
+            <h4>Be able to</h4>
+            <p><strong>Definition:</strong> This phrase has the same meaning as <span class="highlight">can</span> and <span class="highlight">could</span> but is not used as frequently.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><strong>Present:</strong> Are you <span class="highlight">able to drive</span>?</li>
+                <li><strong>Past:</strong> I <span class="highlight">was able to swim</span> when I was four years old.</li>
+                <li><strong>Future:</strong> They <span class="highlight">will be able to walk</span> after their leg heals.</li>
+            </ul>
+        </div>
+        
+        <div class="card note">
+            <h4>Key Notes <span class="emoji">🌟</span></h4>
+            <ul>
+                <li>For future ability that a person does not have in the present, use <span class="highlight">will be able to</span>, not <span class="highlight">can</span>.
+                    <ul>
+                        <li><strong>Correct:</strong> He <span class="highlight">will be able to walk</span> after his leg heals.</li>
+                        <li><strong>Incorrect:</strong> He <span class="highlight">can walk</span> after his leg heals.</li>
+                    </ul>
+                </li>
+                <li>Use <span class="highlight">be able to</span> with other grammatical structures like perfect tenses and after other modals. You cannot use two modal verbs together.
+                    <ul>
+                        <li><strong>Correct:</strong> We <span class="highlight">might be able to finish</span> before the library closes.</li>
+                        <li><strong>Incorrect:</strong> We <span class="highlight">might can finish</span> before the library closes.</li>
+                        <li><strong>Correct:</strong> We <span class="highlight">have been able to pass</span> more difficult tests.</li>
+                        <li><strong>Incorrect:</strong> We <span class="highlight">can have passed</span> more difficult tests.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">✔️</span>2. Modals to Express Obligation & Necessity</h2>
+        
+        <div class="card definition">
+            <p>This category uses <span class="highlight">must, have to,</span> and <span class="highlight">have got to</span> to show a required action.</p>
+        </div>
+        
+        <div class="card rules">
+            <h4>Must and Have to</h4>
+            <p><strong>Definition:</strong> Both are used to express obligation or necessity.</p>
+            
+            <div class="note">
+                <h4>Key Notes:</h4>
+                <ul>
+                    <li>In spoken English, <span class="highlight">have to</span> is more common than <span class="highlight">must</span>.</li>
+                    <li><span class="highlight">Must</span> is used in formal writing like forms, signs, and notices.</li>
+                    <li><span class="highlight">Must</span> is used when the necessity comes from the speaker's own authority or opinion.</li>
+                    <li><span class="highlight">Have to</span> is used when the necessity comes from an external rule or authority.</li>
+                </ul>
+            </div>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><span class="highlight">have to</span> (spoken): You <span class="highlight">have to take</span> an English exam when you enroll at the university.</li>
+                <li><span class="highlight">must</span> (formal notice): The last person to leave the office <span class="highlight">must lock</span> the door.</li>
+                <li><span class="highlight">must</span> (speaker's authority): (Teacher) You <span class="highlight">must give</span> me all your essays by tomorrow.</li>
+                <li><span class="highlight">have to</span> (external authority): (Student) I <span class="highlight">have to write</span> my essay by tomorrow (because the teacher said so).</li>
+            </ul>
+            
+            <h4>Urgent Necessity:</h4>
+            <p><span class="highlight">Must</span> usually indicates a more urgent or immediate necessity.</p>
+            <ul>
+                <li>Example: We <span class="highlight">must get</span> her to a doctor right away.</li>
+            </ul>
+            
+            <h4>Have got to</h4>
+            <p><strong>Definition:</strong> This phrase has the same meaning as <span class="highlight">have to</span>, but it is used primarily in informal spoken English.</p>
+            
+            <div class="note">
+                <h4>Key Notes:</h4>
+                <ul>
+                    <li>It is mainly used in affirmative statements.</li>
+                    <li>It is not typically used in negative statements or questions.</li>
+                    <li>It cannot be used in the past tense.</li>
+                </ul>
+            </div>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><strong>Correct:</strong> I <span class="highlight">have got to go</span> now. (informal)</li>
+                <li><strong>Correct:</strong> I <span class="highlight">had to go</span> early last night. (past tense)</li>
+                <li><strong>Incorrect:</strong> I <span class="highlight">had got to go</span> early last night.</li>
+                <li><strong>Incorrect:</strong> <span class="highlight">Have you got to go</span> now? (Better to use "Do you have to go now?")</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🚫</span>3. Modals to Express Prohibition and Lack of Necessity</h2>
+        
+        <div class="card table">
+            <p>This section details the distinct meanings of <span class="highlight">not have to</span> and <span class="highlight">must not</span> in negative sentences. While <span class="highlight">must</span> and <span class="highlight">have to</span> are similar in affirmative sentences, their negative forms carry very different meanings.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modal Verb</th>
+                        <th>Meaning</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="highlight">not have to</span></td>
+                        <td>Indicates a <strong>lack of necessity</strong>. It's not required, and there is a choice.</td>
+                        <td>You <span class="highlight">don't have to</span> help me today. (I don't need your help, you have the choice to help or not).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">must not</span></td>
+                        <td>Expresses <strong>prohibition</strong>. It means something is not allowed or is against a rule. There is <strong>no choice</strong>.</td>
+                        <td>You <span class="highlight">must not</span> drive over 60 miles an hour. (It's against the law; you are prohibited from doing it).</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4>Tense Usage:</h4>
+            <ul>
+                <li><span class="highlight">not have to</span> can be used in <strong>all tenses</strong> (past, present, and future).
+                    <ul>
+                        <li><strong>Past:</strong> I <span class="highlight">didn't have to</span> take a driver's test when I moved here.</li>
+                        <li><strong>Future:</strong> I <span class="highlight">won't have to</span> renew my license for five years.</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">must not</span> is used only for the <strong>present</strong> and <strong>future</strong>.
+                    <ul>
+                        <li><strong>Present/Future:</strong> You <span class="highlight">must not</span> park in front of the doorway now/later.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">💡</span>4. Modals to Give Advice</h2>
+        
+        <div class="card table">
+            <p>This category uses <span class="highlight">should</span>, <span class="highlight">ought to</span>, and <span class="highlight">had better</span> to provide recommendations or guidance.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modal Verb</th>
+                        <th>Meaning</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="highlight">should</span> & <span class="highlight">ought to</span></td>
+                        <td>Used for general advice, to say what is right, or to express a general obligation/duty. Both have similar meanings, but <span class="highlight">should</span> is used more frequently.</td>
+                        <td>You <span class="highlight">should</span> learn to drive. <br> You <span class="highlight">ought to</span> learn to drive.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">had better</span></td>
+                        <td>Expresses a <strong>strong recommendation</strong> for a specific situation. It suggests a <strong>warning or threat</strong> of negative consequences if the advice isn't followed, making it stronger than <span class="highlight">should</span> or <span class="highlight">ought to</span>.</td>
+                        <td>You <span class="highlight">had better</span> leave now, or you <strong>will miss</strong> the flight. <br> You <span class="highlight">had better</span> go. It's getting late.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4>Questions:</h4>
+            <ul>
+                <li><span class="highlight">Should</span> is commonly used for questions.</li>
+                <li><span class="highlight">Ought to</span> is rarely used for questions.</li>
+                <li><span class="highlight">Had better</span> is generally <strong>not</strong> used for questions.</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🙏</span>5. Modals to Ask Permission</h2>
+        
+        <div class="card rules">
+            <p>This section covers the use of <span class="highlight">may</span>, <span class="highlight">could</span>, and <span class="highlight">can</span> to request permission.</p>
+            
+            <h4>Polite vs. Informal Use:</h4>
+            <ul>
+                <li>Use <span class="highlight">may</span> or <span class="highlight">could</span> when speaking with people you don't know or those in authority.</li>
+                <li>Use <span class="highlight">can</span> with friends and family members.</li>
+                <li><strong>Examples:</strong>
+                    <ul>
+                        <li><strong>(Formal)</strong> Mr. Dawit is not in the office. <span class="highlight">May</span> I take a message?</li>
+                        <li><strong>(Formal)</strong> <span class="highlight">Could</span> Sara have another piece of cake?</li>
+                        <li><strong>(Informal)</strong> Abdi, <span class="highlight">can</span> I borrow your dictionary?</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h4>Adding Politeness:</h4>
+            <ul>
+                <li>To make a request more polite, add <span class="highlight">please</span>.</li>
+                <li><span class="highlight">Please</span> can be placed after the subject or at the end of the sentence. A comma is used before it if it is at the end.</li>
+                <li><strong>Example:</strong> <span class="highlight">Could</span> I <span class="highlight">please</span> borrow the car? OR <span class="highlight">Could</span> I borrow the car, <span class="highlight">please</span>?</li>
+            </ul>
+            
+            <h4><span class="highlight">Could</span> and Tense:</h4>
+            <ul>
+                <li>When <span class="highlight">could</span> is used to ask for permission, it refers to the <strong>present</strong> or <strong>future</strong>.</li>
+                <li>It's important not to confuse this with its use to express <strong>past ability</strong>.</li>
+                <li><strong>Example:</strong>
+                    <ul>
+                        <li><strong>(Permission):</strong> <span class="highlight">Could</span> she take some more potatoes for dinner, please?</li>
+                        <li><strong>(Past Ability):</strong> <span class="highlight">Could</span> she swim when she was five?</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h4>Short Answers:</h4>
+            <ul>
+                <li>When a question starts with <span class="highlight">could</span>, the short answer uses <span class="highlight">may</span> or <span class="highlight">can</span>, but <strong>not <span class="highlight">could</span></strong>.</li>
+                <li><strong>Example:</strong>
+                    <ul>
+                        <li><strong>A:</strong> <span class="highlight">Could</span> I borrow your dictionary?</li>
+                        <li><strong>B:</strong> Yes, of course you <span class="highlight">can/may</span>. (Not "Yes, you could.")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🤝</span>6. Modals to Make Requests</h2>
+        
+        <div class="card rules">
+            <p>This section details the use of <span class="highlight">will</span>, <span class="highlight">can</span>, <span class="highlight">could</span>, and <span class="highlight">would</span> to ask someone to do something. The choice of modal verb depends on the level of politeness and formality required.</p>
+            
+            <h4>Polite Requests (would, could):</h4>
+            <p>Use <span class="highlight">would</span> and <span class="highlight">could</span> for polite and formal requests, especially in professional settings or with strangers.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><strong>(Boss to Employee):</strong> <span class="highlight">Could</span> you make a copy of this, please?</li>
+                <li><strong>(Boss to Employee):</strong> <span class="highlight">Would</span> you answer these letters for me, please?</li>
+            </ul>
+            
+            <h4>Direct & Informal Requests (can, will):</h4>
+            <p>Use <span class="highlight">can</span> and <span class="highlight">will</span> for more direct and informal requests, typically with friends and family.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><strong>(Mother to Daughter):</strong> <span class="highlight">Will</span> you turn down the TV, please?</li>
+                <li><strong>(Friend to Friend):</strong> <span class="highlight">Can</span> you pass me the salt?</li>
+            </ul>
+            
+            <h4>Polite Request with a Gerund (Would you mind + verb-ing):</h4>
+            <p>The phrase <span class="highlight">Would you mind</span> + a gerund (-ing verb) is a very polite way to make a request.</p>
+            
+            <div class="note">
+                <p><strong>Important Note:</strong> A negative answer (No, that's OK) means the person will do the request, while a positive answer (Yes, I would) means the person will not do it. This can be confusing!</p>
+            </div>
+            
+            <h4>Example:</h4>
+            <ul>
+                <li><strong>A:</strong> <span class="highlight">Would you mind waiting</span> a few minutes longer?</li>
+                <li><strong>B:</strong> No, that's OK. (Meaning: I will wait.)</li>
+                <li><strong>B:</strong> Yes, I would. I have already been waiting for an hour. (Meaning: I will not wait.)</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🤔</span>7. Modals to Express Possibility</h2>
+        
+        <div class="card rules">
+            <p>This category uses <span class="highlight">may</span>, <span class="highlight">might</span>, and <span class="highlight">could</span> to talk about something that is possible but not certain.</p>
+            
+            <h4>Present and Future Possibility:</h4>
+            <p><span class="highlight">May</span>, <span class="highlight">might</span>, and <span class="highlight">could</span> are used interchangeably to express a possible action or state in the present or future.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>My dog <span class="highlight">might be</span> the one who made the mess.</li>
+                <li>Mr. John <span class="highlight">could be</span> the electors' choice for mayor.</li>
+                <li>I don't know who is at the door. It <span class="highlight">may be</span> Sara.</li>
+            </ul>
+            
+            <h4>Negative Form:</h4>
+            <p>When referring to the present, <span class="highlight">could</span> is generally not used in the negative form to express possibility.</p>
+            <ul>
+                <li><strong>Correct:</strong> They <span class="highlight">may/might not</span> be on time.</li>
+                <li><strong>Incorrect:</strong> They <span class="highlight">could not</span> be on time.</li>
+            </ul>
+            
+            <h4>Past Possibility:</h4>
+            <p>Use the perfect modal form (modal + have + past participle) to express that something was possible in the past.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>Mekdes is late. She <span class="highlight">might have missed</span> her bus. (It is a possibility that she missed the bus in the past).</li>
+                <li>I can't find my glasses. I <span class="highlight">could have left</span> them at work. (It is a possibility that I left them at work in the past).</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">📈</span>8. Modals to Express Probability</h2>
+        
+        <div class="card rules">
+            <p>This section covers the use of <span class="highlight">should</span> and <span class="highlight">ought to</span> to express that something is likely or expected to be true.</p>
+            
+            <h4>Present and Future Probability:</h4>
+            <p><span class="highlight">Should</span> and <span class="highlight">ought to</span> are used to state that something is probable at the time of speaking or in the future based on known facts.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>Tigist <span class="highlight">should be</span> at work now. She's usually there at this time.</li>
+                <li>I <span class="highlight">ought to pass</span> the English test easily. I have studied hard and know everything.</li>
+            </ul>
+            
+            <h4>Past Probability:</h4>
+            <p>Use the perfect modal form (modal + have + past participle) when you think something has probably already happened.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>Their plane <span class="highlight">should have landed</span> by now.</li>
+                <li>Their plane <span class="highlight">ought to have landed</span> by now.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>`
       },
       { 
         id: 'Chapter3', 
-        title: 'Chapter 3 : Modal Verb', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+        title: 'Chapter 3 : Conditional', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Sentences - English Grammar</title>
+    <style>
+        :root {
+            --primary-color: #5D6D7E;
+            --secondary-color: #2E4053;
+            --accent-color: #3498DB;
+            --light-color: #F8F9F9;
+            --dark-color: #212F3D;
+            --success-color: #27AE60;
+            --info-color: #2980B9;
+            --warning-color: #F39C12;
+            --danger-color: #E74C3C;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--info-color);
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: var(--success-color);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .card.definition {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--info-color);
+        }
+        
+        .card.rules {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .card.examples {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .card.table {
+            background-color: #fef9e7;
+            border-left: 4px solid var(--warning-color);
+            overflow-x: auto;
+        }
+        
+        .card.exercise {
+            background-color: #f5eef8;
+            border-left: 4px solid #9B59B6;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        .exercise-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .exercise-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">📝</span>Conditional Sentences</h1>
+        
+        <div class="card definition">
+            <h2><span class="emoji">🧐</span>Introduction to Conditionals</h2>
+            <p>Conditional sentences deal with imagined situations, exploring what might happen, what could have happened, and what we wish would happen. They are sentences that connect a condition with a result.</p>
+            
+            <h4>Structure:</h4>
+            <p>A conditional sentence consists of two parts:</p>
+            <ul>
+                <li>The <strong>condition</strong> (or if clause), which presents the hypothetical situation.</li>
+                <li>The <strong>result</strong> (or main clause), which shows the consequence of that condition.</li>
+            </ul>
+            
+            <h4>Order of Clauses:</h4>
+            <p>The order of the clauses can be switched without changing the meaning.</p>
+            <ul>
+                <li>If the if clause comes first, a comma is placed between the two clauses. <strong>Example:</strong> If ice is heated, it melts.</li>
+                <li>If the main clause comes first, no comma is needed. <strong>Example:</strong> Ice melts if it is heated.</li>
+            </ul>
+            
+            <h4>Types of Conditionals:</h4>
+            <p>There are four main types of conditional sentences, each with a distinct structure and purpose.</p>
+            
+            <div class="card table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Zero Conditional</td>
+                            <td>If you heat water enough, it boils.</td>
+                        </tr>
+                        <tr>
+                            <td>First Conditional</td>
+                            <td>If I go to the shops, I'll get some milk.</td>
+                        </tr>
+                        <tr>
+                            <td>Second Conditional</td>
+                            <td>If I won the lottery, I'd still carry on working.</td>
+                        </tr>
+                        <tr>
+                            <td>Third Conditional</td>
+                            <td>If his software had been effective, Dawud would have won the prize.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="note">
+                <p><strong>Grammar:</strong> In the conditional clause, the tense of the verb expresses the type of potential event. In the main clause, modal verbs are used to indicate the unfulfilled or possible outcome of those events.</p>
+            </div>
+        </div>
+        
+        <h2><span class="emoji">🔗</span>Conditional Conjunctions</h2>
+        
+        <div class="card rules">
+            <p>Conditional clauses aren't limited to just the word <span class="highlight">if</span>. They can also be formed using other conjunctions that convey a similar meaning.</p>
+            
+            <div class="card table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conjunction</th>
+                            <th>Meaning</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="highlight">unless</span></td>
+                            <td>Means "if not." It introduces a negative condition.</td>
+                            <td>You won't study at a foreign university unless you pass an international language test. (You won't study at a foreign university if you don't pass the test.)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">so long as</span></td>
+                            <td>Means "on the condition that."</td>
+                            <td>Abebe can go out so long as he carries an umbrella.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">as long as</span></td>
+                            <td>Has the same meaning as so long as.</td>
+                            <td>You can take my bike as long as you ride it carefully.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">provided (that)</span></td>
+                            <td>Means "only if."</td>
+                            <td>The new project would have been feasible providing that more donors had been reached.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2><span class="emoji">⚙️</span>Zero Conditional</h2>
+        
+        <div class="card definition">
+            <p>The zero conditional is used to describe general truths, scientific facts, or habitual actions. It refers to things that are always true. The structure is consistent:</p>
+            
+            <h4>Structure:</h4>
+            <p>If/When + Present Simple, + Present Simple.</p>
+            
+            <h4>Function:</h4>
+            <p>Expresses universal truths, habits, instructions, and scientific facts.</p>
+        </div>
+        
+        <div class="card examples">
+            <h4>Examples:</h4>
+            <ul>
+                <li>The ground gets wet if/when it rains. (A general truth)</li>
+                <li>If/When I listen to loud music, I always have a headache. (A habit)</li>
+                <li>If you press the button, the television turns on. (An instruction)</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🔮</span>First Conditional</h2>
+        
+        <div class="card definition">
+            <p>The first conditional is used for a specific event or situation in the future that is possible but not guaranteed. It is not about a general truth.</p>
+            
+            <h4>Structure:</h4>
+            <p>If Clause (Condition) + Main Clause (Result).</p>
+            <ul>
+                <li>The if clause typically uses the present simple or present continuous.</li>
+                <li>The main clause can use a variety of modals to express different functions.</li>
+            </ul>
+        </div>
+        
+        <div class="card table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>If Clause (Condition)</th>
+                        <th>Main Clause (Result)</th>
+                        <th>Function</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Present Simple</td>
+                        <td>will/shall</td>
+                        <td>Certainty, promise, threat</td>
+                        <td>If you divulge the secret, I will behead you.</td>
+                    </tr>
+                    <tr>
+                        <td>Present Simple/Present Progressive</td>
+                        <td>can, may, could</td>
+                        <td>Permission</td>
+                        <td>If you are exhausted, you can take rest.</td>
+                    </tr>
+                    <tr>
+                        <td>Present Simple</td>
+                        <td>may, might, can, could, be going to</td>
+                        <td>Possibility</td>
+                        <td>If it doesn't rain tomorrow, we may go on a picnic.</td>
+                    </tr>
+                    <tr>
+                        <td>Present Continuous/Present Simple</td>
+                        <td>must, have to</td>
+                        <td>Obligation</td>
+                        <td>You must stay at home if it's raining.</td>
+                    </tr>
+                    <tr>
+                        <td>Present Simple/Present Progressive</td>
+                        <td>should, had better, ought to</td>
+                        <td>Advice</td>
+                        <td>If you feel sick, you had better see a doctor.</td>
+                    </tr>
+                    <tr>
+                        <td>Present Continuous/Present Simple</td>
+                        <td>Imperative (order)</td>
+                        <td>Order</td>
+                        <td>Never open the window if it is raining.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card examples">
+            <h4>Function:</h4>
+            <p>Expresses a likely future outcome, possibility, permission, or a promise, threat, or advice.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>We won't have enough time if we want to do some shopping too. (A likely future outcome)</li>
+                <li>If the director calls you, you should go. (Advice)</li>
+                <li>If you lend him some money, he may not give it back to you. (Possibility)</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">💭</span>Second Conditional</h2>
+        
+        <div class="card definition">
+            <p>The second conditional describes unreal or hypothetical situations in the present or future and their probable results. The situation is not true or is very unlikely to happen. The structure uses a past tense form in the conditional clause and a conditional form in the result clause.</p>
+            
+            <h4>Structure:</h4>
+            <ul>
+                <li><strong>Conditional Clause:</strong> Past Simple Tense</li>
+                <li><strong>Result Clause:</strong> Present Conditional (would + base form)</li>
+            </ul>
+        </div>
+        
+        <div class="card table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conditional Clause</th>
+                        <th>Result Clause</th>
+                        <th>Function</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Past Simple (e.g., If I were you...)</td>
+                        <td>Present Conditional (e.g., I would work...)</td>
+                        <td>Advice</td>
+                        <td>If I were you, I would work much harder.</td>
+                    </tr>
+                    <tr>
+                        <td>Past Simple / Past Progressive</td>
+                        <td>Present Conditional / Progressive</td>
+                        <td>Unlikely/less probable situations and present wishes</td>
+                        <td>If it were raining, I would carry an umbrella.</td>
+                    </tr>
+                    <tr>
+                        <td>could (lack of ability)</td>
+                        <td>Present Conditional / Progressive</td>
+                        <td>Hypothetical ability</td>
+                        <td>If I could speak English very well, I would look for a job in foreign companies.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card note">
+            <p>The function of the second conditional is to express unreal conditions, dreams, and advice. It implies that for a different present or future to exist, a hypothetical condition must be met.</p>
+        </div>
+        
+        <h2><span class="emoji">🧐</span>Third Conditional</h2>
+        
+        <div class="card definition">
+            <p>The third conditional describes unreal situations in the past and their impossible results. It is used to express regret or criticism about a past event that did not happen. Since the condition was not met, the result could not have happened.</p>
+            
+            <h4>Structure:</h4>
+            <ul>
+                <li><strong>Conditional Clause:</strong> Past Perfect Tense</li>
+                <li><strong>Result Clause:</strong> Conditional Perfect (would have + past participle)</li>
+            </ul>
+        </div>
+        
+        <div class="card table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conditional Clause</th>
+                        <th>Result Clause</th>
+                        <th>Function</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Past Perfect (e.g., If Lapiso had talked...)</td>
+                        <td>Conditional Perfect (e.g., I would have listened...)</td>
+                        <td>Unfulfilled situations, regret, criticism</td>
+                        <td>Had I worked hard, I would have passed the exam.</td>
+                    </tr>
+                    <tr>
+                        <td>Past Perfect (e.g., If Lelise had saved...)</td>
+                        <td>Conditional Perfect with could have</td>
+                        <td>Past possibility</td>
+                        <td>If Lelise had saved enough money, she could have bought a new bicycle.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card exercise">
+            <h3>Exercise</h3>
+            <p><strong>Directions:</strong> Complete each of the following sentences with the correct tense form of the verb given in parentheses to form the correct conditional.</p>
+            
+            <div class="exercise-item">I could have helped you if you had _____ (tell) me the truth.</div>
+            <div class="exercise-item">If we meet at 9:30, we ______ <span class="highlight">(have)</span> plenty of time.</div>
+            <div class="exercise-item">If a student comes late, our mathematics teacher always _______(get) angry.</div>
+            <div class="exercise-item">I am going to go to California next week on business. If I have enough time, I ___________(visit) my friends in Los Angeles.</div>
+            <div class="exercise-item">I am afraid I won't be able to come to your wedding next week because my company is sending me to Bahir Dar to attend a trade show. I (miss, never) _____ your wedding if I (have)____ a choice in the matter.</div>
+            <div class="exercise-item">Even if they managed to convince <strong>Kule</strong> to run for president in the next election, he (elect, never) _____. His ideas are too dramatic and unconventional to be accepted by the mainstream.</div>
+        </div>
+        
+        <h2>Inverted Conditionals</h2>
+        
+        <div class="card definition">
+            <p>Inverted conditionals allow you to form conditional statements without using "if". This is achieved by inverting the subject and verb. This structure is only possible with specific verbs and tenses.</p>
+        </div>
+        
+        <div class="card rules">
+            <h4>Inverted First Conditional ("Should")</h4>
+            <p>This type of inversion is used to express a first conditional idea, replacing "if" with "should". It's a more formal way of saying something is a possibility.</p>
+            
+            <h4>Structure:</h4>
+            <p>Replace "if" with "should" and use the bare infinitive of the verb (the base form without "to").</p>
+            
+            <h4>Example:</h4>
+            <ul>
+                <li><strong>Original:</strong> If Alemayehu remembers his own name, we'll be able to help him.</li>
+                <li><strong>Inverted:</strong> Should Alemayehu remember his own name, we'll be able to help him.</li>
+            </ul>
+            
+            <h4>Inverted Second Conditional ("Were")</h4>
+            <p>Used for unlikely or hypothetical future situations. The inversion involves "were" and the infinitive with "to".</p>
+            
+            <h4>Structure:</h4>
+            <p>Replace "if" with "were" and change the verb to the infinitive form (with "to").</p>
+            
+            <h4>Example:</h4>
+            <ul>
+                <li><strong>Original:</strong> If Jami pushed the button, we'd all have problems.</li>
+                <li><strong>Inverted:</strong> Were Jami to push the button, we'd all have problems.</li>
+            </ul>
+            
+            <div class="note">
+                <p><strong>Note:</strong> When the main verb in the if-clause is "to be," the structure is simpler. For example, "If I were you" becomes "Were I you."</p>
+            </div>
+            
+            <h4>Inverted Third Conditional ("Had")</h4>
+            <p>This inversion is used for unreal past situations where "if" is replaced with "had".</p>
+            
+            <h4>Structure:</h4>
+            <p>Delete "if" and invert the subject and the auxiliary verb "had".</p>
+            
+            <h4>Example:</h4>
+            <ul>
+                <li><strong>Original:</strong> If Kemal hadn't had a car accident last week, he would be with us today.</li>
+                <li><strong>Inverted:</strong> Had Kemal not had a car accident last week, he'd be with us today.</li>
+            </ul>
+        </div>
+        
+        <div class="card exercise">
+            <h4>Exercise Answers: Inverting Conditionals</h4>
+            <div class="exercise-item">Should Teso not come, we will be in trouble.</div>
+            <div class="exercise-item">Had you started developing software five years ago, you would be a millionaire today.</div>
+            <div class="exercise-item">Were I a graduate in Software Engineering, I would apply for the position.</div>
+            <div class="exercise-item">Marko might not have had a car accident had he driven carefully.</div>
+            <div class="exercise-item">Were I you, I would be working much harder.</div>
+        </div>
+        
+        <h2>Mixed Conditionals</h2>
+        
+        <div class="card definition">
+            <p>Mixed conditionals are unreal conditional sentences where the time frame in the "if" clause is different from the time frame in the main clause.</p>
+        </div>
+        
+        <div class="card rules">
+            <h4>Past and Present:</h4>
+            <p>This combination is used to express a past condition and its present result.</p>
+            
+            <h4>Structure:</h4>
+            <p>If + Past Perfect, + Conditional Present (would + base form).</p>
+            
+            <h4>Example:</h4>
+            <p>If I had finished developing the software, I could apply for the grant now. (The past condition of not finishing the software has a present result of not being able to apply for the grant.)</p>
+            
+            <h4>Past and Present Example 2:</h4>
+            <p>The soldiers would take any measure today if they had been informed of the enemies' new plan of attack. (The past condition of not being informed has a present result of not taking measures.)</p>
+        </div>
+        
+        <div class="card rules">
+            <h4>Past and Future ➡️</h4>
+            <p>This combination describes a past condition and its future result. It is used to express a hypothetical situation in the past that would have a direct consequence in the future.</p>
+            
+            <h4>Structure:</h4>
+            <p>If + Past Perfect, + Future Conditional (would + base form).</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>Had I gotten a visa yesterday, I would be attending the international conference in Addis Ababa next week. (The past condition of not getting the visa prevents the future action of attending the conference.)</li>
+                <li>If Zemzem Bank had completed all the necessary procedures, it could open a branch in Awaday in the coming two months.</li>
+            </ul>
+            
+            <h4>Present and Past ⏪</h4>
+            <p>This combination is used to describe a present condition and its past result. It explains how a current, ongoing situation would have affected a past event.</p>
+            
+            <h4>Structure:</h4>
+            <p>If + Simple Past, + Past Conditional (would have + past participle).</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li>If I installed an antivirus, my laptop couldn't have been slow yesterday. (The present lack of antivirus explains why the laptop was slow in the past.)</li>
+                <li>If you were an industrious student, you would have graduated from Haramaya University in 2017.</li>
+            </ul>
+        </div>
+        
+        <h2><span class="emoji">🤝</span>Modal Verbs in Conditional Clauses</h2>
+        
+        <div class="card rules">
+            <p>While typically not used in if clauses, modal verbs like <span class="highlight">will</span> or <span class="highlight">would</span> can appear to express willingness, politeness, or prediction.</p>
+            
+            <h4>Examples:</h4>
+            <ul>
+                <li><strong>Willingness/Politeness:</strong> If you'll wait a minute, I'll fetch the porter.</li>
+                <li><strong>Politeness:</strong> If you would all follow me, I'll show you to your rooms.</li>
+                <li><strong>Prediction:</strong> I'll take care of the tea, if it'll help to get things done quicker.</li>
+            </ul>
+            
+            <p><span class="highlight">Should</span> can be used in a conditional clause to mean "happen to" or "chance to," suggesting a remote possibility.</p>
+            
+            <h4>Example:</h4>
+            <p>Should you happen to find my keys, please let me know.</p>
+        </div>
+    </div>
+</body>
+</html>`
       },
       { 
         id: 'Chapter4', 
         title: 'Chapeter 4: Colloctations', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Collocations</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+            color: #3498db;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.3rem;
+        }
+        
+        .example {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #ddd;
+        }
+        
+        .example strong {
+            display: block;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        /* Different color cards */
+        .card:nth-child(10n+1) h3 { background: #3498db; }
+        .card:nth-child(10n+2) h3 { background: #2ecc71; }
+        .card:nth-child(10n+3) h3 { background: #e74c3c; }
+        .card:nth-child(10n+4) h3 { background: #9b59b6; }
+        .card:nth-child(10n+5) h3 { background: #f39c12; }
+        .card:nth-child(10n+6) h3 { background: #1abc9c; }
+        .card:nth-child(10n+7) h3 { background: #d35400; }
+        .card:nth-child(10n+8) h3 { background: #34495e; }
+        .card:nth-child(10n+9) h3 { background: #27ae60; }
+        .card:nth-child(10n+10) h3 { background: #8e44ad; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Collocations</h1>
+    
+    <p>Collocations are natural word pairings that sound "right" to native English speakers. They are not governed by strict grammatical rules, but rather by common usage. Studying collocations is key to sounding more natural and fluent. Here are three examples for each of the ten types of collocations you provided.</p>
+    
+    <h2>Types of Collocations</h2>
+    
+    <div class="card-container">
+        <!-- Adverb + Adjective -->
+        <div class="card">
+            <h3>Adverb + Adjective</h3>
+            <div class="example">
+                <strong>Fully aware</strong>
+                I'm fully aware of the risks involved.
+            </div>
+            <div class="example">
+                <strong>Happily married</strong>
+                They've been happily married for over 20 years.
+            </div>
+            <div class="example">
+                <strong>Highly controversial</strong>
+                The new policy is highly controversial among the public.
+            </div>
+        </div>
+        
+        <!-- Adverb + Adverb -->
+        <div class="card">
+            <h3>Adverb + Adverb</h3>
+            <div class="example">
+                <strong>Only just</strong>
+                We only just made it to the train on time.
+            </div>
+            <div class="example">
+                <strong>Pretty well</strong>
+                She speaks French pretty well for a beginner.
+            </div>
+            <div class="example">
+                <strong>Right away</strong>
+                I'll get to work on that right away.
+            </div>
+        </div>
+        
+        <!-- Adverb + Verb -->
+        <div class="card">
+            <h3>Adverb + Verb</h3>
+            <div class="example">
+                <strong>Badly damage</strong>
+                The storm badly damaged the roof of the house.
+            </div>
+            <div class="example">
+                <strong>Deeply rooted</strong>
+                His beliefs are deeply rooted in his family's traditions.
+            </div>
+            <div class="example">
+                <strong>Quite agree</strong>
+                I quite agree with your assessment of the situation.
+            </div>
+        </div>
+        
+        <!-- Adjective + Noun -->
+        <div class="card">
+            <h3>Adjective + Noun</h3>
+            <div class="example">
+                <strong>Internal injury</strong>
+                He suffered a severe internal injury in the accident.
+            </div>
+            <div class="example">
+                <strong>Joint account</strong>
+                They opened a joint account to manage their finances.
+            </div>
+            <div class="example">
+                <strong>Key issue</strong>
+                The economy is a key issue in the upcoming election.
+            </div>
+        </div>
+        
+        <!-- Adjective + Preposition -->
+        <div class="card">
+            <h3>Adjective + Preposition</h3>
+            <div class="example">
+                <strong>Comfortable with</strong>
+                I'm not comfortable with that decision.
+            </div>
+            <div class="example">
+                <strong>Furious about</strong>
+                She was furious about the cancellation of the concert.
+            </div>
+            <div class="example">
+                <strong>Nervous of</strong>
+                Many people are nervous of public speaking.
+            </div>
+        </div>
+        
+        <!-- Noun + Noun -->
+        <div class="card">
+            <h3>Noun + Noun</h3>
+            <div class="example">
+                <strong>Corporate finance</strong>
+                He got a new job in corporate finance.
+            </div>
+            <div class="example">
+                <strong>Credit union</strong>
+                You can get a loan from a credit union.
+            </div>
+            <div class="example">
+                <strong>Cottage industry</strong>
+                The sale of handmade crafts is a growing cottage industry.
+            </div>
+        </div>
+        
+        <!-- Verb + Noun -->
+        <div class="card">
+            <h3>Verb + Noun</h3>
+            <div class="example">
+                <strong>Go on a picnic</strong>
+                Let's go on a picnic this weekend.
+            </div>
+            <div class="example">
+                <strong>Have a fight</strong>
+                They had a fight over who would do the dishes.
+            </div>
+            <div class="example">
+                <strong>Keep records</strong>
+                It's important to keep records of all your expenses.
+            </div>
+        </div>
+        
+        <!-- Verb + Preposition -->
+        <div class="card">
+            <h3>Verb + Preposition</h3>
+            <div class="example">
+                <strong>Apologize for</strong>
+                He apologized for his rude behavior.
+            </div>
+            <div class="example">
+                <strong>Ask for</strong>
+                Don't be afraid to ask for help if you need it.
+            </div>
+            <div class="example">
+                <strong>Object to</strong>
+                I object to the way you're speaking to me.
+            </div>
+        </div>
+        
+        <!-- Verb + Adverb -->
+        <div class="card">
+            <h3>Verb + Adverb</h3>
+            <div class="example">
+                <strong>Go far</strong>
+                I think this new technology will go far.
+            </div>
+            <div class="example">
+                <strong>Hit hard</strong>
+                The recession hit the industry hard.
+            </div>
+            <div class="example">
+                <strong>Know well</strong>
+                I know him well; he would never do that.
+            </div>
+        </div>
+        
+        <!-- Noun + Preposition -->
+        <div class="card">
+            <h3>Noun + Preposition</h3>
+            <div class="example">
+                <strong>Debate on</strong>
+                There was a long debate on the new policy.
+            </div>
+            <div class="example">
+                <strong>Difficulty with</strong>
+                She's having difficulty with her math homework.
+            </div>
+            <div class="example">
+                <strong>Information on</strong>
+                I need some information on flight schedules.
+            </div>
+        </div>
+    </div>
+</body>
+</html>`
       },
       { 
         id: 'Chapter5', 
