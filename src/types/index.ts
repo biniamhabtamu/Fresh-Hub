@@ -12,6 +12,9 @@ export interface User {
   screenshotUrl?: string;
   submittedAt?: Date;
   createdAt: Date;
+<<<<<<< HEAD
+  referralCode?: string;
+=======
   averageScore: number;
   totalQuizzes: number;
   rank: number;
@@ -19,6 +22,7 @@ export interface User {
   avatar?: string;
   recentPoints?: number;
   lastActive?: string;
+>>>>>>> 490af8e26f7a13dd690ebe49237ea64e3787849d
 }
 
 // ... rest of your existing types

@@ -12,7 +12,7 @@ import BottomBar from '../Layout/BottomBar';
 
 interface YearResult {
   year: number;
-  averageScore: number;
+  averageScore: number; 
 }
 
 export default function YearSelection() {

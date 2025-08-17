@@ -3089,6 +3089,7 @@ export const noteCollections: Subject[] = [
   "id": "Chapter2",
   "title": "Chapter 2: Basic Concepts of Logic",
   "content": `
+<<<<<<< HEAD
    
                <!DOCTYPE html>
 <html lang="en">
@@ -3816,602 +3817,422 @@ export const noteCollections: Subject[] = [
     </div>
 </body>
 </html> `
+=======
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 100%; padding: 15px; color: #2c3e50; box-sizing: border-box;">
+      <!-- Header -->
+      <div style="background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
+        <h1 style="margin: 0; font-size: 1.8rem;">🔍 Chapter 2: Basic Concepts of Logic</h1>
+        <p style="font-size: 1rem; opacity: 0.9; margin: 10px 0 0;">Organized body of knowledge for evaluating arguments</p>
+      </div>
+
+      <!-- Chapter Overview -->
+      <div style="background: #f0f4ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4a69bd;">
+        <h2 style="color: #1e3799; margin-top: 0;">📚 Chapter Overview</h2>
+        <ul style="padding-left: 20px;">
+          <li><strong>Definition:</strong> Logic is the organized body of knowledge that evaluates arguments. It aims to develop methods and principles for evaluating and constructing arguments.</li>
+          <li><strong>Argument:</strong> A systematic combination of statements, including premises (supporting evidence) and a conclusion (what is claimed to follow from the evidence).</li>
+          <li><strong>Types of Arguments:</strong>
+            <ul>
+              <li>Deductive Arguments: Premises support the conclusion such that it is impossible for the premises to be true and the conclusion false.</li>
+              <li>Inductive Arguments: Premises support the conclusion such that it is improbable for the premises to be true and the conclusion false.</li>
+            </ul>
+          </li>
+          <li><strong>Evaluation:</strong>
+            <ul>
+              <li>Deductive Arguments: Valid (if premises support conclusion properly) or Invalid</li>
+              <li>Inductive Arguments: Strong (if premises support conclusion properly) or Weak</li>
+              <li>Additional Evaluation:
+                <ul>
+                  <li>Deductive Arguments: Sound (valid and all premises true) or Unsound</li>
+                  <li>Inductive Arguments: Cogent (strong and all premises probably true) or Uncogent</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Objectives:</strong> Understand basic concepts of logic, components and types of arguments, and techniques for recognizing and evaluating arguments.</li>
+        </ul>
+      </div>
+
+      <!-- Lesson 1: Basic Concepts -->
+      <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
+        <h2 style="color: #0d47a1; margin-top: 0;">🧩 Lesson 1: Arguments, Premises, and Conclusions</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Definition</h3>
+          <p>Logic is a philosophical science that evaluates arguments.</p>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Components of an Argument</h3>
+          <ul>
+            <li><strong>Premises:</strong> Statements claimed to provide support or evidence</li>
+            <li><strong>Conclusion:</strong> The statement claimed to follow logically from the premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Objectives</h3>
+          <ul>
+            <li>Understand the meaning of logic and arguments</li>
+            <li>Identify components of an argument (premises and conclusion)</li>
+            <li>Recognize techniques for identifying premises and conclusions</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #1565c0;">Meaning of Logic</h3>
+          <ul>
+            <li>Origin: Greek word "logos" (sentence, discourse, reason, truth, rule)</li>
+            <li>Logic evaluates arguments using a structured approach</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #1565c0;">Definitions and Benefits of Logic</h3>
+          <p><strong>Definitions:</strong></p>
+          <ol>
+            <li>Science of Evaluating Arguments: Focuses on methods for assessing if premises adequately support conclusions</li>
+            <li>Study of Methods: Studies methods for evaluating whether premises provide good evidence for conclusions</li>
+            <li>Development of Methods and Principles: Helps develop methods for evaluating others' arguments and constructing one's own</li>
+            <li>Codification of Rational Thought: Aims to codify rules of rational thought, exploring structures of arguments that preserve truth</li>
+            <li>Philosophical Tool: Primary tool for philosophers, aiding in analysis of philosophical problems</li>
+          </ol>
+          
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Construct and Evaluate Arguments</li>
+            <li>Defense Against Prejudice</li>
+            <li>Distinguish Good from Bad Arguments</li>
+            <li>Identify Logical Errors</li>
+            <li>Analyze Policies</li>
+            <li>Refinement of Reasoning Skills</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 2: Recognizing Arguments -->
+      <div style="background: #ffebee; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #f44336;">
+        <h2 style="color: #b71c1c; margin-top: 0;">🔎 Lesson 2: Techniques of Recognizing Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Definition of an Argument</h3>
+          <p>An argument consists of statements (premises) that support another statement (conclusion). Not all passages with multiple statements are argumentative; some are non-argumentative. Arguments aim to prove something.</p>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Lesson Objectives</h3>
+          <ul>
+            <li>Recognize argumentative passages</li>
+            <li>Recognize non-argumentative passages</li>
+            <li>Distinguish between argumentative and non-argumentative passages</li>
+            <li>Understand inferential claims and factual claims</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #d32f2f;">Recognizing Argumentative Passages</h3>
+          <ul>
+            <li>Primary Goal: To prove something</li>
+            <li>Two Conditions:
+              <ol>
+                <li>At least one statement must present evidence or reasons (premise)</li>
+                <li>There must be a claim that the evidence supports something (conclusion)</li>
+              </ol>
+            </li>
+            <li>Factual Claims vs. Inferential Claims:
+              <ul>
+                <li>Factual Claims: Concern whether premises actually provide evidence</li>
+                <li>Inferential Claims: Concern whether premises support a conclusion</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #d32f2f;">Challenges and Cautions</h3>
+          <p><strong>Indicator Words:</strong></p>
+          <ul>
+            <li>Can be misleading when used in non-argumentative contexts</li>
+            <li>Example: "Since Edison invented..." (temporal vs. logical use)</li>
+          </ul>
+          
+          <p><strong>Detecting Inferential Relationships:</strong></p>
+          <ul>
+            <li>Sometimes tricky to identify true support relationships</li>
+            <li>Tip: Insert indicator words to test logical connections</li>
+          </ul>
+          
+          <p><strong>Conditional Answers:</strong></p>
+          <ul>
+            <li>Some passages can be interpreted multiple ways</li>
+            <li>Example: "If interpreted this way, it's an argument; another way, not"</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 3: Types of Arguments -->
+      <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
+        <h2 style="color: #2e7d32; margin-top: 0;">⚖️ Lesson 3: Types of Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Overview</h3>
+          <ul>
+            <li>Arguments involve an inferential claim that the conclusion follows from the premises</li>
+            <li><strong>Deductive Arguments:</strong> Claim conclusion follows with strict certainty</li>
+            <li><strong>Inductive Arguments:</strong> Claim conclusion follows probably from premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Differentiation</h3>
+          <ul>
+            <li>Deductive: Conclusion follows necessarily from premises</li>
+            <li>Inductive: Conclusion follows with some probability</li>
+            <li>Evaluate how strongly the conclusion is claimed to follow</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #388e3c;">Factors Influencing Classification</h3>
+          <ol>
+            <li><strong>Certainty vs. Probability:</strong>
+              <ul>
+                <li>Deductive: Aim for certainty</li>
+                <li>Inductive: Aim for probability</li>
+              </ul>
+            </li>
+            <li><strong>Strength of Inferential Claim:</strong>
+              <ul>
+                <li>Deductive: Logical necessity</li>
+                <li>Inductive: Likelihood</li>
+              </ul>
+            </li>
+            <li><strong>Objective Features:</strong>
+              <ul>
+                <li>Evaluate support strength</li>
+                <li>Assess necessity vs probability</li>
+              </ul>
+            </li>
+            <li><strong>Indicator Words:</strong>
+              <ul>
+                <li>Deductive: "certainly," "necessarily"</li>
+                <li>Inductive: "probable," "likely"</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #388e3c;">Argument Forms</h3>
+          <p><strong>Deductive Forms:</strong></p>
+          <ul>
+            <li>Mathematical Arguments</li>
+            <li>Arguments from Definition</li>
+            <li>Syllogisms (categorical, hypothetical, disjunctive)</li>
+          </ul>
+          
+          <p><strong>Inductive Forms:</strong></p>
+          <ul>
+            <li>Prediction</li>
+            <li>Argument from Analogy</li>
+            <li>Inductive Generalization</li>
+            <li>Argument from Authority</li>
+            <li>Arguments Based on Signs</li>
+            <li>Causal Inference</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lesson 4: Evaluating Arguments -->
+      <div style="background: #f3e5f5; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
+        <h2 style="color: #7b1fa2; margin-top: 0;">📊 Lesson 4: Evaluating Arguments</h2>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #8e24aa;">Lesson Overview</h3>
+          <ul>
+            <li>Every argument has two claims:
+              <ol>
+                <li>Factual Claim: Evidence exists</li>
+                <li>Inferential Claim: Evidence supports conclusion</li>
+              </ol>
+            </li>
+            <li>Evaluation Focus: Inferential claim is more crucial</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+          <h3 style="color: #8e24aa;">Evaluating Deductive Arguments</h3>
+          <p><strong>Validity:</strong></p>
+          <ul>
+            <li>Valid if conclusion necessarily follows from premises</li>
+            <li>Invalid if conclusion doesn't necessarily follow</li>
+            <li>Examples:
+              <ul>
+                <li>Valid: "All men are mammals. All bulls are men. ∴ All bulls are mammals"</li>
+                <li>Invalid: "All philosophers are rational. Socrates was rational. ∴ Socrates was a philosopher"</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Validity vs Truth:</strong></p>
+          <ul>
+            <li>Validity concerns argument structure</li>
+            <li>Truth Value Possibilities:
+              <ol>
+                <li>True Premises + True Conclusion: Can be valid or invalid</li>
+                <li>True Premises + False Conclusion: Only invalid</li>
+                <li>False Premises + True Conclusion: Can be valid or invalid</li>
+                <li>False Premises + False Conclusion: Can be valid or invalid</li>
+              </ol>
+            </li>
+          </ul>
+          
+          <p><strong>Soundness:</strong></p>
+          <ul>
+            <li>Sound = Valid + All premises true</li>
+            <li>Unsound if invalid or has false premises</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+          <h3 style="color: #8e24aa;">Evaluating Inductive Arguments</h3>
+          <p><strong>Strength:</strong></p>
+          <ul>
+            <li>Strong if premises make conclusion probable</li>
+            <li>Weak if conclusion doesn't likely follow</li>
+            <li>Examples:
+              <ul>
+                <li>Strong: "100 apples, 80 tasty ∴ All probably tasty"</li>
+                <li>Weak: "100 apples, 3 tasty ∴ All probably tasty"</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Key Differences from Deductive:</strong></p>
+          <ul>
+            <li>Degrees of strength (not absolute)</li>
+            <li>Strength can change with additional premises</li>
+            <li>Truth Value Relationships:
+              <ul>
+                <li>True Premises + True Conclusion: Can be strong or weak</li>
+                <li>True Premises + False Conclusion: Weak</li>
+                <li>False Premises + True Conclusion: Can be strong or weak</li>
+                <li>False Premises + False Conclusion: Can be strong or weak</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Cogency:</strong></p>
+          <ul>
+            <li>Cogent = Strong + Premises probably true</li>
+            <li>Uncogent if weak or premises probably false</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div style="background: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%); padding: 20px; border-radius: 12px; text-align: center;">
+        <h2 style="color: #c2185b; margin-top: 0;">💎 Key Takeaways</h2>
+        <div style="background: rgba(255,255,255,0.85); padding: 15px; border-radius: 8px;">
+          <p style="font-style: italic; color: #bf360c;">
+            "Logic provides the systematic tools to distinguish sound reasoning from flawed arguments, 
+            enabling critical analysis of ideas through proper evaluation of premises and conclusions."
+          </p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px;">
+            <span style="background: #6a11cb; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Premise Identification</span>
+            <span style="background: #ff6b6b; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Argument Evaluation</span>
+            <span style="background: #00cdac; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">Logical Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+>>>>>>> f42916462f43d42a026e89bb5a74bd85e95bbee4
 },
     {
   "id": "Chapter3",
   "title": "Chapter 3: Logic and Language",
   "content": `
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; color: #2c3e50; padding: 15px;">
+      <!-- Chapter Header -->
+      <div style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: clamp(1.8em, 5vw, 2.2em);">🔤 Logic and Language</h1>
+        <p style="font-size: clamp(1em, 3vw, 1.2em); opacity: 0.9;">The Intersection of Clear Thinking and Precise Expression</p>
+      </div>
 
-        .note-container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            margin: 20px;
-            overflow-y: auto;
-        }
-
-        h1, h2, h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.5em;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        ul, ol {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f9f9f9;
-            font-weight: bold;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .note-container {
-                width: 100%;
-                padding: 20px;
-                margin: 0;
-                border-radius: 0;
-            }
-
-            h2 {
-                font-size: 1.6em;
-            }
-
-            p, li {
-                font-size: 1em;
-            }
-
-            table {
-                font-size: 0.9em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="note-container">
-        <h2>An Overview of the Philosophy of Language 🤔</h2>
-        <p>The Philosophy of Language is a field of study that explores the fundamental nature of language. It's not just about grammar and vocabulary; it's a deep dive into questions about how language works, where it comes from, and its relationship with our thoughts and the world around us. This field is crucial for understanding how we communicate and how meaning is created.</p>
-
-        <h2>የቋንቋ ፍልስፍና አጠቃላይ እይታ 🤔</h2>
-        <p>የቋንቋ ፍልስፍና የቋንቋን መሰረታዊ ባህሪ የሚያጠና የትምህርት መስክ ነው። ስለ ሰዋስው እና የቃላት አገባብ ብቻ አይደለም፤ ይልቁንም ቋንቋ እንዴት እንደሚሰራ፣ ከየት እንደመጣ፣ እና ከአስተሳሰባችን እና በዙሪያችን ካለው ዓለም ጋር ያለውን ግንኙነት በጥልቀት ይመረምራል። ይህ ዘርፍ እንዴት እንደምንግባባ እና ትርጉም እንዴት እንደሚፈጠር ለመረዳት ወሳኝ ነው።</p>
-
-        <hr>
-
-        <h2>What is the Philosophy of Language? 🧐</h2>
-        <p>The Philosophy of Language is a reasoned inquiry into some of the most profound questions about communication. It seeks to understand the very essence of language itself.</p>
-        <ul>
-            <li>Core Questions: It tackles questions like: "What is meaning?" "How does language refer to objects and ideas in the real world?" "Is the ability to learn language something we are born with, or is it purely learned?" and "How do the meanings of individual words combine to create the meaning of a whole sentence?"</li>
-        </ul>
-        <p>- A Distinct Field: It's important to distinguish the Philosophy of Language from Linguistics. While linguists, like Noam Chomsky, focus on the structure of specific languages (like what makes "English" English), philosophers of language are concerned with the universal principles that govern all language. Chomsky himself proposed the idea of a "universal grammar," an innate set of linguistic principles shared by all humans.</p>
-        <p>- Semantic Holism: A major philosophical idea in this field is Semantic Holism, which suggests that the meaning of a single word or sentence cannot be understood in isolation. Instead, its meaning can only be fully grasped in the context of the entire language it belongs to.</p>
-
-        <h2>የቋንቋ ፍልስፍና ምንድን ነው? 🧐</h2>
-        <p>የቋንቋ ፍልስፍና ስለ መግባባት አንዳንድ መሰረታዊ ጥያቄዎችን በምክንያታዊነት የሚመረምር የጥናት መስክ ነው። የቋንቋን ምንነት ለመረዳት ይጥራል።</p>
-        <ul>
-            <li>ዋና ጥያቄዎች: "ትርጉም ምንድን ነው?" "ቋንቋ በእውነተኛው ዓለም ውስጥ ያሉ ነገሮችን እና ሀሳቦችን እንዴት ያመለክታል?" "ቋንቋን የመማር ችሎታ የተወለድንበት ነው ወይስ በሂደት የምንማረው?" እና "የአንድ ዓረፍተ ነገር ትርጉም ከየክፍሎቹ ትርጉም እንዴት ይመነጫል?" የሚሉ ጥያቄዎችን ይመልሳል።</li>
-        </ul>
-        <p>- ልዩ የጥናት ዘርፍ: የቋንቋ ፍልስፍና ከቋንቋ ጥናት (Linguistics) ጋር መምታታት የለበትም። የቋንቋ ሊቃውንት (Linguists) እንደ ኖአም ቾምስኪ ያሉ፣ የአንድን የተለየ ቋንቋ አወቃቀር (ለምሳሌ "እንግሊዝኛ"ን እንግሊዝኛ የሚያደርገው ምንድን ነው) ላይ ሲያተኩሩ፣ የቋንቋ ፍልስፍና ሊቃውንት ግን ሁሉንም ቋንቋዎች የሚመሩ ሁለንተናዊ መርሆችን ይመለከታሉ። ቾምስኪ "ሁለንተናዊ ሰዋስው" (universal grammar) የሚለውን ሀሳብ አቅርቧል፤ ይህም በሁሉም ሰዎች የሚጋራ የትምህርት ያልሆነ የቋንቋ መርሆዎች ስብስብ ነው።</p>
-        <p>- ሴማንቲክ ሆሊዝም (Semantic Holism): በዚህ ዘርፍ ካሉት ዋና ዋና የፍልስፍና ሀሳቦች አንዱ ሴማንቲክ ሆሊዝም ነው። ይህ ሀሳብ የአንድ ቃል ወይም ዓረፍተ ነገር ትርጉም ብቻውን ሊገባ እንደማይችል ይገልጻል። ይልቁንም፣ ትርጉሙ ሊያዝ የሚችለው የእሱ አካል በሆነው አጠቃላይ ቋንቋ አውድ ውስጥ ብቻ ነው።</p>
-
-        <hr>
-
-        <h2>A Brief History of the Philosophy of Language 📜</h2>
-        <p>The philosophical debate about language is as old as philosophy itself.</p>
-        <ul>
-            <li>Ancient Greece:</li>
-            <ul>
-                <li>Plato believed that the names of things were naturally determined, with sounds representing basic ideas.</li>
-                <li>Aristotle thought meaning came from abstracting similarities between things, a view later known as Nominalism. He also supported moderate Realism, believing these similarities were based on a real common form.</li>
-                <li>The Stoics made important contributions to grammar and introduced the idea of a "lektón," which is the meaning of a term or the proposition of a sentence that can be true or false.</li>
+      <!-- Chapter Overview -->
+      <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #2196f3; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);">
+        <h2 style="color: #0d47a1; margin-top: 0; border-bottom: 2px dashed #42a5f5; padding-bottom: 8px;">Chapter Overview</h2>
+        <p>This chapter explores the critical relationship between logic and language, emphasizing how effective argumentation depends on clear and precise language. We'll examine how to clarify and analyze terms, understand meaning, and use definitions effectively in logical reasoning.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #7e57c2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #5e35b1; margin-top: 0;">🎯 Objectives</h3>
+            <ul style="padding-left: 20px;">
+              <li>Recognize the logic-language relationship</li>
+              <li>Identify crucial language components</li>
+              <li>Understand word meanings and definitions</li>
+              <li>Use definitions to evaluate arguments</li>
             </ul>
-            <li>Medieval Era: The Scholastics were deeply interested in language, partly due to the challenge of translating Greek texts into Latin. They saw Logic as a "science of language" and explored issues like vagueness, ambiguity, and how words are interpreted in different contexts.</li>
-            <li>Modern Philosophy: In the late 19th and 20th centuries, the study of language became central to Western philosophy, particularly in Analytic Philosophy. For these philosophers, many traditional philosophical problems were seen as problems of language itself.</li>
-        </ul>
-
-        <h2>የቋንቋ ፍልስፍና አጭር ታሪክ 📜</h2>
-        <p>ስለ ቋንቋ የሚደረገው የፍልስፍና ክርክር ከፍልስፍና እራሱ ጋር በተመሳሳይ ዘመን የተጀመረ ነው።</p>
-        <ul>
-            <li>የጥንቷ ግሪክ:</li>
-            <ul>
-                <li>ፕላቶ የነገሮች ስሞች በተፈጥሮ እንደተወሰኑ እና ድምፆች መሰረታዊ ሀሳቦችን እንደሚወክሉ ያምን ነበር።</li>
-                <li>አርስቶትል ትርጉም የሚመጣው በተለያዩ ነገሮች መካከል ካለው ተመሳሳይነት ማጠቃለያ እንደሆነ ያምን ነበር፤ ይህ ሀሳብ በኋላ ስመኝነት (Nominalism) በመባል ይታወቃል።</li>
-                <li>ስቶይክ ፍልስፍና ሊቃውንት ለሰዋስው ትንተና ትልቅ አስተዋጽኦ አበርክተዋል እና "ሌክቶን" (lektón) የሚለውን ጽንሰ-ሀሳብ አውጥተዋል፤ ይህም የአንድ ቃል ትርጉም ወይም እውነት ወይም ሐሰት ሊሆን የሚችል የአረፍተ ነገር ሀሳብ ነው።</li>
+          </div>
+          
+          <div style="background: white; padding: 15px; border-radius: 10px; border-top: 4px solid #4caf50; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #2e7d32; margin-top: 0;">🔑 Key Concepts</h3>
+            <ul style="padding-left: 20px;">
+              <li>Philosophy of language</li>
+              <li>Meaning (cognitive vs emotive)</li>
+              <li>Intension vs extension</li>
+              <li>Definition techniques</li>
             </ul>
-            <li>የመካከለኛው ዘመን: የሹላስቲክ ሊቃውንት የጥንታዊ ግሪክ ጽሑፎችን ወደ ላቲን የመተርጎም አስፈላጊነት የተነሳ በቋንቋ ላይ ከፍተኛ ፍላጎት ነበራቸው። አመክንዮን "የቋንቋ ሳይንስ" አድርገው በመቁጠር እንደ የቃላት ግልጽነት ማጣት እና አሻሚነት የመሳሰሉ ጉዳዮችን መርምረዋል።</li>
-            <li>ዘመናዊ ፍልስፍና: በ19ኛው እና 20ኛው መቶ ክፍለ ዘመን መጨረሻ ላይ፣ የቋንቋ ጥናት በምዕራባውያን ፍልስፍና፣ በተለይም በትንተና ፍልስፍና (Analytic Philosophy) ውስጥ ማዕከላዊ ሚና መጫወት ጀመረ። ለእነዚህ ፈላስፎች፣ ብዙ የፍልስፍና ችግሮች የቋንቋ ችግሮች እንደሆኑ ይታዩ ነበር።</li>
-        </ul>
+          </div>
+        </div>
+      </div>
 
-        <hr>
-
-        <h2>Philosophical Approaches to the Nature of Meaning 🤔</h2>
-        <p>The question "what is meaning?" is a central issue in the Philosophy of Language. Meaning can be divided into two types:</p>
-        <ol>
-            <li>Conceptual Meaning: The dictionary definition of words.</li>
-            <li>Associative Meaning: The individual, mental understanding of a word, which can vary from person to person.</li>
-        </ol>
-        <p>Several philosophical theories have been developed to explain the nature of meaning:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Approach</th>
-                    <th>Main Idea</th>
-                    <th>Key Proponents</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Idea Theories</td>
-                    <td>Meanings are purely mental concepts or ideas in our minds.</td>
-                    <td>John Locke, George Berkeley</td>
-                </tr>
-                <tr>
-                    <td>Truth-Conditional Theories</td>
-                    <td>The meaning of a sentence is the conditions under which it would be true or false.</td>
-                    <td>Gottlob Frege</td>
-                </tr>
-                <tr>
-                    <td>Use Theories</td>
-                    <td>Meaning is not in the expressions themselves, but in how they are used in speech acts.</td>
-                    <td>Ludwig Wittgenstein</td>
-                </tr>
-                <tr>
-                    <td>Reference Theories</td>
-                    <td>The meaning of a sign is the actual object or thing in the world that it refers to.</td>
-                    <td>Saul Kripke, Tyler Burge</td>
-                </tr>
-                <tr>
-                    <td>Verificationist Theories</td>
-                    <td>The meaning of a sentence is determined by how it can be verified or falsified.</td>
-                    <td>Logical Positivists</td>
-                </tr>
-                <tr>
-                    <td>Pragmatist Theories</td>
-                    <td>The meaning of a sentence is determined by the consequences of its application.</td>
-                    <td>Charles Sanders Peirce</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-
-        <h2>ስለ ትርጉም ምንነት የፍልስፍና አቀራረቦች 🤔</h2>
-        <p>"ትርጉም ምንድን ነው?" የሚለው ጥያቄ በቋንቋ ፍልስፍና ውስጥ ማዕከላዊ ጉዳይ ነው። ትርጉም በሁለት ዋና ዋና ዓይነቶች ሊከፈል ይችላል:</p>
-        <ol>
-            <li>ጽንሰ-ሐሳባዊ ትርጉም (Conceptual Meaning): የቃላት መዝገበ ቃላት ፍቺ።</li>
-            <li>ተያያዥ ትርጉም (Associative Meaning): የአንድን ቃል የግል፣ አእምሮአዊ ግንዛቤ ሲሆን ከአንዱ ሰው ወደ ሌላው ሊለያይ ይችላል።</li>
-        </ol>
-        <p>የትርጉምን ምንነት ለማስረዳት በርካታ የፍልስፍና ንድፈ ሐሳቦች ተፈጥረዋል:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>አቀራረብ</th>
-                    <th>ዋና ሀሳብ</th>
-                    <th>ቁልፍ ደጋፊዎች</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>የሀሳብ ንድፈ ሐሳቦች</td>
-                    <td>ትርጉሞች በአእምሯችን ውስጥ ያሉ አእምሮአዊ ጽንሰ-ሀሳቦች ብቻ ናቸው።</td>
-                    <td>ጆን ሎክ፣ ጆርጅ በርክሌይ</td>
-                </tr>
-                <tr>
-                    <td>እውነት-ሁኔታዊ ንድፈ ሐሳቦች</td>
-                    <td>የአንድ ዓረፍተ ነገር ትርጉም እውነት ወይም ሐሰት ሊሆን የሚችልባቸው ሁኔታዎች ናቸው።</td>
-                    <td>ጎትሎብ ፍሬጌ</td>
-                </tr>
-                <tr>
-                    <td>የአጠቃቀም ንድፈ ሐሳቦች</td>
-                    <td>ትርጉም በአገላለጾቹ ውስጥ ሳይሆን፣ በንግግር ውስጥ እንዴት እንደሚገለገሉበት ነው።</td>
-                    <td>ሉድቪግ ዊትገንስታይን</td>
-                </tr>
-                <tr>
-                    <td>የማጣቀሻ ንድፈ ሐሳቦች</td>
-                    <td>የአንድ ምልክት ትርጉም በእውነተኛው ዓለም ውስጥ የሚያመለክተው ነገር ነው።</td>
-                    <td>ሳውል ክሪፕኬ፣ ታይለር በርጅ</td>
-                </tr>
-                <tr>
-                    <td>ማረጋገጫ-ሰጪ ንድፈ ሐሳቦች</td>
-                    <td>የአንድ ዓረፍተ ነገር ትርጉም የሚወሰነው ሊረጋገጥ ወይም ሊረጋገጥ በማይችልበት ዘዴ ነው።</td>
-                    <td>ሎጂካል ፖዚቲቪስቶች</td>
-                </tr>
-                <tr>
-                    <td>ፕራግማቲስት ንድፈ ሐሳቦች</td>
-                    <td>የአንድ ዓረፍተ ነገር ትርጉም የሚወሰነው በአተገባበሩ በሚመጡት ውጤቶች ነው።</td>
-                    <td>ቻርለስ ሳንደርስ ፐርስ</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Export to Sheets</p>
-
-        <hr>
-
-        <h2>The Functions of Language: Cognitive and Emotive Meanings 🤔</h2>
-        <p>Language serves many purposes in our daily lives, from telling jokes to giving directions. For the study of logic, however, two functions are particularly important: conveying information and expressing or evoking feelings.</p>
-        <ul>
-            <li>Cognitive Meaning: This is the part of language that conveys information. It's objective and can be proven true or false. Logic is primarily concerned with cognitive meaning.</li>
+      <!-- Lesson 1 -->
+      <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #9c27b0; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="background: #9c27b0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="font-size: 24px; color: white;">1</span>
+          </div>
+          <h2 style="color: #7b1fa2; margin: 0;">Philosophy of Language</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">🔍 What is Philosophy of Language?</h3>
+            <p>Examines fundamental questions about language: its nature, meaning, and relationship to reality. Asks questions like:</p>
             <ul>
-                <li>Example: "Death penalty, which is legal in thirty-six states, has been carried out most often in Georgia; however, since 1977 Texas holds the record for the greatest number of executions." This statement's purpose is to inform. The words used have a neutral, informative meaning.</li>
+              <li>"What is meaning?"</li>
+              <li>"How does language refer to reality?"</li>
+              <li>"How do words convey concepts?"</li>
             </ul>
-            <li>Emotive Meaning: This is the part of language that expresses or evokes feelings and emotions. It's subjective and often used to sway an audience without providing a logical argument.</li>
-            <ul>
-                <li>Example: "Death penalty is a cruel and inhuman form of punishment in which hapless prisoners are dragged from their cells and summarily slaughtered only to satiate the bloodlust of a vengeful public." The words like "cruel," "inhuman," and "slaughtered" have strong emotional weight.</li>
-            </ul>
-        </ul>
-        <p>Statements often have both cognitive and emotive meaning. Logic requires us to be able to separate the two. A key part of the cognitive meaning in emotive statements is a value claim—a claim that something is good, bad, right, or wrong. People often use emotive language to obscure the fact that they are making a value claim without providing any evidence to support it.</p>
-
-        <h2>የቋንቋ ተግባራት: የእውቀትና የስሜት ትርጉሞች 🤔</h2>
-        <p>ቋንቋ በዕለት ተዕለት ሕይወታችን ውስጥ ብዙ አገልግሎቶችን ይሰጣል፣ ከቀልድ መናገር አንስቶ እስከ አቅጣጫ መጠቆም ድረስ። ለሎጂክ ጥናት ግን ሁለት ተግባራት በተለይ አስፈላጊ ናቸው: መረጃ ማስተላለፍ እና ስሜትን መግለጽ ወይም ማነሳሳት።</p>
-        <ul>
-            <li>የእውቀት ትርጉም (Cognitive Meaning): ይህ መረጃን የሚያስተላልፈው የቋንቋ ክፍል ነው። ተጨባጭ ሲሆን እውነት ወይም ሐሰት መሆኑ ሊረጋገጥ ይችላል። ሎጂክ በዋነኝነት የሚያሳስበው የእውቀት ትርጉምን ነው።</li>
-            <ul>
-                <li>ምሳሌ: "የሞት ቅጣት በሰላሳ ስድስት ክልሎች ሕጋዊ ሲሆን፣ በብዛት የተፈጸመው በጆርጂያ ነው። ነገር ግን፣ ከ1977 ወዲህ ቴክሳስ በብዛት ግድያ በመፈጸም ክብረወሰኑን ይዟል።" የዚህ መግለጫ ዓላማ መረጃ መስጠት ነው። ጥቅም ላይ የዋሉት ቃላት ገለልተኛና መረጃ ሰጪ ትርጉም አላቸው።</li>
-            </ul>
-            <li>የስሜት ትርጉም (Emotive Meaning): ይህ ስሜትን የሚገልጽ ወይም የሚያነሳሳ የቋንቋ ክፍል ነው። ግላዊ ሲሆን ብዙውን ጊዜ ሎጂካዊ ክርክር ሳያቀርቡ ታዳሚዎችን ለመማረክ ያገለግላል።</li>
-            <ul>
-                <li>ምሳሌ: "የሞት ቅጣት አቅመ ቢስ እስረኞች ከክፍላቸው ተጎትተው የሚታረዱበት፣ የደም ጥማት ያለበትን ሕዝብ ለማርካት የሚፈጸም አረመኔያዊ እና ሰብዓዊ ያልሆነ ቅጣት ነው።" እንደ "አረመኔያዊ," "ሰብዓዊ ያልሆነ," እና "ይታረዱ" ያሉ ቃላት ጠንካራ የስሜት ክብደት አላቸው።</li>
-            </ul>
-        </ul>
-        <p>መግለጫዎች ብዙ ጊዜ የእውቀትና የስሜት ትርጉም አላቸው። ሎጂክ ሁለቱን መለየት እንድንችል ይጠይቃል። የስሜት መግለጫዎች ዋና አካል የሆነው የእውቀት ትርጉም የእሴት ክርክር (value claim) ነው—አንድ ነገር ጥሩ፣ መጥፎ፣ ትክክል ወይም ስህተት እንደሆነ የሚገልጽ ክርክር። ሰዎች ብዙ ጊዜ ስሜታዊ ቋንቋን የሚጠቀሙት የእሴት ክርክር እያቀረቡ መሆኑን ለመደበቅ እና ክርክሩን ለመደገፍ ምንም ማስረጃ ሳይሰጡ ነው።</p>
-
-        <hr>
-
-        <h2>Emotive Terminologies in Arguments 🗣️</h2>
-        <p>In arguments, emotive terminology can give the argument a "steamroller" quality. It allows the arguer to make strong value claims without providing evidence, and it can paralyze the listener's ability to think logically.</p>
-        <p>To avoid being swayed by this, you can:</p>
-        <ol>
-            <li>Disengage the Value Claims: Separate the value claim and other cognitive meanings from the emotive language.</li>
-            <li>Re-express them as Premises: Rephrase the argument in neutral language, making all implicit suggestions and value claims explicit. This makes it easier to evaluate whether the premises actually support the conclusion.</li>
-        </ol>
-        <p>Example:</p>
-        <p>An argument might say: "Now that we know the rocks on the moon are similar to those in our backyard and that tadpoles can exist in a weightless environment, can we concentrate on the problems here at home?"</p>
-        <p>This argument uses emotive language to minimize the value of space exploration. Rephrasing it in neutral terms might look like this:</p>
-        <ul>
-            <li>Premise 1: The space program has been confined to work on ordinary rocks and tadpoles.</li>
-            <li>Premise 2: Ordinary rocks and tadpoles are less important than domestic hunger and unemployment.</li>
-            <li>Conclusion: Therefore, our government should redirect funds from the space program to solving domestic problems.</li>
-        </ul>
-        <p>By breaking it down, we can clearly see that Premise 1 is likely false, making the entire argument weaker than it first appeared.</p>
-
-        <h2>በክርክሮች ውስጥ ያሉ ስሜታዊ ቃላት 🗣️</h2>
-        <p>በክርክሮች ውስጥ ስሜታዊ ቃላት ክርክሩን "የእንፋሎት ሮለር" ባህሪ ሊሰጡት ይችላሉ። ተከራካሪው ማስረጃ ሳያቀርብ ጠንካራ የእሴት ክርክሮችን እንዲያቀርብ ያስችለዋል፣ እና የሰሚውን አመክንዮአዊ የማሰብ ችሎታ ሊያደናቅፍ ይችላል።</p>
-        <p>በዚህ እንዳትወሰዱ ለመከላከል፣ የሚከተሉት ማድረግ ትችላላችሁ:</p>
-        <ol>
-            <li>የእሴት ክርክሮችን መለየት: የእሴት ክርክሮችን እና ሌሎች የእውቀት ትርጉሞችን ከስሜታዊ ቋንቋው ለዩ።</li>
-            <li>እንደ መነሻ ሐሳብ ማደራጀት: ክርክሩን ገለልተኛ በሆነ ቋንቋ ደግመው ይጻፉ፣ ሁሉንም ድብቅ ሀሳቦች እና የእሴት ክርክሮችን ግልጽ ያድርጉ። ይህ መነሻ ሐሳቦቹ መደምደሚያውን በእርግጥ እንደሚደግፉ ለመገምገም ቀላል ያደርገዋል።</li>
-        </ol>
-        <p>ምሳሌ:</p>
-        <p>አንድ ክርክር እንዲህ ሊል ይችላል: "የጨረቃ ድንጋዮች በጓሮአችን ካሉት ጋር ተመሳሳይ መሆናቸውን እና የአሳ እንቁላሎች ክብደት በሌለው አካባቢ መኖር እንደሚችሉ ካወቅን በኋላ፣ አሁን ደግሞ በቤት ውስጥ ባሉን ችግሮች ላይ ማተኮር እንችላለን?"</p>
-        <p>ይህ ክርክር የጠፈር ፍለጋን ዋጋ ለመቀነስ ስሜታዊ ቃላትን ይጠቀማል። በገለልተኛ ቃላት ደግሞ እንዲህ ሊጻፍ ይችላል:</p>
-        <ul>
-            <li>መነሻ ሐሳብ 1: የጠፈር ፕሮግራሙ በተራ ድንጋዮች እና በአሳ እንቁላሎች ላይ ብቻ ተወስኗል።</li>
-            <li>መነሻ ሐሳብ 2: ተራ ድንጋዮች እና የአሳ እንቁላሎች ከሀገር ውስጥ ረሃብ እና ሥራ አጥነት ያነሰ ጠቀሜታ አላቸው።</li>
-            <li>መደምደሚያ: ስለዚህ መንግስታችን በነዚህ ፕሮጀክቶች ላይ የወጣውን ገንዘብ የሀገር ውስጥ ችግሮችን ለመፍታት እንዲያዞር ያስፈልጋል።</li>
-        </ul>
-        <p>በዚህ መንገድ ስንመረምረው፣ መነሻ ሐሳብ 1 ሐሰት ሊሆን እንደሚችል በግልጽ እናያለን፣ ይህም አጠቃላይ ክርክሩን ከመጀመሪያው ከሚመስለው የበለጠ ደካማ ያደርገዋል።</p>
-
-        <hr>
-
-        <h2>Deficiencies in Cognitive Meaning: Vagueness and Ambiguity ⚠️</h2>
-        <p>Cognitive meanings are not always perfect. Two common defects are vagueness and ambiguity.</p>
-        <ul>
-            <li>Vagueness: A term is vague when there are unclear borderline cases where it's impossible to tell if the expression applies. The meaning is imprecise and hazy.</li>
-            <ul>
-                <li>Example: Words like "love," "fresh," "rich," or "poor" are vague. How rich does someone have to be to be called "rich"? There is no precise cutoff point.</li>
-                <li>Vagueness can also affect entire statements, such as "Today our job situation is more transparent," where the meaning of "job situation" and "transparent" is not clearly defined.</li>
-            </ul>
-            <li>Ambiguity: A term is ambiguous when it can be interpreted as having more than one clearly distinct meaning in a given context.</li>
-            <ul>
-                <li>Example: The word "light" can mean "not heavy," "not dark," or "not serious." If someone asks for a "light pilsner," they could mean light in color, calories, or taste.</li>
-                <li>Difference: Vagueness involves a blur of meaning, while ambiguity involves a mix-up of otherwise clear meanings.</li>
-            </ul>
-        </ul>
-
-        <h2>የእውቀት ትርጉሞች ጉድለቶች: ግልጽነት ማጣት እና አሻሚነት ⚠️</h2>
-        <p>የእውቀት ትርጉሞች ሁልጊዜ ፍጹም አይደሉም። ሁለት የተለመዱ ጉድለቶች ግልጽነት ማጣት እና አሻሚነት ናቸው።</p>
-        <ul>
-            <li>ግልጽነት ማጣት (Vagueness): አንድ ቃል ግልጽ ያልሆነ ነው የሚባለው፣ ተግባራዊ መሆን አለመሆኑን ለመለየት የሚያስቸግሩ የድንበር ሁኔታዎች ሲኖሩ ነው። ትርጉሙ ትክክለኛ ያልሆነ እና ግልጽ ያልሆነ ነው።</li>
-            <ul>
-                <li>ምሳሌ: እንደ "ፍቅር," "ትኩስ," "ሀብታም" ወይም "ድሃ" ያሉ ቃላት ግልጽ ያልሆኑ ናቸው። አንድ ሰው "ሀብታም" ለመባል ምን ያህል ሀብት ሊኖረው ይገባል? ትክክለኛ ወሰን የለውም።</li>
-                <li>ግልጽነት ማጣት አጠቃላይ መግለጫዎችንም ሊጎዳ ይችላል፣ ለምሳሌ "ዛሬ የሥራ ሁኔታችን የበለጠ ግልጽ ነው" በሚለው አረፍተ ነገር ውስጥ የ"ሥራ ሁኔታ" እና "ግልጽ" ትርጉም በትክክል ያልተገለጸ ነው።</li>
-            </ul>
-            <li>አሻሚነት (Ambiguity): አንድ ቃል አሻሚ ነው የሚባለው፣ በአንድ አውድ ውስጥ ከአንድ በላይ ግልጽ የሆኑ ትርጉሞች ሲኖሩት ነው።</li>
-            <ul>
-                <li>ምሳሌ: "ብርሃን" የሚለው ቃል "ከባድ ያልሆነ," "ጨለማ ያልሆነ," ወይም "ቀላል" ማለት ሊሆን ይችላል። አንድ ሰው ለ"ቀላል ፒልስነር" ቢጠይቅ፣ ቀለም፣ ካሎሪ ወይም ጣዕም ቀላል ማለት ሊሆን ይችላል።</li>
-                <li>ልዩነት: ግልጽነት ማጣት የትርጉም መደብዘዝ ሲሆን፣ አሻሚነት ደግሞ ግልጽ የሆኑ ትርጉሞች መቀላቀል ነው።</li>
-            </ul>
-        </ul>
-
-        <hr>
-
-        <h2>Disputes in Logic: Verbal vs. Factual ⚖️</h2>
-        <p>When people have conflicting arguments, it's essential to first determine the nature of the dispute. Is it about words or about facts?</p>
-        <ul>
-            <li>Verbal Disputes: These disputes arise over the meaning of language and can be resolved by agreeing on how a word or phrase should be understood. These are not genuine conflicts about reality but about the interpretation of terms.</li>
-            <ul>
-                <li>Example (Vagueness): Kassa and Jemal are arguing about whether Mrs. Zenebech "abuses" her children. Kassa sees a spanking and calls it "abuse," while Jemal sees it as "discipline." The dispute is verbal because the line between "abuse" and "discipline" is vague and undefined.</li>
-                <li>Example (Ambiguity): Mullu thinks Dagim is "guilty" of cheating because he confessed to it. Worku thinks he isn't "guilty" because he hasn't been convicted in a court of law. The dispute is verbal because they are using "guilty" in two different senses: moral versus legal.</li>
-            </ul>
-            <li>Factual Disputes: These disputes arise over a disagreement about facts. The conflict is genuine and can only be resolved by gathering evidence to determine the truth or falsity of the claims.</li>
-            <ul>
-                <li>Example: Debebe claims Fisseha stole a computer based on Aberash's testimony. Maru denies it, claiming Aberash is lying. The dispute is factual because it's about whether Fisseha actually stole the computer, not about the meaning of the words.</li>
-            </ul>
-        </ul>
-
-        <h2>በሎጂክ ውስጥ ያሉ ክርክሮች: በቃል ወይስ በእውነታ ላይ የተመሠረቱ? ⚖️</h2>
-        <p>ሰዎች እርስ በርሱ የሚጋጩ ክርክሮች ሲኖራቸው፣ በመጀመሪያ የክርክሩን ባህሪ መወሰን አስፈላጊ ነው። ስለ ቃላት ነው ወይስ ስለ እውነታ ነው?</p>
-        <ul>
-            <li>የቃል ክርክሮች (Verbal Disputes): እነዚህ ክርክሮች የሚነሱት በቋንቋ ትርጉም ላይ ሲሆን፣ አንድ ቃል ወይም ሐረግ እንዴት መተርጎም እንዳለበት በመስማማት ሊፈታ ይችላል። እነዚህ በእውነተኛው ዓለም ላይ ያሉ ግጭቶች ሳይሆኑ፣ የቃላት አተረጓጎም ላይ ያሉ አለመግባባቶች ናቸው።</li>
-            <ul>
-                <li>ምሳሌ (ግልጽነት ማጣት): ካሳ እና ጀማል ወይዘሮ ዘነበች ልጆቿን "ትሳደባለች" በሚለው ላይ ይከራከራሉ። ካሳ መምታት "ግፍ" ነው ሲል፣ ጀማል ግን "ተግሣጽ" ነው ይላል። ክርክሩ የቃል ነው ምክንያቱም "ግፍ" እና "ተግሣጽ" የሚለውን የሚለየው መስመር ግልጽ እና ያልተወሰነ ነው።</li>
-                <li>ምሳሌ (አሻሚነት): ሙሉ ዳግም ማጭበሩን ስለተናዘዘ "ጥፋተኛ" ነው ብሎ ያስባል። ወርቁ ግን በፍርድ ቤት ስላልተፈረደበት "ጥፋተኛ" አይደለም ይላል። ክርክሩ የቃል ነው ምክንያቱም "ጥፋተኛ" የሚለውን ቃል በሁለት የተለያዩ ትርጉሞች እየተጠቀሙበት ነው: በሥነ-ምግባር እና በሕግ ትርጉም።</li>
-            </ul>
-            <li>የእውነታ ክርክሮች (Factual Disputes): እነዚህ ክርክሮች የሚነሱት በእውነታ ላይ ባለው አለመግባባት ነው። ግጭቱ እውነተኛ ሲሆን፣ መፍትሄውም ማስረጃዎችን በመሰብሰብ የክርክሮቹን እውነትነት ወይም ሐሰትነት በማወቅ ነው።</li>
-            <ul>
-                <li>ምሳሌ: ደበበ አበራሽ አይታዋለች ስላለች ፊስሃ ኮምፒውተር ሰርቋል ብሎ ይከራከራል። ማሩ ግን አበራሽ እየዋሸች ነው ይላል። ክርክሩ በእውነታ ላይ የተመሰረተ ነው ምክንያቱም ስለ ቃላት ትርጉም ሳይሆን፣ ፊስሃ በእርግጥ ኮምፒውተሩን ሰርቋል ወይ በሚለው እውነታ ላይ ነው።</li>
-            </ul>
-        </ul>
-
-        <hr>
-
-        <h2>From Words to Terms 📝</h2>
-        <p>In logic, we don't just deal with words; we deal with terms. A term is a word or a group of words that can act as the subject of a statement.</p>
-        <ul>
-            <li>Terms can be proper names (e.g., Abebe), common names (e.g., house), or descriptive phrases (e.g., the first prime minister).</li>
-            <li>Non-terms are words that can't be a subject, such as verbs ("runs"), adverbs ("quickly"), or prepositions ("into").</li>
-        </ul>
-        <p>Remember the difference between using a word and mentioning a word! "Cat is a short word" is a statement where we mention the word "cat" (by putting it in quotes), but "The cat is sleeping" is a statement where we use the word "cat" as the subject.</p>
-
-        <h2>ከቃላት ወደ ጽንሰ-ሀሳቦች (Terms) 📝</h2>
-        <p>በሎጂክ ውስጥ፣ የምንመለከተው ቃላትን ብቻ አይደለም፤ ጽንሰ-ሀሳቦችን (terms) ነው። ጽንሰ-ሀሳብ በአንድ ዓረፍተ ነገር ውስጥ እንደ ርዕሰ-ጉዳይ ሆኖ ሊያገለግል የሚችል ቃል ወይም የቃላት ስብስብ ነው።</p>
-        <ul>
-            <li>ጽንሰ-ሀሳቦች የሰዎች ስሞች (ለምሳሌ፡ አበበ)፣ የጋራ ስሞች (ለምሳሌ፡ ቤት)፣ ወይም ገላጭ ሐረጎች (ለምሳሌ፡ የኢትዮጵያ የመጀመሪያው ጠቅላይ ሚኒስትር) ሊሆኑ ይችላሉ።</li>
-            <li>ጽንሰ-ሀሳብ ያልሆኑት እንደ ግስ (“ይሮጣል”)፣ ተውሳከ ግስ (“በፍጥነት”) ወይም መስተዋድድ (“ውስጥ”) ያሉ ርዕሰ-ጉዳይ ሆነው ሊያገለግሉ የማይችሉ ቃላት ናቸው።</li>
-        </ul>
-        <p>አንድን ቃል መጠቀም እና መጥቀስ ያለውን ልዩነት ማስታወስ አስፈላጊ ነው! “ድመት አጭር ቃል ነው” በሚለው ዓረፍተ ነገር ውስጥ የ“ድመት” የሚለውን ቃል ጠቀስነው (በጥቅስ ምልክት ውስጥ ስላስገባነው)። በሌላ በኩል፣ “ድመቷ ተኝታለች” በሚለው ዓረፍተ ነገር ውስጥ “ድመት” የሚለውን ቃል እንደ ርዕሰ-ጉዳይ ተጠቅመንበታል።</p>
-
-        <hr>
-
-        <h2>The Two Meanings of a Term: Intension and Extension 💡</h2>
-        <p>Every term has two types of meaning:</p>
-        <ol>
-            <li>Intension (Intensional Meaning): These are the qualities or attributes that a term connotes. In logic, we use conventional connotation, which means the attributes that are commonly associated with the term by competent speakers of a language.</li>
-            <ul>
-                <li>Example: The intension of the term "cat" includes attributes like "being furry," "having four legs," and "meowing." 🐾</li>
-            </ul>
-            <li>Extension (Extensional Meaning): This refers to the class of things that the term denotes. It includes all the members of that group.</li>
-            <ul>
-                <li>Example: The extension of the term "cat" includes all cats that have ever existed, exist now, or will exist in the future. 🌍</li>
-            </ul>
-        </ol>
-        <p>The key relationship is that a term's intension determines its extension. We use the attributes (intension) to decide which things belong to the group (extension). For example, a unicorn has an intension (a horse with a horn) but an empty extension because nothing actually fits that description.</p>
-
-        <h2>The Two Meanings of a Term: Intension and Extension 💡</h2>
-        <p>እያንዳንዱ ጽንሰ-ሀሳብ ሁለት ዓይነት ትርጉሞች አሉት:</p>
-        <ol>
-            <li>የውስጣዊ ትርጉም (Intension): እነዚህ አንድ ጽንሰ-ሀሳብ የሚወክላቸው ባሕሪያት ወይም መገለጫዎች ናቸው። በሎጂክ ውስጥ፣ አንድን ጽንሰ-ሀሳብ ሲጠቅሱ በዚያ ቋንቋ ችሎታ ባላቸው ሰዎች አእምሮ ውስጥ የሚመጡ የተለመዱ ባህሪያትን የምናየው የተለመደ የውስጣዊ ትርጉም (conventional connotation) እንጠቀማለን።</li>
-            <ul>
-                <li>ለምሳሌ፡ “ድመት” ለሚለው ጽንሰ-ሀሳብ ያለው የውስጣዊ ትርጉም “ጸጉራማ መሆን”፣ “አራት እግር መኖር” እና “ማውማው ማለት” የሚሉ ባህሪያትን ያካትታል። 🐾</li>
-            </ul>
-            <li>የውጫዊ ትርጉም (Extension): ይህ ጽንሰ-ሀሳቡ የሚያመለክተው የነገሮች ስብስብ ነው። የዚያ ቡድን አባላት በሙሉ ይካተታሉ።</li>
-            <ul>
-                <li>ለምሳሌ፡ “ድመት” ለሚለው ጽንሰ-ሀሳብ ያለው የውጫዊ ትርጉም ቀደም ብለው የነበሩ፣ አሁን ያሉ እና ወደፊት የሚኖሩ ሁሉንም ድመቶች ያጠቃልላል። 🌍</li>
-            </ul>
-        </ol>
-        <p>ዋናው ግንኙነት የጽንሰ-ሀሳብ የውስጣዊ ትርጉም የውጫዊ ትርጉሙን ይወስናል የሚለው ነው። አንድ ነገር በቡድኑ ውስጥ መካተት እንዳለበት ለመወሰን ባሕሪያቱን (የውስጣዊ ትርጉሙን) እንጠቀማለን። ለምሳሌ፣ “ዩኒኮርን” የሚለው ቃል የውስጣዊ ትርጉም አለው (ቀንድ ያለው ፈረስ) ነገር ግን ባዶ የውጫዊ ትርጉም አለው ምክንያቱም ያንን ገለፃ የሚያሟላ ምንም ነገር የለም።</p>
-
-        <hr>
-
-        <h2>Ordering Terms by Intension and Extension ⬆️⬇️</h2>
-        <p>Terms can be arranged in a series based on their intension and extension.</p>
-        <ul>
-            <li>Increasing Intension: Each term adds more specific attributes, making it a more specific category.</li>
-            <ul>
-                <li>Example: animal → mammal → feline → tiger (Each step adds more specific qualities).</li>
-            </ul>
-            <li>Decreasing Intension: The reverse; each term is a broader category.</li>
-            <ul>
-                <li>Example: tiger → feline → mammal → animal.</li>
-            </ul>
-            <li>Increasing Extension: Each term includes more members in its class.</li>
-            <ul>
-                <li>Example: tiger → feline → mammal → animal (Tigers are a smaller group than felines, which are a smaller group than mammals, etc.).</li>
-            </ul>
-            <li>Decreasing Extension: The reverse; each term includes fewer members.</li>
-            <ul>
-                <li>Example: animal → mammal → feline → tiger.</li>
-            </ul>
-        </ul>
-        <p>The Golden Rule: Generally, increasing intension corresponds with decreasing extension. As you add more specific attributes (intension increases), the group of things that fit the description gets smaller (extension decreases).</p>
-        <p>Exceptions to the Rule:</p>
-        <ul>
-            <li>A series of terms with empty extension (e.g., unicorn, unicorn with blue eyes) can have increasing intension without any change in extension, since the extension is always zero.</li>
-            <li>A series where all terms refer to the same class (e.g., living human being, living human being with a genetic code) can have increasing intension without any change in extension.</li>
-        </ul>
-
-        <h2>ጽንሰ-ሀሳቦችን በውስጣዊ እና በውጫዊ ትርጉም ቅደም ተከተል ማስቀመጥ ⬆️⬇️</h2>
-        <p>ጽንሰ-ሀሳቦች በውስጣዊ እና በውጫዊ ትርጉማቸው መሰረት በቅደም ተከተል ሊቀመጡ ይችላሉ።</p>
-        <ul>
-            <li>የውስጣዊ ትርጉም መጨመር: እያንዳንዱ ጽንሰ-ሀሳብ ተጨማሪ ልዩ ባህሪያትን ስለሚጨምር ይበልጥ የተወሰነ ምድብ ይሆናል።</li>
-            <ul>
-                <li>ለምሳሌ፡ እንስሳ → አጥቢ እንስሳ → ድመት ቤተሰብ → ነብር (እያንዳንዱ እርምጃ ተጨማሪ ባህሪያትን ይጨምራል)።</li>
-            </ul>
-            <li>የውስጣዊ ትርጉም መቀነስ: ይህ ከላይ ከተጠቀሰው ተቃራኒ ነው። እያንዳንዱ ጽንሰ-ሀሳብ ሰፋ ያለ ምድብ ነው።</li>
-            <ul>
-                <li>ለምሳሌ፡ ነብር → ድመት ቤተሰብ → አጥቢ እንስሳ → እንስሳ።</li>
-            </ul>
-            <li>የውጫዊ ትርጉም መጨመር: እያንዳንዱ ጽንሰ-ሀሳብ በክፍሉ ውስጥ ተጨማሪ አባላትን ያጠቃልላል።</li>
-            <ul>
-                <li>ለምሳሌ፡ ነብር → ድመት ቤተሰብ → አጥቢ እንስሳ → እንስሳ (የነብሮች ቡድን ከድመት ቤተሰብ ያነሰ ነው፣ እሱም ከአጥቢ እንስሳት ያነሰ ነው፣ ወዘተ)።</li>
-            </ul>
-            <li>የውጫዊ ትርጉም መቀነስ: ይህ ደግሞ ተቃራኒው ነው፤ እያንዳንዱ ጽንሰ-ሀሳብ ጥቂት አባላትን ያጠቃልላል።</li>
-            <ul>
-                <li>ለምሳሌ፡ እንስሳ → አጥቢ እንስሳ → ድመት ቤተሰብ → ነብር።</li>
-            </ul>
-        </ul>
-        <p>ዋናው ህግ፡ በአጠቃላይ፣ የውስጣዊ ትርጉም መጨመር ከውጫዊ ትርጉም መቀነስ ጋር ተመሳሳይ ነው። ተጨማሪ ልዩ ባህሪያትን ሲጨምሩ (የውስጣዊ ትርጉም ሲጨምር)፣ ያንን መግለጫ የሚያሟሉ ነገሮች ስብስብ ይቀንሳል (የውጫዊ ትርጉም ይቀንሳል)።</p>
-        <p>ከህጉ ውጪ ያሉ ምሳሌዎች:</p>
-        <ul>
-            <li>ባዶ የውጫዊ ትርጉም ያላቸው ጽንሰ-ሀሳቦች ተከታታይ (ለምሳሌ፡ unicorn, unicorn with blue eyes) የውስጣዊ ትርጉም ሊጨምሩ ይችላሉ የውጫዊ ትርጉም ሳይለወጥ ሲቀር፣ ምክንያቱም የውጫዊ ትርጉሙ ሁልጊዜ ዜሮ ነው።</li>
-            <li>ሁሉም ጽንሰ-ሀሳቦች ወደ ተመሳሳይ ምድብ የሚያመለክቱበት ተከታታይ (ለምሳሌ፡ living human being, living human being with a genetic code) የውስጣዊ ትርጉም ሊጨምሩ ይችላሉ የውጫዊ ትርጉም ሳይለወጥ ሲቀር።</li>
-        </ul>
-
-        <hr>
-
-        <h2>The Meaning and Components of Definition 📖</h2>
-        <p>A definition is a group of words that assigns a meaning to another word or phrase. It helps us clarify what a term means, especially when its meaning might be vague or ambiguous. Every definition has two main parts:</p>
-        <ul>
-            <li>Definiendum: The word or phrase being defined. It's the "thing" you're trying to explain.</li>
-            <li>Definiens: The words or phrase that does the defining. This is the explanation itself.</li>
-        </ul>
-        <p>For example, in the definition, "'Tiger' means a large, striped, ferocious feline," the word "Tiger" is the definiendum, and everything that follows it is the definiens. The definiens doesn't become the meaning; it simply symbolizes the same meaning as the definiendum so we can understand it.</p>
-
-        <h2>የትርጉም እና የአካላት (Components) ትርጉም 📖</h2>
-        <p>ትርጉም (Definition) ለአንድ ቃል ወይም ሐረግ ትርጉም የሚሰጥ የቃላት ስብስብ ነው። አንድ ቃል ግልጽ ያልሆነ ወይም አሻሚ ትርጉም ሲኖረው ምን ማለቱ እንደሆነ እንድንረዳ ይረዳናል። እያንዳንዱ ትርጉም ሁለት ዋና ዋና ክፍሎች አሉት፡</p>
-        <ul>
-            <li>Definiendum: ትርጉም እየተሰጠው ያለው ቃል ወይም ሐረግ ነው። እያብራሩት ያለው "ነገር" ነው።</li>
-            <li>Definiens: ትርጉሙን የሚሰጡት ቃላት ወይም ሐረግ ነው። ይህ ራሱ ማብራሪያው ነው።</li>
-        </ul>
-        <p>ለምሳሌ፣ “'ነብር' ማለት ትልቅ፣ ባለ መስመር፣ አስፈሪ ድመት ቤተሰብ አባል ነው” በሚለው ትርጉም ውስጥ፣ “ነብር” የሚለው ቃል definiendum ሲሆን፣ ቀጥሎ ያለው ሁሉ ደግሞ definiens ነው። definiens ትርጉሙን አይሆንም፤ ይልቁንም፣ definiendum የሚያመለክተውን ትርጉም እንደሚያመለክት (symbolizes) ያሳያል፣ ስለዚህም ልንረዳው እንችላለን።</p>
-
-        <hr>
-
-        <h2>The Five Types of Definitions 📚</h2>
-        <p>Definitions aren't all the same. They serve different purposes based on the context. Here are the five main types:</p>
-
-        <h3>1. Stipulative Definitions ✍️</h3>
-        <p>A stipulative definition gives a new meaning to a word for the first time. This happens when a new word is coined or an existing word is given a new, specific meaning. Its main purpose is to replace a complex phrase with a simpler one.</p>
-        <ul>
-            <li>Example: The terms "tigon" and "liger" were created to define the offspring of a tiger and a lion. The word "tigon" didn't exist before, so the definition "offspring of a male tiger and a female lion" was a stipulative definition.</li>
-            <li>Note: These definitions can't be true or false since they are a new, arbitrary assignment of meaning. They can only be more or less convenient.</li>
-        </ul>
-
-        <h2>አምስቱ የትርጉም ዓይነቶች 📚</h2>
-        <p>ትርጉሞች ሁሉም አንድ አይነት አይደሉም። በተለያየ ሁኔታ ውስጥ የተለያዩ ዓላማዎችን ያገለግላሉ። አምስቱ ዋና ዋና ዓይነቶች እነሆ፡</p>
-
-        <h3>1. የቅድሚያ ትርጉም (Stipulative Definitions) ✍️</h3>
-        <p>የቅድሚያ ትርጉም ለአንድ ቃል ለመጀመሪያ ጊዜ ትርጉም ይሰጣል። ይህ አዲስ ቃል ሲፈጠር ወይም ነባር ቃል አዲስ ትርጉም ሲሰጠው ይከሰታል። ዋናው ዓላማው ውስብስብ ሐረግን በቀላል መተካት ነው።</p>
-        <ul>
-            <li>ምሳሌ: “ነብር” እና “አንበሳ” ሲዳቀሉ ለሚወለደው ዘር “tigon” እና “liger” የሚሉ ቃላት ተሰጥተዋል። “tigon” የሚለው ቃል ከዚህ በፊት አልነበረም፣ ስለዚህ “የአንድ ወንድ ነብርና የአንዲት ሴት አንበሳ ዘር” የሚለው ትርጉም የቅድሚያ ትርጉም ነው።</li>
-            <li>ማስታወሻ፡ እነዚህ ትርጉሞች አዲስ ስለሆኑ እውነት ወይም ሐሰት ሊሆኑ አይችሉም። የበለጠ አመቺ (convenient) ወይም አመቺ ያልሆኑ ብቻ ሊሆኑ ይችላሉ።</li>
-        </ul>
-
-        <hr>
-
-        <h3>2. Lexical Definitions 📖</h3>
-        <p>A lexical definition reports a meaning that a word already has in a language. This is what you find in dictionaries. The purpose of this type of definition is to report common usage and to eliminate ambiguity.</p>
-        <ul>
-            <li>Example: A dictionary definition of "light" would list several meanings (e.g., illumination, not heavy). A person can then use this to clarify which meaning they intend.</li>
-            <li>Note: Unlike stipulative definitions, a lexical definition can be true or false based on whether it accurately reflects how a word is used.</li>
-        </ul>
-
-        <h3>2. የቃላት ትርጉም (Lexical Definitions) 📖</h3>
-        <p>የቃላት ትርጉም አንድ ቃል በቋንቋው ውስጥ ያለውን ትርጉም ይገልጻል። በመዝገበ-ቃላት ውስጥ የምታገኘው ይህንኑ ነው። የዚህ ዓይነቱ ትርጉም ዓላማ የቃሉን የተለመደ አጠቃቀም መግለጽ እና አሻሚነትን (ambiguity) ማስወገድ ነው።</p>
-        <ul>
-            <li>ምሳሌ: “ብርሃን” የሚለው ቃል በመዝገበ-ቃላት ውስጥ በርካታ ትርጉሞች ይኖሩታል (ለምሳሌ፡ ከጨለማ ነጻ የሆነ፣ ቀሊል)። አንድ ሰው የትኛውን ትርጉም እንደፈለገ ለማብራራት ይህንን መጠቀም ይችላል።</li>
-            <li>ማስታወሻ፡ ከቅድሚያ ትርጉሞች በተለየ መልኩ፣ የቃላት ትርጉም አንድ ቃል እንዴት ጥቅም ላይ እንደሚውል በትክክል ከተናገረ እውነት ወይም ሐሰት ሊሆን ይችላል።</li>
-        </ul>
-
-        <hr>
-
-        <h3>3. Précising Definitions ⚖️</h3>
-        <p>A précising definition reduces the vagueness of a word. This is crucial in systematic fields like law or science, where clear boundaries are necessary. Words like "rich" or "poor" are vague because they have borderline cases. A précising definition sets a clear line.</p>
-        <ul>
-            <li>Example: "A person is 'poor' if they have an annual income of less than $4,000 and a net worth of less than $20,000." This definition creates a precise boundary that didn't exist before.</li>
-            <li>Note: Unlike a stipulative definition, a précising definition isn't arbitrary. It has to be appropriate for the context it's being used in.</li>
-        </ul>
-
-        <h3>3. ግልጽ የሚያደርግ ትርጉም (Précising Definitions) ⚖️</h3>
-        <p>ግልጽ የሚያደርግ ትርጉም የአንድ ቃል ግልጽ ያልሆነውን (vagueness) ትርጉም ለመቀነስ ይጠቅማል። ግልጽ ድንበሮች አስፈላጊ በሆኑ እንደ ሕግና ሳይንስ ባሉ ዘርፎች ወሳኝ ነው። እንደ “ሀብታም” ወይም “ድሃ” ያሉ ቃላት ጌ ግልጽ አይደሉም ገደብ ስላላቸው። ግልጽ የሚያደርግ ትርጉም ግልጽ የሆነ መስመር ያበጃል።</p>
-        <ul>
-            <li>ምሳሌ: "አንድ ሰው 'ድሃ' ነው ማለት በዓመት ከ $4,000 በታች ገቢ እና ከ $20,000 በታች ጠቅላላ ሀብት ያለው ማለት ነው።" ይህ ትርጉም ከዚህ በፊት ያልነበረ ግልጽ ድንበር ይፈጥራል።</li>
-            <li>ማስታወሻ፡ ከቅድሚያ ትርጉም በተለየ መልኩ፣ ግልጽ የሚያደርግ ትርጉም እንዲሁ በዘፈቀደ የሚሰጥ አይደለም። በሚውልበት ሁኔታ ተገቢ መሆን አለበት።</li>
-        </ul>
-
-        <hr>
-
-        <h3>4. Theoretical Definitions 🔬</h3>
-        <p>A theoretical definition assigns a meaning to a word by suggesting a theory about the entities the word denotes. It provides a new way of understanding something and can lead to new scientific investigations.</p>
-        <ul>
-            <li>Example: The definition of "heat" as "the energy associated with the random motion of the molecules of a substance" is a theoretical definition. It gives us a way to understand heat that goes beyond simply feeling something is hot.</li>
-            <li>Note: Like stipulative definitions, theoretical definitions are not strictly true or false. They are judged based on whether they are fruitful or interesting in advancing a theory.</li>
-        </ul>
-
-        <h3>4. የንድፈ-ሀሳብ ትርጉም (Theoretical Definitions) 🔬</h3>
-        <p>የንድፈ-ሀሳብ ትርጉም አንድ ቃል ለሚያመለክታቸው ነገሮች ንድፈ-ሀሳብ በማቅረብ ትርጉም ይሰጣል። አንድን ነገር ለመረዳት አዲስ መንገድ ይሰጣል እና ወደ አዳዲስ ሳይንሳዊ ምርምሮች ሊመራ ይችላል።</p>
-        <ul>
-            <li>ምሳሌ: የ"ሙቀት" ትርጉም “የአንድ ንጥረ ነገር ሞለኪውሎች በዘፈቀደ እንቅስቃሴ ጋር የተያያዘ ኃይል” ተብሎ ሲሰጥ የንድፈ-ሀሳብ ትርጉም ነው። ሙቀትን በቀላሉ ከመሞቅ ስሜት በላይ እንድንረዳው ያደርገናል።</li>
-            <li>ማስታወሻ፡ እንደ ቅድሚያ ትርጉሞች፣ የንድፈ-ሀሳብ ትርጉሞች በትክክል እውነት ወይም ሐሰት አይደሉም። በንድፈ-ሀሳብ ውስጥ ምን ያህል ጠቃሚ ወይም አስደሳች እንደሆኑ ይገመገማሉ።</li>
-        </ul>
-
-        <hr>
-
-        <h3>5. Persuasive Definitions 🗣️</h3>
-        <p>A persuasive definition is used to influence a person's attitude toward something. It assigns an emotionally charged or value-laden meaning to a word while making it seem like that's the word's true meaning.</p>
-        <ul>
-            <li>Example: The term "abortion" can be defined as either "the ruthless murdering of innocent human beings" (negative) or "a safe surgical procedure whereby a woman is relieved of an unwanted burden" (positive). Both definitions are designed to persuade the listener to adopt a certain viewpoint.</li>
-            <li>Note: The effectiveness of a persuasive definition is more important than whether it is true or false.</li>
-        </ul>
-
-        <h3>5. አሳማኝ ትርጉም (Persuasive Definitions) 🗣️</h3>
-        <p>አሳማኝ ትርጉም የአንድን ሰው አስተሳሰብ ላይ ተጽዕኖ ለማሳደር ይጠቅማል። ለአንድ ቃል ስሜት ቀስቃሽ ወይም የሥነ ምግባር ዋጋ ያለው ትርጉም በመስጠት ያ ትርጉም የቃሉ እውነተኛ ትርጉም እንደሆነ ያቀርባል።</p>
-        <ul>
-            <li>ምሳሌ: “ውርጃ” የሚለው ቃል “ንጹሐን ሰዎችን በጭካኔ መግደል” (አሉታዊ) ወይም “አንዲት ሴት ከማትፈልገው ሸክም እፎይታ የምታገኝበት ደህንነቱ የተጠበቀ የቀዶ ጥገና ሂደት” (አዎንታዊ) ተብሎ ሊተረጎም ይችላል። ሁለቱም ትርጉሞች አድማጩ የተወሰነ አመለካከት እንዲይዝ ለማሳመን የተነደፉ ናቸው።</li>
-            <li>ማስታወሻ: የአንድ አሳማኝ ትርጉም ውጤታማነት ከእውነት ወይም ከሐሰትነቱ የበለጠ አስፈላጊ ነው።</li>
-        </ul>
+            <div style="background: #f3e5f5; padding: 15px; border-radius: 8px; margin-top: 15px;">
+              <p style="margin: 0; font-style: italic; color: #7b1fa2;">"Unlike linguistics which studies language structure, philosophy of language explores broader conceptual issues about meaning and reference."</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #6a1b9a; margin-top: 0;">📜 Historical Development</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 15px;">
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Plato</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Names are nature-determined</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Stoics</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Developed proposition theory</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Medieval</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Explored language subtleties</p>
+              </div>
+              <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                <strong>Modern</strong>
+                <p style="margin: 5px 0 0; font-size: 0.9em;">Analytic philosophy focus</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <hr>
 
