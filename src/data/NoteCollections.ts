@@ -10237,7 +10237,491 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       { 
         id: 'Chapter5', 
         title: 'Chapter 5 : Active and Passive Voices', 
-        content: '<h2>Parts of Speech</h2><p>Nouns, verbs, adjectives...</p>'
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active and Passive Voice</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+            color: #3498db;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+            color: #2980b9;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .definition-card {
+            border-left: 5px solid #3498db;
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .example-card {
+            border-left: 5px solid #2ecc71;
+            background-color: #e8f8f0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .rule-card {
+            border-left: 5px solid #e74c3c;
+            background-color: #fdedec;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+        
+        /* Special elements */
+        .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .warning {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Active and Passive Voice</h1>
+    
+    <div class="definition-card">
+        <h2>Definitions</h2>
+        <h3><span class="icon">🗣️</span>Active Voice</h3>
+        <p>When the subject of the sentence performs the action of the verb. The focus is on who is doing the action.</p>
+        <div class="example-card">
+            <p><strong>Example:</strong> The dog bit the police. (The dog is the subject and the one performing the action of biting).</p>
+        </div>
+        
+        <h3><span class="icon">🤫</span>Passive Voice</h3>
+        <p>When the subject of the sentence is the receiver of the action. The focus is on the action itself rather than the person or thing performing it.</p>
+        <div class="example-card">
+            <p><strong>Example:</strong> The police was bitten. (The police is the subject, but they are being acted upon).</p>
+            <p><strong>Examples from the text:</strong> My bike was stolen. The police was murdered. All the money has been stolen.</p>
+        </div>
+    </div>
+    
+    <div class="rule-card">
+        <h2>Basic Rules for Conversion</h2>
+        <p>To change a sentence from active to passive voice, follow these steps:</p>
+        <ol>
+            <li>Identify the subject, verb, and object of the active sentence.</li>
+            <li>The object of the active sentence becomes the subject of the passive sentence.</li>
+            <li>The verb form must be changed. Use the correct 'be' form according to the original tense:
+                <ul>
+                    <li>Present: is, am, are</li>
+                    <li>Past: was, were</li>
+                    <li>Continuous Tenses: being</li>
+                    <li>Perfect Tenses: been</li>
+                    <li>Future: be</li>
+                </ul>
+            </li>
+            <li>Always use the past participle (V3) of the main verb.</li>
+            <li>Add the preposition "by" to introduce the original subject, which now becomes the object of the passive sentence. This part is sometimes optional if the doer is unknown or unimportant.</li>
+        </ol>
+    </div>
+    
+    <div class="card">
+        <h2>Conversion Rules for Different Tenses</h2>
+        <p>The following table summarizes the transformation of verb structures from active to passive voice for various tenses and sentence forms.</p>
+        
+        <table>
+            <tr>
+                <th>Tense</th>
+                <th>Active Voice Structure</th>
+                <th>Passive Voice Structure</th>
+            </tr>
+            <tr>
+                <td>Simple Present</td>
+                <td>S + V1</td>
+                <td>S + am/is/are + V3</td>
+            </tr>
+            <tr>
+                <td>Present Continuous</td>
+                <td>S + am/is/are + -ing</td>
+                <td>S + am/is/are + being + V3</td>
+            </tr>
+            <tr>
+                <td>Present Perfect</td>
+                <td>S + has/have + V3</td>
+                <td>S + has/have + been + V3</td>
+            </tr>
+            <tr>
+                <td>Simple Past</td>
+                <td>S + V2</td>
+                <td>S + was/were + V3</td>
+            </tr>
+            <tr>
+                <td>Past Continuous</td>
+                <td>S + was/were + -ing</td>
+                <td>S + was/were + being + V3</td>
+            </tr>
+            <tr>
+                <td>Past Perfect</td>
+                <td>S + had + V3</td>
+                <td>S + had + been + V3</td>
+            </tr>
+            <tr>
+                <td>Simple Future</td>
+                <td>S + will/shall + V1</td>
+                <td>S + will + be + V3</td>
+            </tr>
+            <tr>
+                <td>Future Continuous</td>
+                <td>S + will/shall + be + -ing</td>
+                <td>S + will + be + being + V3</td>
+            </tr>
+            <tr>
+                <td>Future Perfect</td>
+                <td>S + will/shall + have + V3</td>
+                <td>S + will + have + been + V3</td>
+            </tr>
+            <tr>
+                <td>Simple Conditional</td>
+                <td>S + would/should + V1</td>
+                <td>S + would/should + be + V3</td>
+            </tr>
+            <tr>
+                <td>Perfect Conditional</td>
+                <td>S + would + have + V3</td>
+                <td>S + would + have + been + V3</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h2>Examples of Conversion</h2>
+        <table>
+            <tr>
+                <th>Tense</th>
+                <th>Active Voice</th>
+                <th>Passive Voice</th>
+            </tr>
+            <tr>
+                <td>Simple Present</td>
+                <td>He washes the car.</td>
+                <td>The car is washed.</td>
+            </tr>
+            <tr>
+                <td>Present Continuous</td>
+                <td>He is washing the car.</td>
+                <td>The car is being washed.</td>
+            </tr>
+            <tr>
+                <td>Present Perfect</td>
+                <td>He has washed the car.</td>
+                <td>The car has been washed.</td>
+            </tr>
+            <tr>
+                <td>Simple Past</td>
+                <td>He washed the car.</td>
+                <td>The car was washed.</td>
+            </tr>
+            <tr>
+                <td>Past Continuous</td>
+                <td>He was washing the car.</td>
+                <td>The car was being washed.</td>
+            </tr>
+            <tr>
+                <td>Past Perfect</td>
+                <td>He had washed the car.</td>
+                <td>The car had been washed.</td>
+            </tr>
+            <tr>
+                <td>Simple Future</td>
+                <td>He will wash the car.</td>
+                <td>The car will be washed.</td>
+            </tr>
+            <tr>
+                <td>Future Continuous</td>
+                <td>He will be washing the car.</td>
+                <td>The car will be being washed.</td>
+            </tr>
+            <tr>
+                <td>Future Perfect</td>
+                <td>He will have washed the car.</td>
+                <td>The car will have been washed.</td>
+            </tr>
+            <tr>
+                <td>Simple Conditional</td>
+                <td>He would wash the car.</td>
+                <td>The car would be washed.</td>
+            </tr>
+            <tr>
+                <td>Perfect Conditional</td>
+                <td>He would have washed the car.</td>
+                <td>The car would have been washed.</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h2>Other Forms and Structures</h2>
+        <table>
+            <tr>
+                <th>Structure</th>
+                <th>Active Voice Form</th>
+                <th>Passive Voice Form</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Be going to</td>
+                <td>S + am/is/are + going to + V1</td>
+                <td>S + am/is/are + going to + be + V3</td>
+                <td>Active: He is going to wash the car.<br> Passive: The car is going to be washed.</td>
+            </tr>
+            <tr>
+                <td>Have to</td>
+                <td>S + have to + V1</td>
+                <td>S + has/have + to be + V3</td>
+                <td>Active: I have to wash the car. <br> Passive: The car has to be washed.</td>
+            </tr>
+            <tr>
+                <td>Used to</td>
+                <td>S + used to + V1</td>
+                <td>S + used to + be + V3</td>
+                <td>Active: I used to wash the car. <br> Passive: The car used to be washed.</td>
+            </tr>
+            <tr>
+                <td>With Gerund</td>
+                <td>S + V1 + -ing</td>
+                <td>S + V1 + being + V3</td>
+                <td>Active: I avoid seeing him.<br> Passive: He avoids being seen.</td>
+            </tr>
+            <tr>
+                <td>Don't mind</td>
+                <td>S + don't mind + -ing</td>
+                <td>S + don't/doesn't mind + being + V3</td>
+                <td>Active: I don't mind teaching her.<br> Passive: She doesn't mind being taught.</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="warning">
+        <h2><span class="icon">🛑</span>Sentences That Cannot Be Changed into Passive Voice</h2>
+        <p>Not all sentences can be converted to the passive voice. This is primarily the case for sentences that do not have a direct object.</p>
+        
+        <h3>Perfect Progressive Tenses:</h3>
+        <p>The Present Perfect Continuous, Past Perfect Continuous, and Future Perfect Continuous tenses cannot be changed into the passive voice.</p>
+        
+        <h3>Intransitive Verbs:</h3>
+        <p>Intransitive verbs do not take an object to complete their meaning. Since there is no object to become the new subject, the sentence cannot be converted to passive voice.</p>
+        <p><strong>Examples of intransitive verbs:</strong> appear, arrive, become, come, sleep, go, happen, occur, rain, stay, walk, run, fit, have, resemble, suit, and weigh.</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>He has gone.</p>
+            <p>She is sleeping.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2><span class="icon">📝</span>Modal Verbs with Passive Voice</h2>
+        <p>When converting a sentence with a modal verb to the passive voice, the core rules of passive voice apply, but the modal verb itself remains at the beginning of the verb phrase.</p>
+        
+        <h3>Rule 1: Simple Modals</h3>
+        <p><strong>Structure:</strong> Modal Verb + be + Past Participle (V3)</p>
+        <p>This rule applies to simple modal verbs like can, may, must, might, could, should, and would.</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>Active: She can buy the car.</p>
+            <p>Passive: The car can be bought.</p>
+            <p>Active: He may buy the car.</p>
+            <p>Passive: The car may be bought.</p>
+        </div>
+        
+        <h3>Rule 2: Perfect Modals</h3>
+        <p><strong>Structure:</strong> Perfect Modal + been + Past Participle (V3)</p>
+        <p>This rule applies to perfect modals like must have, may have, should have, ought to have, could have, and would have.</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>Active: She must have bought the car.</p>
+            <p>Passive: The car must have been bought.</p>
+            <p>Active: You should have bought the car.</p>
+            <p>Passive: The car should have been bought.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2><span class="icon">📣</span>Imperative Sentences with Passive Voice</h2>
+        <p>Imperative sentences are used to express commands, requests, or advice. They are converted to the passive voice using two main structures.</p>
+        
+        <h3>Structure 1: Let + Object + be/not + V3</h3>
+        <p>This structure is used for direct commands.</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>Active: Shut the door.</p>
+            <p>Passive: Let the door be shut.</p>
+            <p>Active: Post this letter.</p>
+            <p>Passive: Let this letter be posted.</p>
+        </div>
+        
+        <h3>Structure 2: You are requested/ordered/advised to...</h3>
+        <p>This structure is used for requests, commands, or advice and is considered more formal.</p>
+        <p>The words kindly and please are dropped in the passive form.</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>Active: Stand up.</p>
+            <p>Passive: You are ordered to stand up.</p>
+            <p>Active: Please, post this letter.</p>
+            <p>Passive: You are requested to post this letter.</p>
+            <p>Active: Work hard.</p>
+            <p>Passive: You are advised to work hard.</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2><span class="icon">✍️</span>Infinitive Verbs with Passive Voice</h2>
+        <p>Infinitive verbs (to + V1) can also be converted to the passive voice. The passive structure for an infinitive is to be + V3.</p>
+        
+        <p><strong>Active Form:</strong> Subject + Verb + to + V1 + Object</p>
+        <p><strong>Passive Form:</strong> Subject + Verb + Object + to + be + V3</p>
+        
+        <div class="example-card">
+            <p><strong>Examples:</strong></p>
+            <p>Active: I want to buy this book.</p>
+            <p>Passive: I want this book to be bought.</p>
+            <p>Active: They have no money to spend.</p>
+            <p>Passive: They have no money to be spent.</p>
+            <p>Active: I have letters to write.</p>
+            <p>Passive: I have letters to be written.</p>
+        </div>
+    </div>
+</body>
+</html>`
       }
     ]
   },
