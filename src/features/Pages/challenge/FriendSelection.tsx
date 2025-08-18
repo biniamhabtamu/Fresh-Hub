@@ -1,6 +1,6 @@
 // src/features/challenge/FriendSelection.tsx
 import { useState, useEffect } from 'react';
-import { getFriendsList } from '../../firebase/challenge';
+import { getFriendsList } from '../../../firebase/challenge';
 
 interface FriendSelectionProps {
   onFriendSelect: (friend: any) => void;

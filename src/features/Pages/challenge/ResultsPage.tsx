@@ -1,8 +1,8 @@
 // src/features/challenge/ResultsPage.tsx
 import { useEffect, useState } from 'react';
-import { Question } from '../data/ChallengeExamCollection';
-import { useChallenge } from '../../hooks/useChallenge';
-import { saveChallengeResult } from '../../firebase/challenge';
+import { Question } from '../../data/ChallengeExamCollection';
+import { useChallenge } from '../../../hooks/useChallenge';
+import { saveChallengeResult } from '../../../firebase/challenge';
 
 interface ResultsPageProps {
   questions: Question[];

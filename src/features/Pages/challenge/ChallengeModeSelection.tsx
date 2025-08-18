@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import ChallengeCard from '../components/ChallengeCard';
+import ChallengeCard from '../../../components/ChallengeCard';
 
 const ChallengeModeSelection = () => {
   const navigate = useNavigate();

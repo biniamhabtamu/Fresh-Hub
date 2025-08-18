@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { App as CapacitorApp } from '@capacitor/app';
+import { App as CapacitorApp, PluginListenerHandle } from '@capacitor/app';
 import { Toast } from '@capacitor/toast';
 import AuthForm from './components/Auth/AuthForm';
 import Dashboard from './components/Home/Dashboard';
@@ -19,8 +19,13 @@ import HandoutPage from './components/Handout/HandoutPage';
 import NotePage from './components/Handout/NotePage';
 import ContactUs from './components/Layout/ContactUs';
 import CommunityPage from './components/Community/CommunityPage';
+import ChallengeHome from './features/Pages/challenge/ChallengeHome';
+import ChallengeModeSelection from './features/Pages/challenge/ChallengeModeSelection';
+import ChallengeYourself from './features/Pages/challenge/ChallengeFriend';
+import ResultsPage from './features/Pages/challenge/ResultsPage';
+import ComingSoon from './features/Pages/challenge/ComingSoon';
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
 }
@@ -47,6 +52,15 @@ function AppRoutes() {
       <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
       <Route path="/ContactUs" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
       <Route path="/Community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
+      
+      {/* Challenge Feature Routes */}
+      <Route path="/challenge" element={<ProtectedRoute><ChallengeHome /></ProtectedRoute>} />
+      <Route path="/challenge/self" element={<ProtectedRoute><ChallengeModeSelection /></ProtectedRoute>} />
+      <Route path="/challenge/self/custom" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
+      <Route path="/challenge/self/:questions" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
+      <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
+      <Route path="/challenge/coming-soon" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
+      
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>
   );
@@ -57,8 +71,9 @@ function AppContent() {
   const location = useLocation();
   const [lastBackPress, setLastBackPress] = useState(0);
   const { currentUser } = useAuth();
+  const [backHandler, setBackHandler] = useState<PluginListenerHandle | null>(null);
 
-  const showToast = async (message) => {
+  const showToast = async (message: string) => {
     await Toast.show({
       text: message,
       duration: 'short'
@@ -66,24 +81,30 @@ function AppContent() {
   };
 
   useEffect(() => {
-    const backHandler = CapacitorApp.addListener('backButton', ({ canGoBack }) => {
-      // If not authenticated, always go to auth page
+    const handleBackButton = ({ canGoBack }: { canGoBack: boolean }) => {
       if (!currentUser) {
         navigate('/auth', { replace: true });
         return;
       }
 
-      // Define exit routes where we want to show exit confirmation
       const exitRoutes = ['/auth', '/dashboard'];
       const isExitRoute = exitRoutes.includes(location.pathname);
 
-      // Define home routes where we want to navigate to dashboard
-      const homeRoutes = ['/subject', '/premium', '/leaderboard', '/profilepage', 
-                        '/handouts', '/notes', '/settings', '/ContactUs', '/Community'];
+      const homeRoutes = [
+        '/subject', 
+        '/premium', 
+        '/leaderboard', 
+        '/profilepage',
+        '/handouts', 
+        '/notes', 
+        '/settings', 
+        '/ContactUs', 
+        '/Community',
+        '/challenge'
+      ];
       const isHomeRoute = homeRoutes.some(route => location.pathname.startsWith(route));
 
       if (isExitRoute) {
-        // Handle exit confirmation on exit routes
         const now = Date.now();
         if (now - lastBackPress < 2000) {
           CapacitorApp.exitApp();
@@ -92,24 +113,36 @@ function AppContent() {
           setLastBackPress(now);
         }
       } else if (isHomeRoute) {
-        // For home routes, navigate to dashboard if can't go back
         if (window.history.length > 1) {
           navigate(-1);
         } else {
           navigate('/dashboard', { replace: true });
         }
       } else {
-        // Default behavior for other routes
         if (canGoBack) {
           navigate(-1);
         } else {
           navigate('/dashboard', { replace: true });
         }
       }
-    });
+    };
+
+    const setupListener = async () => {
+      try {
+        const handler = await CapacitorApp.addListener('backButton', handleBackButton);
+        setBackHandler(handler);
+      } catch (error) {
+        console.error('Error setting up back button listener:', error);
+      }
+    };
+
+    setupListener();
 
     return () => {
-      backHandler.remove();
+      if (backHandler) {
+        backHandler.remove()
+          .catch(error => console.warn('Error removing back handler:', error));
+      }
     };
   }, [navigate, location, lastBackPress, currentUser]);
 

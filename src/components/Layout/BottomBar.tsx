@@ -10,7 +10,7 @@ const BottomBar = () => {
   const navItems = [
     { name: 'Home', icon: FiHome, path: '/dashboard', activeColor: 'text-cyan-400' },
     { name: 'Handouts', icon: FiBookOpen, path: '/handouts', activeColor: 'text-cyan-400' },
-    { name: 'Challenge', icon: FaFire, path: '/', activeColor: 'text-red-500' },
+    { name: 'Challenge', icon: FaFire, path: '/challenge', activeColor: 'text-red-500' },
     { name: 'Leaderboard', icon: FiAward, path: '/leaderboard', activeColor: 'text-cyan-400' },
     { name: 'Profile', icon: FiUser, path: '/profilepage', activeColor: 'text-cyan-400' },
   ];

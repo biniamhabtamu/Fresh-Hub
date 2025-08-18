@@ -4,8 +4,8 @@ import SubjectSelection from './SubjectSelection';
 import FriendSelection from './FriendSelection';
 import QuestionPage from './QuestionPage';
 import ResultsPage from './ResultsPage';
-import { getRandomQuestions } from '../data/ChallengeExamCollection';
-import { useChallenge } from '../../hooks/useChallenge';
+import { getRandomQuestions } from '../../data/ChallengeExamCollection';
+import { useChallenge } from '../../../hooks/useChallenge';
 
 export default function ChallengeFriend({ onBack }: { onBack: () => void }) {
   const [step, setStep] = useState<'subject' | 'friend' | 'questions' | 'results'>('subject');

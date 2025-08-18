@@ -3,8 +3,8 @@ import { useState } from 'react';
 import SubjectSelection from './SubjectSelection';
 import QuestionPage from './QuestionPage';
 import ResultsPage from './ResultsPage';
-import { getRandomQuestions } from '../data/ChallengeExamCollection';
-import { useChallenge } from '../../hooks/useChallenge';
+import { getRandomQuestions } from '../../data/ChallengeExamCollection';
+import { useChallenge } from '../../../hooks/useChallenge';
 
 export default function ChallengeGlobal({ onBack }: { onBack: () => void }) {
   const [step, setStep] = useState<'subject' | 'type' | 'questions' | 'results'>('subject');

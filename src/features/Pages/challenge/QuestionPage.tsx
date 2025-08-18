@@ -1,7 +1,7 @@
 // src/features/challenge/QuestionPage.tsx
 import { useEffect, useState } from 'react';
-import { Question } from '../data/ChallengeExamCollection';
-import { useChallenge } from '../../hooks/useChallenge';
+import { Question } from '../../data/ChallengeExamCollection';
+import { useChallenge } from '../../../hooks/useChallenge';
 
 interface QuestionPageProps {
   questions: Question[];

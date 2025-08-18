@@ -1,7 +1,7 @@
 // src/features/challenge/SubjectSelection.tsx
 import { useState } from 'react';
-import { Subject, subjects } from '../data/subjects';
-import { useChallenge } from '../../hooks/useChallenge';
+import { Subject, subjects } from '../../data/subjects';
+import { useChallenge } from '../../../hooks/useChallenge';
 
 interface SubjectSelectionProps {
   onSubjectSelect: (subject: Subject) => void;

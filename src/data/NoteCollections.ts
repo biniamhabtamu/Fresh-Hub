@@ -9300,218 +9300,235 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conditional Sentences - English Grammar</title>
     <style>
-        :root {
-            --primary-color: #5D6D7E;
-            --secondary-color: #2E4053;
-            --accent-color: #3498DB;
-            --light-color: #F8F9F9;
-            --dark-color: #212F3D;
-            --success-color: #27AE60;
-            --info-color: #2980B9;
-            --warning-color: #F39C12;
-            --danger-color: #E74C3C;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        h1, h2, h3, h4 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin: 30px 0;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 25px;
-            border-left: 5px solid var(--accent-color);
-            padding-left: 10px;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 20px;
-            color: var(--info-color);
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            color: var(--success-color);
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 25px;
-            overflow: hidden;
-        }
-        
-        .card.definition {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--info-color);
-        }
-        
-        .card.rules {
-            background-color: #e8f4f8;
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .card.examples {
-            background-color: #e8f5e9;
-            border-left: 4px solid var(--success-color);
-        }
-        
-        .card.table {
-            background-color: #fef9e7;
-            border-left: 4px solid var(--warning-color);
-            overflow-x: auto;
-        }
-        
-        .card.exercise {
-            background-color: #f5eef8;
-            border-left: 4px solid #9B59B6;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        ul, ol {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .note {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
-        }
-        
-        .emoji {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        .highlight {
-            background-color: #fffde7;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-weight: bold;
-            font-family: monospace;
-        }
-        
-        .exercise-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .exercise-item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.3rem;
-            }
-            
-            .card {
-                padding: 15px;
-            }
-            
-            th, td {
-                padding: 8px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            h2 {
-                font-size: 1.4rem;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
+    :root {
+    --primary-color: #5D6D7E;
+    --secondary-color: #2E4053;
+    --accent-color: #3498DB;
+    --light-color: #F8F9F9;
+    --dark-color: #212F3D;
+    --success-color: #27AE60;
+    --info-color: #2980B9;
+    --warning-color: #F39C12;
+    --danger-color: #E74C3C;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 30px 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 25px;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: var(--info-color);
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: var(--success-color);
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    width: 100%; /* ensure full width */
+}
+
+.card.definition {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--info-color);
+}
+
+.card.rules {
+    background-color: #e8f4f8;
+    border-left: 4px solid var(--primary-color);
+}
+
+.card.examples {
+    background-color: #e8f5e9;
+    border-left: 4px solid var(--success-color);
+}
+
+.card.table {
+    background-color: #fef9e7;
+    border-left: 4px solid var(--warning-color);
+    overflow-x: auto;
+}
+
+.card.exercise {
+    background-color: #f5eef8;
+    border-left: 4px solid #9B59B6;
+}
+
+/* Lists & text */
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Notes */
+.note {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 15px 0;
+    font-style: italic;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Highlight */
+.highlight {
+    background-color: #fffde7;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* Exercises */
+.exercise-item {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.exercise-item:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%; /* full width */
+        padding: 0;      /* remove inner gap */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .card {
+        padding: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0; /* flush edges */
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0; /* full width on very small screens */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -10752,210 +10769,235 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthropology Notes: Chapter 1</title>
     <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+    /* Global Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+        color: #333;
+        line-height: 1.6;
+        padding: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    h1, h2, h3, h4 {
+        margin-bottom: 15px;
+        word-wrap: break-word;
+    }
+    
+    h1 {
+        text-align: center;
+        margin: 25px 0;
+        font-size: 2.2rem;
+        color: #1e88e5;
+        border-bottom: 4px solid #42a5f5;
+        padding-bottom: 10px;
+        background: linear-gradient(to right, #42a5f5, #7e57c2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+        background: linear-gradient(to right, #ffe082, #ffcc80);
+        padding: 12px;
+        margin-top: 25px;
+        border-radius: 8px;
+        color: #5d4037;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+        margin-top: 20px;
+        color: #8e24aa;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+        margin-top: 15px;
+        color: #388e3c;
+    }
+    
+    p {
+        margin-bottom: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Card Styles */
+    .card {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 15px 0;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .definition-card {
+        border-left: 6px solid #42a5f5;
+        background: #e3f2fd;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+    
+    .example-card {
+        border-left: 6px solid #66bb6a;
+        background: #e8f5e9;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+    
+    .rule-card {
+        border-left: 6px solid #ef5350;
+        background: #ffebee;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+    
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 0.95rem;
+        overflow-x: auto;
+        display: block;
+    }
+    
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    th {
+        background: linear-gradient(135deg, #42a5f5, #7e57c2);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+        background-color: #f1f8ff;
+    }
+    
+    /* Lists */
+    ul, ol {
+        margin: 12px 0 12px 20px;
+    }
+    
+    li {
+        margin-bottom: 6px;
+    }
+    
+    /* Special elements */
+    .icon {
+        font-size: 1.2em;
+        margin-right: 5px;
+    }
+    
+    .note {
+        background: #fff8e1;
+        border-left: 6px solid #ffb300;
+        padding: 12px;
+        margin: 15px 0;
+        font-style: italic;
+        border-radius: 8px;
+    }
+    
+    .warning {
+        background: #ffebee;
+        border-left: 6px solid #d32f2f;
+        padding: 12px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+    
+    .highlight {
+        background: #ffeb3b;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+    
+    .language-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+    
+    .language {
+        flex: 1;
+        padding: 10px;
+        min-width: 100%;
+    }
+    
+    .english {
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .amharic {
+        direction: rtl;
+        font-family: 'Nyala', 'Abyssinica SIL', sans-serif;
+    }
+    
+    .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .column {
+        flex: 1;
+        min-width: 280px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1, h2, h3, h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        h1 {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 2.5rem;
-            color: #3498db;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 25px;
-            color: #2980b9;
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            color: #16a085;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        
-        /* Card Styles */
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .definition-card {
-            border-left: 5px solid #3498db;
-            background-color: #e8f4fc;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .example-card {
-            border-left: 5px solid #2ecc71;
-            background-color: #e8f8f0;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .rule-card {
-            border-left: 5px solid #e74c3c;
-            background-color: #fdedec;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 1rem;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        tr:hover {
-            background-color: #e6f7ff;
-        }
-        
-        /* Lists */
-        ul, ol {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-            
-            th, td {
-                padding: 8px;
-            }
-        }
-        
-        /* Special elements */
-        .icon {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        
-        .note {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-        }
-        
-        .warning {
-            background-color: #f8d7da;
-            border-left: 5px solid #dc3545;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-        
-        .language-container {
-            display: flex;
-            margin: 10px 0;
-        }
-        
-        .language {
-            flex: 1;
             padding: 10px;
         }
-        
-        .english {
-            border-right: 1px solid #ddd;
+        h1 {
+            font-size: 1.8rem;
         }
-        
-        .amharic {
-            direction: rtl;
-            font-family: 'Nyala', 'Abyssinica SIL', sans-serif;
+        h2 {
+            font-size: 1.3rem;
         }
-        
+        h3 {
+            font-size: 1.1rem;
+        }
+        p {
+            font-size: 0.95rem;
+        }
+        table {
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 6px;
+        }
         .two-column {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
         }
-        
         .column {
-            flex: 1;
-            min-width: 300px;
+            min-width: 100%;
         }
-    </style>
+    }
+</style>
+
 </head>
 <body>
     <h1>📝 Anthropology Notes: Chapter 1</h1>
@@ -11310,13 +11352,43 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             <div class="language english">
                 <p>Anthropology serves as a tool in the development sector. By identifying the needs and interests of local people, it helps design appropriate development projects.</p>
             </div>
-            <div class="language amharic">
+            <div class="language amharic"> 
                 <p>አንትሮፖሎጂ በልማት ዘርፍ እንደ መሳሪያ ሆኖ ያገለግላል። በአካባቢው ያሉ ሰዎችን ፍላጎትና ፍላጎት በመለየት፣ ተገቢ የልማት ፕሮጀክቶችን ለመንደፍ ይረዳል።</p>
             </div>
         </div>
     </div>
 </body>
 </html>`
+      },
+      { 
+        id: 'Anthropologych2', 
+        title: 'Chapter 2:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+      },
+       { 
+        id: 'Anthropologych3', 
+        title: 'Chapter 3:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+      },
+       { 
+        id: 'Anthropologych4', 
+        title: 'Chapter 4:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+      },
+       { 
+        id: 'Anthropologych5', 
+        title: 'Chapter 5:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+      },
+       { 
+        id: 'Anthropologych6', 
+        title: 'Chapter 6:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+      },
+       { 
+        id: 'Anthropologych7', 
+        title: 'Chapter 7:', 
+        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
       }
     ]
   },
