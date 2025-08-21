@@ -25,6 +25,8 @@ import ChallengeYourself from './features/Pages/challenge/ChallengeFriend';
 import ResultsPage from './features/Pages/challenge/ResultsPage';
 import ComingSoon from './features/Pages/challenge/ComingSoon';
 import { ChallengeProvider } from './contexts/ChallengeContext';
+import LiveChallenge from './features/Pages/challenge/LiveChallenge';
+import ChallengeFriend from './features/Pages/challenge/ChallengeFriend';
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -58,6 +60,9 @@ function AppRoutes() {
       <Route path="/challenge/self" element={<ProtectedRoute><ChallengeModeSelection /></ProtectedRoute>} />
       <Route path="/challenge/self/custom" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
        <Route path="friend" element={<ComingSoon />} />
+       <Route path="/challenge/livechallenge" element={<ProtectedRoute><LiveChallenge /></ProtectedRoute>} />
+       <Route path="/challenge/challengefriend" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
+       <Route path="/challenge/globalchallenge" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
       <Route path="/challenge/self/:questions" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
       <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
       <Route path="/challenge/coming-soon" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
