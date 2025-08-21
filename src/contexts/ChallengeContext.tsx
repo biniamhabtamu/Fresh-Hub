@@ -1,59 +1,67 @@
-import { createContext, useContext, useState } from 'react';
+// src/contexts/ChallengeContext.tsx
+import { createContext, useContext, ReactNode, useState } from 'react';
 
-type ChallengeMode = 'self' | 'friend' | 'mid-global' | 'final-global' | null;
-type Subject = string;
+type Challenge = {
+  id: string;
+  title: string;
+  subject: string;
+  questions: any[];
+  participants?: string[];
+};
 
-interface ChallengeContextType {
-  challengeMode: ChallengeMode;
-  challengeSubject: Subject | null;
-  setChallengeMode: (mode: ChallengeMode) => void;
-  setChallengeSubject: (subject: Subject) => void;
-  answers: Record<string, { answer: string; correct: boolean }>;
-  addAnswer: (questionId: string, answer: string, correct: boolean) => void;
-  resetChallenge: () => void;
-}
+type ChallengeContextType = {
+  currentChallenge: Challenge | null;
+  setCurrentChallenge: (challenge: Challenge | null) => void;
+  createNewChallenge: (subject: string, type: string) => void;
+  joinChallenge: (challengeId: string) => void;
+};
 
-const ChallengeContext = createContext<ChallengeContextType>({
-  challengeMode: null,
-  challengeSubject: null,
-  setChallengeMode: () => {},
-  setChallengeSubject: () => {},
-  answers: {},
-  addAnswer: () => {},
-  resetChallenge: () => {}
-});
+const ChallengeContext = createContext<ChallengeContextType | undefined>(undefined);
 
-export function ChallengeProvider({ children }: { children: React.ReactNode }) {
-  const [challengeMode, setChallengeMode] = useState<ChallengeMode>(null);
-  const [challengeSubject, setChallengeSubject] = useState<Subject | null>(null);
-  const [answers, setAnswers] = useState<Record<string, { answer: string; correct: boolean }>>({});
+export function ChallengeProvider({ children }: { children: ReactNode }) {
+  const [currentChallenge, setCurrentChallenge] = useState<Challenge | null>(null);
 
-  const addAnswer = (questionId: string, answer: string, correct: boolean) => {
-    setAnswers(prev => ({
-      ...prev,
-      [questionId]: { answer, correct }
-    }));
+  const createNewChallenge = (subject: string, type: string) => {
+    const newChallenge: Challenge = {
+      id: Math.random().toString(36).substring(2, 9),
+      title: `${type} Challenge - ${subject}`,
+      subject,
+      questions: [], // You'll populate these from your backend
+    };
+    setCurrentChallenge(newChallenge);
   };
 
-  const resetChallenge = () => {
-    setChallengeMode(null);
-    setChallengeSubject(null);
-    setAnswers({});
+  const joinChallenge = (challengeId: string) => {
+    // Here you would fetch the challenge from your backend
+    // For now, we'll just mock it
+    const joinedChallenge: Challenge = {
+      id: challengeId,
+      title: "Friend Challenge",
+      subject: "General Knowledge",
+      questions: [],
+      participants: ["user1", "user2"]
+    };
+    setCurrentChallenge(joinedChallenge);
   };
 
   return (
-    <ChallengeContext.Provider value={{
-      challengeMode,
-      challengeSubject,
-      setChallengeMode,
-      setChallengeSubject,
-      answers,
-      addAnswer,
-      resetChallenge
-    }}>
+    <ChallengeContext.Provider 
+      value={{ 
+        currentChallenge, 
+        setCurrentChallenge,
+        createNewChallenge,
+        joinChallenge
+      }}
+    >
       {children}
     </ChallengeContext.Provider>
   );
 }
 
-export const useChallenge = () => useContext(ChallengeContext);
+export function useChallenge() {
+  const context = useContext(ChallengeContext);
+  if (context === undefined) {
+    throw new Error('useChallenge must be used within a ChallengeProvider');
+  }
+  return context;
+}

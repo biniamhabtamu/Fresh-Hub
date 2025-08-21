@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { Trophy, Users, Globe, Target } from 'lucide-react';
+import BottomBar from '../../../components/Layout/BottomBar';
 
 const ChallengeHome = () => {
   const navigate = useNavigate();
@@ -102,6 +103,7 @@ const ChallengeHome = () => {
           ))}
         </div>
       </div>
+      <BottomBar />
     </div>
   );
 };
