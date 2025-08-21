@@ -1963,16 +1963,7 @@ export const sampleQuestions: Question[] = [
   // ==================== PSYCHOLOGY QUESTIONS ====================
   
   //psychology-2016-1-1
-  {
-    id: 'psych-2016-1-1',
-    question: 'Who is considered the father of modern psychology?',
-    options: ['Sigmund Freud', 'Wilhelm Wundt', 'B.F. Skinner', 'Carl Rogers'],
-    correctAnswer: 1,
-    explanation: 'Wilhelm Wundt is often considered the father of modern psychology.',
-    subject: 'psychology',
-    year: 2016,
-    chapter: 1
-  }, {
+   {
     id: 'psych-2013-1-1',
     question: 'Which of the following lists the correct basic order of the five steps of scientific research presented in the text?',
     options: ['Perceive the problem → Form a hypothesis → Test the hypothesis → Draw conclusions → Report results', 'Test the hypothesis → Perceive the problem → Report results → Draw conclusions → Form a hypothesis', 'Report results → Draw conclusions → Form a hypothesis → Perceive the problem → Test the hypothesis', 'Form a hypothesis → Report results → Perceive the problem → Test the hypothesis → Draw conclusions'],
