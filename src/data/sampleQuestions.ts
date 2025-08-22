@@ -2779,7 +2779,7 @@ export const sampleQuestions: Question[] = [
   
 // ==================== LOGIC CHAPTER 1 QUESTIONS (30) ====================
 {
-    "id": "log-2013-1-1",
+    "id": "log-2013-2-1",
     "question": "If all cats are mammals and all mammals are animals, then all cats are?(AST)",
     "options": [
       "Animals",
@@ -2791,10 +2791,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is a classic syllogism. The conclusion 'All cats are animals' necessarily follows from the two premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-2",
+    "id": "log-2013-2-2",
     "question": "For the past twenty-five years, Ethiopian athletes have been dominant in the world of athletics. Thus, Ethiopian athletes will probably remain dominant in the coming couple of years. This argument is an example of a(n) _______ argument.",
     "options": [
       "deductive",
@@ -2804,10 +2804,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is an inductive argument. Inductive arguments move from specific observations (past performance) to a broader, probable conclusion (future performance). The conclusion is not guaranteed to be true, but it is made probable by the premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-3",
+    "id": "log-2013-2-3",
     "question": "All managers are journalists. All journalists are lawyers. So, all lawyers are journalists. This argument is said to be:",
     "options": [
       "Valid Categorical Syllogism",
@@ -2821,10 +2821,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is an invalid argument. The conclusion \"all lawyers are journalists\" does not logically follow from the premises. Even if the premises were true, the conclusion would not be. The premises establish a relationship from managers to journalists to lawyers, but do not support the inverse relationship from lawyers to journalists. This is a fallacy of illicit major/minor in categorical logic.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-4",
+    "id": "log-2013-2-4",
     "question": "No cat is a reptile owing to all cats are dogs and no dog is a reptile. What would be the proper name of this argument in terms of both inferential and factual claims?",
     "options": [
       "Sound",
@@ -2838,10 +2838,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This argument is unsound. An argument is sound if and only if it is valid and all of its premises are actually true. The argument \"No cat is a reptile owing to all cats are dogs and no dog is a reptile\" is logically valid (the conclusion necessarily follows from the premises). However, the premise \"all cats are dogs\" is factually false. Therefore, the argument is unsound.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-5",
+    "id": "log-2013-2-5",
     "question": "Yesterday I bought new jeans with a tag that reads, 'Made in U.S.A'. Thus, my new jeans were made in the U.S.A. This argument is:",
     "options": [
       "Deductive, Uncogent",
@@ -2854,10 +2854,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is a strong inductive argument. It moves from a specific observation (the tag) to a probable conclusion (the jeans were made in the U.S.A.). It is strong because the premise provides a high degree of probability for the conclusion. It's not deductive because the conclusion is not guaranteed, as the tag could be wrong.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-6",
+    "id": "log-2013-2-6",
     "question": "A cogent argument requires one of the following combinations:",
     "options": [
       "Strength and Validity",
@@ -2871,10 +2871,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A cogent argument is a type of strong inductive argument with all true premises. Therefore, it requires both strength (the logical connection between premises and conclusion) and truth (the premises must be factually correct).",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-7",
+    "id": "log-2013-2-7",
     "question": "Which one of the following statements is incorrect?",
     "options": [
       "Strength or validity is about the logical connection between the premises and the conclusion.",
@@ -2887,10 +2887,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "Statement C is incorrect. A sound argument is a valid deductive argument that has all true premises. Therefore, soundness does, in fact, guarantee that the premises are true. The other statements correctly describe aspects of logical argumentation.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-8",
+    "id": "log-2013-2-8",
     "question": "[A] We were late for class [B] because we were having a breakfast. What we can say about the relationship of these two statements?",
     "options": [
       "A because B here implies no kind of reason at all.",
@@ -2903,10 +2903,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "The word \"because\" in this context indicates an explanation. The statement \"we were having a breakfast\" serves to explain the reason \"why\" they were late for class. An explanation presents a causal account for an event, rather than an argument which attempts to prove a conclusion.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-9",
+    "id": "log-2013-2-9",
     "question": "Identify the argument which is odd in its form of argumentation from the given alternatives below:",
     "options": [
       "Both Lionel Messi and Cristiano Ronaldo play in the English Premier League. Messi's payment is 40,000 Euro per week. Ronaldo's weekly payment is less than Messi's by more than half. Accordingly, Ronaldo must be paid 19,500 Euro weekly.",
@@ -2920,10 +2920,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "The odd argument is C because it is the only inductive argument among the options. Options A, B, D, and E are all deductive arguments. A and E are based on logical inference, B is a categorical syllogism, and D is based on a mathematical fact. C, however, generalizes from a sample (37 countries) to a conclusion about a larger group (most African countries), which is a key characteristic of an inductive argument.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-10",
+    "id": "log-2013-2-10",
     "question": "A statement that is incorrect about an argument among the following is:",
     "options": [
       "It is necessary for an argument to have one conclusion and more than one premise.",
@@ -2937,10 +2937,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "Statement A is incorrect. An argument can have a single premise and a single conclusion. For example, \"It is raining. Therefore, it is wet outside.\" is a simple but complete argument. An argument must have at least one premise and one conclusion, but it doesn't need to have more than one premise.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-11",
+    "id": "log-2013-2-11",
     "question": "If government imposes import restrictions, the price of automobiles will rise. Therefore, since the government will not impose import restrictions, it follows that the price of automobiles will not rise. This argument form is:",
     "options": [
       "Invalid",
@@ -2952,10 +2952,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This argument form is invalid. It is a logical fallacy known as Denying the Antecedent. The form is \"If P then Q. Not P. Therefore, Not Q.\" The fact that the government will not impose import restrictions (Not P) does not necessarily mean the price will not rise (Not Q), as other factors could cause the price to rise.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-12",
+    "id": "log-2013-2-12",
     "question": "'The reason poverty is rising worldwide is that the global economy has made it impossible for countries to provide stable working conditions for its citizens.' This passage can be identified as:",
     "options": [
       "Argument",
@@ -2968,10 +2968,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This passage is an explanation. An explanation provides a reason or cause for why something is the case. The phrase \"The reason...is that\" is a strong indicator that the passage is explaining a phenomenon rather than trying to convince the reader of a conclusion.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-13",
+    "id": "log-2013-2-13",
     "question": "Emperor Tewodros II is the grand architect of Ethiopian modernity. He tried to revolutionize existing relations between the state and church; he tried to build a modern army and also sought to establish foreign relations with Western European nations.",
     "options": [
       "Argument; conclusion: He tried to revolutionize existing relations between the state and church.",
@@ -2985,10 +2985,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is an argument. The premises (\"He tried to revolutionize...,\" \"he tried to build...,\" and \"also sought to establish...\") are offered as evidence to support the main claim that Emperor Tewodros II is the grand architect of Ethiopian modernity. Therefore, the conclusion is the first statement, and the subsequent statements are premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-14",
+    "id": "log-2013-2-14",
     "question": "Claude Sumner initiated the project of studying the written sources of Ethiopian philosophy. He also analyzed the role of oral literature and western literature for the understanding of Ethiopian philosophy. As such, Claude Sumner could be seen as the greatest thinker in the development of Ethiopian philosophy.",
     "options": [
       "Argument; conclusion: initiated the project of studying the written sources of Ethiopian philosophy.",
@@ -3001,10 +3001,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is an argument. The phrase \"As such\" is a conclusion indicator word. The preceding two statements (\"Claude Sumner initiated the project...\" and \"He also analyzed...\") serve as premises to support the final statement, which is the conclusion.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-15",
+    "id": "log-2013-2-15",
     "question": "Which of the following statements contains a vague expression or term?",
     "options": [
       "The stolen bicycle was found by a man sleeping in the park.",
@@ -3016,10 +3016,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "The statement \"Mr. Hussein, my neighbor, is wealthy\" contains a vague term. The term \"wealthy\" is not clearly defined. What constitutes wealth for one person may not for another, making the term imprecise. Statements with clear, definite meanings are not vague.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-16",
+    "id": "log-2013-2-16",
     "question": "Selling salt to customers after twelve brings bad luck on one's life. Thus, one shouldn't sell salt to customers. This argument is:",
     "options": [
       "Inductive, invalid",
@@ -3032,10 +3032,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "This is a deductive argument because it attempts to draw a conclusion that is necessarily true based on the premise. The form is: If P then Q. P. Therefore, Q. The conclusion logically follows from the premise, making it valid. However, the premise \"Selling salt...brings bad luck\" is factually false. Since a deductive argument is sound only if it is valid and has true premises, this argument is unsound.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-17",
+    "id": "log-2013-2-17",
     "question": "A valid deductive argument with all true premises is called a(n) ___________ argument.",
     "options": [
       "strong",
@@ -3047,10 +3047,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A sound argument is, by definition, a valid deductive argument with all true premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-18",
+    "id": "log-2013-2-18",
     "question": "A strong inductive argument with all true premises is called a(n) ___________ argument.",
     "options": [
       "valid",
@@ -3062,10 +3062,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is a strong inductive argument with all true premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-19",
+    "id": "log-2013-2-19",
     "question": "The term \"validity\" refers to the __________ connection between the premises and the conclusion of a(n) ___________ argument.",
     "options": [
       "factual, inductive",
@@ -3077,10 +3077,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "Validity is a property of a deductive argument. It refers to the logical connection between the premises and the conclusion, specifically whether the conclusion must follow from the premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-20",
+    "id": "log-2013-2-20",
     "question": "The term \"strength\" refers to the __________ connection between the premises and the conclusion of a(n) ___________ argument.",
     "options": [
       "factual, inductive",
@@ -3092,10 +3092,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "Strength is a property of an inductive argument. It refers to the logical connection between the premises and the conclusion, specifically whether the conclusion is probable given the premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-21",
+    "id": "log-2013-2-21",
     "question": "A passage that presents a series of statements about a topic without intending to prove anything is known as a(n) _______________.",
     "options": [
       "argument",
@@ -3107,10 +3107,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A report is a passage that presents factual information without making an argumentative claim. It simply presents a series of statements about a topic, often in a neutral tone.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-22",
+    "id": "log-2013-2-22",
     "question": "An argument that moves from particular facts to a probable general conclusion is a(n) ___________ argument.",
     "options": [
       "deductive",
@@ -3122,10 +3122,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "An inductive argument is characterized by its move from particular facts or observations to a probable general conclusion. This type of reasoning is common in science and everyday life.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-23",
+    "id": "log-2013-2-23",
     "question": "An argument that moves from a general rule to a specific instance is a(n) ___________ argument.",
     "options": [
       "deductive",
@@ -3137,10 +3137,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A deductive argument is characterized by its move from a general rule or principle to a specific instance. The conclusion is meant to be a necessary consequence of the premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-24",
+    "id": "log-2013-2-24",
     "question": "The statement in an argument that is intended to be supported by evidence is the __________.",
     "options": [
       "premise",
@@ -3152,10 +3152,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "The conclusion is the main claim of an argument, the statement that the arguer is trying to prove. It is the statement that is supported by the other statements, which are the premises.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-25",
+    "id": "log-2013-2-25",
     "question": "The statement in an argument that provides evidence is the __________.",
     "options": [
       "premise",
@@ -3167,10 +3167,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A premise is a statement that provides evidence, support, or reasons for a conclusion. Arguments are built on premises that lead to a conclusion.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-26",
+    "id": "log-2017-2-26",
     "question": "A statement that is always true is a _________.",
     "options": [
       "tautology",
@@ -3181,11 +3181,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "A tautology is a statement that is true by its logical form, such as \"It is raining or it is not raining.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-27",
+    "id": "log-2017--27",
     "question": "A statement that is always false is a _________.",
     "options": [
       "tautology",
@@ -3196,11 +3196,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "A contradiction is a statement that is always false, such as \"It is raining and it is not raining.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-28",
+    "id": "log-2017-2-28",
     "question": "If the conclusion of an argument is a necessary truth, it must be a(n) ___________ argument.",
     "options": [
       "inductive",
@@ -3211,11 +3211,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "Deductive arguments are the only type of argument that can guarantee the truth of the conclusion. The conclusion of a valid deductive argument is a necessary truth if its premises are true.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-29",
+    "id": "log-2017-2-29",
     "question": "If the conclusion of an argument is a probable truth, it must be a(n) ___________ argument.",
     "options": [
       "inductive",
@@ -3226,11 +3226,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "The conclusion of an inductive argument is never guaranteed to be true, but it is made probable by the premises. This is the defining characteristic of inductive reasoning.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-30",
+    "id": "log-2017-2-30",
     "question": "All dogs are mammals. Some mammals are cats. Therefore, some dogs are cats. This argument is an example of a(n) ______________.",
     "options": [
       "Valid Categorical Syllogism",
@@ -3241,11 +3241,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an invalid categorical syllogism. The conclusion \"some dogs are cats\" does not logically follow from the premises. The premises allow for a situation where the mammals that are cats are not the same mammals that are dogs. This is a fallacy of the undistributed middle term.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-31",
+    "id": "log-2017-2-31",
     "question": "A passage that contains a causal claim, where one part explains why another part is true, is a(n) ______________.",
     "options": [
       "argument",
@@ -3256,11 +3256,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "An explanation provides a causal account for a fact or event. It is different from an argument, which tries to prove a claim. The passage is not trying to prove that something happened but to explain why it happened.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-32",
+    "id": "log-2017-2-32",
     "question": "The argument form \"If P then Q. Not P. Therefore, Not Q\" is known as:",
     "options": [
       "Modus Ponens",
@@ -3271,11 +3271,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 2,
     "explanation": "The argument form \"If P then Q. Not P. Therefore, Not Q\" is a formal fallacy known as Denying the Antecedent. It is an invalid argument form.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-33",
+    "id": "log-2017-2-33",
     "question": "The argument form \"If P then Q. P. Therefore, Q\" is known as:",
     "options": [
       "Modus Ponens",
@@ -3286,11 +3286,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "The argument form \"If P then Q. P. Therefore, Q\" is a valid form of deductive argument known as Modus Ponens, which means \"mode that affirms.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-34",
+    "id": "log-2017-2-34",
     "question": "The phrase \"it follows that\" is an example of a __________ indicator word.",
     "options": [
       "premise",
@@ -3301,11 +3301,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "The phrase \"it follows that\" is a clear conclusion indicator word. It signals that the statement that follows is the conclusion of the argument, and the preceding statements are the premises.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-35",
+    "id": "log-2017-2-35",
     "question": "The phrase \"because\" is an example of a __________ indicator word.",
     "options": [
       "premise",
@@ -3316,11 +3316,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "The word \"because\" is a common premise indicator word. It signals that the statement that follows provides a reason or evidence to support a conclusion.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-36",
+    "id": "log-2017-2-36",
     "question": "All Ethiopians are intelligent. All intelligent people are great leaders. Therefore, all great leaders are Ethiopians. This argument is an example of a(n) ____________.",
     "options": [
       "valid argument",
@@ -3331,11 +3331,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an invalid argument. The conclusion \"all great leaders are Ethiopians\" does not logically follow from the premises. The premises support a conclusion that \"all Ethiopians are great leaders,\" but not the other way around. This is a common fallacy in categorical logic.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-37",
+    "id": "log-2017-3-37",
     "question": "If Meseret is a doctor, then she is a professional. Meseret is a professional. Therefore, Meseret is a doctor. This argument is an example of a(n) ___________ fallacy.",
     "options": [
       "Denying the Antecedent",
@@ -3346,11 +3346,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an example of the fallacy of Affirming the Consequent. The argument form is \"If P then Q. Q. Therefore, P.\" It is a formal fallacy because just because the consequent (being a professional) is true, it does not mean the antecedent (being a doctor) must also be true.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 3
   },
   {
-    "id": "log-2013-1-38",
+    "id": "log-2013-3-38",
     "question": "A statement that is open to more than one interpretation is called __________.",
     "options": [
       "vague",
@@ -3362,10 +3362,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "An ambiguous statement is one that has more than one meaning and can be interpreted in different ways. For example, \"I saw her duck.\" could mean she lowered her head or she saw a bird.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 3
   },
   {
-    "id": "log-2013-1-39",
+    "id": "log-2013-3-39",
     "question": "A statement that lacks a clear and definite meaning is called __________.",
     "options": [
       "vague",
@@ -3377,10 +3377,10 @@ export const sampleQuestions: Question[] = [
     "explanation": "A vague statement lacks a clear and definite meaning, often because it uses terms that do not have a precise boundary of application. For example, \"It's a long distance from here\" is vague because \"long distance\" is not clearly defined.",
     "subject": "logic",
     "year": 2013,
-    "chapter": 1
+    "chapter": 3
   },
   {
-    "id": "log-2013-1-40",
+    "id": "log-2017-2-40",
     "question": "The passage \"A report from the Ministry of Education showed that student enrollment has increased by 10% this year.\" is a clear example of a(n) __________.",
     "options": [
       "argument",
@@ -3391,11 +3391,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is a report. It simply presents a piece of information from a source without providing evidence to support a separate conclusion. It is a factual statement.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-41",
+    "id": "log-2017-2-41",
     "question": "The argument \"Either Selam is at home or at work. Selam is not at work. Therefore, Selam is at home.\" is a valid form of argument known as:",
     "options": [
       "Disjunctive Syllogism",
@@ -3406,11 +3406,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This is a valid form of argument known as Disjunctive Syllogism. The form is \"Either P or Q. Not P. Therefore, Q.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-42",
+    "id": "log-2017-2-42",
     "question": "The argument \"If Fekadu studies hard, he will pass the exam. If he passes the exam, he will graduate. Therefore, if Fekadu studies hard, he will graduate.\" is a valid form of argument known as:",
     "options": [
       "Disjunctive Syllogism",
@@ -3421,11 +3421,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is a valid form of argument known as Hypothetical Syllogism. The form is \"If P then Q. If Q then R. Therefore, If P then R.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-43",
+    "id": "log-2017-2-43",
     "question": "An argument that relies on a physical or mathematical calculation is always a(n) ___________ argument.",
     "options": [
       "inductive",
@@ -3436,11 +3436,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "An argument based on mathematical or physical calculation is always a deductive argument. The conclusion is necessarily true if the premises are true. The relationship is one of logical necessity, not probability.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-44",
+    "id": "log-2017-2-44",
     "question": "An argument that relies on a prediction or a statistical study is always a(n) ___________ argument.",
     "options": [
       "inductive",
@@ -3451,11 +3451,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "An argument that relies on a prediction or a statistical study is always an inductive argument. The conclusion is only probable, not guaranteed to be true, making it inductive.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-45",
+    "id": "log-2017-2-45",
     "question": "In the sentence, \"Tewodros believes that all politicians are corrupt,\" the phrase \"all politicians are corrupt\" is a(n) __________.",
     "options": [
       "statement",
@@ -3466,11 +3466,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "\"All politicians are corrupt\" is a statement. A statement is a sentence that is either true or false. In this context, it is a belief held by Tewodros, but the phrase itself is a declarative sentence that can be evaluated for truth or falsehood.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-46",
+    "id": "log-2017-2-46",
     "question": "The argument form \"All S are P. All P are Q. Therefore, All S are Q.\" is an example of a(n) ____________.",
     "options": [
       "Categorical Syllogism",
@@ -3481,11 +3481,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This argument form is an example of a Categorical Syllogism. It is a deductive argument that consists of three parts: a major premise, a minor premise, and a conclusion. The premises and conclusion are all categorical statements.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-47",
+    "id": "log-2017-2-47",
     "question": "The argument \"Ethiopian coffee is the best in the world. As evidence, consider that coffee originated in Ethiopia, and many people love its unique flavor.\" is a(n) __________.",
     "options": [
       "report",
@@ -3496,11 +3496,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an argument. The phrase \"As evidence\" explicitly indicates that the following two statements are premises being used to support the conclusion that \"Ethiopian coffee is the best in the world.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-48",
+    "id": "log-2017-2-48",
     "question": "The passage \"An explanation of the recent power outage is that the transformer in the neighborhood broke down.\" is a(n) ____________.",
     "options": [
       "argument",
@@ -3511,11 +3511,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 2,
     "explanation": "This is an explanation. The passage provides a reason for a known fact (the power outage). It is not trying to prove that a power outage occurred, but rather to explain why it occurred.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-49",
+    "id": "log-2017-2-49",
     "question": "The statement \"My neighbor, Aster, is 1.7 meters tall.\" is an example of a(n) ______________.",
     "options": [
       "subjective statement",
@@ -3526,11 +3526,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an objective statement. An objective statement is one whose truth can be verified independently of personal opinion or feeling. Height can be measured, making this an objective statement.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-50",
+    "id": "log-2017-2-50",
     "question": "The statement \"The painting in the museum is beautiful.\" is an example of a(n) ______________.",
     "options": [
       "subjective statement",
@@ -3541,11 +3541,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This is a subjective statement. A subjective statement is one whose truth depends on personal opinion, feelings, or preferences. \"Beautiful\" is a matter of personal taste.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-51",
+    "id": "log-2017-2-51",
     "question": "All Ethiopian runners are fast. Solomon is an Ethiopian runner. Therefore, Solomon is fast. This argument is an example of a(n) ______________.",
     "options": [
       "deductive argument",
@@ -3556,11 +3556,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This is a deductive argument. It moves from a general premise (\"All Ethiopian runners are fast\") to a specific conclusion about an individual (Solomon). The conclusion is guaranteed to be true if the premises are true.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-52",
+    "id": "log-2017-2-52",
     "question": "The sky is dark. The clouds are getting thicker. It's probably going to rain. This argument is an example of a(n) ______________.",
     "options": [
       "deductive argument",
@@ -3571,11 +3571,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an inductive argument. It moves from specific observations (dark sky, thick clouds) to a probable conclusion (\"It's probably going to rain\"). The conclusion is not guaranteed, but it is highly likely based on the evidence.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-53",
+    "id": "log-2017-2-53",
     "question": "The statement \"Yohannes lives in the countryside.\" is a(n) ______________.",
     "options": [
       "vague statement",
@@ -3586,11 +3586,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This is a vague statement. The term \"countryside\" lacks a clear and definite boundary. What constitutes the countryside can vary depending on context and personal interpretation, making the statement imprecise.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-54",
+    "id": "log-2017-2-54",
     "question": "The argument \"Abiy must have won the race. He was the first one to cross the finish line.\" is a(n) ______________.",
     "options": [
       "explanation",
@@ -3601,11 +3601,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 2,
     "explanation": "This is an argument. The statement \"He was the first one to cross the finish line\" is a premise offered as evidence to support the conclusion that \"Abiy must have won the race.\"",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-55",
+    "id": "log-2017-2-55",
     "question": "The argument \"Either Gelila is at school or at the library. Gelila is not at the library. Therefore, Gelila is at school.\" is a(n) ____________.",
     "options": [
       "valid argument",
@@ -3616,11 +3616,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "This is a valid argument because the conclusion necessarily follows from the premises. This is an example of a valid logical form known as Disjunctive Syllogism (\"Either P or Q. Not Q. Therefore, P.\").",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-56",
+    "id": "log-2017-2-56",
     "question": "The statement \"Mekdes is a good student.\" is an example of a(n) ____________.",
     "options": [
       "objective statement",
@@ -3631,11 +3631,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is a subjective statement. The term \"good student\" is open to personal interpretation and opinion. What makes a student \"good\" can vary based on criteria like grades, effort, or behavior, making the statement a matter of opinion rather than objective fact.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-57",
+    "id": "log-2017-2-57",
     "question": "The statement \"The bank near the river\" is an example of a(n) ____________.",
     "options": [
       "vague statement",
@@ -3646,11 +3646,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an ambiguous statement. The word \"bank\" has more than one meaning (a financial institution or the side of a river). This double meaning makes the phrase open to multiple interpretations.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   {
-    "id": "log-2013-1-58",
+    "id": "log-2017-2-58",
     "question": "The argument \"The past 10 national football matches won by the Ethiopian team were at home. Therefore, the next national match will probably be won at home.\" is an example of a(n) ______________ argument.",
     "options": [
       "deductive",
@@ -3661,8 +3661,8 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is an inductive argument. It moves from specific past observations (the last 10 matches) to a probable conclusion about a future event. The conclusion is not guaranteed, but is made likely by the premises.",
     "subject": "logic",
-    "year": 2013,
-    "chapter": 1
+    "year": 2017,
+    "chapter": 2
   },
   // ==================== ENGLISH QUESTIONS ====================
   
