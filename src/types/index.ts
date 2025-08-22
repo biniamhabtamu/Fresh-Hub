@@ -24,6 +24,12 @@ export interface User {
   totalPoints: number;
   challengesCompleted: number;
 }
+export interface Chapter {
+  id: string;
+  title: string;
+  content: string;
+  description?: string;
+}
 
 // ... rest of your existing types
 

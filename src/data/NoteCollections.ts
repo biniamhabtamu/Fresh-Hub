@@ -16,6 +16,7 @@ export const noteCollections: Subject[] = [
   id: 'psychology',
   name: 'Psychology',
   icon: '🧠',
+  isFree: false,
   chapters: [
     { 
       id: 'chapter1', 
@@ -2497,6 +2498,7 @@ export const noteCollections: Subject[] = [
   id: 'logic',
   name: 'Logic',
   icon: '🔍',
+  isFree: false,
   chapters: [
       {
   "id": "chapter1",
@@ -5225,179 +5227,190 @@ export const noteCollections: Subject[] = [
     <title>Geography: A Scientific Exploration of Our Earth</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f9fc;
-        }
-        
-        .container {
-            width: 100%;
-            background-color: white;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-        
-        h2 {
-            color: #2980b9;
-            margin-top: 30px;
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-            font-size: 24px;
-        }
-        
-        h3 {
-            color: #16a085;
-            margin-top: 25px;
-            font-size: 20px;
-        }
-        
-        h4 {
-            font-size: 18px;
-        }
-        
-        .note-box {
-            background-color: #e8f4fc;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .amharic {
-            font-family: 'Nyala', 'Abyssinica SIL', sans-serif;
-            background-color: #f0f7f4;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            border-left: 4px solid #27ae60;
-        }
-        
-        .theme-box {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .theme-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
-        
-        .emoji {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        
-        .advantages, .disadvantages {
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-        
-        .advantages {
-            background-color: #e8f8f5;
-            border-left: 4px solid #2ecc71;
-        }
-        
-        .disadvantages {
-            background-color: #fdedec;
-            border-left: 4px solid #e74c3c;
-        }
-        
-        .advantages h4, .disadvantages h4 {
-            margin-top: 0;
-        }
-        
-        .advantages h4 {
-            color: #27ae60;
-        }
-        
-        .disadvantages h4 {
-            color: #c0392b;
-        }
-        
-        ul {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .map-elements {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .map-element {
-            background-color: #f5f5f5;
-            padding: 12px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            h2 {
-                font-size: 20px;
-            }
-            
-            h3 {
-                font-size: 18px;
-            }
-            
-            .map-elements {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 22px;
-            }
-            
-            h2, h3 {
-                font-size: 18px;
-            }
-            
-            .amharic, .theme-box, .advantages, .disadvantages {
-                padding: 10px;
-            }
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f5f9fc, #e0f7fa);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh; /* full screen height */
+    background-color: #ffffff;
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #34495e;
+    text-align: center;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #2980b9;
+    margin-top: 30px;
+    border-left: 6px solid #3498db;
+    padding-left: 18px;
+    font-size: 26px;
+    background: #ecf6fc;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+h3 {
+    color: #16a085;
+    margin-top: 25px;
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.note-box {
+    background: linear-gradient(90deg, #e0f7fa, #b2ebf2);
+    border-left: 6px solid #3498db;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.amharic {
+    font-family: 'Nyala', 'Abyssinica SIL', sans-serif;
+    background: linear-gradient(90deg, #f0f7f4, #dff6e3);
+    padding: 18px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 6px solid #27ae60;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.theme-box {
+    background-color: #f9f9f9;
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 18px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.theme-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #e74c3c;
+    margin-bottom: 12px;
+}
+
+.emoji {
+    font-size: 1.3em;
+    margin-right: 6px;
+}
+
+.advantages, .disadvantages {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 12px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.advantages {
+    background-color: #e8f8f5;
+    border-left: 6px solid #2ecc71;
+}
+
+.disadvantages {
+    background-color: #fdecea;
+    border-left: 6px solid #e74c3c;
+}
+
+.advantages h4 {
+    color: #27ae60;
+    margin-top: 0;
+}
+
+.disadvantages h4 {
+    color: #c0392b;
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.map-elements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.map-element {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .map-elements {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2, h3 {
+        font-size: 18px;
+    }
+
+    .note-box, .amharic, .theme-box, .advantages, .disadvantages {
+        padding: 12px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -7783,6 +7796,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     id: 'english1',
     name: 'English Skill 1',
     icon: '📖',
+    isFree: false,
     chapters: [
       { 
         id: 'Englishskill1', 
@@ -10746,6 +10760,7 @@ tr:nth-child(even) {
     id: 'english2',
     name: 'English Skill 2',
     icon: '✍️',
+    isFree: false,
     chapters: [
       { 
         id: 'composition', 
@@ -10758,6 +10773,7 @@ tr:nth-child(even) {
     id: 'anthropology',
     name: 'Anthropology',
     icon: '👥',
+    isFree: false,
     chapters: [
       { 
         id: 'cultural', 
@@ -11396,6 +11412,7 @@ tr:nth-child(even) {
     id: 'economics',
     name: 'Economics',
     icon: '💰',
+    isFree: false,
     chapters: [
       { 
         id: 'micro', 
@@ -12164,6 +12181,7 @@ tr:nth-child(even) {
     id: 'physics',
     name: 'Physics',
     icon: '⚛️',
+    isFree: false,
     chapters: [
       { 
         id: 'Chapter1', 
@@ -12196,6 +12214,7 @@ tr:nth-child(even) {
     id: 'math',
     name: 'Mathematics',
     icon: '🧮',
+    isFree: false,
     chapters: [
       { 
         id: 'calculus', 
@@ -12208,6 +12227,7 @@ tr:nth-child(even) {
     id: 'organic-chem',
     name: 'Organic Chemistry',
     icon: '⚗️',
+    isFree: false,
     chapters: [
       { 
         id: 'hydrocarbons', 
@@ -12220,6 +12240,7 @@ tr:nth-child(even) {
     id: 'interpretation',
     name: 'Interpretation',
     icon: '🗣️',
+    isFree: false,
     chapters: [
       { 
         id: 'techniques', 
@@ -12232,6 +12253,7 @@ tr:nth-child(even) {
     id: 'cpp',
     name: 'C++ Programming',
     icon: '💻',
+    isFree: false,
     chapters: [
       { 
         id: 'basics', 
@@ -12244,6 +12266,7 @@ tr:nth-child(even) {
     id: 'applied-math',
     name: 'Applied Mathematics',
     icon: '📐',
+    isFree: false,
     chapters: [
       { 
         id: 'modeling', 
@@ -12256,6 +12279,7 @@ tr:nth-child(even) {
     id: 'global-trade',
     name: 'Global Trade',
     icon: '🌐',
+    isFree: false,
     chapters: [
       { 
         id: 'principles', 
@@ -12268,6 +12292,7 @@ tr:nth-child(even) {
     id: 'emerging-tech',
     name: 'Emerging Technology',
     icon: '🚀',
+    isFree: false,
     chapters: [
       { 
         id: 'ai', 
@@ -12280,6 +12305,7 @@ tr:nth-child(even) {
     id: 'civic',
     name: 'Civic Education',
     icon: '🏛️',
+    isFree: false,
     chapters: [
       { 
         id: 'government', 
@@ -12292,6 +12318,7 @@ tr:nth-child(even) {
     id: 'inclusive',
     name: 'Inclusive Education',
     icon: '♿',
+    isFree: false,
     chapters: [
       { 
         id: 'strategies', 
@@ -12304,6 +12331,8 @@ tr:nth-child(even) {
     id: 'history',
     name: 'History',
     icon: '📜',
+    field: 'natural',
+    isFree: false,
     chapters: [
       { 
         id: 'world', 
