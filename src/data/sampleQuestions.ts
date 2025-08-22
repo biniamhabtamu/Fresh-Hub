@@ -24,1326 +24,3236 @@ export const sampleQuestions: Question[] = [
 
   //geography-2013-1-1
 
-  {
-    id: 'geo-2013-1-1',
-    question: 'What is the scientific study of the Earth, exploring physical, biological, and human elements across places and time?',
-    options: ['Biology', 'Geography', 'Astronomy', 'Ecology'],
-    correctAnswer: 1,
-    explanation: 'Geography studies the Earth’s physical, biological, and human elements, and their spatial and temporal variations.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+ {
+    "id": "geo-2013-1-1",
+    "question": "What is the scientific study of the Earth, exploring physical, biological, and human elements across places and time?",
+    "options": [
+      "Biology",
+      "Geography",
+      "Astronomy",
+      "Ecology"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Geography studies the Earth’s physical, biological, and human elements, and their spatial and temporal variations.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-2',
-    question: 'Which two main approaches do geographers use to study the Earth?',
-    options: ['Qualitative and Quantitative Geography', 'Topical (Systematic) and Regional Geography', 'Historical and Cultural Geography', 'Physical and Human Geography'],
-    correctAnswer: 1,
-    explanation: 'Geographers use Topical (Systematic) Geography, focusing on categories of phenomena, and Regional Geography, focusing on relationships within regions.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-2",
+    "question": "One of the following contents can be studied in a topical/systematic approach of geographic study?",
+    "options": [
+      "Geography of Ethiopia",
+      "Geography of Africa",
+      "Geography of population",
+      "All of the above"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Topical (or Systematic) geography focuses on a single specific subject or theme, such as population, climate, or landforms, and analyzes its spatial patterns across different regions or the entire world. Regional geography, on the other hand, studies all the different geographic characteristics of a particular place, like Ethiopia (A) or Africa (B).",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-3',
-    question: 'Which of the following is NOT one of the five core themes of geography?',
-    options: ['Location', 'Movement', 'Economics', 'Region'],
-    correctAnswer: 2,
-    explanation: 'The five core themes are Location, Place, Human-Environment Interaction, Movement, and Region. Economics is not one of them.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-3",
+    "question": "Which theme of geography has its unique character that can be expressed in terms of hydrology, landforms, etc.?",
+    "options": [
+      "Region",
+      "Location",
+      "Place",
+      "Movement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The theme of Place describes what a location is like by detailing its unique physical and human characteristics. Physical characteristics include landforms, climate, and hydrology (water systems), while human characteristics include language, religion, and culture.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-4',
-    question: 'What is "absolute location"?',
-    options: ['A place’s position relative to other places', 'A place’s exact position using coordinates', 'A general area of a region', 'A place’s cultural characteristics'],
-    correctAnswer: 1,
-    explanation: 'Absolute location uses precise coordinates like latitude and longitude to specify a place’s exact position.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-4",
+    "question": "Jimma is well-known for coffee production, year-round rainfall, and King Aba Jifar. To which core themes of Geography is it linked?",
+    "options": [
+      "Human-Environment Interaction",
+      "Movement",
+      "Place",
+      "Location",
+      "Region"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This description provides the specific physical (coffee, rainfall) and human (King Aba Jifar's historical significance) characteristics that define Jimma and make it unique. This is the definition of the theme of Place.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-5',
-    question: 'Which countries are part of the Horn of Africa?',
-    options: ['Djibouti, Eritrea, Ethiopia, Somalia', 'Kenya, Sudan, South Sudan, Ethiopia', 'Somalia, Kenya, Tanzania, Ethiopia', 'Eritrea, Sudan, Egypt, Djibouti'],
-    correctAnswer: 0,
-    explanation: 'The Horn of Africa includes Djibouti, Eritrea, Ethiopia, and Somalia.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-5",
+    "question": "Which one of the following is not within the scope of Geography?",
+    "options": [
+      "The solid part of the Earth",
+      "Physical and chemical properties of matter",
+      "The gaseous envelope",
+      "All living organisms and their intimate relationship",
+      "All water found on and under the Earth's surface"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Geography is the study of the Earth's spheres: the lithosphere (solid part), atmosphere (gaseous envelope), hydrosphere (water), and biosphere (living organisms). The fundamental physical and chemical properties of matter itself are the domain of Physics and Chemistry, not Geography. 🧪",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-6',
-    question: 'Ethiopia is located between which latitudes?',
-    options: ['0°N and 10°N', '3°N and 15°N', '20°N and 30°N', '10°S and 5°N'],
-    correctAnswer: 1,
-    explanation: 'Ethiopia lies between 3°N and 15°N latitude.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-6",
+    "question": "Presently, science & technology enable humans to produce artificial rain, steal clouds, and inhabit areas that have never been accessed before. This is a clear reflection of:",
+    "options": [
+      "Adaptation",
+      "Dependence",
+      "Determinism",
+      "Modification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This theme of human-environment interaction describes how humans change the environment to suit their needs. Creating artificial rain and making inhospitable areas livable are clear examples of humans modifying their surroundings.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-7',
-    question: 'What impact does Ethiopia’s latitude have on its climate?',
-    options: ['It has a polar climate', 'It has a tropical climate modified by altitude', 'It has a desert climate', 'It has a Mediterranean climate'],
-    correctAnswer: 1,
-    explanation: 'Ethiopia’s position between the Equator and Tropic of Cancer results in a tropical climate, but high altitude significantly modifies it.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-7",
+    "question": "When humans modify themselves, their lifestyles, and their behavior to live in a new environment, what type of human-environment interaction does it refer to?",
+    "options": [
+      "Modification",
+      "Adaptation",
+      "Dependency",
+      "Movement",
+      "Region"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Adaptation is the process of humans changing their own behavior or lifestyle to better fit their environment. Examples include wearing warmer clothes in a cold climate or building homes with specific materials available locally.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-8',
-    question: 'Which neighboring country borders Ethiopia to the north?',
-    options: ['Djibouti', 'Eritrea', 'Kenya', 'Somalia'],
-    correctAnswer: 1,
-    explanation: 'Eritrea borders Ethiopia to the north.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-8",
+    "question": "Which one of the following is not a contemporary focus area of Geography?",
+    "options": [
+      "Dynamism over the surface of the Earth",
+      "Analysis of the spatio-temporal variations of phenomena",
+      "Bilateral human-environmental interactions",
+      "A mere description of physical features on the earth",
+      "Explanation of the arrangements of natural and cultural features on the Earth's surface"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Modern (contemporary) geography is an analytical science focused on explaining why things are where they are and how they change (dynamism, spatio-temporal analysis, human-environment interaction). A mere description of features is characteristic of an older, more classical approach to geography that lacked in-depth analysis.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-9',
-    question: 'What is a formal region?',
-    options: ['An area defined by a uniform characteristic like climate or language', 'An area organized around a central node', 'An area without distinct boundaries', 'An area characterized by its population density'],
-    correctAnswer: 0,
-    explanation: 'Formal regions have shared uniform characteristics such as climate or government.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-9",
+    "question": "Identify the odd one out:",
+    "options": [
+      "Language",
+      "Religion",
+      "Urban centres & cities",
+      "Landform"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Language, religion, and urban centers are all topics within human geography, as they relate to human culture and settlement. A landform is a topic within physical geography, making it the odd one out.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-10',
-    question: 'Ethiopia is the _____ largest country in Africa by area.',
-    options: ['5th', '8th', '12th', '15th'],
-    correctAnswer: 1,
-    explanation: 'Ethiopia is the 8th largest country in Africa with about 1,106,000 sq km.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-10",
+    "question": "Which one properly describes the absolute location of Harar?",
+    "options": [
+      "Harar is located 525 kms from Addis Ababa",
+      "Harar is located 30 minutes from Haramaya",
+      "Harar is located east of Aweday",
+      "Harar is located at approximately 9°N and 42°E"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Absolute location gives a precise position on the Earth's surface using coordinates of latitude and longitude. The other options describe relative location, which is the position of a place in relation to other places. 🌐",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-11',
-    question: 'Which of the following is a disadvantage of Ethiopia’s large size?',
-    options: ['Diverse agro-ecological zones', 'Infrastructure costs', 'Abundant natural resources', 'Larger population'],
-    correctAnswer: 1,
-    explanation: 'Large size increases infrastructure development costs and complicates administration.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-11",
+    "question": "Which one of the following statements is not correct about the location of Ethiopia?",
+    "options": [
+      "Vicinal Ethiopia is found to the West of Djibouti",
+      "North-south distance is shorter than east-west distance",
+      "It lies between 33°-48°N latitude",
+      "None of the above"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This statement confuses latitude and longitude. Ethiopia's correct astronomical location is between 3°N and 15°N latitude and between 33°E and 48°E longitude.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-12',
-    question: 'What is meant by "compact shape" in countries?',
-    options: ['A country with long, narrow borders', 'A country where the distance from center to borders is relatively uniform', 'A country fragmented by other territories', 'A country with many islands'],
-    correctAnswer: 1,
-    explanation: 'A compact shape means distances from the center to the edges are fairly equal, easing administration and defense.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-12",
+    "question": "Which of the following is correct about the vicinal location of Ethiopia?",
+    "options": [
+      "Ethiopia is situated in the Horn of Africa",
+      "Ethiopia is found west of Djibouti",
+      "Ethiopia is located to the south of Europe",
+      "Ethiopia is found to the north and northwest of Eritrea",
+      "Ethiopia is found in the Nile Basin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vicinal location refers to the location of a country in relation to its immediate neighbors. Being \"west of Djibouti\" is a correct description of Ethiopia's position relative to its neighboring country.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-13',
-    question: 'What does the Area-Boundary Ratio (A/B Ratio) measure?',
-    options: ['The ratio of population to land area', 'The compactness of a country’s shape', 'The economic output per square km', 'The climate variation within a country'],
-    correctAnswer: 1,
-    explanation: 'The A/B ratio measures how compact a country is by comparing area to boundary length.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-13",
+    "question": "Which one of the following statements is not true?",
+    "options": [
+      "Relatively Ethiopia is located to the south & north of Eritrea & Kenya respectively",
+      "Astronomically, Ethiopia is located to the East of Greenwich Prime Meridian line",
+      "Currently Ethiopia shares the smallest boundary line with Somalia",
+      "Currently, Ethiopia constitutes the largest proportion of elevated ground in Africa"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This statement is false. Ethiopia shares its longest border with Somalia (about 1,600 km) and its shortest border with Djibouti (about 390 km).",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-14',
-    question: 'What is the primary function of the north arrow on a map?',
-    options: ['Shows the scale', 'Indicates the direction of north', 'Explains the map symbols', 'Displays the date of compilation'],
-    correctAnswer: 1,
-    explanation: 'The north arrow helps users orient themselves by indicating where north is on the map.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-14",
+    "question": "One of the following statements is not correct about the Horn of Africa region?",
+    "options": [
+      "Ethiopia is the largest of all the countries in the Horn of Africa",
+      "It is a narrow land tip that protrudes into the northern Indian Ocean",
+      "It is the easternmost extension of Africa, consisting of four countries",
+      "It shares common features and there is no diversity among its nations"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This statement is incorrect. The Horn of Africa is a region of immense diversity, with a vast range of cultures, languages, religions, ethnic groups, and physical landscapes. The claim of \"no diversity\" is completely false.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-15',
-    question: 'Which theme of geography studies the movement of people, goods, and ideas?',
-    options: ['Place', 'Region', 'Movement', 'Location'],
-    correctAnswer: 2,
-    explanation: 'Movement examines how humans and things move across the Earth.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-15",
+    "question": "Which one is true about Ethiopia?",
+    "options": [
+      "Due to latitudinal extension, there is a difference of one hour between the most eastern and the most western points of the country",
+      "Due to longitudinal extension, the country experiences a tropical climate",
+      "Its east-west distance is 12°",
+      "Its east-west distance is longer than the north-south distance"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Ethiopia spans about 15° of longitude (east-west) and 12° of latitude (north-south). Therefore, its east-west extent is geographically longer than its north-south extent. (A) is incorrect because the one-hour time difference is due to longitudinal extension, not latitudinal. (B) is incorrect because the tropical climate is due to latitudinal position (near the equator), not longitude. (C) is incorrect; the east-west distance is 15°.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-16',
-    question: 'Which country is the smallest in the Horn of Africa?',
-    options: ['Ethiopia', 'Somalia', 'Djibouti', 'Eritrea'],
-    correctAnswer: 2,
-    explanation: 'Djibouti is the smallest country in the Horn of Africa.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-16",
+    "question": "Latitudinally, Ethiopia's most northerly point is marked by:",
+    "options": [
+      "15° N",
+      "3° N",
+      "48° E",
+      "33° E"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ethiopia's territory extends from approximately 3°N latitude in the south to 15°N latitude at its most northerly point.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-17',
-    question: 'Which of the following is NOT one of the three aspects of human-environment interaction?',
-    options: ['Dependency', 'Adaptation', 'Migration', 'Modification'],
-    correctAnswer: 2,
-    explanation: 'Migration is related to movement, not directly an aspect of human-environment interaction.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-17",
+    "question": "Which of the following has nothing to do with the location of countries?",
+    "options": [
+      "Type of climate",
+      "Socio-cultural characteristics",
+      "Geopolitical strategy",
+      "Access to the sea",
+      "None of these"
+    ],
+    "correctAnswer": 4,
+    "explanation": "All the options listed are influenced by a country's location. Climate depends on latitude, culture is shaped by neighbors, geopolitics is about relative position, and sea access is a direct result of location. Therefore, none of these options are unrelated to location.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-18',
-    question: 'What is relative location?',
-    options: ['Exact coordinates of a place', 'A place’s location described by its relation to other places', 'A place’s cultural features', 'A place’s climate zone'],
-    correctAnswer: 1,
-    explanation: 'Relative location describes where a place is compared to other places.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-18",
+    "question": "Which can be generalized about Ethiopia with reference to its astronomical location?",
+    "options": [
+      "Ethiopia is a land of diversity",
+      "Ethiopia is a mountainous country",
+      "Ethiopia is a landlocked country",
+      "Ethiopia is a country of agrarian society",
+      "Ethiopia experiences tropical type of climate"
+    ],
+    "correctAnswer": 4,
+    "explanation": "A country's astronomical location (its latitude and longitude) directly determines its general climate zone. Since Ethiopia is located between 3°N and 15°N latitude, it lies entirely within the tropics, giving it a tropical climate. ☀️",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-19',
-    question: 'Why does Ethiopia use a single time zone despite its wide longitudinal range?',
-    options: ['Because it has a compact shape', 'For administrative convenience', 'Because it lies close to the equator', 'Because of its small size'],
-    correctAnswer: 1,
-    explanation: 'Ethiopia uses GMT+3 throughout for convenience, despite a one-hour difference across the country.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-19",
+    "question": "Which one of the following is a merit of Ethiopia's large size?",
+    "options": [
+      "Demands greater capital to construct infrastructure",
+      "Requires a large army to protect its territory",
+      "Difficult for effective administration",
+      "Greater depth in mineral resources"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A larger territory increases the probability of having a wide variety and abundance of natural resources, including minerals, fertile land, and diverse ecosystems. This is a significant advantage or merit. The other options are disadvantages or challenges associated with a large size.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-20',
-    question: 'Which key element on a map explains what the symbols and colors mean?',
-    options: ['Scale', 'Title', 'Key (Legend)', 'Margin'],
-    correctAnswer: 2,
-    explanation: 'The key or legend interprets map symbols and colors.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-20",
+    "question": "Which one of the following is the disadvantage of the large size of Ethiopia?",
+    "options": [
+      "The country owns wide arable land",
+      "The country owns diverse cultures",
+      "Defending external invasion",
+      "Need for a large army"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A large country with long borders requires a large and costly military to defend its territory, which is a significant disadvantage. While \"defending external invasion\" (C) is a challenge, the \"need for a large army\" is the specific resource-based disadvantage. Options A and B are advantages.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-21',
-    question: 'Which body of water lies near Ethiopia influencing its climate and trade?',
-    options: ['Atlantic Ocean', 'Red Sea', 'Indian Ocean', 'Mediterranean Sea'],
-    correctAnswer: 1,
-    explanation: 'The Red Sea near Ethiopia has strategic importance for trade and climate.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-21",
+    "question": "The higher boundary length circle circumference ratio indicates the greater degree of compactness.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This statement is confusingly worded and incorrect. A higher degree of compactness means a shape is closer to a circle. For a given area, a circle has the shortest possible boundary (circumference). Therefore, a state with a lower boundary-to-area ratio is considered more compact, not higher.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-22',
-    question: 'What is functional (noddal) region?',
-    options: ['Region with uniform physical characteristics', 'Region centered around a node with linked areas', 'Region defined by cultural similarities', 'Region with political boundaries'],
-    correctAnswer: 1,
-    explanation: 'Functional regions are organized around a central node like a city with connected suburbs.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-22",
+    "question": "If state 'A' has an areal coverage of 300,000 km² and a boundary length of 2000 km, and state 'B' has a real coverage of 700,000 km² and a boundary length of 6000 km, which state is more compact?",
+    "options": [
+      "State 'A'",
+      "State 'B'",
+      "Both are compact",
+      "Both are not compact"
+    ],
+    "correctAnswer": 0,
+    "explanation": "We can use a simple ratio of Area / Boundary. A higher ratio indicates greater compactness. State A: 300,000 / 2,000 = 150. State B: 700,000 / 6,000 ≈ 116.7. Since State A has a higher ratio, it is considered more compact.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-23',
-    question: 'Which of these is NOT a key element of map reading?',
-    options: ['Title', 'Scale', 'Compass', 'Legend', 'Population density'],
-    correctAnswer: 4,
-    explanation: 'Population density is data, not a key map element.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-23",
+    "question": "The area-boundary of Ethiopia, Kenya, Somalia, and Eritrea are given by 210.27, 161.85, 125.03, and 48.51, respectively. Which one is unlikely to have a compacted shape compared to the others?",
+    "options": [
+      "Ethiopia",
+      "Kenya",
+      "Somalia",
+      "Eritrea"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Assuming this \"area-boundary\" figure is a compactness index, a higher number indicates a more compact shape. The question asks which is least compact (\"unlikely to have a compacted shape\"). Eritrea, with the lowest index value of 48.51, is the least compact of the group.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-24',
-    question: 'Which of the following is an advantage of Ethiopia’s large size?',
-    options: ['Difficult administration', 'Higher infrastructure costs', 'Diverse agro-ecological zones', 'Security concerns'],
-    correctAnswer: 2,
-    explanation: 'Large size supports diverse climates and ecosystems suitable for various agriculture.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-24",
+    "question": "Which one of the following statements describes Ethiopian topography correctly?",
+    "options": [
+      "The highest mountain peak of Ethiopia is found in the southeastern highland of Ethiopia.",
+      "The Bale highlands are separated from the Arsi highlands by the head and main stream of Ghenale.",
+      "The Sidama Highlands are separated from the Bale Highlands by the Ghenale river valley.",
+      "The lowest altitudinal point is found in the southwestern lowlands."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Ghenale River (also spelled Genale) and its valley form a significant geographical division between the Bale Highlands to its east and the Sidama Highlands to its west. (A) is false; the highest peak (Ras Dashen) is in the Northwestern Highlands. (D) is false; the lowest point is the Danakil Depression in the northeast.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-25',
-    question: 'Which part of the world is Ethiopia located?',
-    options: ['Horn of Africa', 'Maghreb', 'Southern Africa', 'West Africa'],
-    correctAnswer: 0,
-    explanation: 'Ethiopia is in the Horn of Africa.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-25",
+    "question": "A state that seems compact in one direction but elongated in the other refers to a:",
+    "options": [
+      "Protruded state",
+      "Elongated state",
+      "Compact state",
+      "Perforated state"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An elongated state is one that is long and narrow. This shape can pose challenges for transportation, communication, and national cohesion. Chile and Norway are classic examples.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   },
   {
-    id: 'geo-2013-1-26',
-    question: 'How does Ethiopia’s compact shape affect its defense?',
-    options: ['Makes defense harder', 'Has no effect', 'Eases rapid military deployment', 'Requires larger army'],
-    correctAnswer: 2,
-    explanation: 'Compact shape allows quicker deployment of defense forces to borders.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-27',
-    question: 'Which of these is a disadvantage of Ethiopia’s large size?',
-    options: ['Abundant natural resources', 'Large workforce', 'Security concerns', 'Diverse climates'],
-    correctAnswer: 2,
-    explanation: 'Large borders require more security resources to defend.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-28',
-    question: 'Which core theme of geography describes a place’s physical and human characteristics?',
-    options: ['Location', 'Place', 'Region', 'Movement'],
-    correctAnswer: 1,
-    explanation: 'Place focuses on a location’s unique physical and cultural traits.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-29',
-    question: 'The boundary-circumference ratio closer to 1 indicates what about a country’s shape?',
-    options: ['Irregular shape', 'Compact shape', 'Fragmented shape', 'Elongated shape'],
-    correctAnswer: 1,
-    explanation: 'A ratio closer to 1 indicates the country has a compact, more regular shape.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-30',
-    question: 'Which of the following is a benefit of a compact shaped country?',
-    options: ['More border disputes', 'Higher defense costs', 'Easier communication and administration', 'Difficult to unify culturally'],
-    correctAnswer: 2,
-    explanation: 'Compact shape reduces distances, easing communication and governance.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-31',
-    question: 'Which of the following describes Ethiopia’s general time zone?',
-    options: ['GMT +2', 'GMT +3', 'GMT +4', 'GMT +1'],
-    correctAnswer: 1,
-    explanation: 'Ethiopia uses GMT +3 despite its longitudinal range.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-32',
-    question: 'Which is NOT a characteristic of the Horn of Africa region?',
-    options: ['Includes Ethiopia and Somalia', 'Located in East Africa', 'Part of the Sahara Desert', 'Strategic location near Red Sea'],
-    correctAnswer: 2,
-    explanation: 'The Sahara Desert is in North Africa, not the Horn of Africa.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-33',
-    question: 'What map element helps measure distance between locations?',
-    options: ['Title', 'Scale', 'Key', 'Compass Rose'],
-    correctAnswer: 1,
-    explanation: 'Scale helps translate map distances into real-world distances.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-34',
-    question: 'The spatial interaction of people and places is studied under which geographic theme?',
-    options: ['Location', 'Movement', 'Place', 'Region'],
-    correctAnswer: 1,
-    explanation: 'Movement theme studies flows of people, goods, and ideas between places.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
-  },
-  {
-    id: 'geo-2013-1-35',
-    question: 'Ethiopia’s diverse agro-ecological zones are an example of which geographic theme?',
-    options: ['Region', 'Place', 'Human-Environment Interaction', 'Movement'],
-    correctAnswer: 2,
-    explanation: 'Human-Environment Interaction studies how humans adapt to and modify their environment.',
-    subject: 'geography',
-    year: 2013,
-    chapter: 1
+    "id": "geo-2013-1-26",
+    "question": "Which of the following describes Ethiopia's geographical shape?",
+    "options": [
+      "Protruded-shaped country",
+      "Fragmented-shaped country",
+      "Round-shaped country",
+      "Square-shaped country"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Ethiopia's shape is generally classified as compact, meaning the distance from the center to any boundary point does not vary significantly. Of the choices given, \"round-shaped\" is the best description of a compact state. It is not fragmented, protruded, or square.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 1
   }
 ,
  {
-    id: 'geo-2014-1-1',
-    question: 'What is the primary focus of geography as described in the note?',
-    options: [
-      'Memorizing countries and capitals',
-      "Scientific study of Earth's physical, biological, and human elements",
-      'Only studying mountains and rivers',
-      'Exploring outer space'
+    "id": "geo-2014-1-1",
+    "question": "What is the scientific study of the Earth, exploring physical, biological, and human elements across places and time?",
+    "options": [
+      "Biology",
+      "Geography",
+      "Astronomy",
+      "Ecology"
     ],
-    correctAnswer: 1,
-    explanation: "Geography is the scientific study of the Earth, analyzing relationships between physical, biological, and human elements across places and time. 🌍 ጂኦግራፊ የምድርን አካላዊ፣ ባዮሎጂያዊ እና ሰብአዊ ክስተቶችን በቦታ እና በጊዜ ውስጥ የሚያጠና ሳይንስ ነው። 😊",
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Geography studies the Earth’s physical, biological, and human elements, and their spatial and temporal variations.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-2',
-    question: "Which approach in geography focuses on specific categories like all the world's mountains?",
-    options: [
-      'Regional Geography',
-      'Topical (Systematic) Geography',
-      'Human Geography',
-      'Biological Geography'
+    "id": "geo-2014-1-2",
+    "question": "Which of the following would be studied in a regional approach to geography?",
+    "options": [
+      "Climate of the world",
+      "Urbanization patterns globally",
+      "Hydrology of the Nile Basin",
+      "Demographics of the United States"
     ],
-    correctAnswer: 1,
-    explanation: 'Topical Geography studies specific physical or human phenomena across the Earth, such as global mountain patterns. 🏔️ ቶፒካል ጂኦግራፊ የተወሰኑ አካላዊ ወይም ሰብአዊ ክስተቶችን በአለም አቀፍ ደረጃ ያጠናል፣ ለምሳሌ የአለም ተራራዎች። 😎',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 3,
+    "explanation": "The regional approach focuses on studying all the various human and physical characteristics of a specific area. Studying the demographics of the United States involves looking at the population features of that defined region. The other options are examples of a topical approach, which studies a single specific subject (like climate or urbanization) across different regions.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-3',
-    question: 'What is the scope of geography primarily concerned with?',
-    options: [
-      'Only the atmosphere',
-      'The thin habitable zone where atmosphere, lithosphere, hydrosphere, and biosphere interact',
-      'Deep ocean exploration',
-      'Space beyond Earth'
+    "id": "geo-2014-1-3",
+    "question": "Which theme of geography is primarily concerned with the unique characteristics of a specific location, including its human and physical features?",
+    "options": [
+      "Movement",
+      "Place",
+      "Region",
+      "Location"
     ],
-    correctAnswer: 1,
-    explanation: 'The scope is the Earth\'s surface, a thin zone of interaction between atmosphere, lithosphere, hydrosphere, and biosphere. 🌏 የጂኦግራፊ ወሰን የምድር ገጽታ ሲሆን፣ ይህም ከባቢ አየር፣ ድንጋይ ንጣፍ፣ ውሃ አካል እና ባዮስፌር መስተጋብር የሚፈጠርበት ቀጭን ዞን ነው። 🌟',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "The theme of Place seeks to answer the question, \"What is it like there?\" It describes the unique personality of a location by examining its distinct physical features (like mountains and rivers) and human features (like culture, language, and architecture). 🏞️🏘️",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-4',
-    question: "In the five core themes, what does 'Location' refer to?",
-    options: [
-      'Unique characteristics of a place',
-      'Specific place or position, described absolutely or relatively',
-      'Movement of people and goods',
-      'Human changes to the environment'
+    "id": "geo-2014-1-4",
+    "question": "The construction of dams and irrigation canals in a river basin to support large-scale agriculture is an example of which geographic theme?",
+    "options": [
+      "Movement",
+      "Place",
+      "Human-Environment Interaction",
+      "Location"
     ],
-    correctAnswer: 1,
-    explanation: 'Location is a specific place, using absolute (coordinates) or relative (in relation to others) descriptions. 📍 ቦታ የተወሰነ ስፍራ ወይም አቀማመጥን ያመለክታል፣ በፍጹም (መጋጠሚያ) ወይም በአንፃራዊ (ከሌሎች ጋር በማነጻጸር) መንገድ ይገለጻል። 😊',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This theme explores the relationship between people and their environment. Building dams and canals is a clear example of humans modifying their environment to meet their needs (in this case, for agriculture), which is a core concept of Human-Environment Interaction.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-5',
-    question: 'What is an example of absolute location given for Addis Ababa?',
-    options: [
-      'East of Sudan',
-      'Approximately 9.03° N latitude and 38.74° E longitude',
-      'In the Horn of Africa',
-      'Near the equator'
+    "id": "geo-2014-1-5",
+    "question": "Which of the following topics is outside the traditional scope of physical geography?",
+    "options": [
+      "Ocean currents and tides",
+      "Formation of volcanic mountains",
+      "Distribution of global religions",
+      "Weather systems and climate zones"
     ],
-    correctAnswer: 1,
-    explanation: 'Absolute location uses precise coordinates like latitude and longitude for exact positioning. 🌐 አብሶሉት ቦታ ትክክለኛ መጋጠሚያዎችን እንደ ኬክሮስ እና ኬንትሮስ ይጠቀማል። 📏',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Physical geography studies the Earth's natural systems and processes, such as oceans, landforms, and climate. The distribution of global religions is a subject of human geography, which focuses on the spatial organization of human activities and cultures.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-6',
-    question: 'Which theme explores the unique physical and human characteristics of a location?',
-    options: ['Movement', 'Region', 'Place', 'Human-Environment Interaction'],
-    correctAnswer: 2,
-    explanation: 'Place refers to a location\'s identity shaped by landforms, culture, and more. 🏙️ ስፍራ የአንድ ቦታ አካላዊና ሰብአዊ ገጽታዎችን ያመለክታል፣ በምድሩ አቀማመጥ እና ባህል ይገለጻል። 🌿',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "id": "geo-2014-1-6",
+    "question": "The practice of building houses on stilts in flood-prone areas is a clear reflection of:",
+    "options": [
+      "Determinism",
+      "Modification",
+      "Adaptation",
+      "Dependence"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Adaptation occurs when humans change their own behavior or lifestyle to better suit their environment. Building houses on stilts is a way people adapt their construction methods to live with the reality of frequent flooding, rather than changing the environment itself.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-7',
-    question: "In Human-Environment Interaction, what does 'adaptation' mean?",
-    options: [
-      'Humans relying on nature for food',
-      'Changing lifestyles to fit the environment, like wearing warm clothes in cold areas',
-      'Building dams to modify the environment',
-      'Moving goods across regions'
+    "id": "geo-2014-1-7",
+    "question": "When a society develops new technologies to extract resources from a previously inaccessible environment, what type of human-environment interaction is this?",
+    "options": [
+      "Dependency",
+      "Adaptation",
+      "Modification",
+      "Movement"
     ],
-    correctAnswer: 1,
-    explanation: 'Adaptation involves people adjusting behaviors to suit environmental conditions. 🤝 መላመድ አኗኗራችንን ለአካባቢው መቀየርን ያመለክታል፣ ለምሳሌ በቀዝቃዛ አካባቢ ሞቅ ያለ ልብስ መልበስ። ❄️',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This is an example of modification, where humans alter the environment to make it useful. Developing technology to access resources (like deep-sea oil drilling or mountaintop removal mining) is a profound way that societies change their physical surroundings to meet their needs. ⛏️",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-8',
-    question: "What does the theme 'Movement' primarily involve?",
-    options: [
-      'Defining areas with uniform characteristics',
-      'Translocation of people, goods, and ideas',
-      'Interactions between humans and nature',
-      'Precise coordinates of places'
+    "id": "geo-2014-1-8",
+    "question": "Which of the following best describes the traditional, pre-20th-century focus of geography?",
+    "options": [
+      "Analyzing complex human-environmental systems",
+      "Explaining the interconnectedness of global phenomena",
+      "Detailed, systematic description of Earth's features",
+      "Predicting future demographic trends"
     ],
-    correctAnswer: 1,
-    explanation: 'Movement covers how people, goods, and ideas move between locations, aiding civilization spread. ✈️ እንቅስቃሴ የሰዎች፣ እቃዎች እና ሃሳቦች ከአንዱ ቦታ ወደ ሌላው መጓዝን ያካትታል። 🌍',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Historically, geography was primarily a descriptive science. Early geographers focused on exploration, mapping, and creating detailed catalogs (or gazetteers) of places, landforms, and cultures. The modern emphasis on analyzing complex systems and interconnectedness developed later. 🗺️",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-9',
-    question: 'What is a formal region?',
-    options: [
-      'An area organized around a central node with connections',
-      'A geographic area with distinctive characteristics setting it apart',
-      'An area with shared uniform characteristics like a climate zone',
-      'A place defined by human modifications'
+    "id": "geo-2014-1-9",
+    "question": "Identify the odd one out:",
+    "options": [
+      "Topography",
+      "Soil type",
+      "Language",
+      "Climate"
     ],
-    correctAnswer: 2,
-    explanation: 'Formal regions have uniform traits, such as similar climate or government. 🌐 ፎርማል ክልል በአንድ አይነት ባህሪ የሚገለጽ አካባቢ ነው፣ ለምሳሌ የአየር ሁኔታ ዞን። 📊',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Topography, soil type, and climate are all components of physical geography. Language is a component of human geography, making it the odd one out.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-10',
-    question: 'Which countries are part of the Horn of Africa?',
-    options: [
-      'Ethiopia, Kenya, Sudan, South Sudan',
-      'Djibouti, Eritrea, Ethiopia, Somalia',
-      'Eritrea, Somalia, Sudan, Kenya',
-      'Djibouti, Ethiopia, Kenya, Eritrea'
+    "id": "geo-2014-1-10",
+    "question": "Which of the following best describes the relative location of Gonder?",
+    "options": [
+      "At approximately 12°N latitude and 37°E longitude",
+      "600 kilometers north of Addis Ababa",
+      "Northwest of Lake Tana",
+      "Located in the Amhara Region"
     ],
-    correctAnswer: 1,
-    explanation: 'The Horn of Africa includes Djibouti, Eritrea, Ethiopia, and Somalia, sharing cultural ties. 🌍 የአፍሪካ ቀንድ ጅቡቲ፣ ኤርትራ፣ ኢትዮጵያ እና ሶማሊያን ያቀፈ ነው። 😊',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Relative location describes a place's position in relation to another feature. Stating that Gonder is \"Northwest of Lake Tana\" is a classic example. Option A is an absolute location, while B and D are also forms of relative location, but C is a very common and precise geographic reference point.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-11',
-    question: "What is Ethiopia's astronomical location in terms of latitude?",
-    options: [
-      '3°N to 15°N',
-      '33°E to 48°E',
-      '9°N to 38°E',
-      '15°N to 33°E'
+    "id": "geo-2014-1-11",
+    "question": "Which of the following statements about Ethiopia's location is correct?",
+    "options": [
+      "It lies entirely within the Northern Hemisphere.",
+      "It shares a border with seven different countries.",
+      "It has a greater north-south latitudinal extent than east-west longitudinal extent.",
+      "Its most eastern point is farther from the Prime Meridian than its most western point."
     ],
-    correctAnswer: 0,
-    explanation: 'Ethiopia lies between 3°N and 15°N latitudes, influencing its tropical climate. 📍 ኢትዮጵያ በ3°ሰ እና 15°ሰ ኬክሮስ መካከል ትገኛለች፣ ይህም የሐሩር አየር ንብረት እንዲኖራት ያደርጋል። ☀️',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "Ethiopia's latitudinal extent is from approximately 3°N to 15°N. Since both coordinates are north of the equator (0° latitude), the entire country is in the Northern Hemisphere.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-12',
-    question: "How does Ethiopia's relative location affect its socio-cultural aspects?",
-    options: [
-      'It leads to isolation from religions',
-      'Proximity to Middle East allowed early adoption of Christianity and Islam',
-      'It causes extreme cold climates',
-      'It blocks trade routes'
+    "id": "geo-2014-1-12",
+    "question": "Which of the following is an accurate statement about the Horn of Africa's geopolitical context?",
+    "options": [
+      "All countries in the Horn of Africa are landlocked.",
+      "The region's strategic location near major shipping lanes makes it important.",
+      "It is a region of political stability and unified economic policies.",
+      "The Horn of Africa is a political entity with a single governing body."
     ],
-    correctAnswer: 1,
-    explanation: 'Being near the Middle East facilitated the early spread of major religions to Ethiopia. 🤝 ከመካከለኛው ምስራቅ ጋር መቀራረቧ ክርስትና እና እስልምና ቀደም ብሎ እንዲደርሱ አድርጓል። 🕌',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "The Horn of Africa is located along the southern edge of the Red Sea and the Gulf of Aden, which includes the crucial Bab-el-Mandeb strait. This is a major global chokepoint for maritime trade, particularly for ships traveling to and from the Suez Canal, making the region geopolitically significant. 🚢",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-13',
-    question: "What is Ethiopia's total area approximately?",
-    options: [
-      '500,000 square kilometers',
-      '1,106,000 square kilometers',
-      '2,000,000 square kilometers',
-      '800,000 square kilometers'
+    "id": "geo-2014-1-13",
+    "question": "Which one of the following is true about Ethiopia's astronomical and vicinal location?",
+    "options": [
+      "Ethiopia's astronomical location places it entirely within a temperate climate zone.",
+      "The country is vicinally located in the Nile Basin, sharing its waters with several other nations.",
+      "Ethiopia's astronomical location gives it a single, non-varying time zone across its entire territory.",
+      "The country is vicinally located entirely in the Southern Hemisphere."
     ],
-    correctAnswer: 1,
-    explanation: 'Ethiopia covers about 1,106,000 sq km, making it the 8th largest in Africa. 📏 ኢትዮጵያ ወደ 1,106,000 ካሬ ኪሎሜትር ያህል ቦታ አለዋት። 🌍',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Vicinal location describes a place in relation to its neighbors and features. The Ethiopian Highlands are the source of the Blue Nile, which contributes the vast majority of the water to the Nile River. This location within the Nile Basin is a critical aspect of its relationship with neighboring countries like Sudan and Egypt.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-14',
-    question: 'Which large water body borders Ethiopia to the east?',
-    options: [
-      'Atlantic Ocean',
-      'Indian Ocean',
-      'Red Sea',
-      'Mediterranean Sea'
+    "id": "geo-2014-1-14",
+    "question": "The Horn of Africa is a strategically significant region due to its proximity to which major waterway?",
+    "options": [
+      "The Strait of Gibraltar",
+      "The Panama Canal",
+      "The Suez Canal and the Gulf of Aden",
+      "The Strait of Malacca"
     ],
-    correctAnswer: 2,
-    explanation: 'The Red Sea lies to Ethiopia’s northeast, providing access to maritime routes. 🌊 ቀይ ባሕር ወደ ሰሜን-ምሥራቅ ኢትዮጵያ ይገኛል። 🚢',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "The Horn's strategic value comes from its position overlooking the Gulf of Aden and the Bab-el-Mandeb strait, which is the gateway between the Indian Ocean and the Red Sea, the main artery for shipping to and from the Suez Canal.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-15',
-    question: "What geographic feature is the 'Arabo-Ethiopian swell'?",
-    options: [
-      'A volcanic mountain',
-      'A geologic uplift forming the Ethiopian Highlands',
-      'A river system',
-      'A desert area'
+    "id": "geo-2014-1-15",
+    "question": "Due to Ethiopia's latitudinal extent, it experiences:",
+    "options": [
+      "A significant difference in time from east to west.",
+      "A wide variation in daylight hours between seasons.",
+      "A tropical climate with varied altitudinal modifications.",
+      "A predominantly desert climate."
     ],
-    correctAnswer: 1,
-    explanation: 'The Arabo-Ethiopian swell is a geologic uplift shaping Ethiopia’s highlands. 🏞️ አራቦ-ኢትዮጵያ ስዊል የኢትዮጵያን ከፍተኛ ተራሮች የሚፈጥር ጂኦሎጂካል ከፍታ ነው። ⛰️',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A country's latitude (its distance from the equator) is the primary determinant of its climate. Ethiopia's location in the tropics gives it a base tropical climate. However, its vast highlands drastically cool these temperatures, creating a wide variety of microclimates (known locally as Dega, Weyna Dega, etc.). ☀️",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-16',
-    question: 'What is a key characteristic of the Ethiopian Highlands?',
-    options: [
-      'Low flat plains',
-      'Elevated plateau with mountains and highlands',
-      'Coastal beaches',
-      'Desert dunes'
+    "id": "geo-2014-1-16",
+    "question": "What is the latitudinal extent of Ethiopia?",
+    "options": [
+      "3° N to 15° N",
+      "33° E to 48° E",
+      "3° E to 15° E",
+      "33° N to 48° N"
     ],
-    correctAnswer: 1,
-    explanation: 'Ethiopian Highlands consist of plateaus and mountain ranges with high elevation. 🏔️ ከፍተኛ ተራራዎችና እርስተ አካባቢ ያላቸው ከፍተኛ ተራራዎች ናቸው። 🌄',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "Latitude measures north-south position. Ethiopia stretches from approximately 3° North of the equator to 15° North of the equator. Option B represents its longitudinal (east-west) extent.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-17',
-    question: "What does 'Human-Environment Interaction' study?",
-    options: [
-      'Only human culture',
-      'How humans adapt to, modify, and depend on their environment',
-      'Movement of goods',
-      'Location and place'
+    "id": "geo-2014-1-17",
+    "question": "Which of the following is a primary disadvantage of being a landlocked country?",
+    "options": [
+      "Limited access to international trade routes",
+      "Higher risk of volcanic activity",
+      "Greater susceptibility to floods",
+      "Lack of mineral resources"
     ],
-    correctAnswer: 1,
-    explanation: 'It studies the relationships between humans and their physical environment. 🤝 ሰዎች እና አካባቢያቸው መሆናቸውን እና መቀየር እንዴት እንደሚያደርጉ ያጠናል። 🌳',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "A landlocked country has no direct access to the sea. This forces it to rely on neighboring countries for port access, which can significantly increase the cost of transportation and limit its access to global maritime trade. 🚫🚢",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-18',
-    question: 'Which theme involves the definition of an area with related features such as climate or culture?',
-    options: [
-      'Movement',
-      'Region',
-      'Place',
-      'Location'
+    "id": "geo-2014-1-18",
+    "question": "The fact that Ethiopia's climate is influenced by its proximity to the equator and its high-altitude topography is a reflection of its:",
+    "options": [
+      "Compactness",
+      "Latitudinal location",
+      "Vicinal location",
+      "Both B and C"
     ],
-    correctAnswer: 1,
-    explanation: 'Region groups places sharing common characteristics like climate or language. 🗺️ ክልል አካባቢ በተያያዘ ባህርይ የሚቆጠር ነው። 🌐',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Proximity to the equator is the definition of latitudinal location. This position determines the base amount of solar energy a region receives, establishing its fundamental climate type (in this case, tropical), which is then modified by other factors like altitude.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-19',
-    question: 'What kind of region is a metropolitan area organized around a central city?',
-    options: [
-      'Formal Region',
-      'Functional Region',
-      'Perceptual Region',
-      'Topical Region'
+    "id": "geo-2014-1-19",
+    "question": "A major benefit of Ethiopia's large landmass is:",
+    "options": [
+      "It simplifies national governance and infrastructure development.",
+      "It limits ethnic and cultural diversity, promoting unity.",
+      "It provides a wide range of ecological zones and natural resources.",
+      "It reduces the need for a large military."
     ],
-    correctAnswer: 1,
-    explanation: 'Functional regions are organized around a focal point with connections, like a metro area. 🏙️ ፈንክሻናል ክልል በአንድ ማዕከል ዙሪያ የተሰራ ነው። 🏢',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A large territory typically contains a greater variety of climates, soils, and geology. This leads to a wider range of ecosystems and a higher likelihood of possessing diverse and abundant natural resources, which is a significant economic advantage. The other options describe challenges, not benefits, of a large size.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-20',
-    question: "Which theme studies how humans depend on and modify their environment?",
-    options: [
-      'Place',
-      'Location',
-      'Human-Environment Interaction',
-      'Movement'
+    "id": "geo-2014-1-20",
+    "question": "Which of the following is a disadvantage of a country's large size?",
+    "options": [
+      "Greater potential for agricultural output",
+      "Difficulty in uniform service delivery across the entire territory",
+      "Larger population size",
+      "Ability to support a wider range of industries"
     ],
-    correctAnswer: 2,
-    explanation: 'Human-Environment Interaction studies human impacts and adaptation to environment. 🌱 ሰዎች አካባቢያቸውን እንዴት እንደሚቀየሩና እንዴት እንደሚመርጡ ያካተታል። 🌎',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Governing a large territory is challenging. It is often difficult and expensive to build and maintain infrastructure (like roads, schools, and hospitals) and ensure that all citizens, especially those in remote areas, receive equitable government services.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-21',
-    question: 'What is an example of relative location?',
-    options: [
-      'Addis Ababa is at 9.03°N and 38.74°E',
-      'Addis Ababa is east of Sudan',
-      'Addis Ababa is in Africa',
-      'Addis Ababa is the capital of Ethiopia'
+    "id": "geo-2014-1-21",
+    "question": "A country with a high ratio of its boundary length to its areal coverage is considered to have a less compact shape.",
+    "options": [
+      "True",
+      "False"
     ],
-    correctAnswer: 1,
-    explanation: 'Relative location describes a place in relation to other places. 📌 በሌላ ቦታ እንደሚገኝ መግለጫ ነው። 🗺️',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "This is true. A compact shape (like a circle) encloses the maximum area with the minimum boundary. A long, irregular, or fragmented shape has a much longer boundary relative to its area. Therefore, a high boundary-to-area ratio indicates a less compact shape.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-22',
-    question: 'What does the theme "Region" help geographers to do?',
-    options: [
-      'Identify natural and human characteristics shared in an area',
-      'Map exact coordinates',
-      'Describe individual places uniquely',
-      'Explain cultural beliefs'
+    "id": "geo-2014-1-22",
+    "question": "State 'X' has an area of 500,000 km² and a boundary length of 3,000 km. State 'Y' has an area of 500,000 km² and a boundary length of 4,500 km. Which state has a more compact shape?",
+    "options": [
+      "State 'X'",
+      "State 'Y'",
+      "Both are equally compact",
+      "Neither is compact"
     ],
-    correctAnswer: 0,
-    explanation: 'Region helps group areas with similar features to understand spatial patterns. 🌍 ክልል በአካባቢዎች ያሉትን አካላዊና ሰብአዊ ባህሪያት ለማወቅ ይረዳል። 📚',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "Since both states have the same area, the one with the shorter boundary length is more compact. State 'X' encloses its area with 3,000 km of border, while State 'Y' needs 4,500 km, making State 'X' more efficient and compact.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-23',
-    question: "Which of the following best illustrates 'Movement' as a geographic theme?",
-    options: [
-      'People migrating from rural to urban areas',
-      'Describing a place’s climate',
-      'Defining the borders of a country',
-      'Studying a mountain range'
+    "id": "geo-2014-1-23",
+    "question": "A state that completely encloses another state, such as South Africa enclosing Lesotho, is an example of what type of shape?",
+    "options": [
+      "Compact",
+      "Protruded",
+      "Perforated",
+      "Fragmented"
     ],
-    correctAnswer: 0,
-    explanation: 'Movement studies the flow of people, goods, and ideas from place to place. 🚶‍♂️ እንቅስቃሴ ሰዎች፣ እቃዎችና ሃሳቦች እንዴት እንደሚንቀሳቀሱ ያጠናል። 🌐',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A perforated state is one that has a \"hole\" in it, where the hole is the territory of another independent state. South Africa is \"perforated\" by Lesotho.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-24',
-    question: 'What is the relationship between latitude and climate in Ethiopia?',
-    options: [
-      'Latitude has no effect on climate',
-      'Latitude affects the temperature and rainfall patterns',
-      'Only longitude affects climate',
-      'Climate depends solely on elevation'
+    "id": "geo-2014-1-24",
+    "question": "A country with a long, narrow strip of land extending from the main body, like Thailand, is a classic example of which type of shape?",
+    "options": [
+      "Elongated",
+      "Protruded",
+      "Fragmented",
+      "Compact"
     ],
-    correctAnswer: 1,
-    explanation: 'Latitude influences solar radiation, affecting temperature and precipitation. ☀️ ኬክሮስ ከፀሐይ እንደሚያገናኝ የአየር ንብረት እንዲቀየር ያደርጋል። 🌦️',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "A protruded (or prorupted) state has a mostly compact main area with a long extension or \"panhandle.\" This protrusion is often created to access a resource or to separate two other states.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-25',
-    question: 'Which natural feature is typical in Ethiopia’s topography?',
-    options: [
-      'Low desert plains',
-      'High plateaus and volcanic mountains',
-      'Coastal mangroves',
-      'Large lakes with coral reefs'
+    "id": "geo-2014-1-25",
+    "question": "Which of the following describes the shape of a country that is divided into two or more parts, often by water or other countries?",
+    "options": [
+      "Compact",
+      "Fragmented",
+      "Protruded",
+      "Elongated"
     ],
-    correctAnswer: 1,
-    explanation: 'Ethiopia is famous for its elevated plateaus and volcanic mountains. ⛰️ ኢትዮጵያ ከፍተኛ ተራራዎችና ቫልካኒክ ተራራዎች አሉት። 🌋',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "A fragmented state consists of several separate, non-contiguous pieces of territory. This includes archipelagos like Indonesia and the Philippines, or countries separated by another state.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-26',
-    question: 'How does the concept of "Place" differ from "Location"?',
-    options: [
-      'Place refers to specific coordinates, location refers to cultural traits',
-      'Place includes the physical and human characteristics, location is about position',
-      'They mean the same thing',
-      'Location only describes cultural aspects'
+    "id": "geo-2014-1-26",
+    "question": "A country with a shape that is roughly circular or square, with the capital city near the center, is most likely to have which type of shape?",
+    "options": [
+      "Elongated",
+      "Protruded",
+      "Compact",
+      "Fragmented"
     ],
-    correctAnswer: 1,
-    explanation: '"Place" includes characteristics giving a location its identity; "Location" is just position. 🏞️ ስፍራ ቦታን በባህልና አካላዊ ገጽታዎች ይገልጻል፤ ቦታ የአቀማመጥ መግለጫ ነው። 😊',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A compact shape is one where the distance from the geographic center to any point on the boundary is roughly the same. This shape is theoretically the most efficient for transportation, communication, and defense. Ethiopia is often considered a compact state.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-27',
-    question: "What role does culture play in defining a 'Place'?",
-    options: [
-      'No role',
-      'Shapes the human characteristics, traditions, and identity of a place',
-      'Only determines the geography',
-      'Is irrelevant to place'
+    "id": "geo-2015-1-2",
+    "question": "Which type of map would you use to find the distribution of different soil types across a region?",
+    "options": [
+      "A general-purpose map",
+      "A special-purpose map",
+      "A topographic map",
+      "A political map"
     ],
-    correctAnswer: 1,
-    explanation: 'Culture strongly shapes the human aspects that define a place’s uniqueness. 🏡 ባህል የሰብአዊ ገጽታዎችን ያወጣል እና ቦታውን የሚያስተዋወቀው ነው። 🌺',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "A special-purpose map, also known as a thematic map, is designed to show the distribution of a specific topic or theme, such as soil types, population density, or climate zones. It focuses on one particular subject. 🗺️",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-28',
-    question: "Which of the following best describes the 'Hydrosphere'?",
-    options: [
-      'All the rocks and soil on Earth’s surface',
-      'All the water on, under, and over the Earth',
-      'The atmosphere and air around Earth',
-      'Living organisms on Earth'
+    "id": "geo-2015-1-3",
+    "question": "A map that shows physical features such as mountains, rivers, and elevation is called a:",
+    "options": [
+      "Political map",
+      "Thematic map",
+      "Topographic map",
+      "Road map"
     ],
-    correctAnswer: 1,
-    explanation: 'Hydrosphere includes all water in oceans, rivers, lakes, and underground. 💧 ሕይወት ከፍተኛ ውሃ በምድር ላይ ያለውን ይጠቀማል። 🌊',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A topographic map is specifically designed to represent the shape and elevation of the landscape. It uses contour lines to show features like mountains, valleys, and rivers in detail. ⛰️",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-29',
-    question: "What does the 'Biosphere' refer to in geography?",
-    options: [
-      'The water bodies on Earth',
-      'The layer of living organisms including humans, animals, and plants',
-      'The air surrounding Earth',
-      'The Earth’s crust'
+    "id": "geo-2015-1-4",
+    "question": "The coordinates 3°N and 42°E represent which type of location?",
+    "options": [
+      "Relative location",
+      "Absolute location",
+      "Vicinal location",
+      "Regional location"
     ],
-    correctAnswer: 1,
-    explanation: 'Biosphere is all living organisms on Earth. 🌱 ባዮስፌር ላይ ያሉ ሕይወት ሁሉንም ይጠቀማል። 🐾',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Absolute location provides a precise, fixed point on the Earth's surface using a coordinate system, most commonly latitude and longitude. Relative location describes a place in relation to other places (e.g., \"next to the school\"). 📍",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: 'geo-2014-1-30',
-    question: 'How does geography help us understand human activities?',
-    options: [
-      'By ignoring environmental factors',
-      'By studying spatial relationships and human-environment interaction',
-      'Only by memorizing place names',
-      'By focusing on astronomy'
+    "id": "geo-2015-1-5",
+    "question": "A large-scale map shows a small area with a lot of detail.",
+    "options": [
+      "True",
+      "False"
     ],
-    correctAnswer: 1,
-    explanation: 'Geography studies how humans interact with space and environment, helping explain activities. 🌐 ጂኦግራፊ ሰዎችን እና አካባቢን በስፋት በማወቅ ያሳያል። 🧭',
-    subject: 'geography',
-    year: 2014,
-    chapter: 1
-  },
-   {
-    id: "geo-2015-1-1",
-    question: "What is the primary focus of Geography?",
-    options: [
-      "A. Memorizing countries and capitals",
-      "B. The scientific study of the Earth",
-      "C. The history of human civilization",
-      "D. The study of rocks and minerals"
-    ],
-    correctAnswer: 1,
-    explanation: "Geography is defined as the scientific study of the Earth, exploring how physical, biological, and human elements vary across different places. It's much broader than just memorizing places. 🌍",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "This is true. A large-scale map (e.g., a scale of 1:5,000) \"zooms in\" on a small area, allowing for a high level of detail, like showing individual streets and buildings. A small-scale map (e.g., 1:5,000,000) \"zooms out\" to show a large area with less detail.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-2",
-    question: "Which of the following is an example of an 'absolute location'?",
-    options: [
-      "A. The place is near the river.",
-      "B. The place is in the Horn of Africa.",
-      "C. The place is a country with a tropical climate.",
-      "D. Addis Ababa is at approximately 9.03° N latitude and 38.74° E longitude."
+    "id": "geo-2015-1-6",
+    "question": "The ratio of the distance on a map to the corresponding distance on the ground is known as the map's:",
+    "options": [
+      "Compass rose",
+      "Legend",
+      "Scale",
+      "Grid"
     ],
-    correctAnswer: 3,
-    explanation: "Absolute location uses precise coordinates like latitude and longitude to pinpoint an exact position, unlike relative location which describes a place in relation to other places. 📍",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "The scale is the fundamental component of a map that tells you how the distances on the map relate to the actual distances on the Earth's surface. It can be expressed as a ratio (1:100,000), a bar scale, or a verbal statement.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-3",
-    question: "Which country is the largest in size within the Horn of Africa?",
-    options: [
-      "A. Djibouti",
-      "B. Eritrea",
-      "C. Somalia",
-      "D. Ethiopia"
+    "id": "geo-2015-1-7",
+    "question": "A geographer is studying the impact of climate change on a country's agricultural productivity. This study falls under which theme of geography?",
+    "options": [
+      "Movement",
+      "Region",
+      "Human-Environment Interaction",
+      "Place"
     ],
-    correctAnswer: 3,
-    explanation: "Among the four countries of the Horn of Africa (Djibouti, Eritrea, Ethiopia, and Somalia), Ethiopia is the largest in size. 🇪🇹",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This theme explores the complex relationship between human societies and their natural surroundings. Studying how a changing environment (climate change) affects a human activity (agriculture) is a classic example of Human-Environment Interaction. 🌦️🌾",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-4",
-    question: "What is the purpose of the 'Key' or 'Legend' on a map?",
-    options: [
-      "A. To show the North direction",
-      "B. To explain the symbols and colors on the map",
-      "C. To indicate the scale of the map",
-      "D. To provide the title of the map"
+    "id": "geo-2015-1-8",
+    "question": "The concept of possibilism in geography argues that:",
+    "options": [
+      "The environment is the sole determinant of human activity.",
+      "Humans are entirely free from environmental constraints.",
+      "The environment offers opportunities, and human culture determines which are used.",
+      "All human societies will eventually reach the same level of development."
     ],
-    correctAnswer: 1,
-    explanation: "The key or legend of a map is essential because it decodes the symbols and colors, helping you understand what they represent in the real world, like a blue line for a river. 🗺️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Possibilism is the idea that the physical environment doesn't determine what people will do, but rather offers a range of possibilities from which people can choose based on their culture, technology, and values.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-5",
-    question: "What is the astronomical location of Ethiopia?",
-    options: [
-      "A. Between 3°S and 15°S latitudes",
-      "B. Between 3°N and 15°N latitudes",
-      "C. Between 33°W and 48°W longitudes",
-      "D. Between the Atlantic and Indian Oceans"
+    "id": "geo-2015-1-9",
+    "question": "Which of the following is a classic example of a functional region?",
+    "options": [
+      "A linguistic region defined by a common language",
+      "A climate zone",
+      "The service area of a major city's public transportation system",
+      "A region with a common cultural heritage"
     ],
-    correctAnswer: 1,
-    explanation: "Ethiopia's astronomical location is defined by its latitude and longitude. It lies between 3°N and 15°N latitudes and 33°E to 48°E longitudes. 🌍",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A functional region is an area organized around a central node or focal point, with its boundaries defined by a specific function that radiates from the center. A city's public transit network is a perfect example, as it connects surrounding areas to a central urban core. 🚌",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-6",
-    question: "The theme of geography that focuses on the movement of people, goods, and ideas is called:",
-    options: [
-      "A. Place",
-      "B. Location",
-      "C. Movement",
-      "D. Region"
+    "id": "geo-2015-1-10",
+    "question": "The process of diffusion in geography refers to the spread of:",
+    "options": [
+      "A physical feature across the landscape.",
+      "An idea, innovation, or cultural trait from its point of origin.",
+      "A specific type of climate across a region.",
+      "A political boundary across a territory."
     ],
-    correctAnswer: 2,
-    explanation: "Movement is one of the five core themes of geography and it specifically deals with the translocation of people, goods, and ideas from one place to another. This is crucial for understanding how societies have evolved and spread. ✈️ ማብራሪያ፡ የእንቅስቃሴ (Movement) ጽንሰ-ሀሳብ ከጂኦግራፊ አምስቱ ዋና ዋና ክፍሎች አንዱ ነው። ይህ ክፍል ሰዎች፣ እቃዎች እና ሃሳቦች ከአንድ ቦታ ወደ ሌላ ቦታ እንዴት እንደሚዘዋወሩ ያጠናል፤ ይህም ስልጣኔዎች እንዴት እንደተስፋፉ ለመረዳት በጣም አስፈላጊ ነው። ✈️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Diffusion is a key concept in human geography that describes how things spread from a hearth (point of origin) to other places. This includes everything from new technologies and fashion trends to languages and religions.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-7",
-    question: "Which approach to geography studies the interrelationships of various elements within a specific area, like the climate, culture, and economy of the Horn of Africa?",
-    options: [
-      "A. Topical (Systematic) Geography",
-      "B. Human-Environment Interaction",
-      "C. Regional Geography",
-      "D. Physical Geography"
+    "id": "geo-2015-1-11",
+    "question": "The study of the spatial distribution of disease outbreaks is a key component of which branch of geography?",
+    "options": [
+      "Economic geography",
+      "Political geography",
+      "Medical geography",
+      "Urban geography"
     ],
-    correctAnswer: 2,
-    explanation: "Regional geography focuses on studying the unique associations and interrelationships of various physical and human elements within a specific geographical region, treating it as a single, interconnected system. 🧐 ማብራሪያ: የአካባቢ ጂኦግራፊ (Regional Geography) የአንድን የተወሰነ አካባቢ አካላዊና ሰብአዊ ገጽታዎች በአንድነት እና እንዴት እንደሚገናኙ በማየት ያጠናል፡፡ ለምሳሌ የአፍሪካ ቀንድን የአየር ሁኔታ፣ ባህል እና ኢኮኖሚ አንድ ላይ አያይዞ ማጥናት የአካባቢ ጂኦግራፊ ምሳሌ ነው። 🧐",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Medical geography applies geographic concepts and methods to study health, disease, and healthcare. A famous early example is Dr. John Snow's 1854 map of a cholera outbreak in London, which helped pinpoint the source of the disease. 🩺",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-8",
-    question: "How does Ethiopia's latitude location between the Equator and the Tropic of Cancer primarily affect its climate?",
-    options: [
-      "A. It causes the country to have a cold, temperate climate.",
-      "B. It gives the country a tropical climate, though modified by altitude.",
-      "C. It results in a dry, desert climate.",
-      "D. It causes extreme seasonal changes."
+    "id": "geo-2015-1-12",
+    "question": "Which of the following best defines the concept of geopolitical strategy?",
+    "options": [
+      "The study of rocks and landforms",
+      "The analysis of a country's military strength",
+      "The link between a country's geography and its political power or foreign policy",
+      "The study of population demographics"
     ],
-    correctAnswer: 1,
-    explanation: "Ethiopia's location in the tropical zone between 3°N and 15°N latitude means it naturally has a tropical climate. However, its high altitude significantly modifies this climate, making many parts cooler than a typical tropical country. ☀️ ማብራሪያ: ኢትዮጵያ በ3°ሰ እና በ15°ሰ ኬክሮስ መካከል የምትገኝ በመሆኗ፣ በመሰረቱ የሐሩር የአየር ንብረት አላት። ሆኖም፣ የሀገሪቱ ከፍተኛ ከፍታ ይህንን የአየር ንብረት ይለውጠዋል፣ ይህም አብዛኛው የሀገሪቱ ክፍል ከተለመደው ሐሩር ሀገር ይልቅ ቀዝቃዛ እንዲሆን ያደርገዋል። ☀️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Geopolitics is the study of how a country's size, location, and resources (its geography) influence its relationships with other countries and its strategic decisions on the world stage.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-9",
-    question: "A high Area-Boundary (A/B) ratio for a country indicates which of the following?",
-    options: [
-      "A. The country is fragmented and difficult to manage.",
-      "B. The country is elongated and has long borders.",
-      "C. The country has a compact shape.",
-      "D. The country is landlocked."
+    "id": "geo-2015-1-13",
+    "question": "A country with an elongated shape may face which of the following challenges?",
+    "options": [
+      "Limited access to the sea",
+      "Difficulty in defending its borders",
+      "Problems with internal communication and transportation",
+      "High vulnerability to external invasion"
     ],
-    correctAnswer: 2,
-    explanation: "The Area-Boundary ratio is used to measure a country's compactness. A higher ratio means the country has a larger area relative to the length of its boundary, which indicates a more compact shape. Ethiopia's high ratio of 210.27 is an example of this. 📏 ማብራሪያ: የአካባቢ እና የድንበር (A/B) ጥምርታ የአንድ ሀገርን ቅርፅ ለመለካት ይጠቅማል። ይህ ጥምርታ ከፍ ባለ ቁጥር፣ ሀገሪቱ ለድንበሯ ርዝመት ከፍተኛ ቦታ አላት ማለት ነው፤ ይህም ቅርጿ ይበልጥ የተሰበሰበ (compact) መሆኑን ያሳያል። የኢትዮጵያ ጥምርታ 210.27 ሲሆን፣ ይህም ለዚህ ማብራሪያ ማሳያ ነው። 📏",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "An elongated country (one that is long and thin, like Chile or Vietnam) can suffer from poor internal cohesion. It can be costly and time-consuming to transport goods and people from one end of the country to the other, potentially isolating peripheral regions from the capital.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-10",
-    question: "What is the primary implication of Ethiopia's compact shape for its administration and defense?",
-    options: [
-      "A. It makes it harder to defend its borders.",
-      "B. It simplifies administration and border defense.",
-      "C. It leads to socio-economic fragmentation.",
-      "D. It makes the country more vulnerable to external threats."
+    "id": "geo-2015-1-14",
+    "question": "The fact that different regions of Ethiopia have distinct cultures, languages, and traditional practices is a reflection of its:",
+    "options": [
+      "Low population density",
+      "Homogeneous climate",
+      "Physical and cultural diversity",
+      "Compact shape"
     ],
-    correctAnswer: 1,
-    explanation: "A compact shape, where the distance from the center to the borders is relatively uniform, allows for quick deployment of military forces to any border. It also makes it easier for a central government to manage and enforce laws across the nation. 🛡️ ማብራሪያ: የኢትዮጵያ የተሰበሰበ (compact) ቅርፅ ከመሃል እስከ ዳር ያለው ርቀት እኩል እንዲሆን ያደርጋል። ይህም ወታደራዊ ኃይሎችን በፍጥነት ወደ ድንበሮች ለማንቀሳቀስ ቀላል ስለሆነ የሀገሪቱን አስተዳደርና መከላከያ ያቀላል። እንዲሁም ማዕከላዊ መንግስት ህግና ደንብን በመላው ሀገሪቱ እንዲያስፈጽም ይረዳል። 🛡️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Ethiopia is renowned for its incredible diversity. Its complex topography created isolated areas where distinct ethnic and linguistic groups developed unique cultures. This rich tapestry of traditions is a defining characteristic of the nation.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-11",
-    question: "The scope of geography is defined as the 'thin habitable zone where the atmosphere, lithosphere, hydrosphere, and biosphere all interact.' What is the main reason for this specific scope?",
-    options: [
-      "A. It's the only place geographers have instruments to study.",
-      "B. It is where all the physical and human processes relevant to geography occur.",
-      "C. It's the only place on Earth with a breathable atmosphere.",
-      "D. It's a recent discovery that life exists in this zone."
+    "id": "geo-2015-1-15",
+    "question": "The concept of a country's 'area-boundary ratio' is most closely related to its:",
+    "options": [
+      "Political stability",
+      "Economic prosperity",
+      "Shape and compactness",
+      "Population density"
     ],
-    correctAnswer: 1,
-    explanation: "The scope of geography is specifically this habitable zone because it is the meeting point of all the key Earth systems—the air, land, water, and living things—that geographers study to understand how our planet works. 🧐 ማብራሪያ: የጂኦግራፊ የጥናት ወሰን የምድር ላይ ቀጭን የህይወት ክልል የሆነበት ዋናው ምክንያት፣ የከባቢ አየር፣ የድንጋይ ንጣፍ፣ የውሃ አካል እና የባዮስፌር መስተጋብር የሚፈጠርበት ስፍራ በመሆኑ ነው። እነዚህ ሁሉ ስርዓቶች የጂኦግራፊን ዋና ጥናት ይመሰርታሉና። 🧐",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "The ratio between a country's surface area and the length of its boundary is a mathematical way to measure its compactness. A shape that is more circular (like a compact state) has a low boundary-to-area ratio, while an irregular or elongated shape has a high ratio.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-12",
-    question: "Which of the following is the best example of 'Human-Environment Interaction' through the lens of 'Modification'?",
-    options: [
-      "A. People in cold climates wearing heavy jackets to stay warm.",
-      "B. Building a hydroelectric dam to generate electricity.",
-      "C. Farmers relying on rainfall to irrigate their crops.",
-      "D. Fishermen moving to a different coast when fish stocks decline."
+    "id": "geo-2015-1-16",
+    "question": "If a country's capital city is located far from its center, what might be a consequence?",
+    "options": [
+      "Better communication with all parts of the country",
+      "Increased national unity",
+      "Challenges in administering and integrating the entire territory",
+      "Reduced defense costs"
     ],
-    correctAnswer: 1,
-    explanation: "Modification is when humans change the environment to suit their needs. Building a dam is a clear example of this because it physically alters a river system to serve a human purpose, like generating power. 👷 ማብራሪያ: ለውጥ (Modification) ሰዎች አካባቢያቸውን ለፍላጎታቸው ሲሉ የሚቀይሩበት መንገድ ነው። ለምሳሌ የውሃ ሃይል ለማመንጨት ግድብ መገንባት አንድ ወንዝን ለሰው ልጅ ጥቅም እንዲውል ማስተካከል ማለት ነው፤ ይህ ደግሞ የለውጥ ግልጽ ምሳሌ ነው። 👷",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A capital located on the periphery can make governance difficult. Regions far from the capital may feel neglected or disconnected from the political center, posing challenges to national unity, administration, and infrastructure development.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-13",
-    question: "Ethiopia's relative location near the Red Sea has had significant implications. Which of the following is an example of this?",
-    options: [
-      "A. Its tropical climate due to its proximity to the Equator.",
-      "B. Its compact shape which simplifies its administration.",
-      "C. Its long history of early adoption of major world religions like Christianity and Islam.",
-      "D. Its diverse agro-ecological zones and abundant natural resources."
+    "id": "geo-2015-1-17",
+    "question": "Which type of map is most useful for studying the relief and elevation of a landscape?",
+    "options": [
+      "A political map",
+      "A road map",
+      "A topographic map",
+      "A population map"
     ],
-    correctAnswer: 2,
-    explanation: "Ethiopia's proximity to the Middle East, accessible via the Red Sea, facilitated early contact with major trade routes and cultural centers. This led to the early arrival and adoption of Christianity and Islam, a direct result of its strategic relative location. 🙏 ማብራሪያ: ኢትዮጵያ ከቀይ ባህር ጋር ያላት ቅርበት ከመካከለኛው ምስራቅ ጋር እንድትገናኝ ረድቷታል። በዚህ ምክንያት እንደ ክርስትና እና እስልምና ያሉ ዋና ዋና የዓለም ሃይማኖቶች ወደ ሀገሪቱ ገና ቀድመው እንዲገቡ እና እንዲሰፍኑ አስችሏቸዋል፤ ይህም አንፃራዊ ቦታዋ ያስገኘው ትልቅ ውጤት ነው። 🙏",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A topographic map is the best tool for this purpose. It uses contour lines to precisely show the elevation, slope, and shape (relief) of the land, making it essential for hiking, engineering, and geological studies.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-14",
-    question: "A country's shape is measured using the Boundary-Circumference Ratio (B/C Ratio). A ratio of 1.41, such as Ethiopia's, means:",
-    options: [
-      "A. The country is a perfect circle.",
-      "B. The country is very elongated.",
-      "C. The country is relatively compact, though not perfectly circular.",
-      "D. The country is highly fragmented."
+    "id": "geo-2015-1-18",
+    "question": "A large-scale map would be most appropriate for:",
+    "options": [
+      "Planning a cross-country road trip.",
+      "Studying global climate patterns.",
+      "Finding a specific address in a neighborhood.",
+      "Analyzing the political boundaries of continents."
     ],
-    correctAnswer: 2,
-    explanation: "The Boundary-Circumference Ratio compares a country's boundary to the circumference of a perfect circle with the same area. A ratio closer to 1 indicates a more compact shape. Ethiopia's ratio of 1.41 is relatively close to 1, confirming its compact nature. 📏 ማብራሪያ: የድንበር እና የክበብ ዙሪያ ጥምርታ (B/C Ratio) የአንድን ሀገር ቅርፅ ከፍፁም ክብ ጋር ያነፃጽራል። ጥምርታው ወደ 1 በቀረበ ቁጥር ቅርፁ ይበልጥ የተሰበሰበ (compact) ይሆናል። የኢትዮጵያ ጥምርታ 1.41 ሲሆን ይህም ቅርጿ በአንፃራዊነት የተሰበሰበ መሆኑን ያሳያል። 📏",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A large-scale map provides a high level of detail for a small area. This makes it perfect for \"zoomed-in\" tasks like navigating a city or finding a specific house. The other options are \"zoomed-out\" tasks that require small-scale maps.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-15",
-    question: "What distinguishes a 'Functional (Nodal) Region' from a 'Formal Region'?",
-    options: [
-      "A. A functional region has a single, uniform characteristic, while a formal region has a central node.",
-      "B. A formal region is defined by political boundaries, while a functional region is defined by physical features.",
-      "C. A functional region is defined by its connections to a central point, while a formal region has a shared, uniform characteristic throughout.",
-      "D. They are two names for the same type of region."
+    "id": "geo-2015-1-19",
+    "question": "Which of the following is a limitation of using a map to represent the Earth?",
+    "options": [
+      "All maps are completely accurate and distortion-free.",
+      "Maps can only show physical features, not human ones.",
+      "Maps inevitably distort shape, size, distance, or direction.",
+      "Maps are only useful for absolute location."
     ],
-    correctAnswer: 2,
-    explanation: "A functional region is organized around a central node and defined by the connections (like transportation or economic ties) radiating from it. A formal region, on the other hand, is defined by a single, shared characteristic that is present throughout the area, such as a specific climate or language. 🌐 ማብራሪያ: ተግባራዊ (Functional) ክልል በአንድ ማዕከላዊ ነጥብ ዙሪያ በተፈጠሩ ግንኙነቶች (ለምሳሌ የትራንስፖርት ወይም የኢኮኖሚ ትስስር) ይገለጻል። መደበኛ (Formal) ክልል ደግሞ በጠቅላላው አካባቢ ባለው አንድ አይነት ባህሪ (ለምሳሌ ተመሳሳይ የአየር ንብረት ወይም ቋንቋ) ይገለጻል፤ ይህም ሁለቱን ይለያቸዋል። 🌐",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This is the fundamental challenge of cartography. It's mathematically impossible to take the surface of a sphere (the Earth) and represent it on a flat surface (a map) without introducing some kind of distortion. Mapmakers must choose which property to preserve at the expense of others.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-16",
-    question: "Why is a compact shape generally considered an advantage for a country's defense and socio-economic integration?",
-    options: [
-      "A. It makes the country's borders longer, creating a stronger defense.",
-      "B. It increases the total size of the country, which always leads to more resources.",
-      "C. It allows for efficient deployment of resources and facilitates easier internal movement, promoting unity and security.",
-      "D. It makes the country's population less diverse and easier to govern."
+    "id": "geo-2015-1-20",
+    "question": "Which of the following describes the shape of a country with a long arm or strip of territory leading away from the main body, such as the Democratic Republic of Congo?",
+    "options": [
+      "Perforated",
+      "Elongated",
+      "Protruded",
+      "Fragmented"
     ],
-    correctAnswer: 2,
-    explanation: "A compact shape's main advantage is efficiency. The relatively short distance from the center to any border allows for quick military response. This same proximity facilitates the movement of people, goods, and ideas, which is vital for socio-economic integration and national unity. 🛡️ ማብራሪያ: የተሰበሰበ (compact) ቅርፅ ዋና ጥቅሙ ውጤታማነትን ማምጣት ነው። ከመሃል እስከ ድንበር ያለው ርቀት አጭር በመሆኑ ወታደራዊ ኃይሎችን በፍጥነት ለማንቀሳቀስ ያስችላል። ይህ ቅርበት የሰዎች፣ የእቃዎች እና የሀሳቦች እንቅስቃሴን በማቀላጠፍ ሀገራዊ ትስስርን እና ኢኮኖሚያዊ ውህደትን ያጠናክራል። 🛡️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "A protruded (or prorupted) state has a mostly compact main body with a long extension or \"panhandle.\" The DRC has a very narrow protrusion that extends westward to give it a small coastline on the Atlantic Ocean.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-17",
-    question: "What is the key difference between Topical (Systematic) Geography and Regional Geography in their approach to studying the Earth?",
-    options: [
-      "A. Topical geography focuses on physical features, while regional geography focuses on human features.",
-      "B. Topical geography studies specific phenomena across the globe, while regional geography studies all phenomena within a specific area.",
-      "C. Topical geography uses maps, while regional geography does not.",
-      "D. Topical geography is a newer field of study, while regional geography is ancient."
+    "id": "geo-2015-1-21",
+    "question": "The study of how different cultures have adapted to living in desert environments is a classic example of:",
+    "options": [
+      "A systematic approach to geography",
+      "A regional approach to geography",
+      "A thematic approach to geography",
+      "A political approach to geography"
     ],
-    correctAnswer: 1,
-    explanation: "Topical (Systematic) geography focuses on a specific category, such as mountains or climate patterns, and studies it globally. Regional geography, in contrast, focuses on a specific region and studies all the different interconnected elements—physical, human, and biological—within that single area. 🧐 ማብራሪያ: ቶፒካል (ሥርዓታዊ) ጂኦግራፊ አንድን የተወሰነ ክስተት (ለምሳሌ የተራራ አይነቶችን ወይም የአየር ንብረትን) በዓለም አቀፍ ደረጃ ያጠናል። የአካባቢ (Regional) ጂኦግራፊ ግን በተቃራኒው የአንድን የተወሰነ አካባቢ አካላዊ፣ ሰብአዊ እና ባዮሎጂያዊ ክፍሎችን በሙሉ በአንድ ላይ አያይዞ ያጠናል። 🧐",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "A systematic (or topical) approach focuses on a specific theme or process and examines it across different regions. In this case, the theme is \"human adaptation to deserts,\" and a geographer would study this system by looking at examples from the Sahara, the Gobi, and other deserts worldwide.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-18",
-    question: "Why is knowing the 'Date of Compilation' a crucial skill in map reading, especially for a map of a city?",
-    options: [
-      "A. It indicates the country where the map was made.",
-      "B. It helps you understand the map's artistic style.",
-      "C. It shows whether the information, such as roads and buildings, is up-to-date.",
-      "D. It is used to calculate the distance scale."
+    "id": "geo-2015-1-22",
+    "question": "Which of the following is the most significant disadvantage of a country being perforated?",
+    "options": [
+      "It complicates international relations and border control.",
+      "It prevents the country from having a coastline.",
+      "It makes the country vulnerable to invasion.",
+      "It always leads to political instability."
     ],
-    correctAnswer: 2,
-    explanation: "Cities change rapidly with new construction and infrastructure projects. Knowing the date a map was compiled is crucial because it tells you whether the information it contains is current and reliable. A map from 20 years ago would likely be inaccurate for navigating a modern city. 📅 ማብራሪያ: ከተሞች በየጊዜው በአዲስ ግንባታዎች እና የመሠረተ ልማት ፕሮጀክቶች በፍጥነት ይለወጣሉ። አንድ ካርታ የተዘጋጀበትን ቀን ማወቅ በውስጡ ያለው መረጃ ወቅታዊ እና አስተማማኝ መሆኑን ለማወቅ ወሳኝ ነው። ለምሳሌ ከ20 ዓመት በፊት የተሰራ የከተማ ካርታ ለዘመናዊ ከተማ ለመንቀሳቀስ ትክክለኛ ላይሆን ይችላል። 📅",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "A perforated state (like South Africa, which surrounds Lesotho) must manage an international border located entirely within its own territory. This creates unique challenges for customs, immigration, security, and transportation, requiring close cooperation with the enclosed nation.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-19",
-    question: "Ethiopia's large size provides several advantages, including extensive arable land. How does this advantage directly impact its economy?",
-    options: [
-      "A. It makes the country's administration more challenging.",
-      "B. It provides a greater depth for military defense.",
-      "C. It supports a large population and a strong agricultural sector, which is vital for the economy.",
-      "D. It makes the cost of infrastructure construction very high."
+    "id": "geo-2015-1-23",
+    "question": "If a country's political capital is located at a significant distance from its economic heartland, this could create:",
+    "options": [
+      "A stronger sense of national identity",
+      "More balanced regional development",
+      "A sense of alienation for the economic center from the political process",
+      "Increased efficiency in government services"
     ],
-    correctAnswer: 2,
-    explanation: "Extensive arable land is a direct advantage of Ethiopia's large size. This land is crucial for a country with a large population, as it supports a strong agricultural sector that is the backbone of the nation's economy, providing food and employment. 🌾 ማብራሪያ: ሰፊ የእርሻ መሬት የኢትዮጵያ ትልቅ ስፋት ቀጥተኛ ጥቅም ነው። ብዙ ህዝብ ላላት ሀገር ይህ መሬት ለኢኮኖሚዋ አከርካሪ በሆነው ጠንካራ የግብርና ዘርፍ በጣም አስፈላጊ ሲሆን፣ ለህዝቡ ምግብና ሥራ ያቀርባል። 🌾",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "When the centers of political power and economic activity are far apart, the business and financial communities in the economic heartland may feel that the government is disconnected from their needs. This can lead to tension and a sense of political alienation.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-20",
-    question: "How is the theme of 'Place' different from the theme of 'Location'?",
-    options: [
-      "A. 'Place' refers to a specific position, while 'Location' refers to the unique characteristics of a spot.",
-      "B. 'Place' refers to a location's unique physical and human characteristics, while 'Location' is simply its specific position.",
-      "C. 'Place' is only about human culture, while 'Location' is about physical geography.",
-      "D. 'Place' is a type of region, while 'Location' is a type of movement."
+    "id": "geo-2015-1-24",
+    "question": "A map legend is also known as a:",
+    "options": [
+      "Key",
+      "Compass rose",
+      "Scale",
+      "Grid"
     ],
-    correctAnswer: 1,
-    explanation: "Location is the starting point—the 'where' of a place, described by coordinates. Place, on the other hand, is the 'what' of a location, encompassing its unique identity and characteristics, such as its landforms, culture, and human population. 🏙️ ማብራሪያ: ቦታ (Location) የአንድ ስፍራ መጀመሪያ ሲሆን 'የት ነው?' ለሚለው ጥያቄ መልስ ይሰጣል። ስፍራ (Place) ግን 'ምንድነው?' ለሚለው ጥያቄ መልስ ይሰጣል፤ ማለትም የአንድ ቦታን ልዩ ማንነት እና ባህሪያት፣ እንደ መሬቱ አቀማመጥ፣ ባህሉ እና የሰዎች ብዛት ያጠቃልላል። 🏙️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "The legend, which explains the meaning of the symbols, colors, and patterns used on the map, is also commonly called the key. It is essential for understanding and interpreting the map's information. 🔑",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-21",
-    question: "(Medium) A geographer studying the global patterns of a specific type of agriculture is using which approach to geography?",
-    options: [
-      "A. Regional Geography",
-      "B. Human-Environment Interaction",
-      "C. Topical (Systematic) Geography",
-      "D. Place Geography"
+    "id": "geo-2015-1-25",
+    "question": "Which of the following is an example of human modification of the environment?",
+    "options": [
+      "A society's reliance on a river for drinking water",
+      "A community's traditional fishing techniques",
+      "The construction of a massive dam for hydroelectric power",
+      "Wearing warm clothes in a cold climate"
     ],
-    correctAnswer: 2,
-    explanation: "The topical or systematic approach focuses on studying a specific phenomenon, in this case, a type of agriculture, across the entire world, not just in one region. 🌾 ማብራሪያ: ቶፒካል (ሥርዓታዊ) አቀራረብ አንድን የተወሰነ ክስተት (ለምሳሌ የአንድ አይነት እርሻ ዘዴ) በአንድ የተወሰነ አካባቢ ሳይሆን በመላው ዓለም ላይ በማጥናት ላይ ያተኩራል። 🌾",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Modification involves actively changing the physical environment. Building a dam is a large-scale transformation of a river system and its surrounding landscape. Option A is dependence, while B and D are examples of adaptation.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-22",
-    question: "(Simple) The phrase 'Ethiopia is located in the Horn of Africa' is an example of what kind of location?",
-    options: [
-      "A. Absolute Location",
-      "B. Relative Location",
-      "C. Astronomical Location",
-      "D. Precise Location"
+    "id": "geo-2015-1-26",
+    "question": "The theme of 'Movement' in geography is concerned with:",
+    "options": [
+      "The migration of people, goods, and ideas.",
+      "The physical movement of tectonic plates.",
+      "The daily rotation of the Earth.",
+      "The movement of planets in the solar system."
     ],
-    correctAnswer: 1,
-    explanation: "Relative location describes a place's position in relation to other places or features, like being in the Horn of Africa. Absolute location uses exact coordinates. 📍",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "In the five themes of geography, Movement refers to the translocation of humans and their creations across the Earth's surface. This includes everything from international migration and global trade to the spread of information on the internet. ✈️📦💡",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 1
+  },{
+    "id": "geo-2016-1-1",
+    "question": "What is the scientific study of the Earth, exploring physical, biological, and human elements across places and time?",
+    "options": [
+      "Biology",
+      "Geography",
+      "Astronomy",
+      "Ecology"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Geography studies the Earth’s physical, biological, and human elements, and their spatial and temporal variations.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-23",
-    question: "(Hard) What disadvantage of a large country is most directly linked to the high cost of building roads and railways?",
-    options: [
-      "A. Difficult Administration",
-      "B. Security Concerns",
-      "C. Socio-economic Integration Challenges",
-      "D. Abundant Resources"
+    "id": "geo-2016-1-2",
+    "question": "The fact that the highest point in Ethiopia (Ras Dejen) and the lowest point (the Danakil Depression) are located within the same country is a reflection of its:",
+    "options": [
+      "Elongated shape",
+      "Large size and diverse topography",
+      "Compactness",
+      "Landlocked status"
     ],
-    correctAnswer: 2,
-    explanation: "The high cost of infrastructure in a large country directly makes it harder and more expensive to connect all parts of the country socially and economically, which is a major challenge for integration. 🛤️ ማብራሪያ: በትልቅ ሀገር ውስጥ የመሰረተ ልማት ግንባታ ወጪ ከፍተኛ መሆኑን ከሀገሪቱ ማህበራዊና ኢኮኖሚያዊ ውህደት ጋር በቀጥታ ይገናኛል። የመንገድና የባቡር መስመር መገንባት ውድ ሲሆን፣ ይህም የሀገሪቱን ክፍሎች ማህበራዊና ኢኮኖሚያዊ ትስስር እንዲፈጥሩ ያደርጋል። 🛤️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Having such extreme variations in elevation—from the towering peak of Ras Dejen at 4,550 meters to the scorching Danakil Depression at 125 meters below sea level—is a testament to Ethiopia's incredibly diverse topography.  This level of geographic diversity is possible within a country that has a large size to accommodate such different landscapes.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-24",
-    question: "(Simple) Which of the following is NOT a core theme of geography?",
-    options: [
-      "A. Location",
-      "B. Movement",
-      "C. Place",
-      "D. Government"
+    "id": "geo-2016-1-3",
+    "question": "The political and economic instability often seen in the Horn of Africa is a significant topic for which branch of geography?",
+    "options": [
+      "Physical geography",
+      "Biogeography",
+      "Political geography",
+      "Climatology"
     ],
-    correctAnswer: 3,
-    explanation: "The five core themes of geography are Location, Place, Human-Environment Interaction, Movement, and Region. Government is not one of them. 📚",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "Political geography is the branch of geography that studies the relationship between geography, politics, and international relations. It examines topics like borders, conflicts, international trade, and regional instability, making it the perfect field for analyzing the complex situation in the Horn of Africa.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-25",
-    question: "(Medium) The fact that Ethiopia's high altitude modifies its tropical climate is an example of which geographical theme?",
-    options: [
-      "A. Location",
-      "B. Place",
-      "C. Human-Environment Interaction",
-      "D. Movement"
+    "id": "geo-2016-1-4",
+    "question": "The phrase \"The Nile is Egypt's lifeblood\" is an example of which type of human-environment interaction?",
+    "options": [
+      "Modification",
+      "Adaptation",
+      "Dependence",
+      "Determinism"
     ],
-    correctAnswer: 1,
-    explanation: "The theme of Place refers to a location's unique physical and human characteristics. Ethiopia's high altitude and the resulting unique climate are key physical characteristics that define it as a distinct 'place.' 🏞️ ማብራሪያ: የስፍራ (Place) ጽንሰ-ሀሳብ የአንድ ቦታን ልዩ አካላዊና ሰብአዊ ባህሪያት ይመለከታል። የኢትዮጵያ ከፍተኛ ከፍታ እና በዚህም ምክንያት የሚመጣው ልዩ የአየር ንብረት ሀገሪቱን እንደ አንድ ልዩ 'ስፍራ' የሚገልጹ ቁልፍ አካላዊ ባህሪያት ናቸው። 🏞️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This phrase perfectly illustrates dependence, which is when humans rely on their environment to meet their basic needs. For millennia, Egyptian civilization has depended on the Nile River for water, fertile soil for agriculture, and transportation. Its very existence is tied to the river.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-26",
-    question: "(Difficult) How does the longitudinal extension of Ethiopia (15 degrees) primarily impact the country?",
-    options: [
-      "A. It causes a one-hour time difference between the eastern and western parts.",
-      "B. It gives the country a tropical climate.",
-      "C. It makes the country a compact shape.",
-      "D. It leads to the country's high altitude."
+    "id": "geo-2016-1-5",
+    "question": "The process of 'urbanization', where a growing percentage of a country's population lives in cities, is a prime example of which theme of geography?",
+    "options": [
+      "Place",
+      "Region",
+      "Movement",
+      "Human-Environment Interaction"
     ],
-    correctAnswer: 0,
-    explanation: "Longitude determines time zones. Since the Earth rotates 15 degrees per hour, Ethiopia's longitudinal extension of 15 degrees means there is a natural one-hour time difference between the easternmost and westernmost points of the country, though a single time zone is used for convenience. ⏰ ማብራሪያ: ኬንትሮስ የሰዓት ሰቅን የሚወስን ነው። ምድር በየሰዓቱ 15 ዲግሪ ስለምትዞር፣ ኢትዮጵያ በኬንትሮስ ላይ ያላት የ15 ዲግሪ ስፋት በምስራቅና በምዕራብ ጫፎቿ መካከል አንድ ሰዓት ያህል የጊዜ ልዩነት እንዲኖር ያደርጋል፣ ምንም እንኳን ለተግባራዊ ምቹነት አንድ ነጠላ የሰዓት ሰቅ ቢጠቀምም። ⏰",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "The theme of Movement is concerned with the translocation of people, goods, and ideas. Urbanization is fundamentally a process of movement—specifically, the large-scale migration of people from rural areas to urban centers in search of opportunities. 🚶‍♀️➡️🏙️",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-27",
-    question: "(Simple) What is the main disadvantage of a large country in terms of administration?",
-    options: [
-      "A. A smaller population",
-      "B. Abundant resources",
-      "C. Difficulty managing and governing a vast territory",
-      "D. A compact shape"
+    "id": "geo-2016-1-6",
+    "question": "If a country has a very protruded shape, what might be a major challenge?",
+    "options": [
+      "Defending the extended portion from external threats",
+      "Establishing a strong national identity",
+      "Maintaining a uniform climate",
+      "Developing a single transportation network"
     ],
-    correctAnswer: 2,
-    explanation: "One of the main disadvantages of a large country is the challenge of effectively managing and governing a large area from a central point. 🏛️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 0,
+    "explanation": "A protruded shape features a long \"panhandle\" extending from the main body of the country. This extension is often vulnerable because it can be surrounded on multiple sides by neighboring countries and may be far from the nation's military and administrative core, making it difficult to defend.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-28",
-    question: "(Medium) Which of the following is the best example of a 'Formal Region'?",
-    options: [
-      "A. The area served by a single TV station.",
-      "B. A city and its surrounding suburbs linked by a transportation network.",
-      "C. The Horn of Africa due to its shared history and culture.",
-      "D. The Sahara Desert, defined by its uniform arid climate."
+    "id": "geo-2016-1-7",
+    "question": "The fact that the time zone in Addis Ababa is UTC+3 is a direct consequence of Ethiopia's:",
+    "options": [
+      "Latitudinal location",
+      "Longitudinal location",
+      "Vicinal location",
+      "Absolute location"
     ],
-    correctAnswer: 3,
-    explanation: "A formal region is defined by a single, shared characteristic that is uniform throughout the area. The Sahara Desert is a perfect example, as its entire area is defined by a consistent arid climate. 🌐 ማብራሪያ: ፎርማል (መደበኛ) ክልል በመላው አካባቢ ባለው አንድ አይነት ባህሪ ይገለጻል። የሰሃራ በረሃ በጠቅላላው በአንድ አይነት ደረቅ የአየር ንብረት የተገለጸ በመሆኑ ለዚህ ጥሩ ምሳሌ ነው። 🌐",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "Global time zones are determined by longitude, the imaginary lines that run from the North Pole to the South Pole. The Earth is divided into 24 time zones, each about 15 degrees of longitude wide. Ethiopia's position east of the Prime Meridian (0° longitude) places it in the UTC+3 time zone (Coordinated Universal Time plus three hours). 🕒",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-29",
-    question: "(Hard) The 'Dependency' aspect of Human-Environment Interaction is best represented by:",
-    options: [
-      "A. Humans building irrigation systems to water crops.",
-      "B. People wearing warm clothes in a cold climate.",
-      "C. A community using wood from a nearby forest for fuel and shelter.",
-      "D. The government passing laws to protect endangered species."
+    "id": "geo-2016-1-8",
+    "question": "A geographer is studying the impact of the Tana-Beles project on the surrounding environment and the livelihoods of local communities. This study is an excellent example of:",
+    "options": [
+      "A regional study",
+      "A systematic study",
+      "A study of Human-Environment Interaction",
+      "Both A and C"
     ],
-    correctAnswer: 2,
-    explanation: "Dependency is the way humans rely on the natural environment for their basic needs. Using wood from a forest for fuel and shelter is a clear example of this direct reliance on nature. 🤝 ማብራሪያ: ጥገኝነት (Dependency) ሰዎች ለዋና ፍላጎቶቻቸው በተፈጥሮ አካባቢያቸው ላይ የሚመኩበት መንገድ ነው። በአቅራቢያ ካለ ደን ለነዳጅ እና ለመጠለያ እንጨት መጠቀም በተፈጥሮ ላይ ያለንን ቀጥተኛ ጥገኝነት የሚያሳይ ግልጽ ምሳሌ ነው። 🤝",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 3,
+    "explanation": "This study has two key aspects: It focuses on a specific, defined region (the area around the Tana-Beles project). It examines the relationship between a human action (the project) and its effects on both the natural environment and local people, which is the core of Human-Environment Interaction. Therefore, it is an example of both.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-30",
-    question: "(Simple) The ratio between the distance on a map and the actual distance on the ground is known as the:",
-    options: [
-      "A. Title",
-      "B. Key",
-      "C. Scale",
-      "D. North Arrow"
+    "id": "geo-2016-1-9",
+    "question": "The fact that Ethiopia's climate is highly varied despite its limited latitudinal range is primarily due to:",
+    "options": [
+      "Its elongated shape",
+      "Its varied altitude and topography",
+      "Its proximity to the sea",
+      "Its compact shape"
     ],
-    correctAnswer: 2,
-    explanation: "The scale is a fundamental element of a map that shows the ratio of distance on the map to the real-world distance on the ground. 📏",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "While Ethiopia's location near the equator gives it a tropical base climate, the primary reason for its incredible climatic variation is its varied altitude and topography. The simple rule \"the higher you go, the cooler it gets\" explains why the high central plateau (Dega) is cool and temperate, while the lowlands (Kola) are scorching hot, all within the same latitude.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-31",
-    question: "(Medium) Ethiopia's strategic location near the Red Sea has made it a focus of geopolitical interest. This is a consequence of which type of location?",
-    options: [
-      "A. Astronomical Location",
-      "B. Absolute Location",
-      "C. Relative Location",
-      "D. Grid Location"
+    "id": "geo-2016-1-10",
+    "question": "The 'dependency ratio', a demographic measure of the non-working population, is a concept most relevant to which theme of geography?",
+    "options": [
+      "Location",
+      "Place",
+      "Movement",
+      "Population geography"
     ],
-    correctAnswer: 2,
-    explanation: "Geopolitical interest is a direct result of a country's position relative to major global trade routes and other powerful nations. Ethiopia's location relative to the Red Sea, a key shipping lane, is what makes it strategically important. 🌍 ማብራሪያ: ጂኦፖለቲካዊ ፍላጎት የሚመጣው አንድ ሀገር ከሌሎች ዋና ዋና የንግድ መስመሮች እና ሀገራት ጋር ባለው አንፃራዊ ቦታ ምክንያት ነው። ኢትዮጵያ ከቀይ ባህር ጋር ያላት አንፃራዊ አቀማመጥ ለንግድ መርከቦች ቁልፍ የውሃ መንገድ በመሆኑ ስትራቴጂካዊ ጠቀሜታ እንዲኖራት ያደርጋታል። 🌍",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 3,
+    "explanation": "The dependency ratio is a key metric used in population geography, a major sub-field of human geography that studies the spatial distribution, composition, migration, and growth of human populations. It helps geographers understand the economic and social structure of a place's population.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-32",
-    question: "(Difficult) What is the fundamental difference between 'Absolute Location' and 'Relative Location' and why are both important?",
-    options: [
-      "A. Absolute location is about specific coordinates, while relative location is about proximity to other things. Both are important because they provide different ways of understanding a place's position and context.",
-      "B. Absolute location is more important than relative location for all geographical studies.",
-      "C. Relative location is only used for very large countries, while absolute location is for small ones.",
-      "D. They are two different names for the same thing."
+    "id": "geo-2016-1-11",
+    "question": "The statement that \"Ethiopia has a tropical climate\" is a generalization based on which aspect of its geography?",
+    "options": [
+      "Its compact shape",
+      "Its astronomical location",
+      "Its proximity to the equator",
+      "Both B and C"
     ],
-    correctAnswer: 0,
-    explanation: "Absolute location gives a precise, unchanging position, which is essential for accurate mapping. Relative location, however, provides context and helps us understand a place's connections, influence, and importance in relation to its surroundings. Both are needed for a full geographical picture. 🗺️ ማብራሪያ: አብሶሉት (ፍፁም) ቦታ ትክክለኛና የማይለወጥ መጋጠሚያዎችን ይሰጣል፤ ይህም ለትክክለኛ ካርታ ስራ አስፈላጊ ነው። አንፃራዊ (Relative) ቦታ ግን አንድ ቦታ ከሌሎች ቦታዎች ጋር ያለውን ግንኙነት፣ ተጽዕኖ እና ጠቀሜታ ለመረዳት ይረዳናል። ሁለቱም የአንድን ቦታ አቀማመጥ እና ሁኔታ ሙሉ በሙሉ ለመረዳት አስፈላጊ ናቸው። 🗺️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 3,
+    "explanation": "Both terms essentially point to the same reason. A country's astronomical location is its position defined by latitude and longitude. Ethiopia's latitude (between 3°N and 15°N) places it in the tropics, which is the zone defined by its proximity to the equator. Therefore, both B and C are correct ways of describing the basis for this climatic generalization.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-33",
-    question: "(Simple) A country bordered by Eritrea, Djibouti, Somalia, Kenya, and Sudan is:",
-    options: [
-      "A. Egypt",
-      "B. Ethiopia",
-      "C. South Sudan",
-      "D. Uganda"
+    "id": "geo-2017-1-2",
+    "question": "Which of the following would be studied in a regional approach to geography?",
+    "options": [
+      "Climate of the world",
+      "Urbanization patterns globally",
+      "Hydrology of the Nile Basin",
+      "Demographics of the United States"
     ],
-    correctAnswer: 1,
-    explanation: "These are all of Ethiopia's neighboring countries. 🇪🇹",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 3,
+    "explanation": "The regional approach focuses on studying all the various human and physical characteristics of a specific area. Studying the demographics of the United States involves looking at the population features of that defined region. The other options are examples of a topical approach, which studies a single specific subject (like climate or urbanization) across different regions.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-34",
-    question: "(Medium) What is a major disadvantage of Ethiopia's large size, specifically related to its economy?",
-    options: [
-      "A. It limits the diversity of its agro-ecological zones.",
-      "B. It makes it difficult to build infrastructure and connect all parts of the country.",
-      "C. It reduces the size of the potential workforce.",
-      "D. It makes the country vulnerable to invasion."
+    "id": "geo-2017-1-3",
+    "question": "Which theme of geography is primarily concerned with the unique characteristics of a specific location, including its human and physical features?",
+    "options": [
+      "Movement",
+      "Place",
+      "Region",
+      "Location"
     ],
-    correctAnswer: 1,
-    explanation: "The vast territory of a large country like Ethiopia makes it very expensive and difficult to build and maintain the necessary infrastructure (roads, railways, etc.) to connect all regions and facilitate economic activity. 💰 ማብራሪያ: እንደ ኢትዮጵያ ያለ ትልቅ ሀገር ዋነኛው ጉዳት አስፈላጊ የሆኑ የመሠረተ ልማት (መንገዶች፣ የባቡር መስመሮች) ግንባታዎች ከፍተኛ ወጪ የሚያስከፍሉ እና ሁሉንም የሀገሪቱን ክፍሎች ለማገናኘት አስቸጋሪ መሆናቸው ነው። ይህ ደግሞ በኢኮኖሚው ላይ አሉታዊ ተጽዕኖ ያሳድራል። 💰",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 1,
+    "explanation": "The theme of Place seeks to answer the question, \"What is it like there?\" It describes the unique personality of a location by examining its distinct physical features (like mountains and rivers) and human features (like culture, language, and architecture). 🏞️🏘️",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
   },
   {
-    id: "geo-2015-1-35",
-    question: "(Difficult) Why is the study of 'Movement' considered crucial for understanding human civilization?",
-    options: [
-      "A. Because it focuses on the internal politics of different countries.",
-      "B. Because it explains how human cultures and technologies have spread and developed across the globe.",
-      "C. Because it helps in identifying the exact location of ancient civilizations.",
-      "D. Because it is the only way to understand climate change."
+    "id": "geo-2017-1-4",
+    "question": "The construction of dams and irrigation canals in a river basin to support large-scale agriculture is an example of which geographic theme?",
+    "options": [
+      "Movement",
+      "Place",
+      "Human-Environment Interaction",
+      "Location"
     ],
-    correctAnswer: 1,
-    explanation: "The movement of people, goods, and ideas is the primary mechanism through which civilization has spread. It is through movement that humans populated the planet, trade was established, and knowledge, culture, and technology were exchanged, leading to the development of complex societies. ✈️ ማብራሪያ: የሰዎች፣ የእቃዎች እና የሀሳቦች እንቅስቃሴ ስልጣኔዎች እንዴት እንደተስፋፉ ዋናው ምክንያት ነው። በእንቅስቃሴ አማካኝነት ሰዎች ዓለምን ሰፍረዋል፣ ንግድ ተጀመረ፣ እና እውቀት፣ ባህልና ቴክኖሎጂ ተለዋወጡ፤ ይህም የሰው ልጅ ስልጣኔ እንዲዳብር አስችሏል። ✈️",
-    subject: "geography",
-    year: 2015,
-    chapter: 1
+    "correctAnswer": 2,
+    "explanation": "This theme explores the relationship between people and their environment. Building dams and canals is a clear example of humans modifying their environment to meet their needs (in this case, for agriculture), which is a core concept of Human-Environment Interaction.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-5",
+    "question": "Which of the following topics is outside the traditional scope of physical geography?",
+    "options": [
+      "Ocean currents and tides",
+      "Formation of volcanic mountains",
+      "Distribution of global religions",
+      "Weather systems and climate zones"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Physical geography studies the Earth's natural systems and processes, such as oceans, landforms, and climate. The distribution of global religions is a subject of human geography, which focuses on the spatial organization of human activities and cultures.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-6",
+    "question": "The practice of building houses on stilts in flood-prone areas is a clear reflection of:",
+    "options": [
+      "Determinism",
+      "Modification",
+      "Adaptation",
+      "Dependence"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Adaptation occurs when humans change their own behavior or lifestyle to better suit their environment. Building houses on stilts is a way people adapt their construction methods to live with the reality of frequent flooding, rather than changing the environment itself.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-7",
+    "question": "When a society develops new technologies to extract resources from a previously inaccessible environment, what type of human-environment interaction is this?",
+    "options": [
+      "Dependency",
+      "Adaptation",
+      "Modification",
+      "Movement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is an example of modification, where humans alter the environment to make it useful. Developing technology to access resources (like deep-sea oil drilling or mountaintop removal mining) is a profound way that societies change their physical surroundings to meet their needs. ⛏️",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-8",
+    "question": "Which of the following best describes the traditional, pre-20th-century focus of geography?",
+    "options": [
+      "Analyzing complex human-environmental systems",
+      "Explaining the interconnectedness of global phenomena",
+      "Detailed, systematic description of Earth's features",
+      "Predicting future demographic trends"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Historically, geography was primarily a descriptive science. Early geographers focused on exploration, mapping, and creating detailed catalogs (or gazetteers) of places, landforms, and cultures. The modern emphasis on analyzing complex systems and interconnectedness developed later. 🗺️",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-9",
+    "question": "Identify the odd one out:",
+    "options": [
+      "Topography",
+      "Soil type",
+      "Language",
+      "Climate"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Topography, soil type, and climate are all components of physical geography. Language is a component of human geography, making it the odd one out.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-10",
+    "question": "Which of the following best describes the relative location of Gonder?",
+    "options": [
+      "At approximately 12°N latitude and 37°E longitude",
+      "600 kilometers north of Addis Ababa",
+      "Northwest of Lake Tana",
+      "Located in the Amhara Region"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Relative location describes a place's position in relation to another feature. Stating that Gonder is \"Northwest of Lake Tana\" is a classic example. Option A is an absolute location, while B and D are also forms of relative location, but C is a very common and precise geographic reference point.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-11",
+    "question": "Which of the following statements about Ethiopia's location is correct?",
+    "options": [
+      "It lies entirely within the Northern Hemisphere.",
+      "It shares a border with seven different countries.",
+      "It has a greater north-south latitudinal extent than east-west longitudinal extent.",
+      "Its most eastern point is farther from the Prime Meridian than its most western point."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ethiopia's latitudinal extent is from approximately 3°N to 15°N. Since both coordinates are north of the equator (0° latitude), the entire country is in the Northern Hemisphere.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-12",
+    "question": "Which of the following is an accurate statement about the Horn of Africa's geopolitical context?",
+    "options": [
+      "All countries in the Horn of Africa are landlocked.",
+      "The region's strategic location near major shipping lanes makes it important.",
+      "It is a region of political stability and unified economic policies.",
+      "The Horn of Africa is a political entity with a single governing body."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Horn of Africa is located along the southern edge of the Red Sea and the Gulf of Aden, which includes the crucial Bab-el-Mandeb strait. This is a major global chokepoint for maritime trade, particularly for ships traveling to and from the Suez Canal, making the region geopolitically significant. 🚢",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-13",
+    "question": "Which one of the following is true about Ethiopia's astronomical and vicinal location?",
+    "options": [
+      "Ethiopia's astronomical location places it entirely within a temperate climate zone.",
+      "The country is vicinally located in the Nile Basin, sharing its waters with several other nations.",
+      "Ethiopia's astronomical location gives it a single, non-varying time zone across its entire territory.",
+      "The country is vicinally located entirely in the Southern Hemisphere."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vicinal location describes a place in relation to its neighbors and features. The Ethiopian Highlands are the source of the Blue Nile, which contributes the vast majority of the water to the Nile River. This location within the Nile Basin is a critical aspect of its relationship with neighboring countries like Sudan and Egypt.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-14",
+    "question": "The Horn of Africa is a strategically significant region due to its proximity to which major waterway?",
+    "options": [
+      "The Strait of Gibraltar",
+      "The Panama Canal",
+      "The Suez Canal and the Gulf of Aden",
+      "The Strait of Malacca"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Horn's strategic value comes from its position overlooking the Gulf of Aden and the Bab-el-Mandeb strait, which is the gateway between the Indian Ocean and the Red Sea, the main artery for shipping to and from the Suez Canal.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-15",
+    "question": "Due to Ethiopia's latitudinal extent, it experiences:",
+    "options": [
+      "A significant difference in time from east to west.",
+      "A wide variation in daylight hours between seasons.",
+      "A tropical climate with varied altitudinal modifications.",
+      "A predominantly desert climate."
+    ],
+    "correctAnswer": 2,
+    "explanation": "A country's latitude (its distance from the equator) is the primary determinant of its climate. Ethiopia's location in the tropics gives it a base tropical climate. However, its vast highlands drastically cool these temperatures, creating a wide variety of microclimates (known locally as Dega, Weyna Dega, etc.). ☀️",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-16",
+    "question": "What is the latitudinal extent of Ethiopia?",
+    "options": [
+      "3° N to 15° N",
+      "33° E to 48° E",
+      "3° E to 15° E",
+      "33° N to 48° N"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Latitude measures north-south position. Ethiopia stretches from approximately 3° North of the equator to 15° North of the equator. Option B represents its longitudinal (east-west) extent.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-17",
+    "question": "Which of the following is a primary disadvantage of being a landlocked country?",
+    "options": [
+      "Limited access to international trade routes",
+      "Higher risk of volcanic activity",
+      "Greater susceptibility to floods",
+      "Lack of mineral resources"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A landlocked country has no direct access to the sea. This forces it to rely on neighboring countries for port access, which can significantly increase the cost of transportation and limit its access to global maritime trade. 🚫🚢",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-18",
+    "question": "The fact that Ethiopia's climate is influenced by its proximity to the equator and its high-altitude topography is a reflection of its:",
+    "options": [
+      "Compactness",
+      "Latitudinal location",
+      "Vicinal location",
+      "Both B and C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Proximity to the equator is the definition of latitudinal location. This position determines the base amount of solar energy a region receives, establishing its fundamental climate type (in this case, tropical), which is then modified by other factors like altitude.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-19",
+    "question": "A major benefit of Ethiopia's large landmass is:",
+    "options": [
+      "It simplifies national governance and infrastructure development.",
+      "It limits ethnic and cultural diversity, promoting unity.",
+      "It provides a wide range of ecological zones and natural resources.",
+      "It reduces the need for a large military."
+    ],
+    "correctAnswer": 2,
+    "explanation": "A large territory typically contains a greater variety of climates, soils, and geology. This leads to a wider range of ecosystems and a higher likelihood of possessing diverse and abundant natural resources, which is a significant economic advantage. The other options describe challenges, not benefits, of a large size.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-20",
+    "question": "Which of the following is a disadvantage of a country's large size?",
+    "options": [
+      "Greater potential for agricultural output",
+      "Difficulty in uniform service delivery across the entire territory",
+      "Larger population size",
+      "Ability to support a wider range of industries"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Governing a large territory is challenging. It is often difficult and expensive to build and maintain infrastructure (like roads, schools, and hospitals) and ensure that all citizens, especially those in remote areas, receive equitable government services.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-21",
+    "question": "A country with a high ratio of its boundary length to its areal coverage is considered to have a less compact shape.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is true. A compact shape (like a circle) encloses the maximum area with the minimum boundary. A long, irregular, or fragmented shape has a much longer boundary relative to its area. Therefore, a high boundary-to-area ratio indicates a less compact shape.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-22",
+    "question": "State 'X' has an area of 500,000 km² and a boundary length of 3,000 km. State 'Y' has an area of 500,000 km² and a boundary length of 4,500 km. Which state has a more compact shape?",
+    "options": [
+      "State 'X'",
+      "State 'Y'",
+      "Both are equally compact",
+      "Neither is compact"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Since both states have the same area, the one with the shorter boundary length is more compact. State 'X' encloses its area with 3,000 km of border, while State 'Y' needs 4,500 km, making State 'X' more efficient and compact.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-23",
+    "question": "A state that completely encloses another state, such as South Africa enclosing Lesotho, is an example of what type of shape?",
+    "options": [
+      "Compact",
+      "Protruded",
+      "Perforated",
+      "Fragmented"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A perforated state is one that has a \"hole\" in it, where the hole is the territory of another independent state. South Africa is \"perforated\" by Lesotho.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-24",
+    "question": "A country with a long, narrow strip of land extending from the main body, like Thailand, is a classic example of which type of shape?",
+    "options": [
+      "Elongated",
+      "Protruded",
+      "Fragmented",
+      "Compact"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A protruded (or prorupted) state has a mostly compact main area with a long extension or \"panhandle.\" This protrusion is often created to access a resource or to separate two other states.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-25",
+    "question": "Which of the following describes the shape of a country that is divided into two or more parts, often by water or other countries?",
+    "options": [
+      "Compact",
+      "Fragmented",
+      "Protruded",
+      "Elongated"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A fragmented state consists of several separate, non-contiguous pieces of territory. This includes archipelagos like Indonesia and the Philippines, or countries separated by another state.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2017-1-26",
+    "question": "A country with a shape that is roughly circular or square, with the capital city near the center, is most likely to have which type of shape?",
+    "options": [
+      "Elongated",
+      "Protruded",
+      "Compact",
+      "Fragmented"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A compact shape is one where the distance from the geographic center to any point on the boundary is roughly the same. This shape is theoretically the most efficient for transportation, communication, and defense. Ethiopia is often considered a compact state.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "geo-2013-2-2",
+    "question": "The formation of the Ethiopian Rift Valley is a classic example of tensional forces acting on the Earth's crust. This process results in which type of faulting?",
+    "options": [
+      "Reverse faults, creating a horst.",
+      "Strike-slip faults, creating a transform boundary.",
+      "Normal faults, creating a graben.",
+      "Thrust faults, creating a mountain."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Ethiopian Rift Valley is a result of tensional forces, which pull the Earth's crust apart. This process creates normal faults, where the hanging wall moves down relative to the footwall. The downward-slipping block between two parallel normal faults forms a graben, or rift valley. The upthrown blocks on either side of the graben are called horsts.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-3",
+    "question": "The Ethiopian landscape is a product of both constructive and destructive forces. Which of the following is a constructive endogenic force that built up the landmass?",
+    "options": [
+      "Erosion by the Blue Nile River.",
+      "Volcanic eruptions and lava flows.",
+      "Weathering of the highlands.",
+      "Deposition of sediment in a lake bed."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Volcanic eruptions and lava flows are a classic example of a constructive endogenic force. Endogenic forces originate within the Earth, and volcanism specifically builds up the landmass by adding new material to the surface, forming mountains and plateaus. . The other options are destructive exogenic forces (erosion, weathering) or depositional processes.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-4",
+    "question": "How does the process of mass wasting differ from erosion?",
+    "options": [
+      "Mass wasting involves only human activity, while erosion is a natural process.",
+      "Mass wasting is the gradual movement of rock, while erosion is the rapid downhill movement of rock.",
+      "Mass wasting is the gravitational downhill movement of rock and soil, while erosion is the removal of material by a mobile agent like water or wind.",
+      "Mass wasting is a constructive process, while erosion is a destructive process."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The key difference lies in the agent of movement. Mass wasting is the downslope movement of rock and soil primarily due to gravity, often in a single event like a landslide or a gradual creep. Erosion is the removal and transport of material by a mobile agent such as water, wind, ice, or waves.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-5",
+    "question": "The high elevation of the Ethiopian plateaus is a result of a combination of volcanism and epeirogenic uplift. The latter refers to:",
+    "options": [
+      "The rapid folding of the crust.",
+      "The sudden, localized sinking of landmass.",
+      "The creation of a rift valley.",
+      "Broad, regional uplift of the landmass without major folding or faulting."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Epeirogenic uplift refers to the slow, large-scale, and widespread vertical movement of the Earth's crust. It is a fundamental process in the formation of continents and plateaus, and it's distinct from orogeny, which involves mountain-building through folding and faulting. The high elevation of the Ethiopian highlands is attributed to this broad uplift, which began around 30 million years ago.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-6",
+    "question": "The Afar Triple Junction is a unique geological feature where three tectonic plates diverge. This process is responsible for the formation of:",
+    "options": [
+      "The Simien Mountains and the Ethiopian Highlands.",
+      "The Ogaden Basin and the Western Escarpment.",
+      "The Abay River Gorge and its tributaries.",
+      "The Red Sea, the Gulf of Aden, and the Main Ethiopian Rift."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Afar Triple Junction is the point where the Arabian, Nubian (African), and Somalian tectonic plates meet. These plates are diverging, or moving apart, from this central point. This process is creating three new oceanic basins: the Red Sea, the Gulf of Aden, and the Main Ethiopian Rift. .",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-7",
+    "question": "The Precambrian Basement Complex rocks in Ethiopia are only found at the edges of the country's highlands and in river gorges. This is because:",
+    "options": [
+      "They were not affected by the subsequent tectonic activity.",
+      "They were created only in those specific areas.",
+      "They were buried by younger sedimentary and volcanic rocks and have only been exposed by erosion and uplift.",
+      "They are made of a different type of mineral."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Precambrian Basement Complex is the oldest rock formation in Ethiopia, representing the foundation of the continent. Over billions of years, these rocks were buried by younger sedimentary layers and volcanic flows. They are exposed today at the edges of the plateaus and in deep river gorges like the Abay (Blue Nile) because subsequent uplift and erosion have stripped away the overlying rock.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-8",
+    "question": "The Danakil Depression is an extreme example of a landform created by a combination of endogenic and exogenic processes. Which of the following best describes its formation?",
+    "options": [
+      "Erosion of a large river valley.",
+      "The uplift of a horst.",
+      "A rift valley formed by plate divergence, followed by a period of sediment and salt deposition.",
+      "The collapse of a volcanic crater."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Danakil Depression is a part of the Afar Depression, which is a rift valley formed by plate divergence (an endogenic process). This rifting created a basin that was repeatedly flooded by the sea and then dried up, leaving behind massive deposits of sediment and salt (exogenic processes). The continued subsidence of the basin has made it one of the lowest and hottest places on Earth.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-9",
+    "question": "The geological term for the broad, regional movement of a continental landmass without significant folding or faulting is:",
+    "options": [
+      "Orogeny",
+      "Isostasy",
+      "Epeirogenesis",
+      "Metamorphism"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Epeirogenesis is the geological term for the vertical movement of a landmass on a large scale. It's responsible for the broad uplift of continents and plateaus, as opposed to orogeny, which is the process of mountain building through intense folding and faulting. .",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-10",
+    "question": "The tensional forces associated with the Great Rift Valley system have not only created valleys but also:",
+    "options": [
+      "Folded the landmass to create mountains.",
+      "Created block mountains (horsts) adjacent to the rift valley.",
+      "Led to a period of extensive glaciation.",
+      "Caused a global sea level rise."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The tensional forces of rifting pull the crust apart, causing some blocks to drop down (grabens) and others to be pushed up along the normal faults. These elevated blocks are known as horsts, or block mountains. The Ethiopian Highlands are a prime example of such horsts, bordering the Main Ethiopian Rift.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-11",
+    "question": "How do endogenic forces (specifically, plate tectonics) create the conditions for exogenic forces to shape the Ethiopian landscape?",
+    "options": [
+      "Endogenic forces make the landmass so flat that exogenic forces can't act.",
+      "They have no relationship.",
+      "Endogenic forces create landforms (like mountains and valleys), which are then acted upon by weathering, erosion, and deposition.",
+      "Endogenic forces prevent erosion from occurring."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Endogenic forces (like volcanism and plate tectonics) are the builders of the landscape, creating major landforms such as mountains, plateaus, and rift valleys. Exogenic forces (like weathering, erosion, and mass wasting) are the sculptors, acting on these newly formed landforms to modify and break them down. This interplay is fundamental to shaping the Ethiopian landscape.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-12",
+    "question": "A geologist finds a fossil of a dinosaur in a rock layer in the Ogaden Basin. In which geological era would this rock have most likely been formed?",
+    "options": [
+      "Precambrian",
+      "Paleozoic",
+      "Mesozoic",
+      "Cenozoic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Mesozoic Era, often called the \"Age of Reptiles,\" is the geological era when dinosaurs lived. The Ogaden Basin in southeastern Ethiopia is known for its extensive sedimentary formations from this era, which would be the most likely place to find dinosaur fossils. .",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-13",
+    "question": "The Quaternary period is the youngest geological time scale. Why is it significant to Ethiopia's geological history?",
+    "options": [
+      "It is when the basement complex rocks were formed.",
+      "It marks the end of the age of dinosaurs.",
+      "It is the period of the most recent volcanic activity and lake formation in the Rift Valley.",
+      "It is when the first mammals appeared."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Quaternary period is the most recent period in the Cenozoic Era. In Ethiopia, it is a period of continued geological activity, including the latest phases of volcanism in the Rift Valley and the formation of the modern rift lakes, such as Lake Tana and Lake Ziway.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-14",
+    "question": "According to the principle of superposition, which of the following statements about the Mesozoic sedimentary layers in Ethiopia is true?",
+    "options": [
+      "The Hintalo Limestone is younger than the Upper Sandstone.",
+      "The Adigrat Sandstone is younger than the Basement Complex.",
+      "The Upper Sandstone is the youngest of the three major sedimentary formations.",
+      "All three sedimentary layers were formed at the same time."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The principle of superposition states that in an undisturbed sequence of sedimentary rock layers, the oldest layer is at the bottom, and the youngest is at the top. The three major Mesozoic sedimentary formations in Ethiopia are, from oldest to youngest: the Adigrat Sandstone, the Antalo Limestone, and the Upper Sandstone. Therefore, the Upper Sandstone is the youngest.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-15",
+    "question": "Which radiometric dating technique would be most appropriate for dating a very old volcanic rock from the Precambrian era, and why?",
+    "options": [
+      "Carbon-14 dating, because it is effective on very old materials.",
+      "Potassium-Argon dating, because it has a very long half-life and is suitable for dating ancient igneous rocks.",
+      "Dendrochronology, because it uses tree rings to determine the age.",
+      "Fission track dating, because it is only used on sedimentary rocks."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Potassium-Argon dating is ideal for dating ancient rocks because it has a very long half-life (1.25 billion years), which allows it to measure ages in the billions of years. It is particularly effective on igneous rocks, like those of the Precambrian Basement Complex. Carbon-14 dating is only useful for organic material up to about 50,000 years old.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-16",
+    "question": "Why are unconformities common in Ethiopia's geological record, particularly between the Precambrian and Mesozoic eras?",
+    "options": [
+      "Because the country's geology is very stable.",
+      "Because there was continuous erosion and deposition.",
+      "Because there were long periods of uplift and erosion where no new rock was being deposited.",
+      "Because the rocks were all formed at the same time."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An unconformity represents a gap in the geological record. The unconformity between the Precambrian and Mesozoic eras in Ethiopia is a major one because, after the formation of the Precambrian Basement Complex, there were long periods of uplift and erosion where no new rock was being deposited. This hiatus is reflected in the geological record as a missing sequence of rocks. .",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-17",
+    "question": "Which of the following is a geologic event that occurred latest in Ethiopia's history?",
+    "options": [
+      "The formation of the Precambrian Basement Complex.",
+      "The deposition of the Mesozoic sedimentary layers.",
+      "The formation of the Aden Series lava flows in the Afar Depression.",
+      "The initial rifting that created the East African Rift System."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The formation of the Aden Series lava flows is a recent geological event in Ethiopia's history, occurring during the Quaternary period (within the last 2.6 million years). This is much more recent than the Precambrian (billions of years ago), the Mesozoic sedimentary layers (252-66 million years ago), or the initial rifting (around 30 million years ago).",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-18",
+    "question": "The geological significance of the Pliocene epoch for Ethiopia's modern landscape is that it:",
+    "options": [
+      "Marked the beginning of the major phase of rifting and volcanism that shaped the highlands and rift valley.",
+      "Was a period of extensive sea level rise and marine deposition.",
+      "Was the age of dinosaurs.",
+      "Was a period of intense glaciation."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Pliocene epoch (around 5.3 to 2.6 million years ago) is a significant period in Ethiopia's geological history because it marked the onset of the most recent and dramatic phase of volcanism and rifting that created the modern highlands and the deep trough of the Great Rift Valley.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-19",
+    "question": "The Mesozoic Era in Ethiopia is mainly associated with which of the following?",
+    "options": [
+      "The formation of the crystalline basement rocks.",
+      "The trap series lava flows.",
+      "The Red Sea penetration into the Afar Depression.",
+      "The deposition of extensive layers of sedimentary rock."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Mesozoic Era (252 to 66 million years ago) in Ethiopia was characterized by the deposition of extensive sedimentary rock layers, specifically the Adigrat Sandstone, the Antalo Limestone, and the Upper Sandstone. This was a period of relative quiescence before the Cenozoic rifting and volcanism.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2013-2-20",
+    "question": "If the half-life of a radioactive element is 10 million years, and a rock sample contains 25% of the original parent isotope and 75% of the daughter isotope, how old is the rock?",
+    "options": [
+      "10 million years",
+      "20 million years",
+      "30 million years",
+      "40 million years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "After one half-life (10 million years), a rock would have 50% of the parent isotope. After a second half-life (another 10 million years, for a total of 20 million years), it would have half of the remaining parent isotope, which is 25% of the original. The remaining 75% would have decayed into the daughter isotope.",
+    "subject": "geography",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-21",
+    "question": "The occurrence of metallic minerals like gold and platinum in Ethiopia is primarily associated with which type of rock?",
+    "options": [
+      "Precambrian Basement Complex rocks",
+      "Mesozoic sedimentary rocks",
+      "Cenozoic volcanic rocks",
+      "Quaternary alluvial deposits"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Precambrian Basement Complex rocks, which are the oldest in Ethiopia, are highly metamorphosed and intruded by igneous rocks. These ancient rocks are the primary host for many of Ethiopia's metallic mineral deposits, including gold, platinum, and iron ore. Subsequent erosion and weathering of these rocks have also led to alluvial deposits of these minerals in riverbeds.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-22",
+    "question": "The Mesozoic sedimentary layers in the Ogaden Basin are of great economic importance due to their potential for:",
+    "options": [
+      "Geothermal energy",
+      "Gemstones like opal",
+      "Fossil fuels (natural gas and oil)",
+      "Metallic minerals like gold"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Mesozoic sedimentary layers in the Ogaden Basin are composed of sandstones, limestones, and shales that were deposited in ancient marine environments. These conditions were ideal for the formation and trapping of fossil fuels, such as natural gas and oil. The presence of thick sedimentary basins makes the region a prime target for hydrocarbon exploration.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-23",
+    "question": "The Aden Series Lava, which is younger than the Trap Series Lava, is found in the Afar Depression. This is because:",
+    "options": [
+      "It was formed by a different type of volcanic activity.",
+      "It is a result of compression, not tension.",
+      "It is a younger, more localized eruption linked to the most recent stages of rifting.",
+      "It is a sedimentary rock."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Aden Series Lavas are a product of the most recent geological activity in the Afar Depression, occurring during the Quaternary period. They are linked to the ongoing rifting and spreading of the tectonic plates, which create localized fissures and volcanoes. The older Trap Series Lavas are more widespread and are associated with a major Cenozoic volcanic event that predates the intense rifting.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-24",
+    "question": "The Hintalo Limestone is a valuable resource for cement production because:",
+    "options": [
+      "It is a very hard rock.",
+      "It is a calcium carbonate-rich sedimentary rock formed from marine organisms.",
+      "It is a type of igneous rock.",
+      "It is found in large, isolated deposits."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Hintalo Limestone is a primary ingredient in cement production because of its high calcium carbonate content. The limestone's composition makes it an ideal raw material, and its widespread availability across a vast area of the Ethiopian highlands makes it an economically viable resource.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-25",
+    "question": "The Danakil Depression is geologically significant for its potash deposits. These deposits are a direct result of:",
+    "options": [
+      "The evaporation of an ancient sea in a rift valley setting.",
+      "The weathering of volcanic rocks.",
+      "The deposition of alluvial sediments.",
+      "The cooling of magma."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The potash deposits in the Danakil Depression were formed through a process of evaporation. The Depression, being a subsiding rift valley, was repeatedly flooded by seawater from the Red Sea. When the water evaporated in the extremely hot and arid climate, it left behind thick layers of salt and other evaporite minerals, including potash, a vital fertilizer ingredient.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-26",
+    "question": "The gemstone Opal found in the Wadla Delanta area is a product of which specific geological condition?",
+    "options": [
+      "The metamorphism of ancient sedimentary rocks.",
+      "Hydrothermal activity within volcanic rocks, which deposits silica.",
+      "The erosion of a riverbed.",
+      "The compression of a tectonic plate."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Ethiopian opal is known as \"Welo opal\" and is found in the country's volcanic highlands. It forms when silica-rich water from hydrothermal activity (heated groundwater) fills cracks and voids in volcanic rock. The water slowly evaporates, leaving behind a gel-like silica that hardens to form opal.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-27",
+    "question": "A typical geological cross-section of the Ethiopian Highlands, from the oldest at the bottom to the youngest at the top, would be:",
+    "options": [
+      "Precambrian Basement Complex -> Mesozoic Sedimentary Rocks -> Cenozoic Trap Series Lavas",
+      "Cenozoic Trap Series Lavas -> Mesozoic Sedimentary Rocks -> Precambrian Basement Complex",
+      "Mesozoic Sedimentary Rocks -> Cenozoic Trap Series Lavas -> Precambrian Basement Complex",
+      "Precambrian Basement Complex -> Cenozoic Trap Series Lavas -> Mesozoic Sedimentary Rocks"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This sequence follows the geological principle of superposition, where the oldest layers are at the bottom and the youngest are on top. The Precambrian Basement Complex is the oldest bedrock. It was subsequently covered by Mesozoic sedimentary rocks as the land was submerged by a shallow sea. Finally, the Cenozoic Trap Series Lavas flowed on top of these older formations during massive volcanic eruptions.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-28",
+    "question": "The East African Rift System is directly responsible for Ethiopia's potential for geothermal energy because:",
+    "options": [
+      "It is a zone of high seismic activity.",
+      "It is a region of high rainfall.",
+      "It is a zone of crustal thinning, allowing magma and heat to rise close to the surface.",
+      "It is a region with a high concentration of sedimentary rocks."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The East African Rift System is a divergent plate boundary where the Earth's crust is being stretched and thinned. This thinning allows heat from the mantle, in the form of magma, to rise closer to the surface. This high geothermal gradient creates vast reservoirs of underground hot water and steam, which can be harnessed for geothermal energy production. .",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-29",
+    "question": "The Adola region is a major gold mining area in southern Ethiopia, whereas platinum is mined at Yubdo. This difference in mineral deposits is primarily due to:",
+    "options": [
+      "Different types of Precambrian host rocks and geological processes.",
+      "The age of the rocks; Adola rocks are older.",
+      "The altitude of the regions.",
+      "The climate of the regions."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The presence of specific minerals is determined by the host rock and the geological processes that formed them. The gold in the Adola region is found in specific metamorphic rocks within the Precambrian Basement Complex, while the platinum at Yubdo is found in ultramafic rocks that were part of a different geological process.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2014-2-30",
+    "question": "The discovery of coal deposits in some parts of Ethiopia, such as the Chilga area, is associated with volcanic rock. This is possible because:",
+    "options": [
+      "The volcanic eruptions melted the coal deposits.",
+      "The coal-forming swamp environment was buried and preserved by later volcanic ash and lava flows.",
+      "Coal is a type of volcanic rock.",
+      "The volcanic eruptions created the coal."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Coal is a sedimentary rock formed from the burial and compression of ancient plant matter in a swampy environment. In areas like Chilga, the coal-forming swamps were located in valleys or basins. Subsequent volcanic eruptions buried these swamps with thick layers of ash and lava, which served to protect the organic material from erosion and contributed to its transformation into coal. The volcanic rock is not what created the coal, but rather what preserved it.",
+    "subject": "geography",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-6",
+    "question": "Why is \"sinking of the landmass\" considered an endogenic process?",
+    "options": [
+      "It is caused by external forces like the weight of glaciers.",
+      "It is a slow process that doesn't involve plate tectonics.",
+      "It is caused by internal forces such as crustal down-warping or isostatic adjustment.",
+      "It is an effect of erosion and deposition, which are exogenic."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The sinking of the landmass is an endogenic process because it is caused by internal forces such as crustal down-warping or isostatic adjustment (the vertical movement of the crust in response to the removal or addition of a load, like a glacier or a lake). These forces operate from within the Earth's lithosphere.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-7",
+    "question": "A geochronologist finds a rock sample with a parent-to-daughter isotope ratio of 1:15. If the half-life of the parent isotope is 2 million years, what is the age of the rock?",
+    "options": [
+      "2 million years",
+      "4 million years",
+      "6 million years",
+      "8 million years"
+    ],
+    "correctAnswer": 3,
+    "explanation": "With a parent-to-daughter isotope ratio of 1:15, a geochronologist would calculate that four half-lives have passed. After 1 half-life, the ratio is 1:1 (50% parent, 50% daughter). After 2 half-lives, the ratio is 1:3 (25% parent, 75% daughter). After 3 half-lives, the ratio is 1:7 (12.5% parent, 87.5% daughter). After 4 half-lives, the ratio is 1:15 (6.25% parent, 93.75% daughter). Given a half-life of 2 million years, the rock's age is 2 million years x 4 = 8 million years.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-8",
+    "question": "Why is Carbon-14 dating an ineffective method for dating the Precambrian Basement Complex rocks of Ethiopia?",
+    "options": [
+      "It is only accurate for dating igneous rocks.",
+      "The half-life of Carbon-14 is too long for ancient rocks.",
+      "Carbon-14 is not found in rock formations.",
+      "The half-life of Carbon-14 is too short to measure the age of such ancient rocks."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Carbon-14 dating is ineffective for dating the Precambrian Basement Complex rocks of Ethiopia because the half-life of Carbon-14 (5,730 years) is far too short to measure the age of such ancient rocks, which are billions of years old. Carbon-14 is only used for dating organic materials up to approximately 50,000 years old.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-9",
+    "question": "A geologist uses the Potassium-Argon technique to date a volcanic rock. The sample has been exposed to high temperatures from a later geothermal event. How would this exposure likely affect the calculated age of the rock?",
+    "options": [
+      "It would make the rock appear older than it actually is.",
+      "It would make the rock appear younger than it actually is.",
+      "It would have no effect on the calculated age.",
+      "It would make the rock appear older or younger, depending on the temperature."
+    ],
+    "correctAnswer": 1,
+    "explanation": "High-temperature exposure from a later geothermal event would cause argon gas to escape from the rock sample. Since the Potassium-Argon dating technique relies on the accumulation of argon as potassium decays, the loss of argon would make the rock appear younger than it actually is.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-10",
+    "question": "Which geological era is marked by the first appearance of abundant hard-shelled organisms in the fossil record?",
+    "options": [
+      "Precambrian",
+      "Paleozoic",
+      "Mesozoic",
+      "Cenozoic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Paleozoic Era is marked by the first appearance of abundant hard-shelled organisms in the fossil record. This period is often called the \"Age of Ancient Life\" and began with the Cambrian Explosion.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-11",
+    "question": "The Phanerozoic Eon is composed of three eras. What are they?",
+    "options": [
+      "Precambrian, Paleozoic, Mesozoic",
+      "Paleozoic, Mesozoic, Cenozoic",
+      "Hadean, Archean, Proterozoic",
+      "Paleozoic, Tertiary, Quaternary"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Phanerozoic Eon is the current geological eon and is composed of the three eras: Paleozoic, Mesozoic, and Cenozoic.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-12",
+    "question": "What is the relationship between an era and a period in the geological time scale?",
+    "options": [
+      "A period is a subdivision of an era.",
+      "An era is a subdivision of a period.",
+      "They are the same length of time.",
+      "A period is a subdivision of an epoch."
+    ],
+    "correctAnswer": 0,
+    "explanation": "In the geological time scale, a period is a subdivision of an era. For example, the Cenozoic Era is subdivided into the Paleogene, Neogene, and Quaternary periods.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-13",
+    "question": "What is the geological significance of the Cenozoic Era in Ethiopia, particularly concerning its topography?",
+    "options": [
+      "It is responsible for the formation of the Precambrian Basement Complex.",
+      "It is the era when the major sedimentary rocks of the Ogaden basin were formed.",
+      "It is the era of massive volcanism and rifting that created the current land configuration.",
+      "It is the era when the first fossil fuels were deposited."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Cenozoic Era is geologically significant for Ethiopia because it was the era of massive volcanism and rifting that created the country's current land configuration, including the high plateaus and the Great Rift Valley.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-14",
+    "question": "The Precambrian Basement Complex rocks are mainly associated with the formation of what type of geological feature?",
+    "options": [
+      "Sedimentary basins",
+      "Fossil fuel deposits",
+      "Metallic mineral deposits",
+      "The East African Rift Valley"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Precambrian Basement Complex rocks are the oldest in Ethiopia and are primarily associated with the formation of metallic mineral deposits. These ancient, metamorphosed rocks host valuable minerals such as gold, platinum, and iron.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-15",
+    "question": "Arrange the following Ethiopian rock formations in chronological order from oldest to youngest.",
+    "options": [
+      "Basement Complex Rocks, Adigrat Sandstone, Hintalo Limestone, Trap Series Lava",
+      "Trap Series Lava, Adigrat Sandstone, Hintalo Limestone, Basement Complex Rocks",
+      "Hintalo Limestone, Adigrat Sandstone, Trap Series Lava, Basement Complex Rocks",
+      "Basement Complex Rocks, Trap Series Lava, Adigrat Sandstone, Hintalo Limestone"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The correct chronological order from oldest to youngest is: Basement Complex Rocks (Precambrian), Adigrat Sandstone (Mesozoic), Hintalo Limestone (Mesozoic), and Trap Series Lava (Cenozoic). This sequence follows the principle of superposition.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-16",
+    "question": "Why is the Mesozoic Era considered the \"Age of Sedimentary Rock Formation\" in Ethiopia?",
+    "options": [
+      "It was a time of intense volcanic activity.",
+      "It was a period of extensive marine transgressions and regressions.",
+      "It was the era of the first appearance of mammals.",
+      "It was a time of massive mountain building."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Mesozoic Era (252 to 66 million years ago) in Ethiopia was characterized by the deposition of extensive sedimentary rock layers, specifically the Adigrat Sandstone, the Antalo Limestone, and the Upper Sandstone. This was a period of relative quiescence before the Cenozoic rifting and volcanism.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-17",
+    "question": "The Adigrat Sandstone is formed by the transgression of the sea, while the Upper Sandstone is formed by the regression of the sea. What is the key difference between these two processes?",
+    "options": [
+      "Transgression is the rise of sea level, and regression is the fall of sea level.",
+      "Transgression is the fall of sea level, and regression is the rise of sea level.",
+      "Transgression is a river depositing sand, and regression is a sea depositing sand.",
+      "They are different terms for the same process."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The key difference between marine transgression and regression is the direction of sea-level change. Transgression is the rise of sea level, which causes the sea to advance inland. Regression is the fall of sea level, causing the sea to withdraw.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-18",
+    "question": "The statement \"Hintalo limestone is formed by the regression of the sea\" is incorrect. What geological process is responsible for its formation?",
+    "options": [
+      "Volcanic activity",
+      "Deposition of river sediments",
+      "Deposition of marine organisms in a shallow sea",
+      "Glacial activity"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Hintalo limestone is formed by the deposition of marine organisms in a shallow sea. These organisms' shells and skeletons, rich in calcium carbonate, accumulated on the seabed and were compacted over time to form limestone. This process is a key part of the Mesozoic marine transgression.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-19",
+    "question": "What evidence supports the idea that the Adigrat Sandstone was formed in a shallow, coastal environment?",
+    "options": [
+      "The presence of volcanic rocks.",
+      "The presence of deep-sea fossils.",
+      "The presence of cross-bedding and fossil wood fragments.",
+      "The presence of crystalline basement rocks."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The presence of cross-bedding and fossil wood fragments supports the idea that the Adigrat Sandstone was formed in a shallow, coastal environment. Cross-bedding is a feature of wind or water-deposited sand, and fossil wood indicates a nearby landmass.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-20",
+    "question": "Why are the oldest sedimentary rocks in Ethiopia found in the southeast and the youngest in the northwest?",
+    "options": [
+      "Because the sea transgressed from the northwest to the southeast.",
+      "Because the sea regressed from the southeast to the northwest.",
+      "Because the landmass was uplifted in the southeast first.",
+      "Because the Rift Valley formed from the northwest to the southeast."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The oldest sedimentary rocks in Ethiopia are found in the southeast and the youngest in the northwest because the sea transgressed from the northwest to the southeast.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-21",
+    "question": "Explain the difference between Trap Series Lava and Aden Series Lava.",
+    "options": [
+      "Trap series is older and widespread, while Aden series is younger and confined to the Rift Valley.",
+      "Trap series is younger and confined to the Rift Valley, while Aden series is older and widespread.",
+      "Trap series is a result of endogenic forces, while Aden series is exogenic.",
+      "They are the same type of lava, just different names."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The main difference between Trap Series and Aden Series Lavas is their age and distribution. Trap Series Lava is older (Oligocene to Miocene) and widespread, covering the vast plateaus. Aden Series Lava is younger (Pliocene to Quaternary) and is confined to the Rift Valley, representing the most recent volcanism.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-22",
+    "question": "The separation of the Arabian Peninsula from the Horn of Africa is a direct result of which specific geological process?",
+    "options": [
+      "A convergent plate boundary.",
+      "A transform plate boundary.",
+      "A divergent plate boundary.",
+      "Orogeny."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The separation of the Arabian Peninsula from the Horn of Africa is a direct result of a divergent plate boundary. This type of boundary occurs where two tectonic plates move away from each other, leading to the creation of new crust and the formation of rift valleys and oceans.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-23",
+    "question": "The Afar Triangle is a unique geological feature known as a triple junction. What three tectonic plates are meeting in this location?",
+    "options": [
+      "African, Eurasian, and Indian Plates",
+      "Arabian, Nubian, and Somali Plates",
+      "South American, African, and Antarctic Plates",
+      "Pacific, North American, and Eurasian Plates"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Afar Triangle is a unique geological feature known as a triple junction. The three tectonic plates meeting in this location are the Arabian, Nubian, and Somali Plates. They are all diverging from this point, forming the Red Sea, the Gulf of Aden, and the Main Ethiopian Rift.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-24",
+    "question": "How did the Great Rift Valley's formation physically alter the drainage patterns and river systems of the Ethiopian Highlands?",
+    "options": [
+      "It created new river systems flowing from the highlands into the valley.",
+      "It blocked the flow of all rivers, causing them to dry up.",
+      "It created a single large river that flows north-south.",
+      "It reversed the flow of all rivers in the region."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Great Rift Valley's formation physically altered the drainage patterns and river systems of the Ethiopian Highlands by creating new river systems flowing from the highlands into the valley. The faulting and uplift of the land created steep escarpments and basins that directed water flow into the newly formed rift, where lakes and internal drainage systems developed.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-25",
+    "question": "The Ethiopian Highlands are often described as a \"volcanic plateau.\" What two major geological events are responsible for this description?",
+    "options": [
+      "Precambrian folding and Mesozoic sedimentation.",
+      "Cenozoic uplift and widespread flood basalt volcanism.",
+      "Glacial erosion and river deposition.",
+      "Isostatic rebound and epeirogenesis."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Ethiopian Highlands are described as a \"volcanic plateau\" because their formation is a result of two major geological events: Cenozoic uplift and widespread flood basalt volcanism. The uplift raised the entire region, and the massive outpourings of basaltic lava during the Oligocene-Miocene epochs formed the extensive plateaus that sit atop the older rock formations.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2015-2-26",
+    "question": "The Ethiopian Rift Valley is a key example of a geological feature formed by tensional forces. What does this mean in terms of plate movement?",
+    "options": [
+      "The plates are colliding.",
+      "The plates are sliding past each other.",
+      "The plates are pulling apart.",
+      "The plates are stationary."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Ethiopian Rift Valley is a key example of a geological feature formed by tensional forces, which means the plates are pulling apart. This pulling action stretches and thins the Earth's crust, leading to normal faulting and the subsidence of the central rift valley.",
+    "subject": "geography",
+    "year": 2015,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-7",
+    "question": "The formation of the Simien Mountains and the Rift Valley are both the result of endogenic forces, but they are fundamentally different in their tectonic mechanism. What is this difference?",
+    "options": [
+      "The Simien Mountains were formed by volcanism and uplift, while the Rift Valley was formed by rifting and subsidence.",
+      "The Simien Mountains were formed by compression, while the Rift Valley was formed by tension.",
+      "The Simien Mountains were formed by erosion, while the Rift Valley was formed by deposition.",
+      "They were formed by the same mechanism."
+    ],
+    "correctAnswer": 1,
+    "explanation": "While both are shaped by internal forces, their tectonic mechanisms are different. The Simien Mountains are part of the larger Ethiopian Highlands, which were formed by epeirogenic uplift and vast volcanic eruptions, primarily in the Cenozoic era. The Rift Valley, on the other hand, is a deep trough formed by tensional forces pulling the crust apart, leading to rifting and the downward movement (subsidence) of the land.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-8",
+    "question": "Why are Precambrian rocks considered to have the greatest potential for metallic mineral deposits in Ethiopia?",
+    "options": [
+      "They are the youngest rocks in the country.",
+      "They were formed under conditions of high heat and pressure, which is favorable for mineral concentration.",
+      "They are composed of sedimentary rocks which are rich in metals.",
+      "They are only found in the Rift Valley, where mineral deposits are most common."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Precambrian rocks of Ethiopia, also known as the Basement Complex, were formed under extreme conditions of high heat and pressure. These conditions are conducive to metamorphism and hydrothermal activity, processes that concentrate metallic minerals like gold, platinum, and iron ore into economically viable deposits. .",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-9",
+    "question": "Explain why the Mesozoic sedimentary rocks, rather than the Precambrian ones, have the highest potential for oil and gas deposits in Ethiopia.",
+    "options": [
+      "They were formed in ancient volcanic vents.",
+      "They were deposited in deep marine basins, which are ideal for hydrocarbon formation.",
+      "They contain metallic minerals that are precursors to fossil fuels.",
+      "They are the oldest rocks in the country."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Mesozoic sedimentary rocks (such as the Adigrat Sandstone, Antalo Limestone, and Upper Sandstone) were deposited in ancient marine environments when the African continent was submerged. These basins contained vast amounts of organic matter from marine organisms. Over millions of years, the burial and heating of this organic matter transformed it into hydrocarbons like oil and gas.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-10",
+    "question": "Which of the following is a key mineral found in the Afar Depression, directly related to the region's unique geology?",
+    "options": [
+      "Gold",
+      "Platinum",
+      "Potash",
+      "Iron ore"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Afar Depression is geologically unique because it is a low-lying rift valley. In the past, it was repeatedly flooded by seawater from the Red Sea, which then evaporated in the hot climate, leaving behind thick deposits of evaporite minerals. Potash is a significant evaporite mineral found in these deposits, making the region a world-class source of this valuable fertilizer.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-11",
+    "question": "What is the primary economic importance of the Danakil Depression for Ethiopia's economy, other than geothermal energy?",
+    "options": [
+      "Rain-fed agriculture",
+      "Livestock grazing",
+      "Salt and potash extraction",
+      "Hydroelectric power generation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Danakil Depression, a part of the Afar Depression, is known for its vast deposits of salt and potash. These minerals are extracted by local miners and are of growing economic importance for Ethiopia, particularly for the production of fertilizers.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-12",
+    "question": "The Ogaden Basin is geologically significant for its potential to contain what type of resource?",
+    "options": [
+      "Metallic minerals",
+      "Gemstones",
+      "Petroleum and natural gas",
+      "Geothermal energy"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Ogaden Basin is a large sedimentary basin in southeastern Ethiopia. Its geological history, dominated by thick layers of Mesozoic sedimentary rocks, makes it a prime location for petroleum and natural gas resources. .",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-13",
+    "question": "Why is rain-fed agriculture not a major economic importance of the Afar Triangle?",
+    "options": [
+      "The region is too cold.",
+      "The region has a low and erratic rainfall.",
+      "The soil is not fertile.",
+      "The land is too mountainous."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Afar Triangle is a desert region characterized by an extremely hot and dry climate. The rainfall is very low and unpredictable, making rain-fed agriculture highly unfeasible. The economy of the region is largely based on pastoralism and mining.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-14",
+    "question": "The Precambrian basement rocks of Ethiopia are associated with which type of valuable minerals?",
+    "options": [
+      "Coal and natural gas",
+      "Limestone and sandstone",
+      "Gold and platinum",
+      "Salt and potash"
+    ],
+    "correctAnswer": 2,
+    "explanation": "As the oldest and most metamorphosed rocks in Ethiopia, the Precambrian basement rocks are the primary source for valuable metallic minerals. They host deposits of gold and platinum in regions like Adola and Yubdo, respectively.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-15",
+    "question": "The statement \"The highest and lowest points are in Amhara and Afar regional states, respectively\" is correct. What does this indicate about the overall topography and geological history of Ethiopia?",
+    "options": [
+      "The entire country is a uniform plateau.",
+      "The country's topography is a result of a combination of ancient uplift and recent rifting.",
+      "The country's topography is only a result of exogenic forces.",
+      "The country is not geologically active."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This statement highlights the dramatic geological contrasts in Ethiopia. The high elevation of the Simien Mountains in the Amhara region is a result of ancient volcanic activity and broad continental uplift. The very low elevation of the Afar Depression is a result of recent and ongoing rifting (the pulling apart of tectonic plates). The juxtaposition of these features shows a dynamic geological history.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-16",
+    "question": "Why is the geological stability of the Rift Valley region a false statement?",
+    "options": [
+      "Because it is a region of active erosion and deposition.",
+      "Because it is a region of ongoing volcanic and seismic activity.",
+      "Because it is a region of ancient, stable crystalline rocks.",
+      "Because it is a region of low elevation."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Rift Valley is anything but stable. It is a zone of a divergent plate boundary, where the crust is being stretched and thinned. This process is accompanied by frequent earthquakes (seismic activity) and volcanic eruptions, making it one of the most geologically dynamic regions in the world.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-17",
+    "question": "How does the geological makeup of the Ethiopian Highlands contribute to their high agricultural potential?",
+    "options": [
+      "The sedimentary rocks are rich in nutrients.",
+      "The volcanic soils are deep and fertile.",
+      "The crystalline basement rocks are easy to farm.",
+      "The limestone deposits prevent soil erosion."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Ethiopian Highlands are covered by vast layers of Cenozoic volcanic rocks (the Trap Series Lavas). The weathering and erosion of these basaltic lavas produce deep, nutrient-rich, and fertile soils that are ideal for agriculture. This is a primary reason why the highlands are the most agriculturally productive region in the country.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-18",
+    "question": "The Great Rift Valley in Ethiopia is a continuous feature from the Afar Triangle to the Kenyan border. What does this indicate about the plate boundary it represents?",
+    "options": [
+      "It is a single, active divergent plate boundary.",
+      "It is a series of extinct volcanoes.",
+      "It is a single, active convergent plate boundary.",
+      "It is a fault line that is no longer active."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The fact that the Rift Valley is a continuous feature indicates that it is a single, unified plate boundary where the Somalian and Nubian plates are pulling apart. The ongoing seismic and volcanic activity along its entire length confirms that it is an active and not an extinct boundary.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-19",
+    "question": "The Ethiopian Rift Valley is a region of significant sedimentary rock deposits. Where do these sediments come from?",
+    "options": [
+      "From the erosion of the surrounding highlands.",
+      "From ancient marine transgressions.",
+      "From volcanic eruptions.",
+      "From glacial activity."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Ethiopian Rift Valley acts as a basin for sediment deposition. The high and steep surrounding highlands are subject to intense erosion by rivers and rainfall. This eroded material is transported and deposited in the low-lying Rift Valley, creating thick layers of sedimentary rock.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-20",
+    "question": "The frequent volcanic eruptions in the Afar Triangle are a direct result of which geological process?",
+    "options": [
+      "Subduction",
+      "Tectonic plate divergence",
+      "Compression",
+      "Folding"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The frequent volcanic eruptions in the Afar Triangle are a direct consequence of tectonic plate divergence. As the plates pull apart, the Earth's crust thins, creating weaknesses that allow magma from the mantle to rise to the surface, leading to volcanic activity. .",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-21",
+    "question": "Why are the Afar Triangle and the Great Rift Valley both home to a chain of large lakes?",
+    "options": [
+      "They are all ancient glacial lakes.",
+      "They are depressions formed by rifting that have filled with water.",
+      "They are artificial lakes created by dams.",
+      "They are a result of isostatic rebound."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Rift Valley and the Afar Triangle are fundamentally grabens, or down-faulted depressions. These basins act as natural collecting points for water from surrounding rivers and rainfall, leading to the formation of a chain of lakes. .",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-22",
+    "question": "The Simien Mountains are a result of tectonic uplift and volcanic activity. How does this differ from a mountain range formed by a convergent plate boundary?",
+    "options": [
+      "Convergent plate boundaries form mountains through tension and subsidence.",
+      "Convergent plate boundaries form mountains through compression and folding.",
+      "Convergent plate boundaries form mountains through volcanic activity and erosion.",
+      "Convergent plate boundaries form mountains through isostatic rebound."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mountains formed at convergent plate boundaries, like the Himalayas, are created when two plates collide. This collision results in intense compression and folding of the Earth's crust, pushing up the landmass into massive mountain ranges. This is a very different process from the uplift and volcanic accumulation that formed the Simien Mountains.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-23",
+    "question": "The Red Sea and the Gulf of Aden are considered to be young oceanic crust. Why?",
+    "options": [
+      "They are old continental crust that has been exposed.",
+      "They are areas where seafloor spreading is actively occurring.",
+      "They are deep marine basins that have been uplifted.",
+      "They are regions of extensive sedimentary deposition."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Red Sea and the Gulf of Aden are considered to be areas of young oceanic crust because they are active divergent plate boundaries. As the plates pull apart, magma rises from the mantle and solidifies to form new seafloor, a process called seafloor spreading.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-24",
+    "question": "Explain how the formation of the East African Rift System is a perfect example of a divergent plate boundary.",
+    "options": [
+      "It shows plates colliding and forming mountains.",
+      "It shows plates sliding past each other.",
+      "It shows plates pulling apart, creating a rift valley and new crust.",
+      "It shows an oceanic plate subducting under a continental plate."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The East African Rift System is a textbook example of a divergent plate boundary. It is a region where the Nubian and Somalian plates are slowly pulling apart, which is causing the crust to stretch, thin, and subside. This process creates the characteristic rift valley and allows for the upwelling of magma and the formation of new crust.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-25",
+    "question": "The topography of Ethiopia is largely determined by the Cenozoic era, not the Precambrian era. Explain this conceptual difference.",
+    "options": [
+      "Precambrian rocks are only found underground, so they don't affect topography.",
+      "The Precambrian era was a time of mountain building, but later erosion created the current topography.",
+      "The Precambrian era created the ancient basement, but the Cenozoic era's volcanism and rifting shaped the modern landscape.",
+      "The Cenozoic era was a time of little geological activity, so the topography is very old."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the correct conceptual difference. The Precambrian era formed the ancient, crystalline bedrock (the Basement Complex) that underlies the country. However, the modern topography of Ethiopia—the high plateaus, the Great Rift Valley, and the volcanic highlands—was formed much later during the Cenozoic era due to massive volcanic eruptions and the onset of rifting.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-26",
+    "question": "What is the difference between a geological period and an epoch?",
+    "options": [
+      "A period is a subdivision of an epoch.",
+      "An epoch is a subdivision of a period.",
+      "They are both the same length of time.",
+      "They both have the same number of subdivisions."
+    ],
+    "correctAnswer": 1,
+    "explanation": "In the geological time scale, a period is a major subdivision of an era. An epoch is a smaller, more specific subdivision of a period. For example, the Holocene and Pleistocene epochs are subdivisions of the Quaternary period. .",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-27",
+    "question": "The Adigrat Sandstone is described as being \"thicker and older in the southeast.\" What does this tell us about the direction of the Mesozoic sea's transgression?",
+    "options": [
+      "The sea transgressed from the northwest.",
+      "The sea transgressed from the southeast.",
+      "The sea was only present in the northwest.",
+      "The sea was only present in the southeast."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Adigrat Sandstone was deposited by an ancient sea that advanced over the African continent. The fact that the sandstone is thicker and older in the southeast indicates that this was the direction from which the sea encroached. The sediments were deposited first and for a longer period in that region before the sea advanced further into the continent.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-28",
+    "question": "All of the following statements about the Mesozoic sedimentary rocks of Ethiopia are correct except?",
+    "options": [
+      "Adigrat sandstone is the oldest sedimentary rock.",
+      "Hintalo limestone is formed by marine transgression.",
+      "Upper sandstone is the youngest of the sedimentary rocks.",
+      "Upper sandstone is laid over the Adigrat sandstone."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The statement that the Upper Sandstone is laid directly over the Adigrat Sandstone is incorrect. The three main Mesozoic sedimentary layers are, in order from oldest to youngest: Adigrat Sandstone, Antalo (Hintalo) Limestone, and then the Upper Sandstone. The limestone layer separates the two sandstone formations.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-29",
+    "question": "Which of the following geological ages of earth is related to the sedimentary rock formations in Ethiopia?",
+    "options": [
+      "Precambrian",
+      "Paleozoic",
+      "Mesozoic",
+      "Cenozoic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The major sedimentary rock formations in Ethiopia, including the Adigrat Sandstone, Antalo Limestone, and Upper Sandstone, were all deposited during the Mesozoic Era.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-30",
+    "question": "The topography of Ethiopia is largely determined by the geologic activities of the Precambrian era.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This statement is false. While the Precambrian era formed the underlying foundation of Ethiopia, the modern topography, with its high plateaus, deep gorges, and rift valley, was shaped by the massive volcanic activities and rifting that occurred in the much more recent Cenozoic era.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2016-2-31",
+    "question": "The most recent and remotest eras in the geological history of the earth, respectively, are:",
+    "options": [
+      "Paleozoic and Mesozoic",
+      "Precambrian and Cenozoic",
+      "Cenozoic and Precambrian",
+      "Mesozoic and Paleozoic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Cenozoic era is the most recent geological era, encompassing the last 66 million years to the present. The Precambrian era is the oldest and remotest, covering the vast expanse of time from Earth's formation until the beginning of the Paleozoic era, about 541 million years ago.",
+    "subject": "geography",
+    "year": 2016,
+    "chapter": 2
+  },
+  
+  {
+    "id": "geo-2017-2-4",
+    "question": "Assume that a rock is formed with 3000 atoms of a radioactive parent element, but only contains 375 radioactive parent atoms today. If the half-life is 1,155,000 years, how old is the rock?",
+    "options": [
+      "3,465,000 years",
+      "1,155,000 years",
+      "2,310,000 years",
+      "4,620,000 years"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The half-life of a radioactive element is the time it takes for half of the parent atoms to decay into daughter atoms. To solve this problem, you need to determine how many half-lives have passed. Initial amount: 3000 atoms After 1st half-life: 3000/2=1500 atoms (1,155,000 years) After 2nd half-life: 1500/2=750 atoms (2,310,000 years) After 3rd half-life: 750/2=375 atoms (3,465,000 years) Since it took three half-lives to reach 375 atoms, the age of the rock is 3×1,155,000=3,465,000 years.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-5",
+    "question": "The Potassium-Argon technique is inaccurate when it creates leakage of argon as rock has been exposed to temperatures above 125°C (257°F).",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The statement is true. The Potassium-Argon (K-Ar) dating technique relies on the fact that argon gas, a product of potassium decay, is trapped within a rock's crystalline structure. If the rock is exposed to high temperatures (above its \"blocking temperature,\" which can be around 125°C for some minerals), the argon can leak out. This leakage would result in an inaccurate, younger age for the rock.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-6",
+    "question": "All of the following are major geological events of the Precambrian era except:",
+    "options": [
+      "Continuous mountain formation",
+      "Formation of basement complex rocks",
+      "Intensive volcanic activity",
+      "Slow rising and sinking of the land"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Precambrian era was a time of immense geological activity. The formation of the basement complex rocks, intense volcanism, and the slow but large-scale rising and sinking of continents were all characteristic events. However, continuous mountain formation is a modern geological event associated with plate tectonics, which was not yet as pronounced in the Precambrian.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-7",
+    "question": "All of the following statements are correct except?",
+    "options": [
+      "Hintalo limestone is formed by the regression of the sea",
+      "Adigrat sandstone is older and thicker in the southeast",
+      "Upper sandstone is thicker and younger in the southeast",
+      "Upper sandstone is laid over the Hintalo limestone"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The statement that the Hintalo limestone was formed by the regression (retreat) of the sea is incorrect. The Hintalo limestone was formed during a period of marine transgression (the advance of the sea), which submerged the land and created the shallow marine environment necessary for limestone deposition. The other statements about the relative age, thickness, and stratigraphic position of the sandstones and limestone are accurate.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-8",
+    "question": "The earth's continents were once bunched together into a single huge continent called Laurasia.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The statement is false. The single huge supercontinent that existed approximately 300 to 200 million years ago was called Pangaea. Laurasia was a northern supercontinent that formed after Pangaea began to break up, and it included what is now North America, Europe, and Asia. The southern part of Pangaea was called Gondwana.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-9",
+    "question": "The formation of the Rift Valley divides the Ethiopian Plateau into two.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The statement is true. The Great Rift Valley runs through the center of Ethiopia, effectively splitting the large Ethiopian Plateau into the Western and Southeastern Highlands.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-10",
+    "question": "Which one of the following statements is not true about the geology of Ethiopia?",
+    "options": [
+      "The highest and lowest points are in Amhara and Afar regional states, respectively.",
+      "Geologically, the rift valley region is the most stable part in the country.",
+      "Rift Valley divides the Ethiopian plateau into two major parts.",
+      "The Mesozoic sedimentary rocks cover one-fourth of the land mass of Ethiopia."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The statement that the Rift Valley region is the most stable part of the country is not true. The Rift Valley is a divergent plate boundary, and as such, it is the most geologically unstable and active part of Ethiopia, characterized by ongoing volcanic eruptions and frequent earthquakes. The other statements are all accurate facts about Ethiopia's geology.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },{
+    "id": "geo-2017-2-10",
+    "question": "Which one of the following statements is not true about the geology of Ethiopia?",
+    "options": [
+      "The highest and lowest points are in Amhara and Afar regional states, respectively.",
+      "Geologically, the rift valley region is the most stable part in the country.",
+      "Rift Valley divides the Ethiopian plateau into two major parts.",
+      "The Mesozoic sedimentary rocks cover one-fourth of the land mass of Ethiopia."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The statement that the Rift Valley region is the most stable part of the country is not true. The Rift Valley is a divergent plate boundary, and as such, it is the most geologically unstable and active part of Ethiopia, characterized by ongoing volcanic eruptions and frequent earthquakes. The other statements are all accurate facts about Ethiopia's geology.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-11",
+    "question": "The formation of the Ethiopian Rift Valley is a classic example of tensional forces acting on the Earth's crust. This process results in which type of faulting?",
+    "options": [
+      "Reverse faults, creating a horst.",
+      "Strike-slip faults, creating a transform boundary.",
+      "Normal faults, creating a graben.",
+      "Thrust faults, creating a mountain."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Ethiopian Rift Valley is a result of tensional forces, which pull the Earth's crust apart. This process creates normal faults, where the hanging wall moves down relative to the footwall. The downward-slipping block between two parallel normal faults forms a graben, or rift valley. The upthrown blocks on either side of the graben are called horsts.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-12",
+    "question": "The Ethiopian landscape is a product of both constructive and destructive forces. Which of the following is a constructive endogenic force that built up the landmass?",
+    "options": [
+      "Erosion by the Blue Nile River.",
+      "Volcanic eruptions and lava flows.",
+      "Weathering of the highlands.",
+      "Deposition of sediment in a lake bed."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Volcanic eruptions and lava flows are a classic example of a constructive endogenic force. Endogenic forces originate within the Earth, and volcanism specifically builds up the landmass by adding new material to the surface, forming mountains and plateaus.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-13",
+    "question": "How does the process of mass wasting differ from erosion?",
+    "options": [
+      "Mass wasting involves only human activity, while erosion is a natural process.",
+      "Mass wasting is the gradual movement of rock, while erosion is the rapid downhill movement of rock.",
+      "Mass wasting is the gravitational downhill movement of rock and soil, while erosion is the removal of material by a mobile agent like water or wind.",
+      "Mass wasting is a constructive process, while erosion is a destructive process."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The key difference lies in the agent of movement. Mass wasting is the downslope movement of rock and soil primarily due to gravity, often in a single event like a landslide or a gradual creep. Erosion is the removal and transport of material by a mobile agent such as water, wind, ice, or waves.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-14",
+    "question": "The high elevation of the Ethiopian plateaus is a result of a combination of volcanism and epeirogenic uplift. The latter refers to:",
+    "options": [
+      "The rapid folding of the crust.",
+      "The sudden, localized sinking of landmass.",
+      "The creation of a rift valley.",
+      "Broad, regional uplift of the landmass without major folding or faulting."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Epeirogenic uplift refers to the slow, large-scale, and widespread vertical movement of the Earth's crust. It is a fundamental process in the formation of continents and plateaus, and it's distinct from orogeny, which involves mountain-building through folding and faulting.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-15",
+    "question": "The Afar Triple Junction is a unique geological feature where three tectonic plates diverge. This process is responsible for the formation of:",
+    "options": [
+      "The Simien Mountains and the Ethiopian Highlands.",
+      "The Ogaden Basin and the Western Escarpment.",
+      "The Abay River Gorge and its tributaries.",
+      "The Red Sea, the Gulf of Aden, and the Main Ethiopian Rift."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Afar Triple Junction is the point where the Arabian, Nubian (African), and Somalian tectonic plates meet. These plates are diverging, or moving apart, from this central point. This process is creating three new oceanic basins: the Red Sea, the Gulf of Aden, and the Main Ethiopian Rift.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-16",
+    "question": "The Precambrian Basement Complex rocks in Ethiopia are only found at the edges of the country's highlands and in river gorges. This is because:",
+    "options": [
+      "They were not affected by the subsequent tectonic activity.",
+      "They were created only in those specific areas.",
+      "They were buried by younger sedimentary and volcanic rocks and have only been exposed by erosion and uplift.",
+      "They are made of a different type of mineral."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Precambrian Basement Complex is the oldest rock formation in Ethiopia, representing the foundation of the continent. Over billions of years, these rocks were buried by younger sedimentary layers and volcanic flows. They are exposed today at the edges of the plateaus and in deep river gorges like the Abay (Blue Nile) because subsequent uplift and erosion have stripped away the overlying rock.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-17",
+    "question": "The Danakil Depression is an extreme example of a landform created by a combination of endogenic and exogenic processes. Which of the following best describes its formation?",
+    "options": [
+      "Erosion of a large river valley.",
+      "The uplift of a horst.",
+      "A rift valley formed by plate divergence, followed by a period of sediment and salt deposition.",
+      "The collapse of a volcanic crater."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Danakil Depression is a part of the Afar Depression, which is a rift valley formed by plate divergence (an endogenic process). This rifting created a basin that was repeatedly flooded by the sea and then dried up, leaving behind massive deposits of sediment and salt (exogenic processes).",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-18",
+    "question": "The geological term for the broad, regional movement of a continental landmass without significant folding or faulting is:",
+    "options": [
+      "Orogeny",
+      "Isostasy",
+      "Epeirogenesis",
+      "Metamorphism"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Epeirogenesis is the geological term for the vertical movement of a landmass on a large scale. It's responsible for the broad uplift of continents and plateaus, as opposed to orogeny, which is the process of mountain building through intense folding and faulting.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-19",
+    "question": "The tensional forces associated with the Great Rift Valley system have not only created valleys but also:",
+    "options": [
+      "Folded the landmass to create mountains.",
+      "Created block mountains (horsts) adjacent to the rift valley.",
+      "Led to a period of extensive glaciation.",
+      "Caused a global sea level rise."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The tensional forces of rifting pull the crust apart, causing some blocks to drop down (grabens) and others to be pushed up along the normal faults. These elevated blocks are known as horsts, or block mountains.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-20",
+    "question": "How do endogenic forces (specifically, plate tectonics) create the conditions for exogenic forces to shape the Ethiopian landscape?",
+    "options": [
+      "Endogenic forces make the landmass so flat that exogenic forces can't act.",
+      "They have no relationship.",
+      "Endogenic forces create landforms (like mountains and valleys), which are then acted upon by weathering, erosion, and deposition.",
+      "Endogenic forces prevent erosion from occurring."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Endogenic forces (like volcanism and plate tectonics) are the builders of the landscape, creating major landforms such as mountains, plateaus, and rift valleys. Exogenic forces (like weathering, erosion, and mass wasting) are the sculptors, acting on these newly formed landforms to modify and break them down.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-21",
+    "question": "A geologist finds a fossil of a dinosaur in a rock layer in the Ogaden Basin. In which geological era would this rock have most likely been formed?",
+    "options": [
+      "Precambrian",
+      "Paleozoic",
+      "Mesozoic",
+      "Cenozoic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Mesozoic Era, often called the \"Age of Reptiles,\" is the geological era when dinosaurs lived. The Ogaden Basin in southeastern Ethiopia is known for its extensive sedimentary formations from this era, which would be the most likely place to find dinosaur fossils.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-22",
+    "question": "The Quaternary period is the youngest geological time scale. Why is it significant to Ethiopia's geological history?",
+    "options": [
+      "It is when the basement complex rocks were formed.",
+      "It marks the end of the age of dinosaurs.",
+      "It is the period of the most recent volcanic activity and lake formation in the Rift Valley.",
+      "It is when the first mammals appeared."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Quaternary period is the most recent period in the Cenozoic Era. In Ethiopia, it is a period of continued geological activity, including the latest phases of volcanism in the Rift Valley and the formation of the modern rift lakes.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-23",
+    "question": "According to the principle of superposition, which of the following statements about the Mesozoic sedimentary layers in Ethiopia is true?",
+    "options": [
+      "The Hintalo Limestone is younger than the Upper Sandstone.",
+      "The Adigrat Sandstone is younger than the Basement Complex.",
+      "The Upper Sandstone is the youngest of the three major sedimentary formations.",
+      "All three sedimentary layers were formed at the same time."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The principle of superposition states that in an undisturbed sequence of sedimentary rock layers, the oldest layer is at the bottom, and the youngest is at the top. The three major Mesozoic sedimentary formations in Ethiopia are, from oldest to youngest: the Adigrat Sandstone, the Antalo Limestone, and the Upper Sandstone. Therefore, the Upper Sandstone is the youngest.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-24",
+    "question": "Which radiometric dating technique would be most appropriate for dating a very old volcanic rock from the Precambrian era, and why?",
+    "options": [
+      "Carbon-14 dating, because it is effective on very old materials.",
+      "Potassium-Argon dating, because it has a very long half-life and is suitable for dating ancient igneous rocks.",
+      "Dendrochronology, because it uses tree rings to determine the age.",
+      "Fission track dating, because it is only used on sedimentary rocks."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Potassium-Argon dating is ideal for dating ancient rocks because it has a very long half-life (1.25 billion years), which allows it to measure ages in the billions of years. It is particularly effective on igneous rocks, like those of the Precambrian Basement Complex.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-25",
+    "question": "Why are unconformities common in Ethiopia's geological record, particularly between the Precambrian and Mesozoic eras?",
+    "options": [
+      "Because the country's geology is very stable.",
+      "Because there was continuous erosion and deposition.",
+      "Because there were long periods of uplift and erosion where no new rock was being deposited.",
+      "Because the rocks were all formed at the same time."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An unconformity represents a gap in the geological record. The unconformity between the Precambrian and Mesozoic eras in Ethiopia is a major one because, after the formation of the Precambrian Basement Complex, there were long periods of uplift and erosion where no new rock was being deposited.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-26",
+    "question": "Which of the following is a geologic event that occurred latest in Ethiopia's history?",
+    "options": [
+      "The formation of the Precambrian Basement Complex.",
+      "The deposition of the Mesozoic sedimentary layers.",
+      "The formation of the Aden Series lava flows in the Afar Depression.",
+      "The initial rifting that created the East African Rift System."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The formation of the Aden Series lava flows is a recent geological event in Ethiopia's history, occurring during the Quaternary period (within the last 2.6 million years). This is much more recent than the Precambrian, the Mesozoic sedimentary layers, or the initial rifting.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-27",
+    "question": "The geological significance of the Pliocene epoch for Ethiopia's modern landscape is that it:",
+    "options": [
+      "Marked the beginning of the major phase of rifting and volcanism that shaped the highlands and rift valley.",
+      "Was a period of extensive sea level rise and marine deposition.",
+      "Was the age of dinosaurs.",
+      "Was a period of intense glaciation."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Pliocene epoch (around 5.3 to 2.6 million years ago) is a significant period in Ethiopia's geological history because it marked the onset of the most recent and dramatic phase of volcanism and rifting that created the modern highlands and the deep trough of the Great Rift Valley.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-28",
+    "question": "The Mesozoic Era in Ethiopia is mainly associated with which of the following?",
+    "options": [
+      "The formation of the crystalline basement rocks.",
+      "The trap series lava flows.",
+      "The Red Sea penetration into the Afar Depression.",
+      "The deposition of extensive layers of sedimentary rock."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Mesozoic Era (252 to 66 million years ago) in Ethiopia was characterized by the deposition of extensive sedimentary rock layers, specifically the Adigrat Sandstone, the Antalo Limestone, and the Upper Sandstone.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-29",
+    "question": "If the half-life of a radioactive element is 10 million years, and a rock sample contains 25% of the original parent isotope and 75% of the daughter isotope, how old is the rock?",
+    "options": [
+      "10 million years",
+      "20 million years",
+      "30 million years",
+      "40 million years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "After one half-life (10 million years), a rock would have 50% of the parent isotope. After a second half-life (another 10 million years, for a total of 20 million years), it would have half of the remaining parent isotope, which is 25% of the original.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
+  },
+  {
+    "id": "geo-2017-2-2",
+    "question": "The Hintalo Limestone, a significant rock formation in Ethiopia, was formed as a result of:",
+    "options": [
+      "The transgression of a shallow sea.",
+      "Extensive volcanic eruptions.",
+      "The formation of the Rift Valley.",
+      "The weathering of crystalline rocks."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Hintalo Limestone was formed when a large shallow sea advanced over the African continent. This marine environment was rich in carbonate-secreting organisms, whose remains accumulated to form the extensive limestone layer.",
+    "subject": "geography",
+    "year": 2017,
+    "chapter": 2
   },
   // ==================== MATH QUESTIONS ====================
   
@@ -3744,6 +5654,1430 @@ export const sampleQuestions: Question[] = [
 
   // ==================== PSYCHOLOGY QUESTIONS ====================
   
+{
+    "id": "psych-2014-3-1",
+    "question": "A dog learns to salivate at the sound of a bell because the bell was repeatedly paired with food. In this scenario, the sound of the bell is the:",
+    "options": [
+      "A. Unconditioned stimulus",
+      "B. Neutral stimulus",
+      "C. Conditioned stimulus",
+      "D. Unconditioned response"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Initially, the bell is a neutral stimulus because it doesn't naturally elicit salivation. Through its association with the food (the unconditioned stimulus), the bell becomes a conditioned stimulus. This means it has acquired the ability to trigger a learned response (salivation) on its own. The salivation in response to the bell is the conditioned response.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-2",
+    "question": "In Pavlov's original experiment, the food that naturally elicits salivation from the dogs is the:",
+    "options": [
+      "A. Conditioned stimulus",
+      "B. Unconditioned stimulus",
+      "C. Neutral stimulus",
+      "D. Conditioned response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An unconditioned stimulus (US) is a stimulus that naturally and automatically triggers a response without any prior learning. In Pavlov's experiment, the food is the US because it naturally causes the dogs to salivate. The salivation in response to the food is the unconditioned response (UR).",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-3",
+    "question": "A child who was once afraid of the dentist's drill, now fears the sound of the buzzer at the barbershop. This is an example of:",
+    "options": [
+      "A. Spontaneous recovery",
+      "B. Stimulus discrimination",
+      "C. Higher-order conditioning",
+      "D. Stimulus generalization"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stimulus generalization occurs when an organism responds to stimuli that are similar to the original conditioned stimulus. The child learned to fear the dentist's drill, and this fear generalized to a similar sound, the buzzer at the barbershop.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-4",
+    "question": "After repeatedly ringing a bell without presenting food, Pavlov's dogs stopped salivating at the sound of the bell. This process is known as:",
+    "options": [
+      "A. Spontaneous recovery",
+      "B. Extinction",
+      "C. Generalization",
+      "D. Acquisition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Extinction is the gradual weakening and disappearance of a conditioned response. This happens when the conditioned stimulus (the bell) is repeatedly presented without the unconditioned stimulus (the food).",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-5",
+    "question": "A person who has overcome their fear of dogs suddenly feels a surge of anxiety when they see a dog that looks similar to the one that originally scared them. This is an example of:",
+    "options": [
+      "A. Stimulus generalization",
+      "B. Spontaneous recovery",
+      "C. Extinction",
+      "D. Stimulus discrimination"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Spontaneous recovery is the reappearance of a previously extinguished conditioned response after a period of rest. Even though the fear of dogs had seemingly disappeared (extinguished), it spontaneously returned when a similar dog was encountered.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-6",
+    "question": "The primary focus of classical conditioning is on the learning of associations between stimuli, which results in changes to:",
+    "options": [
+      "A. Voluntary behaviors",
+      "B. Involuntary, reflexive responses",
+      "C. Social cognition",
+      "D. Complex problem-solving skills"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Classical conditioning deals with involuntary, reflexive responses (like salivating or blinking) that are learned through association. The organism doesn't consciously choose the response; it happens automatically. In contrast, voluntary behaviors are the focus of operant conditioning.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-7",
+    "question": "A previously neutral stimulus acquires the ability to elicit a response after being paired with an unconditioned stimulus. This process is called:",
+    "options": [
+      "A. Extinction",
+      "B. Spontaneous recovery",
+      "C. Acquisition",
+      "D. Stimulus discrimination"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Acquisition is the initial stage of learning in classical conditioning where a neutral stimulus begins to become a conditioned stimulus by being repeatedly paired with an unconditioned stimulus. This is when the association is first established.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-8",
+    "question": "Which of the following is an example of an unconditioned response?",
+    "options": [
+      "A. A child crying at the sight of a doctor's needle",
+      "B. Salivating at the sight of a favorite food",
+      "C. Blinking when a puff of air hits the eye",
+      "D. Feeling happy when hearing a favorite song"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An unconditioned response (UR) is an unlearned, natural reflexive reaction to an unconditioned stimulus (US). A puff of air hitting the eye is a US, and blinking is the UR. The other options are either conditioned responses (A, D) or a conditioned response (B). Salivating at the sight of food is an unconditioned response, but the prompt says a favorite food, which could imply a learned association, however, blinking is the most textbook example of an unconditioned response.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-9",
+    "question": "A child cries whenever they see a police officer because a police officer once gave their parents a speeding ticket. In this case, the police officer is the:",
+    "options": [
+      "A. Unconditioned stimulus",
+      "B. Conditioned stimulus",
+      "C. Unconditioned response",
+      "D. Neutral stimulus"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Initially, the police officer was a neutral stimulus. After being paired with a negative event (the speeding ticket, which is the unconditioned stimulus), the police officer becomes a conditioned stimulus that elicits a learned fear or crying response.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2014-3-10",
+    "question": "The weakening of the conditioned response when the unconditioned stimulus is no longer present is called:",
+    "options": [
+      "A. Extinction",
+      "B. Spontaneous recovery",
+      "C. Stimulus generalization",
+      "D. Acquisition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is the definition of extinction. It is the process by which a conditioned response fades and eventually disappears when the conditioned stimulus is no longer paired with the unconditioned stimulus.",
+    "subject": "psychology",
+    "year": 2014,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-1",
+    "question": "A parent gives a child a toy for cleaning their room. The toy is a:",
+    "options": [
+      "A. Positive reinforcer",
+      "B. Negative reinforcer",
+      "C. Positive punisher",
+      "D. Negative punisher"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Positive reinforcement involves adding a desirable stimulus (the toy) to increase the frequency of a behavior (cleaning the room). The word \"positive\" means something is being added, and \"reinforcement\" means the behavior is being strengthened.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-2",
+    "question": "A child's nagging behavior stops when their parent gives them a candy bar. In this situation, the child's nagging is an example of a behavior that is being:",
+    "options": [
+      "A. Positively reinforced",
+      "B. Negatively reinforced",
+      "C. Positively punished",
+      "D. Negatively punished"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The child's nagging is positively reinforced by the parent giving them a candy bar. The parent is adding a desirable stimulus (the candy) which increases the likelihood that the child will nag again in the future to get what they want.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-3",
+    "question": "A student studies hard for an exam and their teacher cancels the dreaded group project. The student's studying is an example of a behavior that is being:",
+    "options": [
+      "A. Positively reinforced",
+      "B. Negatively reinforced",
+      "C. Positively punished",
+      "D. Negatively punished"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Negative reinforcement involves removing an aversive stimulus (the dreaded group project) to increase the frequency of a behavior (studying). The word \"negative\" means something is being removed, and \"reinforcement\" means the behavior is being strengthened.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-4",
+    "question": "An unpleasant stimulus is added to decrease the frequency of a behavior. This is an example of:",
+    "options": [
+      "A. Positive reinforcement",
+      "B. Negative reinforcement",
+      "C. Positive punishment",
+      "D. Negative punishment"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Positive punishment involves adding an aversive stimulus (like a spanking or a scolding) to decrease a behavior. The word \"positive\" means something is being added, and \"punishment\" means the behavior is being weakened.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-5",
+    "question": "A teenager's phone is taken away after they miss curfew. This is an example of:",
+    "options": [
+      "A. Positive reinforcement",
+      "B. Negative reinforcement",
+      "C. Positive punishment",
+      "D. Negative punishment"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Negative punishment involves removing a desirable stimulus (the phone) to decrease a behavior (missing curfew). The word \"negative\" means something is being removed, and \"punishment\" means the behavior is being weakened.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-6",
+    "question": "A company pays its sales employees a bonus for every ten cars they sell. This is an example of a:",
+    "options": [
+      "A. Fixed ratio schedule",
+      "B. Variable ratio schedule",
+      "C. Fixed interval schedule",
+      "D. Variable interval schedule"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A fixed ratio schedule is a reinforcement schedule where a response is reinforced only after a specific, predictable number of responses has occurred. In this case, the bonus is given after exactly ten cars are sold.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-7",
+    "question": "A fishing enthusiast catches a fish after an unpredictable number of casts. This is an example of a:",
+    "options": [
+      "A. Fixed ratio schedule",
+      "B. Variable ratio schedule",
+      "C. Fixed interval schedule",
+      "D. Variable interval schedule"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A variable ratio schedule is a reinforcement schedule where a response is reinforced after an unpredictable number of responses. It produces a high, steady rate of response because the organism knows reinforcement is coming but doesn't know exactly when. This is the schedule that gambling relies on.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-8",
+    "question": "A worker is paid a weekly salary, regardless of the amount of work they complete. This is an example of a:",
+    "options": [
+      "A. Fixed ratio schedule",
+      "B. Variable ratio schedule",
+      "C. Fixed interval schedule",
+      "D. Variable interval schedule"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A fixed interval schedule is a reinforcement schedule where the first response is rewarded only after a specific, predictable amount of time has passed. The worker gets paid once a week, no matter how much they work, so the reinforcement is tied to a fixed period of time.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-9",
+    "question": "A pop quiz in a class that occurs at random, unpredictable times is an example of a:",
+    "options": [
+      "A. Fixed ratio schedule",
+      "B. Variable ratio schedule",
+      "C. Fixed interval schedule",
+      "D. Variable interval schedule"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A variable interval schedule is a reinforcement schedule where a response is rewarded after an unpredictable amount of time has passed. Because the student doesn't know when the next quiz will be, they have to study regularly, which produces a steady rate of studying.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-10",
+    "question": "In operant conditioning, a behavior is more likely to be repeated if it is followed by a:",
+    "options": [
+      "A. Punisher",
+      "B. Discriminative stimulus",
+      "C. Neutral stimulus",
+      "D. Reinforcer"
+    ],
+    "correctAnswer": 3,
+    "explanation": "By definition, a reinforcer is a consequence that strengthens a behavior, making it more likely to be repeated. A punisher has the opposite effect.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-11",
+    "question": "The systematic process of reinforcing successive approximations of a desired behavior is known as:",
+    "options": [
+      "A. Shaping",
+      "B. Generalization",
+      "C. Extinction",
+      "D. Acquisition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Shaping is an operant conditioning procedure in which reinforcers guide behavior toward closer and closer approximations of the desired behavior. This is how animals are trained to do complex tricks or how a child learns to speak.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-12",
+    "question": "Which of the following is an example of a primary reinforcer?",
+    "options": [
+      "A. Money",
+      "B. A high-five",
+      "C. Food",
+      "D. A good grade"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A primary reinforcer is a stimulus that is naturally rewarding because it satisfies a biological need. Examples include food, water, and sleep. Secondary reinforcers (like money, good grades, or praise) are learned through association with primary reinforcers.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-13",
+    "question": "The act of a stimulus being removed to increase the likelihood of a behavior is known as:",
+    "options": [
+      "A. Positive punishment",
+      "B. Negative punishment",
+      "C. Positive reinforcement",
+      "D. Negative reinforcement"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the definition of negative reinforcement. A stimulus is removed (\"negative\") to increase the likelihood of a behavior (\"reinforcement\").",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-14",
+    "question": "A dog learns to sit on command by being given a treat. The treat is a:",
+    "options": [
+      "A. Primary reinforcer",
+      "B. Secondary reinforcer",
+      "C. Primary punisher",
+      "D. Secondary punisher"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A dog treat is a form of food. Since food satisfies a biological need, it is a primary reinforcer.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2013-3-15",
+    "question": "The core principle of B.F. Skinner's operant conditioning is that an organism's behavior is influenced by:",
+    "options": [
+      "A. Unconscious thoughts and desires",
+      "B. The consequences that follow the behavior",
+      "C. Observational learning from others",
+      "D. Innate, reflexive responses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "B.F. Skinner's theory of operant conditioning is based on the idea that behaviors are learned and strengthened or weakened by the consequences (reinforcers or punishers) that follow them. This is the central tenet of his work.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 3
+  }
+,
+  {
+    "id": "psych-2015-3-2",
+    "question": "According to Albert Bandura's Social Learning Theory, the process of observing and imitating a specific behavior is called:",
+    "options": [
+      "Classical conditioning",
+      "Operant conditioning",
+      "Modeling",
+      "Shaping"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modeling is the central concept of Bandura's theory. It describes how an individual learns by observing others (the models) and imitating their behavior.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-3",
+    "question": "The Bobo doll experiment demonstrated that children are more likely to imitate an aggressive model's behavior if the model is:",
+    "options": [
+      "Punished for their actions",
+      "Rewarded for their actions",
+      "A stranger to the child",
+      "The same gender as the child, regardless of the outcome"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The experiment showed that children who observed an aggressive model being rewarded for their behavior were more likely to imitate the aggression themselves. This is an example of vicarious reinforcement—learning through observing the consequences of another's actions.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-4",
+    "question": "Bandura's theory emphasizes the importance of four mediational processes that occur between the observation of a model and the imitation of their behavior. Which of the following is NOT one of those processes?",
+    "options": [
+      "Attention",
+      "Retention",
+      "Conditioning",
+      "Motivation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Bandura's four mediational processes are: Attention (the observer must pay attention to the model's behavior), Retention (they must remember the behavior), Reproduction (they must be able to reproduce the behavior), and Motivation (they must be motivated to imitate the behavior). Conditioning is a concept from classical and operant learning, not Bandura's theory.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-5",
+    "question": "The concept that learning can occur without any obvious reinforcement and may not be demonstrated until a later time is known as:",
+    "options": [
+      "Spontaneous recovery",
+      "Latent learning",
+      "Higher-order conditioning",
+      "Insight learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Latent learning is a type of learning that occurs, but remains hidden until there is a reason to demonstrate it. For example, a person might learn the layout of a town by driving around, but they don't show that knowledge until they have to give someone directions.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-6",
+    "question": "A student suddenly understands how to solve a difficult math problem after struggling with it for a long time. This \"aha!\" moment is an example of:",
+    "options": [
+      "Latent learning",
+      "Insight learning",
+      "Cognitive mapping",
+      "Observational learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Insight learning is a form of cognitive learning where the solution to a problem comes suddenly, seemingly out of nowhere, after a period of contemplation. This is in contrast to learning through trial and error.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-7",
+    "question": "The process by which an individual develops a mental representation of their physical environment is known as:",
+    "options": [
+      "Latent learning",
+      "Cognitive mapping",
+      "Spontaneous recovery",
+      "Instinctive drift"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A cognitive map is a mental representation of one's environment. For instance, a rat in a maze can form a cognitive map of the maze's layout, allowing it to navigate it efficiently even without direct reinforcement.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-8",
+    "question": "The ability to learn to respond differently to similar but distinct stimuli is known as:",
+    "options": [
+      "Stimulus generalization",
+      "Stimulus discrimination",
+      "Extinction",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Stimulus discrimination is the opposite of stimulus generalization. It's the ability to differentiate between a conditioned stimulus and other similar stimuli that have not been paired with the unconditioned stimulus.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-9",
+    "question": "The return of a previously extinguished conditioned response after a period of rest is called:",
+    "options": [
+      "Acquisition",
+      "Stimulus generalization",
+      "Spontaneous recovery",
+      "Extinction"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the definition of spontaneous recovery. It demonstrates that even after a behavior has been extinguished, the learning is not completely erased; it is only suppressed.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-10",
+    "question": "The \"Law of Effect,\" proposed by Edward Thorndike, states that behaviors followed by satisfying consequences are more likely to be repeated, while behaviors followed by unpleasant consequences are less likely to be repeated. This law is a foundational concept of:",
+    "options": [
+      "Classical conditioning",
+      "Cognitive learning",
+      "Operant conditioning",
+      "Observational learning"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Law of Effect provided the groundwork for B.F. Skinner's work on operant conditioning, which is based on the idea that consequences shape behavior.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-11",
+    "question": "Which of the following statements about learning is most accurate?",
+    "options": [
+      "Learning is a temporary change in behavior due to practice.",
+      "Learning is always observable and directly measurable.",
+      "Learning is a relatively permanent change in behavior as a result of experience.",
+      "Learning includes changes in behavior due to maturation and physical growth."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the most widely accepted definition of learning in psychology. It distinguishes learning from temporary states (like fatigue) or changes due to biological maturation.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-12",
+    "question": "The concept of reinforcement is based on the idea that a consequence of a behavior:",
+    "options": [
+      "Decreases the probability that the behavior will occur again.",
+      "Increases the probability that the behavior will occur again.",
+      "Has no effect on the future occurrence of the behavior.",
+      "Punishes the individual for the behavior."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The fundamental purpose of reinforcement, whether positive or negative, is to increase the likelihood of a behavior being repeated.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-13",
+    "question": "A consequence that strengthens or increases the frequency of a behavior is called a:",
+    "options": [
+      "Punisher",
+      "Reinforcer",
+      "Neutral stimulus",
+      "Conditioned response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A reinforcer is anything that follows a behavior and increases the likelihood of that behavior recurring.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-14",
+    "question": "Which of the following is not a characteristic of effective punishment?",
+    "options": [
+      "It should be immediate and consistent.",
+      "It should be intense and harsh.",
+      "It should be paired with an explanation.",
+      "It should target the behavior, not the person."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Effective punishment is about changing behavior, not causing harm or emotional distress. Punishment that is too intense or harsh can lead to fear, aggression, and other negative side effects, and is often not effective in the long term.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-15",
+    "question": "The process of eliminating a learned behavior by no longer providing the reinforcement or punishment that maintained it is called:",
+    "options": [
+      "Generalization",
+      "Discrimination",
+      "Extinction",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the definition of extinction in the context of operant conditioning. When the reinforcement that was maintaining a behavior is removed, the behavior will eventually cease.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-16",
+    "question": "When a student is able to apply a concept they learned in a math class to a physics problem, they are demonstrating:",
+    "options": [
+      "Stimulus discrimination",
+      "Response generalization",
+      "Stimulus generalization",
+      "Cognitive mapping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Response generalization occurs when a person applies a learned response (like a mathematical formula) to a new, different stimulus or situation (a physics problem).",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-17",
+    "question": "A company gives a salesperson a bonus for every five new clients they sign. This is an example of what type of reinforcement?",
+    "options": [
+      "Positive reinforcement",
+      "Negative reinforcement",
+      "Positive punishment",
+      "Negative punishment"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A desirable stimulus (the bonus) is added (\"positive\") to increase the likelihood of a behavior (signing new clients), making it positive reinforcement.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-18",
+    "question": "A child's temper tantrums stop when the parent ignores them. This is an example of:",
+    "options": [
+      "Extinction",
+      "Positive reinforcement",
+      "Negative punishment",
+      "Stimulus generalization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The child's temper tantrums were likely being reinforced by the parent's attention. When the parent removes the reinforcement by ignoring the behavior, the tantrums eventually stop. This is a classic example of extinction in operant conditioning.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-19",
+    "question": "A student is constantly late to class. To change this behavior, the teacher allows the student to leave class five minutes early on days they arrive on time. This is an example of:",
+    "options": [
+      "Positive reinforcement",
+      "Negative reinforcement",
+      "Positive punishment",
+      "Negative punishment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The teacher is removing an aversive stimulus (being stuck in class for the full duration) to increase the desired behavior (arriving on time). This is a clear case of negative reinforcement.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-20",
+    "question": "A driver receives a ticket for speeding and subsequently drives more slowly. The ticket is a:",
+    "options": [
+      "Positive reinforcer",
+      "Negative reinforcer",
+      "Positive punisher",
+      "Negative punisher"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An unpleasant stimulus (the ticket) is added (\"positive\") to decrease the likelihood of a behavior (speeding). This is a textbook example of positive punishment.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-21",
+    "question": "A student who fears public speaking becomes anxious at the thought of any group presentation, even in a different class. This is an example of:",
+    "options": [
+      "Spontaneous recovery",
+      "Stimulus discrimination",
+      "Stimulus generalization",
+      "Higher-order conditioning"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The student's fear of public speaking (the original conditioned stimulus) has generalized to all similar situations (stimulus generalization). The anxiety is now triggered by any group presentation, regardless of the class.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-22",
+    "question": "Which learning concept best explains why a person might develop a taste aversion after getting sick from a particular food?",
+    "options": [
+      "Operant conditioning",
+      "Observational learning",
+      "Classical conditioning",
+      "Insight learning"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Taste aversion is a powerful example of classical conditioning. The food (the conditioned stimulus) is paired with a negative consequence (getting sick, the unconditioned stimulus), leading to a learned aversion (the conditioned response).",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-23",
+    "question": "A teacher praises a student for a single good answer, and the student continues to answer questions in class. The praise is a:",
+    "options": [
+      "Secondary reinforcer",
+      "Primary reinforcer",
+      "Punisher",
+      "Neutral stimulus"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Praise is a secondary reinforcer because it does not satisfy a biological need. Its reinforcing power is learned through its association with other positive experiences.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-24",
+    "question": "In Pavlov's work, the natural, unlearned reaction of a dog to the sight of food is the:",
+    "options": [
+      "Unconditioned response",
+      "Conditioned response",
+      "Neutral response",
+      "Spontaneous response"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A response that occurs naturally and automatically without any prior learning is an unconditioned response. The dog's salivation at the sight of food is a natural, unlearned reflex.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-25",
+    "question": "The main difference between reinforcement and punishment is that reinforcement always:",
+    "options": [
+      "Adds a stimulus",
+      "Removes a stimulus",
+      "Decreases the likelihood of a behavior",
+      "Increases the likelihood of a behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the core distinction between the two. Reinforcement is designed to strengthen a behavior, while punishment is designed to weaken it.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2015-3-26",
+    "question": "A student watches an older sibling receive praise for completing their chores. The younger sibling then begins to complete their own chores. This is an example of:",
+    "options": [
+      "Positive punishment",
+      "Vicarious reinforcement",
+      "Extinction",
+      "Latent learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vicarious reinforcement is a type of observational learning where a person is more likely to engage in a behavior if they see another person being rewarded for it. The younger sibling is motivated to do chores because they saw the older sibling's behavior being reinforced with praise.",
+    "subject": "psychology",
+    "year": 2015,
+    "chapter": 3
+  },{
+    "id": "psych-2016-3-2",
+    "question": "Both positive and negative punishments discourage behavior. This refers to:",
+    "options": [
+      "Reinforcement",
+      "Punishment",
+      "Extinction",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Punishment, whether positive (adding an aversive stimulus) or negative (removing a pleasant one), is a consequence that is intended to decrease the frequency of a behavior.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-3",
+    "question": "The natural stimulus in Pavlovian classical conditioning is:",
+    "options": [
+      "Conditioned stimulus",
+      "Unconditioned stimulus",
+      "Neutral stimulus",
+      "Reinforcer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In classical conditioning, the unconditioned stimulus (US) is a stimulus that naturally and automatically triggers a response without any prior learning, such as food causing salivation.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-4",
+    "question": "Classical conditioning focuses on the learning of:",
+    "options": [
+      "Involuntary behavior",
+      "Voluntary behavior",
+      "Social behavior",
+      "Cognitive behavior"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Classical conditioning deals with involuntary, reflexive responses (like blinking or salivating) that are learned through association between stimuli.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-5",
+    "question": "Aster does a good job on math problems for homework, and her teacher awards a sticker. This demonstrates the use of:",
+    "options": [
+      "Extinction",
+      "Reinforcement",
+      "Spontaneous recovery",
+      "Antecedents"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Reinforcement is any consequence that increases the likelihood of a behavior being repeated. The sticker is a positive reinforcer that encourages Aster to do a good job on her homework in the future.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-6",
+    "question": "A punisher can be:",
+    "options": [
+      "The onset of an unpleasant event",
+      "The removal of a positive state of affairs",
+      "Any consequence that reduces the occurrence of a behavior",
+      "A positive reinforcer"
+    ],
+    "correctAnswer": 2,
+    "explanation": "By definition, a punisher is any consequence that weakens a behavior, making it less likely to be repeated. This can involve adding an unpleasant stimulus (positive punishment) or removing a pleasant one (negative punishment).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-7",
+    "question": "Which of the following is not a time management strategy?",
+    "options": [
+      "The first thing first",
+      "Procrastinating tasks",
+      "Scheduling tasks",
+      "Know how you spend time"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Procrastinating, or delaying tasks, is the opposite of an effective time management strategy. The other options are recognized techniques for managing time efficiently.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-8",
+    "question": "As far as the characteristics of learning are concerned, one of the following is NOT true. Learning is:",
+    "options": [
+      "passive",
+      "pervasive",
+      "purposeful",
+      "multifaceted"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Learning is generally considered an active process where the learner engages with and processes information, rather than a passive one where information is simply received without effort.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-9",
+    "question": "One of the following is NOT true about learning. Learning:",
+    "options": [
+      "is a change in behavior",
+      "depends on practice",
+      "can be observed directly",
+      "results in an enduring change"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Learning itself is an internal, cognitive process. While we can observe the *results* of learning (a change in behavior), the learning process itself cannot be directly seen. For example, a person may have learned something (latent learning) but not yet demonstrated it.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-10",
+    "question": "All describe learning except:",
+    "options": [
+      "It is a change of behavior for better or worse",
+      "Learning can occur due to practice or experience",
+      "Learning is a relatively permanent change in behavior",
+      "Learning includes changes due to growth and maturation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Learning is a change in behavior due to experience, whereas changes due to growth, maturation, or biological development are not considered true learning. An example would be a child learning to walk, which is a maturational milestone, not a learned behavior.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-11",
+    "question": "Assume Debela feared a lion and then feared a dog. This is:",
+    "options": [
+      "stimulus discrimination",
+      "stimulus generalization",
+      "spontaneous recovery",
+      "acquisition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Stimulus generalization occurs when a response that has been conditioned to one stimulus (a lion) occurs in the presence of similar stimuli (a dog).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-12",
+    "question": "A man quit smoking but relapsed when seeing someone else smoke. This is:",
+    "options": [
+      "Extinction",
+      "Stimulus generalization",
+      "Spontaneous recovery",
+      "Stimulus discrimination"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Spontaneous recovery is the reappearance of a previously extinguished conditioned response after a period of time has passed without exposure to the conditioned stimulus. The man's urge to smoke (the conditioned response) returned after seeing a similar behavior (someone else smoking).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-13",
+    "question": "The teacher gave extra homework to Yonas after he misbehaved. This is:",
+    "options": [
+      "Positive punishment",
+      "Negative punishment",
+      "Positive reinforcement",
+      "Negative reinforcement"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Positive punishment involves adding an aversive stimulus (extra homework) to decrease the frequency of a behavior (misbehaving).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-14",
+    "question": "Negative punishment is:",
+    "options": [
+      "Removal of pleasant stimuli",
+      "Removal of unpleasant stimuli",
+      "Giving aversive stimuli",
+      "Presenting positive stimulus"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Negative punishment is the process of removing a desirable or pleasant stimulus to decrease a behavior.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-15",
+    "question": "Slot machines use which reinforcement schedule?",
+    "options": [
+      "Fixed ratio",
+      "Fixed interval",
+      "Variable ratio",
+      "Variable interval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slot machines use a variable ratio schedule, which provides reinforcement after a random and unpredictable number of responses. This schedule is highly resistant to extinction and produces a high, steady rate of response.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-16",
+    "question": "Instructor praises students after 1, then 3 answers. This is:",
+    "options": [
+      "Variable ratio",
+      "Fixed ratio",
+      "Fixed interval",
+      "Variable interval"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The instructor is reinforcing the student after an unpredictable, or variable, number of responses (answers). This makes it a variable ratio schedule.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-17",
+    "question": "According to Bandura, learned behaviors are performed at the phase of:",
+    "options": [
+      "retention",
+      "attention",
+      "motivation",
+      "action"
+    ],
+    "correctAnswer": 2,
+    "explanation": "According to Bandura's Social Learning Theory, the fourth and final step is the motivational phase. An individual may have paid attention to and retained a behavior, and be capable of reproducing it, but will only perform it if they are motivated to do so.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-18",
+    "question": "When a behavior decreases because a positive stimulus is removed after the behavior occurs, it is an example of:",
+    "options": [
+      "Positive reinforcement",
+      "Negative reinforcement",
+      "Positive punishment",
+      "Negative punishment"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the definition of negative punishment. A desirable stimulus is removed (\"negative\") to decrease the likelihood of a behavior (\"punishment\").",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-19",
+    "question": "In classical conditioning, what is the term for a stimulus that naturally and automatically triggers a response without prior learning?",
+    "options": [
+      "Conditioned stimulus",
+      "Unconditioned stimulus",
+      "Neutral stimulus",
+      "Conditioned response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An unconditioned stimulus (US) is one that elicits an unlearned or reflexive response. Food in Pavlov's experiment is an example of an unconditioned stimulus, as it naturally causes salivation.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-20",
+    "question": "Which of the following is NOT a characteristic of effective learning?",
+    "options": [
+      "It is an active process.",
+      "It is a one-time event.",
+      "It is multifaceted.",
+      "It is goal-oriented."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Learning is a continuous and ongoing process, not a one-time event. It requires repeated engagement and practice to be effective and lasting.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-21",
+    "question": "When a previously extinguished conditioned response suddenly reappears after a period of rest, this is known as:",
+    "options": [
+      "Stimulus generalization",
+      "Spontaneous recovery",
+      "Extinction",
+      "Reinforcement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Spontaneous recovery is the reappearance of a conditioned response that had been previously extinguished, showing that the learning was suppressed but not completely eliminated.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-22",
+    "question": "What is the process of learning to differentiate between similar stimuli and respond only to the conditioned stimulus?",
+    "options": [
+      "Stimulus generalization",
+      "Stimulus discrimination",
+      "Spontaneous recovery",
+      "Acquisition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Stimulus discrimination is the ability to distinguish between the conditioned stimulus and other stimuli that are similar but not associated with the unconditioned stimulus.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-23",
+    "question": "A teacher giving a student extra chores for being late is an example of:",
+    "options": [
+      "Positive reinforcement",
+      "Negative reinforcement",
+      "Positive punishment",
+      "Negative punishment"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The teacher is adding an unpleasant task (extra chores) to decrease an unwanted behavior (being late). This is a clear example of positive punishment.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-24",
+    "question": "Which reinforcement schedule provides a reinforcer after a variable number of responses?",
+    "options": [
+      "Fixed ratio",
+      "Variable ratio",
+      "Fixed interval",
+      "Variable interval"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A variable ratio schedule delivers reinforcement after an unpredictable number of responses, leading to a high and steady rate of responding.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-25",
+    "question": "A dog learning to salivate to the sound of a bell after repeatedly hearing it paired with food is an example of:",
+    "options": [
+      "Operant conditioning",
+      "Classical conditioning",
+      "Observational learning",
+      "Cognitive learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a classic example of classical conditioning, where an involuntary, reflexive response (salivating) is learned by associating a neutral stimulus (the bell) with an unconditioned stimulus (food).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2016-3-26",
+    "question": "The process of gradually weakening a conditioned response until it disappears is called:",
+    "options": [
+      "Reinforcement",
+      "Punishment",
+      "Extinction",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Extinction is the process where a conditioned response becomes less frequent and eventually stops when the conditioned stimulus is no longer paired with the unconditioned stimulus.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 3
+  },{
+    "id": "psych-2017-3-2",
+    "question": "When Genet, a student, studies hard for a test and gets an A, her parents give her a new book. This is an example of:",
+    "options": [
+      "Positive punishment",
+      "Negative punishment",
+      "Positive reinforcement",
+      "Negative reinforcement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Positive reinforcement involves adding a desirable stimulus (the new book) to increase the frequency of a behavior (studying hard).",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-3",
+    "question": "The concept of using a schedule to manage tasks is a key part of which skill?",
+    "options": [
+      "Memory enhancement",
+      "Procrastination",
+      "Time management",
+      "Extinction"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Scheduling tasks is a fundamental principle of effective time management, which aims to increase efficiency and productivity.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-4",
+    "question": "According to Social Learning Theory, the process where a person pays attention to a behavior being performed by another person is called:",
+    "options": [
+      "Retention",
+      "Attention",
+      "Motivation",
+      "Reproduction"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Attention is the first of four processes in Bandura's theory. The observer must first pay attention to the model and the behavior they are demonstrating.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-5",
+    "question": "What is the type of learning where a person learns by observing others' behaviors and their consequences?",
+    "options": [
+      "Classical conditioning",
+      "Operant conditioning",
+      "Observational learning",
+      "Cognitive learning"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Observational learning, also known as social learning, is the process of learning by watching the behaviors of other people or animals and then imitating them.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-6",
+    "question": "In operant conditioning, a consequence that increases the likelihood of a behavior being repeated is a:",
+    "options": [
+      "Punisher",
+      "Discriminative stimulus",
+      "Reinforcer",
+      "Stimulus"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A reinforcer is, by definition, any consequence that strengthens a behavior, making it more likely to occur again.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-7",
+    "question": "If a child's parents take away their video games because they didn't do their homework, this is an example of:",
+    "options": [
+      "Positive punishment",
+      "Negative punishment",
+      "Positive reinforcement",
+      "Negative reinforcement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Negative punishment involves removing a desirable stimulus (video games) to decrease an unwanted behavior (not doing homework).",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-8",
+    "question": "The idea that learning is a change in behavior that results from experience is a core principle of:",
+    "options": [
+      "Social Learning Theory",
+      "Classical conditioning",
+      "Operant conditioning",
+      "All of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "All three theories of learning—Social Learning Theory, Classical Conditioning, and Operant Conditioning—are based on the foundational principle that learning involves a change in behavior due to experience.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-9",
+    "question": "Which type of reinforcement schedule is most resistant to extinction?",
+    "options": [
+      "Fixed ratio",
+      "Fixed interval",
+      "Variable ratio",
+      "Variable interval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The variable ratio schedule, which provides reinforcement after a random number of responses, is the most resistant to extinction because the learner cannot predict when the next reinforcement will come, leading to persistent behavior.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-10",
+    "question": "A student who learns to associate the sound of a fire alarm (neutral stimulus) with a fire (unconditioned stimulus) is an example of:",
+    "options": [
+      "Operant conditioning",
+      "Classical conditioning",
+      "Social learning",
+      "Cognitive learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This scenario describes classical conditioning, where a previously neutral stimulus (the fire alarm sound) becomes a conditioned stimulus after being paired with an unconditioned stimulus (the fire), eliciting a conditioned response (fear or panic).",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-11",
+    "question": "When Tigist, a student, learns a new dance move by watching her friend perform it, she is engaging in:",
+    "options": [
+      "Classical conditioning",
+      "Operant conditioning",
+      "Observational learning",
+      "Extinction"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Observational learning (or modeling) is the process of learning new behaviors or skills by observing others. Watching a friend perform a dance move and then replicating it is a perfect example of this.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-12",
+    "question": "Which of these is a key component of observational learning, according to Bandura?",
+    "options": [
+      "Unconditioned response",
+      "Negative punishment",
+      "Retention",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "According to Bandura, retention, which is the ability to remember the modeled behavior, is a critical step in observational learning. The other options are concepts from classical or operant conditioning.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-13",
+    "question": "If Bethlehem gets a bonus at work every two weeks, she is on a:",
+    "options": [
+      "Fixed ratio schedule",
+      "Variable ratio schedule",
+      "Fixed interval schedule",
+      "Variable interval schedule"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A fixed interval schedule provides a reinforcer after a specific, predictable amount of time has passed. In this case, the bonus is tied to a two-week period, regardless of the amount of work done.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-14",
+    "question": "The change in behavior that occurs in learning is considered:",
+    "options": [
+      "Temporary",
+      "Always positive",
+      "Relatively permanent",
+      "Unobservable"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The standard psychological definition of learning is a 'relatively permanent' change in behavior, which distinguishes it from temporary changes due to fatigue, illness, or other factors.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-15",
+    "question": "If a teacher removes a boring homework assignment for a class that did well on a quiz, this is an example of:",
+    "options": [
+      "Positive reinforcement",
+      "Negative reinforcement",
+      "Positive punishment",
+      "Negative punishment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Negative reinforcement involves removing an aversive or unpleasant stimulus (the boring homework) to increase a desired behavior (doing well on a quiz).",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-16",
+    "question": "When a student who used to dislike math now enjoys it after a good experience, this is an example of learning as a change in:",
+    "options": [
+      "Affective domain",
+      "Psychomotor domain",
+      "Cognitive domain",
+      "Social domain"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The affective domain of learning relates to feelings, emotions, and attitudes. A change in a student's enjoyment or attitude toward a subject falls into this category.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-17",
+    "question": "Which of the following describes the learning of social behaviors through observation?",
+    "options": [
+      "Classical conditioning",
+      "Operant conditioning",
+      "Social learning theory",
+      "Spontaneous recovery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Social Learning Theory, as proposed by Albert Bandura, focuses on how individuals learn social behaviors and norms by observing and imitating others, without the need for direct reinforcement or punishment.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-18",
+    "question": "When a person learns a skill by watching a video and then trying to replicate the movements, this is a part of which phase of social learning?",
+    "options": [
+      "Attention",
+      "Retention",
+      "Action",
+      "Motivation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'action' or 'reproduction' phase of social learning is when the learner attempts to physically perform the behavior they have observed and remembered. This is the stage where they try to replicate the dance moves or a skill.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-19",
+    "question": "Which of the following is an example of a fixed ratio schedule?",
+    "options": [
+      "A coffee shop rewards a free drink after every 10 purchases.",
+      "A person gets a paycheck every Friday.",
+      "A fisherman catches a fish on average every hour.",
+      "A student is praised at random times during class."
+    ],
+    "correctAnswer": 0,
+    "explanation": "A fixed ratio schedule provides reinforcement after a specific, predetermined number of responses. Getting a free drink after every 10 purchases fits this definition perfectly.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-20",
+    "question": "A student gets a good grade on a test because they studied hard. The good grade is a:",
+    "options": [
+      "Positive punishment",
+      "Negative punishment",
+      "Positive reinforcer",
+      "Negative reinforcer"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The good grade is a positive reinforcer. It is a desirable stimulus that is 'added' to the situation to increase the likelihood of the behavior (studying) being repeated.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
+  {
+    "id": "psych-2017-3-21",
+    "question": "The change in behavior from learning is said to be:",
+    "options": [
+      "passive and temporary",
+      "active and enduring",
+      "multifaceted and unobservable",
+      "purposeful and always positive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Learning is an active process where the learner engages with the material, and the resulting change in behavior is relatively permanent or enduring. It is not necessarily positive or unobservable.",
+    "subject": "psychology",
+    "year": 2017,
+    "chapter": 3
+  },
   //psychology-2016-1-1
    {
     id: 'psych-2013-1-1',
