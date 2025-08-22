@@ -1456,432 +1456,2214 @@ export const sampleQuestions: Question[] = [
     year: 2017,
     chapter: 1
   },
-
+{
+    "id": "log-2014-1-1",
+    "question": "After observing a flock of 500 birds in a park in Addis Ababa, a biologist noticed that all of them had brown feathers. She concluded that it is highly probable that all birds in Addis Ababa have brown feathers. This argument is a(n) ________ argument.",
+    "options": [
+      "Deductive",
+      "Inductive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. It uses observations from a specific sample (500 birds) to make a probable generalization about a larger population (all birds in Addis Ababa). The conclusion is not guaranteed to be true, only highly probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-2",
+    "question": "A geographer argues: \"Mount Ras Dashen is the highest peak in Ethiopia. All of Ethiopia's highest peaks are located within the Simien Mountains National Park. Therefore, Mount Ras Dashen is located in the Simien Mountains National Park.\" This is a(n) ________ argument.",
+    "options": [
+      "Deductive",
+      "Inductive"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a deductive argument. It moves from a general premise (\"All of Ethiopia's highest peaks are located within...\") to a specific, certain conclusion about Mount Ras Dashen. The conclusion logically and necessarily follows from the premises.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-3",
+    "question": "The argument: \"All professional Ethiopian soccer players are athletes. All athletes are healthy. Therefore, all professional Ethiopian soccer players are healthy.\" This argument is an example of a(n):",
+    "options": [
+      "Sound argument",
+      "Valid but Unsound argument",
+      "Invalid argument",
+      "Weak argument"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This argument is a sound argument. A sound argument is a valid deductive argument with all factually true premises. The argument form is valid (\"All S are P. All P are Q. Therefore, all S are Q\"), and the premises are factually true in this context. Therefore, the conclusion must also be true.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-4",
+    "question": "An argument can be valid even if its premises are factually false. (True or False)",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This statement is true. Validity is about the logical structure of an argument, not the factual truth of its premises. For a valid argument, if the premises were true, the conclusion would have to be true. For example: \"All cats are dogs. All dogs are reptiles. Therefore, all cats are reptiles.\" This is a valid argument, even though both premises are factually false.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-5",
+    "question": "Consider the argument: 'All animals with four legs are domesticated. A sheep is an animal with four legs. Therefore, a sheep is domesticated.' This argument is:",
+    "options": [
+      "Valid and Sound",
+      "Valid and Unsound",
+      "Invalid and Sound",
+      "Invalid and Unsound"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is Valid and Unsound. The logical form is valid (All S are P. X is an S. Therefore, X is a P). The conclusion logically follows from the premises. However, the first premise (\"All animals with four legs are domesticated\") is factually false. Since a sound argument must have all true premises, this argument is unsound.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-6",
+    "question": "If a deductive argument has a false conclusion, what can be definitively said about it?",
+    "options": [
+      "It must be an invalid argument.",
+      "It must be an unsound argument.",
+      "It must have at least one false premise.",
+      "Both B and C are correct."
+    ],
+    "correctAnswer": 3,
+    "explanation": "If a deductive argument has a false conclusion, it must be unsound. An argument is sound only if it is valid AND has all true premises. For a valid argument, true premises guarantee a true conclusion. Therefore, if the conclusion is false, at least one of the premises must be false, which also makes the argument unsound.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-7",
+    "question": "A strong inductive argument is analogous to a ________ deductive argument.",
+    "options": [
+      "Valid",
+      "Sound",
+      "Cogent",
+      "True"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A strong inductive argument is analogous to a valid deductive argument. Both terms describe the logical connection between the premises and the conclusion. Validity means the conclusion necessarily follows, while strength means the conclusion probably follows. Neither term says anything about the factual truth of the premises.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-8",
+    "question": "The argument \"The sun has risen every morning for the past 5 billion years. Therefore, it is certain that the sun will rise tomorrow morning\" is an example of an argument that is:",
+    "options": [
+      "Deductive and Valid",
+      "Deductive and Invalid",
+      "Inductive and Strong",
+      "Inductive and Weak"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a strong inductive argument. It's inductive because it uses a pattern of past observations to make a prediction about the future, which is only probable, not certain. It's strong because the evidence (5 billion years of observation) provides a very high degree of probability for the conclusion.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-9",
+    "question": "Which of the following describes a cogent argument?",
+    "options": [
+      "It is a valid deductive argument.",
+      "It is a strong inductive argument with all factually true premises.",
+      "It is a valid deductive argument with all factually true premises.",
+      "It is an argument with a probable conclusion."
+    ],
+    "correctAnswer": 1,
+    "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is an inductive argument that is both strong and has all factually true premises.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-10",
+    "question": "Can a weak inductive argument ever be cogent?",
+    "options": [
+      "Yes, if its premises are all factually true.",
+      "Yes, if its conclusion is true.",
+      "No, because cogency requires strength.",
+      "Yes, if it is based on a large sample size."
+    ],
+    "correctAnswer": 2,
+    "explanation": "No, a weak inductive argument can never be cogent. By definition, cogency requires an argument to be strong. If an argument is weak, it fails the primary condition for being cogent, regardless of the truth of its premises.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-11",
+    "question": "What is the key difference between a sound argument and a cogent argument?",
+    "options": [
+      "Sound arguments are deductive; cogent arguments are inductive.",
+      "Sound arguments guarantee the truth of the conclusion; cogent arguments only make the conclusion probable.",
+      "Sound arguments require true premises; cogent arguments do not.",
+      "Both A and B are correct."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Both A and B are correct. A sound argument is a type of deductive argument, while a cogent argument is a type of inductive argument. Because of this, a sound argument's conclusion is guaranteed to be true (if its premises are true), while a cogent argument's conclusion is only made highly probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-12",
+    "question": "The argument \"Ethiopian coffee beans are of high quality. Therefore, this bag of Ethiopian coffee beans is of high quality.\" is best described as:",
+    "options": [
+      "Deductive and Valid",
+      "Inductive and Strong",
+      "Deductive and Unsound",
+      "Inductive and Weak"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. It moves from a general premise about Ethiopian coffee beans to a conclusion about a specific instance. It is strong because the premise provides a high degree of probability for the conclusion.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-13",
+    "question": "An argument with a factually true conclusion, a valid form, and at least one factually false premise is:",
+    "options": [
+      "Sound",
+      "Unsound",
+      "Cogent",
+      "Valid but Uncogent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The argument is unsound. For a deductive argument to be sound, it must be valid and all of its premises must be true. Since at least one premise is false, the argument is unsound, even if it has a valid form and a true conclusion.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-14",
+    "question": "The argument: 'Some college students in Addis Ababa are athletes. Some athletes are hardworking. Therefore, some college students in Addis Ababa are hardworking.' This argument is:",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is invalid. The conclusion does not necessarily follow from the premises. The \"some\" in the premises could refer to different groups. The college students who are athletes might not be the same athletes who are hardworking.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-15",
+    "question": "The argument: 'The majority of Ethiopian long-distance runners are from the Oromo region. Kenenisa Bekele is an Ethiopian long-distance runner. Therefore, Kenenisa Bekele is probably from the Oromo region.' This argument is best described as:",
+    "options": [
+      "Cogent",
+      "Sound",
+      "Invalid",
+      "Deductive"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This argument is cogent. It's an inductive argument that is both strong (the premise makes the conclusion very probable) and has true premises (Kenenisa Bekele is an Ethiopian long-distance runner, and a majority of these runners are indeed from the Oromo region).",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-16",
+    "question": "What is the fundamental difference in the relationship between premises and conclusion in deductive versus inductive arguments?",
+    "options": [
+      "Deductive arguments go from specific to general, while inductive arguments go from general to specific.",
+      "Deductive arguments aim for certainty, while inductive arguments aim for probability.",
+      "Deductive arguments are never based on observation, while inductive arguments always are.",
+      "Deductive arguments cannot have false premises, while inductive arguments can."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The fundamental difference lies in the aim of the argument. Deductive arguments aim to show that the conclusion is a certain consequence of the premises, while inductive arguments only aim to show that the conclusion is probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-17",
+    "question": "An argument is invalid if:",
+    "options": [
+      "The conclusion is false.",
+      "The premises are all false.",
+      "The conclusion does not follow from the premises, regardless of their truth.",
+      "It is a weak inductive argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An argument is invalid if its conclusion does not logically follow from its premises. The factual truth or falsehood of the premises and conclusion is irrelevant to an argument's validity.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-18",
+    "question": "The argument: 'The last 100 people who ordered a coffee at this shop asked for it to be traditionally prepared. So, the next person to order coffee will also ask for it to be traditionally prepared.' This is an example of a(n):",
+    "options": [
+      "Weak inductive argument",
+      "Strong inductive argument",
+      "Unsound deductive argument",
+      "Invalid deductive argument"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a strong inductive argument. It moves from a large number of specific observations (the last 100 people) to a high-probability conclusion about a future event. The large sample size makes the conclusion highly probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-19",
+    "question": "An argument that is both valid and has all factually true premises is called a(n) ________ argument.",
+    "options": [
+      "Strong",
+      "Cogent",
+      "Sound",
+      "Inductive"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A sound argument is a valid deductive argument that has all factually true premises. This is the gold standard for a good deductive argument.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-20",
+    "question": "What is a key characteristic that distinguishes a good deductive argument from a good inductive argument?",
+    "options": [
+      "The premises of a good deductive argument are always true.",
+      "The conclusion of a good deductive argument is guaranteed to be true if the premises are true.",
+      "Good inductive arguments are always stronger than good deductive arguments.",
+      "Good deductive arguments can be either valid or invalid."
+    ],
+    "correctAnswer": 1,
+    "explanation": "A key characteristic of a good deductive argument (a valid one) is that its conclusion is guaranteed to be true if its premises are true. Good inductive arguments, on the other hand, can only make their conclusions probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-21",
+    "question": "A statement that is correct about an argument among the following is:",
+    "options": [
+      "An argument must have at least one premise, and can have one or more conclusions.",
+      "An argument can have a single premise and a single conclusion.",
+      "A good argument is one where all premises are factually true.",
+      "An argument can be valid even if its conclusion is false."
+    ],
+    "correctAnswer": 3,
+    "explanation": "An argument can be valid even if its conclusion is false. This happens when at least one of its premises is also false. For example, \"All birds can fly. A penguin is a bird. Therefore, a penguin can fly.\" This is a valid argument, but the first premise is false, making the conclusion false.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-22",
+    "question": "The term 'uncogent' is to 'inductive argument' as '________' is to 'deductive argument'.",
+    "options": [
+      "Invalid",
+      "Unsound",
+      "Weak",
+      "Unreliable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The relationship is one of poor quality. Uncogent is the term for a poor inductive argument (either weak or has false premises). Unsound is the term for a poor deductive argument (either invalid or has false premises).",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-23",
+    "question": "An argument that has a true conclusion, but whose premises do not provide sufficient support for it, is:",
+    "options": [
+      "Sound or Valid",
+      "Unsound or Weak",
+      "Cogent or Strong",
+      "None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is either unsound (if it's a deductive argument and the premises are false or the form is invalid) or weak (if it's an inductive argument and the premises don't make the conclusion probable). In both cases, the support for the conclusion is inadequate.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-24",
+    "question": "A student argues: 'All men are mortal. All Ethiopians are mortal. Therefore, all Ethiopians are men.' This argument is:",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is invalid. It's a formal fallacy. The premises state that two groups (men and Ethiopians) both belong to a larger category (mortal), but this doesn't logically guarantee that one group is a subset of the other.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-25",
+    "question": "The argument: 'If the Ethiopian government invests more in infrastructure, the economy will grow. The government will not invest more in infrastructure. Therefore, the economy will not grow.' This argument is an example of:",
+    "options": [
+      "Modus Ponens",
+      "Modus Tollens",
+      "Fallacy of Denying the Antecedent",
+      "Fallacy of Affirming the Consequent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is an example of the Fallacy of Denying the Antecedent. The logical form is \"If P then Q. Not P. Therefore, Not Q.\" This is an invalid form because the conclusion does not necessarily follow; the economy could grow for other reasons.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-26",
+    "question": "The argument form \"If P, then Q. Q. Therefore, P.\" is:",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Both A and C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument form is invalid. It is a formal fallacy known as Affirming the Consequent. Just because the consequent (Q) is true, it does not mean the antecedent (P) must be true.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-27",
+    "question": "'No Ethiopian wolf is a domesticated animal because all Ethiopian wolves are wild animals and no wild animal is a domesticated animal.' This argument is an example of a(n):",
+    "options": [
+      "Deductive and Valid argument",
+      "Inductive and Strong argument",
+      "Deductive and Sound argument",
+      "Inductive and Cogent argument"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a Deductive and Sound argument. It is deductive because the conclusion necessarily follows from the premises. It is sound because the form is valid, and the premises (\"all Ethiopian wolves are wild animals\" and \"no wild animal is a domesticated animal\") are factually true.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-28",
+    "question": "In a valid deductive argument, if the premises are true, the conclusion must be:",
+    "options": [
+      "True",
+      "False",
+      "Unsound",
+      "Cogent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is the definition of a valid deductive argument. If the premises are true, the conclusion is guaranteed to be true.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-29",
+    "question": "The argument \"Ethiopia’s coffee ceremony is a long-standing tradition. Therefore, it will probably continue to be a tradition in the future.\" is:",
+    "options": [
+      "Deductive, Valid",
+      "Inductive, Strong",
+      "Deductive, Invalid",
+      "Inductive, Weak"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a strong inductive argument. It's inductive because it uses a pattern of past behavior (long-standing tradition) to make a probable prediction about the future. It's strong because a long history of a tradition makes its continuation highly probable.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-30",
+    "question": "The conclusion of a valid deductive argument is always true. (True or False)",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This statement is false. A valid argument's conclusion is only guaranteed to be true if its premises are all true. If one or more premises are false, a valid argument can still have a false conclusion.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-31",
+    "question": "'The reason for the decline in tourism in the Omo Valley is that recent droughts have made travel to the region difficult and have reduced access to clean water.' This passage is best identified as a(n):",
+    "options": [
+      "Argument",
+      "Report",
+      "Explanation",
+      "Illustration"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This passage is an explanation. It provides a causal account for a known fact (the decline in tourism). It is not trying to convince the reader that tourism has declined, but rather to explain why it has.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-32",
+    "question": "The passage: 'A shamma is a traditional handwoven cotton cloth from Ethiopia. It is typically worn as a shawl and is often embroidered with intricate patterns.' This is a(n):",
+    "options": [
+      "Argument",
+      "Explanation",
+      "Report",
+      "Illustration"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a report. It simply presents factual information about a shamma without offering any reasons to prove a claim. It's a descriptive passage.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-33",
+    "question": "Which of the following is an argument?",
+    "options": [
+      "The Nile River is the longest river in Africa.",
+      "The Nile River is the longest river in Africa, and it flows through Ethiopia.",
+      "Since the Nile River is the longest river in Africa, it is the most important for the countries it flows through.",
+      "A picture of the Nile River."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Statement C is an argument. The word \"since\" acts as a premise indicator, and the passage offers a reason (being the longest river) for a conclusion (it is the most important for the countries it flows through).",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-34",
+    "question": "A passage that uses examples to clarify a point is called a(n):",
+    "options": [
+      "Argument",
+      "Explanation",
+      "Report",
+      "Illustration"
+    ],
+    "correctAnswer": 3,
+    "explanation": "An illustration is a passage that uses one or more examples to show what a general claim means. It clarifies a point rather than proving it.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-35",
+    "question": "The passage 'Ethiopian Orthodox churches, such as those in Lalibela, are a marvel of ancient architecture because they were carved directly out of the ground.' This is an example of a(n):",
+    "options": [
+      "Argument",
+      "Explanation",
+      "Report",
+      "Illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an explanation. The word \"because\" signals that the passage is providing a reason for a known fact (that the churches are a marvel), not trying to prove that they are.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-36",
+    "question": "An explanation differs from an argument primarily in its:",
+    "options": [
+      "Use of logical indicators",
+      "Purpose",
+      "Length",
+      "Factual accuracy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The primary difference is purpose. An argument aims to prove a conclusion, while an explanation aims to provide a causal account for why something is the way it is.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-37",
+    "question": "The phrase \"in conclusion\" is a classic indicator of a(n):",
+    "options": [
+      "Premise",
+      "Conclusion",
+      "Explanation",
+      "Report"
+    ],
+    "correctAnswer": 1,
+    "explanation": "\"In conclusion\" is a classic conclusion indicator. It signals that the statement that follows is the main point the arguer is trying to make.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-38",
+    "question": "'The reason the Ethiopian calendar is different from the Gregorian calendar is that it is based on an older, more accurate calculation of the birth of Jesus.' This passage is a(n):",
+    "options": [
+      "Argument",
+      "Explanation",
+      "Report",
+      "Illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an explanation. The phrase \"The reason...is that\" explicitly indicates that the passage is providing a causal account for a fact about the Ethiopian calendar.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-39",
+    "question": "A passage that uses \"because\" is always an argument. (True or False)",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is false. The word \"because\" is an indicator of both a premise in an argument and a causal reason in an explanation. The context of the passage determines which function it serves.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-40",
+    "question": "An argument's premises are:",
+    "options": [
+      "Claims that are always true.",
+      "Claims that are intended to be supported.",
+      "Claims that provide evidence to support a conclusion.",
+      "The result of the argument's logic."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Premises are the statements in an argument that are used to provide reasons or evidence for the conclusion. They are the building blocks of the argument.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-41",
+    "question": "Which of the following is a premise indicator?",
+    "options": [
+      "Consequently",
+      "Hence",
+      "Since",
+      "Therefore"
+    ],
+    "correctAnswer": 2,
+    "explanation": "\"Since\" is a common premise indicator. Words like \"consequently,\" \"hence,\" and \"therefore\" are all conclusion indicators.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-42",
+    "question": "What is the conclusion of the following argument? \"Many people believe that the Ethiopian flag is a symbol of national pride. Because it has historical significance and represents unity, it is indeed a powerful symbol of national pride.\"",
+    "options": [
+      "Many people believe that the Ethiopian flag is a symbol of national pride.",
+      "It has historical significance.",
+      "The Ethiopian flag is a powerful symbol of national pride.",
+      "The flag represents unity."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The conclusion is \"The Ethiopian flag is a powerful symbol of national pride.\" The word \"because\" signals that the statements that follow it are premises, supporting the main claim that precedes them.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-43",
+    "question": "Which of the following statements about argument structure is correct?",
+    "options": [
+      "An argument must have at least two premises.",
+      "The conclusion of an argument must be a single statement.",
+      "The premises and conclusion can appear in any order.",
+      "An argument can have multiple conclusions."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The premises and conclusion can appear in any order. The conclusion may come at the beginning, middle, or end of a passage. The logical relationship, not the physical order, defines the argument.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-44",
+    "question": "Which of the following is a sufficient condition for an object to be a triangle?",
+    "options": [
+      "Having three sides",
+      "Having three angles",
+      "Having a shape with three sides and three angles",
+      "Being a geometric figure"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A sufficient condition is one that, if met, guarantees the outcome. Having a shape with three sides and three angles is the full definition of a triangle; therefore, it is a sufficient condition. A and B are necessary conditions, but not sufficient on their own.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-45",
+    "question": "For a human to be a male, it is a necessary condition that they:",
+    "options": [
+      "Have a beard",
+      "Have a Y chromosome",
+      "Are muscular",
+      "Are taller than a woman"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A necessary condition is one that must be present for an outcome to occur. Having a Y chromosome is a necessary biological condition for a human to be a male. A person could be male without having a beard, being muscular, or being taller than a woman.",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-46",
+    "question": "\"Being an Ethiopian citizen\" is a necessary condition for \"being born in Addis Ababa.\" (True or False)",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is false. The statement has the relationship backward. Being born in Addis Ababa is a sufficient condition for being an Ethiopian citizen, but it is not necessary. A person can be an Ethiopian citizen without being born in Addis Ababa (e.g., being born in Gondar or to Ethiopian parents abroad).",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "log-2014-1-47",
+    "question": "In the statement, \"If it is raining (P), then the ground is wet (Q),\" the condition of the ground being wet is a(n) ________ condition for it raining.",
+    "options": [
+      "Sufficient",
+      "Necessary",
+      "Both A and B",
+      "Neither A nor B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The ground being wet (Q) is a necessary condition for it raining (P). This means that if it's raining, the ground must be wet. However, the ground being wet is not a sufficient condition for it raining (e.g., someone could have hosed it down).",
+    "subject": "logic",
+    "year": 2014,
+    "chapter": 1
+  },{"id": "log-2015-1-1",
+    "question": "Which of the following is a sufficient condition for a valid argument to be sound?",
+    "options": [
+      "Its premises are all true.",
+      "Its conclusion is true.",
+      "It is an inductive argument.",
+      "It is a valid and strong argument."
+    ],
+    "correctAnswer": 0,
+    "explanation": "For a valid argument, the premises being true is a sufficient condition for it to be sound. A sound argument is defined as a valid argument with all true premises.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-2",
+    "question": "A statement that contains an expression or term that is too vague or ambiguous to be a precise premise is called a(n):",
+    "options": [
+      "Unsound argument",
+      "Uncogent argument",
+      "Non-argument",
+      "Unclear statement"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A statement that contains a vague or ambiguous term is an unclear statement. Such statements often make it difficult to evaluate the argument's premises properly. They are neither arguments nor non-arguments, but a type of statement with a logical flaw.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-3",
+    "question": "Which of the following best describes the relationship between validity and truth?",
+    "options": [
+      "Validity is a property of premises, while truth is a property of arguments.",
+      "A valid argument must have true premises.",
+      "Validity refers to the structure of an argument, while truth refers to the content of statements.",
+      "An invalid argument can never have a true conclusion."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The correct answer is C. Validity is a property of a deductive argument's logical form; it's about whether the conclusion necessarily follows from the premises. Truth, on the other hand, is a property of individual statements or propositions, referring to their factual accuracy. An argument's validity and the truth of its statements are separate concepts.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-4",
+    "question": "An argument is considered sound if and only if it is:",
+    "options": [
+      "Valid and has at least one true premise.",
+      "Invalid but has all true premises.",
+      "Valid and has all true premises.",
+      "Strong and has a true conclusion."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An argument is sound if and only if it meets two criteria: it is a valid deductive argument, and all of its premises are factually true. Both conditions must be met for an argument to be sound.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-5",
+    "question": "Consider the following argument: \"All dogs are mammals. Fido is a dog. Therefore, Fido is a mammal.\" This argument is:",
+    "options": [
+      "Invalid and unsound.",
+      "Valid but unsound.",
+      "Valid and sound.",
+      "Inductive and strong."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a valid and sound argument. It is a deductive argument, and its structure is valid (All S are P. X is an S. Therefore, X is a P). Both of its premises (\"All dogs are mammals\" and \"Fido is a dog\") are factually true. Therefore, the argument is sound.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-6",
+    "question": "Which of the following is an example of an inductive argument?",
+    "options": [
+      "All humans are mortal. Socrates is a human. Therefore, Socrates is mortal.",
+      "If it is raining, the ground is wet. The ground is wet. Therefore, it is raining.",
+      "The sun has risen every day for the past billion years. Therefore, the sun will probably rise tomorrow.",
+      "Either the cat is on the mat or it is not. The cat is not on the mat. Therefore, the cat is on the mat."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Option C is an inductive argument. It uses a pattern of past observations (the sun rising every day) to make a probable prediction about a future event. The conclusion is not guaranteed, only probable.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-7",
+    "question": "The existence of a cause is a necessary condition for the existence of an effect, but it is not a sufficient condition.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This statement is True. A necessary condition is required for an event to occur, while a sufficient condition guarantees that it will. For an effect to exist, a cause must exist (a necessary condition). However, a cause may exist without the effect occurring (e.g., a match exists, but it hasn't been lit yet).",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-8",
+    "question": "Which of the following combinations of truth values is impossible for a deductively valid argument?",
+    "options": [
+      "True premises, True conclusion.",
+      "False premises, True conclusion.",
+      "True premises, False conclusion.",
+      "False premises, False conclusion."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The combination of True premises, False conclusion is impossible for a deductively valid argument. By definition, a valid argument is one where it's logically impossible for the premises to be true while the conclusion is false. This is the ultimate test of validity.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-9",
+    "question": "An argument from analogy is a type of inductive argument that draws a conclusion based on:",
+    "options": [
+      "A specific observation about a group.",
+      "A prediction about a future event.",
+      "The similarity between two or more things.",
+      "A general principle applied to a specific case."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An argument from analogy draws a conclusion about one thing based on its similarity to another. The argument assumes that because two things are alike in some respects, they are also likely to be alike in other, unobserved respects.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-10",
+    "question": "The following passage is a statement of fact: \"The capital of Ethiopia is Addis Ababa.\"",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This statement is True. The phrase is a statement of fact because it makes a claim that can be verified and is objectively true.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-11",
+    "question": "\"Either I will pass the exam or I will fail it. I passed the exam. Therefore, I will not fail it.\" This argument is an example of a:",
+    "options": [
+      "Valid deductive argument.",
+      "Invalid deductive argument.",
+      "Strong inductive argument.",
+      "Weak inductive argument."
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a valid deductive argument. Its logical form is \"Either P or Q. P. Therefore, not Q,\" which is a variation of Disjunctive Syllogism, a valid deductive argument form. The conclusion logically and necessarily follows from the premises.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-12",
+    "question": "The argument: \"My car's engine has been making a strange knocking sound. The check engine light is on. Therefore, my car probably needs a new engine.\" is an example of a(n):",
+    "options": [
+      "Deductive argument.",
+      "Inductive argument based on prediction.",
+      "Inductive argument from authority.",
+      "Inductive argument based on causal inference."
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is an inductive argument based on causal inference. It makes a probable conclusion about the cause of a set of effects (knocking sound, check engine light). The conclusion is not certain, but it's a likely explanation for the observed symptoms.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-13",
+    "question": "The statements \"What a beautiful day!\" and \"Close the door.\" are considered non-statements because they:",
+    "options": [
+      "Cannot be used in an argument.",
+      "Express feelings or commands rather than claims that can be true or false.",
+      "Do not contain indicator words.",
+      "Are always part of inductive arguments."
+    ],
+    "correctAnswer": 1,
+    "explanation": "These are non-statements because they are not claims that can be evaluated as either true or false. \"What a beautiful day!\" is an expression of feeling, and \"Close the door.\" is a command. Only statements that have a truth value can function as premises or conclusions in an argument.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-14",
+    "question": "What is the key difference between a valid and a sound argument?",
+    "options": [
+      "A valid argument has a strong conclusion, while a sound one has a true conclusion.",
+      "A valid argument guarantees the conclusion follows from the premises, while a sound one also requires the premises to be true.",
+      "A valid argument is a type of inductive argument, while a sound one is a type of deductive argument.",
+      "A valid argument must be strong, while a sound one must be valid."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The key difference is that soundness adds the requirement of factual truth to validity. A valid argument has the right structure. A sound argument has the right structure and is also factually correct.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-15",
+    "question": "\"If you are a student, then you have to study. You are not a student. Therefore, you don't have to study.\" This argument is:",
+    "options": [
+      "Valid and sound.",
+      "Invalid.",
+      "Valid but unsound.",
+      "Both A and B."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is invalid. It is a formal fallacy known as Denying the Antecedent (\"If P then Q. Not P. Therefore, Not Q.\"). The conclusion does not logically follow from the premises, as a person might have to study for reasons other than being a student.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-16",
+    "question": "The conclusion of a valid argument:",
+    "options": [
+      "Is always factually true.",
+      "Must be true if the premises are true.",
+      "Must be factually false if the premises are false.",
+      "Is irrelevant to the validity of the argument."
+    ],
+    "correctAnswer": 1,
+    "explanation": "By definition, in a valid deductive argument, if the premises are true, the conclusion must also be true. This is the very essence of a valid deductive argument's structure.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-17",
+    "question": "An argument from authority is strong only if:",
+    "options": [
+      "The source is a recognized expert in the field.",
+      "The source is a well-known celebrity.",
+      "The argument uses strong language like \"certainly\" or \"definitely.\"",
+      "The source has a personal belief in the conclusion."
+    ],
+    "correctAnswer": 0,
+    "explanation": "An argument from authority is a type of inductive argument that is strong only when the source cited is a recognized expert in the relevant subject area. A celebrity's opinion, strong language, or personal belief does not make the argument strong.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-18",
+    "question": "Which of the following is a non-statement?",
+    "options": [
+      "The moon is made of cheese.",
+      "Ethiopia has a larger population than Somalia.",
+      "Why is the sky blue?",
+      "Addis Ababa is the capital of Ethiopia."
+    ],
+    "correctAnswer": 2,
+    "explanation": "\"Why is the sky blue?\" is a non-statement because it is a question, not a declarative sentence that can be judged as true or false.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-1",
+    "question": "The phrase \"The reason that...\" is most likely to introduce a:",
+    "options": [
+      "Conclusion.",
+      "Statement of belief.",
+      "Premise.",
+      "Inductive argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The phrase \"The reason that...\" is a classic premise indicator. It introduces the evidence or reason for a claim, which is the premise of an argument. It can also introduce an explanation.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-2",
+    "question": "Which of the following makes an inductive argument cogent?",
+    "options": [
+      "It is valid and has a true conclusion.",
+      "It is strong and has a false premise.",
+      "It is weak but has a true conclusion.",
+      "It is strong and has all true premises."
+    ],
+    "correctAnswer": 3,
+    "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is an inductive argument that is both strong and has all true premises.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-3",
+    "question": "The conclusion of an argument is the statement that:",
+    "options": [
+      "Provides reasons to support another statement.",
+      "Is claimed to be supported by other statements.",
+      "Is always true.",
+      "Can only be a command or a question."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The conclusion is the central claim of an argument, the statement that the arguer is trying to prove. It is the statement that is supported by the premises.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-4",
+    "question": "The argument \"Most American presidents have been men. Therefore, the next American president will probably be a man.\" is a(n):",
+    "options": [
+      "Argument from analogy.",
+      "Causal inference.",
+      "Statistical argument.",
+      "Deductive argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a statistical argument, a type of inductive argument that uses statistical data or a general trend to draw a probable conclusion about a specific instance. The premise is based on a majority, and the conclusion is a prediction based on that statistic.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-5",
+    "question": "\"In order to be a father, one must have a child.\" This statement indicates that having a child is a:",
+    "options": [
+      "Sufficient condition for being a father.",
+      "Necessary condition for being a father.",
+      "Both a necessary and sufficient condition.",
+      "Neither a necessary nor a sufficient condition."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This statement means that having a child is a necessary condition for being a father. You can't be a father without a child. However, it's not a sufficient condition, as a person with a child might not be the father (e.g., an uncle or a legal guardian).",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-6",
+    "question": "A valid deductive argument can be described as a relationship where:",
+    "options": [
+      "The conclusion is probably true if the premises are true.",
+      "The conclusion is certainly true if the premises are true.",
+      "The premises are true, and the conclusion is true.",
+      "The conclusion is always true, regardless of the premises."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of a valid deductive argument. The logical structure guarantees that if the premises are true, the conclusion must be true with certainty.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-7",
+    "question": "What is a key characteristic of a sound argument?",
+    "options": [
+      "It is valid, and its premises and conclusion are all true.",
+      "Its conclusion follows with certainty from the premises.",
+      "It is an inductive argument with a strong conclusion.",
+      "It has a high probability of being true."
+    ],
+    "correctAnswer": 0,
+    "explanation": "A sound argument is a deductive argument that is both valid and has all factually true premises. This ensures that the conclusion is also true.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-8",
+    "question": "The phrase \"it is safe to conclude that...\" is an example of a:",
+    "options": [
+      "Premise indicator.",
+      "Conclusion indicator.",
+      "Non-statement.",
+      "Warning."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This phrase is a conclusion indicator. It signals that the following statement is the main claim that the arguer is putting forth, based on the preceding premises.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-9",
+    "question": "The argument \"I have never seen a black swan before. Therefore, all swans are white.\" is a:",
+    "options": [
+      "Strong inductive argument.",
+      "Weak inductive argument.",
+      "Valid deductive argument.",
+      "Sound argument."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a weak inductive argument. The conclusion (\"all swans are white\") is a sweeping generalization based on a very limited number of observations. A single counterexample (a black swan) would immediately prove the conclusion false, which is why it's a weak argument.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-10",
+    "question": "\"If the car is on, the engine is running. The engine is not running. Therefore, the car is not on.\" This is an example of:",
+    "options": [
+      "Affirming the antecedent.",
+      "Modus ponens.",
+      "Denying the consequent.",
+      "Modus tollens."
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is an example of Modus Tollens, a valid deductive argument form. Its structure is \"If P then Q. Not Q. Therefore, Not P.\" It is also known as \"denying the consequent.\"",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-11",
+    "question": "The term \"truth value\" refers to:",
+    "options": [
+      "The value of an argument's validity.",
+      "The degree of strength of an inductive argument.",
+      "The property of a statement being either true or false.",
+      "The number of premises in an argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The truth value of a statement is its property of being either true or false. Only statements or propositions can have a truth value. Arguments themselves are not true or false; they are valid/invalid or strong/weak.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-12",
+    "question": "A deductive argument can be defined as one in which the conclusion:",
+    "options": [
+      "Follows with certainty from the premises.",
+      "Is highly probable given the premises.",
+      "Is a matter of personal opinion.",
+      "Is based on a generalization from a specific case."
+    ],
+    "correctAnswer": 0,
+    "explanation": "The defining characteristic of a deductive argument is that it attempts to provide a conclusion that is certain to be true if its premises are true. The relationship is one of logical necessity.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-13",
+    "question": "An argument is invalid if:",
+    "options": [
+      "All of its premises are false.",
+      "Its conclusion is false.",
+      "The conclusion does not necessarily follow from the premises.",
+      "It is an inductive argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An argument is invalid if its logical form is flawed, meaning the conclusion does not necessarily follow from the premises, regardless of the factual truth of those premises.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-14",
+    "question": "Which of the following is a statement of opinion rather than fact?",
+    "options": [
+      "The Earth revolves around the sun.",
+      "The capital of France is Paris.",
+      "Chocolate ice cream is the best flavor.",
+      "Water freezes at 0 degrees Celsius."
+    ],
+    "correctAnswer": 2,
+    "explanation": "\"Chocolate ice cream is the best flavor\" is a statement of opinion. It is a subjective claim that cannot be proven true or false. The other options are objective facts.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-15",
+    "question": "What is the primary function of a premise in an argument?",
+    "options": [
+      "To introduce the main idea.",
+      "To provide evidence or reasons.",
+      "To state the final conclusion.",
+      "To ask a question."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The primary function of a premise is to provide the evidence, reasons, or support for the conclusion of an argument.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-16",
+    "question": "The existence of an argument in a passage is dependent on the presence of:",
+    "options": [
+      "A question.",
+      "A command.",
+      "An attempt to prove one statement from another.",
+      "A simple explanation of a fact."
+    ],
+    "correctAnswer": 2,
+    "explanation": "An argument exists in a passage when one statement (the conclusion) is being supported by one or more other statements (the premises). This \"attempt to prove\" is the defining characteristic of an argument.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-17",
+    "question": "The argument \"The patient has a fever, chills, and a cough. These are all common symptoms of the flu. Therefore, the patient probably has the flu.\" is an example of:",
+    "options": [
+      "An invalid deductive argument.",
+      "A valid deductive argument.",
+      "A strong inductive argument.",
+      "A weak inductive argument."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a strong inductive argument from causal inference. The premises provide strong evidence for the probable conclusion, but the conclusion is not guaranteed, as other illnesses could have the same symptoms.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-18",
+    "question": "A valid deductive argument can be unsound if:",
+    "options": [
+      "Its premises are false.",
+      "Its conclusion is false.",
+      "It is an inductive argument.",
+      "The premises are true, and the conclusion is false."
+    ],
+    "correctAnswer": 0,
+    "explanation": "A valid deductive argument is unsound if at least one of its premises is factually false. A valid argument with true premises is sound.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-19",
+    "question": "The phrase \"if and only if\" indicates a relationship of:",
+    "options": [
+      "A necessary condition only.",
+      "A sufficient condition only.",
+      "Both a necessary and sufficient condition.",
+      "Neither a necessary nor a sufficient condition."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The phrase \"if and only if\" indicates that a condition is both necessary and sufficient. This means that if the condition is met, the outcome is guaranteed, and if the outcome occurs, the condition must have been met.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-20",
+    "question": "In logic, the term \"proposition\" is synonymous with:",
+    "options": [
+      "Argument.",
+      "Statement.",
+      "Premise.",
+      "Conclusion."
+    ],
+    "correctAnswer": 1,
+    "explanation": "In logic, a proposition is synonymous with a statement or a claim. It is a declarative sentence that has a truth value (it is either true or false).",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-21",
+    "question": "An argument is weak if:",
+    "options": [
+      "The conclusion is not supported by the premises.",
+      "It has false premises.",
+      "It has a false conclusion.",
+      "It is a deductive argument."
+    ],
+    "correctAnswer": 0,
+    "explanation": "An inductive argument is weak if its premises fail to make the conclusion probable. The conclusion simply does not follow with a high degree of support from the evidence provided.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-22",
+    "question": "A passage of report is a type of non-argument because it:",
+    "options": [
+      "Lacks premises and a conclusion.",
+      "Simply informs without attempting to prove anything.",
+      "Is always false.",
+      "Is only used in legal documents."
+    ],
+    "correctAnswer": 1,
+    "explanation": "A report is a non-argument because its purpose is to convey information or describe events, not to provide reasons to support a particular conclusion.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-23",
+    "question": "An argument from prediction is a type of inductive argument that draws a conclusion based on:",
+    "options": [
+      "Past observations to make a claim about the future.",
+      "A general rule to make a specific claim.",
+      "The similarity between two objects.",
+      "A causal link between events."
+    ],
+    "correctAnswer": 0,
+    "explanation": "An argument from prediction is a classic inductive argument form that uses a pattern of past events to predict what will happen in the future.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
+  {
+    "id": "log-2016-1-24",
+    "question": "A sound argument is best described as:",
+    "options": [
+      "An invalid argument with a true conclusion.",
+      "A valid argument with a strong conclusion.",
+      "A valid argument with a true conclusion.",
+      "A strong argument with a true conclusion."
+    ],
+    "correctAnswer": 2,
+    "explanation": "A sound argument is a valid argument that also has true premises, which in turn guarantees a true conclusion.",
+    "subject": "logic",
+    "year": 2016,
+    "chapter": 1
+  },
   // ==================== LOGIC QUESTIONS ====================
   
   //logic-2013-1-1
   
 // ==================== LOGIC CHAPTER 1 QUESTIONS (30) ====================
 {
-  id: 'log-2013-1-1',
-  question: 'If all cats are mammals and all mammals are animals, then all cats are?',
-  options: ['Animals', 'Plants', 'Minerals', 'None of the above'],
-  correctAnswer: 0,
-  explanation: 'This is a classic syllogism.',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2013-1-2',
-  question: 'Which of these is a valid logical operator?',
-  options: ['AND', 'OR', 'NOT', 'All of the above'],
-  correctAnswer: 3,
-  explanation: 'AND, OR, and NOT are all valid logical operators.',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2013-1-3',
-  question: 'What is the negation of "All birds can fly"?',
-  options: [
-    'No birds can fly',
-    'Some birds cannot fly',
-    'All birds cannot fly',
-    'Some birds can fly'
-  ],
-  correctAnswer: 1,
-  explanation: 'The negation of "all X are Y" is "some X are not Y".',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-1',
-  question: 'If P implies Q, and Q is false, then:',
-  options: [
-    'P must be false',
-    'P must be true',
-    'P can be either true or false',
-    'None of the above'
-  ],
-  correctAnswer: 0,
-  explanation: 'This is the contrapositive (¬Q → ¬P).',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-2',
-  question: 'Which of these represents "P and Q"?',
-  options: ['P ∨ Q', 'P ∧ Q', 'P → Q', '¬P'],
-  correctAnswer: 1,
-  explanation: '∧ is the logical AND operator.',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-3',
-  question: 'What is the converse of "If it\'s a dog, then it\'s a mammal"?',
-  options: [
-    'If it\'s a mammal, then it\'s a dog',
-    'If it\'s not a dog, then it\'s not a mammal',
-    'It\'s a dog if and only if it\'s a mammal',
-    'None of the above'
-  ],
-  correctAnswer: 0,
-  explanation: 'Converse swaps the hypothesis and conclusion.',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-1',
-  question: 'Which is a tautology?',
-  options: [
-    'P ∨ ¬P',
-    'P ∧ ¬P',
-    'P → ¬P',
-    'P ∧ P'
-  ],
-  correctAnswer: 0,
-  explanation: 'A statement that is always true (law of excluded middle).',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-2',
-  question: '"No reptiles are mammals" is an example of:',
-  options: [
-    'Universal negative',
-    'Universal affirmative',
-    'Particular affirmative',
-    'Particular negative'
-  ],
-  correctAnswer: 0,
-  explanation: '"No X are Y" is a universal negative.',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-3',
-  question: 'If "Some A are B" is true, which must be false?',
-  options: [
-    'No A are B',
-    'All A are B',
-    'Some A are not B',
-    'None must be false'
-  ],
-  correctAnswer: 0,
-  explanation: '"Some A are B" contradicts "No A are B".',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-1',
-  question: 'Which is equivalent to ¬(P ∧ Q)?',
-  options: [
-    '¬P ∧ ¬Q',
-    '¬P ∨ ¬Q',
-    'P ∨ Q',
-    '¬P → Q'
-  ],
-  correctAnswer: 1,
-  explanation: 'This is De Morgan\'s Law.',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-2',
-  question: 'A syllogism has how many parts?',
-  options: ['2', '3', '4', '5'],
-  correctAnswer: 1,
-  explanation: 'Major premise, minor premise, and conclusion.',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-3',
-  question: '"All philosophers are thinkers. Socrates is a philosopher. Therefore, Socrates is a thinker." This is:',
-  options: [
-    'Valid and sound',
-    'Valid but unsound',
-    'Invalid',
-    'None of the above'
-  ],
-  correctAnswer: 0,
-  explanation: 'The argument is logically valid and the premises are true.',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-1',
-  question: 'Which quantifier means "there exists"?',
-  options: ['∀', '∃', '∈', '∴'],
-  correctAnswer: 1,
-  explanation: '∃ is the existential quantifier.',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-2',
-  question: 'In "If P then Q", Q is called the:',
-  options: [
-    'Antecedent',
-    'Consequent',
-    'Contrapositive',
-    'Predicate'
-  ],
-  correctAnswer: 1,
-  explanation: 'The "then" part is the consequent.',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-3',
-  question: 'A statement that is always false is called a:',
-  options: [
-    'Tautology',
-    'Contradiction',
-    'Contingency',
-    'Implication'
-  ],
-  correctAnswer: 1,
-  explanation: 'A contradiction is always false.',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
-{
-  id: 'log-2013-1-4',
-  question: 'Which logical fallacy assumes what it\'s trying to prove?',
-  options: [
-    'Straw man',
-    'Circular reasoning',
-    'False dilemma',
-    'Ad hominem'
-  ],
-  correctAnswer: 1,
-  explanation: 'Circular reasoning uses its conclusion as a premise.',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-4',
-  question: 'The statement "P ∨ Q" is false when:',
-  options: [
-    'Both P and Q are false',
-    'Both P and Q are true',
-    'P is true and Q is false',
-    'P is false and Q is true'
-  ],
-  correctAnswer: 0,
-  explanation: 'OR (∨) is only false when both operands are false.',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-4',
-  question: 'What is the inverse of "If it\'s sunny, then I\'ll go outside"?',
-  options: [
-    'If it\'s not sunny, then I won\'t go outside',
-    'If I go outside, then it\'s sunny',
-    'If I don\'t go outside, then it\'s not sunny',
-    'I\'ll go outside if and only if it\'s sunny'
-  ],
-  correctAnswer: 0,
-  explanation: 'Inverse negates both parts without swapping them.',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-4',
-  question: 'Which is NOT a type of categorical proposition?',
-  options: [
-    'Universal affirmative',
-    'Universal negative',
-    'Particular affirmative',
-    'Hypothetical conditional'
-  ],
-  correctAnswer: 3,
-  explanation: 'The first three are standard categorical propositions.',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-4',
-  question: 'In predicate logic, what does ∀x(P(x) → Q(x)) mean?',
-  options: [
-    'All P are Q',
-    'Some P are Q',
-    'No P are Q',
-    'Some P are not Q'
-  ],
-  correctAnswer: 0,
-  explanation: 'Universal quantifier with implication means "all P are Q".',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
-{
-  id: 'log-2013-1-5',
-  question: 'Which is logically equivalent to "Unless P, Q"?',
-  options: [
-    'P ∨ Q',
-    '¬P → Q',
-    'Q → P',
-    'P ∧ Q'
-  ],
-  correctAnswer: 1,
-  explanation: '"Unless P, Q" means "if not P, then Q".',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-5',
-  question: 'The principle that P ∧ Q ≡ Q ∧ P demonstrates:',
-  options: [
-    'Associativity',
-    'Commutativity',
-    'Distributivity',
-    'Idempotence'
-  ],
-  correctAnswer: 1,
-  explanation: 'Commutativity means order doesn\'t matter for the operation.',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-5',
-  question: 'Which rule allows deriving Q from P and P → Q?',
-  options: [
-    'Modus Ponens',
-    'Modus Tollens',
-    'Hypothetical Syllogism',
-    'Disjunctive Syllogism'
-  ],
-  correctAnswer: 0,
-  explanation: 'Modus Ponens: from P and P→Q, infer Q.',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-5',
-  question: 'What is the symbolic form of "Neither P nor Q"?',
-  options: [
-    '¬P ∧ ¬Q',
-    '¬P ∨ ¬Q',
-    'P ∧ Q',
-    'P ∨ Q'
-  ],
-  correctAnswer: 0,
-  explanation: '"Neither P nor Q" means "not P and not Q".',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-5',
-  question: 'Which is true about the statement "P → Q"?',
-  options: [
-    'It\'s equivalent to its converse',
-    'It\'s equivalent to its contrapositive',
-    'It\'s equivalent to its inverse',
-    'None of the above'
-  ],
-  correctAnswer: 1,
-  explanation: 'A conditional is equivalent to its contrapositive.',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
-{
-  id: 'log-2013-1-6',
-  question: 'What type of reasoning goes from general to specific?',
-  options: [
-    'Inductive',
-    'Deductive',
-    'Abductive',
-    'Reductive'
-  ],
-  correctAnswer: 1,
-  explanation: 'Deductive reasoning applies general rules to specific cases.',
-  subject: 'logic',
-  year: 2013,
-  chapter: 1
-},
-{
-  id: 'log-2014-1-6',
-  question: 'Which symbol represents logical equivalence?',
-  options: ['→', '≡', '∴', '⊢'],
-  correctAnswer: 1,
-  explanation: '≡ means "is logically equivalent to".',
-  subject: 'logic',
-  year: 2014,
-  chapter: 1
-},
-{
-  id: 'log-2015-1-6',
-  question: 'The statement P ∧ ¬P is always:',
-  options: [
-    'True',
-    'False',
-    'Contingent',
-    'Undefined'
-  ],
-  correctAnswer: 1,
-  explanation: 'A statement and its negation cannot both be true.',
-  subject: 'logic',
-  year: 2015,
-  chapter: 1
-},
-{
-  id: 'log-2016-1-6',
-  question: 'Which is NOT a valid inference rule?',
-  options: [
-    'From P → Q and Q, infer P',
-    'From P ∨ Q and ¬P, infer Q',
-    'From P → Q and ¬Q, infer ¬P',
-    'From P and Q, infer P ∧ Q'
-  ],
-  correctAnswer: 0,
-  explanation: 'This would be affirming the consequent, a logical fallacy.',
-  subject: 'logic',
-  year: 2016,
-  chapter: 1
-},
-{
-  id: 'log-2017-1-6',
-  question: 'What is the main connective in (P ∧ Q) → (R ∨ S)?',
-  options: [
-    '∧',
-    '∨',
-    '→',
-    'None of the above'
-  ],
-  correctAnswer: 2,
-  explanation: 'The → is the last operator to be applied.',
-  subject: 'logic',
-  year: 2017,
-  chapter: 1
-},
+    "id": "log-2013-1-1",
+    "question": "If all cats are mammals and all mammals are animals, then all cats are?(AST)",
+    "options": [
+      "Animals",
+      "Plants",
+      "Minerals",
+      "None of the above"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a classic syllogism. The conclusion 'All cats are animals' necessarily follows from the two premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-2",
+    "question": "For the past twenty-five years, Ethiopian athletes have been dominant in the world of athletics. Thus, Ethiopian athletes will probably remain dominant in the coming couple of years. This argument is an example of a(n) _______ argument.",
+    "options": [
+      "deductive",
+      "inductive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. Inductive arguments move from specific observations (past performance) to a broader, probable conclusion (future performance). The conclusion is not guaranteed to be true, but it is made probable by the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-3",
+    "question": "All managers are journalists. All journalists are lawyers. So, all lawyers are journalists. This argument is said to be:",
+    "options": [
+      "Valid Categorical Syllogism",
+      "Invalid Argument",
+      "Uncogent Syllogism",
+      "Cogent Syllogism",
+      "Valid Hypothetical Syllogism",
+      "Invalid Disjunctive Syllogism"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an invalid argument. The conclusion \"all lawyers are journalists\" does not logically follow from the premises. Even if the premises were true, the conclusion would not be. The premises establish a relationship from managers to journalists to lawyers, but do not support the inverse relationship from lawyers to journalists. This is a fallacy of illicit major/minor in categorical logic.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-4",
+    "question": "No cat is a reptile owing to all cats are dogs and no dog is a reptile. What would be the proper name of this argument in terms of both inferential and factual claims?",
+    "options": [
+      "Sound",
+      "Unsound",
+      "Valid",
+      "Invalid",
+      "Cogent",
+      "A and B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is unsound. An argument is sound if and only if it is valid and all of its premises are actually true. The argument \"No cat is a reptile owing to all cats are dogs and no dog is a reptile\" is logically valid (the conclusion necessarily follows from the premises). However, the premise \"all cats are dogs\" is factually false. Therefore, the argument is unsound.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-5",
+    "question": "Yesterday I bought new jeans with a tag that reads, 'Made in U.S.A'. Thus, my new jeans were made in the U.S.A. This argument is:",
+    "options": [
+      "Deductive, Uncogent",
+      "Inductive, Strong",
+      "Deductive, Unsound",
+      "Inductive, Weak",
+      "Deductive, Valid"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a strong inductive argument. It moves from a specific observation (the tag) to a probable conclusion (the jeans were made in the U.S.A.). It is strong because the premise provides a high degree of probability for the conclusion. It's not deductive because the conclusion is not guaranteed, as the tag could be wrong.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-6",
+    "question": "A cogent argument requires one of the following combinations:",
+    "options": [
+      "Strength and Validity",
+      "Strength and Truth",
+      "Validity and Truth",
+      "Soundness and Strength",
+      "All, but not 'D'",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A cogent argument is a type of strong inductive argument with all true premises. Therefore, it requires both strength (the logical connection between premises and conclusion) and truth (the premises must be factually correct).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-7",
+    "question": "Which one of the following statements is incorrect?",
+    "options": [
+      "Strength or validity is about the logical connection between the premises and the conclusion.",
+      "An argument is valid if and only if there is no logically possible situation where all the premises are true and the conclusion is false at the same time.",
+      "A sound argument is one where the truth of the premises guarantees the truth of the conclusion, but soundness does not guarantee that the premises are in fact true.",
+      "If the premise in an inductive argument is true, there is no guarantee that the conclusion must also be true.",
+      "It is possible for a valid argument to have a true conclusion even when all its premises are false in fact."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Statement C is incorrect. A sound argument is a valid deductive argument that has all true premises. Therefore, soundness does, in fact, guarantee that the premises are true. The other statements correctly describe aspects of logical argumentation.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-8",
+    "question": "[A] We were late for class [B] because we were having a breakfast. What we can say about the relationship of these two statements?",
+    "options": [
+      "A because B here implies no kind of reason at all.",
+      "A because B justifies what is the case.",
+      "A because B presents both reason of why and what is the case.",
+      "A because B explains why something is the case.",
+      "A because B in this context says there is identical appearance of the premise and the explanans."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The word \"because\" in this context indicates an explanation. The statement \"we were having a breakfast\" serves to explain the reason \"why\" they were late for class. An explanation presents a causal account for an event, rather than an argument which attempts to prove a conclusion.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-9",
+    "question": "Identify the argument which is odd in its form of argumentation from the given alternatives below:",
+    "options": [
+      "Both Lionel Messi and Cristiano Ronaldo play in the English Premier League. Messi's payment is 40,000 Euro per week. Ronaldo's weekly payment is less than Messi's by more than half. Accordingly, Ronaldo must be paid 19,500 Euro weekly.",
+      "Professional football players are aggressive. Wayne Mark Rooney is a professional footballer. Accordingly, Rooney must be aggressive.",
+      "In Africa, there are 59 countries. But for the sake of my study, I took only a sample of 37. The data of my study has already assured these 37 countries are growing by more than single-digit economy. In the context of my study, then it must be the case that most African countries are growing by more than single-digit economy.",
+      "I am going to rent a studio which has a length and width of 4 and 5 meters long, respectively. Accordingly, it is certainly true that this studio has a rectangular shape.",
+      "Either Samrawit has exactly 10,000 or 7,500 dollars in her bag. Indeed, Samrawit has 10,000 dollars in her bag. Whence, in Samrawit's bag one can find a dollar which is greater than 7,500.",
+      "All of the above"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The odd argument is C because it is the only inductive argument among the options. Options A, B, D, and E are all deductive arguments. A and E are based on logical inference, B is a categorical syllogism, and D is based on a mathematical fact. C, however, generalizes from a sample (37 countries) to a conclusion about a larger group (most African countries), which is a key characteristic of an inductive argument.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-10",
+    "question": "A statement that is incorrect about an argument among the following is:",
+    "options": [
+      "It is necessary for an argument to have one conclusion and more than one premise.",
+      "There must be a claim supported or implied by evidence for a passage to contain an argument.",
+      "A conclusion of an argument may appear either at the beginning or middle or at the end part of the passage.",
+      "At least one of the statements must provide evidence to support or prove a claim.",
+      "Evidence is a kind of reason, and the attempt to provide evidence in support of a conclusion is normally called an argument.",
+      "Both 'A' and 'C'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Statement A is incorrect. An argument can have a single premise and a single conclusion. For example, \"It is raining. Therefore, it is wet outside.\" is a simple but complete argument. An argument must have at least one premise and one conclusion, but it doesn't need to have more than one premise.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-11",
+    "question": "If government imposes import restrictions, the price of automobiles will rise. Therefore, since the government will not impose import restrictions, it follows that the price of automobiles will not rise. This argument form is:",
+    "options": [
+      "Invalid",
+      "Valid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This argument form is invalid. It is a logical fallacy known as Denying the Antecedent. The form is \"If P then Q. Not P. Therefore, Not Q.\" The fact that the government will not impose import restrictions (Not P) does not necessarily mean the price will not rise (Not Q), as other factors could cause the price to rise.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-12",
+    "question": "'The reason poverty is rising worldwide is that the global economy has made it impossible for countries to provide stable working conditions for its citizens.' This passage can be identified as:",
+    "options": [
+      "Argument",
+      "Report",
+      "Explanation",
+      "Illustration",
+      "Exposition"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This passage is an explanation. An explanation provides a reason or cause for why something is the case. The phrase \"The reason...is that\" is a strong indicator that the passage is explaining a phenomenon rather than trying to convince the reader of a conclusion.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-13",
+    "question": "Emperor Tewodros II is the grand architect of Ethiopian modernity. He tried to revolutionize existing relations between the state and church; he tried to build a modern army and also sought to establish foreign relations with Western European nations.",
+    "options": [
+      "Argument; conclusion: He tried to revolutionize existing relations between the state and church.",
+      "Argument; conclusion: he tried to build a modern army.",
+      "Expository passage",
+      "Loosely associated statements",
+      "Argument; conclusion: Emperor Tewodros II is the grand architect of Ethiopian modernity.",
+      "All"
+    ],
+    "correctAnswer": 4,
+    "explanation": "This is an argument. The premises (\"He tried to revolutionize...,\" \"he tried to build...,\" and \"also sought to establish...\") are offered as evidence to support the main claim that Emperor Tewodros II is the grand architect of Ethiopian modernity. Therefore, the conclusion is the first statement, and the subsequent statements are premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-14",
+    "question": "Claude Sumner initiated the project of studying the written sources of Ethiopian philosophy. He also analyzed the role of oral literature and western literature for the understanding of Ethiopian philosophy. As such, Claude Sumner could be seen as the greatest thinker in the development of Ethiopian philosophy.",
+    "options": [
+      "Argument; conclusion: initiated the project of studying the written sources of Ethiopian philosophy.",
+      "Argument; conclusion: As such, Claude Sumner could be seen as the greatest thinker in the development of Ethiopian philosophy.",
+      "Argument; conclusion: analyzed the role of oral literature.",
+      "Non-argument",
+      "Explanation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an argument. The phrase \"As such\" is a conclusion indicator word. The preceding two statements (\"Claude Sumner initiated the project...\" and \"He also analyzed...\") serve as premises to support the final statement, which is the conclusion.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-15",
+    "question": "Which of the following statements contains a vague expression or term?",
+    "options": [
+      "The stolen bicycle was found by a man sleeping in the park.",
+      "Mr. Hussein, my neighbor, is wealthy.",
+      "Elias watched Hareg throw a ball through the window.",
+      "Semira said that her apartment is located on Palm Street."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The statement \"Mr. Hussein, my neighbor, is wealthy\" contains a vague term. The term \"wealthy\" is not clearly defined. What constitutes wealth for one person may not for another, making the term imprecise. Statements with clear, definite meanings are not vague.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-16",
+    "question": "Selling salt to customers after twelve brings bad luck on one's life. Thus, one shouldn't sell salt to customers. This argument is:",
+    "options": [
+      "Inductive, invalid",
+      "Deductive, valid",
+      "Inductive, strong",
+      "Deductive, unsound",
+      "Inductive, weak"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is a deductive argument because it attempts to draw a conclusion that is necessarily true based on the premise. The form is: If P then Q. P. Therefore, Q. The conclusion logically follows from the premise, making it valid. However, the premise \"Selling salt...brings bad luck\" is factually false. Since a deductive argument is sound only if it is valid and has true premises, this argument is unsound.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-17",
+    "question": "A valid deductive argument with all true premises is called a(n) ___________ argument.",
+    "options": [
+      "strong",
+      "cogent",
+      "sound",
+      "uncogent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A sound argument is, by definition, a valid deductive argument with all true premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-18",
+    "question": "A strong inductive argument with all true premises is called a(n) ___________ argument.",
+    "options": [
+      "valid",
+      "sound",
+      "cogent",
+      "invalid"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is a strong inductive argument with all true premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-19",
+    "question": "The term \"validity\" refers to the __________ connection between the premises and the conclusion of a(n) ___________ argument.",
+    "options": [
+      "factual, inductive",
+      "factual, deductive",
+      "logical, inductive",
+      "logical, deductive"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Validity is a property of a deductive argument. It refers to the logical connection between the premises and the conclusion, specifically whether the conclusion must follow from the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-20",
+    "question": "The term \"strength\" refers to the __________ connection between the premises and the conclusion of a(n) ___________ argument.",
+    "options": [
+      "factual, inductive",
+      "factual, deductive",
+      "logical, inductive",
+      "logical, deductive"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Strength is a property of an inductive argument. It refers to the logical connection between the premises and the conclusion, specifically whether the conclusion is probable given the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-21",
+    "question": "A passage that presents a series of statements about a topic without intending to prove anything is known as a(n) _______________.",
+    "options": [
+      "argument",
+      "report",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A report is a passage that presents factual information without making an argumentative claim. It simply presents a series of statements about a topic, often in a neutral tone.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-22",
+    "question": "An argument that moves from particular facts to a probable general conclusion is a(n) ___________ argument.",
+    "options": [
+      "deductive",
+      "inductive",
+      "categorical",
+      "hypothetical"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An inductive argument is characterized by its move from particular facts or observations to a probable general conclusion. This type of reasoning is common in science and everyday life.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-23",
+    "question": "An argument that moves from a general rule to a specific instance is a(n) ___________ argument.",
+    "options": [
+      "deductive",
+      "inductive",
+      "categorical",
+      "hypothetical"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A deductive argument is characterized by its move from a general rule or principle to a specific instance. The conclusion is meant to be a necessary consequence of the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-24",
+    "question": "The statement in an argument that is intended to be supported by evidence is the __________.",
+    "options": [
+      "premise",
+      "conclusion",
+      "report",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The conclusion is the main claim of an argument, the statement that the arguer is trying to prove. It is the statement that is supported by the other statements, which are the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-25",
+    "question": "The statement in an argument that provides evidence is the __________.",
+    "options": [
+      "premise",
+      "conclusion",
+      "report",
+      "illustration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A premise is a statement that provides evidence, support, or reasons for a conclusion. Arguments are built on premises that lead to a conclusion.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-26",
+    "question": "A statement that is always true is a _________.",
+    "options": [
+      "tautology",
+      "contradiction",
+      "contingent statement",
+      "paradox"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A tautology is a statement that is true by its logical form, such as \"It is raining or it is not raining.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-27",
+    "question": "A statement that is always false is a _________.",
+    "options": [
+      "tautology",
+      "contradiction",
+      "contingent statement",
+      "paradox"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A contradiction is a statement that is always false, such as \"It is raining and it is not raining.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-28",
+    "question": "If the conclusion of an argument is a necessary truth, it must be a(n) ___________ argument.",
+    "options": [
+      "inductive",
+      "deductive",
+      "weak",
+      "uncogent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Deductive arguments are the only type of argument that can guarantee the truth of the conclusion. The conclusion of a valid deductive argument is a necessary truth if its premises are true.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-29",
+    "question": "If the conclusion of an argument is a probable truth, it must be a(n) ___________ argument.",
+    "options": [
+      "inductive",
+      "deductive",
+      "invalid",
+      "unsound"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The conclusion of an inductive argument is never guaranteed to be true, but it is made probable by the premises. This is the defining characteristic of inductive reasoning.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-30",
+    "question": "All dogs are mammals. Some mammals are cats. Therefore, some dogs are cats. This argument is an example of a(n) ______________.",
+    "options": [
+      "Valid Categorical Syllogism",
+      "Invalid Categorical Syllogism",
+      "Valid Disjunctive Syllogism",
+      "Invalid Hypothetical Syllogism"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an invalid categorical syllogism. The conclusion \"some dogs are cats\" does not logically follow from the premises. The premises allow for a situation where the mammals that are cats are not the same mammals that are dogs. This is a fallacy of the undistributed middle term.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-31",
+    "question": "A passage that contains a causal claim, where one part explains why another part is true, is a(n) ______________.",
+    "options": [
+      "argument",
+      "explanation",
+      "report",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An explanation provides a causal account for a fact or event. It is different from an argument, which tries to prove a claim. The passage is not trying to prove that something happened but to explain why it happened.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-32",
+    "question": "The argument form \"If P then Q. Not P. Therefore, Not Q\" is known as:",
+    "options": [
+      "Modus Ponens",
+      "Modus Tollens",
+      "Denying the Antecedent",
+      "Affirming the Consequent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The argument form \"If P then Q. Not P. Therefore, Not Q\" is a formal fallacy known as Denying the Antecedent. It is an invalid argument form.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-33",
+    "question": "The argument form \"If P then Q. P. Therefore, Q\" is known as:",
+    "options": [
+      "Modus Ponens",
+      "Modus Tollens",
+      "Denying the Antecedent",
+      "Affirming the Consequent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The argument form \"If P then Q. P. Therefore, Q\" is a valid form of deductive argument known as Modus Ponens, which means \"mode that affirms.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-34",
+    "question": "The phrase \"it follows that\" is an example of a __________ indicator word.",
+    "options": [
+      "premise",
+      "conclusion",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The phrase \"it follows that\" is a clear conclusion indicator word. It signals that the statement that follows is the conclusion of the argument, and the preceding statements are the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-35",
+    "question": "The phrase \"because\" is an example of a __________ indicator word.",
+    "options": [
+      "premise",
+      "conclusion",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The word \"because\" is a common premise indicator word. It signals that the statement that follows provides a reason or evidence to support a conclusion.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-36",
+    "question": "All Ethiopians are intelligent. All intelligent people are great leaders. Therefore, all great leaders are Ethiopians. This argument is an example of a(n) ____________.",
+    "options": [
+      "valid argument",
+      "invalid argument",
+      "cogent argument",
+      "sound argument"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an invalid argument. The conclusion \"all great leaders are Ethiopians\" does not logically follow from the premises. The premises support a conclusion that \"all Ethiopians are great leaders,\" but not the other way around. This is a common fallacy in categorical logic.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-37",
+    "question": "If Meseret is a doctor, then she is a professional. Meseret is a professional. Therefore, Meseret is a doctor. This argument is an example of a(n) ___________ fallacy.",
+    "options": [
+      "Denying the Antecedent",
+      "Affirming the Consequent",
+      "Modus Ponens",
+      "Modus Tollens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an example of the fallacy of Affirming the Consequent. The argument form is \"If P then Q. Q. Therefore, P.\" It is a formal fallacy because just because the consequent (being a professional) is true, it does not mean the antecedent (being a doctor) must also be true.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-38",
+    "question": "A statement that is open to more than one interpretation is called __________.",
+    "options": [
+      "vague",
+      "ambiguous",
+      "imprecise",
+      "subjective"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An ambiguous statement is one that has more than one meaning and can be interpreted in different ways. For example, \"I saw her duck.\" could mean she lowered her head or she saw a bird.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-39",
+    "question": "A statement that lacks a clear and definite meaning is called __________.",
+    "options": [
+      "vague",
+      "ambiguous",
+      "imprecise",
+      "subjective"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A vague statement lacks a clear and definite meaning, often because it uses terms that do not have a precise boundary of application. For example, \"It's a long distance from here\" is vague because \"long distance\" is not clearly defined.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-40",
+    "question": "The passage \"A report from the Ministry of Education showed that student enrollment has increased by 10% this year.\" is a clear example of a(n) __________.",
+    "options": [
+      "argument",
+      "report",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a report. It simply presents a piece of information from a source without providing evidence to support a separate conclusion. It is a factual statement.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-41",
+    "question": "The argument \"Either Selam is at home or at work. Selam is not at work. Therefore, Selam is at home.\" is a valid form of argument known as:",
+    "options": [
+      "Disjunctive Syllogism",
+      "Hypothetical Syllogism",
+      "Categorical Syllogism",
+      "Modus Ponens"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a valid form of argument known as Disjunctive Syllogism. The form is \"Either P or Q. Not P. Therefore, Q.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-42",
+    "question": "The argument \"If Fekadu studies hard, he will pass the exam. If he passes the exam, he will graduate. Therefore, if Fekadu studies hard, he will graduate.\" is a valid form of argument known as:",
+    "options": [
+      "Disjunctive Syllogism",
+      "Hypothetical Syllogism",
+      "Categorical Syllogism",
+      "Modus Tollens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a valid form of argument known as Hypothetical Syllogism. The form is \"If P then Q. If Q then R. Therefore, If P then R.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-43",
+    "question": "An argument that relies on a physical or mathematical calculation is always a(n) ___________ argument.",
+    "options": [
+      "inductive",
+      "deductive",
+      "weak",
+      "uncogent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An argument based on mathematical or physical calculation is always a deductive argument. The conclusion is necessarily true if the premises are true. The relationship is one of logical necessity, not probability.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-44",
+    "question": "An argument that relies on a prediction or a statistical study is always a(n) ___________ argument.",
+    "options": [
+      "inductive",
+      "deductive",
+      "invalid",
+      "unsound"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An argument that relies on a prediction or a statistical study is always an inductive argument. The conclusion is only probable, not guaranteed to be true, making it inductive.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-45",
+    "question": "In the sentence, \"Tewodros believes that all politicians are corrupt,\" the phrase \"all politicians are corrupt\" is a(n) __________.",
+    "options": [
+      "statement",
+      "non-statement",
+      "argument",
+      "non-argument"
+    ],
+    "correctAnswer": 0,
+    "explanation": "\"All politicians are corrupt\" is a statement. A statement is a sentence that is either true or false. In this context, it is a belief held by Tewodros, but the phrase itself is a declarative sentence that can be evaluated for truth or falsehood.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-46",
+    "question": "The argument form \"All S are P. All P are Q. Therefore, All S are Q.\" is an example of a(n) ____________.",
+    "options": [
+      "Categorical Syllogism",
+      "Disjunctive Syllogism",
+      "Hypothetical Syllogism",
+      "Modus Ponens"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This argument form is an example of a Categorical Syllogism. It is a deductive argument that consists of three parts: a major premise, a minor premise, and a conclusion. The premises and conclusion are all categorical statements.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-47",
+    "question": "The argument \"Ethiopian coffee is the best in the world. As evidence, consider that coffee originated in Ethiopia, and many people love its unique flavor.\" is a(n) __________.",
+    "options": [
+      "report",
+      "argument",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an argument. The phrase \"As evidence\" explicitly indicates that the following two statements are premises being used to support the conclusion that \"Ethiopian coffee is the best in the world.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-48",
+    "question": "The passage \"An explanation of the recent power outage is that the transformer in the neighborhood broke down.\" is a(n) ____________.",
+    "options": [
+      "argument",
+      "report",
+      "explanation",
+      "illustration"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is an explanation. The passage provides a reason for a known fact (the power outage). It is not trying to prove that a power outage occurred, but rather to explain why it occurred.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-49",
+    "question": "The statement \"My neighbor, Aster, is 1.7 meters tall.\" is an example of a(n) ______________.",
+    "options": [
+      "subjective statement",
+      "objective statement",
+      "vague statement",
+      "ambiguous statement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an objective statement. An objective statement is one whose truth can be verified independently of personal opinion or feeling. Height can be measured, making this an objective statement.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-50",
+    "question": "The statement \"The painting in the museum is beautiful.\" is an example of a(n) ______________.",
+    "options": [
+      "subjective statement",
+      "objective statement",
+      "vague statement",
+      "ambiguous statement"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a subjective statement. A subjective statement is one whose truth depends on personal opinion, feelings, or preferences. \"Beautiful\" is a matter of personal taste.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-51",
+    "question": "All Ethiopian runners are fast. Solomon is an Ethiopian runner. Therefore, Solomon is fast. This argument is an example of a(n) ______________.",
+    "options": [
+      "deductive argument",
+      "inductive argument",
+      "cogent argument",
+      "weak argument"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a deductive argument. It moves from a general premise (\"All Ethiopian runners are fast\") to a specific conclusion about an individual (Solomon). The conclusion is guaranteed to be true if the premises are true.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-52",
+    "question": "The sky is dark. The clouds are getting thicker. It's probably going to rain. This argument is an example of a(n) ______________.",
+    "options": [
+      "deductive argument",
+      "inductive argument",
+      "valid argument",
+      "sound argument"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. It moves from specific observations (dark sky, thick clouds) to a probable conclusion (\"It's probably going to rain\"). The conclusion is not guaranteed, but it is highly likely based on the evidence.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-53",
+    "question": "The statement \"Yohannes lives in the countryside.\" is a(n) ______________.",
+    "options": [
+      "vague statement",
+      "ambiguous statement",
+      "subjective statement",
+      "objective statement"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a vague statement. The term \"countryside\" lacks a clear and definite boundary. What constitutes the countryside can vary depending on context and personal interpretation, making the statement imprecise.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-54",
+    "question": "The argument \"Abiy must have won the race. He was the first one to cross the finish line.\" is a(n) ______________.",
+    "options": [
+      "explanation",
+      "report",
+      "argument",
+      "loosely associated statements"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is an argument. The statement \"He was the first one to cross the finish line\" is a premise offered as evidence to support the conclusion that \"Abiy must have won the race.\"",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-55",
+    "question": "The argument \"Either Gelila is at school or at the library. Gelila is not at the library. Therefore, Gelila is at school.\" is a(n) ____________.",
+    "options": [
+      "valid argument",
+      "invalid argument",
+      "cogent argument",
+      "weak argument"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a valid argument because the conclusion necessarily follows from the premises. This is an example of a valid logical form known as Disjunctive Syllogism (\"Either P or Q. Not Q. Therefore, P.\").",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-56",
+    "question": "The statement \"Mekdes is a good student.\" is an example of a(n) ____________.",
+    "options": [
+      "objective statement",
+      "subjective statement",
+      "precise statement",
+      "unambiguous statement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a subjective statement. The term \"good student\" is open to personal interpretation and opinion. What makes a student \"good\" can vary based on criteria like grades, effort, or behavior, making the statement a matter of opinion rather than objective fact.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-57",
+    "question": "The statement \"The bank near the river\" is an example of a(n) ____________.",
+    "options": [
+      "vague statement",
+      "ambiguous statement",
+      "subjective statement",
+      "objective statement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an ambiguous statement. The word \"bank\" has more than one meaning (a financial institution or the side of a river). This double meaning makes the phrase open to multiple interpretations.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-58",
+    "question": "The argument \"The past 10 national football matches won by the Ethiopian team were at home. Therefore, the next national match will probably be won at home.\" is an example of a(n) ______________ argument.",
+    "options": [
+      "deductive",
+      "inductive",
+      "valid",
+      "unsound"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. It moves from specific past observations (the last 10 matches) to a probable conclusion about a future event. The conclusion is not guaranteed, but is made likely by the premises.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
   // ==================== ENGLISH QUESTIONS ====================
   
   //english-2014-1-1
