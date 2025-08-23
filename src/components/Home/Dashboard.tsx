@@ -193,8 +193,9 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
       <Header />
-      <main className="container mx-auto px-4 py-6 pt-20 max-w-6xl">
-
+      {/* ADDED PADDING TO BOTTOM TO PREVENT OVERLAP */}
+      <main className="container mx-auto px-4 py-6 pt-20 pb-24 max-w-6xl">
+        
         {/* Subjects Grid - NOW AT THE TOP */}
         <section className="mb-8">
           <motion.div
