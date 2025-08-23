@@ -7078,6 +7078,1027 @@ export const sampleQuestions: Question[] = [
     "year": 2017,
     "chapter": 3
   },
+
+  {
+    "id": "psych-2013-2-2",
+    "question": "The process of converting physical energy from a stimulus into a neural signal is known as:",
+    "options": [
+      "Perception",
+      "Sensation",
+      "Transduction",
+      "Adaptation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Transduction is the process by which sensory receptors convert physical energy from the environment (like light, sound waves, or chemicals) into electrochemical neural impulses that the brain can understand. Sensation is the initial detection of the stimulus, perception is the interpretation of that sensation, and adaptation is the decreased sensitivity to a constant stimulus.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-3",
+    "question": "A student's ability to focus on a professor's voice while ignoring the chatter of other students in a noisy classroom is an example of:",
+    "options": [
+      "Sensory adaptation",
+      "Selective attention",
+      "Perceptual constancy",
+      "Extrasensory perception"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selective attention is the ability to focus conscious awareness on a particular stimulus while filtering out other simultaneous information. This is exactly what the \"cocktail party effect\" describes—the ability to tune into one conversation among many.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-4",
+    "question": "Which of the following is an example of a monocular cue for depth perception?",
+    "options": [
+      "Retinal disparity",
+      "Convergence",
+      "Linear perspective",
+      "Binocular rivalry"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Monocular cues require only one eye to perceive depth. Linear perspective is a monocular cue where parallel lines appear to converge as they recede into the distance. Retinal disparity and convergence are both binocular cues, requiring both eyes. Binocular rivalry is not a depth cue.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-5",
+    "question": "An individual who has a reduced ability to taste sweet flavors after eating a very sweet dessert is experiencing:",
+    "options": [
+      "Sensory threshold",
+      "Sensory deprivation",
+      "Sensory habituation",
+      "Sensory adaptation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Sensory adaptation is the diminished sensitivity to a constant or recurring stimulus. After constant exposure to a very sweet taste, the taste receptors become less responsive, reducing the perception of that sweetness.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-6",
+    "question": "The ability to recognize an object as the same despite changes in its retinal image is called:",
+    "options": [
+      "Perceptual set",
+      "Perceptual constancy",
+      "Perceptual illusion",
+      "Perceptual organization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perceptual constancy is the ability to perceive objects as having consistent properties (like size, shape, and color) even as the sensory information about them (the retinal image) changes due to viewing angle, lighting, or distance.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-7",
+    "question": "A musician's ability to differentiate between the sounds of a violin and a cello playing the same note is an example of:",
+    "options": [
+      "Absolute threshold",
+      "Difference threshold",
+      "Sensory detection",
+      "Perceptual constancy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The difference threshold (or just noticeable difference - JND) is the minimum difference between two stimuli required for detection 50% of the time. The musician is detecting a difference in timbre (sound quality) between two instruments playing the same note.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-8",
+    "question": "The Gestalt principle that suggests we group elements that are close to each other is the Law of:",
+    "options": [
+      "Similarity",
+      "Proximity",
+      "Closure",
+      "Continuity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Gestalt Law of Proximity states that we perceive objects that are physically close to each other as belonging to the same group.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-9",
+    "question": "Which of the following is considered a bottom-up processing approach to perception?",
+    "options": [
+      "Using past experiences to interpret a new image",
+      "Interpreting a vague sketch based on context",
+      "Identifying an object by analyzing its individual features (lines, shapes, colors)",
+      "Perceiving a familiar tune in a noisy environment"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Bottom-up processing begins with the raw sensory input. It is data-driven, building up perception from individual elements to a whole. Analyzing lines and shapes to form an object is a classic example. Options A, B, and D all rely on top-down processing, which uses context, expectations, and prior knowledge.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-10",
+    "question": "The minimum amount of stimulation a person needs to detect a stimulus 50% of the time is called the:",
+    "options": [
+      "Difference threshold",
+      "Just noticeable difference",
+      "Absolute threshold",
+      "Sensory acuity"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The absolute threshold is defined as the minimum intensity of a stimulus that can be detected 50% of the time. The difference threshold (JND) is the smallest change in intensity needed to notice a difference.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-11",
+    "question": "A person looking at a train track that appears to converge in the distance is experiencing the pictorial depth cue of:",
+    "options": [
+      "Interposition",
+      "Relative size",
+      "Linear perspective",
+      "Texture gradient"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Linear perspective is a monocular depth cue where parallel lines, like those of train tracks, appear to converge as they extend into the distance, creating a sense of depth.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-12",
+    "question": "A person who can \"feel\" someone staring at them from behind is an example of:",
+    "options": [
+      "Perceptual set",
+      "Perceptual adaptation",
+      "Telepathy",
+      "Extrasensory perception"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Extrasensory perception (ESP) is the controversial perception claim of information without using known sensory channels. \"Feeling\" a stare from behind would be classified under this umbrella term, though it is not supported by scientific evidence.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-13",
+    "question": "The tendency to perceive an incomplete figure as a whole is a Gestalt principle known as the Law of:",
+    "options": [
+      "Proximity",
+      "Similarity",
+      "Closure",
+      "Continuity"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Gestalt Law of Closure states that we mentally fill in gaps to perceive complete, whole objects even when parts are missing. We see a circle made of dashed lines as a complete circle, for example.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-14",
+    "question": "An individual's previous experience with a specific type of food can influence their expectation of its taste. This is an example of:",
+    "options": [
+      "Sensory adaptation",
+      "Perceptual set",
+      "Sensory constancy",
+      "Difference threshold"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A perceptual set is a mental predisposition to perceive one thing and not another. It is influenced by context, motivation, emotion, and past experiences, which shape our expectations and interpretations.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-15",
+    "question": "The process by which the lens of the eye changes shape to focus on objects at different distances is called:",
+    "options": [
+      "Retinal disparity",
+      "Convergence",
+      "Accommodation",
+      "Transduction"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Accommodation is the process by which the eye's lens changes its curvature and thickness to focus light rays from objects at different distances onto the retina.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-16",
+    "question": "An artist's use of lighter colors for distant objects and darker colors for closer objects to create a sense of depth is using the monocular cue of:",
+    "options": [
+      "Relative size",
+      "Texture gradient",
+      "Aerial perspective",
+      "Interposition"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Aerial perspective (or atmospheric perspective) is a monocular cue where distant objects appear hazy, bluish, and less detailed due to the scattering of light and particles in the atmosphere. Artists mimic this by using lighter, less distinct colors for faraway objects.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-17",
+    "question": "When the brain receives ambiguous sensory information, it often uses context and prior knowledge to construct a meaningful perception. This is an example of:",
+    "options": [
+      "Top-down processing",
+      "Bottom-up processing",
+      "Sensory transduction",
+      "Absolute threshold"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Top-down processing uses higher-level mental processes, such as expectations, experiences, and context, to interpret sensory information. It is concept-driven, guiding our perception of ambiguous data.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-18",
+    "question": "A person who is not consciously aware of the sound of a ticking clock in their room until someone points it out is demonstrating:",
+    "options": [
+      "Sensory deprivation",
+      "Sensory neglect",
+      "Sensory adaptation",
+      "Selective attention"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Selective attention involves focusing on a particular stimulus while ignoring others. The clock's ticking was filtered out as irrelevant background noise until attention was deliberately directed to it.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-19",
+    "question": "The ability to perceive a friend's voice in a crowded room, despite the presence of many other conversations, is a result of:",
+    "options": [
+      "Perceptual constancy",
+      "The cocktail party effect",
+      "Sensory adaptation",
+      "Absolute threshold"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The cocktail party effect is the ability to focus one's auditory attention on a particular stimulus (a friend's voice) while filtering out a range of other stimuli (other conversations), a key function of selective attention.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-20",
+    "question": "A painting that uses overlapping objects to suggest that one object is closer than another is using the pictorial depth cue of:",
+    "options": [
+      "Relative height",
+      "Interposition",
+      "Texture gradient",
+      "Linear perspective"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Interposition (or overlap) is a monocular depth cue where if one object partially blocks our view of another, we perceive the blocked object as being farther away.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-21",
+    "question": "A person who is asked to taste-test a new soda is able to detect a very slight difference in sweetness between two versions. This is an example of:",
+    "options": [
+      "Absolute threshold",
+      "Sensory adaptation",
+      "Just noticeable difference",
+      "Sensory overload"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The just noticeable difference (JND) is the smallest detectable change in a stimulus. The taster is detecting the minimum difference in sweetness required to tell the two versions apart.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-22",
+    "question": "The psychological principle that states we tend to see objects that move together as a single unit is the Gestalt Law of:",
+    "options": [
+      "Proximity",
+      "Similarity",
+      "Common fate",
+      "Closure"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Gestalt Law of Common Fate states that we perceive objects that are moving in the same direction and at the same speed as part of a single group or unit (e.g., a flock of birds).",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-23",
+    "question": "The ability to see a red car as red, regardless of whether it is in bright sunlight or deep shade, is an example of:",
+    "options": [
+      "Size constancy",
+      "Shape constancy",
+      "Brightness constancy",
+      "Color constancy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Color constancy is our ability to perceive the consistent color of an object despite changes in the wavelength of light illuminating it (e.g., in sun or shade).",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-24",
+    "question": "A visual illusion where a horizontal line appears to be longer than a vertical line of the same length is known as the:",
+    "options": [
+      "Müller-Lyer illusion",
+      "Ponzo illusion",
+      "Ames room illusion",
+      "Ebbinghaus illusion"
+    ],
+    "correctAnswer": 0,
+    "explanation": "(Based on the options given) The Müller-Lyer illusion is the most classic example of a line length illusion, where two lines of equal length appear different due to the angle of the arrows at their ends.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-25",
+    "question": "Which of the following is a binocular cue for depth perception?",
+    "options": [
+      "Linear perspective",
+      "Texture gradient",
+      "Retinal disparity",
+      "Interposition"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Binocular cues require both eyes. Retinal disparity is a key binocular cue; it is the slight difference between the images received by the left and right retinas, which the brain uses to compute depth.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-26",
+    "question": "A teacher who learns to ignore the background noise in their classroom over time is an example of:",
+    "options": [
+      "Habituation",
+      "Sensitization",
+      "Perception",
+      "Attention"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Habituation is a simple form of learning where there is a decrease in behavioral response to a repeated, non-threatening stimulus. The teacher's nervous system has learned to \"ignore\" the constant background noise.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-27",
+    "question": "The ability to correctly identify an object as a chair whether it's viewed from the front, back, or side is an example of:",
+    "options": [
+      "Perceptual constancy",
+      "Form perception",
+      "Gestalt principles",
+      "Perceptual organization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a specific example of shape constancy, a type of perceptual constancy. We perceive the chair's shape as constant even though the angle of view changes the shape of the retinal image.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-28",
+    "question": "A person who believes they can communicate with spirits is an example of:",
+    "options": [
+      "Clairvoyance",
+      "Telepathy",
+      "Precognition",
+      "Extrasensory perception"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Communicating with spirits would fall under the broad, non-scientific category of extrasensory perception (ESP), which encompasses perception beyond the known senses.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-29",
+    "question": "The concept that our brain organizes a stimulus into a central object (figure) and its surrounding background (ground) is known as:",
+    "options": [
+      "Figure-ground organization",
+      "Perceptual grouping",
+      "Perceptual set",
+      "Law of continuity"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Figure-ground organization is a fundamental Gestalt principle where we automatically separate visual scenes into a central object (the figure) that stands out from its less distinct surroundings (the ground).",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-30",
+    "question": "The smallest change in stimulation that can be detected 50% of the time is called the:",
+    "options": [
+      "Absolute threshold",
+      "Just noticeable difference",
+      "Sensory minimum",
+      "Perceptual threshold"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the precise definition of the just noticeable difference (JND), or difference threshold. The absolute threshold is the minimum intensity needed to detect the stimulus itself.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-31",
+    "question": "A painter creating the illusion of distance by making objects in the background appear blurry and less detailed is using the pictorial cue of:",
+    "options": [
+      "Relative height",
+      "Relative size",
+      "Texture gradient",
+      "Atmospheric perspective"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Atmospheric perspective (or aerial perspective) is a monocular cue where distant objects appear less sharp, bluer, and blurrier due to the effect of the atmosphere, which artists use to create depth.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-32",
+    "question": "The ability to perceive a coin as round even when viewed from an angle that makes its retinal image elliptical is an example of:",
+    "options": [
+      "Size constancy",
+      "Shape constancy",
+      "Color constancy",
+      "Brightness constancy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Shape constancy is the perception that an object's shape remains constant despite changes in the shape of the retinal image caused by the object's orientation.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-33",
+    "question": "Which of the following describes the difference between sensation and perception?",
+    "options": [
+      "Sensation is a biological process, while perception is a cognitive process.",
+      "Sensation is a cognitive process, while perception is a biological process.",
+      "Sensation involves interpretation, while perception involves detection.",
+      "Sensation and perception are two terms for the same process."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sensation is the biological process of receiving raw sensory data from the environment. Perception is the cognitive process of selecting, organizing, and interpreting those sensations.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-34",
+    "question": "The Gestalt principle that states we tend to group similar objects together is the Law of:",
+    "options": [
+      "Proximity",
+      "Continuity",
+      "Closure",
+      "Similarity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Gestalt Law of Similarity states that we perceive objects that are similar in size, shape, color, or texture as belonging together and forming a group.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-35",
+    "question": "A person who has a fear of heights experiences an exaggerated perception of the steepness of a slope. This is an example of how ______ can affect perception.",
+    "options": [
+      "Sensory adaptation",
+      "Emotion",
+      "Attention",
+      "Context"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Our emotional state can directly influence our perceptions. In this case, fear and anxiety are leading to a top-down perceptual bias, making the slope appear more dangerous than it is.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-36",
+    "question": "The process of converting environmental stimuli into neural signals is called:",
+    "options": [
+      "Transduction",
+      "Interpretation",
+      "Organization",
+      "Localization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Transduction is the process where sensory receptors (e.g., in the eyes, ears, skin) convert physical energy from the environment into electrical signals that travel to the brain as neural impulses.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-37",
+    "question": "When you are looking at a photo of a road, the parallel lines of the road appear to get closer together as they recede into the distance. This is an example of:",
+    "options": [
+      "Texture gradient",
+      "Linear perspective",
+      "Relative size",
+      "Interposition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the classic example of linear perspective, a monocular depth cue where parallel lines converge in the distance.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-38",
+    "question": "A person who can hear a dog whistle that is too high-pitched for most humans to hear has a lower:",
+    "options": [
+      "Difference threshold",
+      "Sensory adaptation",
+      "Absolute threshold",
+      "Sensory deprivation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The absolute threshold for hearing is the softest sound one can detect. If someone can hear a very high-frequency sound that others cannot, their absolute threshold for that frequency is lower (they require less intensity to detect it).",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-39",
+    "question": "The fact that a full moon on the horizon appears larger than a full moon high in the sky is known as the:",
+    "options": [
+      "Ames room illusion",
+      "Ponzo illusion",
+      "Moon illusion",
+      "Müller-Lyer illusion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The moon illusion is the name for this specific phenomenon. While its causes are debated (often explained by the Ponzo illusion or the role of distance cues), it is universally known as the moon illusion.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-40",
+    "question": "A police officer who is trained to spot a particular detail in a crowd, and therefore notices it more readily, is demonstrating a change in:",
+    "options": [
+      "Sensory adaptation",
+      "Perceptual set",
+      "Sensory threshold",
+      "Extrasensory perception"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A perceptual set is a mental readiness to perceive a stimulus in a certain way based on expectations, context, and experience. The officer's training has created a perceptual set, making them more likely to notice relevant details.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-41",
+    "question": "Which of the following is an example of a stimulus-related factor that can draw attention?",
+    "options": [
+      "A person's expectation",
+      "A person's motivation",
+      "The size of an advertisement",
+      "A person's past experience"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Options A, B, and D are all internal, person-related factors. The physical size of an ad is an external, stimulus-related property (like intensity, novelty, or movement) that can automatically capture attention.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-42",
+    "question": "The ability to perceive two lights as two separate lights, even when they are very close together, is an example of:",
+    "options": [
+      "Absolute threshold",
+      "Difference threshold",
+      "Sensory constancy",
+      "Sensory adaptation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The difference threshold (JND) is relevant for distinguishing between two stimuli. In this case, it's the minimum spatial separation required to perceive two points of light as distinct rather than fused into one.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-43",
+    "question": "A person who has been in a quiet room for a long time might perceive a very faint sound that they would not have noticed in a noisy environment. This is an example of:",
+    "options": [
+      "Sensory adaptation",
+      "Sensory deprivation",
+      "Absolute threshold",
+      "Difference threshold"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The absolute threshold is not fixed; it can change with context. In a quiet environment (sensory deprivation), our senses become more sensitive, effectively lowering the absolute threshold and allowing us to detect fainter stimuli.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-44",
+    "question": "The Gestalt principle that states we are more likely to perceive a smooth, continuous pattern rather than a discontinuous one is the Law of:",
+    "options": [
+      "Proximity",
+      "Closure",
+      "Continuity",
+      "Common fate"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Gestalt Law of Continuity (or Good Continuation) states that we perceive smooth, continuous patterns rather than discontinuous ones. We see two intersecting lines, not two right angles meeting at a point.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-45",
+    "question": "A driver who is accustomed to the sound of their car's engine and no longer notices it is experiencing:",
+    "options": [
+      "Habituation",
+      "Sensitization",
+      "Perception",
+      "Sensation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Habituation is the diminishing of a behavioral or perceptual response to a constant, unchanging stimulus. The driver's nervous system has learned that the engine sound is not important new information.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-46",
+    "question": "The ability to distinguish between two different shades of red is a measure of:",
+    "options": [
+      "Absolute threshold",
+      "Difference threshold",
+      "Sensory adaptation",
+      "Sensory constancy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a direct measure of the difference threshold (JND)—the smallest difference in hue (a property of color) required to tell two shades apart.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-47",
+    "question": "An optical illusion where an individual perceives two lines of equal length as being different lengths due to the inward or outward-pointing arrows at the ends is the:",
+    "options": [
+      "Ames room illusion",
+      "Ponzo illusion",
+      "Moon illusion",
+      "Müller-Lyer illusion"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the exact description of the Müller-Lyer illusion. The line with outward-pointing fins appears longer than the line with inward-pointing fins.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-48",
+    "question": "The tendency to perceive a familiar object's brightness as constant, even when illumination changes, is called:",
+    "options": [
+      "Size constancy",
+      "Shape constancy",
+      "Brightness constancy",
+      "Color constancy"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Brightness constancy (or lightness constancy) is our ability to perceive the relative brightness of an object as constant even though the intensity of the light illuminating it may change.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-49",
+    "question": "The process by which our brain uses information about the relative size of an object to judge its distance is an example of:",
+    "options": [
+      "A binocular cue",
+      "A monocular cue",
+      "Sensory adaptation",
+      "Absolute threshold"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Relative size is a monocular cue for depth perception. If we assume two objects are the same size, the one that casts a smaller retinal image is perceived as being farther away.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-50",
+    "question": "A person who claims to have a \"sixth sense\" about future events is an example of someone who believes in:",
+    "options": [
+      "Psychokinesis",
+      "Telepathy",
+      "Precognition",
+      "Clairvoyance"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Precognition is the purported ESP ability to perceive or predict future events. Psychokinesis is mind over matter, telepathy is mind-to-mind communication, and clairvoyance is perceiving remote events.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2013-2-51",
+    "question": "The Gestalt principle that suggests we tend to perceive objects as grouped together if they look alike is the Law of:",
+    "options": [
+      "Proximity",
+      "Similarity",
+      "Closure",
+      "Continuity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Gestalt Law of Similarity states that things which are similar in appearance (e.g., in color, shape, or size) are perceived as belonging together.",
+    "subject": "psychology",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-2",
+    "question": "Sensation is to ______ as perception is to ______.",
+    "options": [
+      "Vision, olfaction",
+      "Awareness, interpretation",
+      "Conscious, unconscious",
+      "Taste, vision"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sensation is the process of detecting physical stimuli from the environment and transmitting that information to the brain (awareness). Perception is the process of organizing and interpreting those sensations (interpretation).",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-3",
+    "question": "Sensation is to ______ as perception is to ______.",
+    "options": [
+      "Detection, transduction",
+      "Interpretation, transmission",
+      "Attention, organization",
+      "Detection, interpretation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is another way to phrase the same core concept. Sensation involves the detection of raw sensory data. Perception involves the interpretation and meaning-making of that data.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-4",
+    "question": "Identify a perceptual cue that is different from the others.",
+    "options": [
+      "Interposition",
+      "Relative height",
+      "Texture gradient",
+      "Retinal disparity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Retinal disparity is a binocular depth cue, meaning it requires the use of both eyes to perceive depth. The other three options (Interposition, Relative height, Texture gradient) are all monocular cues, meaning they can be perceived with just one eye.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-5",
+    "question": "Which one of the following is not a stimulus-related factor affecting attention?",
+    "options": [
+      "Repetition",
+      "Expectancy",
+      "Size",
+      "Novelty"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Repetition, Size, and Novelty are all physical, stimulus-driven properties that can capture attention. Expectancy is an internal, person-driven factor based on past experience and context; it is not a property of the stimulus itself.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-6",
+    "question": "We judge the distance of an object based on our eyes turning inward to focus. This is referred to as:",
+    "options": [
+      "Retinal disparity",
+      "Convergence",
+      "Accommodation",
+      "Elevation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Convergence is a binocular cue for depth perception. It is the inward angle of the eyes as they focus on a nearby object. The greater the strain from convergence, the closer the object is perceived to be.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-7",
+    "question": "“A woman has perceived a tree at night as a man.” This experience is an example of:",
+    "options": [
+      "Perceptual constancy",
+      "Perceptual attention",
+      "Perceptual illusion",
+      "Perceptual organization"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A perceptual illusion is a misinterpretation of a real external stimulus. The woman is experiencing a false perception of the tree's shape and form due to the ambiguous, low-light conditions.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-8",
+    "question": "With the first bite of a very flavorful dish in a café, a student notices the strong saltiness of the food. But after a few mouthfuls, the flavor is less pronounced. This experience implies:",
+    "options": [
+      "Sensory threshold",
+      "Difference threshold",
+      "Sensory adaptation",
+      "Perceptual consistency"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Sensory adaptation is the diminished sensitivity to a constant or recurring stimulus. After repeated exposure to the salty flavor, the taste receptors become less responsive, leading to a decreased perception of saltiness.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-9",
+    "question": "Mr. X perceives his blue bag as the same even though it is observed under different lighting conditions.",
+    "options": [
+      "Color constancy",
+      "Size constancy",
+      "Shape constancy",
+      "Depth constancy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Color constancy is our ability to perceive the consistent color of an object despite changes in the wavelength of light (illumination) falling on it. The brain adjusts for the lighting to see the bag as the same blue.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-10",
+    "question": "One of your friends claims to know what happens in her/his home while at the University. Such experience is an example of:",
+    "options": [
+      "Perceptual selectivity",
+      "Perceptual illusion",
+      "Extrasensory perception",
+      "Perceptual constancy"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Extrasensory perception (ESP) is the controversial claim of perceiving information through means other than the known sensory channels, such as knowing remote events. This is what the friend is claiming.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-11",
+    "question": "As the thickness of the lens increases, the further away an object is perceived. This is an example of:",
+    "options": [
+      "Depth perception",
+      "Sensory adaptation",
+      "Accommodation",
+      "Retinal disparity"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Accommodation is the process by which the eye's lens changes its shape (becoming thicker or thinner) to focus light on the retina. The brain uses feedback from these muscles to help judge distance. For closer objects, the lens thickens. For farther objects, it flattens.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-12",
+    "question": "List at least four laws of perceptual organization.",
+    "options": [
+      "Law of proximity, similarity, closure, continuity",
+      "Law of novelty, repetition, expectancy, motion",
+      "Law of attention, focus, perception, awareness",
+      "Law of illusion, sensation, perception, awareness"
+    ],
+    "correctAnswer": 0,
+    "explanation": "These are four of the primary Gestalt laws of perceptual organization, which describe how we naturally group individual elements into whole patterns and objects.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-13",
+    "question": "While sensation involves _____, perception involves _____.",
+    "options": [
+      "organization, coordination",
+      "stimulation, interpretation",
+      "identification, translation",
+      "comprehension, information"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the core definition. Sensation is the initial process of receiving sensory stimulation. Perception is the higher-order process of interpreting and assigning meaning to that stimulation.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-14",
+    "question": "The tendency not to respond to unchanging situations over time refers to:",
+    "options": [
+      "Differential threshold",
+      "Sensory adaptation",
+      "Extra sensory perception",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of sensory adaptation—a reduction in sensitivity to a constant stimulus over time.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-15",
+    "question": "When we jump into a swimming pool, the water may at first seem quite cold. However, after a while, we tend to become accustomed to the water's temperature due to:",
+    "options": [
+      "Sensory perception",
+      "Sensory adaptation",
+      "Sensory response",
+      "Sensory memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a classic example of sensory adaptation. The nervous system becomes less responsive to the constant stimulus of the cold water.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-16",
+    "question": "A 25-year-old man near a leather factory stops noticing the smell after repeated exposure. This law of sensation is:",
+    "options": [
+      "Sensory overload",
+      "Sensory adaptation",
+      "The just noticeable difference",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The phenomenon of \"smell blindness\" or becoming accustomed to a persistent odor is a direct result of sensory adaptation in the olfactory system.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-17",
+    "question": "Consider what happens as your friend walks away but doesn’t look smaller. This illustrates:",
+    "options": [
+      "shape constancy",
+      "size constancy",
+      "location constancy",
+      "brightness constancy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Size constancy is the perception that an object remains the same size despite changes in the size of its retinal image. As your friend walks away, the image on your retina gets smaller, but you perceive them as being the same size because your brain takes distance into account.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-18",
+    "question": "A person wearing a dotted shirt appears smooth from far but detailed when closer. This pictorial cue is:",
+    "options": [
+      "Interposition",
+      "Linear perspective",
+      "Relative size",
+      "Texture gradient"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Texture gradient is a monocular depth cue where the texture of a surface appears more detailed and coarse when close and becomes finer, smoother, and less detailed as it recedes into the distance.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
+  {
+    "id": "psych-2016-2-19",
+    "question": "The image on retina changes, but we perceive stability of size/shape/brightness. This is:",
+    "options": [
+      "Form perception",
+      "Perceptual constancy",
+      "Selectivity of perception",
+      "Depth perception"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perceptual constancy is the umbrella term for our ability to perceive objects as stable and unchanging (in their size, shape, color, and brightness) even as sensory information about them (the retinal image) changes.",
+    "subject": "psychology",
+    "year": 2016,
+    "chapter": 2
+  },
   //psychology-2016-1-1
    {
     id: 'psych-2013-1-1',
