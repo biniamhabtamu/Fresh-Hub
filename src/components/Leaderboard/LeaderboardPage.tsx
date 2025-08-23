@@ -29,7 +29,12 @@ import {
   Calendar,
   Clock,
   Globe,
-  X
+  X,
+  Sparkles,
+  Target,
+  TrendingDown,
+  Eye,
+  BarChart3
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
@@ -46,6 +51,8 @@ interface LeaderboardEntry {
   avatar?: string;
   recentPoints?: number;
   lastActive?: string;
+  streak?: number;
+  rankChange?: number;
 }
 
 interface UserDoc {
@@ -91,18 +98,243 @@ const formatLastActive = (date?: Date) => {
 };
 
 const RankIcon: React.FC<{ rank: number; size?: number }> = ({ rank, size = 24 }) => {
-  if (rank === 1) return <Crown size={size} className="text-yellow-600" />;
-  if (rank === 2) return <Medal size={size} className="text-gray-500" />;
-  if (rank === 3) return <Award size={size} className="text-orange-500" />;
+  if (rank === 1) return <Crown size={size} className="text-yellow-500" fill="currentColor" />;
+  if (rank === 2) return <Medal size={size} className="text-gray-400" fill="currentColor" />;
+  if (rank === 3) return <Award size={size} className="text-orange-500" fill="currentColor" />;
   return <span className="text-sm font-bold text-gray-600">#{rank}</span>;
 };
 
 const ScoreBar: React.FC<{ score: number }> = ({ score }) => {
   const pct = Math.min(100, Math.max(0, Math.round(score)));
+  const color = score >= 80 ? 'from-green-500 to-emerald-500' : 
+                score >= 60 ? 'from-blue-500 to-cyan-500' : 
+                score >= 40 ? 'from-yellow-500 to-amber-500' : 'from-red-500 to-pink-500';
+  
   return (
-    <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-      <div className="h-2 rounded-full" style={{ width: `${pct}%`, background: `linear-gradient(90deg,#7c3aed,#06b6d4)` }} />
+    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+      <div className={`h-2 rounded-full bg-gradient-to-r ${color}`} style={{ width: `${pct}%` }} />
     </div>
+  );
+};
+
+const RankChangeIndicator: React.FC<{ change?: number }> = ({ change }) => {
+  if (!change) return null;
+  
+  if (change > 0) {
+    return (
+      <div className="flex items-center text-green-600 text-xs font-semibold">
+        <TrendingUp size={12} className="mr-1" />
+        <span>+{change}</span>
+      </div>
+    );
+  } else if (change < 0) {
+    return (
+      <div className="flex items-center text-red-600 text-xs font-semibold">
+        <TrendingDown size={12} className="mr-1" />
+        <span>{Math.abs(change)}</span>
+      </div>
+    );
+  }
+  
+  return null;
+};
+
+// --- New Mobile Components ---
+const MobileProfilePreview: React.FC<{
+  user: LeaderboardEntry | null;
+  onClose: () => void;
+  onShare: (entry: LeaderboardEntry) => void;
+  onFollow: (id: string) => void;
+  isFollowing: boolean;
+  leaderboard: LeaderboardEntry[];
+}> = ({ user, onClose, onShare, onFollow, isFollowing, leaderboard }) => {
+  if (!user) return null;
+
+  return (
+    <motion.div
+      initial={{ y: '100%' }}
+      animate={{ y: 0 }}
+      exit={{ y: '100%' }}
+      transition={{ type: 'spring', damping: 20, stiffness: 100 }}
+      className="fixed inset-0 z-50 bg-white dark:bg-gray-950 rounded-t-3xl shadow-2xl p-6 overflow-y-auto pt-10"
+    >
+      <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800">
+        <X size={24} className="text-gray-500" />
+      </button>
+
+      <div className="flex flex-col items-center text-center">
+        {user.avatar ? (
+          <img
+            src={user.avatar}
+            alt={user.fullName}
+            className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-md"
+          />
+        ) : (
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-4xl">
+            {user.fullName.charAt(0) || '?'}
+          </div>
+        )}
+        <h2 className="text-2xl font-bold mt-4">{user.fullName}</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{user.field || 'General'}</p>
+        <div className="flex items-center gap-2 mt-2">
+          <RankIcon rank={user.rank} size={28} />
+          <span className="text-lg font-bold">#{user.rank}</span>
+          <RankChangeIndicator change={user.rankChange} />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 mt-6">
+        <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 dark:from-indigo-900/10 dark:to-cyan-900/10 rounded-xl p-4 flex flex-col items-center text-center">
+          <Rocket size={32} className="text-indigo-600 dark:text-indigo-400 mb-2" />
+          <div className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wide">Performance</div>
+          <div className="text-xl font-extrabold text-indigo-800 dark:text-indigo-200 mt-1">
+            Top {leaderboard.length ? Math.max(1, Math.round(((leaderboard.length - user.rank + 1) / leaderboard.length) * 100)) : 0}%
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 rounded-xl p-4 flex flex-col items-center text-center">
+          <Trophy size={32} className="text-purple-600 dark:text-purple-400 mb-2" />
+          <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold uppercase tracking-wide">Quizzes</div>
+          <div className="text-xl font-extrabold text-purple-800 dark:text-purple-200 mt-1">{user.totalQuizzes}</div>
+        </div>
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-xl p-4 flex flex-col items-center text-center">
+          <Star size={32} className="text-green-600 dark:text-green-400 mb-2" />
+          <div className="text-xs text-green-600 dark:text-green-400 font-semibold uppercase tracking-wide">Points</div>
+          <div className="text-xl font-extrabold text-green-800 dark:text-green-200 mt-1">{user.points}</div>
+        </div>
+        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-xl p-4 flex flex-col items-center text-center">
+          <Clock size={32} className="text-blue-600 dark:text-blue-400 mb-2" />
+          <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-wide">Last Active</div>
+          <div className="text-xl font-extrabold text-blue-800 dark:text-blue-200 mt-1">{user.lastActive || '--'}</div>
+        </div>
+      </div>
+
+      {user.streak && user.streak > 0 && (
+        <div className="mt-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 rounded-xl p-4 flex items-center justify-center">
+          <Flame size={24} className="text-amber-600 dark:text-amber-400 mr-2" />
+          <span className="text-amber-800 dark:text-amber-200 font-bold">{user.streak} day streak</span>
+        </div>
+      )}
+
+      <div className="mt-6 flex justify-center gap-4">
+        <button
+          onClick={() => onFollow(user.id)}
+          className="flex-1 px-4 py-3 bg-indigo-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2"
+        >
+          <UserPlus size={20} />
+          {isFollowing ? 'Unfollow' : 'Follow'}
+        </button>
+        <button
+          onClick={() => onShare(user)}
+          className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl font-semibold flex items-center justify-center gap-2"
+        >
+          <Share2 size={20} />
+          Share
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+const MobileFilters: React.FC<{
+  onClose: () => void;
+  period: string;
+  setPeriod: (p: string) => void;
+  sortBy: string;
+  setSortBy: (s: string) => void;
+  activeTab: string;
+  setActiveTab: (t: string) => void;
+  onRefresh: () => void;
+  onExport: () => void;
+}> = ({ onClose, period, setPeriod, sortBy, setSortBy, activeTab, setActiveTab, onRefresh, onExport }) => {
+  const isMobile = useMediaQuery({ maxWidth: 640 });
+
+  const handlePeriodChange = (p: string) => {
+    setPeriod(p);
+  };
+  const handleSortByChange = (s: string) => {
+    setSortBy(s);
+  };
+  const handleTabChange = () => {
+    setActiveTab(activeTab === 'field' ? 'all' : 'field');
+  };
+
+  return (
+    <motion.div
+      initial={{ y: '100%' }}
+      animate={{ y: 0 }}
+      exit={{ y: '100%' }}
+      transition={{ type: 'spring', damping: 20, stiffness: 100 }}
+      className="fixed inset-0 z-50 bg-white dark:bg-gray-950 rounded-t-3xl shadow-2xl p-6 overflow-y-auto pt-10"
+    >
+      <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800">
+        <X size={24} className="text-gray-500" />
+      </button>
+
+      <h2 className="text-2xl font-bold mb-6">Filters & Options</h2>
+
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><Calendar size={20} /> Period</h3>
+          <div className="flex flex-wrap gap-2">
+            {(['today', 'week', 'month', 'all'] as const).map(p => (
+              <button
+                key={p}
+                onClick={() => handlePeriodChange(p)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  period === p ? 'bg-indigo-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200'
+                }`}
+              >
+                {p === 'today' ? 'Today' : p === 'week' ? 'Week' : p === 'month' ? 'Month' : 'All Time'}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><BarChart2 size={20} /> Sort By</h3>
+          <div className="flex flex-wrap gap-2">
+            {(['score', 'points', 'quizzes', 'recentPoints'] as const).map(s => (
+              <button
+                key={s}
+                onClick={() => handleSortByChange(s)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  sortBy === s ? 'bg-indigo-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200'
+                }`}
+              >
+                {s === 'recentPoints' ? 'Trending' : s.charAt(0).toUpperCase() + s.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><Users size={20} /> View</h3>
+          <button
+            onClick={handleTabChange}
+            className={`w-full px-4 py-3 rounded-xl text-lg font-bold transition-colors ${
+              activeTab === 'field' ? 'bg-indigo-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200'
+            }`}
+          >
+            {activeTab === 'field' ? 'My Field Leaderboard' : 'Global Leaderboard'}
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-8 flex gap-4">
+        <button
+          onClick={onRefresh}
+          className="flex-1 px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800"
+        >
+          <RefreshCw size={20} /> Refresh
+        </button>
+        <button
+          onClick={onExport}
+          className="flex-1 px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-indigo-600 text-white"
+        >
+          <Download size={20} /> Export
+        </button>
+      </div>
+    </motion.div>
   );
 };
 
@@ -110,29 +342,11 @@ const ScoreBar: React.FC<{ score: number }> = ({ score }) => {
 interface LeaderboardItemProps {
   entry: LeaderboardEntry;
   isCurrentUser?: boolean;
-  expandedUser: string | null;
-  toggleExpandUser: (id: string) => void;
-  leaderboard: LeaderboardEntry[];
-  onShare?: (entry: LeaderboardEntry) => void;
-  onFollow?: (id: string) => void;
-  isFollowing?: boolean;
   onProfilePreview: (entry: LeaderboardEntry) => void;
+  isMobile: boolean;
 }
 
-const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({
-  entry,
-  isCurrentUser,
-  expandedUser,
-  toggleExpandUser,
-  leaderboard,
-  onShare,
-  onFollow,
-  isFollowing,
-  onProfilePreview
-}) => {
-  const isExpanded = expandedUser === entry.id;
-  const isMobile = useMediaQuery({ maxWidth: 640 });
-
+const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({ entry, isCurrentUser, onProfilePreview, isMobile }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 6 }}
@@ -142,13 +356,13 @@ const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({
       className={`bg-white dark:bg-gray-900 rounded-xl shadow-sm transition-all p-3 sm:p-4 overflow-hidden ${
         isCurrentUser ? 'ring-2 ring-indigo-200 border-l-4 border-indigo-400' : 'border-l-4 border-gray-100'
       }`}
+      onClick={() => onProfilePreview(entry)}
     >
-      <div className="flex items-center justify-between gap-2" onClick={() => onProfilePreview(entry)}>
+      <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <div className="flex-shrink-0 w-8 sm:w-11 text-center">
             <RankIcon rank={entry.rank} size={isMobile ? 18 : 22} />
           </div>
-
           <div className="flex items-center gap-2 min-w-0 flex-1">
             {entry.avatar ? (
               <img
@@ -158,11 +372,10 @@ const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm"
               />
             ) : (
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-200 font-bold">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">
                 {entry.fullName.charAt(0) || '?'}
               </div>
             )}
-
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1">
                 <h3 className={`text-sm sm:text-md font-semibold truncate ${isCurrentUser ? 'text-indigo-700 dark:text-indigo-400' : 'text-gray-900 dark:text-gray-100'}`}>
@@ -174,105 +387,32 @@ const LeaderboardItem: React.FC<LeaderboardItemProps> = React.memo(({
                   </span>
                 )}
               </div>
-
               <div className="mt-1">
                 <ScoreBar score={entry.averageScore} />
               </div>
             </div>
           </div>
         </div>
-
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col items-end">
-            <div className={`text-md sm:text-lg font-extrabold ${isCurrentUser ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-800 dark:text-gray-100'}`}>
-              {entry.averageScore.toFixed(1)}%
-            </div>
-            <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
-              <Star size={isMobile ? 12 : 14} className="text-yellow-400" />
-              <span>{entry.points} pts</span>
-            </div>
+        <div className="flex flex-col items-end">
+          <div className={`text-md sm:text-lg font-extrabold ${isCurrentUser ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-800 dark:text-gray-100'}`}>
+            {entry.averageScore.toFixed(1)}%
           </div>
-
-          <div className="flex flex-col items-center">
-            <button
-              onClick={(e) => { e.stopPropagation(); toggleExpandUser(entry.id); }}
-              aria-expanded={isExpanded}
-              className="p-1 sm:p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
-              aria-label={isExpanded ? 'Collapse' : 'Expand'}
-            >
-              {isExpanded ? <ChevronUp className="text-gray-500" size={isMobile ? 16 : 20} /> : <ChevronDown className="text-gray-500" size={isMobile ? 16 : 20} />}
-            </button>
+          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+            <Star size={isMobile ? 12 : 14} className="text-yellow-400" />
+            <span>{entry.points} pts</span>
           </div>
+          <RankChangeIndicator change={entry.rankChange} />
         </div>
       </div>
-
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.26 }}
-            className="mt-3 border-t border-gray-100 dark:border-gray-800 pt-2"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 dark:from-indigo-900/10 dark:to-cyan-900/10 rounded-lg p-2 flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wide">Performance</div>
-                  <div className="text-md sm:text-lg font-extrabold text-indigo-800 dark:text-indigo-200 mt-1">
-                    Top {leaderboard.length ? Math.max(1, Math.round(((leaderboard.length - entry.rank + 1) / leaderboard.length) * 100)) : 0}%
-                  </div>
-                </div>
-                <div className="p-1 sm:p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">
-                  <Rocket size={isMobile ? 16 : 20} className="text-indigo-600 dark:text-indigo-400" />
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 rounded-lg p-2 flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold uppercase tracking-wide">Stats</div>
-                  <div className="mt-1 text-md sm:text-lg font-extrabold text-purple-800 dark:text-purple-200 flex items-center gap-1">
-                    {entry.totalQuizzes} quizzes
-                  </div>
-                  {entry.lastActive && (
-                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-1">
-                      <Clock size={10} /> Last active: {entry.lastActive}
-                    </div>
-                  )}
-                </div>
-                <div className="p-1 sm:p-2 bg-purple-100 dark:bg-purple-900/30 rounded-full">
-                  <Trophy size={isMobile ? 16 : 20} className="text-purple-600 dark:text-purple-400" />
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-2 flex gap-2">
-              <button
-                onClick={() => onProfilePreview(entry)}
-                className="px-2 py-1 text-xs sm:text-sm bg-indigo-600 text-white rounded-md flex items-center gap-1"
-              >
-                <MessageCircle size={isMobile ? 12 : 14} /> Message
-              </button>
-              <button
-                onClick={() => onFollow && onFollow(entry.id)}
-                className="px-2 py-1 text-xs sm:text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md flex items-center gap-1"
-              >
-                <UserPlus size={isMobile ? 12 : 14} /> {isFollowing ? 'Unfollow' : 'Follow'}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 });
 
-// --- Main Page ---
+// --- Main Page Component ---
 export default function LeaderboardPage(): JSX.Element {
   const { currentUser } = useAuth();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [expandedUser, setExpandedUser] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'field'>('field');
   const [period, setPeriod] = useState<'today' | 'week' | 'month' | 'all'>('all');
   const [search, setSearch] = useState('');
@@ -283,21 +423,13 @@ export default function LeaderboardPage(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(10);
   const [showFilters, setShowFilters] = useState(false);
-  const [showMobilePreview, setShowMobilePreview] = useState(false);
-  const searchRef = useRef<HTMLInputElement | null>(null);
-  const navigate = useNavigate();
+  const [previewUser, setPreviewUser] = useState<LeaderboardEntry | null>(null);
   const isMobile = useMediaQuery({ maxWidth: 640 });
-
-  // New helper function for point calculation
-  const calculatePoints = useCallback((results: ResultDoc[]) => {
-    return results.reduce((sum, result) => sum + (result.pointsEarned || 0), 0);
-  }, []);
 
   const loadLeaderboard = useCallback(async () => {
     if (!currentUser) return;
     setLoading(true);
     setError(null);
-
     try {
       const usersRef = collection(db, 'users');
       let usersQuery = query(usersRef);
@@ -335,7 +467,7 @@ export default function LeaderboardPage(): JSX.Element {
         const averageScore = totalQuizzes > 0
           ? (userResults.reduce((s, r) => s + (r.percentage || 0), 0) / totalQuizzes)
           : 0;
-        const totalPoints = calculatePoints(userResults);
+        const totalPoints = userResults.reduce((sum, r) => sum + (r.pointsEarned || 0), 0);
 
         const recentPoints = userResults.reduce((s, r) => {
           const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
@@ -347,6 +479,10 @@ export default function LeaderboardPage(): JSX.Element {
         const lastActive = u.lastActive ?
           formatLastActive(u.lastActive.toDate ? u.lastActive.toDate() : new Date(u.lastActive)) : undefined;
 
+        // Generate some mock data for demonstration
+        const streak = Math.floor(Math.random() * 15);
+        const rankChange = Math.random() > 0.5 ? Math.floor(Math.random() * 10) - 5 : undefined;
+
         return {
           id: u.id,
           fullName: u.fullName || 'Anonymous',
@@ -357,61 +493,39 @@ export default function LeaderboardPage(): JSX.Element {
           avatar: u.photoURL,
           rank: 0,
           recentPoints,
-          lastActive
+          lastActive,
+          streak,
+          rankChange
         } as LeaderboardEntry;
       });
 
       let list = leaderboardData;
 
-      if (period === 'today') {
-        list = leaderboardData.filter(l => {
+      const filterByPeriod = (data: LeaderboardEntry[]) => {
+        let periodStart: Date;
+        if (period === 'today') periodStart = todayStart;
+        else if (period === 'week') periodStart = weekStart;
+        else if (period === 'month') periodStart = monthStart;
+        else return data;
+
+        return data.filter(l => {
           const userResults = allResults.filter(r => r.userId === l.id);
           return userResults.some(r => {
             const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
-            return created && created >= todayStart;
+            return created && created >= periodStart;
           });
         }).map(l => {
-            const dailyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= todayStart);
-            return {
-                ...l,
-                points: calculatePoints(dailyResults),
-                totalQuizzes: dailyResults.length,
-                averageScore: dailyResults.length > 0 ? (dailyResults.reduce((s, r) => s + (r.percentage || 0), 0) / dailyResults.length) : 0
-            };
+          const filteredResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= periodStart);
+          return {
+            ...l,
+            points: filteredResults.reduce((s, r) => s + (r.pointsEarned || 0), 0),
+            totalQuizzes: filteredResults.length,
+            averageScore: filteredResults.length > 0 ? (filteredResults.reduce((s, r) => s + (r.percentage || 0), 0) / filteredResults.length) : 0
+          };
         });
-      } else if (period === 'week') {
-        list = leaderboardData.filter(l => {
-          const userResults = allResults.filter(r => r.userId === l.id);
-          return userResults.some(r => {
-            const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
-            return created && created >= weekStart;
-          });
-        }).map(l => {
-            const weeklyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= weekStart);
-            return {
-                ...l,
-                points: calculatePoints(weeklyResults),
-                totalQuizzes: weeklyResults.length,
-                averageScore: weeklyResults.length > 0 ? (weeklyResults.reduce((s, r) => s + (r.percentage || 0), 0) / weeklyResults.length) : 0
-            };
-        });
-      } else if (period === 'month') {
-        list = leaderboardData.filter(l => {
-          const userResults = allResults.filter(r => r.userId === l.id);
-          return userResults.some(r => {
-            const created = r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt));
-            return created && created >= monthStart;
-          });
-        }).map(l => {
-            const monthlyResults = allResults.filter(r => r.userId === l.id && r.createdAt && (typeof r.createdAt.toDate === 'function' ? r.createdAt.toDate() : new Date(r.createdAt)) >= monthStart);
-            return {
-                ...l,
-                points: calculatePoints(monthlyResults),
-                totalQuizzes: monthlyResults.length,
-                averageScore: monthlyResults.length > 0 ? (monthlyResults.reduce((s, r) => s + (r.percentage || 0), 0) / monthlyResults.length) : 0
-            };
-        });
-      }
+      };
+
+      list = filterByPeriod(list);
 
       const sorted = list.sort((a, b) => {
         if (sortBy === 'score') return b.averageScore - a.averageScore || b.points - a.points;
@@ -429,15 +543,19 @@ export default function LeaderboardPage(): JSX.Element {
     } finally {
       setLoading(false);
     }
-  }, [activeTab, currentUser, period, sortBy, calculatePoints]);
+  }, [activeTab, currentUser, period, sortBy]);
 
   useEffect(() => {
     if (!currentUser) return;
     loadLeaderboard();
   }, [currentUser, activeTab, period, sortBy, loadLeaderboard]);
 
-  const toggleExpandUser = useCallback((id: string) => {
-    setExpandedUser(prev => (prev === id ? null : id));
+  const toggleFollow = useCallback((id: string) => {
+    setFollowing(prev => {
+      const copy = { ...prev, [id]: !prev[id] };
+      try { localStorage.setItem('leaderboard_following', JSON.stringify(copy)); } catch { }
+      return copy;
+    });
   }, []);
 
   const onShare = useCallback(async (entry: LeaderboardEntry) => {
@@ -482,34 +600,15 @@ export default function LeaderboardPage(): JSX.Element {
     );
   }, [leaderboard, search]);
 
-  const toggleFollow = useCallback((id: string) => {
-    setFollowing(prev => {
-      const copy = { ...prev, [id]: !prev[id] };
-      try { localStorage.setItem('leaderboard_following', JSON.stringify(copy)); } catch { }
-      return copy;
-    });
-  }, []);
-
   const loadMore = useCallback(() => setVisibleCount(v => v + 10), []);
-
-  const goToProfile = useCallback((id: string) => navigate(`/profile/${id}`), [navigate]);
-
-  const [previewUser, setPreviewUser] = useState<LeaderboardEntry | null>(null);
-
-  const toggleFilters = useCallback(() => setShowFilters(prev => !prev), []);
-
-  const handleProfilePreview = useCallback((entry: LeaderboardEntry) => {
-    setPreviewUser(entry);
-    if (isMobile) {
-      setShowMobilePreview(true);
-    }
-  }, [isMobile]);
+  const handleProfilePreview = useCallback((entry: LeaderboardEntry) => setPreviewUser(entry), []);
+  const closeProfilePreview = useCallback(() => setPreviewUser(null), []);
+  const closeFilters = useCallback(() => setShowFilters(false), []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" style={{ paddingTop: 'env(safe-area-inset-top, 12px)' }}>
       <Header />
-
-      <main className="w-full max-w-screen-lg mx-auto px-3 sm:px-4 py-4 sm:py-6">
+      <main className="w-full max-w-screen-lg mx-auto px-3 sm:px-4 py-4 sm:py-6 overflow-y-auto overscroll-y-contain pb-24">
         <motion.div
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -535,121 +634,117 @@ export default function LeaderboardPage(): JSX.Element {
         {isMobile && (
           <div className="mb-3">
             <button
-              onClick={toggleFilters}
+              onClick={() => setShowFilters(true)}
               className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-sm"
             >
               <Filter size={16} />
               <span>Filters & Options</span>
-              {showFilters ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
           </div>
         )}
 
-        <div className={`${isMobile ? (showFilters ? 'block' : 'hidden') : 'flex'} flex-col lg:flex-row items-stretch lg:items-center gap-3 mb-4 sm:mb-5`}>
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-3 text-gray-400" size={16} />
-            <input
-              ref={searchRef}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search name or field..."
-              className="w-full pl-9 pr-3 py-2 sm:py-3 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-sm sm:text-base"
-            />
-          </div>
-
-          <div className="flex-none flex items-center gap-2 overflow-x-auto lg:overflow-visible pb-2">
-            <div className="flex gap-1 sm:gap-2 bg-white dark:bg-gray-800 rounded-lg p-1 shadow-sm">
-              {(['today', 'week', 'month', 'all'] as const).map(p => (
-                <motion.button
-                  key={p}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => { setPeriod(p); setVisibleCount(10); }}
-                  className={`px-2 py-1 sm:px-3 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                    period === p ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  {p === 'today' ? 'Today' : p === 'week' ? 'Week' : p === 'month' ? 'Month' : 'All time'}
-                </motion.button>
-              ))}
+        {!isMobile && (
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 mb-4 sm:mb-5">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-3 text-gray-400" size={16} />
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search name or field..."
+                className="w-full pl-9 pr-3 py-2 sm:py-3 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-sm sm:text-base"
+              />
             </div>
-
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
-              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-xs sm:text-sm"
-            >
-              <option value="score">Score</option>
-              <option value="points">Points</option>
-              <option value="quizzes">Quizzes</option>
-              <option value="recentPoints">Trending</option>
-            </select>
-
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => { setActiveTab(prev => prev === 'field' ? 'all' : 'field'); setVisibleCount(10); }}
-              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
-            >
-              {activeTab === 'field' ? <Users size={14} /> : <Globe size={14} />}
-              <span>{activeTab === 'field' ? 'Field' : 'Global'}</span>
-            </motion.button>
-
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => loadLeaderboard()}
-              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
-              aria-label="Refresh"
-            >
-              <RefreshCw size={14} />
-              {!isMobile && <span>Refresh</span>}
-            </motion.button>
-
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={exportCSV}
-              className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-sm hover:opacity-95 flex items-center gap-1 text-xs sm:text-sm"
-            >
-              <Download size={14} />
-              {!isMobile && <span>Export</span>}
-            </motion.button>
+            <div className="flex-none flex items-center gap-2 overflow-x-auto lg:overflow-visible pb-2">
+              <div className="flex gap-1 sm:gap-2 bg-white dark:bg-gray-800 rounded-lg p-1 shadow-sm">
+                {(['today', 'week', 'month', 'all'] as const).map(p => (
+                  <motion.button
+                    key={p}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => { setPeriod(p); setVisibleCount(10); }}
+                    className={`px-2 py-1 sm:px-3 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                      period === p ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {p === 'today' ? 'Today' : p === 'week' ? 'Week' : p === 'month' ? 'Month' : 'All time'}
+                  </motion.button>
+                ))}
+              </div>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as any)}
+                className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600 text-xs sm:text-sm"
+              >
+                <option value="score">Score</option>
+                <option value="points">Points</option>
+                <option value="quizzes">Quizzes</option>
+                <option value="recentPoints">Trending</option>
+              </select>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => { setActiveTab(prev => prev === 'field' ? 'all' : 'field'); setVisibleCount(10); }}
+                className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
+              >
+                {activeTab === 'field' ? <Users size={14} /> : <Globe size={14} />}
+                <span>{activeTab === 'field' ? 'Field' : 'Global'}</span>
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={loadLeaderboard}
+                className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center gap-1 text-xs sm:text-sm"
+                aria-label="Refresh"
+              >
+                <RefreshCw size={14} />
+                <span>Refresh</span>
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={exportCSV}
+                className="px-2 py-1 sm:px-3 sm:py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-sm hover:opacity-95 flex items-center gap-1 text-xs sm:text-sm"
+              >
+                <Download size={14} />
+                <span>Export</span>
+              </motion.button>
+            </div>
           </div>
-        </div>
+        )}
 
+        {/* Stats Cards */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex gap-2 sm:gap-3 overflow-x-auto py-2 mb-3 sm:mb-4 scrollbar-hide"
+          className="flex gap-3 overflow-x-auto py-2 mb-4 scrollbar-hide"
         >
-          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-none bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm min-w-[140px] border border-gray-100 dark:border-gray-700">
             <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <Users size={12} /> Users
             </div>
-            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100">{leaderboard.length}</div>
+            <div className="font-extrabold text-lg text-gray-800 dark:text-white">{leaderboard.length}</div>
           </div>
 
-          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-none bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm min-w-[140px] border border-gray-100 dark:border-gray-700">
             <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <TrendingUp size={12} /> Active (7d)
             </div>
-            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100">
+            <div className="font-extrabold text-lg text-gray-800 dark:text-white">
               {leaderboard.filter(l => (l.recentPoints || 0) > 0).length}
             </div>
           </div>
 
-          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-none bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm min-w-[140px] border border-gray-100 dark:border-gray-700">
             <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <BarChart2 size={12} /> Sort
             </div>
-            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100 capitalize">
+            <div className="font-extrabold text-lg text-gray-800 dark:text-white capitalize">
               {sortBy === 'recentPoints' ? 'Trending' : sortBy}
             </div>
           </div>
 
-          <div className="flex-none bg-white dark:bg-gray-900 rounded-lg p-2 sm:p-3 shadow-sm min-w-[120px] sm:min-w-[160px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-none bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm min-w-[140px] border border-gray-100 dark:border-gray-700">
             <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <Calendar size={12} /> Period
             </div>
-            <div className="font-extrabold text-md sm:text-lg text-gray-800 dark:text-gray-100 capitalize">
+            <div className="font-extrabold text-lg text-gray-800 dark:text-white capitalize">
               {period === 'all' ? 'All' : period}
             </div>
           </div>
@@ -694,13 +789,8 @@ export default function LeaderboardPage(): JSX.Element {
                     key={entry.id}
                     entry={entry}
                     isCurrentUser={currentUser?.uid === entry.id}
-                    expandedUser={expandedUser}
-                    toggleExpandUser={toggleExpandUser}
-                    leaderboard={filtered}
-                    onShare={onShare}
-                    onFollow={toggleFollow}
-                    isFollowing={following[entry.id]}
                     onProfilePreview={handleProfilePreview}
+                    isMobile={isMobile}
                   />
                 ))}
               </AnimatePresence>
@@ -718,7 +808,36 @@ export default function LeaderboardPage(): JSX.Element {
           </>
         )}
       </main>
+
       <BottomBar />
+
+      <AnimatePresence>
+        {isMobile && previewUser && (
+          <MobileProfilePreview
+            user={previewUser}
+            onClose={closeProfilePreview}
+            onShare={onShare}
+            onFollow={toggleFollow}
+            isFollowing={following[previewUser.id]}
+            leaderboard={leaderboard}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isMobile && showFilters && (
+          <MobileFilters
+            onClose={closeFilters}
+            period={period}
+            setPeriod={setPeriod}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            onRefresh={loadLeaderboard}
+            onExport={exportCSV}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

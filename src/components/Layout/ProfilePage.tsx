@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { BookOpen, BarChart, Clock, Edit3, Settings, Star, Zap, ChevronRight, Flame, Trophy, Award, CheckCircle, GraduationCap, TrendingUp, TrendingDown, UserCircle2, Upload } from 'lucide-react';
+import { BookOpen, BarChart, Clock, Edit3, Settings, Star, Zap, ChevronRight, Flame, Trophy, Award, CheckCircle, GraduationCap, TrendingUp, TrendingDown, UserCircle2, Upload, Target, Users, Calendar, Heart, Shield, Crown, Sparkles, Bell, Mail, Gift, Coffee, Moon, Sun, Activity, PieChart } from 'lucide-react';
 import { collection, query, where, getDocs, orderBy, limit, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@supabase/supabase-js';
 import Header from '../Layout/Header';
 import BottomBar from '../Layout/BottomBar';
@@ -39,6 +39,11 @@ interface UserStats {
   gpa: number;
   handoutsCompleted: number;
   percentile: number;
+  weeklyGoal: number;
+  weeklyProgress: number;
+  streak: number;
+  badges: number;
+  friends: number;
 }
 
 export default function ProfilePage() {
@@ -58,13 +63,19 @@ export default function ProfilePage() {
     todayQuizzes: 0,
     gpa: 3.2,
     handoutsCompleted: 0,
-    percentile: 100
+    percentile: 100,
+    weeklyGoal: 5,
+    weeklyProgress: 3,
+    streak: 7,
+    badges: 5,
+    friends: 12
   });
   const [recentActivity, setRecentActivity] = useState<QuizResult[]>([]);
   const [todayActivity, setTodayActivity] = useState<QuizResult[]>([]);
   const [subjectPerformance, setSubjectPerformance] = useState<Record<string, { count: number, total: number, points: number }>>({});
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'settings'>('overview');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Handle profile image upload
@@ -239,7 +250,8 @@ export default function ProfilePage() {
         setRecentActivity(recentResults);
         setTodayActivity(todayResults);
         setSubjectPerformance(subjectData);
-        setStats({
+        setStats(prev => ({
+          ...prev,
           averageScore,
           totalQuizzes,
           highestScore,
@@ -251,10 +263,9 @@ export default function ProfilePage() {
           weakestSubject: weakest,
           todayPoints,
           todayQuizzes,
-          gpa: parseFloat((3.2 + (Math.random() * 0.8)).toFixed(2)),
           handoutsCompleted: handoutsSnapshot.size,
           percentile
-        });
+        }));
 
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -302,7 +313,11 @@ export default function ProfilePage() {
     { label: 'Global Rank', value: stats.rank > 0 ? `#${stats.rank}` : '--', icon: getRankIcon(stats.rank) },
     { label: 'GPA (Est.)', value: stats.gpa.toFixed(2), icon: <GraduationCap size={20} className="text-emerald-600" /> },
     { label: 'Percentile', value: `${stats.percentile}%`, icon: <TrendingUp size={20} className="text-sky-600" /> },
-    { label: 'Handouts', value: stats.handoutsCompleted, icon: <CheckCircle size={20} className="text-green-600" /> }
+    { label: 'Handouts', value: stats.handoutsCompleted, icon: <CheckCircle size={20} className="text-green-600" /> },
+    { label: 'Study Streak', value: `${stats.streak} days`, icon: <Flame size={20} className="text-orange-500" /> },
+    { label: 'Weekly Goal', value: `${stats.weeklyProgress}/${stats.weeklyGoal}`, icon: <Target size={20} className="text-red-500" /> },
+    { label: 'Badges', value: stats.badges, icon: <Award size={20} className="text-yellow-500" /> },
+    { label: 'Friends', value: stats.friends, icon: <Users size={20} className="text-blue-500" /> }
   ];
 
   const containerVariants = {
@@ -320,18 +335,30 @@ export default function ProfilePage() {
     visible: { y: 0, opacity: 1 }
   };
 
+  // Badges data
+  const badges = [
+    { id: 1, name: 'First Quiz', icon: <Star size={24} className="text-yellow-500" />, earned: true },
+    { id: 2, name: 'Week Streak', icon: <Flame size={24} className="text-orange-500" />, earned: true },
+    { id: 3, name: 'Top Performer', icon: <Trophy size={24} className="text-yellow-600" />, earned: true },
+    { id: 4, name: 'Subject Master', icon: <GraduationCap size={24} className="text-purple-600" />, earned: false },
+    { id: 5, name: 'Night Owl', icon: <Moon size={24} className="text-indigo-600" />, earned: true },
+    { id: 6, name: 'Early Bird', icon: <Sun size={24} className="text-yellow-500" />, earned: false },
+    { id: 7, name: 'Social Learner', icon: <Users size={24} className="text-blue-500" />, earned: true },
+    { id: 8, name: 'Quiz Champion', icon: <Crown size={24} className="text-yellow-600" />, earned: false }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 font-sans text-gray-800 pb-20">
       <Header />
       <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-16 pb-24"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pt-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Profile Header Section */}
         <motion.div
-          className="relative bg-white rounded-3xl shadow-xl p-6 sm:p-8 mb-8 overflow-hidden"
+          className="relative bg-white rounded-3xl shadow-xl p-6 sm:p-8 mb-6 overflow-hidden"
           variants={itemVariants}
         >
           <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
@@ -376,7 +403,7 @@ export default function ProfilePage() {
               <div className="flex items-center justify-center sm:justify-start space-x-3 mb-2">
                 <h1 className="text-3xl font-bold text-gray-900">{currentUser?.fullName || 'Student'}</h1>
                 {currentUser?.isPremium && (
-                  <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full flex items-center shadow-sm">
+                  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full flex items-center shadow-sm">
                     <Zap size={14} className="mr-1" />
                     PREMIUM
                   </span>
@@ -395,6 +422,10 @@ export default function ProfilePage() {
                     <span className="ml-2">Rank #{stats.rank}</span>
                   </span>
                 )}
+                <span className="bg-green-100 text-green-700 text-sm font-medium px-3 py-1.5 rounded-full flex items-center">
+                  <Flame size={16} className="mr-2" />
+                  {stats.streak} day streak
+                </span>
               </div>
 
               {/* Level Progress Bar */}
@@ -429,149 +460,307 @@ export default function ProfilePage() {
           </div>
         </motion.div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Stats and Performance */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Stats Overview */}
-            <motion.div
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {statCards.slice(0, 4).map((card, index) => (
-                <StatCard key={index} {...card} loading={loading} />
-              ))}
-            </motion.div>
+        {/* Navigation Tabs */}
+        <motion.div className="flex bg-white rounded-2xl shadow-md p-1 mb-6" variants={itemVariants}>
+          <button
+            onClick={() => setActiveTab('overview')}
+            className={`flex-1 py-3 px-4 rounded-xl text-sm font-medium transition-colors flex items-center justify-center ${activeTab === 'overview' ? 'bg-indigo-600 text-white' : 'text-gray-600'}`}
+          >
+            <Activity size={18} className="mr-2" />
+            Overview
+          </button>
+          <button
+            onClick={() => setActiveTab('achievements')}
+            className={`flex-1 py-3 px-4 rounded-xl text-sm font-medium transition-colors flex items-center justify-center ${activeTab === 'achievements' ? 'bg-indigo-600 text-white' : 'text-gray-600'}`}
+          >
+            <Award size={18} className="mr-2" />
+            Achievements
+          </button>
+          <button
+            onClick={() => setActiveTab('settings')}
+            className={`flex-1 py-3 px-4 rounded-xl text-sm font-medium transition-colors flex items-center justify-center ${activeTab === 'settings' ? 'bg-indigo-600 text-white' : 'text-gray-600'}`}
+          >
+            <Settings size={18} className="mr-2" />
+            Settings
+          </button>
+        </motion.div>
 
-            {/* Secondary Stats */}
+        {/* Main Content */}
+        <AnimatePresence mode="wait">
+          {activeTab === 'overview' && (
             <motion.div
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
+              key="overview"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 lg:grid-cols-3 gap-6"
             >
-              {statCards.slice(4).map((card, index) => (
-                <StatCard key={index} {...card} loading={loading} isCompact={true} />
-              ))}
-            </motion.div>
+              {/* Left Column - Stats and Performance */}
+              <div className="lg:col-span-2 space-y-6">
+                {/* Stats Overview */}
+                <motion.div
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {statCards.slice(0, 8).map((card, index) => (
+                    <StatCard key={index} {...card} loading={loading} />
+                  ))}
+                </motion.div>
 
-            {/* Subject Performance */}
-            <motion.div
-              className="bg-white rounded-3xl shadow-xl p-6"
-              variants={itemVariants}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-                  <BarChart size={24} className="mr-3 text-purple-600" />
-                  Subject Performance
-                </h2>
-                {stats.totalQuizzes > 0 && (
-                  <button onClick={() => navigate('/performance')} className="text-indigo-600 text-sm font-medium hover:text-indigo-800 transition-colors flex items-center">
-                    View All <ChevronRight size={18} className="ml-1" />
-                  </button>
-                )}
+                {/* Weekly Goal */}
+                <motion.div
+                  className="bg-white rounded-3xl shadow-xl p-6"
+                  variants={itemVariants}
+                >
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-bold text-gray-900 flex items-center">
+                      <Target size={24} className="mr-3 text-red-500" />
+                      Weekly Goal
+                    </h2>
+                    <span className="text-sm text-gray-500">{stats.weeklyProgress}/{stats.weeklyGoal} quizzes</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-red-400 to-pink-500"
+                      style={{ width: `${(stats.weeklyProgress / stats.weeklyGoal) * 100}%` }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(stats.weeklyProgress / stats.weeklyGoal) * 100}%` }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    {stats.weeklyProgress >= stats.weeklyGoal 
+                      ? "🎉 You've reached your weekly goal!" 
+                      : `Complete ${stats.weeklyGoal - stats.weeklyProgress} more quizzes to reach your goal`
+                    }
+                  </p>
+                </motion.div>
+
+                {/* Subject Performance */}
+                <motion.div
+                  className="bg-white rounded-3xl shadow-xl p-6"
+                  variants={itemVariants}
+                >
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-bold text-gray-900 flex items-center">
+                      <PieChart size={24} className="mr-3 text-purple-600" />
+                      Subject Performance
+                    </h2>
+                    {stats.totalQuizzes > 0 && (
+                      <button onClick={() => navigate('/performance')} className="text-indigo-600 text-sm font-medium hover:text-indigo-800 transition-colors flex items-center">
+                        View All <ChevronRight size={18} className="ml-1" />
+                      </button>
+                    )}
+                  </div>
+
+                  {loading ? (
+                    <div className="flex justify-center items-center h-24">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+                    </div>
+                  ) : Object.keys(subjectPerformance).length > 0 ? (
+                    <div className="space-y-6">
+                      {stats.strongestSubject && (
+                        <PerformanceBar
+                          subject={stats.strongestSubject}
+                          label="Strongest Subject"
+                          avgScore={subjectPerformance[stats.strongestSubject].total / subjectPerformance[stats.strongestSubject].count}
+                          count={subjectPerformance[stats.strongestSubject].count}
+                          barColor="bg-gradient-to-r from-green-400 to-emerald-500"
+                          icon={<TrendingUp size={20} className="text-green-500" />}
+                        />
+                      )}
+                      {stats.weakestSubject && (
+                        <PerformanceBar
+                          subject={stats.weakestSubject}
+                          label="Weakest Subject"
+                          avgScore={subjectPerformance[stats.weakestSubject].total / subjectPerformance[stats.weakestSubject].count}
+                          count={subjectPerformance[stats.weakestSubject].count}
+                          barColor="bg-gradient-to-r from-red-400 to-pink-500"
+                          icon={<TrendingDown size={20} className="text-red-500" />}
+                        />
+                      )}
+                    </div>
+                  ) : (
+                    <div className="text-center text-gray-500 py-8">
+                      <p className="mb-4">Start a quiz to see your subject performance here!</p>
+                      <button onClick={() => navigate('/subjects')} className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
+                        Start Your First Quiz
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
               </div>
 
-              {loading ? (
-                <div className="flex justify-center items-center h-24">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
-                </div>
-              ) : Object.keys(subjectPerformance).length > 0 ? (
-                <div className="space-y-6">
-                  {stats.strongestSubject && (
-                    <PerformanceBar
-                      subject={stats.strongestSubject}
-                      label="Strongest Subject"
-                      avgScore={subjectPerformance[stats.strongestSubject].total / subjectPerformance[stats.strongestSubject].count}
-                      count={subjectPerformance[stats.strongestSubject].count}
-                      barColor="bg-gradient-to-r from-green-400 to-emerald-500"
-                      icon={<TrendingUp size={20} className="text-green-500" />}
-                    />
-                  )}
-                  {stats.weakestSubject && (
-                    <PerformanceBar
-                      subject={stats.weakestSubject}
-                      label="Weakest Subject"
-                      avgScore={subjectPerformance[stats.weakestSubject].total / subjectPerformance[stats.weakestSubject].count}
-                      count={subjectPerformance[stats.weakestSubject].count}
-                      barColor="bg-gradient-to-r from-red-400 to-pink-500"
-                      icon={<TrendingDown size={20} className="text-red-500" />}
-                    />
+              {/* Right Column - Recent Activity */}
+              <motion.div
+                className="lg:col-span-1 bg-white rounded-3xl shadow-xl overflow-hidden"
+                variants={itemVariants}
+              >
+                <div className="flex justify-between items-center p-6 border-b border-gray-100">
+                  <h2 className="text-xl font-bold text-gray-900 flex items-center">
+                    <Clock size={24} className="mr-3 text-indigo-600" />
+                    Recent Activity
+                  </h2>
+                  {recentActivity.length > 0 && (
+                    <button onClick={() => navigate('/quiz-history')} className="text-indigo-600 text-sm font-medium hover:text-indigo-800 transition-colors flex items-center">
+                      View All <ChevronRight size={18} className="ml-1" />
+                    </button>
                   )}
                 </div>
-              ) : (
-                <div className="text-center text-gray-500 py-8">
-                  <p className="mb-4">Start a quiz to see your subject performance here!</p>
-                  <button onClick={() => navigate('/subjects')} className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
-                    Start Your First Quiz
-                  </button>
+
+                <div className="p-4 divide-y divide-gray-100">
+                  {loading ? (
+                    <div className="p-6 flex justify-center">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+                    </div>
+                  ) : recentActivity.length > 0 ? (
+                    recentActivity.map((quiz, index) => (
+                      <motion.div
+                        key={quiz.id}
+                        className="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors rounded-lg cursor-pointer"
+                        onClick={() => navigate(`/quiz-result/${quiz.id}`)}
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className={`p-3 rounded-xl ${getPerformanceColor(quiz.score)}`}>
+                            <BookOpen size={20} />
+                          </div>
+                          <div>
+                            <h3 className="text-base font-semibold text-gray-800">{quiz.subject}</h3>
+                            <p className="text-sm text-gray-500">{quiz.chapter}</p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-end">
+                          <span className={`text-base font-bold ${quiz.score >= 80 ? 'text-green-600' : quiz.score >= 50 ? 'text-yellow-600' : 'text-red-600'}`}>
+                            {quiz.score}%
+                          </span>
+                          <span className="text-xs text-gray-500">{quiz.timestamp.toLocaleDateString()}</span>
+                        </div>
+                      </motion.div>
+                    ))
+                  ) : (
+                    <div className="text-center text-gray-500 py-8">
+                      <p className="mb-4">You haven't completed any quizzes yet.</p>
+                      <button onClick={() => navigate('/subjects')} className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
+                        Start Your First Quiz
+                      </button>
+                    </div>
+                  )}
                 </div>
-              )}
+              </motion.div>
             </motion.div>
-          </div>
+          )}
 
-          {/* Right Column - Recent Activity */}
-          <motion.div
-            className="lg:col-span-1 bg-white rounded-3xl shadow-xl overflow-hidden"
-            variants={itemVariants}
-          >
-            <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-                <Clock size={24} className="mr-3 text-indigo-600" />
-                Recent Activity
-              </h2>
-              {recentActivity.length > 0 && (
-                <button onClick={() => navigate('/quiz-history')} className="text-indigo-600 text-sm font-medium hover:text-indigo-800 transition-colors flex items-center">
-                  View All <ChevronRight size={18} className="ml-1" />
-                </button>
-              )}
-            </div>
-
-            <div className="p-4 divide-y divide-gray-100">
-              {loading ? (
-                <div className="p-6 flex justify-center">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+          {activeTab === 'achievements' && (
+            <motion.div
+              key="achievements"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 gap-6"
+            >
+              {/* Badges Section */}
+              <motion.div
+                className="bg-white rounded-3xl shadow-xl p-6"
+                variants={itemVariants}
+              >
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Award size={28} className="mr-3 text-yellow-500" />
+                  Your Badges
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {badges.map((badge) => (
+                    <motion.div
+                      key={badge.id}
+                      className={`flex flex-col items-center p-4 rounded-2xl border-2 transition-all ${badge.earned ? 'border-yellow-400 bg-yellow-50' : 'border-gray-200 bg-gray-50 opacity-60'}`}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <div className={`p-3 rounded-full mb-3 ${badge.earned ? 'bg-yellow-100' : 'bg-gray-200'}`}>
+                        {badge.icon}
+                      </div>
+                      <h3 className="text-sm font-semibold text-center text-gray-800">{badge.name}</h3>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {badge.earned ? 'Earned' : 'Locked'}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
-              ) : recentActivity.length > 0 ? (
-                recentActivity.map((quiz, index) => (
-                  <motion.div
-                    key={quiz.id}
-                    className="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors rounded-lg cursor-pointer"
-                    onClick={() => navigate(`/quiz-result/${quiz.id}`)}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-3 rounded-xl ${getPerformanceColor(quiz.score)}`}>
-                        <BookOpen size={20} />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-semibold text-gray-800">{quiz.subject}</h3>
-                        <p className="text-sm text-gray-500">{quiz.chapter}</p>
-                      </div>
+              </motion.div>
+
+              {/* Additional Stats */}
+              <motion.div
+                className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {statCards.slice(8).map((card, index) => (
+                  <StatCard key={index} {...card} loading={loading} isCompact={true} />
+                ))}
+              </motion.div>
+            </motion.div>
+          )}
+
+          {activeTab === 'settings' && (
+            <motion.div
+              key="settings"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-3xl shadow-xl p-6"
+            >
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Settings size={28} className="mr-3 text-indigo-600" />
+                Account Settings
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center">
+                    <Bell size={20} className="text-gray-600 mr-3" />
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Notifications</h3>
+                      <p className="text-sm text-gray-500">Manage your notification preferences</p>
                     </div>
-                    <div className="flex flex-col items-end">
-                      <span className={`text-base font-bold ${quiz.score >= 80 ? 'text-green-600' : quiz.score >= 50 ? 'text-yellow-600' : 'text-red-600'}`}>
-                        {quiz.score}%
-                      </span>
-                      <span className="text-xs text-gray-500">{quiz.timestamp.toLocaleDateString()}</span>
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                <div className="text-center text-gray-500 py-8">
-                  <p className="mb-4">You haven't completed any quizzes yet.</p>
-                  <button onClick={() => navigate('/subjects')} className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
-                    Start Your First Quiz
+                  </div>
+                  <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Manage
                   </button>
                 </div>
-              )}
-            </div>
-          </motion.div>
-        </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center">
+                    <Shield size={20} className="text-gray-600 mr-3" />
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Privacy & Security</h3>
+                      <p className="text-sm text-gray-500">Control your privacy settings</p>
+                    </div>
+                  </div>
+                  <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Manage
+                  </button>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center">
+                    <Mail size={20} className="text-gray-600 mr-3" />
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Email Preferences</h3>
+                      <p className="text-sm text-gray-500">Update your email settings</p>
+                    </div>
+                  </div>
+                  <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Manage
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
       <BottomBar />
     </div>
