@@ -60,7 +60,7 @@ const Sidebar = ({ isOpen, onClose, currentUser }: SidebarProps) => {
       { path: "/", icon: Home, label: "Home" },
       { path: "/profilepage", icon: User, label: "Profile" },
       { path: "/handouts", icon: BookOpen, label: "Handouts" },
-      { path: "/gpa-calculator", icon: Calculator, label: "GPA Calculator" },
+      { path: "/Layout/GPACalculator", icon: Calculator, label: "GPA Calculator" },
       { path: "/leaderboard", icon: Award, label: "Leaderboard" },
       { path: "/community", icon: Users, label: "Community" },
       { path: "/settings", icon: Settings, label: "Settings" },

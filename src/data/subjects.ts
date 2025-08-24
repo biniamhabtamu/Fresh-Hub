@@ -2,11 +2,10 @@
 import { Subject } from '../types';
 
 export const subjects: Subject[] = [
-
   { 
     id: 'Sample', 
     name: 'Free trial', 
-    icon: '📖', // Different from natural science English
+    icon: '📖',
     field: 'natural', 
     isFree: true
   },
@@ -14,77 +13,77 @@ export const subjects: Subject[] = [
   { 
     id: 'logic', 
     name: 'Logic', 
-    icon: '🧩', // Symbols representing logic
+    icon: '🧩',
     field: 'natural', 
-    isFree: true 
+    isFree: false
   },
-   { 
+  { 
     id: 'psychology', 
     name: 'Psychology', 
     icon: '🧠', 
     field: 'natural', 
     isFree: false 
   },
-    { 
+  { 
     id: 'geography', 
     name: 'Geography', 
-    icon: '🌎', // Alternative: '🗺️'
+    icon: '🌎',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'english', 
     name: 'EnglishSkill1', 
-    icon: '✍️', // Alternative: '📚'
+    icon: '✍️',
     field: 'natural', 
     isFree: true 
   },
   { 
     id: 'physics', 
     name: 'Physics', 
-    icon: '⚛️', // Atomic symbol
+    icon: '⚛️',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'math', 
     name: 'Math', 
-    icon: '🧮', // Alternative: '∫' (math symbol)
+    icon: '🧮',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'coc', 
     name: 'CoC', 
-    icon: '🧮', // Alternative: '∫' (math symbol)
+    icon: '🧮',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'english2', 
     name: 'EnglishSkill2', 
-    icon: '✍️', // Alternative: '📚'
+    icon: '✍️',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'chemistry', 
     name: 'Chemistry', 
-    icon: '⚗️', // Alternative: '🧪'
+    icon: '⚗️',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'cpp', 
     name: 'C++', 
-    icon: '👨‍💻', // Alternative: '💻'
+    icon: '👨‍💻',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'history', 
     name: 'History', 
-    icon: '📜', // Ancient scroll
+    icon: '📜',
     field: 'natural', 
     isFree: false 
   },
@@ -105,45 +104,44 @@ export const subjects: Subject[] = [
   { 
     id: 'entrepreneurship', 
     name: 'Entrepreneurship', 
-    icon: '🌎', // Chart with yen symbol
+    icon: '🌎',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'Inclusive', 
     name: 'Inclusive', 
-    icon: '🤝', // Better representation of inclusion
+    icon: '🤝',
     field: 'natural', 
     isFree: false 
   },
-   { 
+  { 
     id: 'economics', 
     name: 'Economics', 
-    icon: '💹', // Chart with yen symbol
+    icon: '💹',
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'GlobalTrade', 
     name: 'Global Trade', 
-    icon: '🌎', // Chart with yen symbol
+    icon: '🌎',
     field: 'natural', 
     isFree: false 
   },
 
   // Social Science Subjects
-   { 
-    
+  { 
     id: 'Sample', 
     name: 'Free trial', 
-    icon: '📖', // Different from natural science English
+    icon: '📖',
     field: 'social', 
     isFree: true 
   },
   { 
     id: 'psychology', 
     name: 'Psychology', 
-    icon: '🧠', // Meditating person
+    icon: '🧠',
     field: 'social', 
     isFree: false 
   },
@@ -155,109 +153,114 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'geography', 
-    name: 'Geography', 
-    icon: '🗾', // Map of Japan for variety
-    field: 'social', 
-    isFree: false 
-  },
-  { 
-    id: 'english', 
-    name: 'EnglishSkill2', 
-    icon: '📖', // Different from natural science English
-    field: 'social', 
-    isFree: false 
-  },
-  
-  { 
-    id: 'history', 
-    name: 'History', 
-    icon: '⏳', // Hourglass representing time/history
-    field: 'social', 
-    isFree: false 
-  },
-  { 
-    id: 'civic', 
-    name: 'Civic', 
-    icon: '🏙️', // Cityscape
-    field: 'social', 
-    isFree: false 
-  },
-  { 
     id: 'economics', 
     name: 'Economics', 
-    icon: '💹', // Chart with yen symbol
+    icon: '💹',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'Anthropology', 
     name: 'Anthropology', 
-    icon: '👥', // Multiple people
+    icon: '👥',
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'history', 
+    name: 'History', 
+    icon: '⏳',
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'english', 
+    name: 'EnglishSkill1', 
+    icon: '📖',
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'geography', 
+    name: 'Geography', 
+    icon: '🗾',
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'english2', 
+    name: 'EnglishSkill2', 
+    icon: '📖',
+    field: 'social', 
+    isFree: false 
+  },
+  { 
+    id: 'civic', 
+    name: 'Civic', 
+    icon: '🏙️',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'emerging', 
     name: 'Emerging', 
-    icon: '🌱', // Growing plant for social emerging
+    icon: '🌱',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'inclusive', 
     name: 'Inclusive', 
-    icon: '🌈', // Diversity flag
+    icon: '🌈',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'globalTrade', 
     name: 'Global Trade', 
-    icon: '🌎', // Chart with yen symbol
+    icon: '🌎',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'entrepreneurship', 
     name: 'Entrepreneurship', 
-    icon: '🌎', // Chart with yen symbol
+    icon: '🌎',
     field: 'social', 
     isFree: false 
   },
-  
 ];
-
-// For even more attractive icons, consider using SVG icons from libraries like:
-// - Lucide (already in your project)
-// - Heroicons
-// - Font Awesome
-// Here's how you could implement SVG icons instead:
-
-/*
-interface Subject {
-  id: string;
-  name: string;
-  icon: React.ReactNode; // Now accepts JSX
-  field: 'natural' | 'social';
-  isFree: boolean;
-}
-
-export const subjects: Subject[] = [
-  {
-    id: 'math',
-    name: 'Math',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    ),
-    field: 'natural',
-    isFree: false
-  },
-  // ... other subjects
-];
-*/
 
 export const examYears = [2013, 2014, 2015, 2016, 2017];
-export const chaptersPerSubject = 7;
+
+// Function to determine the number of items per subject
+export const getChaptersOrTopicsPerSubject = (subjectId: string) => {
+  // For English subjects, return the number of topics
+  if (subjectId === 'english' || subjectId === 'english2') {
+    return 5; // Tense, Modal Verb, Conditional, Collocations, Active and Passive Voices
+  }
+  // For other subjects, return the standard chapter count
+  return 7;
+};
+
+// Define the English topics
+export const englishTopics = [
+  'Tense',
+  'Modal Verb',
+  'Conditional',
+  'Collocations',
+  'Active and Passive Voices'
+];
+
+// Function to get the display name for a chapter/topic
+export const getChapterOrTopicName = (subjectId: string, index: number) => {
+  if ((subjectId === 'english' || subjectId === 'english2') && index >= 0 && index < englishTopics.length) {
+    return englishTopics[index];
+  }
+  return `Chapter ${index + 1}`;
+};
+
+// Function to check if a subject is English
+export const isEnglishSubject = (subjectId: string) => {
+  return subjectId === 'english' || subjectId === 'english2';
+};

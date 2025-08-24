@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
-import { chaptersPerSubject } from '../../data/subjects';
+import { getChaptersOrTopicsPerSubject, englishTopics } from '../../data/subjects';
 import Header from '../Layout/Header';
 import { ArrowLeft, BookOpen, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -48,6 +48,10 @@ export default function ChapterSelection() {
   const [chapterResults, setChapterResults] = useState<ChapterResult[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Check if this is an English subject
+  const isEnglishSubject = subjectId === 'english' || subjectId === 'english2';
+  const itemsPerSubject = getChaptersOrTopicsPerSubject(subjectId || '');
+
   useEffect(() => {
     if (currentUser) {
       loadChapterResults();
@@ -72,7 +76,7 @@ export default function ChapterSelection() {
       const resultsSnapshot = await getDocs(resultsQuery);
       const results = resultsSnapshot.docs.map(doc => doc.data());
       
-      const chapters = Array.from({ length: chaptersPerSubject }, (_, i) => {
+      const chapters = Array.from({ length: itemsPerSubject }, (_, i) => {
         const chapterNum = i + 1;
         const result = results.find(r => r.chapter === chapterNum);
         
@@ -116,11 +120,14 @@ export default function ChapterSelection() {
           </button>
           <h2 className="text-4xl font-extrabold text-gray-900 mt-4 mb-2">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              {year} Exam Chapters
+              {year} {isEnglishSubject ? 'English Topics' : 'Exam Chapters'}
             </span>
           </h2>
           <p className="text-gray-500 text-lg">
-            Select a chapter to start your quiz or review your previous score.
+            {isEnglishSubject 
+              ? 'Select a topic to start your quiz or review your previous score.'
+              : 'Select a chapter to start your quiz or review your previous score.'
+            }
           </p>
         </motion.div>
 
@@ -131,7 +138,9 @@ export default function ChapterSelection() {
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
               className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full"
             ></motion.div>
-            <p className="mt-4 text-gray-600 text-lg">Loading chapters...</p>
+            <p className="mt-4 text-gray-600 text-lg">
+              {isEnglishSubject ? 'Loading topics...' : 'Loading chapters...'}
+            </p>
           </div>
         ) : (
           <motion.div
@@ -143,6 +152,10 @@ export default function ChapterSelection() {
             <AnimatePresence>
               {chapterResults.map((result) => {
                 const status = getStatusBadge(result.score, result.completed);
+                const itemName = isEnglishSubject 
+                  ? englishTopics[result.chapter - 1] || `Topic ${result.chapter}`
+                  : `Chapter ${result.chapter}`;
+                
                 return (
                   <motion.div
                     key={result.chapter}
@@ -173,7 +186,7 @@ export default function ChapterSelection() {
                     </div>
                     
                     <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                      Chapter {result.chapter}
+                      {itemName}
                     </h3>
                     
                     <div className="flex items-center space-x-2 text-gray-600 text-sm mb-4">

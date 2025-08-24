@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave, FaCrown } from "react-icons/fa";
+import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave, FaCrown, FaSync } from "react-icons/fa";
 import { MdAccountBalance, MdPayment } from "react-icons/md";
 
 // Define the duration for the timer (5 hours in milliseconds)
@@ -15,6 +15,7 @@ export default function PremiumPage() {
   const [loading, setLoading] = useState(false);
   const [submissionData, setSubmissionData] = useState(null);
   const [timeLeft, setTimeLeft] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
 
   const IMGBB_KEY = "cee6f899a1f2b76b6a01b89517662be0";
   const TELEGRAM_BOT_TOKEN = "7516286710:AAGlGBxpmyVQuLW1lcm4rVw-wC1UZ_dp5l4";
@@ -157,6 +158,33 @@ export default function PremiumPage() {
     setLoading(false);
   };
 
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    try {
+      const auth = getAuth();
+      const authUser = auth.currentUser;
+      if (!authUser) return;
+      
+      const userRef = doc(db, "users", authUser.uid);
+      const docSnap = await getDoc(userRef);
+      
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setUserData(data);
+        
+        if (data.premiumSubmission) {
+          setSubmissionData(data.premiumSubmission);
+        }
+      }
+      
+      // Simulate network delay for better UX
+      setTimeout(() => setRefreshing(false), 800);
+    } catch (error) {
+      console.error("Refresh error:", error);
+      setRefreshing(false);
+    }
+  };
+
   // Render different states based on submission status
   if (submissionData) {
     if (submissionData.status === 'approved') {
@@ -200,13 +228,25 @@ export default function PremiumPage() {
           Your payment verification is being processed. Premium features will be activated within:
         </p>
         
-        <div className="bg-white p-6 rounded-xl shadow-inner mb-8">
+        <div className="bg-white p-6 rounded-xl shadow-inner mb-6">
           <div className="flex items-center justify-center space-x-2 mb-2">
             <FaClock className="text-blue-600 text-2xl" />
             <span className="text-2xl font-semibold text-gray-700">Time Remaining</span>
           </div>
-          <div className="text-5xl font-mono font-bold text-blue-700">
+          <div className="text-5xl font-mono font-bold text-blue-700 mb-4">
             {formatTime(timeLeft)}
+          </div>
+          
+          {/* Refresh Icon Below Timer */}
+          <div className="flex justify-center mt-4">
+            <button 
+              onClick={handleRefresh}
+              disabled={refreshing}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${refreshing ? 'bg-gray-200' : 'bg-blue-100 hover:bg-blue-200'} transition-colors`}
+            >
+              <FaSync className={`text-blue-600 ${refreshing ? 'animate-spin' : ''}`} />
+              <span className="text-blue-700 font-medium">Refresh Status</span>
+            </button>
           </div>
         </div>
         

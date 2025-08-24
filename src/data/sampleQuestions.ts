@@ -226,6 +226,81 @@ export const sampleQuestions: Question[] = [
     "year": 2014,
     "chapter": 1
   },
+   {
+    "id": "sam-2014-2-2",
+    "question": "The process of converting physical energy from a stimulus into a neural signal is known as:",
+    "options": [
+      "Perception",
+      "Sensation",
+      "Transduction",
+      "Adaptation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Transduction is the process by which sensory receptors convert physical energy from the environment (like light, sound waves, or chemicals) into electrochemical neural impulses that the brain can understand. Sensation is the initial detection of the stimulus, perception is the interpretation of that sensation, and adaptation is the decreased sensitivity to a constant stimulus.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2014-2-3",
+    "question": "A student's ability to focus on a professor's voice while ignoring the chatter of other students in a noisy classroom is an example of:",
+    "options": [
+      "Sensory adaptation",
+      "Selective attention",
+      "Perceptual constancy",
+      "Extrasensory perception"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selective attention is the ability to focus conscious awareness on a particular stimulus while filtering out other simultaneous information. This is exactly what the \"cocktail party effect\" describes—the ability to tune into one conversation among many.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2014-2-4",
+    "question": "Which of the following is an example of a monocular cue for depth perception?",
+    "options": [
+      "Retinal disparity",
+      "Convergence",
+      "Linear perspective",
+      "Binocular rivalry"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Monocular cues require only one eye to perceive depth. Linear perspective is a monocular cue where parallel lines appear to converge as they recede into the distance. Retinal disparity and convergence are both binocular cues, requiring both eyes. Binocular rivalry is not a depth cue.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "samp-2014-2-5",
+    "question": "An individual who has a reduced ability to taste sweet flavors after eating a very sweet dessert is experiencing:",
+    "options": [
+      "Sensory threshold",
+      "Sensory deprivation",
+      "Sensory habituation",
+      "Sensory adaptation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Sensory adaptation is the diminished sensitivity to a constant or recurring stimulus. After constant exposure to a very sweet taste, the taste receptors become less responsive, reducing the perception of that sweetness.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 2
+  },
+  {
+    "id": "samp-2014-2-6",
+    "question": "The ability to recognize an object as the same despite changes in its retinal image is called:",
+    "options": [
+      "Perceptual set",
+      "Perceptual constancy",
+      "Perceptual illusion",
+      "Perceptual organization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perceptual constancy is the ability to perceive objects as having consistent properties (like size, shape, and color) even as the sensory information about them (the retinal image) changes due to viewing angle, lighting, or distance.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 2
+  },
   //geography-2013-1-1
 
  {

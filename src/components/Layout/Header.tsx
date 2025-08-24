@@ -43,8 +43,8 @@ export default function Header() {
   // Navigation items
   const navItems = [
     { path: 'dashboard', icon: Home, label: 'Home' },
-    { path: 'subjects', icon: Book, label: 'Subjects' },
-    { path: 'profile', icon: User, label: 'Profile' },
+    { path: 'handouts', icon: Book, label: 'Handout' },
+    { path: 'profilepage', icon: User, label: 'Profile' },
     { path: 'quiz-history', icon: BarChart2, label: 'History' },
     { path: 'leaderboard', icon: Trophy, label: 'Leaderboard' },
   ];
@@ -141,7 +141,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {currentUser && (
               <button 
-                onClick={() => navigate('/profile')}
+                onClick={() => navigate('/profilepage')}
                 className="hidden md:flex items-center space-x-2 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors shadow-sm"
               >
                 <img
