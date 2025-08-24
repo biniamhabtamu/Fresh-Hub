@@ -20,9 +20,7 @@ const GPACalculator: React.FC = () => {
       if (raw) return JSON.parse(raw) as Course[];
     } catch (e) {}
     return [
-      { id: '1', name: 'Mathematics', score: 85, creditHours: 4, grade: 'A', gradePoint: 4.0 },
-      { id: '2', name: 'Physics', score: 78, creditHours: 3, grade: 'B+', gradePoint: 3.5 },
-      { id: '3', name: 'English', score: 92, creditHours: 2, grade: 'A+', gradePoint: 4.0 }
+      { id: '1', name: 'Psychology', score: 85, creditHours: 4, grade: 'A', gradePoint: 4.0 }
     ];
   });
 
