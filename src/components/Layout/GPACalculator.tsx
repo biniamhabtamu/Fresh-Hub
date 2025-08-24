@@ -27,7 +27,7 @@ const GPACalculator: React.FC = () => {
   });
 
   const [gpa, setGpa] = useState<number | null>(null);
-  const [showAddForm, setShowAddForm] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false); // now triggers centered modal
   const [newCourseName, setNewCourseName] = useState('');
   const [newCourseScore, setNewCourseScore] = useState<number | null>(null);
   const [newCourseCredit, setNewCourseCredit] = useState<number | null>(null);
@@ -41,7 +41,6 @@ const GPACalculator: React.FC = () => {
   const [sortBy, setSortBy] = useState<'name' | 'score' | 'credit'>('name');
   const [descending, setDescending] = useState(false);
 
-  const addFormRef = useRef<HTMLDivElement | null>(null);
   const nameInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -99,6 +98,15 @@ const GPACalculator: React.FC = () => {
     }
   };
 
+  const openModalForNew = () => {
+    setEditingCourse(null);
+    setNewCourseName('');
+    setNewCourseScore(null);
+    setNewCourseCredit(null);
+    setShowAddForm(true);
+    setTimeout(() => nameInputRef.current?.focus(), 120);
+  };
+
   const addOrUpdateCourse = () => {
     if (newCourseName.trim() === '' || newCourseScore === null || newCourseCredit === null) {
       alert('Please fill all fields');
@@ -137,12 +145,11 @@ const GPACalculator: React.FC = () => {
       setCourses(prev => [...prev, newCourse]);
     }
 
+    // close modal after adding/updating
+    setShowAddForm(false);
     setNewCourseName('');
     setNewCourseScore(null);
     setNewCourseCredit(null);
-
-    // collapse the inline form on desktop; mobile sheet controlled separately
-    setShowAddForm(false);
   };
 
   const removeCourse = (id: string) => {
@@ -158,10 +165,7 @@ const GPACalculator: React.FC = () => {
     setNewCourseScore(c.score);
     setNewCourseCredit(c.creditHours);
     setShowAddForm(true);
-    setTimeout(() => {
-      addFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      nameInputRef.current?.focus();
-    }, 150);
+    setTimeout(() => nameInputRef.current?.focus(), 120);
   };
 
   const resetForm = () => {
@@ -172,29 +176,21 @@ const GPACalculator: React.FC = () => {
     setShowAddForm(false);
   };
 
-  const openAddFormAndScroll = () => {
-    setShowAddForm(true);
-    setEditingCourse(null);
-    setTimeout(() => {
-      addFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      nameInputRef.current?.focus();
-    }, 120);
-  };
-
-  // Safer CSV builder (no template literals)
+  // Safer CSV builder (no escaped quotes)
   const exportCSV = () => {
     const header = ['Course Name', 'Score', 'Credit Hours', 'Grade', 'Grade Point'];
-    const rows = courses.map(c => [
-      c.name,
-      String(c.score ?? ''),
-      String(c.creditHours ?? ''),
-      c.grade,
-      c.gradePoint.toFixed(2)
-    ]);
+    const rows = courses.map(c => [c.name, c.score ?? '', c.creditHours ?? '', c.grade, c.gradePoint.toFixed(2)]);
+    const all = [header, ...rows];
 
-    const csv = [header, ...rows]
-      .map(r => r.map(cell => '"' + String(cell).replace(/"/g, '""') + '"').join(','))
-      .join('\n');
+    const csvLines = all.map(row => {
+      return row.map(cell => {
+        const s = String(cell);
+        const escaped = s.replace(/"/g, '""');
+        return '"' + escaped + '"';
+      }).join(',');
+    });
+
+    const csv = csvLines.join('\r\n');
 
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -218,9 +214,8 @@ const GPACalculator: React.FC = () => {
   const visibleCourses = showAll ? sorted : sorted.slice(0, VISIBLE_LIMIT);
 
   return (
-    // NOTE: added extra top padding (pt-24) so page content is not covered by the fixed header,
-    // and kept pb-32 so content is above the fixed bottom bar.
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white pb-32 px-4 pt-24">
+    // Extra padding top (pt-24) to avoid fixed header and pb-44 to avoid fixed bottom bar
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white pb-44 px-4 pt-24">
       <div className="max-w-3xl mx-auto">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
 
@@ -244,7 +239,7 @@ const GPACalculator: React.FC = () => {
             </div>
           </div>
 
-          {/* Controls (kept below header; content has top padding to avoid overlap) */}
+          {/* Controls */}
           <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="flex items-center gap-2 w-full sm:w-auto">
               <input
@@ -267,7 +262,7 @@ const GPACalculator: React.FC = () => {
 
             <div className="flex items-center gap-2">
               <button onClick={() => { setShowTutorial(s => !s); }} className="text-sm px-3 py-2 border rounded-lg">{showTutorial ? 'Hide tips' : 'Show tips'}</button>
-              <button onClick={openAddFormAndScroll} className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-2xl shadow-md hover:bg-cyan-700">
+              <button onClick={openModalForNew} className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-2xl shadow-md hover:bg-cyan-700">
                 <Plus size={16} /> <span className="hidden sm:inline">Add Course</span>
               </button>
             </div>
@@ -292,7 +287,7 @@ const GPACalculator: React.FC = () => {
             </div>
           )}
 
-          {/* Courses + Add form area */}
+          {/* Courses + content area */}
           <div className="p-4 max-h-[60vh] overflow-y-auto">
             {courses.length === 0 && (
               <div className="text-center py-10 text-slate-500">
@@ -352,9 +347,38 @@ const GPACalculator: React.FC = () => {
               </div>
             )}
 
-            {/* Desktop inline form (hidden on very small screens) */}
-            <div ref={addFormRef} className={`mt-6 p-4 rounded-lg border bg-white hidden sm:block transition-all`} >
-              <h3 className="font-semibold text-slate-800 mb-3">{editingCourse ? 'Edit Course' : 'Add New Course'}</h3>
+          </div>
+
+          {/* GPA Result - added bottom margin so it doesn't get covered by fixed bottom bar */}
+          <div className="p-4 border-t bg-gradient-to-r from-emerald-50 to-white mb-24">
+            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white p-4 rounded-xl shadow-md flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <BookOpen size={24} />
+                <div>
+                  <div className="text-sm">Your GPA</div>
+                  <div className="text-2xl font-bold">{gpa !== null ? gpa.toFixed(2) : '0.00'}</div>
+                </div>
+              </div>
+              <div className="text-sm">
+                <div>Based on {courses.filter(c => c.score !== null && c.creditHours !== null).length} course(s)</div>
+                <div>{totalCredits} total credits</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Centered Modal for Add / Edit (used on all screen sizes) */}
+        {showAddForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+            <div className="absolute inset-0 bg-black/40" onClick={() => setShowAddForm(false)} />
+            <div className="relative w-full max-w-md bg-white rounded-2xl shadow-xl p-6 z-10">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold">{editingCourse ? 'Edit Course' : 'Add Course'}</h3>
+                <button onClick={() => setShowAddForm(false)} className="p-1">
+                  <X size={20} />
+                </button>
+              </div>
 
               <div className="mb-3">
                 <label className="block text-sm font-medium text-slate-700 mb-1">Course Name</label>
@@ -368,7 +392,7 @@ const GPACalculator: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Score (0-100)</label>
                   <input
@@ -396,82 +420,29 @@ const GPACalculator: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 <button onClick={addOrUpdateCourse} className="flex-1 py-3 bg-cyan-600 text-white rounded-2xl">{editingCourse ? 'Update' : 'Add Course'}</button>
                 <button onClick={resetForm} className="flex-1 py-3 border rounded-2xl">Cancel</button>
               </div>
             </div>
-
           </div>
-
-          {/* GPA Result */}
-          <div className="p-4 border-t bg-gradient-to-r from-emerald-50 to-white">
-            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white p-4 rounded-xl shadow-md flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <BookOpen size={24} />
-                <div>
-                  <div className="text-sm">Your GPA</div>
-                  <div className="text-2xl font-bold">{gpa !== null ? gpa.toFixed(2) : '0.00'}</div>
-                </div>
-              </div>
-              <div className="text-sm">
-                <div>Based on {courses.filter(c => c.score !== null && c.creditHours !== null).length} course(s)</div>
-                <div>{totalCredits} total credits</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Mobile bottom sheet for Add form (unchanged) */}
-        <div className={`fixed inset-0 z-40 sm:hidden ${showAddForm ? '' : 'pointer-events-none'}`} aria-hidden={!showAddForm}>
-          {/* backdrop */}
-          <div className={`absolute inset-0 bg-black/40 transition-opacity ${showAddForm ? 'opacity-100' : 'opacity-0'}`} onClick={() => setShowAddForm(false)} />
-
-          <div className={`absolute left-0 right-0 bottom-0 bg-white rounded-t-2xl shadow-xl p-4 transform transition-transform ${showAddForm ? 'translate-y-0' : 'translate-y-full'}`}>
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold">{editingCourse ? 'Edit Course' : 'Add Course'}</h3>
-              <button onClick={() => setShowAddForm(false)} className="p-2">
-                <X size={20} />
-              </button>
-            </div>
-
-            <div className="mt-3">
-              <label className="block text-sm font-medium text-slate-700 mb-1">Course Name</label>
-              <input ref={nameInputRef} className="w-full p-3 border rounded-lg" placeholder="e.g., Mathematics" value={newCourseName} onChange={e => setNewCourseName(e.target.value)} />
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 mt-3">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Score (0-100)</label>
-                <input type="number" min={0} max={100} className="w-full p-3 border rounded-lg" value={newCourseScore ?? ''} onChange={(e) => setNewCourseScore(e.target.value === '' ? null : parseInt(e.target.value))} />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Credit</label>
-                <input type="number" min={0.5} max={10} step={0.5} className="w-full p-3 border rounded-lg" value={newCourseCredit ?? ''} onChange={(e) => setNewCourseCredit(e.target.value === '' ? null : parseFloat(e.target.value))} />
-              </div>
-            </div>
-
-            <div className="flex gap-2 mt-4">
-              <button onClick={addOrUpdateCourse} className="flex-1 py-3 bg-cyan-600 text-white rounded-2xl">{editingCourse ? 'Update' : 'Add'}</button>
-              <button onClick={resetForm} className="flex-1 py-3 border rounded-2xl">Cancel</button>
-            </div>
-
-          </div>
-        </div>
+        )}
 
         {/* Fixed bottom bar (visible on all screen sizes) */}
         <div className="fixed bottom-6 left-0 right-0 z-40 flex justify-center pointer-events-none">
           <div className="max-w-3xl w-full px-4 pointer-events-auto">
-            <div className="bg-white rounded-3xl shadow-lg p-3 flex items-center justify-between">
+            <div className="bg-white rounded-3xl shadow-lg p-4 flex items-center justify-between gap-6">
               <div>
                 <div className="text-xs text-slate-500">Current GPA</div>
                 <div className="text-lg font-bold">{gpa !== null ? gpa.toFixed(2) : '0.00'}</div>
               </div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => setShowAddForm(true)} className="bg-cyan-600 text-white p-3 rounded-full shadow-md">
-                  <Plus size={20} />
-                </button>
+              <div className="flex items-center gap-3">
+                {/* hide the add button while modal is open so it doesn't overlap */}
+                {!showAddForm && (
+                  <button onClick={openModalForNew} className="bg-cyan-600 text-white p-3 rounded-full shadow-md">
+                    <Plus size={20} />
+                  </button>
+                )}
                 <button onClick={exportCSV} className="p-3 border rounded-lg">
                   <Download size={18} />
                 </button>
