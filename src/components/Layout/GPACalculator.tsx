@@ -232,9 +232,7 @@ const GPACalculator: React.FC = () => {
 
               <div className="flex items-center gap-2">
                 <div className="bg-white bg-opacity-20 px-3 py-2 rounded-full text-sm font-semibold">{gpa !== null ? gpa.toFixed(2) : '0.00'}</div>
-                <button onClick={exportCSV} title="Export CSV" className="p-2 rounded-md bg-white bg-opacity-10 hover:bg-opacity-20">
-                  <Download size={18} />
-                </button>
+               
               </div>
             </div>
           </div>
@@ -444,7 +442,7 @@ const GPACalculator: React.FC = () => {
                   </button>
                 )}
                 <button onClick={exportCSV} className="p-3 border rounded-lg">
-                  <Download size={18} />
+               
                 </button>
               </div>
             </div>
