@@ -21,7 +21,211 @@ export const sampleQuestions: Question[] = [
   },
 
 
-
+{
+    id: 'Sam-2013-1-1',
+    question: 'Which of the following lists the correct basic order of the five steps of scientific research presented in the text?',
+    options: ['Perceive the problem → Form a hypothesis → Test the hypothesis → Draw conclusions → Report results', 'Test the hypothesis → Perceive the problem → Report results → Draw conclusions → Form a hypothesis', 'Report results → Draw conclusions → Form a hypothesis → Perceive the problem → Test the hypothesis', 'Form a hypothesis → Report results → Perceive the problem → Test the hypothesis → Draw conclusions'],
+    correctAnswer: 0,
+    explanation: 'The text lists the research steps in that logical order: perceive the problem, form a hypothesis, test it, draw conclusions, then report results.',
+    subject: 'Sample',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'Sam-2013-1-2',
+    question: 'Melaku wants to conduct research on the relationship between psychological distress and work overload. Which research method fits this kind of research?',
+    options: ['Case study', 'Survey', 'Correlation', 'Experimental'],
+    correctAnswer: 2,
+    explanation: 'Correlational research is specifically designed to discover and measure the relationship between two or more variables. The goal is to determine if psychological distress and work overload tend to occur together, and how strongly they are related, without manipulating either variable.',
+    subject: 'Sample',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'Sam-2013-1-3',
+    question: "If a teacher and counselor apply learning strategies to improve a student's grades, which of the four goals of psychology are they primarily pursuing?",
+    options: ['Description', 'Explanation', 'Prediction', 'Control'],
+    correctAnswer: 3,
+    explanation: "The goal of control (or influence) in psychology involves applying knowledge to change or modify behavior for the better. By implementing strategies to improve grades, the teacher and counselor are actively trying to control an outcome.",
+    subject: 'Sample',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'Sam-2013-1-4',
+    question: 'A sociologist finds a strong positive association between the number of coffee shops in a city and its crime rate. What is the most significant limitation of concluding that coffee shops cause crime?',
+    options: ['The sample size was likely too small.', 'Correlation does not prove causation; a third variable could be involved.', 'The research was not published in a peer-reviewed journal.', 'Self-report surveys are often unreliable.'],
+    correctAnswer: 1,
+    explanation: "This is a classic example of the principle that correlation is not causation. Just because two variables move together doesn't mean one causes the other. A hidden or 'third' variable, such as population density, could be the actual cause.",
+    subject: 'Sample',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    id: 'Sam-2013-1-5',
+    question: 'Which goal of research in psychology is achieved when the researcher finds out the causes of a behavior?',
+    options: ['Description', 'Prediction', 'Explanation'],
+    correctAnswer: 2,
+    explanation: 'The goal of explanation is to understand why a behavior or mental process occurs. It goes beyond simply describing what is happening to identify its causes.',
+    subject: 'Sample',
+    year: 2013,
+    chapter: 1
+  },
+  {
+    "id": "sam-2013-2-1",
+    "question": "If all cats are mammals and all mammals are animals, then all cats are?(AST)",
+    "options": [
+      "Animals",
+      "Plants",
+      "Minerals",
+      "None of the above"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a classic syllogism. The conclusion 'All cats are animals' necessarily follows from the two premises.",
+    "subject": "Sample",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2013-2-2",
+    "question": "For the past twenty-five years, Ethiopian athletes have been dominant in the world of athletics. Thus, Ethiopian athletes will probably remain dominant in the coming couple of years. This argument is an example of a(n) _______ argument.",
+    "options": [
+      "deductive",
+      "inductive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an inductive argument. Inductive arguments move from specific observations (past performance) to a broader, probable conclusion (future performance). The conclusion is not guaranteed to be true, but it is made probable by the premises.",
+    "subject": "Sample",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2013-2-3",
+    "question": "All managers are journalists. All journalists are lawyers. So, all lawyers are journalists. This argument is said to be:",
+    "options": [
+      "Valid Categorical Syllogism",
+      "Invalid Argument",
+      "Uncogent Syllogism",
+      "Cogent Syllogism",
+      "Valid Hypothetical Syllogism",
+      "Invalid Disjunctive Syllogism"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is an invalid argument. The conclusion \"all lawyers are journalists\" does not logically follow from the premises. Even if the premises were true, the conclusion would not be. The premises establish a relationship from managers to journalists to lawyers, but do not support the inverse relationship from lawyers to journalists. This is a fallacy of illicit major/minor in categorical logic.",
+    "subject": "Sample",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2013-2-4",
+    "question": "No cat is a reptile owing to all cats are dogs and no dog is a reptile. What would be the proper name of this argument in terms of both inferential and factual claims?",
+    "options": [
+      "Sound",
+      "Unsound",
+      "Valid",
+      "Invalid",
+      "Cogent",
+      "A and B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is unsound. An argument is sound if and only if it is valid and all of its premises are actually true. The argument \"No cat is a reptile owing to all cats are dogs and no dog is a reptile\" is logically valid (the conclusion necessarily follows from the premises). However, the premise \"all cats are dogs\" is factually false. Therefore, the argument is unsound.",
+    "subject": "Sample",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2013-2-5",
+    "question": "Yesterday I bought new jeans with a tag that reads, 'Made in U.S.A'. Thus, my new jeans were made in the U.S.A. This argument is:",
+    "options": [
+      "Deductive, Uncogent",
+      "Inductive, Strong",
+      "Deductive, Unsound",
+      "Inductive, Weak",
+      "Deductive, Valid"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a strong inductive argument. It moves from a specific observation (the tag) to a probable conclusion (the jeans were made in the U.S.A.). It is strong because the premise provides a high degree of probability for the conclusion. It's not deductive because the conclusion is not guaranteed, as the tag could be wrong.",
+    "subject": "Sample",
+    "year": 2013,
+    "chapter": 2
+  },
+  {
+    "id": "sam-2014-1-2",
+    "question": "One of the following contents can be studied in a topical/systematic approach of geographic study?",
+    "options": [
+      "Geography of Ethiopia",
+      "Geography of Africa",
+      "Geography of population",
+      "All of the above"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Topical (or Systematic) geography focuses on a single specific subject or theme, such as population, climate, or landforms, and analyzes its spatial patterns across different regions or the entire world. Regional geography, on the other hand, studies all the different geographic characteristics of a particular place, like Ethiopia (A) or Africa (B).",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "sam-2014-1-3",
+    "question": "Which theme of geography has its unique character that can be expressed in terms of hydrology, landforms, etc.?",
+    "options": [
+      "Region",
+      "Location",
+      "Place",
+      "Movement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The theme of Place describes what a location is like by detailing its unique physical and human characteristics. Physical characteristics include landforms, climate, and hydrology (water systems), while human characteristics include language, religion, and culture.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "sam-2014-1-4",
+    "question": "Jimma is well-known for coffee production, year-round rainfall, and King Aba Jifar. To which core themes of Geography is it linked?",
+    "options": [
+      "Human-Environment Interaction",
+      "Movement",
+      "Place",
+      "Location",
+      "Region"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This description provides the specific physical (coffee, rainfall) and human (King Aba Jifar's historical significance) characteristics that define Jimma and make it unique. This is the definition of the theme of Place.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "sam-2014-1-5",
+    "question": "Which one of the following is not within the scope of Geography?",
+    "options": [
+      "The solid part of the Earth",
+      "Physical and chemical properties of matter",
+      "The gaseous envelope",
+      "All living organisms and their intimate relationship",
+      "All water found on and under the Earth's surface"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Geography is the study of the Earth's spheres: the lithosphere (solid part), atmosphere (gaseous envelope), hydrosphere (water), and biosphere (living organisms). The fundamental physical and chemical properties of matter itself are the domain of Physics and Chemistry, not Geography. 🧪",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 1
+  },
+  {
+    "id": "sam-2014-1-6",
+    "question": "Presently, science & technology enable humans to produce artificial rain, steal clouds, and inhabit areas that have never been accessed before. This is a clear reflection of:",
+    "options": [
+      "Adaptation",
+      "Dependence",
+      "Determinism",
+      "Modification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This theme of human-environment interaction describes how humans change the environment to suit their needs. Creating artificial rain and making inhospitable areas livable are clear examples of humans modifying their surroundings.",
+    "subject": "Sample",
+    "year": 2014,
+    "chapter": 1
+  },
   //geography-2013-1-1
 
  {

@@ -5,7 +5,7 @@ export const subjects: Subject[] = [
 
   { 
     id: 'Sample', 
-    name: 'Sample', 
+    name: 'Free trial', 
     icon: '📖', // Different from natural science English
     field: 'natural', 
     isFree: true
@@ -135,7 +135,7 @@ export const subjects: Subject[] = [
    { 
     
     id: 'Sample', 
-    name: 'Sample', 
+    name: 'Free trial', 
     icon: '📖', // Different from natural science English
     field: 'social', 
     isFree: true 
