@@ -1,192 +1,186 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import SubjectSelection from './SubjectSelection';
+import QuestionPage from './QuestionPage';
+import ResultsPage from './ResultsPage';
+import { getRandomQuestions } from '../../data/ChallengeExamCollection';
+import { useChallenge } from '../../../hooks/useChallenge';
 
-const Button = ({ children, onClick, className = "" }) => (
-  <button
-    onClick={onClick}
-    className={`px-5 py-2 rounded-full text-white font-semibold shadow-md transition-all active:scale-95 hover:shadow-lg ${className}`}
-  >
-    {children}
-  </button>
-);
+export default function ChallengeGlobal({ onBack }: { onBack: () => void }) {
+  const [step, setStep] = useState<'subject' | 'type' | 'questions' | 'results'>('subject');
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [challengeType, setChallengeType] = useState<'mid' | 'final' | null>(null);
+  const [selectedSubject, setSelectedSubject] = useState<string>('');
+  const { setChallengeMode } = useChallenge();
 
-const Card = ({ children, className = "" }) => (
-  <div
-    className={`rounded-2xl p-6 bg-gradient-to-br from-slate-800/70 to-slate-900/70 backdrop-blur-md text-white shadow-lg border border-slate-700/30 ${className}`}
-  >
-    {children}
-  </div>
-);
-
-const Clock = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 text-blue-400"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
-
-const ArrowLeft = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-5 h-5"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path d="M15 18l-6-6 6-6" />
-  </svg>
-);
-
-const LiveChallenge = () => {
-  const navigate = useNavigate();
-
-  // Mock challenge
-  const challenge = {
-    title: "Psychology Master Challenge",
-    description: "Covers chapters 1-4 of Intro to Psychology",
-    date: "2023-12-15T21:00:00",
-    duration: 60,
-    participants: 243,
+  const handleSubjectSelect = (subject: string) => {
+    setSelectedSubject(subject);
+    setStep('type');
   };
 
-  const calculateTimeRemaining = () => {
-    const now = new Date();
-    const total = Date.parse(challenge.date) - now.getTime();
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-    return { days, hours, minutes, seconds };
+  const handleChallengeTypeSelect = (type: 'mid' | 'final') => {
+    setChallengeType(type);
+    setChallengeMode(type === 'mid' ? 'mid-global' : 'final-global');
+    
+    // For demo, we'll use random questions. In a real app, you'd fetch specific mid/final questions
+    const allQuestions = getRandomQuestions(selectedSubject, type === 'mid' ? 15 : 30);
+    setQuestions(allQuestions);
+    setStep('questions');
   };
 
-  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
+  const handleComplete = (userAnswers: Record<string, string>) => {
+    setAnswers(userAnswers);
+    setStep('results');
+  };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const handleRestart = () => {
+    setAnswers({});
+    setStep('questions');
+  };
+
+  const handleNewChallenge = () => {
+    setQuestions([]);
+    setAnswers({});
+    setChallengeType(null);
+    setStep('subject');
+  };
+
+  if (step === 'subject') {
+    return (
+      <SubjectSelection 
+        onSubjectSelect={handleSubjectSelect} 
+        mode="global" 
+        onBack={onBack}
+      />
+    );
+  }
+
+  if (step === 'type') {
+    return (
+      <div className="min-h-screen relative overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
+        {/* Animated Background */}
+        <div className="fixed inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"></div>
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+            {[...Array(15)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full opacity-20 animate-pulse"
+                style={{
+                  width: Math.random() * 300 + 50,
+                  height: Math.random() * 300 + 50,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  background: `radial-gradient(circle, ${i % 3 === 0 ? 'rgba(99, 102, 241, 0.5)' : i % 3 === 1 ? 'rgba(139, 92, 246, 0.5)' : 'rgba(59, 130, 246, 0.5)'})`,
+                  animationDuration: `${15 + Math.random() * 10}s`,
+                  animationDelay: `${Math.random() * 5}s`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto relative z-10">
+          <button
+            onClick={() => setStep('subject')}
+            className="mb-6 flex items-center text-blue-300 hover:text-white transition-colors backdrop-blur-sm bg-slate-800/30 px-4 py-2 rounded-full"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Subject Selection
+          </button>
+
+          <div className="bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg overflow-hidden border border-slate-700/30">
+            <div className="p-8 text-center">
+              <h2 className="text-3xl font-bold text-white mb-2">Select Challenge Type</h2>
+              <p className="text-slate-300 mb-8">Test your knowledge against players worldwide</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div 
+                  className="p-6 bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-xl border-2 border-blue-600/30 hover:border-blue-400 hover:scale-105 cursor-pointer transition-all backdrop-blur-sm"
+                  onClick={() => handleChallengeTypeSelect('mid')}
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="h-16 w-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                      <svg className="h-8 w-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-2">Mid-Term Challenge</h3>
+                  <p className="text-slate-300 mb-4">15 questions, compete with global users</p>
+                  <div className="inline-flex items-center bg-blue-500/20 px-3 py-1 rounded-full text-sm text-blue-300">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Global Competition
+                  </div>
+                </div>
+
+                <div 
+                  className="p-6 bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl border-2 border-purple-600/30 hover:border-purple-400 hover:scale-105 cursor-pointer transition-all backdrop-blur-sm"
+                  onClick={() => handleChallengeTypeSelect('final')}
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="h-16 w-16 rounded-full bg-purple-500/20 flex items-center justify-center">
+                      <svg className="h-8 w-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-2">Final Exam Challenge</h3>
+                  <p className="text-slate-300 mb-4">30 comprehensive questions, global ranking</p>
+                  <div className="inline-flex items-center bg-purple-500/20 px-3 py-1 rounded-full text-sm text-purple-300">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Global Ranking
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 p-4 bg-slate-900/50 rounded-lg border border-slate-700/30">
+                <h4 className="text-lg font-medium text-white mb-2">Current Global Stats</h4>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-blue-400">2,458</div>
+                    <div className="text-sm text-slate-400">Active Players</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-purple-400">78%</div>
+                    <div className="text-sm text-slate-400">Avg. Score</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-green-400">15</div>
+                    <div className="text-sm text-slate-400">Live Challenges</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (step === 'questions') {
+    return (
+      <QuestionPage
+        questions={questions}
+        onComplete={handleComplete}
+        mode="global"
+      />
+    );
+  }
 
   return (
-    <div className="min-h-screen text-white p-6 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"></div>
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full opacity-20 animate-pulse"
-              style={{
-                width: Math.random() * 300 + 50,
-                height: Math.random() * 300 + 50,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, ${i % 3 === 0 ? 'rgba(99, 102, 241, 0.5)' : i % 3 === 1 ? 'rgba(139, 92, 246, 0.5)' : 'rgba(59, 130, 246, 0.5)'})`,
-                animationDuration: `${15 + Math.random() * 10}s`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <Button
-          onClick={() => navigate("/challenge")}
-          className="bg-slate-800/70 backdrop-blur-md flex items-center gap-2 border border-slate-700/30"
-        >
-          <ArrowLeft /> Back
-        </Button>
-        <span className="bg-amber-400/90 text-black px-4 py-1 rounded-full text-sm font-semibold backdrop-blur-md">
-          Rank #124
-        </span>
-      </div>
-
-      {/* Title */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          Live Challenge Arena
-        </h1>
-        <p className="text-slate-300 mt-2 text-lg">
-          Compete in real-time events worldwide
-        </p>
-      </div>
-
-      {/* Countdown */}
-      <Card className="mb-6">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Clock />
-          <h2 className="text-xl font-semibold">Next Challenge Starts In</h2>
-        </div>
-        <div className="grid grid-cols-4 gap-3 text-center mb-6">
-          {Object.entries(timeRemaining).map(([label, value], i) => (
-            <div key={i} className="bg-slate-800/50 p-4 rounded-xl backdrop-blur-md border border-slate-700/30">
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {value}
-              </div>
-              <div className="text-xs text-slate-300 mt-1 uppercase">{label}</div>
-            </div>
-          ))}
-        </div>
-        <div className="text-center">
-          <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 w-full py-3">
-            Register Now
-          </Button>
-        </div>
-      </Card>
-
-      {/* Challenge Info */}
-      <Card>
-        <h3 className="text-lg font-semibold mb-2">{challenge.title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{challenge.description}</p>
-        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
-          <span className="flex items-center gap-1">
-            📅 {new Date(challenge.date).toLocaleString()}
-          </span>
-          <span className="flex items-center gap-1">
-            ⏱ {challenge.duration} mins
-          </span>
-          <span className="flex items-center gap-1">
-            👥 {challenge.participants} registered
-          </span>
-        </div>
-      </Card>
-
-      {/* Additional Info Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-        <Card className="flex flex-col items-center text-center">
-          <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-3">
-            <span className="text-2xl">🏆</span>
-          </div>
-          <h3 className="font-semibold mb-1">Prize Pool</h3>
-          <p className="text-slate-300 text-sm">$5,000 in rewards</p>
-        </Card>
-        
-        <Card className="flex flex-col items-center text-center">
-          <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-3">
-            <span className="text-2xl">⭐</span>
-          </div>
-          <h3 className="font-semibold mb-1">Difficulty</h3>
-          <p className="text-slate-300 text-sm">Intermediate</p>
-        </Card>
-      </div>
-
-      {/* Live Status Indicator */}
-      <div className="fixed bottom-6 right-6 bg-red-500/90 backdrop-blur-md text-white px-4 py-2 rounded-full flex items-center gap-2 animate-pulse">
-        <div className="w-2 h-2 bg-white rounded-full"></div>
-        <span className="text-sm font-semibold">LIVE NOW</span>
-      </div>
-    </div>
+    <ResultsPage
+      questions={questions}
+      answers={answers}
+      mode="global"
+      onRestart={handleRestart}
+      onNewChallenge={handleNewChallenge}
+    />
   );
-};
-
-export default LiveChallenge;
+}
