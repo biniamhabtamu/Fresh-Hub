@@ -118,7 +118,7 @@ const ChallengeHome = () => {
       icon: <Target className="text-white" />,
       color: "from-purple-600 via-indigo-600 to-blue-500",
       popularity: 78,
-      onClick: () => navigate("/challenge/ChallengeYourself"),
+      onClick: () => navigate("/challenge/challengeglobal"),
     },
     {
       title: "Live Challenge",
