@@ -3594,6 +3594,472 @@ export const sampleQuestions: Question[] = [
     subject: 'history',
     year: 2015,
     chapter: 1
+  },{
+    "id": "log-2013-1-2",
+    "question": "Abebe is a first-year student at Addis Ababa University studying philosophy. During a lecture, his professor asks the class to define philosophy. Abebe thinks about the core essence of the subject. Which of the following statements best captures the fundamental nature of philosophy, according to the professor's likely explanation?",
+    "options": [
+      "A. Philosophy is the act of accumulating facts and figures.",
+      "B. Philosophy is an endless quest to find a single, definitive answer for every question.",
+      "C. Philosophy is a process of critically examining deeply held beliefs and assumptions.",
+      "D. Philosophy is an ancient art form that has little relevance today."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The core of philosophy is its methodological approach: the critical examination of fundamental beliefs and assumptions. While it may use facts (A), it does not merely accumulate them. It seeks answers but understands they are often debated (B). It is ancient but remains highly relevant by dealing with perennial human questions (D).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-3",
+    "question": "All are the basic features of philosophy except:",
+    "options": [
+      "A. It is a set of views or beliefs about life and the universe.",
+      "B. It is a rational attempt to look at the world as a whole.",
+      "C. It is the process of trying to give correct answer for all questions.",
+      "D. It is a process of reflecting and criticizing our most deeply held beliefs."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Philosophy is characterized by the process of questioning and critical reflection, not by providing final, correct answers for everything. Its strength lies in exploring questions that may not have definitive answers. A, B, and D are all central features of the philosophical endeavor.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-4",
+    "question": "Gelila, a student from Mekelle University, is preparing for her final exam. Her professor has emphasized the 'love of wisdom' aspect of philosophy. Gelila is confused about what this truly means for a philosopher. Which of the following best describes what 'wisdom' is for a philosopher?",
+    "options": [
+      "A. Possessing a vast amount of technical and professional skills.",
+      "B. Having the ability to recall historical dates and names of philosophers.",
+      "C. Engaging in a continuous search for truth and questioning of the apparent.",
+      "D. Finding a definitive and final truth that can never be questioned again."
+    ],
+    "correctAnswer": 2,
+    "explanation": "In philosophy, \"wisdom\" (sophia) is not about information or skills (A, B) or final answers (D). It is an active, ongoing pursuit of understanding through questioning, critical reflection, and the examination of surface-level assumptions.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-5",
+    "question": "Which one of the following is not the concern of philosophy?",
+    "options": [
+      "A. Philosophy is easy to define since it deals about specific subject matter",
+      "B. Philosophy deals primarily with universal issues than subject matters",
+      "C. Philosophy is wisdom but not all wisdom are philosophy",
+      "D. Philosophy is the development of critical habits, the continuous search for truth, the questioning of the apparent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A is not a concern of philosophy; it is an incorrect statement about philosophy. Philosophy is notoriously difficult to define precisely because it does not have a specific, limited subject matter like chemistry or history. Its concerns are universal (B), it involves a specific kind of critical wisdom (C), and it is defined by its process (D).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-6",
+    "question": "Solomon and Tsega from Jimma are having a debate about the nature of philosophical questions. Solomon argues that a philosophical question must be about the meaning of life. Tsega disagrees and gives an example. Which of the following is an example of a philosophical question?",
+    "options": [
+      "A. What is the population of Addis Ababa?",
+      "B. What is the chemical formula for water?",
+      "C. Does God exist?",
+      "D. What is the average rainfall in Dire Dawa?"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Philosophical questions are fundamental, abstract, and require conceptual analysis and reasoned argument. They are not answerable by mere measurement or data collection (A, B, D). The existence of God is a classic metaphysical and philosophical question.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-7",
+    "question": "One of the following statements is true about philosophy:",
+    "options": [
+      "A. The very meaning of “Philosophy” is one of the basic questions of philosophy",
+      "B. Philosophy is merely concerned with issues that other disciplines haven’t addressed so far",
+      "C. Philosophy is necessarily about how to deny reality and falsify faith/religion",
+      "D. Philosophy is an incomprehensible field of study dealing with issues that have universal scope"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Philosophy is self-reflective; questioning its own nature, methods, and terms is a fundamental philosophical activity. B is false because philosophy also examines the foundations of other disciplines. C is a mischaracterization; philosophy examines all beliefs, religious or otherwise, critically. D is false; its universal scope is what makes it comprehensible and relevant to all.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-8",
+    "question": "Biruk, a resident of Hawassa, is attending a public lecture on philosophy. The speaker states that to understand philosophy is to \"do\" philosophy. What is the most accurate interpretation of this statement?",
+    "options": [
+      "A. Philosophy is a passive body of knowledge to be memorized.",
+      "B. The best way to learn philosophy is to engage in reading, reflecting, and questioning.",
+      "C. Philosophy is an academic subject that is only learned in a classroom.",
+      "D. The only way to become a philosopher is to write a book."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Philosophy is an activity. To \"do\" philosophy is to actively engage in the process of critical thinking, questioning arguments, and formulating your own reasoned positions. It is not passive memorization (A), is not confined to a classroom (C), and does not require writing a book (D).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-9",
+    "question": "A branch of philosophy which studies about the nature, scope, meaning, source, validity, and possibility of knowledge is called:",
+    "options": [
+      "A. Metaphysics",
+      "B. Axiology",
+      "C. Epistemology",
+      "D. Logic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Epistemology is precisely defined as the theory of knowledge, dealing with all the aspects listed in the question.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-10",
+    "question": "Which one of the following is not a question of Metaphysics?",
+    "options": [
+      "A. What are the attributes of God?",
+      "B. Did the universe come by accident?",
+      "C. Is beauty objective or subjective?",
+      "D. Is reality composed of one element?"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Questions A (Theology), B (Cosmology), and D (Ontology) are all sub-branches of metaphysics, which deals with the nature of reality. Question C, \"Is beauty objective or subjective?\" is a question of Aesthetics, which is a branch of Axiology (value theory).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-11",
+    "question": "Sintayehu, a brilliant student from Gondar, is arguing with her friend, Chaltu, about the purpose of studying philosophy. Chaltu claims that philosophy is useless because it doesn't provide concrete answers. Sintayehu, however, defends philosophy by highlighting its core features. All of the following would be valid points for Sintayehu to make about the utility of philosophy, except:",
+    "options": [
+      "A. It helps develop flexibility and open-mindedness.",
+      "B. It encourages moral-worthiness and well-thought reasoning.",
+      "C. It fosters creative and critical thinking skills.",
+      "D. It provides a definitive set of answers that removes all doubt."
+    ],
+    "correctAnswer": 3,
+    "explanation": "The central point of Chaltu's criticism is that philosophy lacks definitive answers. Therefore, claiming that philosophy does provide such answers would be an incorrect and ineffective defense. Points A, B, and C are all widely recognized benefits of philosophical training.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-12",
+    "question": "Among the following fields of philosophy, which one deals with formulating the right principles of reasoning and developing scientific methods for evaluating the validity and soundness of arguments?",
+    "options": [
+      "A. Metaphysics",
+      "B. Epistemology",
+      "C. Axiology",
+      "D. Logic"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Logic is the branch of philosophy that studies the principles of correct reasoning and provides the tools for evaluating arguments.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-13",
+    "question": "Meron, a student at Addis Ababa University, is asked to define philosophy. She thinks about the concepts she has learned. Which of the following is the most accurate definition of philosophy?",
+    "options": [
+      "A. A specific body of knowledge that gives final answers.",
+      "B. An irrational attempt to look at the world as a whole.",
+      "C. A process of reflection and criticism of our deepest beliefs.",
+      "D. The study of a single, specific subject matter."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This option best captures the active, critical, and reflective nature of philosophy. It is not a body of final answers (A), it is rational (B), and it is not limited to a single subject (D).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-14",
+    "question": "Tiruye, a university student from Jimma, is confused about the difference between having a philosophy and \"doing\" philosophy. Which of the following statements best explains the distinction?",
+    "options": [
+      "A. \"Having a philosophy\" is sufficient for \"doing\" philosophy.",
+      "B. \"Doing\" philosophy involves actively questioning and criticizing beliefs, while \"having a philosophy\" is just having a set of views.",
+      "C. \"Having a philosophy\" is a more advanced state than \"doing\" philosophy.",
+      "D. There is no real difference between the two concepts."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Everyone \"has a philosophy\" (a set of beliefs and values). \"Doing philosophy\" is the active, critical process of examining those beliefs, questioning their foundations, and refining them through reasoned inquiry.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-15",
+    "question": "Netsanet, a student at Addis Ababa University, is thinking about the famous Socratic dictum, \"The unexamined life is not worth living.\" What does this statement suggest a philosopher should do?",
+    "options": [
+      "A. Live a simple life without any complicated thoughts.",
+      "B. Develop a rational life plan and critically reflect on one's own choices and beliefs.",
+      "C. Follow the crowd to avoid conflict and live a secure life.",
+      "D. Focus on accumulating material wealth and success."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Socrates's statement is a foundational principle of philosophy. It asserts that the value of life comes from self-examination, critical reflection on one's values, and the conscious pursuit of a virtuous life, not from unthinking habit or material gain.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-16",
+    "question": "Lidiya, a philosopher from Addis Ababa, is questioning the very meaning of the word \"philosophy\" itself. She argues that this act is a core part of philosophical inquiry. This aligns with which statement about philosophy?",
+    "options": [
+      "A. The meaning of \"Philosophy\" is a basic philosophical question.",
+      "B. Philosophy is easy to define since it deals with a specific subject.",
+      "C. Philosophy is a field that is incomprehensible to most people.",
+      "D. Philosophy is only concerned with issues that other disciplines haven't addressed."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Philosophy is inherently self-reflective. Questioning its own foundations, terms, and methods is a fundamental philosophical activity.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-17",
+    "question": "Rahel, a student from Adama, is working on a presentation about the core features of philosophy. She must present a statement that is not a basic feature of philosophy. Which one should she choose?",
+    "options": [
+      "A. It is a rational attempt to look at the world as a whole.",
+      "B. It is a set of views or beliefs about life and the universe.",
+      "C. It is the process of trying to give a correct answer for all questions.",
+      "D. It is a process of reflecting and criticizing our most deeply held beliefs."
+    ],
+    "correctAnswer": 2,
+    "explanation": "As in question 2, providing final, correct answers for everything is not a feature of philosophy. Its defining feature is the process of questioning and critical inquiry, not the certainty of its conclusions. A, B, and D are genuine features.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-18",
+    "question": "Almaz, a student in Jimma, is particularly interested in the study of knowledge. She is constantly asking questions like, \"What is truth?\" and \"How can we be certain about what we know?\" Which branch of philosophy is she studying?",
+    "options": [
+      "A. Axiology",
+      "B. Epistemology",
+      "C. Metaphysics",
+      "D. Logic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Epistemology is the branch of philosophy dedicated to the theory of knowledge, which investigates the nature, sources, limits, and validity of knowledge and belief.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-19",
+    "question": "Among the following alternatives, which one is not the question of epistemology?",
+    "options": [
+      "A. What is truth, and how can we know a statement is true?",
+      "B. How can we be sure that what we perceive through our senses is correct?",
+      "C. What is the relationship and difference between faith and reason?",
+      "D. What is a human being? A thinking mind? A perishable body?",
+      "E. What does it mean to know?"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Questions A, B, C, and E are all core epistemological questions about the definition, sources, and limits of knowledge. Question D, \"What is a human being?\" is a question of metaphysics (specifically, philosophical anthropology), not epistemology.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-20",
+    "question": "A perspective on the source of knowledge which argues that knowledge is obtained through the senses is:",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Intuition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Empiricism is the epistemological theory that states all knowledge originates from sensory experience.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-21",
+    "question": "Biniyam, a Dire Dawa University student, is learning about different sources of knowledge. His professor explains that some people believe that knowledge is obtained through the five senses and observation. Which school of thought is the professor describing?",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Intuition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "As above, Empiricism is the view that knowledge comes primarily from sensory experience.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-22",
+    "question": "Chaltu, from Addis Ababa University, believes that all genuine knowledge comes from reason and the intellect, not from sensory experience. Her belief aligns with which epistemological perspective?",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Intuition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Rationalism is the epistemological theory that reason, rather than sensory experience, is the foundation of certainty in knowledge.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-23",
+    "question": "Daniel, a researcher in Dire Dawa, is writing a paper on the role of religious texts and prophets as a source of knowledge. His work is primarily focused on the epistemological aspect of:",
+    "options": [
+      "A. Empiricism",
+      "B. Rationalism",
+      "C. Revelation",
+      "D. Authority"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Revelation is the source of knowledge that involves truth being disclosed by a divine or supernatural entity, often through sacred texts or prophets.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-24",
+    "question": "Which one of the following is correct about Empiricism?",
+    "options": [
+      "A. What is truth, and how can we know a statement is true?",
+      "B. The ultimate reality can be grasped by the five senses.",
+      "C. Is knowledge one or many?",
+      "D. All."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the core claim of empiricism. Option A is a general epistemological question, not specific to empiricism. Option C is unclear and not a standard formulation. Therefore, \"All\" (D) is incorrect.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-25",
+    "question": "The science that deals with moral principles, values, codes, rules and norms is called:",
+    "options": [
+      "A. Political Philosophy",
+      "B. Moral Philosophy",
+      "C. Aesthetics",
+      "D. Ethics"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Ethics (or moral philosophy) is the branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior. The terms \"Moral Philosophy\" and \"Ethics\" are often used interchangeably.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-26",
+    "question": "Which branch of ethics deals with the meaning and origin of ethical issues?",
+    "options": [
+      "A. Meta-ethics",
+      "B. Applied ethics",
+      "C. Normative ethics",
+      "D. Deontological ethics",
+      "E. Teleological ethics"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Meta-ethics is the branch of ethics that seeks to understand the nature of ethical properties, statements, attitudes, and judgments. It asks questions about the meaning of \"good\" and the origin of ethical principles.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-27",
+    "question": "Elias, a student from Arba Minch, is confused about the difference between a philosophical question and a non-philosophical one in the field of epistemology. His professor asks him to identify a question that is not a concern of epistemology. Which of the following should Elias choose?",
+    "options": [
+      "A. What is the difference between belief and knowledge?",
+      "B. How can we know that our senses are not deceiving us?",
+      "C. What is the nature of a human being?",
+      "D. What does it mean to know something?"
+    ],
+    "correctAnswer": 2,
+    "explanation": "As in question 18, \"What is the nature of a human being?\" is a metaphysical question (philosophical anthropology), not an epistemological one. The other options are all central to epistemology.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-28",
+    "question": "Yared, a student from Gondar, is interested in the source of knowledge. He is told that religious texts and prophets can be a source of knowledge. This perspective is known as ________________.",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Authority"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Revelation is the source of knowledge that involves truth being communicated from a divine or supernatural source.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-29",
+    "question": "Girma, a teacher in Gondar, is explaining the different sources of knowledge. He states that some people rely on the knowledge passed down from experts or institutions. This is known as knowledge from:",
+    "options": [
+      "A. Revelation",
+      "B. Intuition",
+      "C. Authority",
+      "D. Empiricism"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Knowledge from authority is based on accepting information from a source that is considered an expert or trusted institution.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-30",
+    "question": "Ifa, a scholar from Wollo University, is discussing the philosophical view that believes knowledge is obtained through a transcendent, supernatural reality. This view is called:",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Authority"
+    ],
+    "correctAnswer": 2,
+    "explanation": "As above, revelation involves a transcendent, supernatural source of knowledge.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-31",
+    "question": "Dagim, a student from Gondar, is learning about the different ways of knowing. He is told that some people believe knowledge is gained through intuition. What is intuition?",
+    "options": [
+      "A. Knowledge gained through the senses.",
+      "B. Knowledge gained through reason.",
+      "C. Immediate or direct apprehension of knowledge without conscious reasoning.",
+      "D. Knowledge gained from a higher, supernatural power."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Intuition is often described as a direct, immediate understanding or knowing without the conscious use of reasoning or sensory data.",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
+  },
+  {
+    "id": "log-2013-1-32",
+    "question": "Hirut, a student from Jimma, is learning about the different sources of knowledge. She is told that one source is \"authority.\" What does this mean in the context of epistemology?",
+    "options": [
+      "A. Knowledge comes from one's own intellect.",
+      "B. Knowledge comes from divine revelation.",
+      "C. Knowledge is accepted as true because it is stated by a trusted source or expert.",
+      "D. Knowledge is gained through a gut feeling."
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the standard definition of knowledge from authority in epistemology. It is distinct from revelation (B) and intuition (D).",
+    "subject": "logic",
+    "year": 2013,
+    "chapter": 1
   },
 
   // ==================== CHEMISTRY QUESTIONS ====================
@@ -3645,1321 +4111,1440 @@ export const sampleQuestions: Question[] = [
     year: 2017,
     chapter: 1
   },
-{
+ {
     "id": "log-2014-1-1",
-    "question": "After observing a flock of 500 birds in a park in Addis Ababa, a biologist noticed that all of them had brown feathers. She concluded that it is highly probable that all birds in Addis Ababa have brown feathers. This argument is a(n) ________ argument.",
+    "question": "Gebrehiwot, a researcher from Hawassa, is studying how people acquire knowledge. He argues that knowledge is primarily acquired through the intellect and the human mind's ability to reason, not through the senses. Which philosophical perspective is he defending?",
     "options": [
-      "Deductive",
-      "Inductive"
+      "A. Empiricism",
+      "B. Rationalism",
+      "C. Revelation",
+      "D. Intuition"
     ],
     "correctAnswer": 1,
-    "explanation": "This is an inductive argument. It uses observations from a specific sample (500 birds) to make a probable generalization about a larger population (all birds in Addis Ababa). The conclusion is not guaranteed to be true, only highly probable.",
+    "explanation": "Rationalism is the epistemological view that reason and intellectual deduction are the primary sources of knowledge, rather than sensory experience.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-2",
-    "question": "A geographer argues: \"Mount Ras Dashen is the highest peak in Ethiopia. All of Ethiopia's highest peaks are located within the Simien Mountains National Park. Therefore, Mount Ras Dashen is located in the Simien Mountains National Park.\" This is a(n) ________ argument.",
+    "question": "Abeba, a student from Adama Science and Technology University, is studying the theory of knowledge. She is confused about the term \"empiricism.\" Which of the following statements correctly defines empiricism?",
     "options": [
-      "Deductive",
-      "Inductive"
+      "A. Knowledge is acquired through intellect.",
+      "B. Knowledge is acquired through faith and revelation.",
+      "C. The ultimate reality can be grasped by the five senses.",
+      "D. All of the above."
     ],
-    "correctAnswer": 0,
-    "explanation": "This is a deductive argument. It moves from a general premise (\"All of Ethiopia's highest peaks are located within...\") to a specific, certain conclusion about Mount Ras Dashen. The conclusion logically and necessarily follows from the premises.",
+    "correctAnswer": 2,
+    "explanation": "Empiricism is the epistemological theory that states all knowledge originates from sensory experience (the five senses). Option A describes Rationalism, and option B describes Revelation.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-3",
-    "question": "The argument: \"All professional Ethiopian soccer players are athletes. All athletes are healthy. Therefore, all professional Ethiopian soccer players are healthy.\" This argument is an example of a(n):",
+    "question": "Which one is incorrect about philosophy?",
     "options": [
-      "Sound argument",
-      "Valid but Unsound argument",
-      "Invalid argument",
-      "Weak argument"
+      "A. Philosophy is a process of reflecting on and criticizing our most deeply held conceptions and beliefs.",
+      "B. Having a philosophy is sufficient for “doing” philosophy.",
+      "C. Philosophy is the logical analysis of language and clarification of meaning of words and concepts.",
+      "D. Philosophy is a rational attempt to look at the world as a whole."
     ],
-    "correctAnswer": 0,
-    "explanation": "This argument is a sound argument. A sound argument is a valid deductive argument with all factually true premises. The argument form is valid (\"All S are P. All P are Q. Therefore, all S are Q\"), and the premises are factually true in this context. Therefore, the conclusion must also be true.",
+    "correctAnswer": 1,
+    "explanation": "This is incorrect. \"Having a philosophy\" means holding a set of beliefs. \"Doing philosophy\" is the active, critical process of examining, questioning, and justifying those beliefs. The former is a state, the latter is an activity.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-4",
-    "question": "An argument can be valid even if its premises are factually false. (True or False)",
+    "question": "One of the following statements is true about philosophy(2013):",
     "options": [
-      "True",
-      "False"
+      "A. The very meaning of “Philosophy” is one of the basic questions of philosophy",
+      "B. Philosophy is merely concerned with issues that other disciplines haven’t addressed so far",
+      "C. Philosophy is necessarily about how to deny reality and falsify faith/religion",
+      "D. Philosophy is an incomprehensible field of study dealing with issues that have universal scope"
     ],
     "correctAnswer": 0,
-    "explanation": "This statement is true. Validity is about the logical structure of an argument, not the factual truth of its premises. For a valid argument, if the premises were true, the conclusion would have to be true. For example: \"All cats are dogs. All dogs are reptiles. Therefore, all cats are reptiles.\" This is a valid argument, even though both premises are factually false.",
+    "explanation": "Philosophy is self-reflective; questioning its own nature, methods, and terms is a fundamental philosophical activity. B, C, and D are all mischaracterizations of the field.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-5",
-    "question": "Consider the argument: 'All animals with four legs are domesticated. A sheep is an animal with four legs. Therefore, a sheep is domesticated.' This argument is:",
+    "question": "Socrates said that “The unexamined life is not worth living.” What do you think he meant by this dictum?",
     "options": [
-      "Valid and Sound",
-      "Valid and Unsound",
-      "Invalid and Sound",
-      "Invalid and Unsound"
+      "A. The lives of too many people are controlled more by circumstances than by their own choices",
+      "B. Critical thinkers choose their lives rather than opting for the security of fitting into the crowd",
+      "C. Developing a rational life plan",
+      "D. Living the self-examined life"
     ],
-    "correctAnswer": 1,
-    "explanation": "This argument is Valid and Unsound. The logical form is valid (All S are P. X is an S. Therefore, X is a P). The conclusion logically follows from the premises. However, the first premise (\"All animals with four legs are domesticated\") is factually false. Since a sound argument must have all true premises, this argument is unsound.",
+    "correctAnswer": 3,
+    "explanation": "While A, B, and C are implications of the dictum, option D is the most direct and comprehensive interpretation. Socrates meant that a life without critical self-reflection, questioning, and the pursuit of wisdom is not a fully human or valuable life.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-6",
-    "question": "If a deductive argument has a false conclusion, what can be definitively said about it?",
+    "question": "Among the following questions, one is not a basic question in philosophy. Which one?",
     "options": [
-      "It must be an invalid argument.",
-      "It must be an unsound argument.",
-      "It must have at least one false premise.",
-      "Both B and C are correct."
+      "A. Where did the universe come from?",
+      "B. Are animals moral agents or moral subjects?",
+      "C. What time is it?",
+      "D. What is an argument?"
     ],
-    "correctAnswer": 3,
-    "explanation": "If a deductive argument has a false conclusion, it must be unsound. An argument is sound only if it is valid AND has all true premises. For a valid argument, true premises guarantee a true conclusion. Therefore, if the conclusion is false, at least one of the premises must be false, which also makes the argument unsound.",
+    "correctAnswer": 2,
+    "explanation": "Questions A (Metaphysics/Cosmology), B (Ethics), and D (Logic) are all fundamental philosophical questions. Question C, \"What time is it?\" is a factual question that can be answered by looking at a clock; it does not require conceptual analysis or reasoned argument.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-7",
-    "question": "A strong inductive argument is analogous to a ________ deductive argument.",
+    "question": "Kebede, a student from Wollo University, is trying to understand the difference between rationalism and empiricism. Which of the following statements correctly distinguishes the two?",
     "options": [
-      "Valid",
-      "Sound",
-      "Cogent",
-      "True"
+      "A. Rationalism believes knowledge comes from sense experience, while empiricism believes it comes from reason.",
+      "B. Rationalism believes knowledge comes from reason, while empiricism believes it comes from sense experience.",
+      "C. Both rationalism and empiricism believe knowledge comes from a divine source.",
+      "D. Both rationalism and empiricism are concerned with the study of values."
     ],
-    "correctAnswer": 0,
-    "explanation": "A strong inductive argument is analogous to a valid deductive argument. Both terms describe the logical connection between the premises and the conclusion. Validity means the conclusion necessarily follows, while strength means the conclusion probably follows. Neither term says anything about the factual truth of the premises.",
+    "correctAnswer": 1,
+    "explanation": "This is the standard distinction. Rationalism emphasizes reason as the primary source of knowledge, while Empiricism emphasizes sense experience.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-8",
-    "question": "The argument \"The sun has risen every morning for the past 5 billion years. Therefore, it is certain that the sun will rise tomorrow morning\" is an example of an argument that is:",
+    "question": "Aster, a philosophy student in Bahir Dar, is fascinated by the most fundamental questions about existence. She often finds herself pondering topics like the nature of reality, the origin of the universe, and whether there is life after death. Which branch of philosophy is she most interested in?",
     "options": [
-      "Deductive and Valid",
-      "Deductive and Invalid",
-      "Inductive and Strong",
-      "Inductive and Weak"
+      "A. Axiology",
+      "B. Epistemology",
+      "C. Metaphysics",
+      "D. Logic"
     ],
     "correctAnswer": 2,
-    "explanation": "This is a strong inductive argument. It's inductive because it uses a pattern of past observations to make a prediction about the future, which is only probable, not certain. It's strong because the evidence (5 billion years of observation) provides a very high degree of probability for the conclusion.",
+    "explanation": "Metaphysics is the branch of philosophy concerned with the fundamental nature of reality and existence, which includes all the topics mentioned.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-9",
-    "question": "Which of the following describes a cogent argument?",
+    "question": "Meseret, a researcher at the Wollega University, is studying the nature of being. Her work involves exploring questions like \"What is the ultimate reality?\" and \"Is reality composed of one or many elements?\" Which specific aspect of metaphysics is she primarily focused on?",
     "options": [
-      "It is a valid deductive argument.",
-      "It is a strong inductive argument with all factually true premises.",
-      "It is a valid deductive argument with all factually true premises.",
-      "It is an argument with a probable conclusion."
+      "A. Cosmological aspect",
+      "B. Anthropological aspect",
+      "C. Ontological aspect",
+      "D. Theological aspect"
     ],
-    "correctAnswer": 1,
-    "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is an inductive argument that is both strong and has all factually true premises.",
+    "correctAnswer": 2,
+    "explanation": "Ontology is the core aspect of metaphysics that deals specifically with the nature of being, existence, and reality itself.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-10",
-    "question": "Can a weak inductive argument ever be cogent?",
+    "question": "Tewodros, a scholar from Gondar, is writing a paper on the philosophical understanding of God. His research revolves around questions concerning God's attributes and existence. This field of inquiry falls under which sub-branch of metaphysics?",
     "options": [
-      "Yes, if its premises are all factually true.",
-      "Yes, if its conclusion is true.",
-      "No, because cogency requires strength.",
-      "Yes, if it is based on a large sample size."
+      "A. Cosmology",
+      "B. Anthropology",
+      "C. Ontology",
+      "D. Theology"
     ],
-    "correctAnswer": 2,
-    "explanation": "No, a weak inductive argument can never be cogent. By definition, cogency requires an argument to be strong. If an argument is weak, it fails the primary condition for being cogent, regardless of the truth of its premises.",
+    "correctAnswer": 3,
+    "explanation": "Philosophical theology (or natural theology) is the sub-branch of metaphysics that examines questions regarding God's existence, attributes, and relation to the world.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-11",
-    "question": "What is the key difference between a sound argument and a cogent argument?",
+    "question": "Yonas, a student at Addis Ababa University, is debating with his friend about the ultimate nature of the universe. He is asking questions like, \"Did the universe come from nothing?\" and \"What was the world made of?\" Yonas is engaging with which metaphysical aspect?",
     "options": [
-      "Sound arguments are deductive; cogent arguments are inductive.",
-      "Sound arguments guarantee the truth of the conclusion; cogent arguments only make the conclusion probable.",
-      "Sound arguments require true premises; cogent arguments do not.",
-      "Both A and B are correct."
+      "A. Ontology",
+      "B. Cosmology",
+      "C. Anthropology",
+      "D. Theology"
     ],
-    "correctAnswer": 3,
-    "explanation": "Both A and B are correct. A sound argument is a type of deductive argument, while a cogent argument is a type of inductive argument. Because of this, a sound argument's conclusion is guaranteed to be true (if its premises are true), while a cogent argument's conclusion is only made highly probable.",
+    "correctAnswer": 1,
+    "explanation": "Cosmology is the aspect of metaphysics that deals with the origin, fundamental structure, nature, and dynamics of the universe as a whole.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-12",
-    "question": "The argument \"Ethiopian coffee beans are of high quality. Therefore, this bag of Ethiopian coffee beans is of high quality.\" is best described as:",
+    "question": "The Theological Aspects of Metaphysics mainly focus on:",
     "options": [
-      "Deductive and Valid",
-      "Inductive and Strong",
-      "Deductive and Unsound",
-      "Inductive and Weak"
+      "A. The origin, nature, and development of universe.",
+      "B. The nature and meaning of existence.",
+      "C. The religious theories that deal with the conceptions about God.",
+      "D. The study of human beings and mind-body relations."
     ],
-    "correctAnswer": 1,
-    "explanation": "This is an inductive argument. It moves from a general premise about Ethiopian coffee beans to a conclusion about a specific instance. It is strong because the premise provides a high degree of probability for the conclusion.",
+    "correctAnswer": 2,
+    "explanation": "The theological aspect of metaphysics is concerned with philosophical questions about God's existence, nature, and attributes, and the relationship between God and the world.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-13",
-    "question": "An argument with a factually true conclusion, a valid form, and at least one factually false premise is:",
+    "question": "Of the following metaphysical speculation, one clearly emphasizes human nature including morality, free will, and soul. Which one is it?",
     "options": [
-      "Sound",
-      "Unsound",
-      "Cogent",
-      "Valid but Uncogent"
+      "A. Cosmological aspect",
+      "B. Anthropological aspect",
+      "C. Ontological aspect",
+      "D. Theological aspect"
     ],
     "correctAnswer": 1,
-    "explanation": "The argument is unsound. For a deductive argument to be sound, it must be valid and all of its premises must be true. Since at least one premise is false, the argument is unsound, even if it has a valid form and a true conclusion.",
+    "explanation": "The anthropological aspect of metaphysics focuses specifically on the nature of humanity, exploring questions about the mind-body relationship, free will, consciousness, morality, and the soul.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-14",
-    "question": "The argument: 'Some college students in Addis Ababa are athletes. Some athletes are hardworking. Therefore, some college students in Addis Ababa are hardworking.' This argument is:",
+    "question": "A metaphysical question that raises the most basic inquiry about God is:",
     "options": [
-      "Valid",
-      "Invalid",
-      "Sound",
-      "Cogent"
+      "A. Cosmological aspect",
+      "B. Anthropological aspect",
+      "C. Theological aspect",
+      "D. Ontological aspect"
     ],
-    "correctAnswer": 1,
-    "explanation": "This argument is invalid. The conclusion does not necessarily follow from the premises. The \"some\" in the premises could refer to different groups. The college students who are athletes might not be the same athletes who are hardworking.",
+    "correctAnswer": 2,
+    "explanation": "As in question 10, the theological aspect deals directly with inquiries about God.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-15",
-    "question": "The argument: 'The majority of Ethiopian long-distance runners are from the Oromo region. Kenenisa Bekele is an Ethiopian long-distance runner. Therefore, Kenenisa Bekele is probably from the Oromo region.' This argument is best described as:",
+    "question": "Zewditu, a student at Addis Ababa University, is studying the branch of philosophy that deals with the scope, source, and possibility of knowledge. This branch is called:",
     "options": [
-      "Cogent",
-      "Sound",
-      "Invalid",
-      "Deductive"
+      "A. Metaphysics",
+      "B. Axiology",
+      "C. Epistemology",
+      "D. Logic"
     ],
-    "correctAnswer": 0,
-    "explanation": "This argument is cogent. It's an inductive argument that is both strong (the premise makes the conclusion very probable) and has true premises (Kenenisa Bekele is an Ethiopian long-distance runner, and a majority of these runners are indeed from the Oromo region).",
+    "correctAnswer": 2,
+    "explanation": "Epistemology is the theory of knowledge, which studies its nature, scope, source, and validity.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-16",
-    "question": "What is the fundamental difference in the relationship between premises and conclusion in deductive versus inductive arguments?",
+    "question": "Fikremariam, a student from Bahir Dar, is trying to differentiate between metaphysics and epistemology. Which of the following questions belongs to epistemology, not metaphysics?",
     "options": [
-      "Deductive arguments go from specific to general, while inductive arguments go from general to specific.",
-      "Deductive arguments aim for certainty, while inductive arguments aim for probability.",
-      "Deductive arguments are never based on observation, while inductive arguments always are.",
-      "Deductive arguments cannot have false premises, while inductive arguments can."
+      "A. What is the nature of reality?",
+      "B. How can we be sure that what we perceive is correct?",
+      "C. What is the relationship between the mind and body?",
+      "D. Is beauty objective or subjective?"
     ],
     "correctAnswer": 1,
-    "explanation": "The fundamental difference lies in the aim of the argument. Deductive arguments aim to show that the conclusion is a certain consequence of the premises, while inductive arguments only aim to show that the conclusion is probable.",
+    "explanation": "Question B is epistemological because it deals with the source and validity of knowledge gained through perception. The other questions are metaphysical (A, C) or from Aesthetics (D), a branch of Axiology.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-17",
-    "question": "An argument is invalid if:",
+    "question": "Abebech, a student at Addis Ababa University, is learning about the different views on knowledge. She learns that some philosophers believe that a statement is true if it corresponds to an external reality. This view is known as the:",
     "options": [
-      "The conclusion is false.",
-      "The premises are all false.",
-      "The conclusion does not follow from the premises, regardless of their truth.",
-      "It is a weak inductive argument."
+      "A. Coherence theory of truth",
+      "B. Pragmatic theory of truth",
+      "C. Correspondence theory of truth",
+      "D. All of the above"
     ],
     "correctAnswer": 2,
-    "explanation": "An argument is invalid if its conclusion does not logically follow from its premises. The factual truth or falsehood of the premises and conclusion is irrelevant to an argument's validity.",
+    "explanation": "The correspondence theory of truth states that the truth or falsity of a statement is determined only by how it relates to the world and whether it accurately describes (i.e., corresponds with) that reality.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-18",
-    "question": "The argument: 'The last 100 people who ordered a coffee at this shop asked for it to be traditionally prepared. So, the next person to order coffee will also ask for it to be traditionally prepared.' This is an example of a(n):",
+    "question": "Kedir, a philosophy student from Hawassa, is asked to give an example of a philosophical puzzle. Which of the following is a classic philosophical puzzle?",
     "options": [
-      "Weak inductive argument",
-      "Strong inductive argument",
-      "Unsound deductive argument",
-      "Invalid deductive argument"
+      "A. How many stars are in the sky?",
+      "B. What is the cause of gravity?",
+      "C. The question of whether there is an external world.",
+      "D. How to solve a mathematical equation."
     ],
-    "correctAnswer": 1,
-    "explanation": "This is a strong inductive argument. It moves from a large number of specific observations (the last 100 people) to a high-probability conclusion about a future event. The large sample size makes the conclusion highly probable.",
+    "correctAnswer": 2,
+    "explanation": "The problem of the external world—whether the world exists independently of our perception of it—is a classic, enduring puzzle in epistemology and metaphysics. The other options are scientific (A, B) or mathematical (D) questions.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-19",
-    "question": "An argument that is both valid and has all factually true premises is called a(n) ________ argument.",
+    "question": "Bekele, a resident of Dire Dawa, is arguing with his friend about the relevance of philosophy. His friend says that philosophy is incomprehensible because it deals with issues that have a universal scope. Is this a valid argument?",
     "options": [
-      "Strong",
-      "Cogent",
-      "Sound",
-      "Inductive"
+      "A. Yes, because universal issues are too broad to be understood.",
+      "B. No, the universal scope of philosophy is what makes it a crucial field of study.",
+      "C. Yes, because philosophy lacks a distinct subject matter.",
+      "D. No, because philosophy provides definitive answers to these issues."
     ],
-    "correctAnswer": 2,
-    "explanation": "A sound argument is a valid deductive argument that has all factually true premises. This is the gold standard for a good deductive argument.",
+    "correctAnswer": 1,
+    "explanation": "The friend's criticism is not valid. The universal scope of philosophical questions is their greatest strength, as they address fundamental human concerns that underlie all specific fields of inquiry. Their breadth is what makes them relevant to everyone, not incomprehensible.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-20",
-    "question": "What is a key characteristic that distinguishes a good deductive argument from a good inductive argument?",
+    "question": "Hana, a student from Mekelle University, is studying the nature of philosophical questions. She is told that a philosophical question must have a universal scope. Which of the following is an example of a question with a universal scope?",
     "options": [
-      "The premises of a good deductive argument are always true.",
-      "The conclusion of a good deductive argument is guaranteed to be true if the premises are true.",
-      "Good inductive arguments are always stronger than good deductive arguments.",
-      "Good deductive arguments can be either valid or invalid."
+      "A. What is the capital of Ethiopia?",
+      "B. Is the concept of \"justice\" the same for everyone?",
+      "C. What is the distance between Mekelle and Addis Ababa?",
+      "D. What is the boiling point of water?"
     ],
     "correctAnswer": 1,
-    "explanation": "A key characteristic of a good deductive argument (a valid one) is that its conclusion is guaranteed to be true if its premises are true. Good inductive arguments, on the other hand, can only make their conclusions probable.",
+    "explanation": "A question with universal scope applies to all people, times, and places. The nature of justice is a fundamental question that every society must grapple with. The other questions are specific, factual queries with single, empirical answers.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-21",
-    "question": "A statement that is correct about an argument among the following is:",
+    "question": "Netsanet, a student from Jimma, is debating with her friend about the nature of philosophical questions. She says that a question like, \"Does AstraZeneca vaccine save humans from Covid-19?\" is not a serious philosophical question. Why is she likely correct?",
     "options": [
-      "An argument must have at least one premise, and can have one or more conclusions.",
-      "An argument can have a single premise and a single conclusion.",
-      "A good argument is one where all premises are factually true.",
-      "An argument can be valid even if its conclusion is false."
+      "A. It is a question that can be answered through scientific investigation, not philosophical inquiry.",
+      "B. It is a very serious question, so it must be philosophical.",
+      "C. It is a question of ethics, so it is philosophical.",
+      "D. All of the above."
     ],
-    "correctAnswer": 3,
-    "explanation": "An argument can be valid even if its conclusion is false. This happens when at least one of its premises is also false. For example, \"All birds can fly. A penguin is a bird. Therefore, a penguin can fly.\" This is a valid argument, but the first premise is false, making the conclusion false.",
+    "correctAnswer": 0,
+    "explanation": "The efficacy of a specific vaccine is a question of medical science, answerable through clinical trials, data collection, and empirical analysis. While the ethical distribution of the vaccine is a philosophical (ethical) question, the question of whether it \"saves humans\" is primarily scientific.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-22",
-    "question": "The term 'uncogent' is to 'inductive argument' as '________' is to 'deductive argument'.",
+    "question": "Which one of the following is a serious philosophical question?",
     "options": [
-      "Invalid",
-      "Unsound",
-      "Weak",
-      "Unreliable"
+      "A. Does God exist?",
+      "B. Is dark skin or white skin more affected by melanin?",
+      "C. Does metabolism system exist in animals?",
+      "D. Does AstraZeneca vaccine save humans from Covid-19?"
     ],
-    "correctAnswer": 1,
-    "explanation": "The relationship is one of poor quality. Uncogent is the term for a poor inductive argument (either weak or has false premises). Unsound is the term for a poor deductive argument (either invalid or has false premises).",
+    "correctAnswer": 0,
+    "explanation": "The existence of God is a classic, fundamental metaphysical question that requires conceptual analysis and reasoned argument. The other options are scientific questions answerable through biological or medical investigation.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
   },
   {
     "id": "log-2014-1-23",
-    "question": "An argument that has a true conclusion, but whose premises do not provide sufficient support for it, is:",
+    "question": "All are true about philosophy, except:",
     "options": [
-      "Sound or Valid",
-      "Unsound or Weak",
-      "Cogent or Strong",
-      "None of the above"
+      "A. To understand philosophy is to do philosophy",
+      "B. Philosophical conclusions are objective and eternal",
+      "C. Philosophical puzzles",
+      "D. Philosophy lacks distinct subject matter perennial",
+      "E. None"
     ],
     "correctAnswer": 1,
-    "explanation": "This argument is either unsound (if it's a deductive argument and the premises are false or the form is invalid) or weak (if it's an inductive argument and the premises don't make the conclusion probable). In both cases, the support for the conclusion is inadequate.",
+    "explanation": "This is the exception. While philosophy strives for objectivity through reason, its conclusions are rarely final or eternal. Philosophical debates are perennially revisited and revised. The process of questioning is more definitive of philosophy than any fixed set of answers. A, C, and D are all true statements.",
     "subject": "logic",
     "year": 2014,
     "chapter": 1
-  },
-  {
-    "id": "log-2014-1-24",
-    "question": "A student argues: 'All men are mortal. All Ethiopians are mortal. Therefore, all Ethiopians are men.' This argument is:",
+  },{
+    "id": "log-2015-1-1",
+    "question": "Zewdu, a philosophy teacher in Mekelle, is explaining the relationship between human nature and metaphysics to his students. He highlights the aspect that deals with human nature, including free will, morality, and the soul. This is known as the ________________ aspect of metaphysics.",
     "options": [
-      "Valid",
-      "Invalid",
-      "Sound",
-      "Cogent"
+      "A. Cosmological",
+      "B. Anthropological",
+      "C. Ontological",
+      "D. Theological"
     ],
     "correctAnswer": 1,
-    "explanation": "This argument is invalid. It's a formal fallacy. The premises state that two groups (men and Ethiopians) both belong to a larger category (mortal), but this doesn't logically guarantee that one group is a subset of the other.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-25",
-    "question": "The argument: 'If the Ethiopian government invests more in infrastructure, the economy will grow. The government will not invest more in infrastructure. Therefore, the economy will not grow.' This argument is an example of:",
-    "options": [
-      "Modus Ponens",
-      "Modus Tollens",
-      "Fallacy of Denying the Antecedent",
-      "Fallacy of Affirming the Consequent"
-    ],
-    "correctAnswer": 2,
-    "explanation": "This is an example of the Fallacy of Denying the Antecedent. The logical form is \"If P then Q. Not P. Therefore, Not Q.\" This is an invalid form because the conclusion does not necessarily follow; the economy could grow for other reasons.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-26",
-    "question": "The argument form \"If P, then Q. Q. Therefore, P.\" is:",
-    "options": [
-      "Valid",
-      "Invalid",
-      "Sound",
-      "Both A and C"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This argument form is invalid. It is a formal fallacy known as Affirming the Consequent. Just because the consequent (Q) is true, it does not mean the antecedent (P) must be true.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-27",
-    "question": "'No Ethiopian wolf is a domesticated animal because all Ethiopian wolves are wild animals and no wild animal is a domesticated animal.' This argument is an example of a(n):",
-    "options": [
-      "Deductive and Valid argument",
-      "Inductive and Strong argument",
-      "Deductive and Sound argument",
-      "Inductive and Cogent argument"
-    ],
-    "correctAnswer": 2,
-    "explanation": "This is a Deductive and Sound argument. It is deductive because the conclusion necessarily follows from the premises. It is sound because the form is valid, and the premises (\"all Ethiopian wolves are wild animals\" and \"no wild animal is a domesticated animal\") are factually true.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-28",
-    "question": "In a valid deductive argument, if the premises are true, the conclusion must be:",
-    "options": [
-      "True",
-      "False",
-      "Unsound",
-      "Cogent"
-    ],
-    "correctAnswer": 0,
-    "explanation": "This is the definition of a valid deductive argument. If the premises are true, the conclusion is guaranteed to be true.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-29",
-    "question": "The argument \"Ethiopia’s coffee ceremony is a long-standing tradition. Therefore, it will probably continue to be a tradition in the future.\" is:",
-    "options": [
-      "Deductive, Valid",
-      "Inductive, Strong",
-      "Deductive, Invalid",
-      "Inductive, Weak"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This is a strong inductive argument. It's inductive because it uses a pattern of past behavior (long-standing tradition) to make a probable prediction about the future. It's strong because a long history of a tradition makes its continuation highly probable.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-30",
-    "question": "The conclusion of a valid deductive argument is always true. (True or False)",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This statement is false. A valid argument's conclusion is only guaranteed to be true if its premises are all true. If one or more premises are false, a valid argument can still have a false conclusion.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-31",
-    "question": "'The reason for the decline in tourism in the Omo Valley is that recent droughts have made travel to the region difficult and have reduced access to clean water.' This passage is best identified as a(n):",
-    "options": [
-      "Argument",
-      "Report",
-      "Explanation",
-      "Illustration"
-    ],
-    "correctAnswer": 2,
-    "explanation": "This passage is an explanation. It provides a causal account for a known fact (the decline in tourism). It is not trying to convince the reader that tourism has declined, but rather to explain why it has.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-32",
-    "question": "The passage: 'A shamma is a traditional handwoven cotton cloth from Ethiopia. It is typically worn as a shawl and is often embroidered with intricate patterns.' This is a(n):",
-    "options": [
-      "Argument",
-      "Explanation",
-      "Report",
-      "Illustration"
-    ],
-    "correctAnswer": 2,
-    "explanation": "This is a report. It simply presents factual information about a shamma without offering any reasons to prove a claim. It's a descriptive passage.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-33",
-    "question": "Which of the following is an argument?",
-    "options": [
-      "The Nile River is the longest river in Africa.",
-      "The Nile River is the longest river in Africa, and it flows through Ethiopia.",
-      "Since the Nile River is the longest river in Africa, it is the most important for the countries it flows through.",
-      "A picture of the Nile River."
-    ],
-    "correctAnswer": 2,
-    "explanation": "Statement C is an argument. The word \"since\" acts as a premise indicator, and the passage offers a reason (being the longest river) for a conclusion (it is the most important for the countries it flows through).",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-34",
-    "question": "A passage that uses examples to clarify a point is called a(n):",
-    "options": [
-      "Argument",
-      "Explanation",
-      "Report",
-      "Illustration"
-    ],
-    "correctAnswer": 3,
-    "explanation": "An illustration is a passage that uses one or more examples to show what a general claim means. It clarifies a point rather than proving it.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-35",
-    "question": "The passage 'Ethiopian Orthodox churches, such as those in Lalibela, are a marvel of ancient architecture because they were carved directly out of the ground.' This is an example of a(n):",
-    "options": [
-      "Argument",
-      "Explanation",
-      "Report",
-      "Illustration"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This is an explanation. The word \"because\" signals that the passage is providing a reason for a known fact (that the churches are a marvel), not trying to prove that they are.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-36",
-    "question": "An explanation differs from an argument primarily in its:",
-    "options": [
-      "Use of logical indicators",
-      "Purpose",
-      "Length",
-      "Factual accuracy"
-    ],
-    "correctAnswer": 1,
-    "explanation": "The primary difference is purpose. An argument aims to prove a conclusion, while an explanation aims to provide a causal account for why something is the way it is.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-37",
-    "question": "The phrase \"in conclusion\" is a classic indicator of a(n):",
-    "options": [
-      "Premise",
-      "Conclusion",
-      "Explanation",
-      "Report"
-    ],
-    "correctAnswer": 1,
-    "explanation": "\"In conclusion\" is a classic conclusion indicator. It signals that the statement that follows is the main point the arguer is trying to make.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-38",
-    "question": "'The reason the Ethiopian calendar is different from the Gregorian calendar is that it is based on an older, more accurate calculation of the birth of Jesus.' This passage is a(n):",
-    "options": [
-      "Argument",
-      "Explanation",
-      "Report",
-      "Illustration"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This is an explanation. The phrase \"The reason...is that\" explicitly indicates that the passage is providing a causal account for a fact about the Ethiopian calendar.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-39",
-    "question": "A passage that uses \"because\" is always an argument. (True or False)",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This is false. The word \"because\" is an indicator of both a premise in an argument and a causal reason in an explanation. The context of the passage determines which function it serves.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-40",
-    "question": "An argument's premises are:",
-    "options": [
-      "Claims that are always true.",
-      "Claims that are intended to be supported.",
-      "Claims that provide evidence to support a conclusion.",
-      "The result of the argument's logic."
-    ],
-    "correctAnswer": 2,
-    "explanation": "Premises are the statements in an argument that are used to provide reasons or evidence for the conclusion. They are the building blocks of the argument.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-41",
-    "question": "Which of the following is a premise indicator?",
-    "options": [
-      "Consequently",
-      "Hence",
-      "Since",
-      "Therefore"
-    ],
-    "correctAnswer": 2,
-    "explanation": "\"Since\" is a common premise indicator. Words like \"consequently,\" \"hence,\" and \"therefore\" are all conclusion indicators.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-42",
-    "question": "What is the conclusion of the following argument? \"Many people believe that the Ethiopian flag is a symbol of national pride. Because it has historical significance and represents unity, it is indeed a powerful symbol of national pride.\"",
-    "options": [
-      "Many people believe that the Ethiopian flag is a symbol of national pride.",
-      "It has historical significance.",
-      "The Ethiopian flag is a powerful symbol of national pride.",
-      "The flag represents unity."
-    ],
-    "correctAnswer": 2,
-    "explanation": "The conclusion is \"The Ethiopian flag is a powerful symbol of national pride.\" The word \"because\" signals that the statements that follow it are premises, supporting the main claim that precedes them.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-43",
-    "question": "Which of the following statements about argument structure is correct?",
-    "options": [
-      "An argument must have at least two premises.",
-      "The conclusion of an argument must be a single statement.",
-      "The premises and conclusion can appear in any order.",
-      "An argument can have multiple conclusions."
-    ],
-    "correctAnswer": 2,
-    "explanation": "The premises and conclusion can appear in any order. The conclusion may come at the beginning, middle, or end of a passage. The logical relationship, not the physical order, defines the argument.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-44",
-    "question": "Which of the following is a sufficient condition for an object to be a triangle?",
-    "options": [
-      "Having three sides",
-      "Having three angles",
-      "Having a shape with three sides and three angles",
-      "Being a geometric figure"
-    ],
-    "correctAnswer": 2,
-    "explanation": "A sufficient condition is one that, if met, guarantees the outcome. Having a shape with three sides and three angles is the full definition of a triangle; therefore, it is a sufficient condition. A and B are necessary conditions, but not sufficient on their own.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-45",
-    "question": "For a human to be a male, it is a necessary condition that they:",
-    "options": [
-      "Have a beard",
-      "Have a Y chromosome",
-      "Are muscular",
-      "Are taller than a woman"
-    ],
-    "correctAnswer": 1,
-    "explanation": "A necessary condition is one that must be present for an outcome to occur. Having a Y chromosome is a necessary biological condition for a human to be a male. A person could be male without having a beard, being muscular, or being taller than a woman.",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-46",
-    "question": "\"Being an Ethiopian citizen\" is a necessary condition for \"being born in Addis Ababa.\" (True or False)",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctAnswer": 1,
-    "explanation": "This is false. The statement has the relationship backward. Being born in Addis Ababa is a sufficient condition for being an Ethiopian citizen, but it is not necessary. A person can be an Ethiopian citizen without being born in Addis Ababa (e.g., being born in Gondar or to Ethiopian parents abroad).",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },
-  {
-    "id": "log-2014-1-47",
-    "question": "In the statement, \"If it is raining (P), then the ground is wet (Q),\" the condition of the ground being wet is a(n) ________ condition for it raining.",
-    "options": [
-      "Sufficient",
-      "Necessary",
-      "Both A and B",
-      "Neither A nor B"
-    ],
-    "correctAnswer": 1,
-    "explanation": "The ground being wet (Q) is a necessary condition for it raining (P). This means that if it's raining, the ground must be wet. However, the ground being wet is not a sufficient condition for it raining (e.g., someone could have hosed it down).",
-    "subject": "logic",
-    "year": 2014,
-    "chapter": 1
-  },{"id": "log-2015-1-1",
-    "question": "Which of the following is a sufficient condition for a valid argument to be sound?",
-    "options": [
-      "Its premises are all true.",
-      "Its conclusion is true.",
-      "It is an inductive argument.",
-      "It is a valid and strong argument."
-    ],
-    "correctAnswer": 0,
-    "explanation": "For a valid argument, the premises being true is a sufficient condition for it to be sound. A sound argument is defined as a valid argument with all true premises.",
+    "explanation": "The anthropological aspect of metaphysics focuses on the philosophical inquiry into the nature of human beings.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-2",
-    "question": "A statement that contains an expression or term that is too vague or ambiguous to be a precise premise is called a(n):",
+    "question": "Feleke, a philosophy major at Addis Ababa University, is writing a paper on the metaphysical inquiry into the nature of reality. He wants to explore the core question: \"Is basic reality found in matter or in spirit?\" This question belongs to which metaphysical aspect?",
     "options": [
-      "Unsound argument",
-      "Uncogent argument",
-      "Non-argument",
-      "Unclear statement"
+      "A. Theological",
+      "B. Ontological",
+      "C. Anthropological",
+      "D. Cosmological"
     ],
-    "correctAnswer": 3,
-    "explanation": "A statement that contains a vague or ambiguous term is an unclear statement. Such statements often make it difficult to evaluate the argument's premises properly. They are neither arguments nor non-arguments, but a type of statement with a logical flaw.",
+    "correctAnswer": 1,
+    "explanation": "Ontology is the branch of metaphysics that studies the fundamental nature of being and existence. The question of whether reality is material or spiritual is a core ontological debate (materialism vs. idealism).",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-3",
-    "question": "Which of the following best describes the relationship between validity and truth?",
+    "question": "Tsegaye, from Wollo University, is working on a philosophical problem that deals with the nature of human existence, the relationship between mind and body, and the concept of the soul. He is engaged in which aspect of metaphysics?",
     "options": [
-      "Validity is a property of premises, while truth is a property of arguments.",
-      "A valid argument must have true premises.",
-      "Validity refers to the structure of an argument, while truth refers to the content of statements.",
-      "An invalid argument can never have a true conclusion."
+      "A. Cosmological",
+      "B. Theological",
+      "C. Anthropological",
+      "D. Ontological"
     ],
     "correctAnswer": 2,
-    "explanation": "The correct answer is C. Validity is a property of a deductive argument's logical form; it's about whether the conclusion necessarily follows from the premises. Truth, on the other hand, is a property of individual statements or propositions, referring to their factual accuracy. An argument's validity and the truth of its statements are separate concepts.",
+    "explanation": "As in question 1, the study of human nature, including the mind-body problem and the concept of the soul, falls under the anthropological aspect of metaphysics.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-4",
-    "question": "An argument is considered sound if and only if it is:",
+    "question": "Identify the one which is not a principle of critical thinking.",
     "options": [
-      "Valid and has at least one true premise.",
-      "Invalid but has all true premises.",
-      "Valid and has all true premises.",
-      "Strong and has a true conclusion."
+      "A. The suspension of judgment",
+      "B. Relativistic thinking",
+      "C. The burden of proof",
+      "D. Fallibility",
+      "E. None of the above"
     ],
-    "correctAnswer": 2,
-    "explanation": "An argument is sound if and only if it meets two criteria: it is a valid deductive argument, and all of its premises are factually true. Both conditions must be met for an argument to be sound.",
+    "correctAnswer": 1,
+    "explanation": "Relativistic thinking (the view that all beliefs are equally valid) is actually an obstacle to critical thinking. Critical thinking requires evaluating beliefs based on evidence and reason, not simply accepting all claims as equally true. Suspension of judgment, recognizing the burden of proof, and acknowledging one's fallibility are all key principles.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-5",
-    "question": "Consider the following argument: \"All dogs are mammals. Fido is a dog. Therefore, Fido is a mammal.\" This argument is:",
+    "question": "The word “critical” in critical thinking refers to:",
     "options": [
-      "Invalid and unsound.",
-      "Valid but unsound.",
-      "Valid and sound.",
-      "Inductive and strong."
+      "A. Fault-finding attitude",
+      "B. A lack of respect for other people",
+      "C. Attempt to win an argument",
+      "D. Using careful judgment",
+      "E. None of the above"
     ],
-    "correctAnswer": 2,
-    "explanation": "This is a valid and sound argument. It is a deductive argument, and its structure is valid (All S are P. X is an S. Therefore, X is a P). Both of its premises (\"All dogs are mammals\" and \"Fido is a dog\") are factually true. Therefore, the argument is sound.",
+    "correctAnswer": 3,
+    "explanation": "In this context, \"critical\" derives from the Greek word kriticos, meaning \"discerning judgment.\" It refers to the careful, reflective, and rational evaluation of claims and arguments, not to being negative or argumentative.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-6",
-    "question": "Which of the following is an example of an inductive argument?",
+    "question": "According to Bertrand Russell, the value of philosophy lies in:",
     "options": [
-      "All humans are mortal. Socrates is a human. Therefore, Socrates is mortal.",
-      "If it is raining, the ground is wet. The ground is wet. Therefore, it is raining.",
-      "The sun has risen every day for the past billion years. Therefore, the sun will probably rise tomorrow.",
-      "Either the cat is on the mat or it is not. The cat is not on the mat. Therefore, the cat is on the mat."
+      "A. Narrowing our thoughts and putting us under the tyranny of custom",
+      "B. Keeping alive our sense of wonder by showing familiar things in unfamiliar aspects",
+      "C. Searching and having certain answers for questions that matter to humanity",
+      "D. Keeping intact our arrogant dogmatism",
+      "E. None of the above"
     ],
-    "correctAnswer": 2,
-    "explanation": "Option C is an inductive argument. It uses a pattern of past observations (the sun rising every day) to make a probable prediction about a future event. The conclusion is not guaranteed, only probable.",
+    "correctAnswer": 1,
+    "explanation": "Bertrand Russell argued that the chief value of philosophy is not in providing definite answers but in enlarging our thinking and freeing us from dogmatism by stirring a sense of wonder about the world.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-7",
-    "question": "The existence of a cause is a necessary condition for the existence of an effect, but it is not a sufficient condition.",
+    "question": "Yohannes, a student from Mekelle University, is studying the metaphysical question, \"What is the source of the universe?\" This is a classic question of:",
     "options": [
-      "True",
-      "False"
+      "A. Anthropology",
+      "B. Cosmology",
+      "C. Ontology",
+      "D. Theology"
     ],
-    "correctAnswer": 0,
-    "explanation": "This statement is True. A necessary condition is required for an event to occur, while a sufficient condition guarantees that it will. For an effect to exist, a cause must exist (a necessary condition). However, a cause may exist without the effect occurring (e.g., a match exists, but it hasn't been lit yet).",
+    "correctAnswer": 1,
+    "explanation": "Cosmology is the aspect of metaphysics that deals with the origin, fundamental structure, and development of the universe.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-8",
-    "question": "Which of the following combinations of truth values is impossible for a deductively valid argument?",
+    "question": "Gebremedhin, a scholar from Addis Ababa University, is writing a book that analyzes the nature of human beings, including their mind-body relations. This topic falls under which aspect of metaphysics?",
     "options": [
-      "True premises, True conclusion.",
-      "False premises, True conclusion.",
-      "True premises, False conclusion.",
-      "False premises, False conclusion."
+      "A. Theological",
+      "B. Cosmological",
+      "C. Anthropological",
+      "D. Ontological"
     ],
     "correctAnswer": 2,
-    "explanation": "The combination of True premises, False conclusion is impossible for a deductively valid argument. By definition, a valid argument is one where it's logically impossible for the premises to be true while the conclusion is false. This is the ultimate test of validity.",
+    "explanation": "The anthropological aspect deals with the nature of human beings, which includes the mind-body problem.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-9",
-    "question": "An argument from analogy is a type of inductive argument that draws a conclusion based on:",
+    "question": "Abebech, a student from Bahir Dar, is contemplating the question, \"Is reality composed of one element or many?\" This is a classic example of a question in:",
     "options": [
-      "A specific observation about a group.",
-      "A prediction about a future event.",
-      "The similarity between two or more things.",
-      "A general principle applied to a specific case."
+      "A. Theology",
+      "B. Ontology",
+      "C. Cosmology",
+      "D. Anthropology"
     ],
-    "correctAnswer": 2,
-    "explanation": "An argument from analogy draws a conclusion about one thing based on its similarity to another. The argument assumes that because two things are alike in some respects, they are also likely to be alike in other, unobserved respects.",
+    "correctAnswer": 1,
+    "explanation": "This question concerns the fundamental nature and composition of reality, which is the domain of ontology (e.g., monism vs. pluralism).",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-10",
-    "question": "The following passage is a statement of fact: \"The capital of Ethiopia is Addis Ababa.\"",
+    "question": "Yemisrach, a student from Jimma, is trying to understand the metaphysical question, \"What does it mean for anything to exist?\" This question is a classic example of:",
     "options": [
-      "True",
-      "False"
+      "A. Cosmology",
+      "B. Ontology",
+      "C. Anthropology",
+      "D. Theology"
     ],
-    "correctAnswer": 0,
-    "explanation": "This statement is True. The phrase is a statement of fact because it makes a claim that can be verified and is objectively true.",
+    "correctAnswer": 1,
+    "explanation": "This is the most fundamental question of ontology: the study of being and existence itself.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-11",
-    "question": "\"Either I will pass the exam or I will fail it. I passed the exam. Therefore, I will not fail it.\" This argument is an example of a:",
+    "question": "Zewdu, a student from Addis Ababa University, is studying the branch of philosophy that deals with the nature of human beings. This branch of metaphysics is known as:",
     "options": [
-      "Valid deductive argument.",
-      "Invalid deductive argument.",
-      "Strong inductive argument.",
-      "Weak inductive argument."
+      "A. Cosmology",
+      "B. Ontology",
+      "C. Anthropology",
+      "D. Theology"
     ],
-    "correctAnswer": 0,
-    "explanation": "This is a valid deductive argument. Its logical form is \"Either P or Q. P. Therefore, not Q,\" which is a variation of Disjunctive Syllogism, a valid deductive argument form. The conclusion logically and necessarily follows from the premises.",
+    "correctAnswer": 2,
+    "explanation": "Philosophical anthropology is the branch that studies human nature.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-12",
-    "question": "The argument: \"My car's engine has been making a strange knocking sound. The check engine light is on. Therefore, my car probably needs a new engine.\" is an example of a(n):",
+    "question": "Birhanu, a student from Gondar, is asked to identify a question that would be considered a concern of metaphysics. Which of the following is a metaphysical question?",
     "options": [
-      "Deductive argument.",
-      "Inductive argument based on prediction.",
-      "Inductive argument from authority.",
-      "Inductive argument based on causal inference."
+      "A. How do we know that our senses are not deceiving us?",
+      "B. What is the moral status of human beings?",
+      "C. What is the universe made of?",
+      "D. What is the difference between a valid and an invalid argument?"
     ],
-    "correctAnswer": 3,
-    "explanation": "This is an inductive argument based on causal inference. It makes a probable conclusion about the cause of a set of effects (knocking sound, check engine light). The conclusion is not certain, but it's a likely explanation for the observed symptoms.",
+    "correctAnswer": 2,
+    "explanation": "Question C is a cosmological question within metaphysics. A is epistemology, B is ethics, and D is logic.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-13",
-    "question": "The statements \"What a beautiful day!\" and \"Close the door.\" are considered non-statements because they:",
+    "question": "Jemila, a student from Mekelle University, is learning about the different branches of philosophy. She is asked to identify the branch that studies about the nature of God. This is an aspect of:",
     "options": [
-      "Cannot be used in an argument.",
-      "Express feelings or commands rather than claims that can be true or false.",
-      "Do not contain indicator words.",
-      "Are always part of inductive arguments."
+      "A. Ontology",
+      "B. Cosmology",
+      "C. Theology",
+      "D. Anthropology"
     ],
-    "correctAnswer": 1,
-    "explanation": "These are non-statements because they are not claims that can be evaluated as either true or false. \"What a beautiful day!\" is an expression of feeling, and \"Close the door.\" is a command. Only statements that have a truth value can function as premises or conclusions in an argument.",
+    "correctAnswer": 2,
+    "explanation": "Philosophical theology (theology) deals with questions about God's existence and nature.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-14",
-    "question": "What is the key difference between a valid and a sound argument?",
+    "question": "Nigist, a student from Bahir Dar, is trying to understand the different aspects of metaphysics. She is asked to identify the aspect that deals with the origin, nature, and development of the universe. This is:",
     "options": [
-      "A valid argument has a strong conclusion, while a sound one has a true conclusion.",
-      "A valid argument guarantees the conclusion follows from the premises, while a sound one also requires the premises to be true.",
-      "A valid argument is a type of inductive argument, while a sound one is a type of deductive argument.",
-      "A valid argument must be strong, while a sound one must be valid."
+      "A. Theology",
+      "B. Cosmology",
+      "C. Anthropology",
+      "D. Ontology"
     ],
     "correctAnswer": 1,
-    "explanation": "The key difference is that soundness adds the requirement of factual truth to validity. A valid argument has the right structure. A sound argument has the right structure and is also factually correct.",
+    "explanation": "This is the definition of cosmology.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-15",
-    "question": "\"If you are a student, then you have to study. You are not a student. Therefore, you don't have to study.\" This argument is:",
+    "question": "Chaltu, a student from Mekelle University, is asked to identify the correct correlation between a philosophical branch and its subject matter. Which of the following is the correct pair?",
     "options": [
-      "Valid and sound.",
-      "Invalid.",
-      "Valid but unsound.",
-      "Both A and B."
+      "A. Anthropology — nature of God",
+      "B. Cosmology — origin of the universe",
+      "C. Theology — nature of being",
+      "D. Ontology — nature of human beings"
     ],
     "correctAnswer": 1,
-    "explanation": "This argument is invalid. It is a formal fallacy known as Denying the Antecedent (\"If P then Q. Not P. Therefore, Not Q.\"). The conclusion does not logically follow from the premises, as a person might have to study for reasons other than being a student.",
+    "explanation": "This is the only correct pairing. A should be Anthropology — nature of human beings. C should be Theology — nature of God. D should be Ontology — nature of being.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-16",
-    "question": "The conclusion of a valid argument:",
+    "question": "Lemlem, a high school student in Addis Ababa, is told by her teacher that philosophy is the \"mother of all sciences.\" Which of the following statements best justifies this claim?",
     "options": [
-      "Is always factually true.",
-      "Must be true if the premises are true.",
-      "Must be factually false if the premises are false.",
-      "Is irrelevant to the validity of the argument."
+      "A. The first philosophers were also the first scientists.",
+      "B. Philosophy deals with a specific and limited subject matter.",
+      "C. Philosophy provides a foundation by questioning fundamental assumptions and seeking wisdom.",
+      "D. All other sciences have been derived from the theories of ancient philosophers."
     ],
-    "correctAnswer": 1,
-    "explanation": "By definition, in a valid deductive argument, if the premises are true, the conclusion must also be true. This is the very essence of a valid deductive argument's structure.",
+    "correctAnswer": 2,
+    "explanation": "The claim refers to philosophy's historical and methodological role. It asks the most fundamental questions about reality, knowledge, and value. As methods of empirical investigation became more sophisticated, specific sciences branched off from this foundational, questioning approach.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-17",
-    "question": "An argument from authority is strong only if:",
+    "question": "Mekonnen, from Gondar, is asked by his friend to list the benefits of studying philosophy. All of the following would be correct points for him to make, except:",
     "options": [
-      "The source is a recognized expert in the field.",
-      "The source is a well-known celebrity.",
-      "The argument uses strong language like \"certainly\" or \"definitely.\"",
-      "The source has a personal belief in the conclusion."
+      "A. It fosters critical thinking and critical reflection.",
+      "B. It encourages creative problem-solving.",
+      "C. It helps one to rely entirely on the ideas of others.",
+      "D. It helps develop skills in reasoning and argumentation."
     ],
-    "correctAnswer": 0,
-    "explanation": "An argument from authority is a type of inductive argument that is strong only when the source cited is a recognized expert in the relevant subject area. A celebrity's opinion, strong language, or personal belief does not make the argument strong.",
+    "correctAnswer": 2,
+    "explanation": "A core aim of philosophy is to teach individuals to think for themselves and to question assumptions (including those of others), not to rely on them uncritically.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
     "id": "log-2015-1-18",
-    "question": "Which of the following is a non-statement?",
+    "question": "Fasil, a businessperson in Addis Ababa, is having a debate with his colleague about whether philosophy is relevant in the modern world. His colleague claims that philosophy is useless because it has no distinct subject matter. How can Fasil best counter this argument?",
     "options": [
-      "The moon is made of cheese.",
-      "Ethiopia has a larger population than Somalia.",
-      "Why is the sky blue?",
-      "Addis Ababa is the capital of Ethiopia."
+      "A. Philosophy's lack of a distinct subject matter is a weakness, so the colleague is correct.",
+      "B. Philosophy's value lies in its perennial and universal issues rather than a single subject matter.",
+      "C. Philosophy is actually about a specific subject matter that the colleague doesn't know about.",
+      "D. Philosophy's only purpose is to define terms and concepts."
     ],
-    "correctAnswer": 2,
-    "explanation": "\"Why is the sky blue?\" is a non-statement because it is a question, not a declarative sentence that can be judged as true or false.",
+    "correctAnswer": 1,
+    "explanation": "The strength of philosophy is its breadth. Its tools of critical analysis can be applied to any field (e.g., ethics in business). Its subject matter is the set of fundamental questions that underlie all other inquiries.",
     "subject": "logic",
     "year": 2015,
     "chapter": 1
   },
   {
-    "id": "log-2016-1-1",
-    "question": "The phrase \"The reason that...\" is most likely to introduce a:",
+    "id": "log-2015-1-19",
+    "question": "Wondimu, a political science student at Addis Ababa University, is studying the historical debates in Ethiopia about whether the country should be a unitary or federal state. Which philosophical branch would be most relevant to his research?",
     "options": [
-      "Conclusion.",
-      "Statement of belief.",
-      "Premise.",
-      "Inductive argument."
+      "A. Metaphysics",
+      "B. Logic",
+      "C. Epistemology",
+      "D. Political Philosophy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Political philosophy is the branch that studies fundamental questions about government, the state, and political systems like unitary vs. federal models.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-20",
+    "question": "Yosef, a student in Bahir Dar, is trying to understand the connection between philosophy and critical thinking. Which statement best describes this relationship?",
+    "options": [
+      "A. Philosophy is a prerequisite for critical thinking.",
+      "B. Critical thinking is a direct outcome and integral part of doing philosophy.",
+      "C. Philosophy and critical thinking are unrelated concepts.",
+      "D. Critical thinking is only useful for science, not philosophy."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Critical thinking is the core methodology of philosophy. The very act of \"doing philosophy\" (analyzing arguments, identifying fallacies, constructing reasoning) is the practice of critical thinking.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-21",
+    "question": "Wubet, a student at Addis Ababa University, is learning about the history of thought. She is told that the first philosophers were not just thinkers but were also scientists. This is a point used to justify the idea that:",
+    "options": [
+      "A. Philosophy is a useless subject.",
+      "B. Philosophy is the mother of all sciences.",
+      "C. Philosophy and science are completely separate disciplines.",
+      "D. Science is more important than philosophy."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Historical figures like Aristotle asked fundamental questions about nature that laid the groundwork for specialized scientific disciplines, supporting the \"mother of sciences\" claim.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-22",
+    "question": "Kalkidan, a first-year student at Bahir Dar University, is trying to understand the relationship between philosophy and other sciences. She is told that philosophy is a versatile discipline. This means:",
+    "options": [
+      "A. It deals with only one specific subject matter.",
+      "B. It does not engage with any other academic fields.",
+      "C. It is the mother of all sciences and its questions are not limited to one domain.",
+      "D. It provides a simple, direct answer to all scientific questions."
     ],
     "correctAnswer": 2,
-    "explanation": "The phrase \"The reason that...\" is a classic premise indicator. It introduces the evidence or reason for a claim, which is the premise of an argument. It can also introduce an explanation.",
+    "explanation": "Philosophy's versatility stems from its application to all areas of human thought, making it a foundational and interdisciplinary field.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-23",
+    "question": "Meron, a student from Addis Ababa University, is working on a research paper about the philosophical implications of modern science. Her professor tells her that philosophy is a versatile discipline. This means:",
+    "options": [
+      "A. It deals with a limited number of topics.",
+      "B. It can be applied to and interact with various fields of study.",
+      "C. It provides a final answer to all scientific questions.",
+      "D. It has no connection to other academic disciplines."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the meaning of versatility in this context. Philosophy can provide conceptual clarity and examine ethical and metaphysical foundations in science, law, art, etc.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-24",
+    "question": "Genet, a student from Bahir Dar, is debating with her friend about the relevance of philosophy. Her friend says that philosophy is only about ancient ideas and has no modern applications. How can Genet best counter this argument?",
+    "options": [
+      "A. Philosophy is only relevant to academic scholars.",
+      "B. Philosophy is an obsolete field of study.",
+      "C. Philosophy's perennial questions about ethics and reality are highly relevant in the modern world.",
+      "D. Philosophy is only useful for personal reflection, not for societal issues."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Philosophy deals with timeless questions about justice, truth, and existence that are as relevant today in debates about AI ethics, bioethics, and political systems as they were in ancient times.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-25",
+    "question": "Sami, a student from Mekelle University, is learning about the history of philosophy. He learns that philosophy is the \"mother of all sciences.\" Which of the following is the most compelling reason for this?",
+    "options": [
+      "A. All other sciences began as branches of philosophy.",
+      "B. The first philosophers were scientists.",
+      "C. Philosophy's pivotal role is asking appropriate questions, which forms the basis for all scientific inquiry.",
+      "D. A and B are correct."
+    ],
+    "correctAnswer": 2,
+    "explanation": "While A and B are historically true, the most compelling reason is the methodological one: philosophy's role in asking the fundamental \"why\" and \"how\" questions that are the prerequisite for any systematic inquiry, scientific or otherwise.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  },
+  {
+    "id": "log-2015-1-26",
+    "question": "Rahel, a student from Gondar, is learning about the history of thought. She is told that philosophy is the \"mother of all sciences.\" Which of the following is a correct reason for this?",
+    "options": [
+      "A. The first philosophers were also scientists.",
+      "B. Philosophy deals with the most fundamental questions of all disciplines.",
+      "C. Philosophy provides a foundation for other sciences to grow.",
+      "D. All of the above."
+    ],
+    "correctAnswer": 3,
+    "explanation": "All three points are valid reasons that together justify the claim. The historical fact (A), the methodological scope (B), and the foundational role (C) all support the idea.",
+    "subject": "logic",
+    "year": 2015,
+    "chapter": 1
+  }, {
+    "id": "log-2016-1-1",
+    "question": "Wondimu, a student from Hawassa, is learning about the benefits of studying philosophy. He is told that one of the benefits is to become more open-minded. How does philosophy achieve this?",
+    "options": [
+      "A. By providing a fixed set of answers to believe.",
+      "B. By forcing students to accept the ideas of others.",
+      "C. By encouraging critical reflection and questioning of one's own beliefs.",
+      "D. By teaching historical facts about philosophers."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Philosophy fosters open-mindedness by teaching individuals to critically examine their own deeply held beliefs and to understand and engage with viewpoints different from their own. This process challenges dogmatism and expands one's perspective.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-2",
-    "question": "Which of the following makes an inductive argument cogent?",
+    "question": "Which one of the following is a serious philosophical question?",
     "options": [
-      "It is valid and has a true conclusion.",
-      "It is strong and has a false premise.",
-      "It is weak but has a true conclusion.",
-      "It is strong and has all true premises."
+      "A. Does God exist?",
+      "B. Is dark skin or white skin more affected by melanin?",
+      "C. Does metabolism system exist in animals?",
+      "D. Does AstraZeneca vaccine save humans from Covid-19?"
     ],
-    "correctAnswer": 3,
-    "explanation": "A cogent argument is the inductive equivalent of a sound argument. It is an inductive argument that is both strong and has all true premises.",
+    "correctAnswer": 0,
+    "explanation": "The existence of God is a classic, fundamental metaphysical question that requires conceptual analysis and reasoned argument. The other options are scientific questions answerable through biological or medical investigation.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-3",
-    "question": "The conclusion of an argument is the statement that:",
+    "question": "All are true about philosophy, except:",
     "options": [
-      "Provides reasons to support another statement.",
-      "Is claimed to be supported by other statements.",
-      "Is always true.",
-      "Can only be a command or a question."
+      "A. To understand philosophy is to do philosophy",
+      "B. Philosophical conclusions are objective and eternal",
+      "C. Philosophical puzzles",
+      "D. Philosophy lacks distinct subject matter perennial",
+      "E. None"
     ],
     "correctAnswer": 1,
-    "explanation": "The conclusion is the central claim of an argument, the statement that the arguer is trying to prove. It is the statement that is supported by the premises.",
+    "explanation": "This is the exception. While philosophy strives for objectivity through reason, its conclusions are rarely final or eternal. Philosophical debates are perennially revisited and revised. The process of questioning is more definitive of philosophy than any fixed set of answers.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-4",
-    "question": "The argument \"Most American presidents have been men. Therefore, the next American president will probably be a man.\" is a(n):",
+    "question": "Which one is incorrect about philosophy?",
     "options": [
-      "Argument from analogy.",
-      "Causal inference.",
-      "Statistical argument.",
-      "Deductive argument."
+      "A. Philosophy is a process of reflecting on and criticizing our most deeply held conceptions and beliefs.",
+      "B. Having a philosophy is sufficient for “doing” philosophy.",
+      "C. Philosophy is the logical analysis of language and clarification of meaning of words and concepts.",
+      "D. Philosophy is a rational attempt to look at the world as a whole."
     ],
-    "correctAnswer": 2,
-    "explanation": "This is a statistical argument, a type of inductive argument that uses statistical data or a general trend to draw a probable conclusion about a specific instance. The premise is based on a majority, and the conclusion is a prediction based on that statistic.",
+    "correctAnswer": 1,
+    "explanation": "This is incorrect. \"Having a philosophy\" means holding a set of beliefs. \"Doing philosophy\" is the active, critical process of examining, questioning, and justifying those beliefs. The former is a state, the latter is an activity.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-5",
-    "question": "\"In order to be a father, one must have a child.\" This statement indicates that having a child is a:",
+    "question": "One of the following statements is true about philosophy(2013):",
     "options": [
-      "Sufficient condition for being a father.",
-      "Necessary condition for being a father.",
-      "Both a necessary and sufficient condition.",
-      "Neither a necessary nor a sufficient condition."
+      "A. The very meaning of “Philosophy” is one of the basic questions of philosophy",
+      "B. Philosophy is merely concerned with issues that other disciplines haven’t addressed so far",
+      "C. Philosophy is necessarily about how to deny reality and falsify faith/religion",
+      "D. Philosophy is an incomprehensible field of study dealing with issues that have universal scope"
     ],
-    "correctAnswer": 1,
-    "explanation": "This statement means that having a child is a necessary condition for being a father. You can't be a father without a child. However, it's not a sufficient condition, as a person with a child might not be the father (e.g., an uncle or a legal guardian).",
+    "correctAnswer": 0,
+    "explanation": "Philosophy is self-reflective; questioning its own nature, methods, and terms is a fundamental philosophical activity. B, C, and D are all mischaracterizations of the field.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-6",
-    "question": "A valid deductive argument can be described as a relationship where:",
+    "question": "Socrates said that “The unexamined life is not worth living.” What do you think he meant by this dictum?",
     "options": [
-      "The conclusion is probably true if the premises are true.",
-      "The conclusion is certainly true if the premises are true.",
-      "The premises are true, and the conclusion is true.",
-      "The conclusion is always true, regardless of the premises."
+      "A. The lives of too many people are controlled more by circumstances than by their own choices",
+      "B. Critical thinkers choose their lives rather than opting for the security of fitting into the crowd",
+      "C. Developing a rational life plan",
+      "D. Living the self-examined life"
     ],
-    "correctAnswer": 1,
-    "explanation": "This is the definition of a valid deductive argument. The logical structure guarantees that if the premises are true, the conclusion must be true with certainty.",
+    "correctAnswer": 3,
+    "explanation": "While A, B, and C are implications of the dictum, option D is the most direct and comprehensive interpretation. Socrates meant that a life without critical self-reflection, questioning, and the pursuit of wisdom is not a fully human or valuable life.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-7",
-    "question": "What is a key characteristic of a sound argument?",
+    "question": "Among the following questions, one is not a basic question in philosophy. Which one?",
     "options": [
-      "It is valid, and its premises and conclusion are all true.",
-      "Its conclusion follows with certainty from the premises.",
-      "It is an inductive argument with a strong conclusion.",
-      "It has a high probability of being true."
+      "A. Where did the universe come from?",
+      "B. Are animals moral agents or moral subjects?",
+      "C. What time is it?",
+      "D. What is an argument?"
     ],
-    "correctAnswer": 0,
-    "explanation": "A sound argument is a deductive argument that is both valid and has all factually true premises. This ensures that the conclusion is also true.",
+    "correctAnswer": 2,
+    "explanation": "Questions A (Metaphysics/Cosmology), B (Ethics), and D (Logic) are all fundamental philosophical questions. Question C, \"What time is it?\" is a factual question that can be answered by looking at a clock; it does not require conceptual analysis or reasoned argument.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-8",
-    "question": "The phrase \"it is safe to conclude that...\" is an example of a:",
+    "question": "Which one is wrong about philosophy as a love of wisdom?",
     "options": [
-      "Premise indicator.",
-      "Conclusion indicator.",
-      "Non-statement.",
-      "Warning."
+      "A. It lets wisdom control your passion",
+      "B. It reminds you that knowing oneself is the beginning of wisdom",
+      "C. Philosophy helps you to forget yourself",
+      "D. All of the above"
     ],
-    "correctAnswer": 1,
-    "explanation": "This phrase is a conclusion indicator. It signals that the following statement is the main claim that the arguer is putting forth, based on the preceding premises.",
+    "correctAnswer": 2,
+    "explanation": "A core tenet of philosophy, famously expressed by Socrates as \"Know thyself,\" is that wisdom involves deep self-examination and understanding. It is not about forgetting the self but about critically engaging with it. Philosophy is grounded in rational self-awareness.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-9",
-    "question": "The argument \"I have never seen a black swan before. Therefore, all swans are white.\" is a:",
+    "question": "Wisdom for philosophers is not:",
     "options": [
-      "Strong inductive argument.",
-      "Weak inductive argument.",
-      "Valid deductive argument.",
-      "Sound argument."
+      "A. The development of critical habit",
+      "B. Technical skills of professionals",
+      "C. The continuous search for truth",
+      "D. The questioning of the apparent",
+      "E. All except C"
     ],
     "correctAnswer": 1,
-    "explanation": "This is a weak inductive argument. The conclusion (\"all swans are white\") is a sweeping generalization based on a very limited number of observations. A single counterexample (a black swan) would immediately prove the conclusion false, which is why it's a weak argument.",
+    "explanation": "Philosophical wisdom is not about acquiring technical or professional skills. It is about the development of critical thinking habits (A), the ongoing pursuit of understanding (C), and the questioning of surface-level assumptions (D).",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-10",
-    "question": "\"If the car is on, the engine is running. The engine is not running. Therefore, the car is not on.\" This is an example of:",
+    "question": "Girma, a teacher in Gondar, is explaining the benefits of philosophy. He says that philosophy is beneficial for all of the following, except:",
     "options": [
-      "Affirming the antecedent.",
-      "Modus ponens.",
-      "Denying the consequent.",
-      "Modus tollens."
+      "A. Developing creative and critical thinking.",
+      "B. Enhancing moral-worthiness.",
+      "C. Providing ready-made answers for all of life's questions.",
+      "D. Promoting flexibility and open-mindedness."
     ],
-    "correctAnswer": 3,
-    "explanation": "This is an example of Modus Tollens, a valid deductive argument form. Its structure is \"If P then Q. Not Q. Therefore, Not P.\" It is also known as \"denying the consequent.\"",
+    "correctAnswer": 2,
+    "explanation": "Philosophy does not provide ready-made answers; its value lies in teaching the process of how to think through complex questions. Providing definitive answers for everything is contrary to the nature of philosophical inquiry.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-11",
-    "question": "The term \"truth value\" refers to:",
+    "question": "Kedir, a student from Jimma, is learning about the practical benefits of philosophy. He is told that philosophy is useful for all of the following, except:",
     "options": [
-      "The value of an argument's validity.",
-      "The degree of strength of an inductive argument.",
-      "The property of a statement being either true or false.",
-      "The number of premises in an argument."
+      "A. Developing critical thinking.",
+      "B. Fostering creative thinking.",
+      "C. Relying on the ideas of others.",
+      "D. Enhancing flexibility and open-mindedness."
     ],
     "correctAnswer": 2,
-    "explanation": "The truth value of a statement is its property of being either true or false. Only statements or propositions can have a truth value. Arguments themselves are not true or false; they are valid/invalid or strong/weak.",
+    "explanation": "A core aim of philosophy is to teach individuals to think for themselves, to evaluate arguments critically, and to question received wisdom. Therefore, encouraging reliance on the ideas of others is antithetical to its purpose.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-12",
-    "question": "A deductive argument can be defined as one in which the conclusion:",
+    "question": "Alemu, a student from Wollo University, is told by his professor that philosophy's conclusions are objective and eternal. Is this statement true or false?",
     "options": [
-      "Follows with certainty from the premises.",
-      "Is highly probable given the premises.",
-      "Is a matter of personal opinion.",
-      "Is based on a generalization from a specific case."
+      "A. True, philosophical conclusions are fixed and unchanging.",
+      "B. False, philosophical conclusions are often subject to ongoing debate and revision.",
+      "C. True, because philosophy is a search for truth.",
+      "D. False, because philosophy is only about personal opinions."
     ],
-    "correctAnswer": 0,
-    "explanation": "The defining characteristic of a deductive argument is that it attempts to provide a conclusion that is certain to be true if its premises are true. The relationship is one of logical necessity.",
+    "correctAnswer": 1,
+    "explanation": "While philosophy strives for objectivity through reason and evidence, its conclusions are rarely, if ever, final or eternal. Philosophical debates (e.g., free will vs. determinism) are perennially revisited. The process of questioning is more definitive than the answers.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-13",
-    "question": "An argument is invalid if:",
+    "question": "Fasil, a philosophy student at Addis Ababa University, is asked to identify a statement that is not true about philosophy. Which of the following statements is not true?",
     "options": [
-      "All of its premises are false.",
-      "Its conclusion is false.",
-      "The conclusion does not necessarily follow from the premises.",
-      "It is an inductive argument."
+      "A. Philosophy is a rational attempt to look at the world as a whole.",
+      "B. It is an irrational attempt to look at the world as a whole.",
+      "C. It clarifies the meaning and use of terms.",
+      "D. It is a process of reflecting and criticizing beliefs."
     ],
-    "correctAnswer": 2,
-    "explanation": "An argument is invalid if its logical form is flawed, meaning the conclusion does not necessarily follow from the premises, regardless of the factual truth of those premises.",
+    "correctAnswer": 1,
+    "explanation": "By definition, philosophy is a rational endeavor. It relies on reason, logic, and argumentation. Therefore, describing it as an \"irrational attempt\" is fundamentally incorrect and not true.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-14",
-    "question": "Which of the following is a statement of opinion rather than fact?",
+    "question": "Elias, a student from Adama, is studying the branch of ethics that deals with practical, controversial issues. He is told that issues studied under this branch should be:",
     "options": [
-      "The Earth revolves around the sun.",
-      "The capital of France is Paris.",
-      "Chocolate ice cream is the best flavor.",
-      "Water freezes at 0 degrees Celsius."
+      "A. Subjective issues",
+      "B. Controversial issues",
+      "C. Issues with a clear and definite answer",
+      "D. All of the above"
     ],
-    "correctAnswer": 2,
-    "explanation": "\"Chocolate ice cream is the best flavor\" is a statement of opinion. It is a subjective claim that cannot be proven true or false. The other options are objective facts.",
+    "correctAnswer": 1,
+    "explanation": "This describes Applied Ethics. This branch takes ethical theories and applies them to actual, complex, and often controversial moral problems in fields like medicine, business, and law, where there is significant debate and no universally agreed-upon answer.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-15",
-    "question": "What is the primary function of a premise in an argument?",
+    "question": "Kedir, a student from Jimma, is trying to understand the difference between metaphysics and logic. Which of the following statements correctly distinguishes the two?",
     "options": [
-      "To introduce the main idea.",
-      "To provide evidence or reasons.",
-      "To state the final conclusion.",
-      "To ask a question."
+      "A. Metaphysics deals with reality, while logic deals with reasoning.",
+      "B. Metaphysics deals with reasoning, while logic deals with reality.",
+      "C. Both deal with the same subject matter.",
+      "D. Neither has any connection to the other."
     ],
-    "correctAnswer": 1,
-    "explanation": "The primary function of a premise is to provide the evidence, reasons, or support for the conclusion of an argument.",
+    "correctAnswer": 0,
+    "explanation": "This is the standard distinction. Metaphysics is concerned with the fundamental nature of reality and existence. Logic is concerned with the principles of correct reasoning and argumentation.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-16",
-    "question": "The existence of an argument in a passage is dependent on the presence of:",
+    "question": "Solomon, a student from Jimma, is studying the benefits of philosophy. He is told that one of the benefits is \"soliciting creativity.\" This means that philosophy helps people to:",
     "options": [
-      "A question.",
-      "A command.",
-      "An attempt to prove one statement from another.",
-      "A simple explanation of a fact."
+      "A. Only think in a structured and logical way.",
+      "B. Rely on the ideas of others for creative solutions.",
+      "C. Generate new and innovative ideas by questioning assumptions.",
+      "D. Memorize historical facts and figures."
     ],
     "correctAnswer": 2,
-    "explanation": "An argument exists in a passage when one statement (the conclusion) is being supported by one or more other statements (the premises). This \"attempt to prove\" is the defining characteristic of an argument.",
+    "explanation": "Philosophy solicits (calls forth) creativity by challenging individuals to move beyond conventional thinking. By questioning fundamental assumptions, it opens up new possibilities for understanding and solving problems in innovative ways.",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
     "id": "log-2016-1-17",
-    "question": "The argument \"The patient has a fever, chills, and a cough. These are all common symptoms of the flu. Therefore, the patient probably has the flu.\" is an example of:",
+    "question": "Rahel, a student from Adama, is learning about the relationship between philosophy and wisdom. Her professor tells her that philosophy is a \"love of wisdom.\" Which of the following statements is a correct implication of this?",
     "options": [
-      "An invalid deductive argument.",
-      "A valid deductive argument.",
-      "A strong inductive argument.",
-      "A weak inductive argument."
+      "A. Philosophy is a search for a final, unchanging truth.",
+      "B. It helps you forget yourself.",
+      "C. It is the development of critical habits and a continuous search for truth.",
+      "D. It is a set of technical skills."
     ],
     "correctAnswer": 2,
-    "explanation": "This is a strong inductive argument from causal inference. The premises provide strong evidence for the probable conclusion, but the conclusion is not guaranteed, as other illnesses could have the same symptoms.",
+    "explanation": "The \"love of wisdom\" implies an active, ongoing pursuit (a continuous search) characterized by critical thinking and reflection. It is not about finding a final answer (A), forgetting the self (B), or acquiring technical skills (D).",
     "subject": "logic",
     "year": 2016,
     "chapter": 1
   },
   {
-    "id": "log-2016-1-18",
-    "question": "A valid deductive argument can be unsound if:",
+    "id": "log-2017-1-1",
+    "question": "Bekele, a student from Hawassa University, is debating with his friend, Chala, about the most serious philosophical questions. Which of the following would be considered a serious philosophical question?",
     "options": [
-      "Its premises are false.",
-      "Its conclusion is false.",
-      "It is an inductive argument.",
-      "The premises are true, and the conclusion is false."
-    ],
-    "correctAnswer": 0,
-    "explanation": "A valid deductive argument is unsound if at least one of its premises is factually false. A valid argument with true premises is sound.",
-    "subject": "logic",
-    "year": 2016,
-    "chapter": 1
-  },
-  {
-    "id": "log-2016-1-19",
-    "question": "The phrase \"if and only if\" indicates a relationship of:",
-    "options": [
-      "A necessary condition only.",
-      "A sufficient condition only.",
-      "Both a necessary and sufficient condition.",
-      "Neither a necessary nor a sufficient condition."
+      "A. What is the height of the Entoto mountains?",
+      "B. How do cars work?",
+      "C. What is the purpose of human existence?",
+      "D. What is the best type of coffee to drink in Sidama?"
     ],
     "correctAnswer": 2,
-    "explanation": "The phrase \"if and only if\" indicates that a condition is both necessary and sufficient. This means that if the condition is met, the outcome is guaranteed, and if the outcome occurs, the condition must have been met.",
+    "explanation": "Philosophical questions are fundamental, abstract, and require conceptual analysis and reasoned argument. They are not answerable by mere measurement (A), technical explanation (B), or personal preference (D). The question of life's purpose is a classic, profound philosophical inquiry.",
     "subject": "logic",
-    "year": 2016,
+    "year": 2017,
     "chapter": 1
   },
   {
-    "id": "log-2016-1-20",
-    "question": "In logic, the term \"proposition\" is synonymous with:",
+    "id": "log-2017-1-2",
+    "question": "Which one of the following is not a question of Metaphysics(2013)?",
     "options": [
-      "Argument.",
-      "Statement.",
-      "Premise.",
-      "Conclusion."
+      "A. What are the attributes of God?",
+      "B. Did the universe come by accident?",
+      "C. Is beauty objective or subjective?",
+      "D. Is reality composed of one element?"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Questions A (Theology), B (Cosmology), and D (Ontology) are all sub-branches of metaphysics. Question C, \"Is beauty objective or subjective?\" is a question of Aesthetics, which is a branch of Axiology (value theory).",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-3",
+    "question": "The Theological Aspects of Metaphysics mainly focus on:",
+    "options": [
+      "A. The origin, nature, and development of universe.",
+      "B. The nature and meaning of existence.",
+      "C. The religious theories that deal with the conceptions about God.",
+      "D. The study of human beings and mind-body relations."
+    ],
+    "correctAnswer": 2,
+    "explanation": "The theological aspect of metaphysics is concerned with philosophical questions about God's existence, nature, and attributes.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-4",
+    "question": "Of the following metaphysical speculation, one clearly emphasizes human nature including morality, free will, and soul. Which one is it?",
+    "options": [
+      "A. Cosmological aspect",
+      "B. Anthropological aspect",
+      "C. Ontological aspect",
+      "D. Theological aspect"
     ],
     "correctAnswer": 1,
-    "explanation": "In logic, a proposition is synonymous with a statement or a claim. It is a declarative sentence that has a truth value (it is either true or false).",
+    "explanation": "The anthropological aspect of metaphysics focuses specifically on the nature of humanity, exploring questions about free will, morality, and the soul.",
     "subject": "logic",
-    "year": 2016,
+    "year": 2017,
     "chapter": 1
   },
   {
-    "id": "log-2016-1-21",
-    "question": "An argument is weak if:",
+    "id": "log-2017-1-5",
+    "question": "A metaphysical question that raises the most basic inquiry about God is:",
     "options": [
-      "The conclusion is not supported by the premises.",
-      "It has false premises.",
-      "It has a false conclusion.",
-      "It is a deductive argument."
-    ],
-    "correctAnswer": 0,
-    "explanation": "An inductive argument is weak if its premises fail to make the conclusion probable. The conclusion simply does not follow with a high degree of support from the evidence provided.",
-    "subject": "logic",
-    "year": 2016,
-    "chapter": 1
-  },
-  {
-    "id": "log-2016-1-22",
-    "question": "A passage of report is a type of non-argument because it:",
-    "options": [
-      "Lacks premises and a conclusion.",
-      "Simply informs without attempting to prove anything.",
-      "Is always false.",
-      "Is only used in legal documents."
-    ],
-    "correctAnswer": 1,
-    "explanation": "A report is a non-argument because its purpose is to convey information or describe events, not to provide reasons to support a particular conclusion.",
-    "subject": "logic",
-    "year": 2016,
-    "chapter": 1
-  },
-  {
-    "id": "log-2016-1-23",
-    "question": "An argument from prediction is a type of inductive argument that draws a conclusion based on:",
-    "options": [
-      "Past observations to make a claim about the future.",
-      "A general rule to make a specific claim.",
-      "The similarity between two objects.",
-      "A causal link between events."
-    ],
-    "correctAnswer": 0,
-    "explanation": "An argument from prediction is a classic inductive argument form that uses a pattern of past events to predict what will happen in the future.",
-    "subject": "logic",
-    "year": 2016,
-    "chapter": 1
-  },
-  {
-    "id": "log-2016-1-24",
-    "question": "A sound argument is best described as:",
-    "options": [
-      "An invalid argument with a true conclusion.",
-      "A valid argument with a strong conclusion.",
-      "A valid argument with a true conclusion.",
-      "A strong argument with a true conclusion."
+      "A. Cosmological aspect",
+      "B. Anthropological aspect",
+      "C. Theological aspect",
+      "D. Ontological aspect"
     ],
     "correctAnswer": 2,
-    "explanation": "A sound argument is a valid argument that also has true premises, which in turn guarantees a true conclusion.",
+    "explanation": "As in question 3, the theological aspect deals directly with inquiries about God.",
     "subject": "logic",
-    "year": 2016,
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-6",
+    "question": "What was the world made of? Identify the facet which primarily belongs to:",
+    "options": [
+      "A. Ontology",
+      "B. Cosmology",
+      "C. Anthropology",
+      "D. Theology"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a cosmological question within metaphysics, as it deals with the origin and fundamental composition of the universe.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-7",
+    "question": "How do we know the nature of the ultimate reality? The question refers to:",
+    "options": [
+      "A. Ontological aspect of metaphysics",
+      "B. Cosmological aspect of epistemology",
+      "C. Ontological aspect of epistemology",
+      "D. Cosmological aspect of metaphysics"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The question \"How do we know the nature of ultimate reality?\" combines an epistemological concern (\"how do we know\") with a metaphysical one (\"the nature of ultimate reality\"). The primary subject is the nature of reality, which is ontology. The best fit is A, as it places the epistemological method in service of an ontological inquiry.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-8",
+    "question": "“Is basic reality found in matter or in spirit?” This question can be asked under:",
+    "options": [
+      "A. Theological",
+      "B. Ontological",
+      "C. Anthropological",
+      "D. Cosmological"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a fundamental ontological question. Ontology is the study of being and existence, and this question defines the central divide between materialism (matter) and idealism (spirit).",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-9",
+    "question": "Which of the following is the question of cosmology?",
+    "options": [
+      "A. What it means for anything to exist?",
+      "B. How the universe originated?",
+      "C. What is the moral status of human beings?",
+      "D. Is reality in the physical world or spiritual world?",
+      "E. None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cosmology is the aspect of metaphysics that deals with the origin of the universe. A and D are ontological, and C is ethical.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-10",
+    "question": "Is man born morally evil/good/neutral? This question belongs to:",
+    "options": [
+      "A. Epistemology",
+      "B. Metaphysics",
+      "C. Logic",
+      "D. Ethics"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is a question about moral nature and human goodness, which is a central concern of ethics.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-11",
+    "question": "Among the following fields of philosophy, which one deals with formulating the right principles of reasoning and developing scientific methods for evaluating the validity and soundness of arguments(2013)?",
+    "options": [
+      "A. Metaphysics",
+      "B. Epistemology",
+      "C. Axiology",
+      "D. Logic",
+      "E. Aesthetics"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Logic is the branch of philosophy that studies the principles of correct reasoning and provides the tools for evaluating arguments.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-12",
+    "question": "Among the following alternatives, which one is not the question of epistemology(2013)?",
+    "options": [
+      "A. What is truth, and how can we know a statement is true?",
+      "B. How can we be sure that what we perceive through our senses is correct?",
+      "C. What is the relationship and difference between faith and reason?",
+      "D. What is a human being? A thinking mind? A perishable body?",
+      "E. What does it mean to know?"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Questions A, B, C, and E are all core epistemological questions about the definition, sources, and limits of knowledge. Question D, \"What is a human being?\" is a question of metaphysics (specifically, philosophical anthropology), not epistemology.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-13",
+    "question": "A perspective on the source of knowledge which argues that knowledge is obtained through the senses is(2013):",
+    "options": [
+      "A. Rationalism",
+      "B. Empiricism",
+      "C. Revelation",
+      "D. Intuition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Empiricism is the epistemological theory that states all knowledge originates from sensory experience.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-14",
+    "question": "Identify a true statement about rationalism in the theory of knowledge:",
+    "options": [
+      "A. It is obtained from sense experience",
+      "B. It is acquired from observation",
+      "C. It is acquired through the intellect",
+      "D. It is obtained from perception"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Rationalism is the epistemological view that reason and the intellect are the primary sources of knowledge, not sensory experience (A, B, D).",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-15",
+    "question": "Understanding or knowing about the world through observation or real events is:",
+    "options": [
+      "A. Intuition",
+      "B. Revelation",
+      "C. Empiricism",
+      "D. Rationalism",
+      "E. None"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the definition of empiricism.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-16",
+    "question": "Presupposes a transcendent supernatural reality that breaks in the natural order:",
+    "options": [
+      "A. Authority",
+      "B. Reason",
+      "C. Revelation",
+      "D. Empiricism"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Revelation is the source of knowledge that involves truth being disclosed by a divine or supernatural power, breaking into the natural order.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-17",
+    "question": "One of the following is an aspect of epistemology that claimed religious books and prophets are the sources of knowledge:",
+    "options": [
+      "A. Rationalism",
+      "B. Revelation",
+      "C. Intuition",
+      "D. Authority"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Revelation involves receiving knowledge from a divine source, often through sacred texts or prophets.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-18",
+    "question": "Which one of the following is correct about Empiricism?",
+    "options": [
+      "A. What is truth, and how can we know a statement is true?",
+      "B. The ultimate reality can be grasped by the five senses.",
+      "C. Is knowledge one or many?",
+      "D. All."
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the core claim of empiricism. Option A is a general epistemological question, not specific to empiricism. Option C is unclear. Therefore, \"All\" (D) is incorrect.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-19",
+    "question": "The best way to learn and understand philosophy is \"to philosophize.\" Here, the expression \"to philosophize\" means:",
+    "options": [
+      "A. To become acquainted with differing philosophical positions",
+      "B. To be confronted with philosophical questions",
+      "C. To read the philosophers themselves & to grapple with the issues for oneself",
+      "D. All except B",
+      "E. All of the above"
+    ],
+    "correctAnswer": 4,
+    "explanation": "To philosophize is to actively engage in the entire process: reading primary texts (C), understanding different arguments (A), and personally grappling with fundamental questions (B). Therefore, all options are correct.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-20",
+    "question": "Philosophy is the mother of all sciences because:",
+    "options": [
+      "A. The pivotal thing in philosophy is asking appropriate questions.",
+      "B. The first philosophers were scientists.",
+      "C. Philosophy is a versatile discipline.",
+      "D. A and C are correct answers.",
+      "E. All are correct answers."
+    ],
+    "correctAnswer": 4,
+    "explanation": "All points are valid reasons. Historically, the first scientists were philosophers (B). Methodologically, philosophy's role in asking fundamental questions (A) and its versatile, foundational nature (C) support the claim.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-21",
+    "question": "Identify the correct correlation:",
+    "options": [
+      "A. Anthropology — nature of human beings",
+      "B. Cosmology — origin of the universe",
+      "C. Theology — nature of being",
+      "D. Ontology — nature of God",
+      "E. A and B"
+    ],
+    "correctAnswer": 4,
+    "explanation": "A and B are the only correct pairs. C should be Theology — nature of God. D should be Ontology — nature of being.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-22",
+    "question": "The science that deals with moral principles, values, codes, rules and norms is called:",
+    "options": [
+      "A. Political Philosophy",
+      "B. Moral Philosophy",
+      "C. Aesthetics",
+      "D. Ethics"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Ethics (or moral philosophy) is the branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-23",
+    "question": "Which branch of ethics deals with the meaning and origin of ethical issues?",
+    "options": [
+      "A. Meta-ethics",
+      "B. Applied ethics",
+      "C. Normative ethics",
+      "D. Deontological ethics",
+      "E. Teleological ethics"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Meta-ethics is the branch of ethics that seeks to understand the nature of ethical properties, statements, attitudes, and judgments. It asks questions about the meaning of \"good\" and the origin of ethical principles.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-24",
+    "question": "Issues to be dealt under applied ethics shouldn’t be:",
+    "options": [
+      "A. Moral issues",
+      "B. Controversial issues",
+      "C. Subjective issues"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Applied ethics deals with complex, controversial moral dilemmas (B) where there is significant debate and no single, clear answer. If an issue is purely subjective or already has a definite answer, it falls outside the scope of applied ethical debate.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-25",
+    "question": "Tigist, a resident of Hawassa, is contemplating the question, \"Is man born morally good, evil, or neutral?\" This question falls under which branch of philosophy?",
+    "options": [
+      "A. Epistemology",
+      "B. Metaphysics",
+      "C. Ethics",
+      "D. Logic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a question about innate human moral nature, which is a central concern of ethics.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-26",
+    "question": "Lidiya, a student from Hawassa, is asked to identify a philosophical question. Which of the following is a philosophical question?",
+    "options": [
+      "A. What is the current time?",
+      "B. What is the definition of a valid argument?",
+      "C. What is the speed of light?",
+      "D. What is the average height of an Ethiopian person?"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Question B is a question of logic, a branch of philosophy. The other options are factual questions answerable by looking at a clock (A), scientific measurement (C), or collecting data (D).",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-27",
+    "question": "Sintayehu, a student from Bahir Dar, is asked to identify a question that would not be considered a basic question in philosophy. Which of the following would she choose?",
+    "options": [
+      "A. What is an argument?",
+      "B. What time is it?",
+      "C. Where did the universe come from?",
+      "D. What is the nature of human existence?"
+    ],
+    "correctAnswer": 1,
+    "explanation": "As in previous questions, \"What time is it?\" is a factual question, not a fundamental philosophical one. A is logic, C is metaphysics/cosmology, and D is metaphysics/anthropology.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-28",
+    "question": "Which of the following is not studied by Aesthetics?",
+    "options": [
+      "A. Music",
+      "B. A beautiful landscape",
+      "C. Mona Lisa",
+      "D. None of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Aesthetics is the branch of philosophy that studies the nature of beauty and taste. It examines aesthetic values often expressed through judgments of sentiment and applies to all art forms (A, C) and natural beauty (B). Therefore, all are studied by aesthetics.",
+    "subject": "logic",
+    "year": 2017,
+    "chapter": 1
+  },
+  {
+    "id": "log-2017-1-29",
+    "question": "All are the benefits of studying philosophy except one. Which one?",
+    "options": [
+      "A. Collective thinking",
+      "B. Critical thinking",
+      "C. Critical reflection",
+      "D. Soliciting creativity"
+    ],
+    "correctAnswer": 0,
+    "explanation": "\"Collective thinking\" (often implying groupthink or uncritical acceptance of group views) is not a benefit of philosophy. Philosophy promotes independent critical thinking (B), reflection (C), and creativity (D) by questioning assumptions.",
+    "subject": "logic",
+    "year": 2017,
     "chapter": 1
   },
   // ==================== LOGIC QUESTIONS ====================
