@@ -284,6 +284,10 @@ export default function Dashboard() {
                     <span className="text-xs sm:text-sm opacity-80 mt-1">Rank</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <span className="text-xl sm:text-2xl font-bold">{stats.totalScore.toFixed(1)}</span>
+                    <span className="text-xs sm:text-sm opacity-80 mt-1">Avg Score</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
                     <span className="text-xl sm:text-2xl font-bold">{stats.gpa?.toFixed(1) || '3.5'}</span>
                     <span className="text-xs sm:text-sm opacity-80 mt-1">GPA</span>
                   </div>
