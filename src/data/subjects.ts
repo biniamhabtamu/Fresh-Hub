@@ -53,9 +53,9 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'coc', 
-    name: 'CoC', 
-    icon: '🧮',
+    id: 'Anthropology', 
+    name: 'Anthropology', 
+    icon: '👥',
     field: 'natural', 
     isFree: false 
   },
@@ -231,7 +231,7 @@ export const subjects: Subject[] = [
   },
 ];
 
-export const examYears = [2013, 2014, 2015, 2016, 2017];
+export const examYears = [2013_2017];
 
 // Function to determine the number of items per subject
 export const getChaptersOrTopicsPerSubject = (subjectId: string) => {

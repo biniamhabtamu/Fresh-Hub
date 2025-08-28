@@ -28,6 +28,7 @@ import { ChallengeProvider } from './contexts/ChallengeContext';
 import LiveChallenge from './features/Pages/challenge/LiveChallenge';
 import ChallengeFriend from './features/Pages/challenge/ChallengeFriend';
 import GPACalculator from './components/Layout/GPACalculator';
+import ChallengeGlobal from './features/Pages/challenge/ChallengeGlobal';
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -68,6 +69,7 @@ function AppRoutes() {
       <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
       <Route path="/challenge/coming-soon" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
        <Route path="/Layout/GPACalculator" element={<ProtectedRoute><GPACalculator /></ProtectedRoute>} />
+       <Route path="/pages/challenge/Global" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
 
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>
@@ -108,7 +110,7 @@ function AppContent() {
         '/settings', 
         '/ContactUs', 
         '/Community',
-        '/challenge'
+        '/challenge',
       ];
       const isHomeRoute = homeRoutes.some(route => location.pathname.startsWith(route));
 
