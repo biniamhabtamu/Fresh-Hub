@@ -8,8 +8,418 @@ import { Question } from '../types';
 
 export const sampleQuestions: Question[] = [
   // ==================== GEOGRAPHY QUESTIONS ====================
-  
-{
+    {
+    id: 'history-2013_2017-1-3',
+    question: 'Which one of the following statements is not among the functions/uses of history?',
+    options: [
+      'History provides identities to old and new nations',
+      'It serves governments to legitimize their power',
+      'History teaches moral and practical lessons',
+      'History provides education that help us understand ourselves in time'
+    ],
+    correctAnswer: 3,
+    explanation: 'The statement "History provides education that help us understand ourselves in time" is actually a core function of history. It is a subtle rephrasing of the other options, which all are correct uses of history. The question is poorly phrased, but based on the others, D is the intended incorrect answer.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-4',
+    question: 'The role of History in establishing a sense of identity is explained in defining, orienting and understanding societies place in the world they live in.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'History is crucial for constructing both individual and collective identity. It provides a shared past, a sense of belonging, and a framework for understanding a society\'s place in the world, its values, and its relationships with other societies.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-5',
+    question: 'What does the saying "As memory is to the individual, history is to the society," imply?',
+    options: [
+      'It implies the importance of history in constructing group identity.',
+      'It denotes that history gives us an opportunity to know other societies and cultures.',
+      'It indicates how indispensable history is to understand the present.',
+      'It points to history’s importance in developing tolerance and open-mindedness.'
+    ],
+    correctAnswer: 1,
+    explanation: 'This proverb highlights the parallel between an individual\'s personal memories, which shape their identity, and a society\'s shared history, which shapes its collective identity. History serves as a collective memory, giving a group a sense of continuity, purpose, and self-awareness.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-6',
+    question: 'Which one of the following statements describes history?',
+    options: [
+      'The process of inquiry into the past',
+      'Interpretation produced by inquiry',
+      'Accumulated body of knowledge about the past',
+      'All'
+    ],
+    correctAnswer: 3,
+    explanation: 'History is a multifaceted discipline that encompasses all three. It is the process of inquiry (the act of doing historical research), the interpretation (the story the historian tells), and the accumulated body of knowledge (the result of all past research) about the past.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-7',
+    question: 'What makes History different from other disciplines?',
+    options: [
+      'It only deals with humanity.',
+      'It strives to study the interaction between man and the environment.',
+      'It tries to deal with past interactions between humanity and environment.',
+      'There is nothing unique about the discipline.'
+    ],
+    correctAnswer: 2,
+    explanation: 'While other disciplines study humanity or the environment, history\'s unique focus is on the temporal dimension. It is the only discipline that systematically studies and analyzes past human actions, events, and interactions with the environment to understand how and why things have changed over time.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-8',
+    question: 'Which of the following best describes the basic nature of history as a subject?',
+    options: [
+      'An account of one’s own inquiries',
+      'A study of the past to show its dynamic relation to the present',
+      'The discovery and finding of sources about the past',
+      'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'History is not just about the past; it\'s about how the past shapes the present. The fundamental nature of history is to understand the continuous and dynamic relationship between what happened and what is happening now, and how this trajectory influences the future.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-1',
+    question: 'History is useful to warn people not to repeat mistakes of the past.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'One of the most valuable uses of history is its ability to provide lessons from past events. By studying the consequences of certain actions, policies, or decisions, we can learn from past errors and avoid repeating them. This function of history is often summarized by the phrase "those who do not learn from history are doomed to repeat it."',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-1',
+    question: 'What is the study of human societies called?',
+    options: ['Psychology', 'Anthropology', 'Sociology', 'Philosophy'],
+    correctAnswer: 2,
+    explanation: 'Sociology is the study of human societies.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-2',
+    question: 'Which one of the following is NOT a use of history?',
+    options: ['Provides endless fascination', 'Helps develop tolerance and open-mindedness', 'Develops research skills', 'All of the above'],
+    correctAnswer: 3,
+    explanation: 'All three options listed are valid uses of history. History can be a source of personal fascination, it can promote tolerance by exposing us to diverse cultures and perspectives, and it requires and develops key research skills, such as source evaluation and critical thinking.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+ 
+  {
+    id: 'history-2013_2017-1-9',
+    question: 'Which statement is not correct about the relation of past, present, and future in history?',
+    options: [
+      'The past can directly/indirectly affect the present',
+      'Past experience is a lesson for present discoveries',
+      'The past is dead and has no effect on the present',
+      'The past shapes the psychological makeup of the present'
+    ],
+    correctAnswer: 2,
+    explanation: 'This statement is the opposite of a core principle of historical study. The past is not "dead" but is an active force that directly and indirectly shapes the present. Our current social structures, political systems, and cultural norms are all products of past events.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-10',
+    question: 'Which sources are valuable to study and document the history of non-literate society?',
+    options: [
+      'Oral sources',
+      'Court records',
+      'Biographies',
+      'Travel accounts'
+    ],
+    correctAnswer: 1,
+    explanation: 'For societies without a tradition of writing, oral sources—such as oral traditions, folk songs, stories, and eyewitness accounts—are the most critical and often the only sources available for historical research.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-11',
+    question: 'In dealing with sources and methods of historical study, which one of the following options is NOT true?',
+    options: [
+      'Primary sources are first-hand sources',
+      'Oral tradition refers to recounting of the past across generations',
+      'Oral tradition is used to verify lived experiences',
+      'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'While oral tradition can be a valuable source, it is not used to "verify lived experiences." Rather, it is a form of evidence itself. Verification is done by comparing different sources (including oral, written, and archaeological) against one another.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-12',
+    question: 'Of the following, one is NOT a primary source of history:',
+    options: [
+      'Eyewitness accounts',
+      'Letters',
+      'Textbooks',
+      'Coins'
+    ],
+    correctAnswer: 2,
+    explanation: 'A primary source is a first-hand account or original material from a specific historical period. Textbooks are secondary sources because they are written by a historian who interprets and synthesizes information from primary sources. Eyewitness accounts, letters, and coins are all direct evidence from the past.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-13',
+    question: 'Which one is false about primary sources?',
+    options: [
+      'They are close in time/space to events',
+      'They are more reliable for research',
+      'They are “cooked” by historians',
+      'None'
+    ],
+    correctAnswer: 2,
+    explanation: 'The term "cooked" implies that the source has been altered, interpreted, or synthesized, which is what historians do. A primary source is the raw, "uncooked" material. Historians use primary sources as their ingredients to create a historical narrative.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-14',
+    question: 'Secondary sources are more reliable than primary evidence.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'Generally, primary sources are considered more reliable because they are direct, unfiltered evidence from the time of the event. Secondary sources are interpretations of those primary sources, and they can contain the biases and errors of the historian who created them.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-15',
+    question: 'Which of the following is NOT an importance of secondary sources?',
+    options: [
+      'Helps to frame concepts and ideas',
+      'Helps to fill gaps in written documents',
+      'Provides new insights for historical interpretation',
+      'Is close to events in time and space'
+    ],
+    correctAnswer: 3,
+    explanation: 'This is a characteristic of a primary source, not a secondary one. A secondary source is removed in time and space from the event it describes, as it is a later interpretation or analysis.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-16',
+    question: 'What distinguishes a secondary source from primary sources?',
+    options: [
+      'Always more reliable than primary',
+      'Contains analysis/interpretation of primary sources',
+      'Always published',
+      'Always firsthand accounts'
+    ],
+    correctAnswer: 1,
+    explanation: 'The key difference is that a secondary source is an interpretation or analysis of a primary source. While they can be published and are generally reliable, their defining characteristic is that they are not first-hand accounts but rather a product of historical scholarship.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-17',
+    question: 'Oral data can be both primary and secondary sources.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'Oral data is considered a primary source when it is a direct, first-hand account of an event from a living person (an eyewitness). It becomes a secondary source when the information has been passed down and interpreted across generations (oral tradition).',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-18',
+    question: 'Which statement is NOT correct about original documents as sources of history?',
+    options: [
+      'They are traces of past events',
+      'They are free from biases',
+      'They are limited to specific groups whose records survived',
+      'All'
+    ],
+    correctAnswer: 1,
+    explanation: 'No source, primary or secondary, is ever completely free from bias. Original documents, such as letters or court records, reflect the perspective, biases, and intentions of the person who created them. A historian\'s job is to identify and account for these biases.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-19',
+    question: 'Which of the following historical sources is odd?',
+    options: [
+      'Chronicles',
+      'Fossils',
+      'History books',
+      'Coins'
+    ],
+    correctAnswer: 2,
+    explanation: 'A history book is a secondary source because it is an interpretation of the past. The other three, chronicles, fossils, and coins, are all types of primary sources—original traces of the past that historians use to construct their narratives.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-20',
+    question: 'There shall not be a situation in which new sources make possible new interpretations or entirely new historical reconstructions.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'This statement is false. The discovery of new sources (e.g., a newly found archive or archaeological site) is a fundamental part of the historical process. New evidence can lead to new interpretations, challenge existing narratives, and even lead to a complete reconstruction of a historical event.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-21',
+    question: 'Why was the year 1960s a crucial decade for the development of Ethiopian historiography?',
+    options: [
+      'Ethiopian history made some departure from chronicles',
+      'Traditional Ethiopian writers made some departure from early historians',
+      'History of Ethiopia emerged as an academic discipline',
+      'The history of Ethiopia began to be written by international writers'
+    ],
+    correctAnswer: 2,
+    explanation: 'The 1960s were a turning point because it was during this period that the study of history in Ethiopia transitioned from a traditional practice (done by chroniclers and court scribes) to a modern, academic discipline. This was marked by the establishment of university departments and professional journals.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-22',
+    question: 'The 1960s were a landmark in Ethiopian historiography because the decade witnessed all, EXCEPT:',
+    options: [
+      'Emergence of professional historians',
+      'Opening of the Department of History at Haile Selassie I University',
+      'Beginning of the Journal of Ethiopian Studies',
+      'Establishment of the Institute of Ethiopian Studies'
+    ],
+    correctAnswer: 3,
+    explanation: 'The Institute of Ethiopian Studies was established earlier in 1963. The Department of History opened in 1962 and the Journal of Ethiopian Studies began publication shortly after, which are the main markers of the professionalization of the discipline in the 1960s.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-23',
+    question: 'The establishment of Haile Selassie I University was a turning point in the historiographical development of Ethiopia.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'The establishment of Haile Selassie I University (now Addis Ababa University) in 1950, and specifically its Department of History in the 1960s, was a key moment. It provided the institutional framework for the professional, academic study of history, moving away from traditional forms of historical writing.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-24',
+    question: 'Which one of the following is NOT correct about historiography?',
+    options: [
+      'It is the history of historical writing',
+      'It studies how knowledge of the past is obtained and transmitted',
+      'It is an organized/systematic study of human society and nature',
+      'It is an intentional effort to represent historical studies’ evolution'
+    ],
+    correctAnswer: 2,
+    explanation: 'Historiography is the study of how history is written. It examines the methods, sources, and interpretations that historians have used throughout time. The study of human society and nature is the broader definition of history itself, not historiography.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-25',
+    question: 'Academic history is different from popular history in',
+    options: [
+      'Its purpose is to satisfy political elites',
+      'It is written for entertainment/profit',
+      'It uses meticulous methodology to uncover truth',
+      'It spreads historical knowledge to a wide audience'
+    ],
+    correctAnswer: 2,
+    explanation: 'Academic history is characterized by its rigorous methodology, which includes using primary sources, conducting peer reviews, and critically analyzing evidence to arrive at a well-supported conclusion. Popular history, by contrast, is often written for a general audience and may prioritize readability and entertainment over scholarly rigor.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-26',
+    question: 'Authors may abuse, distort, exaggerate and degrade historical data for',
+    options: [
+      'The benefit of personal or group interests',
+      'The influence of the existing historiographical tradition',
+      'Influence of established system',
+      'All'
+    ],
+    correctAnswer: 1,
+    explanation: 'Historians can be influenced by their own biases and motives. Distortion, exaggeration, and degradation of data are often done to serve a specific purpose, such as promoting a nationalist agenda, legitimizing a political party, or advancing a personal reputation.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-27',
+    question: 'The works of Gebre-Hiwot and Hiruy differed from predecessors in that they:',
+    options: [
+      'Showed relative objectivity',
+      'Exhibited methodological superiority',
+      'Continued chronicler tradition',
+      'A and B'
+    ],
+    correctAnswer: 3,
+    explanation: 'Gebre-Hiwot Baykedagne and Hiruy Wolde Selassie were early 20th-century Ethiopian intellectuals. Their works marked a departure from the traditional chronicler tradition by showing a greater degree of objectivity and introducing more systematic methodology, incorporating analytical frameworks and a wider range of sources.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-28',
+    question: 'A prolific writer bridging pre-1935 and post-liberation historians was:',
+    options: [
+      'Negadras Afework Gebreyesus',
+      'Tekle-Tsadik Mekuria',
+      'Kebede Tesema',
+      'Gebre-Hiwot Baykedagne'
+    ],
+    correctAnswer: 1,
+    explanation: 'Tekle-Tsadik Mekuria was a highly influential Ethiopian historian who wrote extensively during both the pre-Italian occupation and post-liberation periods. His prolific work on ancient and medieval Ethiopian history served as a bridge between the traditional chroniclers and the new generation of academic historians.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-1-29',
+    question: 'What was the major factor that discontinued modern history writing in 20th century Ethiopia?',
+    options: [
+      'Restoration of Haile-Selassie in 1941',
+      'Decline in interest in writing history',
+      'Italian Occupation Period',
+      'Decree forbidding Ethiopian history writing'
+    ],
+    correctAnswer: 2,
+    explanation: 'The Italian Occupation (1936-1941) was a major disruption to intellectual life in Ethiopia. It led to the exile or death of many prominent scholars and the destruction of manuscripts and institutions, which effectively halted the nascent development of modern historical writing.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
     id: 'Sam-2015-1-1',
     question: 'In which year did the Battle of Adwa occur?',
     options: ['1896', '1905', '1889', '1911'],
@@ -133,7 +543,2019 @@ export const sampleQuestions: Question[] = [
     "year": 2013,
     "chapter": 2
   },
+{
+    id: 'history-2013_2017-2-1',
+    question: 'Which one of the following is NOT true in line with human evolution?',
+    options: [
+      'Stone tools were the first technologies developed by human beings',
+      'During the Neolithic period humans transformed from mobile to settled life',
+      'Evidence suggests that East Africa is the origin of humankind',
+      'The fossil “Dinkinesh” (Lucy) discovered at Hadar is grouped under Australopithecus'
+    ],
+    correctAnswer: 1,
+    explanation: 'While stone tools are the earliest and most widespread archaeological evidence of technology, they are not necessarily the first technologies. The use of perishable materials like wood, bone, or plant fibers for tools likely predates stone tools, but these materials rarely survive in the fossil record.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
   {
+    id: 'history-2013_2017-2-2',
+    question: 'Identify the correct statement:',
+    options: [
+      'Stone tools were the first technologies developed by humans',
+      'Oldowan stone tools have not been found in Ethiopia',
+      'Paleolithic period refers to the New Stone Age',
+      'All except “B”'
+    ],
+    correctAnswer: 3,
+    explanation: 'Oldowan stone tools, some of the oldest known artifacts, have been found in Ethiopia, specifically at the Gona site. The Paleolithic period refers to the Old Stone Age, not the New Stone Age. Thus, both B and C are incorrect, making the "All except B" a bit misleading, but given the options, it\'s the most plausible intended answer.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-3',
+    question: 'Based on archaeological evidence, West Africa is the cradle of mankind.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'The overwhelming archaeological and genetic evidence points to East Africa as the cradle of humankind. Significant hominin fossils and stone tool assemblages, dating back millions of years, have been discovered in countries like Ethiopia, Kenya, and Tanzania.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-4',
+    question: 'Which statement is correct about human evolution?',
+    options: [
+      'Charles Darwin advocated creationism',
+      'Australopithecines had small brains and large faces',
+      'Homo habilis was upright walking',
+      'Lucy’s fossil is the oldest Australopithecine'
+    ],
+    correctAnswer: 1,
+    explanation: 'This statement accurately describes a key characteristic of Australopithecus, an early hominin genus. They were bipedal but had smaller brains and larger faces compared to later Homo species. Charles Darwin is known for his theory of evolution by natural selection, not for creationism. Homo habilis was bipedal, but so were its predecessors, the Australopithecines. While Lucy\'s fossil is a very famous example, it is not the oldest Australopithecine.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-5',
+    question: 'Which genus Homo originated in Africa and spread to the world?',
+    options: [
+      'Homo erectus',
+      'Homo habilis',
+      'Homo sapiens',
+      'Homo sapiens sapiens'
+    ],
+    correctAnswer: 2,
+    explanation: 'Homo sapiens (modern humans) originated in Africa and then migrated to other continents. While Homo erectus was the first hominin to migrate out of Africa on a large scale, the prompt asks which genus originated in Africa and spread to the world, and both Homo erectus and Homo sapiens fit this, but Homo sapiens is the most widely recognized example of a species that originated in Africa and spread globally to become the sole surviving human species.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-6',
+    question: 'What were the distinctive characteristics of Homo erectus?',
+    options: [
+      'Migrated from Africa to other continents',
+      'First bipedal species of Homo',
+      'First developed fire use',
+      'First tool-making hominids'
+    ],
+    correctAnswer: 1,
+    explanation: 'Homo erectus was the first hominin species to leave Africa and spread across Eurasia. While they likely had advanced tool-making and possibly used fire, these are not considered their most defining and unique characteristics. Bipedalism developed in earlier hominins like Australopithecus.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-7',
+    question: 'Which fossil remain/geographical expanse is well associated with Archaic Homo sapiens?',
+    options: [
+      'Idalthu',
+      'Bodo',
+      'Kibish',
+      'Porc Epic'
+    ],
+    correctAnswer: 1,
+    explanation: 'The Bodo fossil, discovered in Ethiopia, is a well-known example of an Archaic Homo sapiens cranium. It exhibits a mix of traits between Homo erectus and modern Homo sapiens. The other options are associated with modern or older hominins.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-8',
+    question: 'Which one is odd about the Paleolithic Stone Age?',
+    options: [
+      'Humans transformed from mobile to sedentary life',
+      'Humans developed language',
+      'Humans built shelters and used clothing',
+      'Division of labor by sex and age'
+    ],
+    correctAnswer: 1,
+    explanation: 'The transformation from a mobile, hunting-gathering lifestyle to a sedentary, settled life occurred during the Neolithic Revolution (the New Stone Age), not the Paleolithic period (the Old Stone Age). The other options—development of language, building shelters, and division of labor—are all characteristics of Paleolithic humans.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-9',
+    question: 'During the Neolithic period, humans shifted from sedentary to mobile life.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'This statement is the reverse of what happened. The Neolithic period is defined by the shift from a mobile hunting-and-gathering lifestyle to a sedentary agricultural one.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-10',
+    question: 'The Neolithic Revolution is often described as:',
+    options: [
+      'The period when humans first learned to write',
+      'A cultural shift with the discovery of fire',
+      'Transition from hunting-gathering to farming/settlement',
+      'The era of first stone tools'
+    ],
+    correctAnswer: 2,
+    explanation: 'The Neolithic Revolution was the pivotal transition in human history from a nomadic, hunter-gatherer existence to a settled, agricultural one. This change led to the development of villages, new technologies, and a fundamental reshaping of human societies.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-11',
+    question: 'An indigenous plant domesticated in Ethiopia and the Horn is:',
+    options: [
+      'Teff',
+      'Wheat',
+      'Barley',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'Teff is an indigenous cereal grain that was domesticated in the Ethiopian Highlands. While wheat and barley are also cultivated in the region, their origins as domesticated plants lie outside of Ethiopia.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-12',
+    question: 'The Ethiopian Nilotes are largely settled along the Ethiopia–Eritrean border.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'The Nilotic peoples of Ethiopia are primarily found in the Gambela Region, in the western part of the country, bordering South Sudan. They are not largely settled along the Ethiopia-Eritrean border.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-13',
+    question: 'Which one of the following alternatives is different from the others in terms of linguistic classification of Ethiopia and the Horn?',
+    options: [
+      'Amharic',
+      'Gurage',
+      'Ge’ez',
+      'Agaw',
+      'Tigrigna'
+    ],
+    correctAnswer: 3,
+    explanation: 'Amharic, Gurage, Ge\'ez, and Tigrigna are all members of the Semitic language family. Agaw is a Central Cushitic language, making it linguistically distinct from the others.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-14',
+    question: 'One of the following is an example of Cushitic languages of Ethiopia and the Horn:',
+    options: [
+      'Beja',
+      'Gafat',
+      'Siltie',
+      'Harari'
+    ],
+    correctAnswer: 1,
+    explanation: 'Beja is a Cushitic language spoken in Sudan, Eritrea, and Egypt, and is related to the Cushitic languages of Ethiopia. Gafat, Siltie, and Harari are all Semitic languages.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-15',
+    question: 'Amharic is not a member of the Northern Semitic language family.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'Amharic is a member of the Southern Semitic or Ethio-Semitic branch of the Afro-Asiatic language family, not the Northern Semitic branch (which includes languages like Hebrew and Arabic).',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-16',
+    question: 'Which statement is correct about Ethiopian languages?',
+    options: [
+      'They are the only basis of the nation',
+      'They fall into two super-families and sub-families',
+      'Many Semitic languages are disappearing',
+      'Languages of a super-family are geographically contiguous'
+    ],
+    correctAnswer: 2,
+    explanation: 'While many Ethiopian languages are under threat, this is particularly true for some of the smaller and less-spoken Semitic languages, which are gradually being replaced by more dominant languages like Amharic or Tigrigna. The other statements are incorrect. Ethiopian languages fall into four major super-families (Afro-Asiatic, Nilo-Saharan, etc.). Languages within a super-family are not always geographically contiguous.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-17',
+    question: 'Which one of the following doesn’t determine linguistic classification?',
+    options: [
+      'Population movement',
+      'Territorial expansion',
+      'Urbanization',
+      'Generic Names'
+    ],
+    correctAnswer: 3,
+    explanation: 'Linguistic classification is based on shared features, historical relationships, and sound shifts, which are influenced by factors like population movement, territorial expansion, and urbanization. Generic names are simply labels and do not determine the scientific classification of a language.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-18',
+    question: 'Which of the following is INCORRECT about Christianity in Ethiopia and the Horn?',
+    options: [
+      'It originated in the Middle East',
+      'It was declared as a state religion during the reign of Ezana',
+      'Ethiopian patriarchs were appointed by the Coptic Church of Alexandria until the 20th century',
+      'It was further expanded during the medieval period'
+    ],
+    correctAnswer: 1,
+    explanation: 'Christianity originated in the Middle East, but the statement says this is incorrect, which makes the statement itself incorrect. The question asks which statement is incorrect, so A is the correct answer.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-19',
+    question: 'Christianity became the state religion in Ethiopia during:',
+    options: [
+      'The reign of King Ezana',
+      'The fourth century A.D.',
+      '334 A.D.',
+      'Both A and C',
+      'All are correct'
+    ],
+    correctAnswer: 4,
+    explanation: 'Christianity was adopted as the state religion during the reign of King Ezana in the 4th century A.D., around the year 334 A.D. All the options describe the same event from slightly different angles.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-20',
+    question: 'The main gateway through which Islam expanded to Ethiopia and the Horn was:',
+    options: [
+      'Adulis',
+      'Dahalak',
+      'Zeila',
+      'Mombasa'
+    ],
+    correctAnswer: 2,
+    explanation: 'While Islam entered the region through multiple ports, Zeila (in modern-day Somalia) was the most important gateway for the expansion of Islam into the interior of Ethiopia and the Horn, facilitating trade and the establishment of powerful Muslim sultanates.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-21',
+    question: 'All except one are true about the introduction and expansion of Islam into Ethiopia.',
+    options: [
+      'Dahlak Island played pivotal role in its widespread expansion.',
+      'It first took foothold on Dahlak Island.',
+      'It expanded through peaceful means with trade playing the major role.',
+      'Ethiopia became one of the earliest places to embrace Islam.'
+    ],
+    correctAnswer: 2,
+    explanation: 'While trade was a significant factor, the expansion of Islam was not exclusively peaceful. There were periods of conflict and conquest, such as the invasion by Imam Ahmad ibn Ibrahim al-Ghazi (Ahmad Gragn) in the 16th century.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-22',
+    question: 'Why did Prophet Mohammed send followers to Aksum in 615?',
+    options: [
+      'Opposition from the Quraysh',
+      'Invitation by King Armah Ella',
+      'To visit a land of righteousness',
+      'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'The first migration of Muslims to Aksum (the First Hijra) was a direct result of the intense persecution and opposition they faced from the Quraysh in Mecca. They sought refuge under the protection of the Christian king of Aksum, whom Prophet Mohammed described as "a righteous king."',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-23',
+    question: 'Prophet Mohammed prohibited jihad against Ethiopia because:',
+    options: [
+      'Ethiopia’s geographic proximity to Mecca',
+      'Support given by Aksumite rulers to early Muslims',
+      'Aksum’s strength and prosperity',
+      'His personal affection for Abyssinia',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'Prophet Muhammad famously instructed his followers to "leave the Ethiopians alone so long as they leave you alone." This was in gratitude for the hospitality and protection offered by the Aksumite king to the early Muslim refugees.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-24',
+    question: 'Which gateway played a detrimental role in Islam’s penetration into Ethiopia and the Horn?',
+    options: [
+      'Dahlak Islands (north)',
+      'Port of Zeila (south)',
+      'Both Zeila and Dahlak',
+      'Gulf of Aden'
+    ],
+    correctAnswer: 2,
+    explanation: 'Both the Dahlak Islands in the north and the Port of Zeila in the south were crucial gateways for the spread of Islam into Ethiopia and the Horn. They served as points of entry for traders and missionaries, leading to the establishment of Islamic communities and sultanates in the interior.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-25',
+    question: 'Ethiopia and the Horn are characterized by ethnic and religious unity.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'Ethiopia and the Horn are known for their great ethnic and religious diversity, with a multitude of distinct ethnic groups and a mix of religions, including Christianity, Islam, and various indigenous beliefs.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'history-2013_2017-2-26',
+    question: 'Which is NOT a distinctive mark of Ethiopian indigenous religion?',
+    options: [
+      'Belief in Supreme Being tied to sacred nature',
+      'Religious functionaries act as intermediaries',
+      'Practices fused with Christianity and Islam',
+      'Few commonalities among indigenous religions'
+    ],
+    correctAnswer: 3,
+    explanation: 'While there are many different indigenous religions, they share several common features. These include a belief in a Supreme Being (often remote and associated with the sky or nature), the use of intermediaries (such as spirit mediums or ritual specialists), and a certain degree of syncretism (fusion of practices) with Christianity and Islam.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'econ-2013_2017-1-1',
+    question: 'The choice of proportion of labor and capital, and the type of technology used to produce a commodity refers to the question of:',
+    options: [
+      'What to produce',
+      'For whom to produce',
+      'How to produce',
+      'Where to produce',
+      'B and D'
+    ],
+    correctAnswer: 3,
+    explanation: 'The fundamental economic question of "How to produce?" addresses the choice of production methods and technologies. This involves deciding whether to use more labor (labor-intensive) or more capital (capital-intensive) in the production process. It also includes the specific technologies and resources to be employed.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-2',
+    question: 'The production possibility frontier (PPF) is downward sloping and concave to the origin. This implies:',
+    options: [
+      'The concept of choice and scarcity',
+      'The opportunity cost of a given commodity increases',
+      'There is specialization in inputs',
+      'All of the above',
+      'A and B are answers'
+    ],
+    correctAnswer: 3,
+    explanation: 'The Production Possibility Frontier (PPF) is a curve that shows the maximum combination of two goods that can be produced with a given set of resources and technology.\n\nIt is downward sloping because resources are scarce, so producing more of one good requires producing less of another, reflecting the concepts of choice and scarcity.\n\nIt is concave to the origin because of the law of increasing opportunity cost, which states that as you produce more of one good, the opportunity cost of producing an additional unit of that good increases.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-3',
+    question: 'A capitalist system is characterized by:',
+    options: [
+      'Price mechanism and existence of negative externalities',
+      'Coexistence of state and private property ownership',
+      'Income redistribution by the government',
+      'Balanced economic growth',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'A capitalist system (or a market economy) is defined by private ownership of the factors of production, where economic decisions are made by the interaction of supply and demand in markets. This is often referred to as the price mechanism. A key feature of such a system is the potential for market failures like negative externalities, where a third party is harmed by a transaction they are not a part of.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-4',
+    question: 'If an economy moves from producing 10 metric tons of Wheat and 4 metric tons of Maize to producing 7 metric tons of Wheat and 5 metric tons of Maize, then the opportunity cost of producing one more metric ton of Maize is:',
+    options: ['7', '10', '3', '1', 'None'],
+    correctAnswer: 3,
+    explanation: 'Opportunity cost is what is given up to get something else. In this case, to produce one more metric ton of Maize (from 4 to 5), the economy gives up 3 metric tons of Wheat (from 10 to 7). Thus, the opportunity cost of that one metric ton of Maize is 3 metric tons of Wheat.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-5',
+    question: 'The sacrifice involved when you choose a particular course of action is called the:',
+    options: [
+      'Alternative',
+      'Opportunity cost',
+      'Consumer cost',
+      'Producer cost',
+      'B and D'
+    ],
+    correctAnswer: 2,
+    explanation: 'Opportunity cost is the value of the next-best alternative that must be forgone as a result of making a particular choice. It is the core concept that captures the trade-offs inherent in all economic decisions due to scarcity.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+  "id": "econ-2013_2017-1-6",
+  "question": "All of the following are features of mixed economic system except:",
+  "options": [
+    "Instability",
+    "Economic welfare",
+    "Red tapism",
+    "Economic planning",
+    "C and D"
+  ],
+  "correctAnswer": 0,
+  "explanation": "A mixed economic system typically includes economic welfare (B), red tapism (bureaucratic inefficiency, C), and economic planning (D). However, instability (A) is not an inherent feature; in fact, mixed economies often use government intervention to reduce economic instability (e.g., through fiscal and monetary policies). Therefore, the exception is instability (A). Option E ('C and D') is incorrect because both red tapism and economic planning are features of mixed systems.",
+  "subject": "economics",
+  "year": "2013-2017",
+  "chapter": 1
+},
+{
+    id: 'econ-2013_2017-2-1',
+    question: 'Which one of the following is true about the circular flow of economic activity?',
+    options: [
+        'Households buy goods and services in the product market',
+        'Households incur expenditure in the factor market',
+        'Firms represent the demand-side in factor market',
+        'A and C are answers',
+        'None of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'The circular flow model depicts the flow of money and resources between households and firms. Households purchase finished goods and services in the product market, so A is true. Households provide factors of production (labor, land, capital) to firms in the factor market. Firms are the ones who demand these factors of production from households, so C is also true.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-2',
+    question: 'Decrease in input price and advancement of technology:',
+    options: [
+        'Will shift the demand curve inward',
+        'Will shift the supply curve to the right',
+        'Will shift the supply curve to the left',
+        'Will shift the demand curve outward',
+        'None'
+    ],
+    correctAnswer: 2,
+    explanation: 'A decrease in input prices (the cost of production) and an advancement of technology both make production cheaper and more efficient. This allows producers to supply more of a good at any given price, resulting in an outward (rightward) shift of the supply curve.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-3',
+    question: 'If X is a normal good and the average consumers of commodity X increases, ceteris paribus, what will happen to equilibrium price and quantity?',
+    options: [
+        'Equilibrium price increases while quantity decreases',
+        'Both equilibrium price and quantity increases',
+        'Equilibrium price decreases while quantity increases',
+        'Both equilibrium price and quantity decreases',
+        'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'An increase in the number of consumers of a normal good will lead to an increase in demand, shifting the demand curve to the right. When the demand curve shifts right, while the supply curve remains unchanged, it creates a new equilibrium with a higher equilibrium price and a higher equilibrium quantity.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-4',
+    question: 'Reason/s for differences in price elasticity of demand is/are:',
+    options: [
+        'The nature of the good',
+        'Availability of substitutes',
+        'Adjustment time',
+        'All of the above',
+        'A and B are answers'
+    ],
+    correctAnswer: 4,
+    explanation: 'The price elasticity of demand measures how responsive the quantity demanded is to a change in price. Its key determinants are: The nature of the good: Is it a necessity or a luxury? Necessities have more inelastic demand. Availability of substitutes: The more substitutes a good has, the more elastic its demand will be. Adjustment time: Consumers have more time to find substitutes or adjust their behavior in the long run, so demand tends to be more elastic over a longer period.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-5',
+    question: 'One of the following results in a decrease in demand:',
+    options: [
+        'An increase in income, if the good is normal',
+        'A decrease in the price of a complement to the good',
+        'An increase in the price of a substitute for the good',
+        'An increase in the number of buyers',
+        'None of the above'
+    ],
+    correctAnswer: 5,
+    explanation: 'All the options listed lead to an increase in demand. A) An increase in income for a normal good shifts the demand curve right. B) A decrease in the price of a complement (e.g., milk for cereal) makes the good more attractive, shifting demand right. C) An increase in the price of a substitute (e.g., Pepsi for Coca-Cola) makes the good more attractive, shifting demand right. D) An increase in the number of buyers directly increases market demand, shifting the curve right.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-6',
+    question: 'Suppose the price of good X increases. If X and Y are substitutes, then, in the market for good Y, we would expect, ceteris paribus:',
+    options: [
+        'An increase in both the equilibrium price and quantity',
+        'A decrease in the equilibrium price and an increase in the equilibrium quantity',
+        'An increase in the equilibrium price and a decrease in the equilibrium quantity',
+        'A decrease in both the equilibrium price and quantity',
+        'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'If good X and good Y are substitutes, an increase in the price of good X will make good Y relatively cheaper and more attractive to consumers. This will cause an increase in the demand for good Y, shifting its demand curve to the right. As a result, both the equilibrium price and quantity of good Y will increase.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-7',
+    question: 'In which instance will both the equilibrium price and quantity rise?',
+    options: [
+        'When demand and supply increase, but the rise in demand exceeds the rise in supply',
+        'When demand and supply increase, but the rise in supply exceeds the rise in demand',
+        'When demand and supply decline, but decline in the demand exceeds the decline in supply',
+        'When demand and supply decline, but the decline in supply exceeds decline in the demand',
+        'C and D'
+    ],
+    correctAnswer: 1,
+    explanation: 'For both equilibrium price and quantity to rise, there must be a net increase in demand relative to supply. If demand increases more than supply, the rightward shift in demand dominates, leading to a new equilibrium with a higher price and higher quantity. If supply increases more than demand (B), price would fall. If demand and supply decline (C and D), quantity would decrease.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-8',
+    question: 'Given a market demand function QD = 10 − 2P and a market supply function QS = 5 + 3P, what are the equilibrium price and the equilibrium quantity respectively?',
+    options: [
+        '5 and 1',
+        '8 and 1',
+        '1 and 5',
+        '1 and 8',
+        'None of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'To find the equilibrium, set quantity demanded equal to quantity supplied (QD = QS): 10−2P=5+3P -> 10−5=3P+2P -> 5=5P -> P=1. Now, substitute the equilibrium price (P=1) back into either the demand or supply equation to find the equilibrium quantity (Q): QD =10−2(1)=8, QS =5+3(1)=8. The equilibrium price is 1 and the equilibrium quantity is 8.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-9',
+    question: 'What is the price elasticity of demand at the equilibrium point and its interpretation?',
+    options: [
+        '0.5 and inelastic',
+        '1.5 and elastic',
+        '0.25 and inelastic',
+        '0 and perfectly inelastic'
+    ],
+    correctAnswer: 3,
+    explanation: 'The formula for point price elasticity of demand is: Ed = (dQ/dP)∗(P/Q). From the demand equation QD =10−2P, the slope is dQ/dP=−2. The equilibrium price is P=1 and the equilibrium quantity is Q=8. Ed =(−2)∗(1/8)=−0.25. The absolute value is 0.25, which is less than 1, so demand is inelastic.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-10',
+    question: 'The free-market involves:',
+    options: [
+        'Free provision of products by the state',
+        'Subsidizing of products by the government',
+        'Market forces of supply and demand',
+        'All trade occurring via barter',
+        'C and D'
+    ],
+    correctAnswer: 3,
+    explanation: 'A free market (or capitalist economy) is an economic system where the allocation of resources is determined by the forces of supply and demand, with little or no government intervention.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-11',
+    question: 'Which of the following statements is INCORRECT?',
+    options: [
+        'Normal goods have positive income elasticity',
+        'Inferior goods have negative income elasticity',
+        'Luxury goods have high income elasticity of demand',
+        'Necessity goods must also be inferior goods',
+        'None of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'A necessity good is one with an income elasticity of demand between 0 and 1 (positive but inelastic). An inferior good has a negative income elasticity. These are two distinct categories. For example, food is a necessity, but it is not an inferior good.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-12',
+    question: 'Which one is correct when perfectly elastic demand curve shifts up with no change in perfectly inelastic supply curve?',
+    options: [
+        'Price increases and quantity remain constant',
+        'Both price and quantity increases',
+        'Price remain same and quantity increase',
+        'Price increase and quantity decrease',
+        'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'A perfectly inelastic supply curve is a vertical line. This means that the quantity supplied does not change regardless of the price. If the perfectly elastic demand curve shifts up (to a higher price level), the new equilibrium will occur at the intersection of the new demand curve and the vertical supply curve. The result is a higher price and the same quantity supplied.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-13',
+    question: 'Suppose that the price elasticity of demand for cough syrup has been estimated at -2. If quantity demanded increased by 10 percent, price must have changed by:',
+    options: [
+        '5 percent lower',
+        '5 percent higher',
+        '10 percent lower',
+        '10 percent higher',
+        'Cannot be determined from the given information'
+    ],
+    correctAnswer: 1,
+    explanation: 'The formula for price elasticity of demand is: Ed = (%ΔQd)/(%ΔP). -2 = (10%)/(%ΔP). %ΔP = 10% / -2 = -5%. A negative sign indicates a decrease in price. Therefore, the price must have changed by 5 percent lower.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-14',
+    question: 'The discovery of a large new reserve of crude oil will shift the curve for gasoline, leading to equilibrium price:',
+    options: [
+        'Supply, higher',
+        'Demand, higher',
+        'Supply, lower',
+        'Demand, lower'
+    ],
+    correctAnswer: 3,
+    explanation: 'Crude oil is a key input for producing gasoline. The discovery of a new reserve will lower the price of crude oil, which in turn lowers the cost of producing gasoline. This will cause the supply curve for gasoline to shift to the right, resulting in a lower equilibrium price and a higher equilibrium quantity.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-15',
+    question: 'When the price elasticity of demand is perfectly inelastic:',
+    options: [
+        'The elasticity is zero and the demand curve is vertical',
+        'The elasticity is zero and the demand curve is horizontal',
+        'The elasticity approaches infinity and the demand curve is vertical',
+        'The elasticity approaches infinity and the demand curve is horizontal',
+        'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'Perfectly inelastic demand means that the quantity demanded does not change at all in response to a change in price. This is represented by a vertical demand curve, and the elasticity value is zero.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-16',
+    question: 'If the price elasticity of demand is elastic, then:',
+    options: [
+        'Percentage change in quantity demand is less than percentage change in price',
+        'Consumers are less responsive to a price increase',
+        'Its value is less than 1',
+        'There are likely a large number of substitute product available',
+        'None'
+    ],
+    correctAnswer: 4,
+    explanation: 'When demand is elastic, it means consumers are very responsive to price changes. This is typically the case when there are many substitutes available, as consumers can easily switch to a different product if the price of the original good rises. The value of elastic demand is greater than 1.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-17',
+    question: 'Which one of the following statements is wrong?',
+    options: [
+        'The law of demand implies that an increase in the price of a good will decrease the demand for that good, ceteris paribus',
+        'The law of supply implies that an increase in the price of a good will increase the quantity supplied of that good, ceteris paribus',
+        'A change in a non-own price determinant of demand will result in a movement along a given demand curve',
+        'An increase in supply is reflected graphically as a leftward shift of the supply curve',
+        'None'
+    ],
+    correctAnswer: 4,
+    explanation: 'An increase in supply is represented by a rightward shift of the supply curve, which indicates that producers are willing to supply more at every given price. The other statements are all correct. A) The law of demand states that a price increase decreases quantity demanded, not demand. This is a common misconception, so the statement itself is incorrect. B) This is the law of supply. C) A change in a non-price determinant causes a shift in the curve, not a movement along it.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-18',
+    question: 'Which of the following statements is true for a given market?',
+    options: [
+        'An increase in supply, with no change in demand, will decrease the equilibrium price and increase equilibrium quantity',
+        'A decrease in supply, with no change in demand, will decrease the equilibrium price and increase the equilibrium quantity',
+        'An increase in demand, with no change in supply, will increase equilibrium price and decrease equilibrium quantity',
+        'An increase in supply and demand in equal amount will increase the equilibrium quantity and the equilibrium price will remain unchanged',
+        'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'An increase in supply (a rightward shift of the supply curve) creates a surplus at the original price, forcing the market price to fall. At the same time, the equilibrium quantity will increase. This statement accurately describes this market dynamic. The other options are incorrect.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-19',
+    question: 'Among the following identify a wrong statement:',
+    options: [
+        'If X is a normal good, the income elasticity of demand of good X will be positive',
+        'If X and Y are substitute goods, cross price elasticity of demand of X and Y will be negative',
+        'If X and Y are unrelated goods, cross price elasticity of demand of X and Y will be zero',
+        'If X is a necessity good, price elasticity of demand of good X will be inelastic',
+        'None'
+    ],
+    correctAnswer: 2,
+    explanation: 'If X and Y are substitutes, an increase in the price of X will lead to an increase in the quantity demanded of Y. This means their cross-price elasticity of demand is positive, not negative.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-20',
+    question: 'Which of the following will not shift the supply curve outward?',
+    options: [
+        'Decrease in input price',
+        'An increase in the subsidy',
+        'Expectation of lower price of the product in the future',
+        'Decrease in the number of sellers',
+        'None'
+    ],
+    correctAnswer: 4,
+    explanation: 'A decrease in the number of sellers reduces the overall quantity supplied at every price, leading to an inward (leftward) shift of the supply curve. The other options all increase supply, causing a rightward shift.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-21',
+    question: 'If the cross price elasticity of demand between two commodities X and Y is negative, then X and Y are:',
+    options: [
+        'Substitute goods',
+        'Unrelated goods',
+        'Normal goods',
+        'Complementary goods'
+    ],
+    correctAnswer: 4,
+    explanation: 'Complementary goods are consumed together (e.g., coffee and sugar). If the price of one good increases, the quantity demanded of the other good decreases. This inverse relationship results in a negative cross-price elasticity of demand.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-22',
+    question: 'Which one of the following statements is correct?',
+    options: [
+        'Increase in wage and rent causes the supply curve to shift left, other things constant',
+        'Bad weather condition causes the supply curve to shift right, other things constant',
+        'Advancement of technology causes the supply curve to shift left, other things constant',
+        'Decrease in wage and rent causes the supply curve to shift left, other things constant'
+    ],
+    correctAnswer: 1,
+    explanation: 'An increase in wages and rent raises the cost of production for firms. This makes them less willing to produce at any given price, leading to a leftward (inward) shift of the supply curve. The other statements describe the opposite effects.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-23',
+    question: 'Which one of the following statements is not correct about the determinants of price elasticity of demand?',
+    options: [
+        'The more substitutes available for a product, the more responsive the price elasticity of demand',
+        'In the long run, price elasticity of demand tends to be less responsive',
+        'The smaller the proportion of income spent for a good, the less price elastic it will be',
+        'If the type of good is luxury, the more responsive the price elasticity of demand'
+    ],
+    correctAnswer: 2,
+    explanation: 'This statement is incorrect. In the long run, consumers have more time to adjust their behavior and find substitutes, making their demand more responsive (more elastic), not less responsive.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-24',
+    question: 'The price elasticity of demand equals:',
+    options: [
+        'The percentage change in the quantity demanded divided by the percentage change in the price',
+        'The change in the quantity demanded divided by the change in price',
+        'The percentage change in the price divided by the percentage change in the quantity demanded',
+        'The change in the price divided by the change in quantity demanded'
+    ],
+    correctAnswer: 1,
+    explanation: 'This is the standard formula for calculating price elasticity of demand. It measures the ratio of the percentage change in quantity demanded to the percentage change in price.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-25',
+    question: 'Which of the following statements is true?',
+    options: [
+        'Price elasticity of demand is constant throughout the demand curve',
+        'Price elasticity of demand increases as one goes down the demand curve',
+        'Price elasticity of demand decreases as one goes down the demand curve',
+        'The slope of the demand curve equals its elasticity'
+    ],
+    correctAnswer: 3,
+    explanation: 'For a linear demand curve, the price elasticity of demand varies along the curve. It is elastic at the top portion of the curve and becomes progressively more inelastic as one moves down the curve. At the midpoint, it is unit elastic. The slope of the demand curve is constant, but elasticity is not.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-26',
+    question: 'Luxury is a good or service with a demand that is ______, and a necessity is a good with a demand that is ______:',
+    options: [
+        'Cross inelastic; cross elastic',
+        'Income elastic; income inelastic',
+        'Income inelastic; income elastic',
+        'Cross elastic; cross inelastic'
+    ],
+    correctAnswer: 2,
+    explanation: 'A luxury good has an income elastic demand, meaning that a given percentage increase in income leads to a greater percentage increase in the quantity demanded. A necessity good has an income inelastic demand, meaning that a given percentage increase in income leads to a smaller percentage increase in the quantity demanded.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-27',
+    question: 'When the percentage change in quantity demanded is greater than the percentage change in price, the demand for the good is:',
+    options: [
+        'Unit elastic',
+        'Inelastic',
+        'Perfectly inelastic',
+        'Elastic'
+    ],
+    correctAnswer: 4,
+    explanation: 'The definition of elastic demand is when the percentage change in quantity demanded is greater than the percentage change in price, resulting in an elasticity value greater than 1.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-28',
+    question: 'Because toothpaste and toothbrushes are complements, the ______ elasticity of demand is:',
+    options: [
+        'Income; positive',
+        'Cross price; negative',
+        'Cross price; positive',
+        'Income; negative'
+    ],
+    correctAnswer: 2,
+    explanation: 'Complements are goods that are consumed together. An increase in the price of toothbrushes will lead to a decrease in the quantity demanded of toothbrushes, which in turn will lead to a decrease in the demand for toothpaste. This inverse relationship results in a negative cross-price elasticity of demand.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-29',
+    question: 'If an increase in a consumer\'s income causes the consumer to decrease the quantity demanded of a good, then the good is:',
+    options: [
+        'A substitute good',
+        'A normal good',
+        'An inferior good',
+        'A complementary good'
+    ],
+    correctAnswer: 3,
+    explanation: 'An inferior good is a good for which demand decreases as consumer income increases. This is because consumers substitute it with a more expensive, "normal" good.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-30',
+    question: 'Which of the following shifts the demand for watches to the right?',
+    options: [
+        'An increase in the price of watches',
+        'An increase in consumer income if watches are a normal good',
+        'A decrease in consumer income if watches are a normal good',
+        'A decrease in the price of watches'
+    ],
+    correctAnswer: 2,
+    explanation: 'A rightward shift of the demand curve (an increase in demand) is caused by a change in a non-price determinant. An increase in consumer income will increase the demand for a normal good like watches. Changes in the price of the good itself (A and D) cause a movement along the demand curve, not a shift.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-31',
+    question: 'The law of demand states that, ceteris paribus, an increase in the price of a good:',
+    options: [
+        'Increases the supply of that good',
+        'Decreases the quantity demanded for that good',
+        'Decreases the demand for that good',
+        'Increases the quantity supplied of that good'
+    ],
+    correctAnswer: 2,
+    explanation: 'The law of demand states that there is an inverse relationship between the price of a good and the quantity demanded of that good, holding all other factors constant. An increase in price leads to a decrease in quantity demanded.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-32',
+    question: 'When both demand and supply increase with the same proportion, then:',
+    options: [
+        'The effect on market clearing level of output is negative',
+        'The effect on market clearing level of price is indeterminate',
+        'The effect on market clearing level of price is negative',
+        'The effect on market clearing level of output is indeterminate'
+    ],
+    correctAnswer: 2,
+    explanation: 'If both demand and supply increase by the same amount, the equilibrium quantity will definitely increase. However, the effect on the equilibrium price is indeterminate and depends on the specific elasticities and slopes of the curves. If the shift in demand is perfectly offset by the shift in supply, the price will remain unchanged.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-33',
+    question: 'Which one of the following is true about demand?',
+    options: [
+        'Demand means only the desire of the consumer for a commodity',
+        'Demand implies more than a mere desire to purchase a commodity',
+        'Law of demand states price of a commodity and its quantity demanded are positively related'
+    ],
+    correctAnswer: 2,
+    explanation: 'For demand to exist, a consumer must have not only the desire for a good but also the ability and willingness to purchase it at a specific price. The law of demand states a negative, not positive, relationship between price and quantity demanded.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-34',
+    question: 'Which one of the following is true about different types of goods?',
+    options: [
+        'Normal goods are those whose demand is inversely related to income',
+        'Inferior goods are those whose demand is in direct relationship with income',
+        'Complementary goods are those goods which are jointly consumed',
+        'Substitute goods are goods which satisfy different desires of the consumer'
+    ],
+    correctAnswer: 3,
+    explanation: 'Complementary goods are used together, such as cars and gasoline, or shoes and laces. Normal goods have a direct relationship with income, while inferior goods have an inverse relationship. Substitute goods satisfy the same desire.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-35',
+    question: 'The demand for a product is influenced by the following, except:',
+    options: [
+        'Taste or preference of consumers',
+        'Number of buyers in the market',
+        'Income of the consumers',
+        'Adequate freedom'
+    ],
+    correctAnswer: 4,
+    explanation: 'Demand is influenced by a range of factors that shift the demand curve. These include consumer tastes, the number of buyers, and income. While freedom is a prerequisite for a market economy, it is not a direct determinant of the demand curve for a specific product.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-36',
+    question: 'Which one of the following is true about the determinant of supply?',
+    options: [
+        'A decrease in input price causes an increase in supply',
+        'Technological advancement enables a firm to shift the supply curve inward',
+        'Good weather conditions decrease the supply of agricultural products',
+        'Higher taxes increase the supply of the product'
+    ],
+    correctAnswer: 1,
+    explanation: 'A decrease in input costs reduces the cost of production, making it more profitable for firms to supply a good. This leads to an increase in supply, shifting the supply curve to the right. Technological advancement and good weather both increase supply, and higher taxes decrease supply.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-37',
+    question: 'One of the following is not a shift factor for the demand curve:',
+    options: [
+        'Price of the commodity',
+        'Income of the consumer',
+        'Price of related goods',
+        'Number of buyers in the market',
+        'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'A change in the price of the commodity itself causes a movement along the existing demand curve, not a shift of the entire curve. The other options are all non-price determinants of demand that cause the demand curve to shift.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-38',
+    question: 'Assume a market situation in which demand increases and supply decreases simultaneously, and if the increase in demand is greater than the decrease in supply, this situation will result in:',
+    options: [
+        'Decrease in the equilibrium price and quantity of the commodity',
+        'Increase in the equilibrium price and quantity of the commodity',
+        'Increase in the equilibrium quantity and decrease in price',
+        'Decrease in the equilibrium quantity and increase in price',
+        'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'Increase in demand: shifts demand curve to the right, increasing both P and Q. Decrease in supply: shifts supply curve to the left, increasing P and decreasing Q. If the increase in demand is greater than the decrease in supply, the combined effect will be a definite increase in equilibrium price and a definite increase in equilibrium quantity.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-39',
+    question: 'Assume Mr. Aman was using two goods X and Y. Now, because of the rise in the price of good Y, the quantity demanded for good X falls. This information tells us that:',
+    options: [
+        'Both X and Y are normal goods',
+        'X and Y are complementary goods',
+        'X and Y are substitute goods',
+        'X is an inferior good',
+        'All of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'A rise in the price of good Y leads to a fall in the quantity demanded of good X. This inverse relationship indicates that the two goods are consumed together, making them complements.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-40',
+    question: 'The price elasticity of salt tends to be:',
+    options: [
+        'Inelastic price elasticity of demand',
+        'Elastic price elasticity of demand',
+        'Unitary price elasticity of demand',
+        'Both elastic and inelastic price elasticity of demand',
+        'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'Salt is a necessity good with very few substitutes and accounts for a tiny proportion of most people\'s income. As a result, a change in its price will not significantly affect the quantity demanded, making its demand inelastic.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-41',
+    question: 'The most important determinant of price elasticity of demand is:',
+    options: [
+        'The slope of the demand curve',
+        'The availability of substitutes',
+        'The income of the consumer',
+        'The price of complements',
+        'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'The availability of substitutes is the single most important factor determining price elasticity of demand. If many substitutes are available, consumers can easily switch to a different product if the price of the original good increases, making the demand highly elastic.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-42',
+    question: 'Which of the following is a positive statement?',
+    options: [
+        'Salary of civil servants should be increased',
+        'The unemployment rate is rising in Ethiopia',
+        'The minimum wage is too low; college students deserve a raise',
+        'Social Security is a good program for Ethiopian workers',
+        'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'A positive statement is a factual claim that can be tested and verified with data. Statement B can be confirmed or refuted by checking the official unemployment statistics. The other statements use words like "should" and "good," which are value judgments and are characteristic of normative statements.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+{
+    id: 'econ-2013_2017-2-43',
+    question: 'Which one of the following factors determines both demand and supply?',
+    options: [
+        'Price of related goods',
+        'Income of the consumer',
+        'Seller\'s expectation of price',
+        'Number of buyers in the market'
+    ],
+    correctAnswer: 3,
+    explanation: 'A seller\'s expectation of a future price change can affect both the current supply (by holding back stock if prices are expected to rise) and the current demand (by influencing the willingness to buy now or later). The other options are determinants of either demand or supply, but not both.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 2
+},
+  {
+    id: 'econ-2013_2017-1-7',
+    question: 'Points outside the Production Possibility Frontier (PPF):',
+    options: [
+      'Are efficient and attainable',
+      'Are attainable but inefficient',
+      'Can be made attainable through efficient utilization of existing resources and technology',
+      'Are unattainable',
+      'None of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'Points outside the Production Possibility Frontier (PPF) represent production levels that are currently impossible to achieve with the given resources and technology. These points are unattainable. Points inside the PPF are inefficient, and points on the PPF are efficient.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-8',
+    question: 'Macroeconomic topics include:',
+    options: [
+      'The impact of government regulation of automobile markets',
+      'Nationwide employment',
+      'Studying what factors influence the price and quantity of automobiles',
+      'Studying the determination of wages and production costs in the software industry',
+      'A and B'
+    ],
+    correctAnswer: 2,
+    explanation: 'Macroeconomics is the study of the economy as a whole. It deals with large-scale economic phenomena like nationwide employment, inflation, gross domestic product (GDP), and economic growth. The other options (A, C, and D) are all topics of microeconomics, which focuses on the behavior of individual economic units.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-9',
+    question: 'Factors of production include all of the following EXCEPT:',
+    options: [
+      'Machines made in past years',
+      'Money',
+      'Any wheat field that is not irrigated',
+      'Entrepreneurship',
+      'Renewable resources'
+    ],
+    correctAnswer: 2,
+    explanation: 'The four main factors of production are:\n\nLand: All natural resources, including wheat fields and renewable resources.\n\nLabor: The human effort used in production.\n\nCapital: Human-made resources used to produce goods and services, such as machines.\n\nEntrepreneurship: The human resource that combines the other three factors to create a new product or service.\nMoney is a medium of exchange and a financial asset, but it is not a factor of production itself.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-10',
+    question: 'When a society cannot produce all the goods and services people wish to have, it is said the economy is experiencing:',
+    options: ['Scarcity', 'Communism', 'Externalities', 'Market failure', 'Inefficiency'],
+    correctAnswer: 1,
+    explanation: 'Scarcity is the fundamental economic problem that arises because human wants and desires are unlimited, but the resources available to satisfy them are limited. This forces societies to make choices about how to allocate their resources.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-11',
+    question: 'Which one of the following is/are true about production possibility curve?',
+    options: [
+      'When we move from right to left the opportunity cost of PPF is increasing',
+      'Points inside the PPF reflects there is an idle resource',
+      'When there is increase in quality of resources the PPF will shift inward',
+      'If the PPF is rotated around X to the right it implies increase in production of Y axis',
+      'None'
+    ],
+    correctAnswer: 2,
+    explanation: '\nPoints inside the PPF indicate that an economy is not using its resources efficiently, so there are idle or unemployed resources.\n\nWhen a PPF is rotated around the X-axis, it implies an increase in the production of the good on the X-axis, not the Y-axis.\n\nAn increase in the quality of resources would shift the PPF outward, not inward.\n\nThe opportunity cost of the PPF is always increasing, regardless of the direction of movement, due to the law of increasing opportunity cost.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-12',
+    question: 'In which economic system are economic problems/questions merely answered by demand and supply force?',
+    options: ['Command', 'Capitalism', 'Socialism', 'Mixed', 'B and D'],
+    correctAnswer: 2,
+    explanation: 'In a purely capitalist (or market) economic system, the three basic economic questions (what, how, and for whom to produce) are answered solely by the interactions of buyers and sellers, through the forces of supply and demand and the price mechanism.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-13',
+    question: 'Identify the correct statement from the given alternatives:',
+    options: [
+      'In three sector circular flow model government is the supplier of economic resource',
+      'In two sector circular flow model firms are buyer of final goods and service at the product market',
+      'In two sector circular flow model expenditure of a firm is an income for the households',
+      'In two sector circular flow model firms are the owners of factors of production and households are suppliers of final goods and service',
+      'None'
+    ],
+    correctAnswer: 3,
+    explanation: 'In the two-sector circular flow model, firms pay households for the use of factors of production (e.g., wages, rent, interest, profit). This expenditure by firms becomes income for the households. The firms then use these factors to produce goods and services, which households buy with their income.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-14',
+    question: 'Which of the following is/are not true about economic systems?',
+    options: [
+      'There is no labor exploitation in capitalist economy',
+      'Maximizing social welfare is the feature of command economy',
+      'Co-existence of public and private sectors are the features of mixed economy',
+      'Collective ownership of resource is a feature of command economy',
+      'B and C'
+    ],
+    correctAnswer: 1,
+    explanation: 'Statement A is false. The concept of labor exploitation is a core critique of the capitalist system, most notably by Karl Marx, who argued that capitalists profit by paying labor less than the value it creates.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-15',
+    question: 'Economic growth is depicted by:',
+    options: [
+      'A shift in the production possibilities frontier outward',
+      'A movement from inside the curve toward the curve',
+      'A shift in the production possibilities frontier inward',
+      'A movement along a production possibilities frontier toward capital goods',
+      'A and B'
+    ],
+    correctAnswer: 1,
+    explanation: 'Economic growth is an increase in a society\'s productive capacity, which means the economy can produce more of all goods and services. This is represented by an outward shift of the Production Possibilities Frontier (PPF).',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-16',
+    question: 'Which of the following is not correct about the subject economics?',
+    options: [
+      'Economics is the study of how people choose to use their scarce resources to satisfy their unlimited wants',
+      'Positive economics attempts to understand behavior and economic systems without making judgments whether the outcomes are good or bad',
+      'Normative economics relies on testable hypotheses while Positive economics relies on value judgments to evaluate or recommend alternative policies',
+      'Macroeconomics is the study of the aggregate economy as a whole',
+      'B and C'
+    ],
+    correctAnswer: 3,
+    explanation: 'This statement is incorrect because it reverses the definitions. Positive economics deals with testable hypotheses and objective statements (what is), while normative economics relies on value judgments and subjective opinions (what should be).',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-17',
+    question: 'Which of the following is a positive statement?',
+    options: [
+      'Taxes should be lower because then people get to keep more of what they earn, so they will work more',
+      'My economics class should last for two terms because it is my favorite class',
+      'A 10 percent increase in income leads to a 4 percent increase in the consumption of beef',
+      'Given their negative impact on productivity, the government should eliminate labor unions',
+      'C and D are answers'
+    ],
+    correctAnswer: 3,
+    explanation: 'A positive statement is an objective, factual claim that can be tested or verified. Statement C is a testable hypothesis about the relationship between income and the consumption of beef. The other options contain words like "should" and "given their negative impact," which are value judgments and are characteristic of normative statements.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-18',
+    question: 'One of the following is not a feature or advantage of a mixed economic system:',
+    options: [
+      'Provision of private property right',
+      'Sovereignty of consumer and producer in a market',
+      'Control of price by government of basic food items',
+      'Unbalanced economic growth in different regions',
+      'C and D'
+    ],
+    correctAnswer: 4,
+    explanation: 'Unbalanced economic growth is not a feature or advantage of any particular economic system; it is a potential outcome of many factors, including geographic location, resource distribution, and government policy, but it is not a defining characteristic of a mixed economy. The other options are all features of a mixed system.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-19',
+    question: 'Which one of the following is not the concern of microeconomics?',
+    options: [
+      'Studying the behavior of consumers in maximizing satisfaction',
+      'Studying the behavior of firms in maximizing profit',
+      'Studying how prices of products and inputs are determined in product and factor markets',
+      'Studying the general price level in the economy'
+    ],
+    correctAnswer: 4,
+    explanation: 'Microeconomics is the study of individual economic units and their interactions. It focuses on how individuals and firms make decisions. The general price level in the economy (inflation) is a core concern of macroeconomics.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-20',
+    question: 'Which of the following is part of the opportunity cost of going on holiday?',
+    options: [
+      'The money you spent on a theatre show',
+      'The money you could have made if you had stayed at home and worked',
+      'The money you spent on airline ticket',
+      'The money you spent on food'
+    ],
+    correctAnswer: 2,
+    explanation: 'The opportunity cost of going on holiday is the value of the next-best alternative you gave up. This includes the income you could have earned if you had chosen to work instead of going on holiday. The money spent on the holiday itself is a direct cost, not an opportunity cost.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-21',
+    question: 'Which one is not correctly matched?',
+    options: [
+      'Labor → Wage',
+      'Capital → Profit',
+      'Rent → Rent',
+      'All'
+    ],
+    correctAnswer: 2,
+    explanation: 'The payment for the use of capital is typically referred to as interest, not profit. Profit is the return to entrepreneurship, the residual income after all other costs have been paid. The other options correctly match the factor of production to its corresponding payment.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-22',
+    question: 'In a product market:',
+    options: [
+      'Firms are sellers of resources',
+      'Households are suppliers of resources',
+      'Households are buyers of goods and services',
+      'Government is supplier of inputs'
+    ],
+    correctAnswer: 3,
+    explanation: 'In the product market (or goods market), firms sell finished goods and services, and households are the buyers. The factor market is where households sell their factors of production to firms.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-23',
+    question: 'Choose the correct combination of an economic problem and its focus:',
+    options: [
+      'What to produce – allocation of resources',
+      'For whom to produce – distribution of products',
+      'How to produce – technique of production',
+      'All'
+    ],
+    correctAnswer: 4,
+    explanation: 'The three basic economic questions and their correct foci are:\n\nWhat to produce?: This is the problem of resource allocation, deciding which goods and services to produce and in what quantities.\n\nHow to produce?: This is the problem of production technique, deciding on the combination of labor and capital.\n\nFor whom to produce?: This is the problem of distribution, deciding who gets to consume the goods and services produced.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-24',
+    question: 'Identify the correct statement below:',
+    options: [
+      'Choice implies scarcity; scarcity in turn implies opportunity cost',
+      'Scarcity implies choice; choice in turn implies opportunity cost',
+      'Choice implies opportunity cost; choice in turn implies scarcity',
+      'Scarcity implies opportunity cost; opportunity cost implies choice'
+    ],
+    correctAnswer: 2,
+    explanation: 'The correct causal chain is: Scarcity (limited resources) is the fundamental problem. Because of scarcity, we are forced to make choices. And because every choice involves a trade-off, every choice has an opportunity cost.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-25',
+    question: 'One of the following is an example of positive economics:',
+    options: [
+      'Poverty and unemployment are the biggest problems in Ethiopia',
+      'The poor should pay no taxes',
+      'There is a need for intervention of government in the economy',
+      'All'
+    ],
+    correctAnswer: 1,
+    explanation: 'Statement A is an example of a positive statement because it is a factual claim that can be tested and measured using economic data. The other statements (B and C) use words like "should" and "need," which are value judgments and are characteristic of normative economics.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-26',
+    question: 'The two fundamental facts which lead to the emergence of economics as a separate discipline are:',
+    options: [
+      'Unlimited human wants and limited resources',
+      'Limited human wants and scarce resources',
+      'Unlimited human wants and unlimited resources',
+      'Scarce human wants and limited resources'
+    ],
+    correctAnswer: 1,
+    explanation: 'The field of economics exists to address the tension between unlimited human wants and limited (scarce) resources. If resources were unlimited, there would be no need for economic choice or the study of how to allocate those resources.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-27',
+    question: 'In which field do we investigate the "tree" rather than the "forest"?',
+    options: [
+      'Macroeconomics',
+      'Microeconomics'
+    ],
+    correctAnswer: 2,
+    explanation: 'This is a classic analogy. Microeconomics is the study of individual units and their decisions, like a single "tree". Macroeconomics is the study of the economy as a whole, like the entire "forest".',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-28',
+    question: 'Which one of the following is false about the term "how to produce"?',
+    options: [
+      'It is known as the problem of allocation of resources',
+      'It is known as the problem of choice of technique',
+      'It is known as the problem of distribution of national product',
+      'It relates to how a material product is distributed among the members of society'
+    ],
+    correctAnswer: 3,
+    explanation: 'The question of "how to produce" relates to the choice of technique (labor-intensive vs. capital-intensive) and the allocation of resources. The problem of the distribution of national product is the answer to the question "for whom to produce?".',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-29',
+    question: 'Which one of the following is a feature of a command economy?',
+    options: [
+      'Collective ownership',
+      'The right to private property',
+      'More of government control',
+      'Inequalities of income'
+    ],
+    correctAnswer: 1,
+    explanation: 'In a command economy (or a socialist/communist system), the means of production are typically owned by the state or held in collective ownership. The government makes all major economic decisions, contrasting with the private property and consumer/producer sovereignty found in capitalist systems.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-30',
+    question: 'Which one of the following is not a decision-making set in a closed economy?',
+    options: [
+      'Firm',
+      'Household',
+      'Government'
+    ],
+    correctAnswer: 4, // Assuming the correct answer index for "None of the above" is 4, but it's not listed. This would need to be adjusted based on the available options.
+    explanation: 'A closed economy is one that does not trade with the outside world. The three main decision-making units within a closed economy are households, firms, and the government.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-31',
+    question: 'A market where goods and services are exchanged is called:',
+    options: [
+      'Product market',
+      'Input market',
+      'Factor market',
+      'B and C'
+    ],
+    correctAnswer: 1,
+    explanation: 'The product market is where finished goods and services are bought and sold. The input market and factor market are where the factors of production (e.g., labor, land, capital) are exchanged.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-32',
+    question: 'Which one is an incorrect alternative about economic questions?',
+    options: [
+      'For whom to produce → the problem of distribution of national product',
+      'How to produce → the problem of choice of technique',
+      'What to produce → the problem of allocation of resources',
+      'How to produce → the problem of choosing between labor-intensive and capital-intensive methods',
+      'None of the above'
+    ],
+    correctAnswer: 5,
+    explanation: 'All of the statements are correct and accurately match the fundamental economic questions with their respective concerns. The question asks for the incorrect alternative, and since all are correct, "None of the above" is the right answer.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-33',
+    question: 'Which of the following best shows a short definition of Economics? "Economics is the study of..."',
+    options: [
+      'How unlimited resources are allocated between scarce wants',
+      'How money is circulated through the economy',
+      'How nations trade goods and services in a global marketplace',
+      'How scarce resources are allocated to satisfy unlimited wants',
+      'All of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'This is the most concise and accurate definition of economics, capturing the central problem of scarcity and the need for allocation of limited resources to satisfy unlimited human wants.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-34',
+    question: 'A basic economic question that refers to the choice of combination of factors and the particular technique to use in producing a good or service is known as:',
+    options: [
+      'What to produce',
+      'When to produce',
+      'For whom to produce',
+      'How to produce'
+    ],
+    correctAnswer: 4,
+    explanation: 'This is a restatement of the first question in the document. The question of "how to produce?" specifically addresses the choice of production methods and the combination of factors (e.g., labor and capital).',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-35',
+    question: 'Which definition of economics best represents the scarcity definition?',
+    options: [
+      'A science which studies the production, consumption, and accumulation of wealth',
+      'A science which studies about man in an ordinary business of life',
+      'A study concerned with the increase in the level of national income and capital',
+      'A study of choice for the allocation of limited resources which have alternative uses'
+    ],
+    correctAnswer: 4,
+    explanation: 'This definition explicitly mentions limited resources and alternative uses, which are the two key components of scarcity. This definition is central to modern economics, as it highlights the fundamental trade-offs inherent in all economic decisions.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-36',
+    question: 'Which one of the following statements is not correct?',
+    options: [
+      'Positive economics is concerned with analysis of facts and information',
+      'Positive economics describes the world as it is',
+      'Normative economics prescribes how the economy should operate',
+      'Any disagreement in normative statements can be solved by checking the facts'
+    ],
+    correctAnswer: 4,
+    explanation: 'This statement is incorrect. Disagreements in normative statements are based on value judgments and opinions (what should be), which cannot be resolved by simply checking facts. Disagreements in positive statements can, however, be resolved by verifying the facts.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-37',
+    question: 'Which one of the following represents the three decision-making units in a closed economy?',
+    options: [
+      'Production, consumption, and exchange',
+      'Households, firms, and government',
+      'Income, expenditure, and revenue',
+      'Goods market, factor market, and capital market'
+    ],
+    correctAnswer: 2,
+    explanation: 'The three major decision-making units in a closed economy are households (who consume and supply factors of production), firms (who produce and buy factors of production), and the government (who taxes, spends, and regulates).',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-38',
+    question: 'The question of "what to produce?" addresses:',
+    options: [
+      'Allocation of resources',
+      'Choice of technique',
+      'Distribution of goods',
+      'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'The economic problem of "what to produce?" is a question of resource allocation. Since resources are scarce, society must decide which goods and services to produce with its limited resources.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-39',
+    question: 'A resource is said to be scarce if it is:',
+    options: [
+      'Limited in availability relative to human wants',
+      'Infinite in supply',
+      'Only found in developing countries',
+      'Only used in production of luxury goods'
+    ],
+    correctAnswer: 1,
+    explanation: 'A resource is scarce when its supply is finite and insufficient to meet all human wants and desires, which are assumed to be unlimited. Scarcity is a universal problem, not confined to specific types of resources or countries.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-40',
+    question: 'Scarcity:',
+    options: [
+      'Exists because resources are limited while human wants are unlimited',
+      'Will likely be eliminated as technology continues to expand',
+      'Means we are unable to have as much as we would like',
+      'Is not an issue for developed countries'
+    ],
+    correctAnswer: 1,
+    explanation: 'This is the core definition of scarcity. It is a perpetual problem that cannot be eliminated by technological advances, as human wants tend to expand as fast as or faster than our ability to produce. It is a problem for all countries, developed and developing alike.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-41',
+    question: 'Economics:',
+    options: [
+      'Would be unnecessary without scarcity',
+      'Studies optimal allocation of resources',
+      'Emerged as a discipline because resources are limited and wants are unlimited',
+      'All of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'All three statements are correct. The existence of scarcity is what makes the study of economics necessary. Economics is the discipline that studies how to make the best decisions about the allocation of scarce resources, a problem that arose because of the imbalance between limited resources and unlimited wants.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-42',
+    question: 'Identify the correct statement regarding markets:',
+    options: [
+      'In product markets, money flows from household to firms',
+      'In resource markets, households are buyers of labor',
+      'In resource markets, firms earn income',
+      'Expenditure by households in product markets becomes revenue for firms'
+    ],
+    correctAnswer: 1,
+    explanation: 'In the product market, households spend their money to buy goods and services from firms. This means that money flows from households to firms. Statement D is also correct, as the expenditure of households is the revenue of firms. Given the options, and the general nature of these questions, A is the intended answer. However, both A and D are correct, which is a common ambiguity in multiple-choice questions.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'econ-2013_2017-1-43',
+    question: 'Which one of the following statements is a concern of positive economics?',
+    options: [
+      'The government should raise taxes and lower spending to reduce the deficit',
+      'When the value of the Birr falls, imported products become more expensive',
+      'Families with income below 3,500 Birr per year should be exempt from taxes',
+      'NGOs must participate in employment creation to reduce unemployment'
+    ],
+    correctAnswer: 2,
+    explanation: 'Statement B is a positive statement because it is a factual claim that can be tested and verified. It does not contain any value judgments or opinions. The other options use words like "should" and "must," which are characteristic of normative statements.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-1',
+    question: 'What is the study of human societies called?',
+    options: ['Psychology', 'Anthropology', 'Sociology', 'Philosophy'],
+    correctAnswer: 2,
+    explanation: 'Sociology is the study of human societies.',
+    subject: 'economics',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'history-2013_2017-2-27',
+    question: 'In the word of Tadesse Tamirat "Evangelizing the Evangelized" is associated with the conversion attempts by Protestant missionaries.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'The phrase "Evangelizing the Evangelized" refers to the efforts of Protestant missionaries to convert Orthodox Christians in Ethiopia. This phrase highlights the perception of these missionaries that the Ethiopian Orthodox Church, despite being an ancient Christian faith, had lost its "true" form and needed to be re-evangelized.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 2
+  },{
+    id: 'history-2013_2017-3-1',
+    question: 'The earliest known state in the history of Ethiopia and the Horn is:',
+    options: [
+      'Da’amat',
+      'Punt',
+      'Yeha',
+      'Coloe',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'The earliest known state-level society in the region is Da\'amat, which flourished in the 10th century BCE. While the Land of Punt is mentioned in ancient Egyptian records as early as 2500 BCE, its exact location and political structure are still debated, making it a "proto-state" or a trade network rather than a clearly defined state. Da\'amat, with its capital at Yeha, is the first confirmed, archaeologically-attested state in the region.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-2',
+    question: 'Which of the following is correct about Punt?',
+    options: [
+      'Confined to Northern Ethiopia',
+      'The earliest recorded state in Ethiopia',
+      'A source of important trade commodities',
+      'Strong trade with the Mediterranean',
+      'All'
+    ],
+    correctAnswer: 2,
+    explanation: 'Punt is primarily known from ancient Egyptian records as a trading partner. It was a source of valuable commodities like myrrh, frankincense, gold, and exotic animals. While its exact location is still debated, it is believed to have been a coastal region in the Horn of Africa, not confined to Northern Ethiopia.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-3',
+    question: 'The king of Aksum who used to speak Greek, the lingua franca of the Greco-Roman world, was:',
+    options: [
+      'Ezana',
+      'Abrha',
+      'Kaleb',
+      'Zoscales'
+    ],
+    correctAnswer: 3,
+    explanation: 'According to the Periplus of the Erythrean Sea, a first-century CE Greek navigational text, the king of Aksum at the time, named Zoscales, was said to be fluent in Greek. This highlights Aksum\'s deep involvement in the Greco-Roman trade world.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-4',
+    question: 'The profound civilization of Aksum was manifested by:',
+    options: [
+      'Stelae',
+      'Urbanization',
+      'Indigenous alphabet',
+      'Calendar system',
+      'All of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'The Aksumite civilization was highly advanced and is known for several significant achievements, including:\n\nStelae: Monumental carved stone obelisks that served as funerary markers.\n\nUrbanization: The development of a major city, Aksum, with palaces, temples, and large populations.\n\nIndigenous alphabet: The creation of the Ge\'ez script, which is still in use today.\n\nCalendar system: The development of a unique calendar based on the Alexandrian calendar.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-5',
+    question: 'Among the following, one was an external factor that contributed to the downfall of the Aksumite state:',
+    options: [
+      'Loss of revenue from Adulis along the Red Sea coast',
+      'Rebellion raised from the Agaw and Beja ruling class',
+      'Rebellion led by Queen Yodit',
+      'Strong anti-Aksumite propaganda from Zagwe rulers'
+    ],
+    correctAnswer: 1,
+    explanation: 'The loss of control over the Red Sea trade, particularly after the rise of the Islamic Caliphates in the 7th century, was a major external factor in Aksum\'s decline. The port of Adulis, once a major economic hub, was a key target, and its decline crippled the Aksumite economy. The other options were all internal factors.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-6',
+    question: 'Which one of the following was NOT a factor for the decline of the Aksumite kingdom?',
+    options: [
+      'Plague infestation',
+      'Destruction of the port of Adulis by Arabs',
+      'Revival of Ancient Egypt',
+      'Environmental degradation'
+    ],
+    correctAnswer: 2,
+    explanation: 'Ancient Egypt had long declined by the time of Aksum\'s fall. The other factors—plague, the destruction of the port of Adulis, and environmental degradation—are all cited by historians as contributing to the kingdom\'s collapse.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-7',
+    question: 'The decline of the ancient Kingdom of Aksum was possibly due to:',
+    options: [
+      'Plague infestation',
+      'Loss of the port of Adulis',
+      'Rebellion against Aksumite rulers',
+      'The invasion of Ancient Egypt',
+      'All of the above'
+    ],
+    correctAnswer: 4,
+    explanation: 'The decline of Aksum was a complex process driven by multiple factors. Environmental degradation (due to over-cultivation), plague, the rise of Arab power and the resulting loss of trade routes (specifically the port of Adulis), and internal rebellions all contributed to the kingdom\'s gradual collapse.',
+    subject: 'ihstory',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-8',
+    question: 'In Zagwe history, King Lalibela is remembered for:',
+    options: [
+      'Large-scale territorial expansion',
+      'Building rock-hewn churches',
+      'Military conquests',
+      'Control of Red Sea trade',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'King Lalibela is most famously known for the construction of the magnificent monolithic rock-hewn churches in his capital, which he intended to be a "New Jerusalem" for pilgrims unable to travel to the Holy Land.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-9',
+    question: 'The following are examples of architectural achievements of the Zagwe Kingdom by way of monolithic construction, EXCEPT:',
+    options: [
+      'Bete Giyorgis',
+      'Bete Dengel',
+      'Bete Abba Libanos',
+      'Bete Merkoriwos Mesqel'
+    ],
+    correctAnswer: 1,
+    explanation: 'The rock-hewn churches of Lalibela are the most significant architectural achievement of the Zagwe Kingdom. The churches in question are Bete Giyorgis, Bete Abba Libanos, and Bete Merqorewos, but there is no church named "Bete Dengel."',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-10',
+    question: 'Identify the one that does not belong to the group based on style of construction:',
+    options: [
+      'Bete Abba Libanos',
+      'Bete Golgota',
+      'Bete Dengil',
+      'Bete Mariyam'
+    ],
+    correctAnswer: 2,
+    explanation: '"Bete Dengil" is not one of the famous rock-hewn churches of Lalibela. The other three—Bete Abba Libanos, Bete Golgota, and Bete Mariyam—are all part of the famous architectural complex built during the Zagwe dynasty.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-11',
+    question: 'Which is correct about the Aksumite and Zagwe dynasties?',
+    options: [
+      'They had the same political centers',
+      'Aksumites were Cushitic, Zagwe were Semitic',
+      'Both exercised similar traditions',
+      'Both extended into Yemen and South Arabia',
+      'None'
+    ],
+    correctAnswer: 4,
+    explanation: 'The two dynasties were distinct. Aksum\'s political center was in the north, while the Zagwe moved it to Lasta. The Aksumites were of Semitic origin, while the Zagwe were of Cushitic origin (Agaw). Aksum had an empire that extended across the Red Sea into Yemen, but the Zagwe dynasty was a smaller, landlocked kingdom focused on the highlands.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-12',
+    question: 'Periplus of the Erythrean Sea is an important source of medieval Ethiopian history.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'The Periplus of the Erythrean Sea is a first-century CE document, describing Aksum and its port of Adulis, making it a source for ancient, not medieval, Ethiopian history.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-13',
+    question: 'The earliest known document on the history of Ethiopia and the Horn is:',
+    options: [
+      'Christian Topography',
+      'The Periplus of the Erythrean Sea',
+      'Travels to Discover the Source of Nile',
+      'Historia Aethiopica'
+    ],
+    correctAnswer: 1,
+    explanation: 'The Periplus of the Erythrean Sea, written around the first century CE, is the earliest surviving document that provides detailed information about the coastal regions of the Horn of Africa, including the Aksumite kingdom.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-14',
+    question: 'Which sentence is wrongly stated about the Periplus of the Erythrean Sea?',
+    options: [
+      'It listed Aksum’s import/export items',
+      'It stated that Adulis was Aksum’s main port',
+      'It is the first document to mention Aksum',
+      'It claimed King Kaleb communicated in Greek'
+    ],
+    correctAnswer: 3,
+    explanation: 'The Periplus mentions that King Zoscales spoke Greek, not King Kaleb, who reigned much later in the 6th century CE. The other statements are all accurate descriptions of the document\'s content.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-15',
+    question: 'The main outlet to the sea during the medieval period was:',
+    options: [
+      'Adulis',
+      'Massawa',
+      'Zeila',
+      'Assab',
+      'None'
+    ],
+    correctAnswer: 2,
+    explanation: 'After the decline of Aksum and the loss of its port at Adulis, the port of Zeila, on the Gulf of Aden, became the primary outlet for trade for the Christian kingdom and the surrounding Muslim sultanates during the medieval period.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-16',
+    question: 'In the tenure system of historic Ethiopia, the hereditary land use right of the peasantry was called:',
+    options: [
+      'Gult',
+      'Rist',
+      'Ristgult',
+      'Semon'
+    ],
+    correctAnswer: 1,
+    explanation: 'In the traditional Ethiopian land tenure system, Rist was the hereditary land-use right that belonged to a peasant family and was passed down through generations. This was distinct from Gult, which was land granted by the king to nobles for a limited time in exchange for service.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-17',
+    question: 'In the tenure system of historic Ethiopia, the hereditary land-use right of the peasantry was called:',
+    options: [
+      'Gult',
+      'Semon',
+      'Ristgult',
+      'Rist',
+      'A and C'
+    ],
+    correctAnswer: 3,
+    explanation: 'Same as question 16. Rist is the correct term for the hereditary land-use right of the peasantry.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-18',
+    question: 'Chronicles largely explain negative aspects of kings.',
+    options: ['True', 'False', 'All', 'None'],
+    correctAnswer: 1,
+    explanation: 'Ethiopian chronicles were official court histories written by royal scribes or clerics. They were meant to glorify and legitimize the monarch, and therefore largely focus on the positive aspects and heroic deeds of kings, rarely dwelling on their negative aspects or failures.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-19',
+    question: 'Which one is NOT a feature of Ethiopian chronicles?',
+    options: [
+      'Indigenous record keeping',
+      'Incorporates both facts and legends',
+      'Focuses on royal families',
+      'Gives much space to the history of common people'
+    ],
+    correctAnswer: 3,
+    explanation: 'Ethiopian chronicles are characterized by their focus on the lives and deeds of emperors and royal families. They rarely, if ever, include detailed accounts of the lives of the common people.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-20',
+    question: 'Which groups of sources are best associated with religion and contributed to medieval Ethiopian history?',
+    options: [
+      'Hagiographies',
+      'Chronicles',
+      'Inscriptions',
+      'Futuh al Habesha'
+    ],
+    correctAnswer: 1,
+    explanation: 'Hagiographies—the biographies of saints—were a major form of religious literature during the medieval period. They provide rich details about the lives of prominent religious figures and the spread of Christianity, making them a crucial source for understanding medieval Ethiopian history.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'history-2013_2017-3-21',
+    question: 'What are hagiographies?',
+    options: [
+      'Official histories of churches and monasteries.',
+      'Records of emperors’ activities.',
+      'Writings found on manuscript margins.',
+      'Accounts of saints’ lives and deeds.'
+    ],
+    correctAnswer: 3,
+    explanation: 'A hagiography is a biography or account of a saint\'s life, often written with the purpose of inspiring devotion and serving as a religious or moral guide.',
+    subject: 'history',
+    year: 2013_2017,
+    chapter: 3
+  },
+    {
     "id": "sam-2013-2-5",
     "question": "Yesterday I bought new jeans with a tag that reads, 'Made in U.S.A'. Thus, my new jeans were made in the U.S.A. This argument is:",
     "options": [
@@ -458,7 +2880,7 @@ export const sampleQuestions: Question[] = [
     "chapter": 1
   },
   {
-    "id": "geo-2013-1-11",
+    "id": "geo-2013_2017-1-11",
     "question": "Which one of the following statements is not correct about the location of Ethiopia?",
     "options": [
       "Vicinal Ethiopia is found to the West of Djibouti",
@@ -469,11 +2891,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 2,
     "explanation": "This statement confuses latitude and longitude. Ethiopia's correct astronomical location is between 3°N and 15°N latitude and between 33°E and 48°E longitude.",
     "subject": "geography",
-    "year": 2013,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
-    "id": "geo-2013-1-12",
+    "id": "geo-2013_2017-1-12",
     "question": "Which of the following is correct about the vicinal location of Ethiopia?",
     "options": [
       "Ethiopia is situated in the Horn of Africa",
@@ -5365,7 +7787,7 @@ export const sampleQuestions: Question[] = [
     "chapter": 1
   },
   {
-    "id": "log-2017-1-18",
+    "id": "log-2013_2017-1-18",
     "question": "Which one of the following is correct about Empiricism?",
     "options": [
       "A. What is truth, and how can we know a statement is true?",
@@ -5376,7 +7798,7 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "This is the core claim of empiricism. Option A is a general epistemological question, not specific to empiricism. Option C is unclear. Therefore, \"All\" (D) is incorrect.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
@@ -5392,7 +7814,7 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 4,
     "explanation": "To philosophize is to actively engage in the entire process: reading primary texts (C), understanding different arguments (A), and personally grappling with fundamental questions (B). Therefore, all options are correct.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
@@ -5428,7 +7850,7 @@ export const sampleQuestions: Question[] = [
     "chapter": 1
   },
   {
-    "id": "log-2017-1-22",
+    "id": "log-2013_2017-1-22",
     "question": "The science that deals with moral principles, values, codes, rules and norms is called:",
     "options": [
       "A. Political Philosophy",
@@ -5439,11 +7861,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 3,
     "explanation": "Ethics (or moral philosophy) is the branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
-    "id": "log-2017-1-23",
+    "id": "log-2013_2017-1-23",
     "question": "Which branch of ethics deals with the meaning and origin of ethical issues?",
     "options": [
       "A. Meta-ethics",
@@ -5455,7 +7877,7 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "Meta-ethics is the branch of ethics that seeks to understand the nature of ethical properties, statements, attitudes, and judgments. It asks questions about the meaning of \"good\" and the origin of ethical principles.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
@@ -5503,7 +7925,7 @@ export const sampleQuestions: Question[] = [
     "chapter": 1
   },
   {
-    "id": "log-2017-1-27",
+    "id": "log-2013_2017-1-27",
     "question": "Sintayehu, a student from Bahir Dar, is asked to identify a question that would not be considered a basic question in philosophy. Which of the following would she choose?",
     "options": [
       "A. What is an argument?",
@@ -5514,11 +7936,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 1,
     "explanation": "As in previous questions, \"What time is it?\" is a factual question, not a fundamental philosophical one. A is logic, C is metaphysics/cosmology, and D is metaphysics/anthropology.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
-    "id": "log-2017-1-28",
+    "id": "log-2013_2017-1-28",
     "question": "Which of the following is not studied by Aesthetics?",
     "options": [
       "A. Music",
@@ -5529,11 +7951,11 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 3,
     "explanation": "Aesthetics is the branch of philosophy that studies the nature of beauty and taste. It examines aesthetic values often expressed through judgments of sentiment and applies to all art forms (A, C) and natural beauty (B). Therefore, all are studied by aesthetics.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   {
-    "id": "log-2017-1-29",
+    "id": "log-2013_2017-1-29",
     "question": "All are the benefits of studying philosophy except one. Which one?",
     "options": [
       "A. Collective thinking",
@@ -5544,7 +7966,7 @@ export const sampleQuestions: Question[] = [
     "correctAnswer": 0,
     "explanation": "\"Collective thinking\" (often implying groupthink or uncritical acceptance of group views) is not a benefit of philosophy. Philosophy promotes independent critical thinking (B), reflection (C), and creativity (D) by questioning assumptions.",
     "subject": "logic",
-    "year": 2017,
+    "year": 2013_2017,
     "chapter": 1
   },
   // ==================== LOGIC QUESTIONS ====================
@@ -9772,7 +12194,7 @@ export const sampleQuestions: Question[] = [
     "explanation": "The sociocultural perspective emphasizes how a person's behavior and mental processes are shaped by their culture, social groups, and social norms. Therefore, to understand a person's view on marriage, a psychologist from this perspective would first need to understand the cultural and social context in which that person was raised and lives.",
     "subject": "psychology",
     "year": 2016,
-    "chapter": 1
+    "chapter":1
   },
   {
     "id": "psych-2016-1-4",
@@ -10875,15 +13297,1145 @@ export const sampleQuestions: Question[] = [
   // ==================== SOCIOLOGY QUESTIONS ====================
   
   //sociology-2014-1-1
-  {
-    id: 'socio-2014-1-1',
-    question: 'What is the study of human societies called?',
-    options: ['Psychology', 'Anthropology', 'Sociology', 'Philosophy'],
-    correctAnswer: 2,
-    explanation: 'Sociology is the study of human societies.',
-    subject: 'sociology',
-    year: 2014,
+ {
+    id: 'anthro-2013_2017-1-2',
+    question: 'Which of the following best describes the insights offered by anthropology?',
+    options: [
+      'Knowledge production merely about the cultural differences in the world',
+      'Knowledge production solely about the biological differences of mankind in the world',
+      'Delivering anthropological perspectives to enable concerned experts to solve societal problems',
+      'Delivering neither basic nor applied perspective but appreciates culture alone',
+      'C&D'
+    ],
+    correctAnswer: 3,
+    explanation: 'Anthropology is a holistic field that encompasses both basic (or theoretical) and applied perspectives. While it generates knowledge about cultural and biological differences, its ultimate purpose often extends to applying this knowledge to address real-world issues. Applied anthropology uses data, theory, and methods to identify, assess, and solve contemporary societal problems. Therefore, providing perspectives to help experts solve problems is a key insight of the discipline.',
+    subject: 'Anthropology',
+    year: 2013_2017,
     chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-3',
+    question: 'Which one of the following is a contribution of anthropology?',
+    options: [
+      'Helps to bolster the attitude of ethnocentrism',
+      'It helps to support ruinous policies and life threatening practices',
+      'It helps to get over ethnocentric kind thinking about other cultures',
+      'A&B',
+      'A&C'
+    ],
+    correctAnswer: 3,
+    explanation: 'Ethnocentrism is the belief that one\'s own culture is superior to others. Anthropology, through its core principle of cultural relativism, encourages people to understand and appreciate cultures on their own terms, without judgment. This comparative approach directly counters ethnocentrism, promoting a more tolerant and open-minded perspective toward diverse human societies.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-4',
+    question: 'Which one of the following is hardly true about anthropology?',
+    options: [
+      'It is the study of complete human life since pre-history',
+      'It studies the origin, development and the present variations among mankind',
+      'It studies neither the biological nor socio-cultural aspects of mankind',
+      'It is not factual that anthropology has temporal limit and spatial border to study mankind',
+      'A&C are answers'
+    ],
+    correctAnswer: 3,
+    explanation: 'This statement is the opposite of what anthropology is. Anthropology is defined by its comprehensive and holistic approach, which explicitly studies both the biological and socio-cultural aspects of human beings. Its major subfields, like biological anthropology and socio-cultural anthropology, are dedicated to these two areas, making option C demonstrably false.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-5',
+    question: 'Which of the following statements is false about anthropology?',
+    options: [
+      'It is a scientific study of human beings without any spatial and temporal restriction',
+      'The focus of anthropology is mainly a large scale community',
+      'The unit of analysis for anthropology is a social group rather than an individual',
+      'It studies about the people who live in metropolitan areas and countryside',
+      'None of the above'
+    ],
+    correctAnswer: 2,
+    explanation: 'While anthropology can and does study large-scale societies, its historical and foundational focus has often been on small-scale communities. The method of ethnography, which involves deep, long-term fieldwork, is particularly well-suited for studying local and small-scale social groups. This makes the statement that its focus is "mainly a large scale community" false.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-6',
+    question: 'The field of anthropology studies all of the following except:',
+    options: [
+      'Investigates strategies for living',
+      'Examines the nature and character of the universe',
+      'Examines shared values in diverse societies',
+      'Analyses the products of social groups'
+    ],
+    correctAnswer: 2,
+    explanation: 'Anthropology is the study of human beings in all their aspects. While it may touch on human perspectives of the universe (e.g., in the study of religion or cosmology), its primary focus is not the physical universe itself, but rather human societies, cultures, biology, and history. Other fields, such as cosmology or astronomy, are dedicated to studying the nature and character of the universe.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-7',
+    question: 'Which of the following is true about the history of anthropology?',
+    options: [
+      'Anthropology has its roots in the works and ideas of the great ancient Egypt, Greek, and Roman Empires',
+      'By the late 1970s, anthropology was beginning to emerge as a profession',
+      'Initially, anthropology was not a profession but primarily based in museums',
+      'Early anthropologists mainly studied small communities, technologically advanced and modern societies'
+    ],
+    correctAnswer: 3,
+    explanation: 'Early anthropology, particularly during the late 19th and early 20th centuries, was closely tied to museums. Scholars collected artifacts and data from around the world and used these collections to create exhibits and typologies of human cultures. Bronislaw Malinowski and others later pioneered the professionalization of the field, advocating for extended, immersive fieldwork rather than museum-based "armchair anthropology."',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-8',
+    question: 'All are the scope and subject matter of anthropology, except:',
+    options: [
+      'The subject of anthropology entirely covers past human beings',
+      'In terms of spatial dimension, anthropology covers all geographical spaces where human beings live',
+      'The discipline covers all aspects of human ways of life',
+      'The focus areas covered by anthropology are diverse and enormous'
+    ],
+    correctAnswer: 1,
+    explanation: 'While archaeology, a subfield of anthropology, specifically studies past human beings and societies, anthropology as a whole is not limited to the past. Socio-cultural anthropology and linguistic anthropology, for example, are equally concerned with contemporary human societies, languages, and ways of life.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-9',
+    question: 'Which one of the following statements does not describe anthropology?',
+    options: [
+      'Anthropology is a comparative science',
+      'Anthropology is an inter-disciplinary field of study',
+      'Anthropology is a judgmental science and holds position',
+      'Anthropology follows an emic perspective',
+      'Anthropology is holistic'
+    ],
+    correctAnswer: 3,
+    explanation: 'Anthropology is fundamentally based on the principle of cultural relativism, which requires anthropologists to suspend judgment and understand cultures from an emic (insider\'s) perspective. A judgmental approach would violate this core principle and hinder the objective study of different ways of life.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-10',
+    question: 'Which statement is correct about anthropology?',
+    options: [
+      'Anthropology has no role in the success of development projects.',
+      'Anthropology is the comparative study of culture and society, with a focus on local life.',
+      'Anthropology\'s main focus is on a macro level to understand humanity',
+      'Indigenous anthropology was practiced when anthropology started in the 19th century',
+      'Anthropologists first conduct ethnology to get ethnographic data of a given culture'
+    ],
+    correctAnswer: 2,
+    explanation: 'This statement accurately captures the essence of socio-cultural anthropology. It\'s a comparative field, using data from different societies, and it typically focuses on the specific, detailed realities of local life through methods like ethnography. This local focus helps build a comprehensive, global understanding of humanity.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-11',
+    question: 'The subfield of anthropology that analyzes biological evolution and genetic variations of human beings is called:',
+    options: [
+      'Linguistic Anthropology',
+      'Prehistoric Archaeology',
+      'Physical Anthropology',
+      'Socio-Cultural Anthropology'
+    ],
+    correctAnswer: 3,
+    explanation: 'Physical anthropology (also known as biological anthropology) is the subfield dedicated to studying humans from a biological perspective. This includes the study of human evolution, genetic variation, primatology, and the physical characteristics of contemporary and past human populations.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-12',
+    question: 'Which of the following specialties of biological anthropology studies contemporary human biological variation?',
+    options: [
+      'Human population genetics',
+      'Prehistoric archaeology',
+      'Primatology',
+      'Paleoanthropology',
+      'None'
+    ],
+    correctAnswer: 1,
+    explanation: 'Human population genetics is a specialty within biological anthropology that studies genetic diversity and variation among contemporary human populations. It examines how and why human gene pools vary across different groups and regions today, offering insights into human adaptation, migration, and disease resistance.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-13',
+    question: 'Which is the study of prehistoric times?',
+    options: [
+      'Archaeology'
+    ],
+    correctAnswer: 1,
+    explanation: 'Archaeology is the subfield of anthropology dedicated to the study of prehistoric and historic human societies through the recovery and analysis of material remains. It\'s the primary discipline for understanding human life before the advent of written records.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-14',
+    question: 'What is the difference between artifact and feature?',
+    options: [
+      'Artifact is a product of man while the feature is made by nature',
+      'Artifact is easily mobile while the feature is difficult to move',
+      'Feature focuses on the past while artifact analyzes present social issues',
+      'There is only a slight difference and they are predominantly the same',
+      'None'
+    ],
+    correctAnswer: 2,
+    explanation: 'An artifact is any object made, used, or modified by humans that is portable and can be moved, such as a pottery shard, stone tool, or spear point. A feature, in contrast, is a non-portable archaeological remnant of human activity, such as a fireplace, a pit, a posthole, or a burial site.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-15',
+    question: 'The branch of linguistic anthropology that examines the relationship between language and culture is:',
+    options: [
+      'Structural Descriptive Linguistics',
+      'Ethno-linguistics',
+      'Historical Linguistics',
+      'Socio-linguistics'
+    ],
+    correctAnswer: 2,
+    explanation: 'Ethno-linguistics is the study of the relationship between language and culture, specifically how language influences thought and culture and vice versa. It explores how a group\'s vocabulary, grammar, and linguistic structure reflect their cultural worldview and practices.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-16',
+    question: 'Which of the following is a branch of anthropology that studies contemporary cultures and societies?',
+    options: [
+      'Cultural evolution',
+      'Archaeological anthropology',
+      'Physical anthropology',
+      'Social anthropology',
+      'Applied anthropology'
+    ],
+    correctAnswer: 4,
+    explanation: 'Social anthropology, a major subfield, is specifically dedicated to the study of contemporary human societies and their cultural practices. It focuses on social relations, cultural systems, and the ways people live today, often through ethnographic fieldwork.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-17',
+    question: 'Which of the following is the study area of archaeology?',
+    options: [
+      'Past peoples\' ways of lives',
+      'Cultural features of contemporary human beings',
+      'Material culture of contemporary humans',
+      'Specific ethnic group\'s culture',
+      'Written archival materials of humans'
+    ],
+    correctAnswer: 1,
+    explanation: 'Archaeology is the study of past human life and culture through the analysis of the material remains people left behind, such as artifacts, features, and ecofacts. Its scope is explicitly focused on the past, in contrast to socio-cultural anthropology, which primarily studies contemporary societies.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-18',
+    question: 'Which of the following is not true about linguistic anthropology?',
+    options: [
+      'It is the study of languages of past peoples',
+      'It is the study of humans\' unwritten languages as a resource',
+      'It is the study of speaking languages as cultural practice',
+      'It is the study of language in its socio-cultural context across space',
+      'It is the study of language in its socio-cultural context across time'
+    ],
+    correctAnswer: 1,
+    explanation: 'While linguistic anthropology does have a historical component (e.g., historical linguistics), the field is not solely about past languages. It is equally concerned with the study of contemporary language use and its socio-cultural context, including how language is a resource, a cultural practice, and how it varies across different societies.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-19',
+    question: 'Which of the following is true about socio-cultural anthropology?',
+    options: [
+      'It is the analysis of past societies\' cultures',
+      'It is the study of excavated material cultures',
+      'It is the study of culture examining artefacts and eco-facts',
+      'It is the study of non-material cultures of future societies',
+      'It is the study of contemporary societies and cultures'
+    ],
+    correctAnswer: 5,
+    explanation: 'Socio-cultural anthropology is the subfield that uses methods like ethnography to study present-day human societies and cultures. It focuses on the social and cultural behaviors, beliefs, and practices of living groups.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-20',
+    question: 'Which statement about socio-cultural anthropology is correct?',
+    options: [
+      'It is the largest sub-field of anthropology',
+      'It deals with human society and culture',
+      'It describes, analyzes, interprets, and explains social, cultural, and contemporary human societies',
+      'It studies social relations, symbolic/non-symbolic elements (e.g., religion, language), and material culture',
+      'All of the above'
+    ],
+    correctAnswer: 5,
+    explanation: 'All these statements are correct. Socio-cultural anthropology is often considered the largest and most well-known subfield. It comprehensively deals with human society and culture by describing, analyzing, and explaining both social relations and cultural elements, including both symbolic and material aspects of a society.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-21',
+    question: 'An anthropologist discovered a town that had been buried underground thousands of years ago. This could be an example of:',
+    options: [
+      'A feature',
+      'An artefact',
+      'An eco-fact',
+      'An excavated site',
+      'An active town'
+    ],
+    correctAnswer: 4,
+    explanation: 'An excavated site is an area of archaeological investigation where past human activity has been uncovered. A buried town fits this description perfectly. While the town would contain artifacts and features, the town itself is an excavated archaeological site.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-22',
+    question: 'Which of the following are the biological characteristics of modern human beings?',
+    options: [
+      'Using complex sets of ideas called culture to survive',
+      'Using modern language to communicate ideas',
+      'Bipedalism',
+      'Relatively large brains for primates of our size',
+      'A & B',
+      'C & D'
+    ],
+    correctAnswer: 6,
+    explanation: 'Bipedalism (walking on two feet) and a relatively large brain are key biological characteristics of modern humans. While culture and language are also unique human traits, they are considered cultural and cognitive characteristics, not solely biological ones.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-23',
+    question: 'The brain size of humans has become larger over millions of years of evolution. The emergence of writing and changes in intelligence, language, etc., best describes:',
+    options: [
+      'Human Bio-Cultural evolution',
+      'Human biological evolution',
+      'Human cultural evolution',
+      'Human physical evolution'
+    ],
+    correctAnswer: 1,
+    explanation: 'This describes human bio-cultural evolution, the process where biological and cultural factors have co-evolved and influenced each other. The increase in brain size (a biological change) is linked to the development of complex culture, intelligence, and language (cultural changes). These two processes are inseparable and have driven human evolution.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-24',
+    question: 'The rapid physiological changes that occur in one’s lifetime cannot be passed genetically because:',
+    options: [
+      'They\'re irreversible',
+      'The changes acquired during life can\'t be encoded in the genes',
+      'Adaptation to different geographical environment is different',
+      'Physiological adaptations take place over the span of generations'
+    ],
+    correctAnswer: 2,
+    explanation: 'This is a fundamental principle of modern genetics. Acquired characteristics—changes that an organism undergoes during its lifetime (e.g., getting a tan, building muscle, or recovering from an illness)—do not alter the genes in reproductive cells and therefore cannot be passed down to offspring.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-25',
+    question: 'Which is correct about cosmological explanations regarding the origin of modern human beings?',
+    options: [
+      'It accounts for the ways in which supernatural beings or forces formed human beings and the planet we live on',
+      'It is transmitted from generation to generation through ritual, education, laws, art, and language',
+      'It presents the universe as an orderly system answering basic questions about human origins and the place of humankind in the universe',
+      'All'
+    ],
+    correctAnswer: 4,
+    explanation: 'A cosmological explanation is a cultural model that describes the origin of the universe and humanity\'s place within it. These explanations are often religious or spiritual, involve supernatural forces, are passed down through cultural means (rituals, stories, etc.), and provide a framework for understanding the world.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },
+  {
+    id: 'anthro-2013_2017-1-26',
+    question: 'Of the following one is not among the classical anthropologists:',
+    options: [
+      'Evans-Pritchard',
+      'Bronislaw Malinowski',
+      'Charles Darwin',
+      'Edward Tylor'
+    ],
+    correctAnswer: 3,
+    explanation: 'Charles Darwin was a biologist and naturalist who developed the theory of evolution by natural selection. While his work profoundly influenced anthropology, particularly physical anthropology, he is not considered a "classical anthropologist" in the same vein as those who pioneered the ethnographic methods and theories of the discipline, such as Evans-Pritchard, Malinowski, and Edward Tylor.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 1
+  },{
+    id: 'anthro-2013_2017-2-1',
+    question: 'The tendency of looking at a particular issue from different dimensions is known as:',
+    options: ['Relativism', 'Holism', 'Comparativeness', 'Etic view', 'None'],
+    correctAnswer: 2,
+    explanation: 'Holism is a core principle of anthropology that involves looking at a topic from multiple perspectives. This means considering how different aspects of a culture or society—such as its history, environment, language, biology, and economy—are interconnected and influence one another. It\'s an approach that avoids a narrow, single-cause explanation.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-2',
+    question: 'When the anthropologist, as a researcher, uses an insider\'s view, it is termed as:',
+    options: ['Emic Perspective', 'Etic Perspective', 'Researcher\'s Perspective', 'The anthropologist\'s perspective'],
+    correctAnswer: 1,
+    explanation: 'The emic perspective is an approach in anthropology that seeks to understand a culture from the point of view of its members. It\'s the "insider\'s" view, focusing on how people in a particular society think, feel, and perceive their world. This contrasts with the etic perspective, which is the "outsider\'s" or scientific view.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-3',
+    question: 'Assume that in society \'X\', it is a must for a woman not to wear a mini skirt. One anthropologist goes to such a society to study the issue by employing a relative approach. Based on the case, which one of the following is not incorrect?',
+    options: [
+      'The normative standards of society about women dressing should be explained in its own context',
+      'The normative standard of society about women dressing should be evaluated haphazardly',
+      'The normative standards of society about women dressing should be taken as one of the dressing styles among many others across societies',
+      'The normative standards of society about women dressing should be studied in its own socio-cultural milieu',
+      'All but B'
+    ],
+    correctAnswer: 4,
+    explanation: 'The "relative approach" refers to cultural relativism, which dictates that cultural practices must be understood and explained within their own cultural context. Options A and D both correctly describe this approach. Option C is also consistent with relativism, as it recognizes the practice as one among many, without ranking it. Option B, which suggests a "haphazard" evaluation, is incorrect and contradicts the principles of scientific and respectful study.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-4',
+    question: 'The concept of cultural relativism entails all of the following except:',
+    options: [
+      'Evaluating the behavior of other people in terms of our own values, beliefs, and logic',
+      'Understanding cultural practices of a certain group within its own natural setting',
+      'Recognizing the fact that all cultural practices have their own meaning in their cultural contexts',
+      'Developing the attitude of respecting cultural differences and appreciating diversity'
+    ],
+    correctAnswer: 1,
+    explanation: 'Cultural relativism is the opposite of evaluating others\' behavior based on one\'s own cultural standards. It is the principle that a person\'s beliefs, values, and practices should be understood based on that person\'s own culture, rather than be judged against the criteria of another. Options B, C, and D all correctly describe the tenets of cultural relativism.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-5',
+    question: 'Anthropologists do not support harmful traditional practices in the name of cultural relativism. The major reason is:',
+    options: [
+      'Harmful practices preserve social norms',
+      'Harmful practices improve the lifestyle of people',
+      'Harmful practices protect the rights of people',
+      'Harmful practices violate the rights of people',
+      'Harmful practices maintain collective wellbeing'
+    ],
+    correctAnswer: 4,
+    explanation: 'While cultural relativism encourages understanding, it is not an excuse to condone practices that harm individuals, particularly those that violate fundamental human rights. The concept of moral relativism is distinct from methodological cultural relativism. Most anthropologists draw a line when practices, such as female genital mutilation or honor killings, cause physical or psychological harm and violate universal human rights.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-6',
+    question: 'Which one of the following statements is correctly matched?',
+    options: [
+      'Insiders\' views – Emic perspective',
+      'Holistic understanding – Group of people in its own context',
+      'Outsiders views – Etic perspective'
+    ],
+    correctAnswer: 1,
+    explanation: 'This is a correct pairing. The emic perspective is an insider\'s view, focusing on local beliefs and practices. The etic perspective is an outsider\'s, scientific view. A holistic understanding, while related, is not defined by "a group of people in its own context" but rather by the interconnectedness of all aspects of a culture.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-7',
+    question: 'Which of the following statements is incorrect about ethnography?',
+    options: [
+      'It is a qualitative research method that requires the ethnographer to immerse himself in the community under study',
+      'It calls for a length fieldwork in the study people and the ethnographer should leave the community after one month data collection',
+      'It involves long-term fieldwork and the ethnographer should intimately approach the people to be studied',
+      'All of the above',
+      'All except \'A\''
+    ],
+    correctAnswer: 2,
+    explanation: 'Ethnography is a research method that requires long-term fieldwork, often for a year or more, to gain a deep, nuanced understanding of a culture. A one-month period is generally considered insufficient for in-depth ethnographic data collection. Therefore, statement B is incorrect.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-8',
+    question: 'All are the main features of Ethnography Except:',
+    options: [
+      'Requires fieldwork to collect data',
+      'Often descriptive',
+      'Uses data collected by a series of researchers',
+      'Provides detailed cultural understanding'
+    ],
+    correctAnswer: 3,
+    explanation: 'Ethnography is a method based on an individual researcher\'s personal, immersive fieldwork. While a single ethnographer may use data from other sources, the core of an ethnographic study is the unique, in-depth data collected by the ethnographer themselves. Ethnology, on the other hand, is the comparative study of multiple ethnographic accounts.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-9',
+    question: 'Which statement about ethnography and ethnology is correct?',
+    options: [
+      'Ethnology entails comparative understanding and analysis across time and space',
+      'Ethnography provides a comprehensive account of a particular community',
+      'Ethnography requires fieldwork in which the investigator immerses in society',
+      'Ethnography is often descriptive',
+      'All are correct'
+    ],
+    correctAnswer: 5,
+    explanation: 'A. Ethnology is the comparative study of cultures, analyzing and comparing data from different societies to find patterns and generalizations. B. Ethnography is a detailed, in-depth, and comprehensive account of a single culture or community. C. The primary method of ethnography is fieldwork, where the researcher lives with the community to gain an immersive understanding. D. Ethnographic reports are often highly descriptive, providing rich, detailed accounts of people\'s lives and cultural practices.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-10',
+    question: 'When an anthropologist lives with a certain cultural group for a year or more and writes about the culture of that group, this anthropologist is:',
+    options: ['An ethnologist', 'An ethno-linguist', 'An ethnographer', 'A socio-linguist', 'An archaeologist'],
+    correctAnswer: 3,
+    explanation: 'An ethnographer is a researcher who engages in long-term, immersive fieldwork to study a specific cultural group and then writes a descriptive account of their findings, known as an ethnography.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-11',
+    question: 'Which one is wrong about ethnography and its nature of the study?',
+    options: [
+      'In ethnographic research, researchers stay for an extended period in the laboratory',
+      'Analyzes specific cultures, including local behavior, beliefs, customs, and social life',
+      'In ethnographic research, the researcher stays in the field for an extended period',
+      'Ethnographers live with the community they study'
+    ],
+    correctAnswer: 1,
+    explanation: 'Ethnographic research is conducted in the field (in the community being studied), not in a laboratory. The core of the method is living with and observing people in their natural environment to gain a deep understanding of their culture.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-12',
+    question: 'Edward Burnett Tylor defined culture as:',
+    options: [
+      'A complex whole which includes knowledge, belief, art, morals, law, custom, and any other capabilities and habits acquired by man as a member of society',
+      'Handiwork of man and the medium through which he achieves his ends',
+      'Culture is the complex whole that consists of everything we think and do as members of society',
+      'The common way of life shared by a group of people including all things beyond nature and biology'
+    ],
+    correctAnswer: 1,
+    explanation: 'This is the classic, foundational definition of culture provided by Edward Burnett Tylor in his 1871 book, Primitive Culture. This definition introduced the idea of culture as a comprehensive, learned system rather than a product of race or biology.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-13',
+    question: 'Culture is characterized by all Except:',
+    options: ['Learned', 'Dynamic', 'Adaptive and maladaptive', 'Static'],
+    correctAnswer: 4,
+    explanation: 'Culture is never static; it is constantly changing. It\'s a dynamic system that evolves through invention, diffusion, and adaptation. To say that culture is static is to ignore the constant shifts and transformations that all human societies undergo.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-14',
+    question: 'The image of the mobile on the cover page of this exam sheet implies that:',
+    options: ['Culture is maladaptive', 'Culture is patterned', 'Culture is symbolic', 'Culture is changing'],
+    correctAnswer: 4,
+    explanation: 'The inclusion of a mobile phone on an exam cover sheet, if it wasn\'t there in the past, suggests that technology, and by extension culture, is constantly evolving and adapting to new innovations. The mobile phone is a prime example of a recent technological change that has profoundly impacted human culture.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-15',
+    question: 'Change in one aspect will likely generate changes in other aspects. This statement characterizes:',
+    options: ['Culture is dynamic', 'Culture is integrated', 'Culture is all-encompassing', 'Culture is maladaptive'],
+    correctAnswer: 2,
+    explanation: 'This describes the concept of cultural integration, which holds that the different parts of a culture—such as its economic system, kinship patterns, religious beliefs, and political organization—are interconnected. A change in one part of the system will inevitably cause ripple effects in other parts.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-16',
+    question: 'Elements of a human culture, to a varying degree, are inter-related & inter-connected to one another. Which feature of a culture describes this statement?',
+    options: [
+      'Culture is a haphazard collection of customs',
+      'Culture is shared',
+      'Culture is integrated',
+      'Culture is all-encompassing'
+    ],
+    correctAnswer: 3,
+    explanation: 'This is another way of defining the principle of cultural integration. It emphasizes that culture is not a random collection of traits but rather a patterned and interconnected system where different elements work together.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-17',
+    question: 'Which of the following is FALSE about culture?',
+    options: [
+      'Cultures change as a result of diffusion, acculturation, and invention.',
+      'Individuals reshape their culture by creating new technologies.',
+      'Human beings learn culture in the process of social interactions.',
+      'Humans inherit culture biologically from their parents.',
+      'Culture changes as a result of internal and external factors.'
+    ],
+    correctAnswer: 4,
+    explanation: 'Culture is learned, not inherited biologically. The process of learning one\'s culture is called enculturation, and it occurs through social interaction, observation, and direct instruction from birth. Humans are not born with a predisposition to a specific culture; they acquire it through life.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-18',
+    question: 'The process by which children learn the rules and values of their society is:',
+    options: ['Acculturation', 'Enculturation', 'Deculturation', 'Culturation'],
+    correctAnswer: 2,
+    explanation: 'Enculturation is the process by which a person learns their native culture, including its values, norms, and behaviors, from birth. It is the transmission of culture from one generation to the next.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-19',
+    question: 'The process of acquiring culture after birth is called:',
+    options: ['Acculturation', 'Learned Culture', 'Education', 'Enculturation'],
+    correctAnswer: 4,
+    explanation: 'This question rephrases the previous one. Enculturation is the term for the entire process of learning one\'s own culture from the moment one is born into a society.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-20',
+    question: 'The difference between enculturation and acculturation lies in that:',
+    options: [
+      'The former involves socializing new members of a society to be part of their native culture, but the latter mainly refers to socialization',
+      'The former and the latter cultural concepts are the same',
+      'The former is an ongoing process that starts at birth, but the latter can be the first or second contact with other societies\' culture',
+      'All of the above'
+    ],
+    correctAnswer: 3,
+    explanation: 'Enculturation is the process of learning one\'s native culture from birth. Acculturation is the process of cultural change that occurs when two or more cultures come into continuous, first-hand contact. It involves the adoption of cultural traits from another group, which can be voluntary or involuntary.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-21',
+    question: 'Which of the following supports the idea that culture is symbolic?',
+    options: [
+      'Symbols and culture have very limited relationship in human societies',
+      'Culture exists without symbols if it has rich material wealth and technology',
+      'Symbols and what they represent have inborn relationships with each other',
+      'Symbols convey meanings that are understandable in its cultural context',
+      'The meanings of symbols remain the same across time'
+    ],
+    correctAnswer: 4,
+    explanation: 'A symbol is something that stands for something else. The power of a symbol lies in its arbitrary nature: there is no inherent connection between the symbol itself (e.g., the word "tree") and the thing it represents. The meaning is created and understood within a specific cultural context. The meaning of symbols can and does change over time and across cultures.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-22',
+    question: 'Why has it been said that there is "no natural connection between a symbol and what it symbolizes"?',
+    options: [
+      'It is because the meanings of all symbols are the same in all cultures',
+      'It is because symbols do not have any relation with culture',
+      'The meanings of all symbols are dependent on the agreement of people in each society',
+      'All of the above'
+    ],
+    correctAnswer: 3,
+    explanation: 'This is a restatement of the symbolic nature of culture. The meaning of a symbol is arbitrary and culturally constructed. For example, a red octagon means "stop" to a driver, but this meaning is not inherent to the shape or color; it is a shared cultural agreement.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-23',
+    question: 'The practice of putting a circular piece of pottery material by incising the lower edge of the lip among Mursi women is an example of:',
+    options: ['Universal culture', 'Mainstream culture', 'General culture', 'Particular culture'],
+    correctAnswer: 4,
+    explanation: 'A particular culture trait is a custom or practice that is unique to a specific cultural group, such as the lip plate tradition of the Mursi. This contrasts with a general culture trait, which is common to many cultures, or a universal culture trait, which is found in all cultures.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-24',
+    question: 'Value is a standard by which society defines what is good or bad, beautiful or ugly.',
+    options: ['True', 'False'],
+    correctAnswer: 1,
+    explanation: 'This statement accurately defines value in a sociological and anthropological context. Values are shared beliefs about what is good or bad, desirable or undesirable, and they provide a moral and ethical framework for a society\'s members.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-25',
+    question: 'The marriage of a man to two or more women at a time:',
+    options: ['Polygamy', 'Polygyny', 'Polyandry', '"A" and "B"'],
+    correctAnswer: 4,
+    explanation: 'Polygamy is the general term for a marriage in which a person has more than one spouse at the same time. Polygyny is the specific type of polygamy where a man has multiple wives. Therefore, both terms are correct, as polygyny is a form of polygamy.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-26',
+    question: 'If a given family consists of two nuclear families affiliated through an extension of the parent-child relationship, it is called:',
+    options: ['Polygamous family', 'Extended family', 'Nuclear family', 'Monogamous family'],
+    correctAnswer: 2,
+    explanation: 'An extended family is a family unit that includes relatives outside the nuclear family, such as grandparents, aunts, uncles, and cousins. This contrasts with a nuclear family, which consists only of a married couple and their dependent children. The description in the question, where two nuclear families are linked by a parent-child relationship (e.g., a couple and their married child), is a classic definition of an extended family.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-27',
+    question: 'If a widow marries the brother or close relative of her deceased husband, the form of marriage is:',
+    options: ['Levirate marriage', 'Sororate marriage', 'Sororal polygyny', 'Cross-cousin marriage'],
+    correctAnswer: 1,
+    explanation: 'Levirate marriage is a type of marriage in which a man marries the widow of his deceased brother. The purpose is often to ensure the care of the widow and her children and to maintain the lineage and inheritance.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-28',
+    question: 'Which one of the following is correct about the rule of descent?',
+    options: [
+      'It determines whom can and cannot potentially marry in a given society',
+      'It prescribes the forms of wealth transfer involved in a marriage contract',
+      'It defines group membership to determine property rights and ownership',
+      'It prescribes where a newly married couple should leave after a marriage ceremony',
+      'All'
+    ],
+    correctAnswer: 3,
+    explanation: 'Descent is the system by which a society traces kinship. The primary function of descent rules (e.g., patrilineal, matrilineal) is to establish group membership, which, in turn, dictates rights to property, inheritance, and political succession. Other rules, such as rules of residence and marriage, govern the other aspects listed in the options.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-29',
+    question: 'Which one of the following statements is correct about the function of marriage and family?',
+    options: [
+      'Biological function – perpetuating the population of a society',
+      'Education function – ensure survival of individuals in a society',
+      'Socialization function – the task of educating and enculturating children',
+      'Economic function – brings economic cooperation between men and women and distributes wealth',
+      'All are correct'
+    ],
+    correctAnswer: 5,
+    explanation: 'All of these statements correctly describe the fundamental functions of marriage and family. They serve a biological function by regulating reproduction, an educational and socializing function by teaching children the norms of society, and an economic function by creating a cooperative unit for production and consumption.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-30',
+    question: 'Which one is wrong about the fundamental functions of marriage and the family?',
+    options: [
+      'Meet economic needs of the family members',
+      'Perpetuating the population through the birth of offspring',
+      'Disqualifying and prohibiting sexual freedom of the spouses',
+      'Linking different kin-groups together'
+    ],
+    correctAnswer: 3,
+    explanation: 'This statement is incorrect. While marriage typically creates a socially recognized and regulated sexual relationship between spouses, it doesn\'t "disqualify" or "prohibit" their sexual freedom in an absolute sense. It structures it within the context of the marital bond. Other options are correct functions of marriage and family.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-31',
+    question: 'Extended family is:',
+    options: [
+      'Known as the conjugal family or family of procreation',
+      'Comprised of married partners and their offspring',
+      'The most uncommon type of family practiced worldwide',
+      'A common type of family, usually consisting of extended family members',
+      'All except C'
+    ],
+    correctAnswer: 5,
+    explanation: 'An extended family is a common type of family structure, especially in non-Western societies. It is not known as a conjugal or nuclear family, which refers to a married couple and their children. It consists of multiple generations living together. The statement that it is the "most uncommon type" is therefore false.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-32',
+    question: 'A descent traced solely through the male line is:',
+    options: ['Patrilineal descent', 'Matrilineal descent'],
+    correctAnswer: 1,
+    explanation: 'Patrilineal descent is a rule of descent that traces kinship exclusively through the male line, from father to son. Matrilineal descent traces kinship through the female line, from mother to daughter.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-33',
+    question: '___ involves a transfer of goods or money in the opposite direction, from the groom\'s family to the bride\'s family.',
+    options: ['Dowry', 'Bride price', 'Bride service', 'None'],
+    correctAnswer: 2,
+    explanation: 'Bride price (or bride wealth) is the transfer of goods or money from the groom\'s family to the bride\'s family in exchange for the bride\'s labor and reproductive capacity. Dowry, on the other hand, is wealth transferred from the bride\'s family to the groom\'s family.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-34',
+    question: 'A form of marriage arrangement upon the death of one of the marital partners, which involves the inheritance of a wife of a brother is:',
+    options: ['Serial monogamy', 'Sororate', 'Levirate', 'Fraternal polyandry'],
+    correctAnswer: 3,
+    explanation: 'This is a direct definition of levirate marriage, a practice where a man is obligated to marry his deceased brother\'s widow.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-35',
+    question: 'Which form of marriage is believed to be important to produce more children within a short period of time?',
+    options: ['Polygyny', 'Polyandry', 'Serial monogamy', 'Fraternal polyandry'],
+    correctAnswer: 1,
+    explanation: 'Polygyny, the marriage of a man to multiple wives, is often associated with the desire to have more children. Multiple wives can lead to more births than a single wife, which may be culturally or economically desirable in some societies for purposes of labor, lineage, and alliances.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-36',
+    question: 'Suppose Seble and Kebede were born on 20 July 1985 E.C in Mota and Debremarkos, respectively. They married on September 23, 2013 E.C and started living in Addis Ababa with no relatives nearby. This residence pattern is likely:',
+    options: ['Neolocal', 'Matrilocal', 'Patrilocal', 'Bilocal'],
+    correctAnswer: 1,
+    explanation: 'A neolocal residence pattern is one where a newly married couple establishes a new household separate from both the husband\'s and the wife\'s family. The example describes Seble and Kebede moving to a new city (Addis Ababa) to live on their own, fitting the definition of neolocal residence.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-37',
+    question: 'All of the following statements are correct about nuclear and extended families except:',
+    options: [
+      'In nuclear families, blood is more emphasized; in extended families, marriage is emphasized',
+      'Nuclear families are self-sufficient; in extended families, new couples are not independent',
+      'Nuclear families have fewer members than extended families',
+      'In extended families, marriage is viewed as a means of bringing a daughter into the family',
+      'None of the above'
+    ],
+    correctAnswer: 1,
+    explanation: 'This statement is incorrect. In nuclear families, the emphasis is on the conjugal bond (marriage) between the husband and wife. In extended families, the emphasis is on the consanguineal bond (blood ties) that link the generations and various relatives together. Therefore, the statement incorrectly reverses the emphasis.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-38',
+    question: 'Assume \'B\' is a male who becomes a son of family \'A\' by law and A & B become relatives. Which is correct?',
+    options: [
+      '\'A\' and \'B\' are consanguineous relatives',
+      '\'A\' and \'B\' become relatives by blood tie',
+      '\'A\' and \'B\' are affinal relatives',
+      'All of the above',
+      'None'
+    ],
+    correctAnswer: 3,
+    explanation: 'Affinal relatives are relatives by marriage or law, not by blood. The relationship between A and B is established "by law" (e.g., through adoption or marriage), making them affinal relatives. Consanguineous relatives are relatives by blood.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-39',
+    question: 'Which marginalized groups produce leather and leather products?',
+    options: ['Weavers', 'Ironsmiths', 'Tanners', 'Potters'],
+    correctAnswer: 3,
+    explanation: 'Tanners are a marginalized occupational group in many parts of Ethiopia. They are known for processing animal hides into leather goods and are often stigmatized and ostracized for their work, which involves contact with dead animals.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-40',
+    question: 'Occupational minorities are labeled as impure and polluting; they are accused of eating animals that have died without being slaughtered. What type of marginalization takes place?',
+    options: ['Economic', 'Cultural', 'Spatial', 'Social'],
+    correctAnswer: 2,
+    explanation: 'This describes cultural marginalization. It is based on cultural beliefs and norms that label certain groups\' occupations as impure or polluting. These beliefs can lead to social exclusion, but the root of the marginalization is cultural.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-41',
+    question: 'Which of the following factors encourage child marriage?',
+    options: ['Chastity', 'The value attached to virginity', 'Social pressure', 'Economic factors', 'All'],
+    correctAnswer: 5,
+    explanation: 'Child marriage is a complex issue driven by a combination of factors. Social pressure from family and community, economic factors (e.g., bride price, or reducing the financial burden on the family), and cultural values attached to chastity and virginity are all major contributors.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-42',
+    question: 'Craft workers lead a life of paradoxes in different parts of Ethiopia because:',
+    options: [
+      'Craft artisans offer important contributions to non-craft workers and receive high respect',
+      'Craft workers have important contributions to their communities; however, they are marginalized by dominant non-craft workers',
+      'Craft artisans do not offer important contributions for people outside of craft occupations',
+      'Craft artisans have scarcely important contributions; however, outsiders deserve high respect'
+    ],
+    correctAnswer: 2,
+    explanation: 'This is the core paradox of craft workers in many parts of Ethiopia. They produce essential goods (e.g., tools, pottery, leather products) that are vital for the community\'s survival, yet they are often socially stigmatized, marginalized, and considered low in status by the very people who depend on their work.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-43',
+    question: 'Treatment of a person or social group as minor, insignificant, and peripheral is called:',
+    options: ['Vulnerability', 'Social status', 'Minority groups', 'Marginalization', 'Gender inequality'],
+    correctAnswer: 4,
+    explanation: 'Marginalization is the process of pushing a person or group to the edge of society, thereby treating them as insignificant and powerless. It involves their social, economic, or political exclusion from mainstream society.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-44',
+    question: 'Which is not a factor for marginalization in Ethiopia?',
+    options: ['Age', 'Gender', 'Ethnic identity', 'Occupation', 'None of the above'],
+    correctAnswer: 5,
+    explanation: 'All the factors listed—age, gender, ethnic identity, and occupation—are known to be significant factors in social marginalization in Ethiopia. For example, older people are sometimes excluded from economic activities, women face gender-based discrimination, certain ethnic groups are historically marginalized, and craft workers are often stigmatized based on their occupation.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-45',
+    question: 'Correct statement about marginalization and human rights:',
+    options: [
+      'Gender-based marginalization is uniform globally',
+      'Considering craft workers as impure is economic marginalization',
+      'Gender-based marginalization is no longer a problem in Ethiopia',
+      'Marriage under 18 is a human rights violation',
+      'Older people are now custodians of culture'
+    ],
+    correctAnswer: 4,
+    explanation: 'Forced marriage and child marriage (marriage under the age of 18) are widely recognized as violations of a child\'s human rights, as it denies their right to health, education, and development.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-46',
+    question: 'Economic marginalization of occupational minority groups:',
+    options: [
+      'Craft-workers live at the outskirts of a village',
+      'Craft-workers walk on the lower side of the road',
+      'Craft-workers use a separate burial place',
+      'Craft-workers are not allowed to own farmland',
+      'Craft-workers exercise in-group marriage'
+    ],
+    correctAnswer: 4,
+    explanation: 'Economic marginalization refers to the exclusion of a group from economic resources and opportunities. Not being allowed to own farmland is a direct form of economic exclusion, as it limits their ability to produce food and accumulate wealth.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-47',
+    question: 'Mr. X producing metal articles and rejected as a marriage partner:',
+    options: [
+      'Economic marginalization of craft workers',
+      'Spatial marginalization',
+      'Social marginalization',
+      'Age-based marginalization',
+      'Gender-based marginalization'
+    ],
+    correctAnswer: 3,
+    explanation: 'Being rejected as a marriage partner based on one\'s occupation (producing metal articles) is a clear example of social marginalization. It is a form of social exclusion that prevents individuals from participating in a key social institution (marriage) and forming kinship ties with dominant groups.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-48',
+    question: 'Minority groups can be distinct from the dominant population by:',
+    options: ['The language they speak', 'Their skin colour', 'Their religious affiliation', 'All', 'All but \'B\''],
+    correctAnswer: 4,
+    explanation: 'A minority group can be distinguished from the dominant population in many ways, including their language, physical appearance (e.g., skin color), religious beliefs, and other cultural traits.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-49',
+    question: 'Recently, elderly people are excluded from various social, cultural, political, and economic interactions in their communities. Which one is NOT a reason for this?',
+    options: [
+      'Change of family structure',
+      'Changing of living patterns',
+      'Globalization',
+      'They are considered as social assets',
+      'All'
+    ],
+    correctAnswer: 4,
+    explanation: 'The exclusion of elderly people from society is often a result of their changing social roles. They are no longer considered assets but rather a burden. If they were seen as "social assets," they would be included rather than excluded. Factors like changes in family structure, living patterns, and globalization all contribute to their marginalization.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-50',
+    question: 'Which one of the following is correct about indigenous knowledge?',
+    options: [
+      'Indigenous knowledge is the pillar of scientific knowledge',
+      'Indigenous knowledge is found everywhere in documented form',
+      'Indigenous knowledge is always implicit',
+      'Like scientific knowledge, it has standards to which things are performed',
+      'None'
+    ],
+    correctAnswer: 4,
+    explanation: 'Indigenous knowledge systems, while often passed down orally and implicitly, have their own internal logic and rigorous standards for how practices (e.g., farming, medicine, building) are performed. They are not random but are based on generations of observation and experimentation.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-51',
+    question: 'A Wolkite University employee situation: A young man politely gave up his seat on a crowded bus for an older passenger. Which one best describes the young man\'s action?',
+    options: ['Social values', 'Folkways', 'Mores', 'Social norms'],
+    correctAnswer: 2,
+    explanation: 'Folkways are the routine, customary ways of doing things in a society. They are informal rules of behavior that guide daily interactions, such as giving up a seat for an elder. Violating a folkway (like not giving up the seat) typically results in informal sanctions, such as a disapproving look, rather than a severe punishment.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-52',
+    question: 'In Mursi people of Southern Omo, women have a tradition of putting a clay plate/disk in their lower lip as a sign of beauty and puberty. This ritual is important for marriage selection. The perspective held by the Mursi community about their cultural practice can be perceived as:',
+    options: [
+      'Emic perspective',
+      'Researcher point of view',
+      'Insider\'s perspective',
+      'Etic perspective',
+      'A & C',
+      'B & D'
+    ],
+    correctAnswer: 5,
+    explanation: 'The "emic perspective" is the insider\'s view, which is the perspective held by the Mursi community themselves. A researcher\'s view or an outsider\'s view is the etic perspective. Therefore, both A and C are correct, as they both refer to the same concept: the insider\'s viewpoint.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-53',
+    question: 'Which one of the following is not a benefit of cultural relativism?',
+    options: [
+      'The reduction of prejudice, negative stereotypes, and discrimination',
+      'Enforcement of the beliefs and behaviors of the dominant ethnic group',
+      'Encourages multiculturalism',
+      'Accepts and respects cultural diversity'
+    ],
+    correctAnswer: 2,
+    explanation: 'Cultural relativism aims to counter ethnocentrism and promote understanding of diverse cultures. The enforcement of one dominant group\'s beliefs on others is a product of ethnocentrism and cultural imperialism, not cultural relativism.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-54',
+    question: 'Society is:',
+    options: [
+      'The same thing as culture',
+      'Common to humans, animals, and insects living in groups',
+      'Only what elites in a community have',
+      'A social grouping of individuals of the same age and gender'
+    ],
+    correctAnswer: 2,
+    explanation: 'A society is a group of people who live together in a structured community and share a common culture. The term can be applied to many species, including humans, animals, and insects, as long as they live in organized groups.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-55',
+    question: 'Which one of the following statements is incorrect about mores and folkways?',
+    options: [
+      'In contrast to the former, the latter is a less serious form of social norm',
+      'Feelings about folkways are less intense than feelings about mores',
+      'Unlike the violation of the former, violation of the latter is punished by formal social control',
+      'Both mores and folkways are non-material cultures'
+    ],
+    correctAnswer: 3,
+    explanation: 'This statement is incorrect because it reverses the definitions. The violation of mores (norms with strong moral significance) is often punished by formal social control (e.g., laws and imprisonment). The violation of folkways is punished by informal sanctions (e.g., social disapproval).',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-56',
+    question: 'In a society divided into numerous clans, if clan "A" wants to marry a woman from clan "B" and clan "B" does not allow it, the rule of marriage practiced in clan B is known as:',
+    options: ['Endogamy marriage', 'Exogamy marriage', 'Polygyny marriage', 'Polyandry marriage'],
+    correctAnswer: 1,
+    explanation: 'Endogamy is the practice of marrying within a specific group, category, or social class. If clan B forbids its women from marrying outside the clan, it is practicing endogamy.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-57',
+    question: 'Proponents of theories of ethnicity:',
+    options: [
+      'For instrumentalists, ethnicity is fixed at birth',
+      'For constructivists, ethnicity is created & manipulated by elites for political gains',
+      'For primordialists, ethnicity is natural and unchangeable',
+      'For primordialists, one can have many ethnic identities',
+      'For instrumentalists, one\'s ethnicity is determined by ancestry'
+    ],
+    correctAnswer: 3,
+    explanation: 'Primordialism is a theory of ethnicity that views ethnic identity as deeply rooted in and derived from a person\'s ancestry, culture, and place of birth. It sees ethnicity as a natural and unchangeable bond. Instrumentalism, by contrast, argues that ethnicity is a tool used by elites to mobilize a group for political or economic gain.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-2-58',
+    question: 'The vast region covering the southern part of Ethiopia that extends from Guraghe, Sidama, and Gedeo areas constitutes:',
+    options: ['Coffee culture area', 'Plough culture area', 'Enset culture area', 'A & C'],
+    correctAnswer: 3,
+    explanation: 'The region in the question is known as the "Enset culture area" due to the widespread cultivation and cultural significance of the enset plant (Ensete ventricosum). This crop serves as a dietary staple and plays a central role in the economy and society of the Sidama, Gurage, and Gedeo peoples, among others.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
   }
 ];
 
