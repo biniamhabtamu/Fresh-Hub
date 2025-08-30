@@ -8,6 +8,237 @@ import { Question } from '../types';
 
 export const sampleQuestions: Question[] = [
   // ==================== GEOGRAPHY QUESTIONS ====================
+  {
+    "id": "log-2013_2017-5-2",
+    "question": "The Dalai Lama argues that China has no business in Tibet and that the West should do something about it. But the Dalai Lama just wants the Chinese to leave so he can return as leader. Naturally he argues this way. Therefore, we should reject his arguments. The fallacy committed in this argument is:",
+    "options": [
+      "A. Appeal to people",
+      "B. Straw man",
+      "C. Ad hominem circumstantial",
+      "D. Ad hominem Tu quoque"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This fallacy occurs when an arguer attempts to discredit an opponent's argument by suggesting that the opponent's circumstances or vested interests motivate their claim, rather than the claim's actual merit. The arguer here rejects the Dalai Lama's argument not based on its substance, but because he has a personal motive (returning as leader).",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-3",
+    "question": "Occurs when the arguer distorts his/her opponent's argument or position to make it appear weaker than it really is.",
+    "options": [
+      "A. Fallacy of missing the point",
+      "B. Straw man fallacy",
+      "C. Fallacy of accident",
+      "D. Fallacy of red herring"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The straw man fallacy involves misrepresenting someone's argument to make it easier to attack. Instead of refuting the actual argument, the arguer refutes a distorted or oversimplified version of it, which is the 'straw man.'",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-4",
+    "question": "Adolph Hitler, addressing an Aryan youth rally: \"You are the children of destiny, the greatest generation of racial purity ever witnessed on earth...\" This expression commits a fallacy of:",
+    "options": [
+      "A. Appeal to the people, direct approach",
+      "B. Appeal to the people, bandwagon",
+      "C. Appeal to the people, indirect approach",
+      "D. Appeal to the people, Snobbery",
+      "E. Appeal to the people, Vanity"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The appeal to the people (ad populum) direct approach occurs when an arguer attempts to arouse a mob mentality or a sense of crowd excitement to win acceptance of a conclusion. Hitler's speech is a classic example of this, as he directly addresses a large group to stir up emotions and bypass rational thought.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-5",
+    "question": "A Straw man fallacy occurs when:",
+    "options": [
+      "A. The second arguer attacks a misrepresentation of the opponent's view",
+      "B. The arguer made an attempt to defend a conclusion by threatening the well-being of those who do not accept it",
+      "C. The arguer elicits compassion from reader or listener",
+      "D. The attempt to persuade an audience by appealing to the desire to be valued by others",
+      "E. None of the above"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This definition precisely describes the straw man fallacy. The arguer creates a distorted version of the opponent's argument (the 'straw man') and attacks that instead of the real argument.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-6",
+    "question": "Merbawit! All good students obey the order of their teachers. Hence, you should not refuse when your teacher invites you for bed. Which fallacy is committed here:",
+    "options": [
+      "A. Straw man fallacy",
+      "B. Accident fallacy",
+      "C. Red herring fallacy",
+      "D. Appeal to ignorance",
+      "E. Appeal to people"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The fallacy of accident occurs when a general rule is applied to a specific case it was not intended to cover. The general rule that 'good students obey their teachers' is misapplied to an exceptional case where obedience would be immoral or harmful.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-7",
+    "question": "Arba Mirch Hospital is the well-known hospital in southern part of Ethiopia because the buildings are colorful, impressive, and green within a large compound. The fallacy committed is:",
+    "options": [
+      "A. Equivocation",
+      "B. Suppressed evidence",
+      "C. Appeal to force",
+      "D. Snobbery",
+      "E. Accident"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This argument is based on suppressed evidence. The arguer ignores or omits crucial information needed to make a sound judgment. The hospital's quality is not determined by its appearance but by factors like medical expertise, equipment, and patient care. By focusing on irrelevant visual attributes, the arguer suppresses the real evidence.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-8",
+    "question": "When one takes the mere existence of temporal succession between two events as causal connection, he/she commits a fallacy of:",
+    "options": [
+      "A. Non causa pro causa",
+      "B. Post hoc ergo propter hoc",
+      "C. Oversimplified cause",
+      "D. None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'post hoc ergo propter hoc' fallacy, or 'after this, therefore because of this,' assumes that because one event happened after another, the first event must have caused the second. This fallacy confuses temporal succession with causal connection.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-9",
+    "question": "You should read Yismacke's latest novel right away. It is sold over a million copies, and almost everyone in Addis Ababa is talking about it. The above argument commits the fallacy of:",
+    "options": [
+      "A. Appeal to ignorance",
+      "B. Bandwagon",
+      "C. Appeal to vanity",
+      "D. Appeal to snobbery",
+      "E. B and D"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The bandwagon fallacy is a type of appeal to the people that argues something must be true or good because 'everyone is doing it' or 'everyone believes it.' The argument suggests the novel is good because it's popular and everyone is talking about it.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-10",
+    "question": "Since time immemorial, every culture and society has believed in the existence of our great God, using different names but signifying the one, true deity nevertheless. Hence, given this universal consent of mankind, only a deluded fool and stubborn sinner would claim that there is no God. This expression commits a fallacy of:",
+    "options": [
+      "A. Appeal to Snobbery",
+      "B. Bandwagon argument",
+      "C. Appeal to the people, direct approach",
+      "D. Argument against the person",
+      "E. None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is another example of the bandwagon fallacy. It claims that a conclusion (the existence of God) is true because it is widely believed ('universal consent of mankind'). The argument also uses emotionally charged language ('deluded fool and stubborn sinner') to pressure the listener into accepting the conclusion.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+   {
+    "id": "log-2013_2017-5-11",
+    "question": "Politician 'A' embezzled the public money and hide in foreign banks, politician 'B' embezzled the public money and hide in foreign banks and politician 'C' also did the same. Accordingly, all politicians embezzled the public money and hide in foreign banks. The fallacy committed in this argument is:",
+    "options": ["A. Weak analogy", "B. Division", "C. Hasty generalization", "D. Composition"],
+    "correctAnswer": 2,
+    "explanation": "This argument draws a broad conclusion about all politicians based on a very small and likely unrepresentative sample of three. A hasty generalization occurs when a conclusion is reached from too few examples.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-12",
+    "question": "My father's car and mine are nearly identical in terms of color, size and speed. It implies that both my father's car and mine are necessarily produced in the same factory. The type of fallacy committed in this argument is:",
+    "options": ["A. Hasty generalization", "B. Slippery slope fallacy", "C. Over simplified cause fallacy", "D. Weak analogy"],
+    "correctAnswer": 3,
+    "explanation": "A weak analogy fallacy occurs when an argument relies on a comparison between two things that are not sufficiently similar in a relevant way. The similarities in color, size, and speed do not provide strong evidence that the cars were made in the same factory.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-13",
+    "question": "I don't want to allow a black cat cross my way. A few minutes after allowing a black cat to cross my way to Addis, my grandfather died accidentally. The fallacy committed in this argument is:",
+    "options": ["A. Slippery slope fallacy", "B. Post hoc fallacy", "C. Non causa pro causa fallacy", "D. Over simplified cause fallacy"],
+    "correctAnswer": 1,
+    "explanation": "The full name is post hoc ergo propter hoc, meaning \"after this, therefore because of this.\" This fallacy assumes that because one event (the grandfather's death) followed another (the black cat crossing the way), the first event must have caused the second, which is a false causal connection.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-14",
+    "question": "The seriousness of a penalty should be comparable to the seriousness of the crime. Right now, the penalty for drunk driving may simply be a fine. But drunk driving is a serious crime that can kill innocent people. Therefore, death penalty should be given for drunk driving. The type of fallacy committed in this argument is:",
+    "options": ["A. Missing the point fallacy", "B. Red herring fallacy", "C. Straw man fallacy", "D. Hasty generalization"],
+    "correctAnswer": 0,
+    "explanation": "This fallacy, also known as ignoratio elenchi, occurs when an arguer presents premises that are logically relevant to one conclusion but then draws a different, unrelated conclusion. The argument correctly points out the seriousness of drunk driving, but the conclusion about the death penalty is an extreme and unrelated point.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-15",
+    "question": "No one has ever experienced revelation as source of knowledge. Therefore, it is impossible to access knowledge through revelation. The fallacy committed in the above argument is:",
+    "options": ["A. Hasty generalization", "B. Weak analogy", "C. Appeal to ignorance", "D. Slippery slope"],
+    "correctAnswer": 2,
+    "explanation": "The appeal to ignorance fallacy (argumentum ad ignorantiam) argues that a proposition is true simply because it has not been proven false, or false because it has not been proven true. The argument concludes that knowledge through revelation is impossible because there is no known evidence of it.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-16",
+    "question": "Baye, one of your friends was asking about you the other day. He wanted to know if you were still stealing money from your father. What should I tell him the next time I see him? Are you still doing it? The type of fallacy committed in this argument is:",
+    "options": ["A. Begging the question", "B. Straw man", "C. Appeal to force", "D. Complex question"],
+    "correctAnswer": 3,
+    "explanation": "A complex question (or loaded question) is a question that contains a controversial or unjustified assumption. The question \"Are you still stealing money from your father?\" presupposes that the person has stolen money in the past, making it a trap regardless of how the person answers.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-17",
+    "question": "The government has no right to spy on its citizens because citizens have a right to privacy. And this is true because such a right is guaranteed by the constitution which follows from the fact that our founding fathers recognized the sanctity of individual privacy against the intrusive power of the government. And of course this is true because the government has no right to spy on its citizens. This argument commits the fallacy of:",
+    "options": ["A. Begging the question", "B. Red herring", "C. Slippery slope", "D. Missing the point"],
+    "correctAnswer": 0,
+    "explanation": "This argument is a prime example of begging the question or circular reasoning. It uses the conclusion (\"the government has no right to spy on its citizens\") as a premise to support itself, offering no independent evidence.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-18",
+    "question": "The president of college \"X\" has promised to stop drinking on campus. Apparently the president has a drinking problem. This argument commits the fallacy of:",
+    "options": ["A. Amphiboly", "B. Equivocation", "C. Composition", "D. Division"],
+    "correctAnswer": 0,
+    "explanation": "The fallacy of amphiboly arises from an ambiguous grammatical structure in a sentence. The phrase \"stop drinking on campus\" can mean either the president will stop a drinking problem on campus, or the president will stop their own drinking problem while on campus. The argument makes a conclusion based on an ambiguous interpretation.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "log-2013_2017-5-19",
+    "question": "The first person has argued that give me either freedom or death. I failed to enjoy freedom. Thus, the sole alternative that I have to face is death. The second person has said, no, death is not your sole alternative. In addition to freedom and death, there is slavery, which can be taken as third alternative. Thus, choose one of the three alternatives since they are only three. In this dialogue, the second person committed:",
+    "options": ["A. No fallacy", "B. Missing the point fallacy", "C. Red herring fallacy", "D. False dichotomy fallacy"],
+    "correctAnswer": 3,
+    "explanation": "The first person presents a false dichotomy (\"freedom or death\"). The second person correctly identifies a third option but then commits their own false dichotomy by stating that these three are the \"only three alternatives,\" when other possibilities may exist.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 5
+  },
     {
     id: 'history-2013_2017-1-3',
     question: 'Which one of the following statements is not among the functions/uses of history?',
