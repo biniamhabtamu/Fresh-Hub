@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BottomBar from "../../../components/Layout/BottomBar";
 import Header from "../../../components/Layout/Header";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Card = ({ title, description, icon, color, onClick, popularity, isPopular }) => (
-  <div
+  <motion.div
+    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    exit={{ opacity: 0, y: -20, scale: 0.95 }}
+    transition={{ duration: 0.3 }}
     onClick={onClick}
     className={`relative w-full max-w-md p-6 rounded-2xl shadow-xl cursor-pointer text-white bg-gradient-to-br ${color} transform transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group`}
   >
@@ -34,7 +39,7 @@ const Card = ({ title, description, icon, color, onClick, popularity, isPopular 
     </div>
     
     <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform origin-left group-hover:scale-x-100 scale-x-0 transition-transform duration-300"></div>
-  </div>
+  </motion.div>
 );
 
 const Target = (props) => (
@@ -98,9 +103,37 @@ const Trophy = (props) => (
   </svg>
 );
 
+// New component for the skeleton loading card
+const SkeletonCard = () => (
+  <div
+    className="relative w-full max-w-md p-6 rounded-2xl shadow-xl cursor-default bg-gray-600/50 dark:bg-gray-800/50 animate-pulse overflow-hidden"
+  >
+    <div className="flex items-center space-x-5">
+      <div className="bg-white/20 p-4 rounded-xl">
+        <div className="w-8 h-8 rounded-full bg-white/30 dark:bg-white/20" />
+      </div>
+      <div className="flex-1 space-y-2">
+        <div className="h-5 bg-white/30 dark:bg-white/20 rounded-full w-4/5" />
+        <div className="h-3 bg-white/20 dark:bg-white/10 rounded-full w-full" />
+      </div>
+    </div>
+    <div className="absolute top-4 right-4 bg-white/20 dark:bg-white/10 text-xs font-bold px-3 py-1 rounded-full z-10 w-20 h-5" />
+  </div>
+);
+
 const ChallengeHome = () => {
   const navigate = useNavigate();
   const [activePlayers, setActivePlayers] = useState(42);
+  const [loading, setLoading] = useState(true);
+
+  // Simulate data fetching on component mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Simulate a 1.5-second network delay
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     // Simulate changing player count
@@ -142,9 +175,8 @@ const ChallengeHome = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-6 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
-    
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <Header />
+        <Header />
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
@@ -171,9 +203,28 @@ const ChallengeHome = () => {
       </div>
       
       <div className="w-full max-w-md space-y-6 z-10">
-        {challenges.map((c, i) => (
-          <Card key={i} {...c} />
-        ))}
+        {loading ? (
+            <>
+                {/* Render skeleton cards while loading */}
+                {[...Array(3)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.15 }}
+                    >
+                        <SkeletonCard />
+                    </motion.div>
+                ))}
+            </>
+        ) : (
+            <>
+                {/* Render actual challenge cards once loaded */}
+                {challenges.map((c, i) => (
+                    <Card key={i} {...c} />
+                ))}
+            </>
+        )}
       </div>
       
       <div className="mt-10 text-center z-10">

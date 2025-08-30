@@ -258,7 +258,7 @@ export default function ProfilePage() {
           rank: currentUserRank,
           level,
           progress,
-          totalPoints,
+          totalScore,
           strongestSubject: strongest,
           weakestSubject: weakest,
           todayPoints,
@@ -309,7 +309,7 @@ export default function ProfilePage() {
     { label: 'Quizzes Taken', value: stats.totalQuizzes, icon: <BookOpen size={20} className="text-indigo-600" /> },
     { label: 'Avg Score', value: `${stats.averageScore.toFixed(1)}%`, icon: <BarChart size={20} className="text-purple-600" /> },
     { label: 'High Score', value: `${stats.highestScore}%`, icon: <Flame size={20} className="text-red-500" /> },
-    { label: 'Total Points', value: stats.totalPoints, icon: <Star size={20} className="text-yellow-500" /> },
+    { label: 'Total Points', value: stats.totalScore, icon: <Star size={20} className="text-yellow-500" /> },
     { label: 'Global Rank', value: stats.rank > 0 ? `#${stats.rank}` : '--', icon: getRankIcon(stats.rank) },
     { label: 'GPA (Est.)', value: stats.gpa.toFixed(2), icon: <GraduationCap size={20} className="text-emerald-600" /> },
     { label: 'Percentile', value: `${stats.percentile}%`, icon: <TrendingUp size={20} className="text-sky-600" /> },
@@ -521,7 +521,7 @@ export default function ProfilePage() {
                       Weekly Goal
                     </h2>
                     <span className="text-sm text-gray-500">{stats.weeklyProgress}/{stats.weeklyGoal} quizzes</span>
-                  </div>
+                  </div> 
                   <div className="w-full bg-gray-200 rounded-full h-3">
                     <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-red-400 to-pink-500"

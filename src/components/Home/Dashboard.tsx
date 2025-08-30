@@ -15,7 +15,6 @@ import { FaCrown, FaBookOpen } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import { ClipLoader } from 'react-spinners';
 
 // Stats type definition - kept as is
 interface UserStats {
@@ -27,6 +26,17 @@ interface UserStats {
   totalScore?: number;
   percentile?: number;
 }
+
+const SubjectCardSkeleton = () => (
+  <motion.div
+    className="w-full aspect-square rounded-2xl p-4 bg-gray-100 dark:bg-gray-800 animate-pulse border border-gray-200 dark:border-gray-700 shadow-sm"
+  >
+    <div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700" />
+    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mt-4" />
+    <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mt-2" />
+    <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-full mt-4" />
+  </motion.div>
+);
 
 export default function Dashboard() {
   const { currentUser } = useAuth();
@@ -45,7 +55,7 @@ export default function Dashboard() {
   });
   const [loadingStats, setLoadingStats] = useState(true);
   const [isPremiumUser, setIsPremiumUser] = useState<boolean>(Boolean(currentUser?.isPremium));
-  const [loadingSubjects] = useState(false); // placeholder
+  const [loadingSubjects, setLoadingSubjects] = useState(true);
 
   const allFieldSubjects = useMemo(
     () =>
@@ -55,7 +65,6 @@ export default function Dashboard() {
     [subjects, currentUser?.field]
   );
 
-  // Stats fetching logic - kept as is
   useEffect(() => {
     let mounted = true;
     const fetchUserStats = async () => {
@@ -63,7 +72,6 @@ export default function Dashboard() {
         if (mounted) setLoadingStats(false);
         return;
       }
-
       try {
         const resultsQuery = query(collection(db, 'results'), where('userId', '==', uid));
         const resultsSnapshot = await getDocs(resultsQuery);
@@ -162,8 +170,15 @@ export default function Dashboard() {
       }
     };
 
+    const fetchSubjectsData = async () => {
+      // Simulate API call for subjects
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (mounted) setLoadingSubjects(false);
+    };
+
     fetchSubscription();
     fetchUserStats();
+    fetchSubjectsData();
 
     return () => {
       mounted = false;
@@ -193,10 +208,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
       <Header />
-      {/* ADDED PADDING TO BOTTOM TO PREVENT OVERLAP */}
       <main className="container mx-auto px-4 py-6 pt-20 pb-24 max-w-6xl">
-        
-        {/* Subjects Grid - NOW AT THE TOP */}
         <section className="mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,34 +230,56 @@ export default function Dashboard() {
                 </button>
               )}
             </div>
-
+            
             <AnimatePresence>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {allFieldSubjects.map((subject) => (
-                  <motion.div
-                    key={subject.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <SubjectCard
-                      subject={subject}
-                      isLocked={!subject.isFree && !isPremiumUser}
-                      onClick={() => handleSubjectClick(subject)}
-                      completionPercentage={
-                        subject.isFree || isPremiumUser ? Math.floor(Math.random() * 100) : 0
-                      }
-                    />
-                  </motion.div>
-                ))}
-              </div>
+              {loadingSubjects ? (
+                <motion.div
+                  key="subject-skeletons"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+                >
+                  {allFieldSubjects.map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.08 }}
+                    >
+                      <SubjectCardSkeleton />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              ) : (
+                <div key="subject-cards" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {allFieldSubjects.map((subject) => (
+                    <motion.div
+                      key={subject.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <SubjectCard
+                        subject={subject}
+                        isLocked={!subject.isFree && !isPremiumUser}
+                        onClick={() => handleSubjectClick(subject)}
+                        completionPercentage={
+                          subject.isFree || isPremiumUser ? Math.floor(Math.random() * 100) : 0
+                        }
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </AnimatePresence>
           </motion.div>
         </section>
 
-        {/* Hero Section - MOVED TO BOTTOM */}
+        {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -266,8 +300,23 @@ export default function Dashboard() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {loadingStats ? (
-                <div className="col-span-2 sm:col-span-4 flex items-center justify-center py-6">
-                  <ClipLoader size={30} color="#ffffff" />
+                <div className="col-span-2 sm:col-span-4 grid grid-cols-2 sm:grid-cols-4 gap-4 animate-pulse">
+                  <div className="flex flex-col items-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <div className="h-6 w-12 bg-white/30 rounded" />
+                    <div className="h-3 w-16 bg-white/30 rounded mt-2" />
+                  </div>
+                  <div className="flex flex-col items-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <div className="h-6 w-12 bg-white/30 rounded" />
+                    <div className="h-3 w-16 bg-white/30 rounded mt-2" />
+                  </div>
+                  <div className="flex flex-col items-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <div className="h-6 w-12 bg-white/30 rounded" />
+                    <div className="h-3 w-16 bg-white/30 rounded mt-2" />
+                  </div>
+                  <div className="flex flex-col items-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <div className="h-6 w-12 bg-white/30 rounded" />
+                    <div className="h-3 w-16 bg-white/30 rounded mt-2" />
+                  </div>
                 </div>
               ) : (
                 <>
@@ -284,12 +333,8 @@ export default function Dashboard() {
                     <span className="text-xs sm:text-sm opacity-80 mt-1">Rank</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
-                    <span className="text-xl sm:text-2xl font-bold">{stats.totalScore.toFixed(1)}</span>
-                    <span className="text-xs sm:text-sm opacity-80 mt-1">Avg Score</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center p-2 rounded-lg bg-white/10 backdrop-blur-sm">
-                    <span className="text-xl sm:text-2xl font-bold">{stats.gpa?.toFixed(1) || '3.5'}</span>
-                    <span className="text-xs sm:text-sm opacity-80 mt-1">GPA</span>
+                    <span className="text-xl sm:text-2xl font-bold">{stats.totalScore?.toFixed(1) || '0.0'}</span>
+                    <span className="text-xs sm:text-sm opacity-80 mt-1">Total Score</span>
                   </div>
                 </>
               )}

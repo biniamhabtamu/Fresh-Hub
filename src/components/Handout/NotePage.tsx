@@ -738,7 +738,7 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Note-Taking Modal */}
+      {/* Note-Taking Modal - FIXED FOR MOBILE */}
       <AnimatePresence>
         {showNoteTaking && (
           <>
@@ -750,43 +750,47 @@ const NotePage = () => {
               onClick={() => setShowNoteTaking(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-md bg-white rounded-2xl shadow-xl z-50 overflow-hidden flex flex-col max-h-[85vh]"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-2xl bg-white rounded-2xl shadow-xl z-50 overflow-hidden flex flex-col max-h-[90vh]"
             >
-              <div className="p-4 flex-grow flex flex-col">
-                <div className="flex justify-between items-center mb-4 border-b pb-2 border-gray-200">
-                  <h2 className="text-xl font-bold text-gray-900">Your Notes</h2>
-                  <button
-                    onClick={() => setShowNoteTaking(false)}
-                    className="p-1 rounded-full hover:bg-gray-100"
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-                </div>
-                <div className="flex-1">
-                  <textarea
-                    value={userNotes}
-                    onChange={(e) => setUserNotes(e.target.value)}
-                    className="w-full h-full p-3 sm:p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm sm:text-base"
-                    placeholder="Write your notes here..."
-                  />
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <button
-                    onClick={() => setShowNoteTaking(false)}
-                    className="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 text-sm"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={saveUserNotes}
-                    className="flex-1 px-3 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 text-sm"
-                  >
-                    Save Notes
-                  </button>
-                </div>
+              {/* Modal Header with Close Button */}
+              <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200 bg-gray-50">
+                <h2 className="text-xl font-bold text-gray-900">Your Notes</h2>
+                <button
+                  onClick={() => setShowNoteTaking(false)}
+                  className="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  aria-label="Close notes"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              
+              {/* Notes Content */}
+              <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
+                <textarea
+                  value={userNotes}
+                  onChange={(e) => setUserNotes(e.target.value)}
+                  className="w-full h-full min-h-[200px] p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm sm:text-base resize-none"
+                  placeholder="Write your notes here..."
+                />
+              </div>
+              
+              {/* Modal Footer */}
+              <div className="flex justify-end gap-3 p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
+                <button
+                  onClick={() => setShowNoteTaking(false)}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 text-sm font-medium"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={saveUserNotes}
+                  className="px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 text-sm font-medium"
+                >
+                  Save Notes
+                </button>
               </div>
             </motion.div>
           </>

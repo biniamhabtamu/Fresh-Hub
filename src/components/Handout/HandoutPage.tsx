@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { noteCollections } from '../../data/NoteCollections';
 import { ChevronDown, FileText, Lock, Crown, X } from 'lucide-react';
@@ -213,9 +213,28 @@ const ChapterButton = React.memo(function ChapterButton({ subjectId, chapter, on
   );
 });
 
+// New component for the subject card skeleton
+const SubjectCardSkeleton = () => (
+    <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="rounded-2xl shadow-sm dark:shadow-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 flex flex-col items-center text-center animate-pulse bg-gray-100 dark:bg-gray-800"
+    >
+        <div className="p-3 rounded-xl mb-3 w-12 h-12 bg-gray-200 dark:bg-gray-700" />
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-1" />
+        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
+        <div className="absolute top-2 right-2 text-gray-300 dark:text-gray-600">
+            <Crown className="w-4 h-4" />
+        </div>
+    </motion.article>
+);
+
+
 const HandoutPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const isPremiumUser = Boolean(currentUser?.isPremium);
@@ -225,6 +244,14 @@ const HandoutPage = () => {
       ...subject,
       isFree: subject.isFree !== undefined ? subject.isFree : true
     }));
+  }, []);
+
+  // Simulate data fetching
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Simulate a 1.5-second network delay
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSubjectCardClick = useCallback((subject) => {
@@ -276,14 +303,29 @@ const HandoutPage = () => {
         <section>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             <AnimatePresence>
-              {enhancedCollections.map((subject) => (
-                <SubjectGridCard
-                  key={subject.id}
-                  subject={subject}
-                  onClick={() => handleSubjectCardClick(subject)}
-                  isLocked={!subject.isFree && !isPremiumUser}
-                />
-              ))}
+                {loading ? (
+                    // Render skeletons when loading
+                    enhancedCollections.map((_, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.05 }}
+                        >
+                            <SubjectCardSkeleton />
+                        </motion.div>
+                    ))
+                ) : (
+                    // Render actual cards when loaded
+                    enhancedCollections.map((subject) => (
+                        <SubjectGridCard
+                            key={subject.id}
+                            subject={subject}
+                            onClick={() => handleSubjectCardClick(subject)}
+                            isLocked={!subject.isFree && !isPremiumUser}
+                        />
+                    ))
+                )}
             </AnimatePresence>
           </div>
         </section>
