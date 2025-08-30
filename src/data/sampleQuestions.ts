@@ -8382,6 +8382,36 @@ export const sampleQuestions: Question[] = [
     "chapter": 2
   },
   {
+    "id": "log-2013_2017-3-6",
+    "question": "There is a well-known saying about computers: \"Garbage in, garbage out.\" If we apply this saying into man's thinking, it refers to one of the following standards of critical thinking.",
+    "options": [
+      "A. Accuracy",
+      "B. Precision",
+      "C. Clarity",
+      "D. Relevance"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The saying \"Garbage in, garbage out\" refers to accuracy in critical thinking, meaning that if the input information is faulty, the output or conclusions will also be flawed.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "log-2013_2017-3-7",
+    "question": "Which one of the following is not correctly expressing the concept of \"critical thinking\"?",
+    "options": [
+      "A. Skilled judgment of ideas",
+      "B. Thinking clearly and intelligently about an issue",
+      "C. Notorious objection of ideas of others",
+      "D. Disciplined thinking governed by clear intellectual standards"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Critical thinking involves careful and disciplined evaluation of ideas; a notorious objection of ideas of others is not a correct expression of critical thinking.",
+    "subject": "logic",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
     "id": "log-2013_2017-2-12",
     "question": "'The reason poverty is rising worldwide is that the global economy has made it impossible for countries to provide stable working conditions for its citizens.' This passage can be identified as:",
     "options": [
@@ -9726,6 +9756,891 @@ export const sampleQuestions: Question[] = [
     "subject": "psychology",
     "year": 2013_2017,
     "chapter": 3
+  },
+  {
+    "id": "psych-2013_2017-4-2",
+    "question": "Your memory for cooking a meal is an example of",
+    "options": [
+      "A. Episodic",
+      "B. Semantic",
+      "C. Procedural",
+      "D. Explicit theory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Your memory for cooking a meal, or any skill, is an example of procedural memory, which is part of implicit memory. It's the memory for how to perform tasks and skills without conscious thought.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-3",
+    "question": "Forgetting occurs when we lack retrieval reminders, this is an explanation from",
+    "options": [
+      "A. Cue-dependent",
+      "B. Motivated forgetting",
+      "C. Displacement",
+      "D. Interference"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cue-dependent forgetting theory explains that we forget because we don't have the necessary cues, or hints, to retrieve the information from long-term memory. It's like having a book in a library without a card to find it.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-4",
+    "question": "A person who is exposed to a traumatic event in his life will develop memory losses due to?",
+    "options": [
+      "A. Repression",
+      "B. Regression",
+      "C. Decay",
+      "D. Denial"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Repression is a type of motivated forgetting where a person unconsciously pushes traumatic or anxiety-causing memories out of conscious awareness.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-5",
+    "question": "Your memory of how to ride a bicycle is recorded in",
+    "options": [
+      "A. Episodic memory",
+      "B. Semantic memory",
+      "C. Procedural memory",
+      "D. Sensory memory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a duplicate of the first question. The memory for skills like riding a bicycle is stored in procedural memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-6",
+    "question": "Forgetting occurs when we lack retrieval signals for an entry in the mind's library is explained by",
+    "options": [
+      "A. Motivated forgetting theory",
+      "B. Displacement theory",
+      "C. Cue dependent theory",
+      "D. Interference theory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a duplicate question. The answer remains cue-dependent theory because it's based on the idea that a lack of retrieval cues leads to forgetting.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-7",
+    "question": "Which one of the following represents the correct sequence of events for the process of memory?",
+    "options": [
+      "A. Encoding → Retrieving → Storing",
+      "B. Storing → Retrieving → Encoding",
+      "C. Retrieving → Storing → Encoding",
+      "D. Encoding → Storing → Retrieving"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The three fundamental processes of memory occur in a specific order: first, information is put into the memory system (encoding), then it is held in a memory store (storing), and finally, it is accessed when needed (retrieving).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-8",
+    "question": "Which of the following is an example of repression?",
+    "options": [
+      "A. Suppressing bad memories that cause anxiety",
+      "B. Suppressing your natural instincts",
+      "C. Stopping others from behaving inappropriately",
+      "D. Stopping yourself from behaving the way you want to"
+    ],
+    "correctAnswer": 0,
+    "explanation": "As defined before, repression is the unconscious act of pushing distressing thoughts or memories from the conscious mind to prevent anxiety.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-9",
+    "question": "According to decay theory of forgetting, we forget because:",
+    "options": [
+      "A. We are confused due to interference of similar information",
+      "B. We have a delay of time and information might fade",
+      "C. We fail to properly encode the information",
+      "D. We are consciously motivated to forget"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The decay theory of forgetting proposes that a memory trace, or a physical change in the brain, gradually fades over time if it is not used. It is often referred to as the \"use it or lose it\" theory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-10",
+    "question": "Memory is registering information from sound and registering information from what we see.",
+    "options": [
+      "A. Echoic, Iconic",
+      "B. Iconic, Echoic",
+      "C. Echoic, Active memory",
+      "D. Iconic, Decoding"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Echoic memory is the sensory memory for sound, and iconic memory is the sensory memory for visual information. These memories are very brief.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-11",
+    "question": "Which of the following statements is NOT true about long term memory?",
+    "options": [
+      "A. Information stored in it will remain there permanently.",
+      "B. It holds huge amount of information.",
+      "C. Displacement of information can occur there.",
+      "D. It is a store of facts, events, and knowledge."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Displacement is the process where new information pushes out old information in a memory store. This typically happens in short-term memory, which has a limited capacity, not in the vast, theoretically unlimited capacity of long-term memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-12",
+    "question": "The method of grouping large amounts of information into manageable units in short term memory is",
+    "options": [
+      "A. Rehearsal",
+      "B. Encoding",
+      "C. Attention",
+      "D. Chunking"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Chunking is a memory strategy that involves grouping individual pieces of information into larger, more meaningful units to increase the amount of information that can be held in short-term memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-13",
+    "question": "Which theory explains that forgetting is a result of fading memory trace?",
+    "options": [
+      "A. Motivated forgetting",
+      "B. Decay",
+      "C. Displacement",
+      "D. Cue dependent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a duplicate question. The decay theory explains forgetting as a fading memory trace over time.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-14",
+    "question": "According to Bandura's observational learning theory, the four elements of observational learning in order are:",
+    "options": [
+      "A. Attention, retention, reproduction, motivation",
+      "B. Motivation, attention, retention, reproduction",
+      "C. Attention, motivation, retention, reproduction",
+      "D. Motivation, attention, reproduction, retention"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Albert Bandura's theory of observational learning, also known as social learning theory, outlines these four steps: first, you must pay attention to the model; second, you must remember or retain what you observed; third, you must have the ability to reproduce the behavior; and fourth, you must be motivated to perform the behavior.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-15",
+    "question": "Interference refers backward interference, and _____ refers forward interference.",
+    "options": [
+      "A. Primacy, recency",
+      "B. Recency, primacy",
+      "C. Retroactive, proactive",
+      "D. Proactive, retroactive"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Retroactive interference is when new information interferes with the ability to remember old information (backward interference). Proactive interference is when old information interferes with the ability to learn or remember new information (forward interference).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-16",
+    "question": "As you do this exam, you are retrieving information from",
+    "options": [
+      "A. Active memory",
+      "B. Long term memory",
+      "C. Sensory memory",
+      "D. Procedural memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The knowledge of concepts, facts, and events needed to answer exam questions is stored in your long-term memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-17",
+    "question": "_____ is a mental activity by which an individual changes information into a meaningful form.",
+    "options": [
+      "A. Storage",
+      "B. Encoding",
+      "C. Retrieval",
+      "D. Retention"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Encoding is the initial process of getting information into the memory system by converting it into a form that can be stored and later retrieved.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-18",
+    "question": "What is the mental process that determines the movement of information from sensory memory to working memory?",
+    "options": [
+      "A. Retrieval",
+      "B. Attention",
+      "C. Organization",
+      "D. Encoding"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Attention is the crucial process that filters information from the vast input of sensory memory and moves it to the limited-capacity working memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-19",
+    "question": "Identify the method that improves the limited duration of information in short term memory.",
+    "options": [
+      "A. Encoding",
+      "B. Chunking",
+      "C. Repetition",
+      "D. Retrieval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The most common method to extend the duration of information in short-term memory is maintenance repetition, which is the conscious repetition of information to keep it active in memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-20",
+    "question": "Which one of the following is the right path of the processes and structures of human memory developed by Atkinson and Shiffrin (1968)?",
+    "options": [
+      "A. Sensory memory → Stimulus → Attention → Short term memory → Long term memory",
+      "B. Stimulus → Attention → Long term memory → Sensory memory → Short term memory",
+      "C. Attention → Sensory memory → Stimulus → Long memory → Short term memory",
+      "D. Stimulus → Sensory memory → Attention → Short term memory → Long memory"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The Atkinson-Shiffrin model (also known as the multi-store model) proposes that information flows from an external stimulus into sensory memory, and if paid attention to, it moves to short-term memory, from which it can then be encoded into long-term memory.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-21",
+    "question": "If you hear some information but lose it just after 2 seconds, in which stage of memory is the information most likely stored?",
+    "options": [
+      "A. Sensory memory",
+      "B. Episodic memory",
+      "C. Short term memory",
+      "D. Semantic memory"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sensory memory holds information for a very brief period, typically less than a few seconds. The fact that the information was heard and then lost within 2 seconds points directly to this stage.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-4-22",
+    "question": "You have been studying General Psychology up to now. But after this semester, there might only be few opportunities to apply your knowledge of this course. Thus forgetting may occur. This form of forgetting is best described in _____ theory.",
+    "options": [
+      "A. Interference",
+      "B. Decay",
+      "C. Displacement",
+      "D. Cue dependent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This scenario is a classic example of decay theory. Since the knowledge is not being used or rehearsed, the memory trace for that information is likely to fade over time.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "psych-2013_2017-5-2",
+    "question": "A teacher provides sudden quizzes to promote consistent studying habits, which schedule of reinforcement does the teacher use?",
+    "options": [
+      "Variable interval",
+      "Fixed interval",
+      "Fixed ratio",
+      "Variable ratio"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A variable interval schedule of reinforcement provides a reward after a unpredictable amount of time has passed. The teacher is giving quizzes at random times, so students must study consistently to be prepared, because they don't know when the next quiz will happen.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-3",
+    "question": "You are very much interested to eat cake, but you are also worried about getting more weight, this conflict is known as?",
+    "options": [
+      "Approach-Avoidance",
+      "Avoidance-Avoidance",
+      "Approach-Approach",
+      "Multiple Approach-Avoidance"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An approach-avoidance conflict occurs when a single goal or decision has both positive (approach) and negative (avoidance) aspects. The cake is appealing to eat (approach), but the potential weight gain is a negative consequence (avoidance).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-4",
+    "question": "A type of conflict which occurs when one goal has two negative aspects is called",
+    "options": [
+      "Approach-Approach",
+      "Approach-Avoidance",
+      "Avoidance-Avoidance",
+      "Multiple Approach-Avoidance"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An avoidance-avoidance conflict involves choosing between two equally undesirable or negative options. A person might feel stuck between a rock and a hard place.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-5",
+    "question": "You want to watch a football match and at the same time, you want to study for your final exam, this motivational conflict is",
+    "options": [
+      "Approach-Avoidance",
+      "Avoidance-Avoidance",
+      "Approach-Approach",
+      "Multiple Approach-Avoidance"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An approach-approach conflict is when a person is motivated to pursue two or more equally desirable goals. Both watching the football match and studying for the exam are positive and appealing options.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-6",
+    "question": "According to humanistic perspective of motivation, the ultimate goal of personality growth is:",
+    "options": [
+      "Coming to terms with unconscious conflicts",
+      "Widening the gap between reality and self-concept",
+      "Fulfillment of all one's basic needs",
+      "To achieve self-actualization"
+    ],
+    "correctAnswer": 3,
+    "explanation": "In humanistic psychology, particularly in Maslow's hierarchy of needs, self-actualization is the ultimate goal. It's the process of fulfilling one's full potential and realizing their unique talents and capabilities.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-7",
+    "question": "Mimi wants an ice cream cone, but she doesn’t want to make the long walk to the shop to buy. She will probably experience the frustration of a/an",
+    "options": [
+      "Approach-approach conflict",
+      "Avoidance-avoidance conflict",
+      "Approach-avoidance conflict",
+      "Multiple approach-avoidance conflict"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a duplicate of the cake question. Mimi wants the ice cream (approach) but wants to avoid the long walk (avoidance). It's a classic approach-avoidance conflict.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-8",
+    "question": "Which of the following theories of emotion support the idea that emotions and bodily responses occur simultaneously?",
+    "options": [
+      "The James-Lange theory",
+      "The Schachter-Singer theory",
+      "The Cannon-Bard theory",
+      "The cognitive-appraisal theory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Cannon-Bard theory of emotion argues that emotional experience and physiological arousal happen at the same time and are independent of each other. The brain's thalamus sends signals to both the cortex (emotional experience) and the autonomic nervous system (physiological arousal) at the same time.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-9",
+    "question": "If a person does not eat for a period of time, it causes a need for food. This need produces a state of tension. The tension energizes the person to act in some way to find food, thereby returning the body to homeostasis. This is an example of:",
+    "options": [
+      "Incentive theory",
+      "Cognitive theory",
+      "Humanistic theory",
+      "Drive reduction theory"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Drive reduction theory states that motivation arises from a physiological need that creates an internal state of tension, or a \"drive,\" that motivates behavior to reduce the tension and return to homeostasis. The need for food creates a drive to eat.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-10",
+    "question": "Which one of the following is the correct sequence of emotional experience in James-Lange theory of emotion?",
+    "options": [
+      "Event → Physiological arousal → Emotional experience",
+      "Event → Physiological arousal → Emotional experience",
+      "Event → Cognitive interpretation → Physiological arousal → Emotional experience",
+      "Event → Emotion → Physiological arousal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The James-Lange theory proposes that our emotional experience is a result of our physiological response to an event. We don't run because we are afraid; we are afraid because we are running.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-11",
+    "question": "According to Maslow's hierarchy of needs, an adolescent who is beginning to form serious romantic relationships would be in what level?",
+    "options": [
+      "Level 1",
+      "Level 2",
+      "Level 3",
+      "Level 4"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Maslow's hierarchy of needs places love and belongingness at Level 3. Forming romantic relationships and building social connections falls into this category.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-12",
+    "question": "Which of the following statements best illustrates Maslow's esteem needs?",
+    "options": [
+      "Moving to a safe community to raise your children",
+      "Winning a Nobel Prize for peace building",
+      "Getting married to your high school sweetheart",
+      "Donating a large sum of money to charity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Esteem needs (Level 4) involve the desire for respect, recognition, and a sense of accomplishment. Winning a Nobel Prize is a clear example of achieving recognition and a sense of accomplishment.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-13",
+    "question": "In cognitive approach, motivation is a result of",
+    "options": [
+      "Maintaining equilibrium",
+      "Reducing psychological tension",
+      "People’s thought and thought process",
+      "The desire to attain external rewards"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The cognitive approach to motivation emphasizes the role of a person's thoughts, expectations, and goals in driving their behavior. It's about what we think and how we process information, not just our physiological needs.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-14",
+    "question": "While sitting in a waiting room, a man next to you begins yelling and acting aggressively. Your heart begins beating fast. You think the situation causes your arousal. Which theory of emotion would support this explanation?",
+    "options": [
+      "The James-Lange theory",
+      "The Schachter-Singer theory",
+      "The Cannon-Bard theory",
+      "The facial feedback theory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Schachter-Singer theory, also known as the two-factor theory, states that emotion is based on two factors: physiological arousal and a cognitive label for that arousal. You feel your heart racing and then look at the situation (the man yelling) to label that feeling as fear or anger.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-15",
+    "question": "Sometimes, a shopper in a store must choose between two alternatives that seem equally attractive. This would be an example of which motivation conflict?",
+    "options": [
+      "Approach-avoidance conflict",
+      "Approach-approach conflict",
+      "Avoidance-avoidance approach",
+      "Approach-avoidance situation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a duplicate of the football match question. Choosing between two equally desirable options is an approach-approach conflict.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-16",
+    "question": "The degree to which you are motivated to study hard depends upon your expectations for good grades and the value you place on getting good grades. This is the example of motivation theory of",
+    "options": [
+      "Incentive theory",
+      "Instinct theory",
+      "Humanistic theory",
+      "Drive reduction theory"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Incentive theory of motivation proposes that behavior is driven by the pull of external goals or rewards, such as good grades. The value you place on the reward (the \"incentive\") determines your motivation.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-17",
+    "question": "Which one of the following is an example of intrinsic motivation?",
+    "options": [
+      "Participating in a get-together after finalizing freshman course",
+      "Participating in group assignments due to group control",
+      "Answering questions in class to be praised by your instructor",
+      "Reading extensively to compensate your mid-exam failure"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Intrinsic motivation is the drive to engage in an activity because it's personally rewarding, not for an external reward. Celebrating with friends is an activity that is inherently enjoyable for its own sake. The other options are driven by external factors (group pressure, praise, avoiding failure).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-18",
+    "question": "University students drink coffee to be active during study time. This concept is well explained by _____ theory of motivation.",
+    "options": [
+      "Drive reduction",
+      "Incentive",
+      "Arousal",
+      "Humanistic"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Arousal theory states that people are motivated to maintain an optimal level of arousal. When a student feels tired (low arousal), they drink coffee to increase their level of alertness and activity to a more optimal state for studying.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-19",
+    "question": "According to Maslow's hierarchy of needs, when safety needs are met at least partially, people tend to become concerned with which of the following?",
+    "options": [
+      "Self-actualization",
+      "Belongingness",
+      "Esteem",
+      "Security"
+    ],
+    "correctAnswer": 1,
+    "explanation": "After physiological and safety needs are met, Maslow's hierarchy places love and belongingness needs (Level 3) as the next level of motivation.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-20",
+    "question": "After completing the freshman courses, you are assigned to one program that you didn’t prefer. You want to graduate but you couldn’t get your preference. If you refuse to join the program, you will not stay in the university. What kind of conflict are you experiencing?",
+    "options": [
+      "Approach-approach",
+      "Approach-avoidance",
+      "Avoidance-avoidance",
+      "Multiple approach-avoidance"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is an avoidance-avoidance conflict. The two options are both undesirable: joining a program you don't like (avoidance) or leaving the university (avoidance).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-21",
+    "question": "Which of the following is wrongly matched about the components of emotion?",
+    "options": [
+      "Physiological → Dilation of pupil",
+      "Behavioral → Gestures",
+      "Cognitive → Memories",
+      "Subjective experience → Facial expression"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the wrongly matched pair. A subjective experience refers to the private, internal feeling of an emotion. Facial expression is an external, observable manifestation of that emotion and is a component of the behavioral part of emotion.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-22",
+    "question": "Parents have a motive to care and love their children. This motive best describes _____ theory of motivation.",
+    "options": [
+      "Incentive",
+      "Instinct",
+      "Drive-reduction",
+      "Arousal"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Instinct theory of motivation states that behavior is motivated by innate, unlearned biological urges or patterns. The parental drive to care for offspring is a prime example of an innate, biological motive.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-5-23",
+    "question": "Which theory of emotion states that our bodies react and we feel an emotion?",
+    "options": [
+      "James-Lange",
+      "Cannon-Bard",
+      "Schachter-Singer",
+      "Lazarus"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a duplicate of a previous question. The James-Lange theory holds that we perceive an event, our body reacts physiologically, and then we interpret that physiological change as an emotion.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "psych-2013_2017-6-1",
+    "question": "A person who becomes offensive during a discussion may accuse the other person of being offensive. The defense mechanism is?",
+    "options": [
+      "Regression",
+      "Projection",
+      "Repression",
+      "Rationalization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Projection is a defense mechanism where a person attributes their own unacceptable feelings, thoughts, or behaviors to another person. In this case, the individual attributes their own offensive behavior to the other person.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-2",
+    "question": "If you say “everyone is cheating, so it’s not a big deal I cheated this time” what kind of defense mechanism are you applying?",
+    "options": [
+      "Repression",
+      "Rationalization",
+      "Regression",
+      "Displacement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rationalization is a defense mechanism that involves providing logical-sounding but false reasons for one's actions, feelings, or thoughts. The person is creating an excuse for their behavior by claiming that others are doing the same thing.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-3",
+    "question": "When you fail an exam, and go home to argue with your sister, you are using?",
+    "options": [
+      "Displacement",
+      "Regression",
+      "Reaction formation",
+      "Rationalization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Displacement is a defense mechanism that involves redirecting a negative emotion from its original source to a less threatening substitute. The anger from failing the exam is redirected toward the sister.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-4",
+    "question": "Abel's father takes away a lovely doll from his daughter when she hits her brother. The girl stops hitting her brother. This change in the child’s behavior is because of",
+    "options": [
+      "Positive Reinforcement",
+      "Positive Punishment",
+      "Negative Reinforcement",
+      "Negative Punishment"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Negative punishment involves removing a desirable stimulus (the doll) to decrease the likelihood of a behavior (hitting) occurring again.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-5",
+    "question": "In Psychoanalysis theory, the completely unconscious, irrational component of personality that seeks immediate satisfaction of instinctual urges and drives is",
+    "options": [
+      "Eros",
+      "Ego",
+      "Id",
+      "Superego"
+    ],
+    "correctAnswer": 2,
+    "explanation": "According to Freud's psychoanalytic theory, the id is the most primitive and unconscious part of personality. It operates on the pleasure principle, seeking immediate gratification for its basic drives and desires.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-6",
+    "question": "According to Carl Rogers, a person's personality is determined by measuring the difference between:",
+    "options": [
+      "Introversion and extraversion",
+      "Ideal self and real self",
+      "Self-efficacy and self-esteem",
+      "Self-actualization and esteem needs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Carl Rogers, a humanistic psychologist, believed that a person's personality and mental well-being depend on the congruence between their ideal self (who they want to be) and their real self (who they actually are).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-7",
+    "question": "Which of the following statements best illustrates rationalization?",
+    "options": [
+      "Jamal fails his math class and blames it on his teacher not liking him",
+      "After fighting with her best friend, Chaltu starts an argument with her mother",
+      "Birtukan feels so guilty about cheating, she confesses to her teacher",
+      "Alemu is a smoker but disregards the evidence that says smoking can kill you"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is an example of rationalization. Jamal is creating a plausible but false excuse for his failure instead of facing the real reason (e.g., not studying enough).",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-8",
+    "question": "Thomas is still in love with his girlfriend, who broke up with him last week, but he acts as if he doesn’t care and is actually happy to be rid of her. This illustrates:",
+    "options": [
+      "Regression",
+      "Projection",
+      "Sublimation",
+      "Reaction formation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Reaction formation is a defense mechanism in which a person unconsciously replaces an anxiety-producing wish or feeling with its exact opposite. Thomas is masking his true feelings of love with an outward display of happiness and indifference.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-9",
+    "question": "Kebede is jealous of his girlfriend but claims that she’s the one who is jealous. This is an example of",
+    "options": [
+      "Rationalization",
+      "Projection",
+      "Displacement",
+      "Repression"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is a classic example of projection. Kebede is attributing his own feeling of jealousy to his girlfriend to avoid dealing with it himself.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-10",
+    "question": "A person is described as “moody and hostile”. In Big Five personality, this person characterizes as:",
+    "options": [
+      "Low in extraversion and low in agreeableness",
+      "High in neuroticism and low in agreeableness",
+      "Low in extraversion and low in conscientiousness",
+      "High in neuroticism and low in conscientiousness"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The \"Big Five\" personality traits include neuroticism and agreeableness. A person who is high in neuroticism tends to be moody, anxious, and emotionally unstable. Someone who is low in agreeableness tends to be hostile, uncooperative, and irritable.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-11",
+    "question": "According to Freud, which part of personality urges our basic needs to be met?",
+    "options": [
+      "Conscience",
+      "Ego",
+      "Superego",
+      "Id"
+    ],
+    "correctAnswer": 3,
+    "explanation": "As mentioned before, the id is the part of the personality that operates on the pleasure principle, driving our most basic and primal needs and desires.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-12",
+    "question": "Which of the following is an example of reaction formation?",
+    "options": [
+      "Distancing yourself from your feelings by focusing on logical facts",
+      "Feeling angry toward a family member instead of your boss",
+      "Being loving and warm toward a person you are angry with",
+      "Attributing your own anger to someone else"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the definition of reaction formation. A person displays the opposite emotion of what they are truly feeling to hide their real feelings.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-13",
+    "question": "Which of the following can NOT be considered as a central idea of trait theory?",
+    "options": [
+      "Traits change based on situations and exposures",
+      "Traits are relatively consistent across situations",
+      "Traits can enable us to predict behavior over time",
+      "Individual differences are due to the relative strength of traits"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The central idea of trait theory is that traits are relatively stable and consistent across situations and time, not that they change based on situations. This makes option A the incorrect statement.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-14",
+    "question": "Rogers states that _____ is an innate drive that motivates all human behavior toward growth.",
+    "options": [
+      "Unconditional positive regard",
+      "Actualizing tendency",
+      "Conditional positive regard",
+      "Wish fulfillment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "According to Carl Rogers, the actualizing tendency is the innate drive of a human being to maintain and enhance itself, and to grow into its full potential.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-15",
+    "question": "A student who has cheated in an examination may think it is normal as he/she believes that others have also cheated. This defense mechanism is:",
+    "options": [
+      "Sublimation",
+      "Repression",
+      "Displacement",
+      "Projection"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The student is projecting their own cheating behavior onto others by believing that everyone else does it. They are using the belief that others are cheating to justify their own actions, which is a form of projection and also rationalization. However, the core of this example is attributing one's own undesirable action to others, which is the definition of projection.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "psych-2013_2017-6-16",
+    "question": "A widow, who loves a young man, might convince herself that she intensely dislikes him and urge her daughter to stop seeing him. This defense mechanism is:",
+    "options": [
+      "Reaction formation",
+      "Projection",
+      "Sublimation",
+      "Displacement"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a clear example of reaction formation. The widow is suppressing her feelings of love and replacing them with a feeling of intense dislike and acting on that feeling to distance herself from the young man.",
+    "subject": "psychology",
+    "year": 2013_2017,
+    "chapter": 6
   },
   {
     "id": "psych-2013_2017-3-14",

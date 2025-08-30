@@ -738,7 +738,7 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Note-Taking Modal - FIXED FOR MOBILE */}
+      {/* Note-Taking Modal - UPDATED FOR MOBILE CENTERING */}
       <AnimatePresence>
         {showNoteTaking && (
           <>
