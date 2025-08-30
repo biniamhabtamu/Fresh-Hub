@@ -8582,6 +8582,326 @@ export const sampleQuestions: Question[] = [
     "chapter": 2
   },
   {
+  "id": "log-2013_2017-3-6",
+  "question": "An argument that moves from particular facts to a probable general conclusion is a(n) ___________ argument.",
+  "options": [
+    "deductive",
+    "inductive",
+    "categorical",
+    "hypothetical"
+  ],
+  "correctAnswer": 1,
+  "explanation": "An inductive argument is characterized by its move from particular facts or observations to a probable general conclusion. This type of reasoning is common in science and everyday life.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-7",
+  "question": "Which of the following statements has primarily cognitive meaning?",
+  "options": [
+    "Private insurance companies regularly overbill the Medicare program.",
+    "From what I saw last night, it's clear that your little brother is a brat.",
+    "Justin Timberlake's latest CD is positively stunning.",
+    "Professor Gibson delivered a moronic lecture today on Plato's metaphysics.",
+    "Everyone with a functioning brain rejects religious fundamentalism."
+  ],
+  "correctAnswer": 0,
+  "explanation": "A statement has primarily cognitive meaning when it conveys factual information. This statement makes a claim that can, in principle, be verified or proven false, regardless of any emotional or evaluative content.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-8",
+  "question": "Which of the following statements expresses a value claim?",
+  "options": [
+    "Animal rights groups argue that live animals should not be used as mascots.",
+    "The recent jobs report raised fears of a recession among Wall Street investors.",
+    "Piracy continues to be a drag on the motion picture industry.",
+    "The Los Angeles Times is a better paper than the San Francisco Chronicle.",
+    "Diabetes poses a serious threat to the health of the elderly."
+  ],
+  "correctAnswer": 3,
+  "explanation": "A value claim is a statement that expresses a judgment about the worth or merit of something. The word 'better' is a subjective value judgment about the quality of the two newspapers.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-9",
+  "question": "Which of the following statements is vague?",
+  "options": [
+    "Tahiti is located in French Polynesia.",
+    "American workers are more productive than the workers in any other country.",
+    "Art work at the Genesis gallery tends to be expensive.",
+    "Mabel shot her husband while taking a bath.",
+    "Polar bears are threatened by global warming."
+  ],
+  "correctAnswer": 2,
+  "explanation": "A statement is vague if its meaning is unclear because the boundaries of its application are not precise. The term 'expensive' is vague since no exact standard defines it.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-10",
+  "question": "Which of the following statements is ambiguous?",
+  "options": [
+    "Anniversaries are usually occasions for celebration.",
+    "Homes in the new River Front development are reasonably priced.",
+    "The Thanksgiving holiday always occurs in November.",
+    "Boalt Hall is part of the University of California.",
+    "Professor Hays talked about sex in the seminar room."
+  ],
+  "correctAnswer": 4,
+  "explanation": "A statement is ambiguous if it can be interpreted in more than one way. 'Talked about sex' can mean two different things, making it ambiguous.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-11",
+  "question": "Jane: Professor Barker said he spent the entire day teaching. He must be exhausted.\nKen: That's impossible. Professor Barker's students are incapable of learning, and if there's no learning, then there's no teaching.\nThis dispute is best described as:",
+  "options": [
+    "Factual",
+    "Verbal arising from ambiguity",
+    "Legal",
+    "Fundamental",
+    "Verbal arising from vagueness"
+  ],
+  "correctAnswer": 1,
+  "explanation": "This is a verbal dispute arising from ambiguity. Jane and Ken are using the word 'teaching' differently.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-12",
+  "question": "Bill: Finally our football team seems to be on track. They beat their opponents last night by 14 points.\nGreg: That's not right. They beat them by only 10 points.\nThis dispute is best described as:",
+  "options": [
+    "Verbal arising from vagueness",
+    "Emotional",
+    "Verbal arising from ambiguity",
+    "Factual",
+    "Dispositional"
+  ],
+  "correctAnswer": 3,
+  "explanation": "This is a factual dispute. They are disagreeing about the actual score of a football game, which can be verified.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-13",
+  "question": "Which of the following words is a term?",
+  "options": [
+    "Opportunity",
+    "Again",
+    "Beyond the horizon",
+    "Everywhere but here",
+    "Sloppily reasoned"
+  ],
+  "correctAnswer": 0,
+  "explanation": "A term is a word or group of words that can serve as the subject of a statement. 'Opportunity' is a noun that functions this way.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-14",
+  "question": "Which of the following are all denoted by the term 'Coin'?",
+  "options": [
+    "Round, metallic, shiny, valuable",
+    "American, Canadian, French, German",
+    "Dime, nickel, quarter, penny",
+    "Gold, silver, copper, zinc",
+    "Government, nation, figurehead"
+  ],
+  "correctAnswer": 2,
+  "explanation": "The denotation of a term refers to the class of objects it applies to. Dimes, nickels, quarters, and pennies are all specific coins.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-15",
+  "question": "Which of the following are all connoted by the term 'actress'?",
+  "options": [
+    "Television, radio, stage, screen",
+    "Empathic, talented, intuitive, perceptive",
+    "Nicole Kidman, Helen Hunt, Christina Aguilera, Angelina Jolie",
+    "Drama, comedy, documentary, horror",
+    "Wealthy, popular, admired, followed"
+  ],
+  "correctAnswer": 1,
+  "explanation": "The connotation of a term refers to the attributes it suggests. 'Empathic, talented, intuitive, perceptive' are qualities connoted by 'actress'.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-16",
+  "question": "Which of the following terms have the same extension?",
+  "options": [
+    "Tiger Woods, Peyton Manning",
+    "Offensive player, defensive player",
+    "Edgar Allen Poe, author of the Iliad",
+    "Pitcher, catcher",
+    "Tooth fairy, leprechaun"
+  ],
+  "correctAnswer": 4,
+  "explanation": "Two terms have the same extension if they denote the same set. Both 'tooth fairy' and 'leprechaun' denote empty classes, meaning nonexistent beings.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+}
+,{
+  "id": "log-2013_2017-3-17",
+  "question": "The definition 'Contract' means an agreement enforceable by law is an example of:",
+  "options": [
+    "A precising definition",
+    "A theoretical definition",
+    "A definition by genus and difference",
+    "A definition by subclass",
+    "An etymological definition"
+  ],
+  "correctAnswer": 2,
+  "explanation": "This is a definition by genus and difference. The genus is 'agreement' and the difference is 'enforceable by law.'",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-18",
+  "question": "The definition 'Rest' means (1) the repose of sleep, (2) an interval of silence between notes, (3) a period of inactivity is an example of:",
+  "options": [
+    "A theoretical definition",
+    "A lexical definition",
+    "A precising definition",
+    "A stipulative definition",
+    "An enumerative definition"
+  ],
+  "correctAnswer": 1,
+  "explanation": "This is a lexical definition. It lists conventional meanings of the word 'rest' in dictionary style.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-19",
+  "question": "The definition 'Foxhead' means a person whose head is filled with misinformation from listening to Fox News is an example of:",
+  "options": [
+    "An enumerative definition",
+    "A synonymous definition",
+    "A lexical definition",
+    "A stipulative definition",
+    "A precising definition"
+  ],
+  "correctAnswer": 3,
+  "explanation": "This is a stipulative definition. It assigns a new meaning to the term 'Foxhead' for a specific use.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-20",
+  "question": "The definition 'Blogger' means an egocentric individual who wastes inordinate amounts of time writing nonsense opinions on websites that nobody reads is an example of:",
+  "options": [
+    "An operational definition",
+    "A precising definition",
+    "A theoretical definition",
+    "A hypertextual definition",
+    "A persuasive definition"
+  ],
+  "correctAnswer": 4,
+  "explanation": "This is a persuasive definition. It is emotionally charged and designed to influence attitudes negatively toward bloggers.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-21",
+  "question": "The definition 'Game bird' means a duck, pheasant, goose, quail, and the like is an example of:",
+  "options": [
+    "A demonstrative definition",
+    "An enumerative definition",
+    "A persuasive definition",
+    "A definition by subclass",
+    "A precising definition"
+  ],
+  "correctAnswer": 3,
+  "explanation": "This is a definition by subclass. It lists subclasses of birds (duck, pheasant, etc.) that fall under 'game bird.'",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-22",
+  "question": "An object is 'spherical' if and only if it rolls freely in any direction when placed on a flat surface is an example of:",
+  "options": [
+    "A definition by genus and difference",
+    "An operational definition",
+    "A lexical definition",
+    "A definition by subclass",
+    "A stipulative definition"
+  ],
+  "correctAnswer": 1,
+  "explanation": "This is an operational definition. It defines 'spherical' by describing a testable procedure for identifying it.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-23",
+  "question": "The definition 'Quarterback' means someone such as Peyton Manning, Philip Rivers, and Drew Brees is an example of:",
+  "options": [
+    "A definition by subclass",
+    "An operational definition",
+    "An enumerative definition",
+    "A demonstrative definition",
+    "A stipulative definition"
+  ],
+  "correctAnswer": 2,
+  "explanation": "This is an enumerative definition. It defines 'quarterback' by listing specific examples of quarterbacks.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-24",
+  "question": "The definition 'Juvenile' means, for purposes of New York law, a person under 16 years of age is an example of:",
+  "options": [
+    "A precising definition",
+    "An operational definition",
+    "A synonymous definition",
+    "A jurisdictional definition",
+    "An etymological definition"
+  ],
+  "correctAnswer": 0,
+  "explanation": "This is a precising definition. It reduces vagueness by specifying an exact legal age limit for 'juvenile.'",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+{
+  "id": "log-2013_2017-3-25",
+  "question": "The definition 'Demolish' means destroy is an example of:",
+  "options": [
+    "A demonstrative definition",
+    "A theoretical definition",
+    "A definition by genus and difference",
+    "A synonymous definition",
+    "A precising definition"
+  ],
+  "correctAnswer": 3,
+  "explanation": "This is a synonymous definition. It explains 'demolish' by using another word ('destroy') with the same meaning.",
+  "subject": "logic",
+  "year": 2013_2017,
+  "chapter": 3
+},
+
+  {
     "id": "log-2013_2017-2-23",
     "question": "An argument that moves from a general rule to a specific instance is a(n) ___________ argument.",
     "options": [
