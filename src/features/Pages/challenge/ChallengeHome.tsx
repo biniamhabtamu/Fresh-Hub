@@ -168,7 +168,7 @@ const ChallengeHome = () => {
       icon: <Trophy className="text-white" />,
       color: "from-amber-600 visa-orange-600 to-yellow-500",
       popularity: 65,
-      onClick: () => navigate("/challenge/DailyTournament"),
+      onClick: () => navigate("/challenge/AdminPage"),
     },
   ];
 

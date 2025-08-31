@@ -30,6 +30,7 @@ import ChallengeFriend from './features/Pages/challenge/ChallengeFriend';
 import GPACalculator from './components/Layout/GPACalculator';
 import QuestionSelection from './features/Pages/challenge/QuestionSelection';
 import QuestionPage from './features/Pages/challenge/QuestionPage';
+import AdminPage from './features/Pages/challenge/AdminPage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
@@ -66,6 +67,7 @@ function AppRoutes() {
        <Route path="friend" element={<ComingSoon />} />
        <Route path="/challenge/livechallenge" element={<ProtectedRoute><LiveChallenge /></ProtectedRoute>} />
        <Route path="/challenge/questionselection" element={<ProtectedRoute><QuestionSelection /></ProtectedRoute>} />
+        <Route path="/challenge/AdminPage" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
        <Route path="/challenge/question-page" element={<ProtectedRoute>< QuestionPage /></ProtectedRoute>} />
       <Route path="/challenge/self/:questions" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
       <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
