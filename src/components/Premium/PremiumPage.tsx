@@ -4,6 +4,7 @@ import { doc, getDoc, setDoc, serverTimestamp, onSnapshot } from "firebase/fires
 import { db } from "../../firebase/config";
 import { FaTelegram, FaClock, FaCheckCircle, FaUpload, FaMoneyBillWave, FaCrown, FaSync } from "react-icons/fa";
 import { MdAccountBalance, MdPayment } from "react-icons/md";
+import BottomBar from "../Layout/BottomBar";
 
 // Define the duration for the timer (5 hours in milliseconds)
 const TIMER_DURATION_MS = 5 * 60 * 60 * 1000;
@@ -377,6 +378,7 @@ export default function PremiumPage() {
           <>Submit Verification</>
         )}
       </button>
+      
     </div>
   );
 }
