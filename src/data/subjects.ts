@@ -1,5 +1,4 @@
-// src/data/subjects.ts
-import { Subject } from '../types';
+
 import { Subject } from '../types';
 
 export const subjects: Subject[] = [
