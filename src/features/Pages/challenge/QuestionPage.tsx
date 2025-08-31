@@ -1,397 +1,180 @@
-// src/features/challenge/QuestionPage.tsx
-import React, { useEffect, useRef, useState } from 'react';
-import { Question } from '../../data/ChallengeExamCollection';
-import { useChallenge } from '../../../hooks/useChallenge';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { questions as allQuestions, Question } from '../../data/questionChallenge';
 
-interface QuestionPageProps {
-  questions: Question[];
-  onComplete: (answers: Record<string, string>) => void;
-  mode: 'self' | 'friend' | 'global';
-  timePerQuestion?: number;
-  /** milliseconds to wait after showing feedback before advancing in `self` mode */
-  autoAdvanceMs?: number;
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
 }
 
-export default function QuestionPage({
-  questions,
-  onComplete,
-  mode,
-  timePerQuestion = 60,
-  autoAdvanceMs = 1500
-}: QuestionPageProps) {
+const QuestionPage: React.FC = () => {
+  const navigate = useNavigate();
+  const query = useQuery();
+  const subject = query.get('subject');
+  const term = query.get('term');
+  const type = query.get('type');
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayedOptions, setDisplayedOptions] = useState<string[]>([]);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [timeLeft, setTimeLeft] = useState<number>(timePerQuestion);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const [userAnswer, setUserAnswer] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
 
-  const { addAnswer } = useChallenge();
+  const filteredQuestions = allQuestions.filter(
+    (q) =>
+      q.subject === subject &&
+      q['question-term'] === term &&
+      q['question-type'] === type
+  );
 
-  const intervalRef = useRef<number | null>(null);
-  const autoAdvanceRef = useRef<number | null>(null);
+  const currentQuestion: Question = filteredQuestions[currentIndex];
 
-  const currentQuestion = questions?.[currentIndex];
-
-  // shuffle helper (Fisher-Yates)
-  const shuffle = (arr: string[]) => {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const tmp = a[i];
-      a[i] = a[j];
-      a[j] = tmp;
-    }
-    return a;
-  };
-
-  // initialize question (options, timer, feedback reset)
   useEffect(() => {
-    // reset timer and feedback for the new question
-    setTimeLeft(timePerQuestion);
-    setSelectedOption(null);
-    setShowFeedback(false);
-    setIsCorrect(false);
-    setPaused(false);
+    if (showResult) return;
 
-    // set displayed (shuffled) options for the question
-    if (currentQuestion?.options && currentQuestion.options.length > 0) {
-      setDisplayedOptions(shuffle(currentQuestion.options));
-    } else {
-      setDisplayedOptions([]);
-    }
-
-    // clear any pending auto-advance
-    if (autoAdvanceRef.current) {
-      window.clearTimeout(autoAdvanceRef.current);
-      autoAdvanceRef.current = null;
-    }
-  }, [currentIndex, currentQuestion, timePerQuestion]);
-
-  // timer management with a stable interval
-  useEffect(() => {
-    // don't start timer if paused, no question, or feedback is showing (we'll pause during feedback)
-    if (paused || !currentQuestion || showFeedback) return;
-
-    intervalRef.current = window.setInterval(() => {
-      setTimeLeft((t) => t - 1);
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          handleNext();
+          return 60;
+        }
+        return prev - 1;
+      });
     }, 1000);
 
-    return () => {
-      if (intervalRef.current) {
-        window.clearInterval(intervalRef.current);
-        intervalRef.current = null;
+    return () => clearInterval(timer);
+  }, [currentIndex, showResult]);
+
+  const handleAnswerSelect = (index: number) => {
+    if (userAnswer === null) {
+      setUserAnswer(index);
+      if (index === currentQuestion.correctAnswer) {
+        setScore((prev) => prev + 1);
       }
-    };
-  }, [paused, currentQuestion, showFeedback]);
-
-  // when timeLeft hits zero
-  useEffect(() => {
-    if (!currentQuestion) return;
-
-    if (timeLeft <= 0 && !showFeedback) {
-      // mark as unanswered and advance
-      const newAnswers = { ...answers, [currentQuestion.id]: '' }; // empty string for no answer
-      setAnswers(newAnswers);
-      addAnswer?.(currentQuestion.id, '', false);
-
-      // show feedback (incorrect) briefly before advancing
-      setIsCorrect(false);
-      setShowFeedback(true);
-
-      if (mode === 'self') {
-        autoAdvanceRef.current = window.setTimeout(() => {
-          handleNextQuestionInternal(newAnswers);
-        }, autoAdvanceMs);
-      }
-    }
-    // intentionally depend on timeLeft only
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timeLeft]);
-
-  // keyboard accessibility
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (!currentQuestion) return;
-
-      // number keys 1..9 select options
-      if (/^[1-9]$/.test(e.key)) {
-        const idx = Number(e.key) - 1;
-        const opt = displayedOptions[idx];
-        if (opt && !showFeedback) {
-          handleOptionSelect(opt);
-        }
-      }
-
-      if (e.key === 'Enter') {
-        // if feedback shown in non-self modes, go to next
-        if (showFeedback && mode !== 'self') {
-          handleNextQuestion();
-        }
-      }
-
-      if (e.key === 'ArrowRight') {
-        // allow moving forward if feedback shown (non-self) or if user wants to skip
-        if (showFeedback) handleNextQuestion();
-      }
-    };
-
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [displayedOptions, showFeedback, currentQuestion, mode]);
-
-  // cleanup timers on unmount
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) window.clearInterval(intervalRef.current);
-      if (autoAdvanceRef.current) window.clearTimeout(autoAdvanceRef.current);
-    };
-  }, []);
-
-  const handleOptionSelect = (option: string) => {
-    if (!currentQuestion || showFeedback) return;
-
-    setSelectedOption(option);
-
-    const correct = option === currentQuestion.correctAnswer;
-    setIsCorrect(correct);
-    setShowFeedback(true);
-
-    const newAnswers = { ...answers, [currentQuestion.id]: option };
-    setAnswers(newAnswers);
-
-    // persist via hook
-    addAnswer?.(currentQuestion.id, option, correct);
-
-    // pause the timer while showing feedback
-    setPaused(true);
-    if (intervalRef.current) {
-      window.clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-
-    if (mode === 'self') {
-      // auto advance after a short delay
-      autoAdvanceRef.current = window.setTimeout(() => {
-        handleNextQuestionInternal(newAnswers);
-      }, autoAdvanceMs);
     }
   };
 
-  const handleNextQuestionInternal = (answersSnapshot?: Record<string, string>) => {
-    // clear any pending auto-advance
-    if (autoAdvanceRef.current) {
-      window.clearTimeout(autoAdvanceRef.current);
-      autoAdvanceRef.current = null;
-    }
-
-    // resume timer (it will be reset in the effect that watches currentIndex)
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex((i) => i + 1);
+  const handleNext = () => {
+    setUserAnswer(null);
+    if (currentIndex + 1 < filteredQuestions.length) {
+      setCurrentIndex((prev) => prev + 1);
+      setTimeLeft(60);
     } else {
-      // complete; pass the latest answers
-      onComplete(answersSnapshot ?? answers);
+      setShowResult(true);
     }
   };
 
-  const handleNextQuestion = () => {
-    // for non-self modes (where user clicks Next)
-    if (!showFeedback && mode !== 'self') {
-      // if user tries to go next without answering, treat as blank answer
-      if (currentQuestion) {
-        const newAnswers = { ...answers, [currentQuestion.id]: '' };
-        setAnswers(newAnswers);
-        addAnswer?.(currentQuestion.id, '', false);
-        setShowFeedback(true);
-        setIsCorrect(false);
-      }
-      return;
-    }
-
-    // if feedback is shown, just go to next
-    if (showFeedback) {
-      handleNextQuestionInternal();
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+      setUserAnswer(null);
+      setTimeLeft(60);
     }
   };
 
-  const progress = questions && questions.length > 0
-    ? ((currentIndex + 1) / questions.length) * 100
-    : 0;
-
-  // guard: no questions
-  if (!questions || questions.length === 0) {
+  if (showResult) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-6">
-        <div className="max-w-xl text-center">
-          <h2 className="text-2xl font-semibold mb-2">No questions available</h2>
-          <p className="text-sm text-gray-600">Please go back and select a subject or try a different configuration.</p>
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+        <div className="p-6 md:p-10 max-w-sm mx-auto text-center bg-white rounded-2xl shadow-2xl transform transition-all duration-300 scale-95 hover:scale-100">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-4 text-purple-700 animate-pulse">Quiz Completed! 🎉</h1>
+          <p className="text-xl md:text-2xl mb-6 text-gray-700">
+            Your Score: <span className="font-bold text-green-600">{score}</span> / <span className="font-bold text-purple-600">{filteredQuestions.length}</span>
+          </p>
+          <button
+            onClick={() => navigate('/challenge/questionselection')}
+            className="w-full bg-purple-600 text-white p-3 rounded-xl font-bold text-lg hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Back to Selection
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        {/* Progress Bar */}
-        <div className="mb-4">
-          <div className="h-2.5 rounded-full bg-gray-200 overflow-hidden">
-            <div
-              className="h-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 transition-all duration-300"
-              style={{ width: `${progress}%` }}
-              aria-hidden
-            />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 flex items-center justify-center p-4 sm:p-6">
+      <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 w-full max-w-2xl border-t-8 border-purple-500 animate-fade-in">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+          <div className="text-base md:text-lg font-bold text-gray-600 mb-2 md:mb-0">
+            Question <span className="text-purple-600">{currentIndex + 1}</span> of <span className="text-purple-600">{filteredQuestions.length}</span>
           </div>
-          <div className="flex justify-between text-xs text-gray-600 mt-2">
-            <span>Question {currentIndex + 1} / {questions.length}</span>
-            <span>{Object.keys(answers).length} answered</span>
+          <div className="text-xl md:text-3xl font-extrabold text-purple-600 flex items-center gap-2 transition-all duration-500 transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="tabular-nums">{timeLeft}s</span>
           </div>
         </div>
 
-        {/* Header + Timer */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-800">{currentQuestion.title ?? `Q${currentIndex + 1}`}</h3>
-            <p className="text-sm text-gray-600">{currentQuestion.subject}</p>
-          </div>
+        <div className="bg-white p-6 rounded-2xl shadow-inner border-2 border-gray-100 mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold text-gray-800 leading-relaxed">{currentQuestion.question}</h2>
+        </div>
 
-          <div className="text-right">
-            <div
-              className={`text-lg font-semibold ${timeLeft <= 10 ? 'text-red-600' : 'text-blue-700'}`}
-              aria-live="polite"
-            >
-              {Math.floor(Math.max(0, timeLeft) / 60)}
-              :
-              {(Math.max(0, timeLeft) % 60).toString().padStart(2, '0')}
-            </div>
+        <div className="flex flex-col space-y-4 mb-6">
+          {currentQuestion.options.map((opt, index) => {
+            let bgColor = "bg-gray-50 hover:bg-purple-50";
+            let borderColor = "border-gray-200";
+            let ringColor = "";
 
-            <div className="mt-2 flex items-center gap-2">
+            if (userAnswer !== null) {
+              if (index === currentQuestion.correctAnswer) {
+                bgColor = "bg-green-100";
+                borderColor = "border-green-500";
+                ringColor = "ring-2 ring-green-500";
+              } else if (index === userAnswer) {
+                bgColor = "bg-red-100";
+                borderColor = "border-red-500";
+                ringColor = "ring-2 ring-red-500";
+              }
+            }
+
+            return (
               <button
-                onClick={() => setPaused((p) => !p)}
-                className="text-sm px-3 py-1 rounded bg-white border shadow-sm hover:opacity-95"
-                aria-pressed={paused}
+                key={index}
+                className={`w-full p-4 rounded-xl border-2 ${bgColor} ${borderColor} font-medium text-left transition-all duration-300 ease-in-out transform hover:scale-[1.01] ${userAnswer !== null ? 'cursor-not-allowed' : 'cursor-pointer'} ${ringColor}`}
+                disabled={userAnswer !== null}
+                onClick={() => handleAnswerSelect(index)}
               >
-                {paused ? 'Resume' : 'Pause'}
+                {opt}
               </button>
-
-              {mode !== 'self' && (
-                <button
-                  onClick={handleNextQuestion}
-                  className="text-sm px-3 py-1 rounded bg-indigo-600 text-white shadow-sm hover:opacity-95"
-                >
-                  Next
-                </button>
-              )}
-            </div>
-          </div>
+            );
+          })}
         </div>
 
-        {/* Question Card */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-6" role="region" aria-labelledby="question-title">
-          <div className="p-6">
-            <h2 id="question-title" className="text-xl font-bold text-gray-800 mb-6">{currentQuestion.question}</h2>
-
-            <div className="grid gap-3">
-              {displayedOptions.map((option, idx) => {
-                const optionNumber = idx + 1;
-                const isSelected = selectedOption === option;
-                let optionCls = 'p-4 border rounded-lg transition-all duration-150 flex items-start gap-3';
-
-                if (showFeedback) {
-                  if (option === currentQuestion.correctAnswer) {
-                    optionCls += ' bg-green-50 border-green-400';
-                  } else if (isSelected && !isCorrect) {
-                    optionCls += ' bg-red-50 border-red-400';
-                  } else {
-                    optionCls += ' border-gray-200';
-                  }
-                } else {
-                  optionCls += isSelected ? ' border-blue-500 bg-blue-50' : ' border-gray-200 hover:border-blue-300 hover:bg-blue-50 cursor-pointer';
-                }
-
-                return (
-                  <button
-                    key={option}
-                    className={optionCls}
-                    onClick={() => handleOptionSelect(option)}
-                    disabled={showFeedback}
-                    aria-pressed={isSelected}
-                    aria-label={`Option ${optionNumber}: ${option}`}
-                    type="button"
-                  >
-                    <div className="w-6 flex-shrink-0 text-sm font-semibold text-gray-700">{optionNumber}.</div>
-                    <div className="text-left text-sm text-gray-800">{option}</div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Explanation / feedback */}
-            {showFeedback && currentQuestion.explanation && (
-              <div className={`mt-6 p-4 rounded-lg ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-yellow-50 border-yellow-200'}`}>
-                <h4 className="font-medium mb-1">{isCorrect ? 'Correct' : 'Explanation'}</h4>
-                <p className="text-sm text-gray-700">{currentQuestion.explanation}</p>
-              </div>
-            )}
+        {userAnswer !== null && (
+          <div className="p-4 bg-gray-100 rounded-xl text-gray-700 text-sm md:text-base leading-relaxed border border-gray-200 animate-slide-in-up shadow-md">
+            <span className="font-bold text-gray-900">Explanation: </span>{currentQuestion.explanation}
           </div>
-        </div>
+        )}
 
-        {/* Footer controls */}
-        <div className="flex items-center justify-between gap-3">
-          <div className="text-sm text-gray-600">
-            Tip: press number keys (1-{Math.min(9, displayedOptions.length)}) to answer quickly.
-          </div>
-
-          <div className="flex items-center gap-2">
-            {/* Allow skipping (records blank answer) */}
-            <button
-              onClick={() => {
-                if (!currentQuestion) return;
-                if (showFeedback) {
-                  // if feedback is shown, go to next
-                  handleNextQuestion();
-                  return;
-                }
-                // mark blank answer and show feedback
-                const newAnswers = { ...answers, [currentQuestion.id]: '' };
-                setAnswers(newAnswers);
-                addAnswer?.(currentQuestion.id, '', false);
-                setIsCorrect(false);
-                setShowFeedback(true);
-                setPaused(true);
-                if (mode === 'self') {
-                  autoAdvanceRef.current = window.setTimeout(() => {
-                    handleNextQuestionInternal(newAnswers);
-                  }, autoAdvanceMs);
-                }
-              }}
-              className="px-3 py-1 rounded bg-white border shadow-sm hover:opacity-95 text-sm"
-            >
-              Skip
-            </button>
-
-            <button
-              onClick={() => {
-                // reveal correct answer (for study mode) - this won't auto-advance
-                if (!currentQuestion) return;
-                setSelectedOption(currentQuestion.correctAnswer);
-                setIsCorrect(true);
-                setShowFeedback(true);
-                setPaused(true);
-                const newAnswers = { ...answers, [currentQuestion.id]: currentQuestion.correctAnswer };
-                setAnswers(newAnswers);
-                addAnswer?.(currentQuestion.id, currentQuestion.correctAnswer, true);
-              }}
-              className="px-3 py-1 rounded bg-indigo-600 text-white shadow-sm hover:opacity-95 text-sm"
-            >
-              Reveal Answer
-            </button>
-          </div>
+        <div className="mt-8 flex justify-between space-x-4">
+          <button
+            onClick={handleBack}
+            disabled={currentIndex === 0}
+            className={`flex-1 p-3 rounded-xl font-bold text-lg transition-colors duration-300 transform hover:scale-105 ${currentIndex === 0 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-gray-500 text-white hover:bg-gray-600 shadow-md'}`}
+          >
+            <span className="flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back
+            </span>
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={userAnswer === null}
+            className={`flex-1 p-3 rounded-xl font-bold text-lg transition-colors duration-300 transform hover:scale-105 ${userAnswer === null ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-purple-600 text-white hover:bg-purple-700 shadow-md'}`}
+          >
+            <span className="flex items-center justify-center gap-2">
+              Next
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default QuestionPage;

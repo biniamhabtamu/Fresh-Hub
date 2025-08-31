@@ -28,7 +28,9 @@ import { ChallengeProvider } from './contexts/ChallengeContext';
 import LiveChallenge from './features/Pages/challenge/LiveChallenge';
 import ChallengeFriend from './features/Pages/challenge/ChallengeFriend';
 import GPACalculator from './components/Layout/GPACalculator';
-import ChallengeGlobal from './features/Pages/challenge/ChallengeGlobal';
+import QuestionSelection from './features/Pages/challenge/QuestionSelection';
+import QuestionPage from './features/Pages/challenge/QuestionPage';
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
@@ -63,8 +65,8 @@ function AppRoutes() {
       <Route path="/challenge/self/custom" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
        <Route path="friend" element={<ComingSoon />} />
        <Route path="/challenge/livechallenge" element={<ProtectedRoute><LiveChallenge /></ProtectedRoute>} />
-       <Route path="/challenge/challengefriend" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
-       <Route path="/challenge/globalchallenge" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
+       <Route path="/challenge/questionselection" element={<ProtectedRoute><QuestionSelection /></ProtectedRoute>} />
+       <Route path="/challenge/question-page" element={<ProtectedRoute>< QuestionPage /></ProtectedRoute>} />
       <Route path="/challenge/self/:questions" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
       <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
       <Route path="/challenge/coming-soon" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />

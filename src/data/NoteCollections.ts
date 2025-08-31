@@ -12237,8 +12237,8 @@ tr:nth-child(even) {
     ]
   },
   {
-    id: 'interpretation',
-    name: 'Interpretation',
+    id: 'entreprener',
+    name: 'Entrepreneurship',
     icon: '🗣️',
     isFree: false,
     chapters: [
