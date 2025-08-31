@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useLocat
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { App as CapacitorApp, PluginListenerHandle } from '@capacitor/app';
 import { Toast } from '@capacitor/toast';
+import "bootstrap-icons/font/bootstrap-icons.css";
 import AuthForm from './components/Auth/AuthForm';
+import "bootstrap/dist/css/bootstrap.min.css";   // Bootstrap styles
+import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 import Dashboard from './components/Home/Dashboard';
 import YearSelection from './components/Subject/YearSelection';
 import ChapterSelection from './components/Subject/ChapterSelection';

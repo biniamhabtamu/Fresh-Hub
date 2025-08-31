@@ -1,131 +1,132 @@
 // src/data/subjects.ts
 import { Subject } from '../types';
+import { Subject } from '../types';
 
 export const subjects: Subject[] = [
   { 
     id: 'Sample', 
     name: 'Free trial', 
-    icon: '📖',
+    icon: '📚',
     field: 'natural', 
     isFree: true
   },
   // Natural Science Subjects
   { 
     id: 'logic', 
-    name: 'Logic', 
-    icon: '🧩',
+    name: 'Logic and critical thinking', 
+    icon: '🧠', // brain for thinking
     field: 'natural', 
     isFree: false
   },
   { 
     id: 'psychology', 
     name: 'Psychology', 
-    icon: '🧠', 
+    icon: '🧩', // puzzle for mind
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'geography', 
     name: 'Geography', 
-    icon: '🌎',
+    icon: '🗺️', // map
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'english', 
     name: 'EnglishSkill1', 
-    icon: '✍️',
+    icon: '📝', // pencil
     field: 'natural', 
     isFree: true 
   },
   { 
     id: 'physics', 
     name: 'Physics', 
-    icon: '⚛️',
+    icon: '🧲', // magnet
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'math', 
     name: 'Math', 
-    icon: '🧮',
+    icon: '📐', // triangle ruler
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'Anthropology', 
     name: 'Anthropology', 
-    icon: '👥',
+    icon: '🧑‍🤝‍🧑', // group of people
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'english2', 
     name: 'EnglishSkill2', 
-    icon: '✍️',
+    icon: '📝', // notepad
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'chemistry', 
     name: 'Chemistry', 
-    icon: '⚗️',
+    icon: '🧪', // test tube
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'cpp', 
     name: 'C++', 
-    icon: '👨‍💻',
+    icon: '💻', // laptop
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'history', 
     name: 'History', 
-    icon: '📜',
+    icon: '📜', // scroll
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'civic', 
-    name: 'Civic', 
-    icon: '🏛️', 
+    name: 'Civic moral education', 
+    icon: '⚖️', // classical building
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'emerging', 
-    name: 'Emerging', 
-    icon: '🚀', 
+    name: 'Emerging technology', 
+    icon: '🤖', // robot
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'entrepreneurship', 
     name: 'Entrepreneurship', 
-    icon: '🌎',
+    icon: '💼', // briefcase
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'Inclusive', 
     name: 'Inclusive', 
-    icon: '🤝',
+    icon: '🤝', // handshake
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'economics', 
     name: 'Economics', 
-    icon: '💹',
+    icon: '📈', // chart increasing
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'GlobalTrade', 
     name: 'Global Trade', 
-    icon: '🌎',
+    icon: '🚢', // globe with meridians
     field: 'natural', 
     isFree: false 
   },
@@ -134,7 +135,7 @@ export const subjects: Subject[] = [
   { 
     id: 'Sample', 
     name: 'Free trial', 
-    icon: '📖',
+    icon: '📚',
     field: 'social', 
     isFree: true 
   },
@@ -147,43 +148,43 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'logic', 
-    name: 'Logic', 
-    icon: '🧩', 
+    name: 'Logic and critical thinking', 
+    icon: '🧩',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'economics', 
     name: 'Economics', 
-    icon: '💹',
+    icon: '📈',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'Anthropology', 
     name: 'Anthropology', 
-    icon: '👥',
+    icon: '🧑‍🤝‍🧑',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'history', 
     name: 'History', 
-    icon: '⏳',
+    icon: '📜', // hourglass
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'english', 
     name: 'EnglishSkill1', 
-    icon: '📖',
+    icon: '📝', // open book
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'geography', 
     name: 'Geography', 
-    icon: '🗾',
+    icon: '🗺️', // map of Japan icon (represents maps)
     field: 'social', 
     isFree: false 
   },
@@ -196,40 +197,41 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'civic', 
-    name: 'Civic', 
-    icon: '🏙️',
+    name: 'Civic and moral Education', 
+    icon: '⚖️', // cityscape
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'emerging', 
-    name: 'Emerging', 
-    icon: '🌱',
+    name: 'Emerging Technology', 
+    icon: '🤖', // plant for growth
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'inclusive', 
     name: 'Inclusive', 
-    icon: '🌈',
+    icon: '🤝', // rainbow
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'globalTrade', 
     name: 'Global Trade', 
-    icon: '🌎',
+    icon: '🚢',
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'entrepreneurship', 
     name: 'Entrepreneurship', 
-    icon: '🌎',
+    icon: '💼',
     field: 'social', 
     isFree: false 
   },
 ];
+
 
 export const examYears = [2013_2017];
 
