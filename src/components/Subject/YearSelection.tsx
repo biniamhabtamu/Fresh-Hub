@@ -324,7 +324,7 @@ export default function YearSelection() {
                       </div>
 
                       <div className="min-w-0">
-                        <h4 className="text-base font-semibold text-gray-800 truncate">{year} Exam Collections</h4>
+                        <h4 className="text-base font-semibold text-gray-800 truncate">{subjectName} Exam Collections</h4>
                         <div className="flex items-center gap-2 mt-1">
                           <span className={`text-xs font-medium px-2 py-1 rounded-full ${getStatusBadgeClass(score)}`}>{getStatusText(score)}</span>
                           {score > 0 && <span className={`text-sm font-bold ${getYearTextClass(score)}`}>{scoreRounded}%</span>}
@@ -370,7 +370,7 @@ export default function YearSelection() {
                     ) : (
                       <div className="mt-2 text-xs text-gray-500 flex items-center gap-2">
                         <Clock size={12} />
-                        <span>Try a test to see progress here</span>
+                        <span>Try a test to check your progress here: mid and final by chapter.</span>
                       </div>
                     )}
                   </div>

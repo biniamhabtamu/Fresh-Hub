@@ -233,16 +233,6 @@ export const subjects: Subject[] = [
 
 export const examYears = [2013_2017];
 
-// Function to determine the number of items per subject
-export const getChaptersOrTopicsPerSubject = (subjectId: string) => {
-  // For English subjects, return the number of topics
-  if (subjectId === 'english' || subjectId === 'english2') {
-    return 5; // Tense, Modal Verb, Conditional, Collocations, Active and Passive Voices
-  }
-  // For other subjects, return the standard chapter count
-  return 7;
-};
-
 // Define the English topics
 export const englishTopics = [
   'Tense',
@@ -252,15 +242,44 @@ export const englishTopics = [
   'Active and Passive Voices'
 ];
 
+// ✅ Define the Free trial topics
+export const SampleTopics = [ 
+  'Logic Free Trial',
+  'Psychology Free Trial',
+  'Geography Free Trial',
+  'Economics Free Trial',
+  'English Free Trial',
+  'Civic Free Trial',
+  'Emerging Free Trial'
+];
+
+// Function to determine the number of items per subject
+export const getChaptersOrTopicsPerSubject = (subjectId: string) => {
+  if (subjectId === 'english' || subjectId === 'english2') {
+    return englishTopics.length;
+  }
+  if (subjectId === 'Sample') {
+    return SampleTopics.length;
+  }
+  return 7;
+};
+
 // Function to get the display name for a chapter/topic
 export const getChapterOrTopicName = (subjectId: string, index: number) => {
   if ((subjectId === 'english' || subjectId === 'english2') && index >= 0 && index < englishTopics.length) {
     return englishTopics[index];
   }
+  if (subjectId === 'Sample' && index >= 0 && index < SampleTopics.length) {
+    return SampleTopics[index];
+  }
   return `Chapter ${index + 1}`;
 };
 
-// Function to check if a subject is English
+// Helpers
 export const isEnglishSubject = (subjectId: string) => {
   return subjectId === 'english' || subjectId === 'english2';
+};
+
+export const isFreeTrialSubject = (subjectId: string) => {
+  return subjectId === 'Sample';
 };

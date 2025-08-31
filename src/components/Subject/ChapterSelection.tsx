@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
-import { getChaptersOrTopicsPerSubject, englishTopics } from '../../data/subjects';
+import { getChaptersOrTopicsPerSubject, englishTopics, SampleTopics } from '../../data/subjects'; // ✅ Import SampleTopics
 import Header from '../Layout/Header';
 import { ArrowLeft, BookOpen, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,6 +46,7 @@ export default function ChapterSelection() {
   const [loading, setLoading] = useState(true);
 
   const isEnglishSubject = subjectId === 'english' || subjectId === 'english2';
+  const isFreeTrialSubject = subjectId === 'Sample'; // ✅ detect Free Trial
   const itemsPerSubject = getChaptersOrTopicsPerSubject(subjectId || '');
 
   useEffect(() => {
@@ -115,12 +116,19 @@ export default function ChapterSelection() {
 
           <h2 className="text-3xl md:text-4xl font-extrabold mt-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">
-              {year} {isEnglishSubject ? 'English Topics' : 'Exam Chapters'}
+              {year}{' '}
+              {isEnglishSubject
+                ? 'English Topics'
+                : isFreeTrialSubject
+                ? 'Free Trial Topics'
+                : 'Exam Chapters'}
             </span>
           </h2>
           <p className="text-gray-600 text-base md:text-lg mt-1">
             {isEnglishSubject
               ? 'Select a topic to begin your quiz or review your progress.'
+              : isFreeTrialSubject
+              ? 'Select a free trial topic to explore and practice.'
               : 'Select a chapter to begin your quiz or review your progress.'}
           </p>
         </motion.div>
@@ -152,7 +160,7 @@ export default function ChapterSelection() {
           </div>
         )}
 
-        {/* Chapters list */}
+        {/* Chapters / Topics list */}
         {!loading && (
           <motion.div
             variants={containerVariants}
@@ -163,8 +171,12 @@ export default function ChapterSelection() {
             <AnimatePresence>
               {chapterResults.map((result) => {
                 const status = getStatusBadge(result.score, result.completed);
+
+                // ✅ Choose topic name based on subject type
                 const itemName = isEnglishSubject
                   ? englishTopics[result.chapter - 1] || `Topic ${result.chapter}`
+                  : isFreeTrialSubject
+                  ? SampleTopics[result.chapter - 1] || `Free Trial ${result.chapter}`
                   : `Chapter ${result.chapter}`;
 
                 return (
