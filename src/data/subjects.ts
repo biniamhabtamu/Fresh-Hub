@@ -12,7 +12,7 @@ export const subjects: Subject[] = [
   // Natural Science Subjects
   { 
     id: 'logic', 
-    name: 'Logic and critical thinking', 
+    name: 'Logic', 
     icon: '🧠', // brain for thinking
     field: 'natural', 
     isFree: false
@@ -33,7 +33,7 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'english', 
-    name: 'EnglishSkill1', 
+    name: 'EnglishSkill1&2', 
     icon: '📝', // pencil
     field: 'natural', 
     isFree: true 
@@ -60,13 +60,6 @@ export const subjects: Subject[] = [
     isFree: false 
   },
   { 
-    id: 'english2', 
-    name: 'EnglishSkill2', 
-    icon: '📝', // notepad
-    field: 'natural', 
-    isFree: false 
-  },
-  { 
     id: 'chemistry', 
     name: 'Chemistry', 
     icon: '🧪', // test tube
@@ -89,14 +82,14 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'civic', 
-    name: 'Civic moral education', 
+    name: 'Civic', 
     icon: '⚖️', // classical building
     field: 'natural', 
     isFree: false 
   },
   { 
     id: 'emerging', 
-    name: 'Emerging technology', 
+    name: 'Emerging', 
     icon: '🤖', // robot
     field: 'natural', 
     isFree: false 
@@ -147,7 +140,7 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'logic', 
-    name: 'Logic and critical thinking', 
+    name: 'Logic', 
     icon: '🧩',
     field: 'social', 
     isFree: false 
@@ -175,7 +168,7 @@ export const subjects: Subject[] = [
   },
   { 
     id: 'english', 
-    name: 'EnglishSkill1', 
+    name: 'EnglishSkill1&2', 
     icon: '📝', // open book
     field: 'social', 
     isFree: false 
@@ -187,23 +180,17 @@ export const subjects: Subject[] = [
     field: 'social', 
     isFree: false 
   },
-  { 
-    id: 'english2', 
-    name: 'EnglishSkill2', 
-    icon: '📖',
-    field: 'social', 
-    isFree: false 
-  },
-  { 
+ 
+ { 
     id: 'civic', 
-    name: 'Civic and moral Education', 
+    name: 'Civic ', 
     icon: '⚖️', // cityscape
     field: 'social', 
     isFree: false 
   },
   { 
     id: 'emerging', 
-    name: 'Emerging Technology', 
+    name: 'Emerging ', 
     icon: '🤖', // plant for growth
     field: 'social', 
     isFree: false 

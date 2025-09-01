@@ -1,388 +1,586 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useAuth } from '../../contexts/AuthContext';
-import { examYears, subjects } from '../../data/subjects';
+import { examYears, getChaptersOrTopicsPerSubject, englishTopics, SampleTopics } from '../../data/subjects';
 import Header from '../Layout/Header';
 import BottomBar from '../Layout/BottomBar';
 import {
   ArrowLeft,
   Award,
   AlertTriangle,
-  Clock,
-  BarChart2,
-  BookText,
+  BookOpen,
   Calendar,
+  Star,
+  Play,
+  HelpCircle,
+  X,
   ChevronRight,
-  RefreshCw,
+  Target,
+  CheckCircle,
+  Clock,
   BarChart3,
+  Trophy,
   TrendingUp
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface YearResult {
-  year: number;
-  averageScore: number;
-}
+// Reusable Framer Motion variants
+const fadeIn = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.12 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.45, ease: 'easeOut' },
+  },
+};
+
+const getStatusBadge = (score: number, completed: boolean) => {
+  if (!completed) return { text: 'Start Quiz', color: 'bg-indigo-100 text-indigo-700', icon: Play };
+  if (score < 60) return { text: 'Needs Improvement', color: 'bg-red-100 text-red-700', icon: AlertTriangle };
+  return { text: 'Well Done!', color: 'bg-green-100 text-green-700', icon: Award };
+};
+
+const getProgressBarColor = (score: number) => {
+  if (score < 60) return 'bg-red-500';
+  if (score < 80) return 'bg-yellow-500';
+  return 'bg-green-500';
+};
 
 export default function YearSelection() {
   const { subjectId } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [yearResults, setYearResults] = useState<YearResult[]>([]);
+  const [chapterResults, setChapterResults] = useState<ChapterResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isRefreshing, setIsRefreshing] = useState(false);
   const [showProgressGuide, setShowProgressGuide] = useState(false);
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
-  const subject = subjects?.find((s: any) => s.id === subjectId) || null;
-  const subjectName = subject?.name || 'Subject';
+  const subject = subjectId || '';
+  const isEnglishSubject = subjectId === 'english' || subjectId === 'english2';
+  const isFreeTrialSubject = subjectId === 'Sample';
+  const itemsPerSubject = getChaptersOrTopicsPerSubject(subject);
 
-  useEffect(() => {
-    loadYearResults();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subjectId, currentUser]);
+  const getItemName = (index: number) => {
+    if (isEnglishSubject) {
+      return englishTopics[index] || `Topic ${index + 1}`;
+    } else if (isFreeTrialSubject) {
+      return SampleTopics[index] || `Free Trial ${index + 1}`;
+    } else {
+      return `Chapter ${index + 1}`;
+    }
+  };
 
-  const loadYearResults = async () => {
+  const loadYearResults = useCallback(async () => {
     if (!subjectId || !currentUser) {
       setYearResults(examYears.map(y => ({ year: y, averageScore: 0 })));
-      setIsLoading(false);
       return;
     }
-
-    setIsLoading(true);
     try {
       const resultsQuery = query(
         collection(db, 'results'),
         where('userId', '==', currentUser.id),
         where('subject', '==', subjectId)
       );
-
       const resultsSnapshot = await getDocs(resultsQuery);
       const results = resultsSnapshot.docs.map(doc => doc.data() as any);
-
       const yearAverages = examYears.map(year => {
         const yearItems = results.filter((r: any) => r.year === year);
-        const average =
-          yearItems.length > 0
-            ? yearItems.reduce((sum: number, r: any) => sum + (r.percentage || 0), 0) /
-              yearItems.length
-            : 0;
+        const average = yearItems.length > 0
+          ? yearItems.reduce((sum: number, r: any) => sum + (r.percentage || 0), 0) / yearItems.length
+          : 0;
         return { year, averageScore: Number(average) };
       });
-
       setYearResults(yearAverages);
     } catch (error) {
       console.error('Error loading year results:', error);
       setYearResults(examYears.map(y => ({ year: y, averageScore: 0 })));
+    }
+  }, [subjectId, currentUser]);
+
+  const loadChapterResults = useCallback(async () => {
+    if (!currentUser || !subjectId) {
+      setIsLoading(false);
+      return;
+    }
+    try {
+      setIsLoading(true);
+      const resultsQuery = query(
+        collection(db, 'results'),
+        where('userId', '==', currentUser.id),
+        where('subject', '==', subjectId)
+      );
+      const resultsSnapshot = await getDocs(resultsQuery);
+      const results = resultsSnapshot.docs.map(doc => doc.data());
+      const chapters = Array.from({ length: itemsPerSubject }, (_, i) => {
+        const chapterNum = i + 1;
+        const chapterResults = results.filter((r: any) => r.chapter === chapterNum);
+        const averageScore = chapterResults.length > 0
+          ? chapterResults.reduce((sum: number, r: any) => sum + (r.percentage || 0), 0) / chapterResults.length
+          : 0;
+        return {
+          chapter: chapterNum,
+          score: averageScore,
+          completed: chapterResults.length > 0
+        };
+      });
+      setChapterResults(chapters);
+    } catch (error) {
+      console.error('Error loading chapter results:', error);
     } finally {
       setIsLoading(false);
-      setIsRefreshing(false);
     }
-  };
+  }, [subjectId, currentUser, itemsPerSubject]);
 
-  const refresh = () => {
-    setIsRefreshing(true);
+  useEffect(() => {
     loadYearResults();
+    loadChapterResults();
+  }, [loadYearResults, loadChapterResults]);
+
+  const handleChapterClick = (chapter: number) => {
+    if (!selectedYear) return;
+    navigate(`/subject/${subjectId}/year/${selectedYear}/chapter/${chapter}/`);
   };
 
-  const getYearCardClass = (score: number) => {
-    if (score === 0)
-      return 'bg-gradient-to-br from-white to-blue-50/80 border border-blue-100/60 shadow-sm';
-    if (score < 60)
-      return 'bg-gradient-to-br from-red-50/90 to-orange-50/90 border border-red-100/60 shadow-sm';
-    return 'bg-gradient-to-br from-green-50/90 to-emerald-50/90 border border-green-100/60 shadow-sm';
-  };
-
-  const getYearTextClass = (score: number) => {
-    if (score === 0) return 'text-blue-700';
-    if (score < 60) return 'text-red-700';
-    return 'text-green-700';
-  };
-
-  const getYearIcon = (score: number) => {
-    if (score === 0) return <Clock size={18} className="text-blue-500" />;
-    if (score < 60) return <AlertTriangle size={18} className="text-red-500" />;
-    return <Award size={18} className="text-green-500" />;
-  };
-
-  const getYearIconBgClass = (score: number) => {
-    if (score === 0) return 'bg-blue-100/80';
-    if (score < 60) return 'bg-red-100/80';
-    return 'bg-green-100/80';
-  };
-
-  const getStatusBadgeClass = (score: number) => {
-    if (score === 0) return 'bg-blue-100 text-blue-700';
-    if (score < 60) return 'bg-red-100 text-red-700';
-    return 'bg-green-100 text-green-700';
-  };
-
-  const getStatusText = (score: number) => {
-    if (score === 0) return 'Not Started';
-    if (score < 40) return 'Needs Practice';
-    if (score < 60) return 'Getting There';
-    if (score < 80) return 'Good Progress';
-    return 'Excellent!';
-  };
-
-  const handleYearClick = (year: number) => {
-    navigate(`/subject/${subjectId}/year/${year}`);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.06, delayChildren: 0.12 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 12, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.45, ease: 'easeOut' }
-    }
-  };
+  const filteredChapters = chapterResults.filter(chapter => true);
+  const totalCompleted = chapterResults.filter(r => r.completed).length;
+  const masteredCount = chapterResults.filter(r => r.score >= 60).length;
+  const averageScore = totalCompleted > 0
+    ? Math.round(chapterResults.filter(r => r.completed).reduce((sum, r) => sum + r.score, 0) / totalCompleted)
+    : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/90 via-purple-50/80 to-indigo-50/90 pb-32">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 pb-32">
       <Header />
-
-      <div className="mx-auto px-4 py-5 max-w-xl">
-        {/* Mobile top row - big tappable controls */}
-        <div className="flex items-center justify-between mb-4">
+      <div className="mx-auto px-4 py-5 max-w-2xl">
+        {/* Navigation and title */}
+        <div className="flex items-center justify-between mb-6">
           <button
             aria-label="Back to Subjects"
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 bg-white/95 p-2 rounded-xl shadow-sm border border-gray-100 focus:outline-none"
+            className="flex items-center gap-2 bg-white/95 p-3 rounded-xl shadow-sm border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 transition-transform"
           >
             <ArrowLeft size={18} />
-            <span className="text-sm font-medium">Subjects</span>
           </button>
-
           <div className="text-center flex-1 px-3">
-            <h2 className="text-lg font-bold text-gray-800 truncate">{subjectName}</h2>
-            <p className="text-xs text-gray-500">Choose exam year</p>
+            <h1 className="text-xl font-bold text-gray-800 truncate">
+              {isEnglishSubject ? 'English' : isFreeTrialSubject ? 'Free Trial' : subjectId}
+            </h1>
+            <p className="text-xs text-gray-500">
+              Select an exam year to begin
+            </p>
           </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={refresh}
-              disabled={isLoading || isRefreshing}
-              aria-label="Refresh results"
-              className="inline-flex items-center gap-2 bg-white/95 hover:bg-white p-2 rounded-xl shadow-sm border border-gray-100 focus:outline-none"
-            >
-              <RefreshCw size={16} className={`${isRefreshing ? 'animate-spin' : ''}`} />
-            </button>
-          </div>
+          <button
+            onClick={() => setShowProgressGuide(true)}
+            aria-label="Show help"
+            className="flex items-center gap-2 bg-white/95 p-3 rounded-xl shadow-sm border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 transition-transform"
+          >
+            <HelpCircle size={18} />
+          </button>
         </div>
 
-        {/* Hero Card - compact for mobile */}
+        {/* Progress summary card */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08 }}
-          className="mb-5 bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-2xl p-4 text-white shadow-xl relative overflow-hidden"
+          {...fadeIn}
+          className="mb-6 bg-gradient-to-br from-indigo-600 to-purple-800 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm">
-                  <BookText size={18} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold">{subjectName} Progress</div>
-                  <div className="text-xs opacity-90">Your learning snapshot</div>
-                </div>
+          <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff33 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+          
+          <div className="relative z-10 flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-white/20 backdrop-blur-sm">
+                <BookOpen size={20} className="text-white" />
+              </div>
+              <div>
+                <div className="text-lg font-bold">Your Progress</div>
+                <div className="text-xs opacity-90">Track your learning journey</div>
               </div>
             </div>
-
-            <div className="bg-white/20 p-2 rounded-lg">
-              <TrendingUp size={20} className="text-white" />
+            <div className="flex items-center text-xs bg-white/20 px-2 py-1 rounded-full">
+              <Clock size={14} className="mr-1" />
+              {new Date().toLocaleDateString()}
             </div>
           </div>
-
-          <div className="grid grid-cols-3 gap-3 mt-4">
+          <div className="relative z-10 grid grid-cols-3 gap-3">
             <div className="text-center bg-white/10 rounded-xl p-3">
-              <div className="text-lg font-bold">
-                {yearResults.filter(r => r.averageScore > 0).length}
-              </div>
-              <div className="text-xs mt-1">Attempted</div>
+              <div className="text-2xl font-bold">{totalCompleted}/{chapterResults.length}</div>
+              <div className="text-xs mt-1 opacity-90">Started</div>
             </div>
             <div className="text-center bg-white/10 rounded-xl p-3">
-              <div className="text-lg font-bold">{yearResults.filter(r => r.averageScore >= 60).length}</div>
-              <div className="text-xs mt-1">Mastered</div>
+              <div className="text-2xl font-bold">{masteredCount}</div>
+              <div className="text-xs mt-1 opacity-90">Mastered</div>
             </div>
             <div className="text-center bg-white/10 rounded-xl p-3">
-              <div className="text-lg font-bold">
-                {yearResults.length > 0 && yearResults.filter(r => r.averageScore > 0).length > 0
-                  ? Math.round(yearResults.reduce((sum, r) => sum + r.averageScore, 0) / yearResults.filter(r => r.averageScore > 0).length)
-                  : 0}%
-              </div>
-              <div className="text-xs mt-1">Avg Score</div>
+              <div className="text-2xl font-bold">{averageScore}%</div>
+              <div className="text-xs mt-1 opacity-90">Avg Score</div>
             </div>
           </div>
         </motion.div>
 
-        {/* Floating small progress toggle for mobile */}
-        <div className="fixed left-4 right-4 bottom-20 z-40 sm:hidden">
-          <button
-            onClick={() => setShowProgressGuide(prev => !prev)}
-            className="w-full flex items-center justify-center gap-3 bg-white/95 p-3 rounded-2xl shadow-lg border border-gray-100"
-            aria-expanded={showProgressGuide}
-          >
-            <BarChart3 size={18} />
-            <span className="font-medium">{showProgressGuide ? 'Hide' : 'Show'} Progress Guide</span>
-          </button>
-        </div>
-
-        {/* Mobile Progress Guide bottom sheet */}
-        <AnimatePresence>
-          {showProgressGuide && (
-            <motion.div
-              initial={{ y: 200, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 200, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 280, damping: 30 }}
-              className="fixed left-3 right-3 bottom-28 z-50 bg-white rounded-2xl p-4 shadow-2xl border border-gray-100 sm:hidden"
-            >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
-                    <BarChart2 size={18} className="text-indigo-600" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold">Progress Guide</div>
-                    <div className="text-xs text-gray-500">Quick overview of your performance</div>
-                  </div>
-                </div>
-                <button onClick={() => setShowProgressGuide(false)} className="text-xs font-medium text-gray-500">Close</button>
-              </div>
-
-              <div className="grid grid-cols-1 gap-2">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-blue-400" />
-                  <div className="text-xs">Not Attempted</div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="text-xs">Needs Work (Below 60%)</div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                  <div className="text-xs">Good (60% and above)</div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Loading skeleton */}
-        {isLoading && (
-          <div className="space-y-3">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="animate-pulse bg-white/90 rounded-2xl p-4 shadow-sm border border-gray-100">
-                <div className="h-4 bg-gray-200 rounded w-1/2 mb-3" />
-                <div className="h-3 bg-gray-200 rounded w-3/4 mb-2" />
-                <div className="h-2 bg-gray-200 rounded w-full" />
-              </div>
-            ))}
+        {/* Main Content: Year Selection */}
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-800">Select Exam Year</h2>
+          <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+            All year Exam Collection
           </div>
-        )}
+        </div>
+        
+        {/* Enhanced Year Cards - Full width with improved design */}
+        <div className="space-y-4 mb-6">
+          {examYears.map(year => {
+            const yearResult = yearResults.find(r => r.year === year);
+            const score = yearResult?.averageScore || 0;
+            const isAttempted = score > 0;
+            const isSelected = selectedYear === year;
+            
+            // Dynamic styles based on state
+            const cardBg = isSelected 
+              ? 'bg-gradient-to-r from-indigo-500 to-purple-600' 
+              : isAttempted 
+                ? 'bg-gradient-to-r from-green-50 to-emerald-50' 
+                : 'bg-gradient-to-r from-gray-50 to-slate-50';
+                
+            const borderColor = isSelected 
+              ? 'border-indigo-600' 
+              : isAttempted 
+                ? 'border-green-200' 
+                : 'border-gray-200';
+                
+            const textColor = isSelected 
+              ? 'text-white' 
+              : isAttempted 
+                ? 'text-gray-800' 
+                : 'text-gray-600';
+                
+            const statusText = isSelected 
+              ? 'Selected' 
+              : isAttempted 
+                ? `${score.toFixed(1)}% completed` 
+                : 'Not attempted yet';
 
-        {/* Years list - mobile friendly cards */}
-        {!isLoading && (
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 gap-4 mb-8"
-          >
-            {examYears.map((year) => {
-              const result = yearResults.find(r => r.year === year);
-              const score = result?.averageScore || 0;
-              const scoreRounded = Number(score.toFixed(1));
-
-              return (
-                <motion.button
-                  key={year}
-                  type="button"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => handleYearClick(year)}
-                  className={`w-full text-left rounded-2xl p-4 transition-all duration-200 flex flex-col justify-between ${getYearCardClass(score)}`}
-                  aria-label={`${year} exams - ${score === 0 ? 'not attempted' : `${scoreRounded}% average`}`}
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${getYearIconBgClass(score)}`}>
-                        {getYearIcon(score)}
-                      </div>
-
-                      <div className="min-w-0">
-                        <h4 className="text-base font-semibold text-gray-800 truncate">{subjectName} Exam Collections</h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className={`text-xs font-medium px-2 py-1 rounded-full ${getStatusBadgeClass(score)}`}>{getStatusText(score)}</span>
-                          {score > 0 && <span className={`text-sm font-bold ${getYearTextClass(score)}`}>{scoreRounded}%</span>}
-                        </div>
-                      </div>
+            return (
+              <motion.div
+                key={year}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={() => setSelectedYear(year)}
+                className={`${cardBg} border ${borderColor} rounded-2xl p-5 transition-all duration-300 ease-in-out shadow-sm cursor-pointer`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl ${isSelected ? 'bg-white/20' : isAttempted ? 'bg-green-100' : 'bg-gray-100'}`}>
+                      <Calendar size={24} className={isSelected ? 'text-white' : isAttempted ? 'text-green-600' : 'text-gray-500'} />
                     </div>
-
-                    <div className="flex flex-col items-end">
-                      <span className="text-xs text-gray-500 mb-1">View</span>
-                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/80 shadow-sm">
-                        <ChevronRight size={18} className="text-gray-700" />
-                      </div>
+                    <div>
+                      <div className={`text-xl font-bold ${textColor}`}>{year}</div>
+                      <div className={`text-sm ${isSelected ? 'text-indigo-100' : 'text-gray-500'}`}>{statusText}</div>
                     </div>
                   </div>
-
-                  <div className="mt-4">
-                    {score > 0 ? (
-                      <>
-                        <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${Math.min(100, score)}%` }}
-                            transition={{ duration: 1.0 }}
-                            className={`h-3 rounded-full ${
-                              score < 40
-                                ? 'bg-rose-400'
-                                : score < 60
-                                ? 'bg-amber-400'
-                                : score < 80
-                                ? 'bg-sky-500'
-                                : 'bg-emerald-500'
-                            }`}
-                          />
-                        </div>
-
-                        <div className="flex items-center justify-between mt-2 text-xs">
-                          <span className="text-gray-500">0%</span>
-                          <span className={`font-medium ${score < 40 ? 'text-rose-600' : score < 60 ? 'text-amber-600' : score < 80 ? 'text-sky-600' : 'text-emerald-600'}`}>
-                            {Math.min(100, Math.round(score))}%
-                          </span>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="mt-2 text-xs text-gray-500 flex items-center gap-2">
-                        <Clock size={12} />
-                        <span>Try a test to check your progress here: mid and final by chapter.</span>
+                  
+                  <div className="flex items-center gap-3">
+                    {isAttempted && !isSelected && (
+                      <div className="w-20 bg-gray-200 rounded-full h-2">
+                        <div 
+                          className={`h-2 rounded-full ${getProgressBarColor(score)}`} 
+                          style={{ width: `${score}%` }}
+                        />
                       </div>
                     )}
+                    
+                    <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      isSelected 
+                        ? 'bg-white text-indigo-600' 
+                        : isAttempted 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-gray-100 text-gray-600'
+                    }`}>
+                      {isSelected ? 'Selected' : isAttempted ? 'Completed' : 'Start'}
+                    </div>
                   </div>
-                </motion.button>
-              );
-            })}
+                </div>
+                
+                {isAttempted && isSelected && (
+                  <div className="mt-4 pl-16">
+                    <div className="text-sm font-medium mb-1 text-indigo-100">Your performance</div>
+                    <div className="w-full bg-white/30 rounded-full h-2.5">
+                      <div 
+                        className={`h-2.5 rounded-full ${getProgressBarColor(score)}`} 
+                        style={{ width: `${score}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Quick Action Cards */}
+        <div className="mb-6">
+          <h3 className="text-md font-semibold text-gray-700 mb-3">Quick Actions</h3>
+          <div className="grid grid-cols-2 gap-3">
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-center gap-2"
+              onClick={() => {
+                const latestYear = Math.max(...examYears);
+                setSelectedYear(latestYear);
+              }}
+            >
+              <Target size={16} className="text-indigo-600" />
+              <span className="text-sm font-medium">All year Exam Collection</span>
+            </motion.button>
+            
+            
+          </div>
+        </div>
+
+        {/* Selected Year CTA */}
+        {selectedYear && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-6 flex items-center justify-between"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-indigo-100 rounded-full">
+                <Calendar size={20} className="text-indigo-600" />
+              </div>
+              <div>
+                <div className="font-semibold text-indigo-800">Year  selected</div>
+                <div className="text-xs text-indigo-600">Tap to view chapters</div>
+              </div>
+            </div>
+            <button 
+              onClick={() => setSelectedYear(null)}
+              className="text-indigo-600 text-sm font-medium"
+            >
+              Change
+            </button>
           </motion.div>
         )}
-
-        <div style={{ height: 96 }} />
       </div>
 
+      {/* Full-screen overlay for Chapters/Topics */}
+      <AnimatePresence>
+        {selectedYear !== null && (
+          <motion.div
+            initial={{ y: '100%' }}
+            animate={{ y: '0%' }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'tween', duration: 0.4 }}
+            className="fixed inset-0 z-50 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 overflow-y-auto"
+          >
+            <div className="mx-auto px-4 py-6 max-w-xl">
+              {/* Header with 'X' button */}
+              <div className="flex items-center justify-between mb-6">
+                <button
+                  onClick={() => setSelectedYear(null)}
+                  className="p-2 rounded-full bg-white/90 shadow-sm border border-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                  aria-label="Go back to year selection"
+                >
+                  <ArrowLeft size={20} />
+                </button>
+                
+                <h2 className="text-xl font-bold text-gray-800 text-center">
+                  {selectedYear} {isEnglishSubject ? 'Topics' : 'Chapters'}
+                </h2>
+                
+                <button
+                  onClick={() => setSelectedYear(null)}
+                  className="p-2 rounded-full bg-white/90 shadow-sm border border-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                  aria-label="Close chapter list"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Year performance summary */}
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-white rounded-xl p-4 mb-4 shadow-sm border border-gray-100"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Calendar size={18} className="text-indigo-600" />
+                    <span className="font-medium">Year Performance</span>
+                  </div>
+                  <div className="text-sm font-semibold">
+                    {yearResults.find(r => r.year === selectedYear)?.averageScore.toFixed(1) || 0}%
+                  </div>
+                </div>
+                <div className="w-full mt-2 bg-gray-200 rounded-full h-2">
+                  <div 
+                    className={`h-2 rounded-full ${getProgressBarColor(yearResults.find(r => r.year === selectedYear)?.averageScore || 0)}`} 
+                    style={{ width: `${yearResults.find(r => r.year === selectedYear)?.averageScore || 0}%` }}
+                  ></div>
+                </div>
+              </motion.div>
+
+              {/* Chapters/Topics List */}
+              {isLoading ? (
+                <div className="text-center py-12">
+                  <div className="border-4 border-gray-200 border-t-4 border-t-indigo-500 rounded-full w-12 h-12 mx-auto animate-spin mb-4"></div>
+                  <p className="mt-4 text-gray-600 font-medium">Loading content...</p>
+                </div>
+              ) : filteredChapters.length === 0 ? (
+                <div className="text-center py-8 bg-white/80 rounded-2xl shadow-sm border border-gray-100">
+                  <BookOpen size={48} className="mx-auto text-gray-300 mb-3" />
+                  <div className="text-gray-500 font-medium mb-2">
+                    No {isEnglishSubject ? 'topics' : 'chapters'} available for this year
+                  </div>
+                  <button 
+                    onClick={() => setSelectedYear(null)}
+                    className="text-indigo-600 text-sm font-medium"
+                  >
+                    Select another year
+                  </button>
+                </div>
+              ) : (
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="visible"
+                  className="grid grid-cols-1 gap-3 mb-8"
+                >
+                  {filteredChapters.map((chapter) => {
+                    const status = getStatusBadge(chapter.score, chapter.completed);
+                    const StatusIcon = status.icon;
+                    const itemName = getItemName(chapter.chapter - 1);
+                    return (
+                      <motion.button
+                        key={chapter.chapter}
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        onClick={() => handleChapterClick(chapter.chapter)}
+                        className={`relative cursor-pointer bg-white backdrop-blur-md border border-gray-200 rounded-xl shadow-sm hover:shadow p-4 relative overflow-hidden w-full text-left transition-all duration-200 ease-in-out`}
+                        aria-label={`${itemName} - ${chapter.completed ? `${chapter.score}% average` : 'not attempted'}`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`p-2 rounded-lg ${status.color.split(' ')[0]} bg-opacity-20`}>
+                              <StatusIcon size={18} className={status.color.split(' ')[1]} />
+                            </div>
+                            <div className="text-left">
+                              <h3 className="text-sm font-semibold text-gray-800">{itemName}</h3>
+                              <div className="flex items-center text-xs text-gray-500 mt-1">
+                                {chapter.completed ? (
+                                  <>
+                                    <Star size={12} className="text-yellow-400 mr-1" />
+                                    <span>{chapter.score.toFixed(1)}% score</span>
+                                  </>
+                                ) : (
+                                  <span>Not attempted yet</span>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                          <ChevronRight size={16} className="text-gray-400" />
+                        </div>
+                        
+                        {chapter.completed && (
+                          <div className="mt-3 w-full bg-gray-200 rounded-full h-1.5">
+                            <motion.div
+                              className={`h-1.5 rounded-full ${getProgressBarColor(chapter.score)}`}
+                              initial={{ width: 0 }}
+                              animate={{ width: `${chapter.score}%` }}
+                              transition={{ duration: 0.8, ease: 'easeInOut' }}
+                            />
+                          </div>
+                        )}
+                      </motion.button>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Progress Guide Modal */}
+      <AnimatePresence>
+        {showProgressGuide && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            onClick={() => setShowProgressGuide(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-2xl p-6 w-full max-w-sm sm:max-w-md"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-800">Understanding Your Progress</h3>
+                <button
+                  onClick={() => setShowProgressGuide(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0">
+                    <Play size={16} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Start Quiz</h4>
+                    <p className="text-sm text-gray-600">You haven't attempted this content yet.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 p-3 bg-red-50 rounded-xl">
+                  <div className="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle size={16} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Needs Improvement</h4>
+                    <p className="text-sm text-gray-600">Your score is below 60%. Time to review!</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 p-3 bg-green-50 rounded-xl">
+                  <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
+                    <Award size={16} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Well Done!</h4>
+                    <p className="text-sm text-gray-600">You've scored 60% or above. Keep up the great work!</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowProgressGuide(false)}
+                className="w-full mt-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors"
+              >
+                Got It
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <BottomBar />
     </div>
   );
