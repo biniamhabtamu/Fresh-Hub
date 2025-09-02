@@ -2447,6 +2447,988 @@ export const sampleQuestions: Question[] = [
     year: 2013_2017,
     chapter: 1
   },
+  // Economics Chapter 3
+
+  {
+    "id": "econ-2013_2017-3-1",
+    "question": "Indifference curve slopes",
+    "options": [
+      "Upward to the right",
+      "Downward to the left",
+      "Downward to the right",
+      "Upward to the left"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Indifference curves slope downward to the right because they represent combinations of two goods that provide the same level of satisfaction. To maintain the same utility, if the quantity of one good increases, the quantity of the other must decrease. This inverse relationship creates a downward slope.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-2",
+    "question": "Which of the following statements regarding utility is not true?",
+    "options": [
+      "It helps consumers to make choices",
+      "It is a want-satisfying power of a commodity",
+      "Utility is always measurable",
+      "It is purely a subjective entity"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is not true. In modern ordinal utility theory, which is the standard approach, utility is not measurable in absolute numerical terms (cardinal utility). Instead, consumers can only rank or order their preferences (e.g., they prefer bundle A to bundle B), making utility subjective and ordinally measurable, not cardinally measurable.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-3",
+    "question": "Which one of the following is not correct?",
+    "options": [
+      "Total utility is maximum when marginal utility becomes zero",
+      "As marginal utility of consumption declines, total utility will decrease at all times",
+      "Marginal utility is the slope of total utility",
+      "None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is incorrect. Marginal utility (MU) is the addition to total utility (TU) from consuming one more unit. TU increases as long as MU is positive, even if MU is declining. TU only starts to decrease when MU becomes negative. Therefore, declining MU does not mean TU is decreasing; it means TU is increasing at a decreasing rate.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-4",
+    "question": "The marginal utility curve will be below the horizontal axis when:",
+    "options": [
+      "The total utility is maximized",
+      "The total utility starts to decrease",
+      "Marginal utility becomes negative",
+      "Both B and C"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The marginal utility (MU) curve falls and eventually crosses below the horizontal axis, which signifies that MU is negative. This happens when the total utility (TU) is maximized and begins to decrease. Therefore, the MU curve is below the horizontal axis when MU becomes negative, which is also the point where TU begins to decrease. Thus, options B and C are essentially the same concept. However, the most direct answer is that MU is negative, which is represented by the curve being below the horizontal axis.  Based on the context of the provided questions, a more specific option might be needed, but with the given choices, 'The total utility is maximized' is a common but incomplete answer. A better option would be 'When total utility starts to decrease' or 'When marginal utility becomes negative.' Assuming the provided answer 'A' is the correct one in the user's provided context, it should be noted that the MU curve is at the horizontal axis when TU is maximized, and below it when TU starts to decrease.  Without the full original options, this is a best-effort explanation.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-5",
+    "question": "Which best expresses the law of diminishing marginal utility?",
+    "options": [
+      "The more consumption of a product, the smaller is the total and greater is marginal utility from the consumption",
+      "The more consumption of a product, the smaller is the total and marginal utility from the consumption",
+      "The less consumption of a product, the greater is the total utility and the less is marginal utility of the consumption",
+      "The more consumption of a product, the smaller is the marginal utility from consuming an additional unit"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is the precise definition of the law of diminishing marginal utility. It states that as a consumer consumes more units of a specific good in a given period, the additional satisfaction (marginal utility) gained from each subsequent unit decreases. It says nothing about total utility decreasing (which only happens if MU becomes negative).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-6",
+    "question": "Suppose you prefer basket B to C but you do not care if you get basket A or B, then:",
+    "options": [
+      "Both A and B are on the same higher indifference curve than C",
+      "A is on a higher indifference curve than B",
+      "C is on a higher indifference curve than A",
+      "B and C are on the same indifference curve"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'You do not care if you get basket A or B' means you are indifferent between them. Therefore, A and B must lie on the same indifference curve. 'You prefer basket B to C' means the indifference curve containing A and B represents a higher level of satisfaction than the curve containing C.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-7",
+    "question": "[This question requires a graph not provided. The correct answer is likely the one that shows the trade-off (MRS) as a ratio of the change in the two goods, e.g., 'ac of apples for bd of butter'. Without the graph, a definitive answer cannot be selected.]",
+    "options": [],
+    "correctAnswer": -1,
+    "explanation": "The original question provided is incomplete and requires a graph to be answered.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-8",
+    "question": "Suppose the consumer's utility function is U(X,Y)=X^3 Y^5. The Marginal Rate of Substitution of X for Y (MRS_{XY}) is:",
+    "options": [
+      "5X/3Y",
+      "3Y/5X",
+      "(3X^2 Y^5)/5Y",
+      "3X^2/5Y",
+      "None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Marginal Rate of Substitution (MRS) is the ratio of the marginal utilities: MRSxy = MUx / MUy. First, find the marginal utilities: MUx = ∂U/∂X = 3X²Y⁵ and MUy = ∂U/∂Y = 5X³Y⁴. Therefore, MRSxy = MUx / MUy = (3X²Y⁵) / (5X³Y⁴) = (3Y) / (5X).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-9",
+    "question": "If A, B, C, and D are baskets and the consumer ranks them so that D ≻ C, A not ≻ B, and B not ≻ C, then:",
+    "options": [
+      "A ≻ C",
+      "A ≻ D",
+      "B ≻ D",
+      "D ≻ A",
+      "D is not preferred to B"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Let's interpret the rankings: 'A not ≻ B' means the consumer does not prefer A to B. This implies B is at least as good as A (B ≽ A). 'B not ≻ C' means the consumer does not prefer B to C. This implies C is at least as good as B (C ≽ B). 'D ≻ C' means D is strictly preferred to C. We can chain these preferences together: D ≻ C ≽ B ≽ A. Therefore, by the assumption of transitivity, D must be preferred to A (D ≻ A).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-10",
+    "question": "Which one is not correct about well-behaved indifference curves (ICs)?",
+    "options": [
+      "ICs cannot cross each other",
+      "ICs are downward sloping to the right",
+      "A higher IC is always preferred to a lower one",
+      "ICs are concave to the origin",
+      "None of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This is incorrect. Well-behaved indifference curves are convex to the origin. This shape reflects the Law of Diminishing Marginal Rate of Substitution, meaning a consumer is willing to give up less and less of good Y to get more of good X. Concave curves would imply an increasing marginal rate of substitution, which is not a standard assumption for consumer theory.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-11",
+    "question": "If a consumer prefers commodity X to Y and Y to Z, then he must prefer X to Z. This assumption is called:",
+    "options": [
+      "Ordinal approach",
+      "Transitivity",
+      "Rationality",
+      "Cardinal approach"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of transitivity, a fundamental axiom of consumer theory. It ensures that consumer preferences are consistent and rational. Without transitivity, consistent choice would be impossible.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-12",
+    "question": "Which one of the following statements about indifference curves is incorrect?",
+    "options": [
+      "Indifference curves are convex to the origin",
+      "Indifference curves may intersect each other",
+      "Indifference curves are downward sloping",
+      "Higher indifference curves represent a higher level of satisfaction"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is incorrect. Indifference curves cannot intersect. If they did, it would violate the assumptions of transitivity and non-satiation (more is preferred to less). An intersection point would imply that two different levels of satisfaction are equal, which is a logical contradiction.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-13",
+    "question": "The indifference curve represents:",
+    "options": [
+      "Equal level of satisfaction",
+      "Different combinations of two goods with equal satisfaction",
+      "Different income levels of a consumer",
+      "Different prices of two goods"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of an indifference curve. It is a locus of points (each point being a basket of two goods) all of which provide the consumer with the exact same level of utility or satisfaction.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-14",
+    "question": "Which one of the following conditions must hold true for utility maximization?",
+    "options": [
+      "Total utility is maximized when marginal utility is zero",
+      "Marginal utility is maximized when total utility is maximized",
+      "Marginal utility per birr spent is the same for each good",
+      "Marginal utility is constant"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the equi-marginal principle, the key condition for consumer equilibrium. A consumer maximizes utility when the last birr spent on each good yields the same amount of marginal utility (MUx/Px = MUy/Py). If this doesn't hold, the consumer can rearrange spending to gain more total utility.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-15",
+    "question": "The law that states the extra satisfaction obtained from consuming additional units of a commodity declines as consumption increases is:",
+    "options": [
+      "The law of equi-marginal utility",
+      "The law of diminishing marginal utility",
+      "The law of substitution",
+      "The law of demand"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the direct definition of the Law of Diminishing Marginal Utility. It is a fundamental psychological law underlying consumer choice.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-16",
+    "question": "Which one of the following statements is not true about utility?",
+    "options": [
+      "Utility is subjective",
+      "Utility cannot be measured in absolute terms",
+      "Utility is derived from goods and services",
+      "None"
+    ],
+    "correctAnswer": 3,
+    "explanation": "All statements A, B, and C are true. Utility is subjective (varies from person to person), it is ordinally measurable but not cardinally measurable in absolute terms, and it is the satisfaction derived from consuming goods and services. Therefore, there is no false statement among the options, making 'None' the correct choice.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-17",
+    "question": "If the income of a consumer increases, then the budget line:",
+    "options": [
+      "Shifts the budget line inward",
+      "Shifts the budget line outward",
+      "Rotates around one axis",
+      "Does not change"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An increase in income, with prices held constant, increases the consumer's purchasing power for both goods. This causes a parallel outward shift of the budget line. A parallel shift occurs because the slope (ratio of prices) remains unchanged.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-18",
+    "question": "If the consumer’s income is constant and the prices of both goods increase equally, then the budget line will:",
+    "options": [
+      "Rotate outward",
+      "Shift the budget line inward",
+      "Remain unchanged",
+      "Rotate inward"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If both prices increase by the same proportion, the relative price (slope of the budget line) remains the same. However, the consumer's real income (purchasing power) decreases because their constant money income can now buy fewer units of both goods. This results in a parallel inward shift of the budget line.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-19",
+    "question": "If consumer prefers commodity X to Y, and Y to Z, then X is preferred to Z. This is an example of:",
+    "options": [
+      "Ordinality",
+      "Transitivity",
+      "Cardinality",
+      "Both B and C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "As explained in Question 11, this is the axiom of transitivity. It is a core assumption of consumer preference ordering, which is part of the ordinal utility approach.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-20",
+    "question": "The condition for consumer equilibrium is:",
+    "options": [
+      "Marginal utility is maximum",
+      "Total utility is maximum",
+      "Marginal utility per birr spent is the same for each good",
+      "None"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This repeats the concept from Question 14. The equilibrium condition is the equi-marginal principle: MUx/Px = MUy/Py. This ensures the consumer has allocated their budget in a way that maximizes total utility. Total utility is maximized when this condition is met.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  {
+    "id": "econ-2013_2017-3-21",
+    "question": "Identify the correct statement regarding markets:",
+    "options": [
+      "In product markets, money flows from household to firms",
+      "In resource markets, households are buyers of labor",
+      "In resource markets, firms earn income",
+      "Expenditure by households in product markets becomes revenue for firms"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In the product market, households spend their money to buy goods and services from firms. This means that money flows from households to firms. Statement D is also correct, as the expenditure of households is the revenue of firms. Given the options, and the general nature of these questions, A is the intended answer. However, both A and D are correct, which is a common ambiguity in multiple-choice questions.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 3
+  },
+  // Economics Chapter 4 
+  {
+    "id": "econ-2013_2017-4-1",
+    "question": "Diminishing marginal returns implies:",
+    "options": [
+      "Decreasing average fixed costs",
+      "Decreasing average variable costs",
+      "Decreasing marginal costs",
+      "Increasing marginal costs",
+      "None of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The law of diminishing marginal returns states that as more units of a variable input are added to fixed inputs, the marginal product (additional output) from each new unit will eventually decline. Since Marginal Cost (MC) is the cost of producing one more unit, and it is inversely related to Marginal Product (MC = w/MP, where w is the wage), a declining MP necessarily means an increasing MC.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-2",
+    "question": "Which of the following cost curves is never “U”-shaped?",
+    "options": [
+      "Average fixed cost curve",
+      "Average variable cost curve",
+      "Average total cost curve",
+      "Marginal cost curve",
+      "None of the above"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Average Fixed Cost (AFC) curve constantly declines as output increases because the same fixed cost is being spread over a larger and larger number of units. It is a rectangular hyperbola, not a U-shaped curve. AVC, ATC, and MC are all U-shaped due to the principles of increasing and then diminishing returns.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-3",
+    "question": "Which stage of production is recommendable for rational firms to produce?",
+    "options": [
+      "Stage I",
+      "Stage II",
+      "Stage III",
+      "A & B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Stage II is the 'economic region' of production. In Stage I, the average product of the variable input is still rising, meaning the firm is underutilizing its fixed inputs. In Stage III, the marginal product is negative, meaning additional variable inputs reduce total output. A rational firm will always operate in Stage II, where the marginal product is positive but diminishing.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-4",
+    "question": "Average total cost (ATC) and marginal cost (MC) are defined as ______ and ______, respectively.",
+    "options": [
+      "Quantity divided by total cost; the change in quantity divided by the change in cost",
+      "The change in total cost divided by the change in quantity; total cost divided by quantity",
+      "Total cost divided by quantity; the change in total cost divided by the change in quantity",
+      "The change in quantity divided by the change in total cost; quantity divided by cost"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is the standard definition. Average Total Cost (ATC) = TC / Q (Total Cost divided by Quantity) and Marginal Cost (MC) = ΔTC / ΔQ (The change in Total Cost divided by the change in Quantity).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-5",
+    "question": "Identify the incorrect statement:",
+    "options": [
+      "The minimum point on ATC curve is reached corresponding to a larger output than the minimum point on AVC curve",
+      "ATC curves never touch AVC curves because the vertical distance between ATC and AVC is AFC which is always positive",
+      "MC is affected by fixed cost because fixed cost does not change with output",
+      "MC is dependent on variable cost because variable cost does change with output"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is incorrect. By definition, Marginal Cost (MC) is the cost of producing one more unit. Since fixed costs do not change with output, they do not affect the change in total cost. Therefore, MC is not affected by fixed costs; it is solely determined by changes in variable costs (MC = ΔTVC / ΔQ).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-6",
+    "question": "Which one of the following is not true about the relationship between Marginal Product (MP) and Average Product (AP)?",
+    "options": [
+      "When the MP curve lies above the AP curve, the AP curve is rising",
+      "When the amount of the variable input increases, both AP and MP curves decline",
+      "When AP is at its maximum, it intersects with MP",
+      "None of the above"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is not always true. While both MP and AP will eventually decline due to diminishing returns, they first increase. When MP is greater than AP, AP is still rising even though MP itself might have started to decline. This statement is an oversimplification and is therefore not universally true. The other options are fundamental truths about the relationship.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-7",
+    "question": "If average total cost (ATC) is 100 for a given output and marginal cost (MC) is 70, then average fixed cost (AFC) is:",
+    "options": [
+      "30",
+      "170",
+      "70",
+      "Not possible to determine with given information"
+    ],
+    "correctAnswer": 3,
+    "explanation": "We know that ATC = AFC + AVC. We are given ATC and MC, but not AVC. Without knowing the Average Variable Cost (AVC) at that specific output level, it is impossible to isolate and calculate AFC. The difference between ATC and AVC is AFC, but we don't have AVC.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-8",
+    "question": "A curve that can never be “U”-shaped is the:",
+    "options": [
+      "Average variable cost curve",
+      "Marginal cost curve",
+      "Average fixed cost curve",
+      "Average total cost curve"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Average Fixed Cost (AFC) curve constantly falls as output increases and is graphed as a downward-sloping curve, not a U-shaped one. All other curves have a U-shape due to the influence of diminishing returns.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-9",
+    "question": "The short-run production function of a textile firm is Q=18L−2L^2. The range of labor (L) in the second stage of production is:",
+    "options": [
+      "0–6/3",
+      "3–6/18",
+      "6 to 12",
+      "9–12",
+      "None"
+    ],
+    "correctAnswer": 4,
+    "explanation": "To find Stage II, we need to find where MP starts to decline but is still positive (AP is maximized to where MP=0). First, find Average Product (AP): AP = Q/L = 18 - 2L. Then, find Marginal Product (MP): MP = dQ/dL = 18 - 4L. Stage II begins where MP = AP (AP is maximized). Set MP = AP: 18 - 4L = 18 - 2L --> -2L=0 --> L=0. This is a special case. Stage II ends where MP = 0: 18 - 4L = 0 --> 4L=18 --> L=4.5. Given the options, none correctly state the range (which is from L=0 to L=4.5 based on this calculation). The calculation shows L=4.5 is the end of Stage II, and none of the options list this.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-10",
+    "question": "The value of L that maximizes output (assuming labor cost is zero) is:",
+    "options": [
+      "0",
+      "18",
+      "12",
+      "36"
+    ],
+    "correctAnswer": -1,
+    "explanation": "To maximize output, find where MP = 0. MP = dQ/dL = 18 - 4L. Set MP = 0: 18 - 4L = 0 --> 4L = 18 --> L = 4.5. Since 4.5 is not an option, the provided question has no correct answer in the given choices.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-11",
+    "question": "Which statement is correct?",
+    "options": [
+      "When MP is zero, TP is at its maximum",
+      "When MP increases, TP increases at a decreasing rate",
+      "When MP declines but is positive, TP always increases at increasing rate",
+      "When MP is negative, TP always increases"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a fundamental relationship. Marginal Product is the slope of the Total Product curve. When MP = 0, the slope of TP is zero, meaning TP has reached its peak (its maximum point). If MP becomes negative, TP will start to fall.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-12",
+    "question": "When average product is decreasing, it follows that:",
+    "options": [
+      "Marginal product must be less than average product",
+      "Total product must be increasing",
+      "Average product must be less than marginal product",
+      "Average product is equal to marginal product"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is due to the relationship between averages and marginals. The average product curve falls when the marginal product is below it. Think of test scores: if your marginal (next) test score is below your current average, it will pull your average down.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-13",
+    "question": "In the short run, the shutdown point is where:",
+    "options": [
+      "P = minimum point of AVC",
+      "P = minimum point of AFC",
+      "P = MC",
+      "P = minimum point of ATC"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A firm will shut down in the short run if the price it receives cannot cover its variable costs. If P < min AVC, the firm is not covering the costs of operating and is better off shutting down and only losing its fixed costs. The minimum point of the AVC curve is the shutdown point.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-14",
+    "question": "A competitive firm has AVC = $5 and AC = $20 at output 35. Total fixed cost (TFC) at this output is:",
+    "options": [
+      "$525",
+      "$275",
+      "$425",
+      "$660"
+    ],
+    "correctAnswer": 0,
+    "explanation": "We know that AC = AFC + AVC. Therefore, AFC = AC - AVC = $20 - $5 = $15. Average Fixed Cost (AFC) is Total Fixed Cost (TFC) divided by quantity (Q): AFC = TFC / Q. So, $15 = TFC / 35. Solving for TFC: TFC = $15 * 35 = $525.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-15",
+    "question": "When total product is maximum, marginal product is:",
+    "options": [
+      "Maximum",
+      "Zero",
+      "Negative",
+      "Increasing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The slope of the Total Product (TP) curve is Marginal Product (MP). TP is at its maximum when its slope is zero. Therefore, MP must be zero at that point.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-16",
+    "question": "The change in total product resulting from employing one more unit of a variable input is called:",
+    "options": [
+      "Average Product",
+      "Marginal Product",
+      "Total Product",
+      "Isoquant"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of Marginal Product.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-17",
+    "question": "In stage III of production, the marginal product of the variable input is:",
+    "options": [
+      "Negative marginal returns of the variable input",
+      "Positive and diminishing",
+      "Maximum and positive",
+      "Zero"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Stage III of production is defined by negative marginal returns, meaning adding more of the variable input actually decreases total output.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-18",
+    "question": "When there is implicit cost:",
+    "options": [
+      "Accounting cost is greater than economic cost",
+      "Accounting cost is less than economic cost",
+      "Accounting cost = Economic cost",
+      "Accounting cost does not consider explicit cost"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Economic Cost = Explicit Costs + Implicit Costs. Accounting Cost = Explicit Costs only. Therefore, if there are any implicit costs (forgone opportunities), accounting cost will always be less than economic cost.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-19",
+    "question": "Which one of the following statements about cost variables is correct?",
+    "options": [
+      "TFC increases with increase in output",
+      "AFC increases with increase in output",
+      "TVC is zero at Q = zero",
+      "TC curve begins from the origin"
+    ],
+    "correctAnswer": 2,
+    "explanation": "If a firm produces zero output, it uses zero variable inputs. Therefore, Total Variable Cost (TVC) must be zero at Q=0. TFC is constant, not increasing (A is wrong). AFC decreases with output (B is wrong). The TC curve begins at the level of TFC on the cost axis, not the origin (D is wrong).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-20",
+    "question": "Which one of the following statements is incorrect?",
+    "options": [
+      "AFC and MC intersect each other, at the minimum level of AFC",
+      "AVC and MC intersect each other, at the minimum level of AVC",
+      "AC and MC intersect each other, at the minimum level of AC",
+      "All of the above"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is incorrect. The Average Fixed Cost (AFC) curve has no minimum point; it declines continuously. The Marginal Cost (MC) curve does not intersect the AFC curve at any meaningful economic point. Statements B and C are correct: the MC curve always cuts the AVC and ATC curves at their respective minimum points.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-21",
+    "question": "At which point do MP and AP intersect each other?",
+    "options": [
+      "At the maximum point of marginal product",
+      "At the maximum point of average product",
+      "At the minimum point of average product",
+      "At the minimum point of marginal product"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Marginal Product curve always intersects the Average Product curve at the AP's maximum point. This is because when MP > AP, AP is pulled up. When MP < AP, AP is pulled down. Therefore, AP is at its maximum when it is equal to MP.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-22",
+    "question": "In stage III of production:",
+    "options": [
+      "Negative marginal returns of the variable input",
+      "Positive marginal returns of the variable input",
+      "Returns to scale is constant",
+      "Returns to scale is decreasing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Stage III is defined by negative marginal returns. Returns to scale is a long-run concept concerning changes in all inputs, not a short-run stage of production with one variable input.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-23",
+    "question": "The correct cost variable statement is:",
+    "options": [
+      "TVC is not zero at Q = zero",
+      "TC = TVC + AFC",
+      "TVC is zero at Q = zero",
+      "MC cuts AVC from above at the maximum point of AVC"
+    ],
+    "correctAnswer": 2,
+    "explanation": "If no output is produced, no variable inputs are used, so TVC = 0. TC = TFC + TVC (not +AFC). MC cuts AVC from below at the minimum point of AVC.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-24",
+    "question": "The statement which is not correct is:",
+    "options": [
+      "AFC and MC intersect each other, at the minimum level of AFC",
+      "AVC curve is U-shaped",
+      "MC cuts AVC from below, at its minimum",
+      "AC is equal to AVC plus AFC"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is the incorrect statement. AFC has no minimum point, and MC does not intersect it. The other options are all true statements about cost curves.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "econ-2013_2017-4-25",
+    "question": "The change in total product resulting from employing one more unit of input is:",
+    "options": [
+      "Average Product",
+      "Marginal Product",
+      "Total Product",
+      "Variable Product"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the definition of Marginal Product.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 4
+  },
+
+  // Economics chapter 5
+{
+    "id": "econ-2013_2017-5-1",
+    "question": "If there are two firms in the market, then the market structure can be considered:",
+    "options": [
+      "Monopoly market",
+      "Perfectly competitive market",
+      "Monopolistically competitive market",
+      "Oligopoly market"
+    ],
+    "correctAnswer": 3,
+    "explanation": "An oligopoly is a market structure characterized by a small number of firms that are interdependent in their decision-making. Two firms is the smallest possible number for an oligopoly (often called a duopoly). A monopoly has one firm, perfect competition has many, and monopolistic competition has many firms selling differentiated products.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-2",
+    "question": "Based on the number of sellers in the market, which one shows descending order?",
+    "options": [
+      "Perfectly competitive market → Oligopoly → Monopolistically competitive → Monopoly",
+      "Monopolistically competitive market → Perfectly competitive market → Monopoly → Oligopoly",
+      "Perfectly competitive market → Monopolistically competitive market → Monopoly → Oligopoly",
+      "Oligopoly market → Perfectly competitive market → Monopolistically competitive market → Monopoly"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The typical descending order of the number of sellers is: Perfect Competition (Very many sellers) → Monopolistic Competition (Many sellers) → Oligopoly (Few sellers) → Monopoly (One seller). Option A lists 'Oligopoly' before 'Monopolistically competitive', which is incorrect. However, it is the only option that starts with Perfect Competition and ends with Monopoly, making it the best available choice.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-3",
+    "question": "Which one of the following is not a feature of a monopoly market?",
+    "options": [
+      "Perfect knowledge",
+      "A firm is price maker",
+      "There is no industry concept",
+      "There is only one firm in the market"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Perfect knowledge is a key feature of a perfectly competitive market, not a monopoly. In a monopoly, the single firm holds unique information about its production and costs. The other options are defining characteristics of a monopoly: the firm is a price maker, the firm is the industry, and there is only one firm.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-4",
+    "question": "In perfect competition, the product of a single firm:",
+    "options": [
+      "Is sold under differing brand names",
+      "Is sold to different customers at different prices",
+      "Has many perfect complements produced by other firms",
+      "Has many perfect substitutes produced by other firms"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A fundamental assumption of perfect competition is homogeneous products. This means the output of one firm is a perfect substitute for the output of any other firm in the market. There is no branding or price discrimination.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-5",
+    "question": "One is incorrect about profit maximization:",
+    "options": [
+      "According to the marginal approach, at profit-maximizing level of output marginal cost cuts marginal revenue from below",
+      "According to the total approach, maximum profit is achieved at the point where the positive difference between total revenue and total cost is maximum",
+      "According to the marginal approach, maximum profit is achieved at the point where marginal revenue equals marginal cost while MC is rising",
+      "According to the total approach, once profit is maximized, total profit remains the same if one more or one less unit of output is produced"
+    ],
+    "correctAnswer": 3,
+    "explanation": "This statement is incorrect. At the profit-maximizing output level (Q*), producing one more or one less unit will result in a decrease in total profit. This is why it is the maximum point. If profit remained the same, there would be multiple profit-maximizing points. The other options correctly describe the marginal and total approaches to profit maximization.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-6",
+    "question": "A firm operating in a perfect market maximizes its profit by adjusting:",
+    "options": [
+      "its output price until it exceeds average total cost as much as possible",
+      "its output price until it exceeds marginal cost as much as possible",
+      "its output until its marginal cost equals output price",
+      "its output until its average total cost is minimized"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In perfect competition, a firm is a price taker. It cannot adjust the market price. Therefore, its only decision is to choose the output level that maximizes profit. The profit-maximizing rule is to produce where Marginal Cost (MC) equals Marginal Revenue (MR). Since in perfect competition MR = Price, the firm produces where MC = P.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-7",
+    "question": "Being a price taker in a market means that the seller:",
+    "options": [
+      "Charges each consumer the maximum that she will be able to pay for the product",
+      "Has no choice but to charge the equilibrium price that results from market supply and demand",
+      "Takes her price from her average total cost curve",
+      "Sells her products at different prices to different customers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A price taker is a firm that has no market power to influence the price of its product. It must accept the prevailing market price determined by the overall forces of industry supply and demand. If it charges more, it sells nothing; if it charges less, it forgoes revenue unnecessarily.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-8",
+    "question": "The horizontal demand curve for a firm in perfect competition implies:",
+    "options": [
+      "The firm must reduce price to sell more",
+      "Demand is perfectly elastic",
+      "The firm is price maker",
+      "Demand is perfectly inelastic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A horizontal demand curve means that consumers are willing to buy any quantity the firm produces at the going market price. The elasticity of demand for a perfectly competitive firm's product is perfectly elastic (Ed = ∞). This is because of the availability of perfect substitutes from competitors.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-9",
+    "question": "For a perfectly competitive firm with TC=40+4Q and market price P=20, the profit-maximizing output Q is:",
+    "options": [
+      "4 units",
+      "2 units",
+      "6 units",
+      "20 units"
+    ],
+    "correctAnswer": -1,
+    "explanation": "The question is missing a key component. The Total Cost (TC) function must include a quadratic term (e.g., Q²) for Marginal Cost (MC) to be rising. With TC=40+4Q, MC is constant at 4. The firm would produce an infinite amount if P=20 > MC=4, or zero if P<MC. This suggests a possible error in the question. Based on standard practice, if we assume MC=4, then the rule P=MC suggests any output is profit-maximizing, which is not a standard result. A correct TC function might be TC=40+4Q+Q², making MC=4+2Q. Then set P=MC: 20 = 4 + 2Q -> 16=2Q -> Q=8 (not an option). Therefore, none of the options are correct with the given TC.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-10",
+    "question": "In short-run equilibrium under perfect competition:",
+    "options": [
+      "MR = MC, MC is falling",
+      "MR = MC, MC is constant",
+      "MR = MC, MC is rising",
+      "MR = MC, MC is not rising"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The profit-maximizing output is where MR=MC. For this to be a true maximum and not a minimum, the MC curve must be cutting the MR curve from below. This means that at the point of intersection, the MC curve must be rising. If MC is falling or constant at the point where MR=MC, the firm could increase profit by producing more output.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-11",
+    "question": "The correct order of market structure in terms of difficulty of entry and exit into an industry is:",
+    "options": [
+      "Oligopoly, Monopoly, Perfect competition, Monopolistic competition",
+      "Monopoly, Oligopoly, Monopolistic competition, Perfect competition",
+      "Perfect competition, Monopolistic competition, Monopoly, Oligopoly",
+      "Monopoly, Oligopoly, Perfect competition, Monopolistic competition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Barriers to entry are highest in a monopoly (e.g., patents, control of resources). Oligopoly has significant barriers (e.g., high capital requirements). Monopolistic competition has low barriers (e.g., branding). Perfect competition has no barriers to entry or exit.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-12",
+    "question": "Which of the following is not matched correctly?",
+    "options": [
+      "Perfect competition – strong competition",
+      "Monopoly – one producer",
+      "Oligopoly – few producers",
+      "Monopolistic competition – product differentiation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "While there is strong competition in perfect competition, this is a vague description. Its defining feature is homogeneous products, not just 'strong competition.' All other options are perfectly matched: Monopoly (one seller), Oligopoly (few sellers), Monopolistic Competition (differentiated products).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-13",
+    "question": "A market structure where there are many firms in the industry and where each firm is producing a differentiated product is:",
+    "options": [
+      "Perfectly competitive",
+      "Monopolistic competitive",
+      "Monopoly",
+      "Oligopoly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This is the textbook definition of monopolistic competition. Many firms compete, but each has a small degree of market power because its product is slightly different from its competitors' products (e.g., different brands of soap, coffee shops, clothing stores).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-14",
+    "question": "Market structure with differentiated product but many firms:",
+    "options": [
+      "Monopoly",
+      "Monopolistic competitive",
+      "Oligopoly",
+      "Perfect competition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Monopolistic competition is defined by many firms selling differentiated products.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-15",
+    "question": "The condition for equilibrium of the firm under perfect competition in the short run is:",
+    "options": [
+      "MC = MR, MC cuts MR from above",
+      "MR = AR, and MC is minimum",
+      "MR = MC, MC is rising",
+      "MR = MC, MC is falling"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The profit-maximizing condition is MR=MC. For this equilibrium to be stable and represent a profit maximum (not a minimum), the Marginal Cost (MC) curve must be rising and cutting the Marginal Revenue (MR) curve from below.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-16",
+    "question": "Which one can be a source of monopoly?",
+    "options": [
+      "Legal restriction",
+      "Control over key resource",
+      "Economies of scale",
+      "All may be possible"
+    ],
+    "correctAnswer": 3,
+    "explanation": "All of these are common sources of monopoly power. Legal restrictions: Patents, copyrights, and government franchises. Control over a key resource: Owning the entire supply of a necessary input (e.g., a rare mineral). Economies of scale (Natural Monopoly): When large-scale production creates such low costs that a single firm can supply the entire market most efficiently (e.g., public utilities).",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-17",
+    "question": "Common characteristic of all market structures is:",
+    "options": [
+      "Large number of buyers",
+      "Large number of sellers",
+      "Types of products firms produce",
+      "Entry and exit conditions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "While the number of sellers, product type, and entry conditions vary across market structures, one commonality is that they all typically assume a large number of buyers. This means no single buyer has the power to influence the market price.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-18",
+    "question": "The order of the market structure according to difficulty of entry and exit is:",
+    "options": [
+      "Perfect competition → monopolistic competition → oligopoly → monopoly",
+      "Monopoly → oligopoly → monopolistic competition → perfect competition",
+      "Monopolistic competition → perfect competition → monopoly → oligopoly",
+      "Monopoly → monopolistic competition → oligopoly → perfect competition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Barriers to entry are most severe in a Monopoly, followed by Oligopoly. Monopolistic competition has mild barriers, and Perfect competition has no barriers.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "econ-2013_2017-5-19",
+    "question": "Which one of the following is not correctly matched?",
+    "options": [
+      "Perfect competition – strong competition",
+      "Monopoly – single seller",
+      "Oligopoly – few sellers",
+      "Monopolistic competition – product differentiation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Strong competition is an implication, not a defining characteristic. The correct defining feature for perfect competition is a homogeneous product. The other matches are accurate.",
+    "subject": "economics",
+    "year": 2013_2017,
+    "chapter": 5
+  },
+
   {
     id: 'anthro-2013_2017-1-1',
     question: 'What is the study of human societies called?',
