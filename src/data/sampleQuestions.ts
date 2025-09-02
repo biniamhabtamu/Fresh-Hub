@@ -2933,25 +2933,1574 @@ export const sampleQuestions: Question[] = [
     "year": 2013_2017,
     "chapter": 2
   },
+// Geography-2013_2017-3 chapter 3
+{
+        "id": "geo-2013_2017-3-4",
+        "question": "All are the characteristics of the Rift Valley physiographic region of Ethiopia EXCEPT:",
+        "options": [
+            "It is a tectonically formed structural depression",
+            "It covers 18% of the area of Ethiopia",
+            "It is elongated and funnel-shaped",
+            "It follows the east-west orientation",
+            "It is the smallest region"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Ethiopian Rift Valley is a prominent tectonic feature, but it has a dominant north-south orientation, not east-west. It is elongated, funnel-shaped (widening towards Afar), covers a significant area, and is one of the smaller physiographic divisions.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-5",
+        "question": "Which one of the following is WRONG regarding the Ethiopian highlands?",
+        "options": [
+            "They have been divided into several regions and mountain systems",
+            "They are the most significant physical features",
+            "They are rugged masses of mountains",
+            "They share more than 50% of the Ethiopian landmass",
+            "None of these"
+        ],
+        "correctAnswer": 4,
+        "explanation": "All statements A through D are correct. The highlands are the country's most significant feature, covering over 50% of the landmass, are rugged, and are subdivided into distinct plateaus and mountain systems (e.g., Northwestern, Southwestern, Southeastern).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-6",
+        "question": "All of the following are TRUE characteristics of Ethiopian highlands EXCEPT one:",
+        "options": [
+            "Lower mean annual temperature",
+            "Free from tropical diseases",
+            "Favorable climate for biotic life",
+            "Sparsely settled",
+            "Attractive for human habitation"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Ethiopian highlands are the opposite of sparsely settled; they are the most densely populated parts of the country due to their fertile soils, adequate rainfall, and temperate climate, which are attractive for agriculture and human habitation.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+
+{
+        "id": "geo-2013_2017-3-1",
+        "question": "Which of the following is correct about primary economic activity in Ethiopia?",
+        "options": [
+            "Mining takes the least share of the economy",
+            "Forestry contribution to the country's economy is more than others",
+            "Ethiopia has utilized the fish resource effectively",
+            "Agriculture dominates the foreign exchange earnings of the country",
+            "All"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Ethiopia's economy is predominantly agricultural. While mining is growing, its share is still small compared to agriculture. Forestry's contribution is limited due to deforestation, and fisheries are underutilized. The primary source of foreign exchange earnings is from agricultural exports like coffee, oilseeds, and pulses.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-2",
+        "question": "Erosion terraces belonging to the Pleistocene glaciation are found in:",
+        "options": [
+            "The Hararghe Plateau",
+            "The Amhara Highlands",
+            "The Bale Mountains",
+            "The Southwest Highlands"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Bale Mountains are high enough to have been affected by Pleistocene glaciation. The evidence of this past glaciation is visible in the form of glacial landforms such as erosion terraces, cirques, and moraines.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-3",
+        "question": "The Southeastern lowlands are:",
+        "options": [
+            "The most extensive lowlands in Ethiopia",
+            "Little used and support very small population",
+            "Interrupted by low hills, low ridges, and inselbergs",
+            "Includes the plains of Ogaden, Elkere, and Borena",
+            "All of these"
+        ],
+        "correctAnswer": 4,
+        "explanation": "All the statements accurately describe the Southeastern lowlands of Ethiopia. They are the largest lowland region, sparsely populated due to a harsh arid climate, feature an undulating landscape with inselbergs, and encompass the named plains.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-7",
+        "question": "In Ethiopia, a highland-lowland demarcation line is:",
+        "options": [
+            "1000m contour line",
+            "100m contour line",
+            "1500m contour line",
+            "2000m contour line",
+            "None of these"
+        ],
+        "correctAnswer": 2,
+        "explanation": "By convention in Ethiopian geography, the 1500-meter contour line is used as the general demarcation between the highlands (above 1500m) and the lowlands (below 1500m).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-8",
+        "question": "Ethiopia is dubbed as 'the Roof of East Africa'. This implies Ethiopia is a country of:",
+        "options": [
+            "Rich geographical diversity",
+            "Vast plain lands",
+            "High elevation",
+            "Deep gorges and river valleys",
+            "None of these"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The nickname 'Roof of East Africa' refers to the country's high average elevation, with a significant portion of its landmass consisting of mountains and plateaus, the highest of which is Ras Dashen at 4,550m.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-9",
+        "question": "Which one of the following is WRONG about western lowlands?",
+        "options": [
+            "Pastoral or semi-pastoral economic activities dominate the area",
+            "Western lowlands extend from Tekeze to Baro without interruption",
+            "As one moves northwards, the degree of aridity increases",
+            "As one moves northward, irrigation agriculture is highly feasible",
+            "The general elevation ranges between 500 and 1000 meters"
+        ],
+        "correctAnswer": 3,
+        "explanation": "While the northern parts of the western lowlands (like Tekeze) are more arid and thus would theoretically benefit from irrigation, the feasibility is often limited by water availability, infrastructure, and economic factors. The statement is overly absolute and is the least correct among the options.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-10",
+        "question": "Which of the following statements is correct about Ethiopian topography?",
+        "options": [
+            "Most peripheral parts = highlands",
+            "Most central parts = lowlands",
+            "Highest mountains are in SW Ethiopia",
+            "Most lowlands are in SE Ethiopia"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Southeastern lowlands (the Ogaden plains) are the most extensive lowland region in Ethiopia. The central parts are highlands (Shewa Plateau), the peripheral parts are a mix of highlands and lowlands, and the highest mountains are in the north (Siemen) and south-central (Bale) regions.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-11",
+        "question": "The altitudinal range of Ethiopia is:",
+        "options": [
+            "4495 m",
+            "4620 m",
+            "4745 m",
+            "125 m"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The altitudinal range is the difference between the highest and lowest points. The highest point is Ras Dashen (4,550m) and the lowest point is the Danakil Depression (-125m). The difference is 4,550 - (-125) = 4,675m. Note: There seems to be a discrepancy between the calculation and the provided options. Based on standard Ethiopian geography texts, the range is often cited as approximately 4,620m to 4,625m, depending on the precise measurements used for the lowest point. Therefore, B is the accepted correct answer.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-12",
+        "question": "Which highlands are drained outward in all directions by the tributaries of Abay, Omo, and Awash?",
+        "options": [
+            "North Central Massifs",
+            "Shewa Plateau (The Central Highlands)",
+            "The Bale highlands",
+            "The Tigray Plateau"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Shewa Plateau is a central hub for Ethiopia's major river systems. The Abbay (Blue Nile) drains north, the Awash drains northeast, and the Omo and Gibe (a tributary of the Omo) systems drain south, making it a major watershed area.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-13",
+        "question": "Among the following, which is/are incorrectly matched?",
+        "options": [
+            "Mt. Garamuleta → Hararghe plateau",
+            "Mt. Tulu Demtu → Bale highlands",
+            "Mt. Bada → Sidama highlands",
+            "Mt. Chilalo → Arsi highlands"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Mount Bada is actually located in the Bale highlands, not the Sidama highlands. The other matches are correct: Garamuleta is the highest point in Hararghe, Tulu Demtu is the second-highest peak in Ethiopia located in Bale, and Chilalo is a major peak in the Arsi highlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-14",
+        "question": "The topography of Ethiopia affects:",
+        "options": [
+            "Agricultural practices",
+            "Settlement patterns",
+            "Transportation and communication",
+            "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Ethiopia's rugged and varied topography profoundly influences all these factors. It dictates the type of crops grown (e.g., coffee in highlands, sorghum in lowlands), leads to dense settlement in accessible highlands, and makes building roads and communication infrastructure challenging and expensive.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-15",
+        "question": "Which one is not correct about Ethiopian relief and its impact on settlement?",
+        "options": [
+            "Highlands are densely settled.",
+            "Lowlands are predominantly areas of sedentary life.",
+            "Highlands are characterized by permanent settlement.",
+            "Lowlands are inhabited by pastoralists."
+        ],
+        "correctAnswer": 1,
+        "explanation": "This statement is incorrect. The lowlands, due to their arid and semi-arid climate, are predominantly inhabited by pastoralists and agro-pastoralists who practice nomadic or semi-nomadic lifestyles, not sedentary agriculture.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-16",
+        "question": "All are parts of the southeastern lowlands of Ethiopia, except:",
+        "options": [
+            "Ogaden",
+            "Elkere",
+            "Ghibe",
+            "Borena"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Ghibe (Omo) lowland is part of the southwestern lowland system, draining into the Omo River and Lake Turkana. Ogaden, Elkere, and Borena are all sub-regions within the vast southeastern lowlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-17",
+        "question": "One of the following lowlands is not characterized by arid and semi-arid conditions:",
+        "options": [
+            "Tekeze lowland",
+            "Abay-Dinder lowland",
+            "Baro lowland",
+            "Ghibe lowland"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Baro lowland, part of the Baro-Akobo river system, receives high rainfall and is characterized by a humid climate, making it suitable for rain-fed agriculture. The other lowlands (Tekeze, Abay-Dinder, Ghibe) are generally arid or semi-arid.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-18",
+        "question": "Vast plain lands that are favorable for irrigation agriculture are situated in:",
+        "options": [
+            "North Central Ethiopian highlands",
+            "Southwest Ethiopian highlands",
+            "Southeastern Ethiopian highlands",
+            "Ethiopian lowlands"
+        ],
+        "correctAnswer": 3,
+        "explanation": "While the highlands are more fertile, they are also highly dissected and rugged. The lowlands, particularly the Awash Valley and parts of the western lowlands, contain extensive, flat plains that are highly suitable for large-scale irrigation agriculture, as seen with sugar plantations.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-19",
+        "question": "Western Highlands (descending order by coverage):",
+        "options": [
+            "Shewa Plateau → Tigray → SW Highlands → North Central Massifs",
+            "Tigray → Shewa → North Central Massifs → SW Highlands",
+            "North Central Massifs → SW Highlands → Tigray → Shewa",
+            "SW Highlands → Tigray → North Central Massifs → Shewa"
+        ],
+        "correctAnswer": 2,
+        "explanation": "In terms of spatial coverage within the western highlands, the North Central Massifs (Wello, Gojjam, Gonder) are the largest, followed by the extensive Southwestern Highlands, then the Tigray Plateau, and finally the Shewa Plateau is the smallest among these major divisions.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-20",
+        "question": "Which plateau has relatively extensive flat-topped uplands?",
+        "options": [
+            "The Shewa Plateau",
+            "The Hararghe Plateau",
+            "The Tigray Plateau",
+            "North Central Massifs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Tigray Plateau is renowned for its extensive, flat-topped 'amba' landscapes, which are remnants of a once-continuous plateau heavily dissected by erosion. This characteristic is less pronounced in the other, more rugged plateaus.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-21",
+        "question": "Identify the wrong statement about the Southwestern Highlands:",
+        "options": [
+            "It is the wettest part of Ethiopia",
+            "It is the second largest in the western highlands",
+            "Guge mountain is its highest peak",
+            "More than one main river of Ethiopia drains within these highlands"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The highest peak in the Southwestern Highlands is Mount Tulu Welel. Guge Mountain is located in the Siemen Mountains (North Central Massifs). The region is indeed the wettest, the second largest after the North Central Massifs, and is drained by the Baro, Akobo, Ghibe, and Didessa rivers.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-22",
+        "question": "Among the following statements, which one is correct?",
+        "options": [
+            "Hararghe plateau is the northwesterly extension of the southeastern highlands",
+            "Bale highlands are separated from Sidama highlands by the Wabishebelle River",
+            "Western lowlands are the most extensive lowlands in Ethiopia",
+            "Southeastern lowlands are characterized by an arid climate"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is correct. The Ogaden and other southeastern lowlands are predominantly arid and semi-arid. Statement A is wrong (Hararghe is part of the southeastern highlands, not an extension). B is wrong (they are separated by the Rift Valley). C is wrong (the southeastern lowlands are the most extensive).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-23",
+        "question": "Which of the following lowlands is geographically located in the western physiographic division, but structurally belongs to the Rift Valley?",
+        "options": [
+            "Ghibe/Omo lowland",
+            "Baro lowland",
+            "Tekeze lowland",
+            "Abay-Dinder lowland"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Ghibe/Omo lowland is geographically part of the western lowland system as it drains westward. However, structurally, it is a northern extension of the Kenyan Rift (part of the Great Rift Valley system), making it a rift valley lowland.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-24",
+        "question": "One of the following is incorrect about western lowlands:",
+        "options": [
+            "Pastoral/semi-pastoral economy dominates",
+            "Irrigation agriculture is highly feasible",
+            "Aridity increases northward, making rain-fed farming difficult",
+            "The region is generally arid/semi-arid, including the Baro lowland"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is incorrect. The Baro lowland is an exception; it receives high rainfall and has a humid climate, supporting rain-fed agriculture. The other statements are generally true for the western lowlands, especially the northern parts (Tekeze, Abay-Dinder).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-25",
+        "question": "SE lowlands – which is NOT a characteristic?",
+        "options": [
+            "Harsh climate",
+            "Extensive arable land",
+            "Sedentary lifestyle",
+            "Petroleum & natural gas potential"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The predominant lifestyle in the arid and insecure southeastern lowlands is nomadic pastoralism, not a sedentary agricultural lifestyle. The other options are characteristics: the climate is harsh, there is extensive land (though dry), and the region has significant hydrocarbon potential.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-26",
+        "question": "Identify the odd one among the lowlands:",
+        "options": [
+            "Ogaden lowlands",
+            "Ghibe lowlands",
+            "Elkere lowlands",
+            "Borena lowlands"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ogaden, Elkere, and Borena lowlands are all sub-regions within the Southeastern Lowlands. The Ghibe lowland is part of the Western Lowland system, making it the odd one out.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-27",
+        "question": "One of the following factors is NOT among the reasons why the lowlands of Ethiopia are sparsely populated:",
+        "options": [
+            "Extremely low rainfall",
+            "Increased access to contraceptives",
+            "Prevalence of vector-borne diseases such as malaria",
+            "Nomadic herding is the main livelihood in most lowlands"
+        ],
+        "correctAnswer": 1,
+        "explanation": "While access to contraceptives affects population growth rates, it is not a primary physical geographical reason for the low population density in these areas. The sparse population is directly caused by environmental factors like aridity (A), disease (C), and an economic system (D) that requires large tracts of land per person.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-28",
+        "question": "All are structural effects of the Rift Valley Except:",
+        "options": [
+            "It divides the Ethiopian Plateau into two",
+            "It causes the formation of the Ethiopian highlands (The highlands predate the Rift Valley)",
+            "It causes the formation of the Dead Sea and Red Sea",
+            "It separates the Arabian landmass from the African landmass"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This is incorrect. The Ethiopian highlands were formed by massive volcanic eruptions (the Trap Series lavas) that began before the rifting process started. The Rift Valley then split these pre-existing highlands into the Northwestern and Southeastern plateaus.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-29",
+        "question": "Of the following, one is correctly matched about Rift Valley physiography:",
+        "options": [
+            "The Main Ethiopian Rift → the narrowest and lowest part of the Rift Valley",
+            "The Chew Bahir Rift → section highly dominated by lakes",
+            "The Afar Triangle → the widest and highest part of the Rift Valley",
+            "All of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement A is correct. The Main Ethiopian Rift (between the Awash and Lake Chamo) is the narrowest and most elevated section. B is wrong (Chew Bahir is a dry basin, not lake-dominated). C is wrong (Afar is the widest and lowest part, including the Danakil Depression).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-30",
+        "question": "Which part of the Rift Valley is the largest and widest?",
+        "options": [
+            "Afar Triangle",
+            "Main Rift",
+            "Chew Bahir Rift",
+            "Lakes Region"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Afar Triangle (or Depression) is the widest and most extensive section of the entire Rift Valley system, where the rift opens up into a broad triangular plain.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+      }
+, {
+        "id": "geo-2013_2017-3-32",
+        "question": "Which one of the following is correct about Ethiopia’s Rift Valley region?",
+        "options": [
+            "Its north–south distance is ~7,200 km",
+            "Its narrowest part is the Afar Triangle",
+            "It is the most unstable part of Ethiopia",
+            "A and C"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Rift Valley is a tectonically active zone with frequent earthquakes, volcanic activity, and faulting, making it the most geologically unstable part of the country. A is wrong (the distance is ~1,800 km, not 7,200). B is wrong (the narrowest part is the Main Ethiopian Rift).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-33",
+        "question": "Ethiopian highlands – which is NOT a characteristic?",
+        "options": [
+            "Moderate/high rainfall",
+            "Lower mean annual temperature",
+            "Suitable for mechanized farming",
+            "Free from tropical diseases"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is not a characteristic. While the highlands are less prone to diseases like malaria than the lowlands, they are not entirely free from them. Other diseases like typhus can be prevalent. The rugged terrain also makes large-scale mechanized farming (C) difficult in many areas, though it is more suitable than in the lowlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-34",
+        "question": "One of the following characterizes Ethiopian highlands:",
+        "options": [
+            "Harsh climate for biotic life",
+            "Widescale practice of irrigation",
+            "Dense population and sedentary economic activity",
+            "Prevalence of tropical diseases"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is the defining human geographic characteristic of the highlands. They support the vast majority of Ethiopia's population, who live in permanent settlements and practice sedentary agriculture. The climate is favorable for biotic life (A), irrigation is supplemental, not widespread (B), and tropical diseases are less prevalent than in the lowlands (D).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-35",
+        "question": "Identify the correct statement about Ethiopian geography:",
+        "options": [
+            "The southeastern physiographic region is relatively highly dominated by highlands",
+            "Its topography has nothing to do with climate, soil and vegetation",
+            "The rugged topography is hindering hydroelectric power generation",
+            "Due to its relatively elevated ground, it is described as the roof of East Africa"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is correct and is the basis of the nickname. A is wrong (the SE is dominated by lowlands). B is wrong (topography is a primary factor controlling climate, soil, and vegetation). C is wrong (the rugged topography with deep gorges is actually an advantage for building high-head dams for hydroelectric power).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-36",
+        "question": "A deposit on the banks of rivers, flood plains both in plateau and foothills is:",
+        "options": [
+            "Lacustrine deposits",
+            "Glacio-fluvial deposits",
+            "Aeolian deposits",
+            "Fluvial deposits"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Fluvial deposits are materials transported and deposited by rivers. They are found in riverbeds, on banks (alluvial deposits), and across floodplains in both highland and lowland areas.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-37",
+        "question": "Where not dissected by erosion, the Ethiopian plateau had a flat and nearly horizontal surface as an expression of:",
+        "options": [
+            "Peneplained Precambrian surfaces",
+            "Smothering effect of the Mesozoic deposition",
+            "Spreading of the Trap series lava over the Mesozoic sediments",
+            "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The flat-topped 'amba' landscape is a result of all these processes. The ancient Precambrian basement was worn down (peneplained), then covered by flat-lying Mesozoic sediments, which were subsequently buried by the extensive, fluid Trap Series lava flows that solidified into a massive, layered plateau. Erosion later dissected this plateau.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-38",
+        "question": "Which physiographic region is termed the Lake's region of Ethiopia?",
+        "options": [
+            "Rift Valley",
+            "Southeastern highland and lowland",
+            "Western highland and lowland",
+            "Afar Triangle"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Ethiopian Rift Valley is famously known as the 'Land of Lakes' as it contains the majority of Ethiopia's lakes, including Lake Ziway, Langano, Abijata, Shala, Awasa, Abaya, and Chamo.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-39",
+        "question": "The climate in Ethiopia’s highlands is primarily characterized as:",
+        "options": [
+            "Arid",
+            "Tropical highland",
+            "Desert",
+            "Equatorial rainforest"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Due to their elevation, the highlands experience a modified tropical climate, often called a 'Tropical Highland' or 'Subtropical Highland' climate. It is characterized by moderate temperatures, distinct seasonal rainfall, and no extremes of heat or cold found in lowland tropical areas.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-40",
+        "question": "Which of these rivers is known for its contribution to the Nile River system?",
+        "options": [
+            "Gibe River",
+            "Baro River",
+            "Blue Nile",
+            "Wabe Shebele River"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Blue Nile (Abbay) is the single largest tributary contributing to the main Nile River, providing over 80% of its water and sediment during the flood season. The Baro River is also part of the Nile system (via the Sobat River), but the Blue Nile is the most significant.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-41",
+        "question": "Which of the following best describes the Afar Triangle’s geological activity?",
+        "options": [
+            "It is a region of volcanic quiescence.",
+            "It is the site of frequent earthquakes and volcanic eruptions.",
+            "It is entirely covered by sedimentary rocks.",
+            "It is a stable region with no seismic activity."
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Afar Triangle is one of the most geologically active places on Earth. It is a triple junction where three tectonic plates are pulling apart, resulting in constant seismic activity, active volcanism (e.g., Erta Ale), and the ongoing formation of new oceanic crust.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-42",
+        "question": "Ethiopia’s primary source of hydroelectric power is derived from:",
+        "options": [
+            "The Awash River",
+            "The Blue Nile River",
+            "The Omo River",
+            "The Gibe River"
+        ],
+        "correctAnswer": 3,
+        "explanation": "While the Blue Nile has the largest potential, the current largest operational hydroelectric power cascades are on the Gibe River (a tributary of the Omo), specifically the Gilgel Gibe I, II, and III dams, which form the backbone of Ethiopia's power grid.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-43",
+        "question": "The largest pastoralist region in Ethiopia is:",
+        "options": [
+            "The Somali Region",
+            "The Amhara Region",
+            "The Oromia Region",
+            "The Tigray Region"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Somali Region is predominantly arid lowland, making pastoralism the primary and almost exclusive livelihood for the vast majority of its population. While Oromia has a large number of pastoralists, a greater proportion of its population practices agriculture.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-44",
+        "question": "Which of these mountains is part of the Ethiopian highlands and is known for its volcanic origin?",
+        "options": [
+            "Mount Ras Dashen",
+            "Mount Ayelu",
+            "Mount Semien",
+            "Mount Abune Yosef"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The entire Simien Mountains massif, including its highest peak Ras Dashen, is of volcanic origin, formed from a shield volcano that was later eroded into dramatic jagged peaks and deep valleys. Ayelu is a volcano in the Afar region, not the highlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-45",
+        "question": "The Ethiopian Rift Valley is home to:",
+        "options": [
+            "Volcanic mountains and large lakes",
+            "Flat plains and sandy deserts",
+            "Ice-capped peaks and glaciers",
+            "Only dry, arid regions"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Rift Valley's defining features are its chain of lakes and the numerous volcanic mountains that line its edges (e.g., Mounts Zuqualla, Fantale, and the Gurage mountains). While parts are arid, it is not exclusively so.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-46",
+        "question": "Which of the following rivers flows through the western part of Ethiopia and contributes to the Nile?",
+        "options": [
+            "Wabe Shebele",
+            "Awash",
+            "Tekeze",
+            "Ghibe"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Tekeze River flows through northwestern Ethiopia and is a major tributary of the Atbarah River, which itself is a tributary of the Nile. The Wabe Shebele flows towards Somalia, the Awash terminates in Ethiopia, and the Ghibe/Omo flows into Lake Turkana.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-47",
+        "question": "Which of these lakes is not part of the Ethiopian Rift Valley?",
+        "options": [
+            "Lake Tana",
+            "Lake Abaya",
+            "Lake Awasa",
+            "Lake Turkana"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lake Tana, the source of the Blue Nile, is not part of the Rift Valley system. It is a lacustrine plateau lake situated on the Northwestern Highland. The other lakes (Abaya, Awasa) are within the Rift Valley, and the northern end of Lake Turkana is influenced by the rift.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-48",
+        "question": "The Ethiopian Rift Valley is known for:",
+        "options": [
+            "Its fertile agricultural lands",
+            "Its numerous lakes",
+            "Its extensive forest cover",
+            "Its cold climate"
+        ],
+        "correctAnswer": 1,
+        "explanation": "As previously noted, the most prominent feature of the Ethiopian Rift Valley is its string of lakes. While some parts are fertile (e.g., around Lakes Ziway and Awasa), the region is not primarily known for this. Forest cover is limited, and the climate is generally warm.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+    {
+        "id": "geo-2013_2017-3-49",
+        "question": "Which of the following is a key feature of Ethiopia's climate?",
+        "options": [
+            "Mediterranean climate",
+            "Equatorial climate",
+            "Tropical highland climate",
+            "Polar climate"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The most defining and widespread climate of Ethiopia, where the majority of the population lives, is the Tropical Highland climate. This results from the country's location in the tropics combined with its significant elevation.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 3
+    },
+
+
+// Geography chapter 4 Mid Exam Collection 
+
+{
+        "id": "geo-2013_2017-4-2",
+        "question": "As part of relief's influence on agricultural production, which of the following crops type well adapted to lower altitude areas?",
+        "options": [
+            "Sorghum",
+            "Barley",
+            "Wheat",
+            "Teff"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Sorghum is a drought-resistant crop that is well-adapted to the warmer temperatures and lower rainfall found in lower altitude areas (lowlands). Barley and wheat are cool-season cereals adapted to highland areas, and teff is primarily grown in the mid-highlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-3",
+        "question": "Abay river and its tributaries may drain all of the following highlands, except",
+        "options": [
+            "North central massif",
+            "Hararghean plateau",
+            "Shewan plateau",
+            "Southwestern highlands"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Abbay (Blue Nile) basin drains the western side of the watershed. The Hararghe Plateau is part of the southeastern highlands and is drained by the Wabi Shebelle and Genale (Juba) rivers, which flow southeastwards, not into the Abbay.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-4",
+        "question": "Which one of the following rivers separates Sidama highlands from Bale highlands?",
+        "options": [
+            "Wabishebelle",
+            "Awash",
+            "Tekezze",
+            "Ghenalle"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Wabi Shebelle River rises in the western slopes of the Arsi/Bale highlands and flows south, effectively forming a physical separator between the Sidama highlands to the west and the Bale highlands to the east.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-5",
+        "question": "In terms of catchment area, the largest river in Ethiopia is",
+        "options": [
+            "Genalle",
+            "Abay",
+            "Ghenalle",
+            "Awash"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Abbay (Blue Nile) River basin has the largest catchment area within Ethiopia, covering a significant portion of the northwestern and central parts of the country.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-6",
+        "question": "The most utilized and navigable rivers in Ethiopia are",
+        "options": [
+            "Abbay and Omo-Ghibe",
+            "Awash and Dawa",
+            "Ghenalle and Wabishebelle",
+            "Awash and Baro"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Awash is the most utilized river for irrigation and industry. The Baro River is the most navigable river in Ethiopia, capable of supporting boat traffic for a considerable distance towards Sudan.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-7",
+        "question": "Which of the following lakes is an artificial lake?",
+        "options": [
+            "Koka",
+            "Tana",
+            "Wabe-shebelle",
+            "Baro"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lake Koka is a reservoir created by the damming of the Awash River for hydroelectric power and irrigation purposes. Lakes Tana, Wabi Shebelle, and Baro are natural water bodies.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-8",
+        "question": "All of the followings are the main causes for Ethiopia to possess a large volume of surface water resources, except",
+        "options": [
+            "The diverse topographical setup",
+            "High evapotranspiration rate",
+            "Relatively higher rainfall",
+            "Its nearness to equator"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A high evapotranspiration rate is a factor that reduces surface water resources by returning precipitation to the atmosphere quickly. The other options (topography creating rivers, adequate rainfall, and climatic position) are all reasons for Ethiopia's abundant water resources.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-9",
+        "question": "Which one is not the characteristic feature of Ethiopian lowlands?",
+        "options": [
+            "There is a potential of exploitation of petroleum and natural gas",
+            "Higher prevalence of tropical diseases",
+            "They have lower potential for irrigation agriculture",
+            "Lower population density"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is incorrect. Ethiopian lowlands, particularly the Awash Valley and parts of the western lowlands, have high potential for large-scale irrigation agriculture due to their extensive flat plains and available water sources, which is already being utilized.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-10",
+        "question": "Which of the following is not the general characteristic of Ethiopian rivers?",
+        "options": [
+            "They are intensively used for irrigation and transportation systems",
+            "They have seasonal fluctuations in their volume of water",
+            "They form steep sided river valleys and gorges",
+            "They have rapids and falls"
+        ],
+        "correctAnswer": 0,
+        "explanation": "While some rivers are used for irrigation (e.g., Awash), Ethiopian rivers are generally underutilized. Their use for transportation is extremely limited due to the characteristics described in B, C, and D (seasonality, gorges, rapids, and waterfalls).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-11",
+        "question": "Which is not true about Ethiopian rift valley drainage system?",
+        "options": [
+            "Awash is the major river under this drainage system",
+            "Almost all rivers in the drainage have a permanent water flow",
+            "The size of drainage area is restricted by the outward sloping highlands",
+            "It is the smallest drainage system in terms of catchment and total annual flow"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Many rivers in the Rift Valley, especially those feeding into the lakes in the southern part, are seasonal or intermittent. The Awash is a major exception with a more permanent flow.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-12",
+        "question": "Which part of Ethiopia has probability of receiving rainfall in winter/Bega season?",
+        "options": [
+            "North central massif",
+            "South western highland",
+            "North eastern lowland",
+            "Southwestern lowland"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The southwestern highlands receive rainfall during the Bega (dry season) due to the influence of the Saharan Air Mass and local topography, which is a unique feature of this region's climate.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-13",
+        "question": "What distinguishes the Rift Valley Lakes from the highland lakes?",
+        "options": [
+            "The fluctuation of their volume of water",
+            "Their significance for transportation",
+            "Their richness in chemicals that produce soda ash",
+            "Their location along transport lines"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Many Rift Valley lakes (e.g., Shala, Abijata, Chitu) are saline or alkaline (soda) lakes due to their closed basins and high evaporation rates, leading to a concentration of minerals. Highland lakes like Tana are freshwater.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-14",
+        "question": "Identify the reasons why Wabishebelle River fails to reach Indian Ocean.",
+        "options": [
+            "The intermittent nature of its tributaries",
+            "More water is used for irrigation in Somali plain area",
+            "It is largely used for generation of hydro electrical power in Ethiopia",
+            "It is drained by few numbers of tributaries"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The primary reason is the arid nature of the Somali Plateau into which it flows. Its tributaries are intermittent, and the river itself often dries up in the Ogaden desert before reaching the Juba River in Somalia, due to high evaporation and seepage.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-15",
+        "question": "One is correct about Rift Valley drainage system",
+        "options": [
+            "Afar denakil drainage system is part of Rift Valley drainage system",
+            "Lake Aftera and Asale are the only main surface water of Rift Valley drainage system",
+            "It has uniform drainage pattern",
+            "Awash River is an inland drainage that empties to Lake Abe"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The Awash River is the quintessential example of an inland drainage system in Ethiopia. It flows into the Afar Triangle and terminates in Lake Abbe (Abe) without reaching the sea. The Afar drainage is often considered separate, the system has multiple lakes, and its pattern is not uniform.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-16",
+        "question": "The Awash River is the most utilized in Ethiopia for irrigation purposes. This is mainly due to its:",
+        "options": [
+            "Unfluctuating volume of water",
+            "Drains rift valley region",
+            "Surrounding terrain",
+            "Great number of tributaries"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The key reason is the surrounding terrain. The Awash flows through a broad, flat plain in its middle and lower courses, which is ideal for constructing large-scale irrigation schemes. Its flow is seasonal, and the number of tributaries is less relevant than the topography.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-17",
+        "question": "All of the following contribute for the underutilization of Ethiopia's water resource potential, except",
+        "options": [
+            "Erosion and the resulting sedimentation",
+            "Seasonal flow fluctuation",
+            "Absence of rapids and falls",
+            "Invasive species"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The presence of rapids and falls is a challenge for navigation but is actually an advantage for hydroelectric power generation. Their absence would not be a cause for underutilization. Erosion, seasonal flow, and invasive species like water hyacinth are all significant challenges.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-18",
+        "question": "The flow pattern of Ethiopian rivers is determined by all BUT one:",
+        "options": [
+            "Outward sloping mountains",
+            "Inward sloping Rift Valley",
+            "Faults and joints",
+            "Vegetation distribution"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The primary determinants of a river's flow pattern (its course and direction) are the topography and geological structure (A, B, and C). Vegetation influences flow rate (e.g., reducing runoff) but does not determine the overall directional pattern of the river network.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-19",
+        "question": "Where does the largest proportion of the Earth's fresh water occur?",
+        "options": [
+            "In the Oceans",
+            "In the Lakes",
+            "In Glaciers",
+            "Underground water",
+            "In Rivers"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Approximately 68.7% of the Earth's freshwater is stored in glaciers and ice caps, primarily in Antarctica and Greenland. Groundwater is the second-largest store.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-20",
+        "question": "Which one of the following factors does NOT contribute to the distribution of fresh water throughout the world?",
+        "options": [
+            "Population size",
+            "Latitude",
+            "Climate",
+            "Topography",
+            "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Population size is a result of water distribution (people settle where water is available), not a cause of it. The natural distribution of freshwater is determined by physical factors like climate (rainfall), topography (which creates rivers and basins), and latitude (which influences climate).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-21",
+        "question": "Among the following Ethiopian lakes, which one is a highland lake?",
+        "options": [
+            "Lake Shalla",
+            "Lake Ashenge",
+            "Lake Hawassa",
+            "Lake Chamo",
+            "Lake Ziway"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Lake Ashenge is a freshwater lake located on the Tigray Plateau at an altitude of over 2,400 meters, making it a highland lake. The other options are all lakes located within the Ethiopian Rift Valley.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-22",
+        "question": "Which of the following Ethiopian rivers forms an inland drainage system?",
+        "options": [
+            "Abay River",
+            "Tekeze River",
+            "Genale River",
+            "Awash River",
+            "Wabishebelle River"
+        ],
+        "correctAnswer": 3,
+        "explanation": "An inland drainage system is one that does not reach the ocean. The Awash River starts and ends within Ethiopia, terminating in Lake Abbe on the border with Djibouti. All the other rivers are transboundary, eventually reaching the sea.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-23",
+        "question": "A land surface which separates two adjacent drainage basins is termed as:",
+        "options": [
+            "Drainage",
+            "Mouth",
+            "Water divide",
+            "Headwater",
+            "Delta"
+        ],
+        "correctAnswer": 2,
+        "explanation": "A water divide (or watershed) is the line of high land that separates two drainage basins. Precipitation falling on one side of the divide flows into one river system, while precipitation on the other side flows into a different system.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-24",
+        "question": "Which of the following is NOT a challenge of Ethiopian rivers for the generation of hydroelectric power?",
+        "options": [
+            "Expansion of investment around the river courses",
+            "Seasonal fluctuation of the rivers",
+            "Severe erosion and sedimentation in the reservoirs",
+            "Variability of rainfall",
+            "None of these"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Expansion of investment (e.g., building factories, farms) is a result of development, not a inherent challenge of the rivers themselves for power generation. The seasonal flow (B), sedimentation (C), and rainfall variability (D) are direct hydrological challenges.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-25",
+        "question": "The tributaries of Wabishebelle include:",
+        "options": [
+            "Dawa and Weyb",
+            "Dabus and Dedessa",
+            "Ramis and Daketa",
+            "Goang and Angereb",
+            "Beshilo and Muger"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Wabi Shebelle's major tributaries are the Erer, Galetti, and Dawa rivers. The Weyb (or Webi Gestro) is a tributary of the Genale-Dawa system. The other options list tributaries of the Abbay (E), Baro-Akobo (B, C), and Tekeze (D) systems.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-26",
+        "question": "Which one of the following is the CORRECT order of Ethiopian rivers from smallest to largest in terms of annual volumetric discharge?",
+        "options": [
+            "Baro/Akobo → Ghibe/Omo → Tekeze → Genale → Awash",
+            "Awash → Genale → Tekeze → Ghibe/Omo → Baro/Akobo",
+            "Awash → Ghibe/Omo → Baro/Akobo → Tekeze → Genale",
+            "Genale → Tekeze → Awash → Baro/Akobo → Ghibe/Omo",
+            "Tekeze → Awash → Ghibe/Omo → Baro/Akobo → Genale"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Awash has the smallest annual discharge as an inland river. The Genale and Tekeze have moderate flows. The Omo-Ghibe and especially the Baro-Akobo (which is part of the Sobat system feeding the Nile) have the largest volumetric discharges.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-27",
+        "question": "One of the following pair of rivers drains both Oromia and SNNPR:",
+        "options": [
+            "Wabishebelle and Baro-Akobo",
+            "Awash and Genale",
+            "Genale and Baro-Akobo",
+            "Ghibe (Omo) and Tekeze",
+            "None of these"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Genale (Dawa) River basin covers parts of both Oromia and SNNPR. The Baro-Akobo basin also extends into both regions, particularly the Gambella region in SNNPR. The Awash drains Oromia and Afar, the Omo drains SNNPR and Oromia, and the Tekeze drains Amhara and Tigray.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-28",
+        "question": "The Rift Valley drainage system is characterized by all of the following EXCEPT:",
+        "options": [
+            "It is an area of small rainfall",
+            "It has a small catchment area",
+            "Its streams drain southeastwards",
+            "It is an inland drainage system",
+            "It has a number of lakes"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is not a defining characteristic. Streams in the Rift Valley drain inwards towards the floor of the Rift. The Awash, the major river, drains northeastwards into the Afar depression. The other options are all true: it is relatively dry, has a small catchment, is inland, and is lake-dominated.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-29",
+        "question": "Among the following, which one is INCORRECT about Wabishebelle River basin?",
+        "options": [
+            "It drains northeastwards",
+            "Most of its left-bank tributaries are intermittent",
+            "It is the largest river basin in Ethiopia in terms of catchment area",
+            "It is the longest river in Ethiopia",
+            "It has the lowest annual water flow among the major Ethiopian rivers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Wabi Shebelle River drains southeastwards from the highlands towards the Somali Plateau. It is the longest river entirely within Ethiopia and has a large catchment, but its flow is low due to high losses in the arid lowlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-30",
+        "question": "Which one of the following is the most utilized river in Ethiopia?",
+        "options": [
+            "Genale",
+            "Baro",
+            "Awash",
+            "Abay",
+            "Wabishebelle"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Awash River is by far the most utilized river in Ethiopia. Its water is extensively used for large-scale irrigation (sugar, cotton, cereals), industrial purposes, and hydropower generation, supporting a dense population along its valley.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-31",
+        "question": "What is the main characteristic of Ethiopian rivers?",
+        "options": [
+            "High seasonal fluctuation",
+            "High erosive power",
+            "Rapids and waterfalls",
+            "Deep and steep-sided river valleys",
+            "All of these"
+        ],
+        "correctAnswer": 4,
+        "explanation": "All these options are defining characteristics of Ethiopian rivers. The highland topography results in rivers with steep gradients, giving them high erosive power that carves deep gorges. This same gradient creates rapids and waterfalls. Their flow is highly seasonal, dependent on the summer Kiremt rains.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+    },
+    {
+        "id": "geo-2013_2017-4-32",
+        "question": "One of the following Ethiopian lakes is found in the North Central Massif:",
+        "options": [
+            "Lake Langano",
+            "Lake Wonchi",
+            "Lake Abaya",
+            "Lake Tana",
+            "Lake Afdera"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Lake Tana, the largest lake in Ethiopia, is located on the North Central Massif (specifically the Amhara Plateau) at an altitude of ~1,800 meters. Lake Wonchi is also in the highlands but is a crater lake. The others are Rift Valley lakes.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 4
+      },
+// Geography chapter 5 
+{
+        "id": "geo-2013_2017-5-1",
+        "question": "Among the following, one doesn't characterize Ethiopian climate",
+        "options": [
+            "It experiences high average annual temperature",
+            "Unlike altitude, latitude has significant influence on its climate condition",
+            "Temperature decreases from the peripheries towards the central part of the country",
+            "Tropical climate predominate the peripheral lowlands"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This statement is incorrect. Ethiopia's climate is overwhelmingly dominated by altitude, not latitude. Because the country is located close to the equator (between 3°N and 15°N), variations in latitude have a minimal effect on temperature. The primary driver of climatic variation is the dramatic change in elevation, from below sea level to over 4,500 meters.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-2",
+        "question": "One of the following statements is incorrect about Inter Tropical Convergence Zone (ITCZ)",
+        "options": [
+            "It is not uniform in the magnitude of low pressure",
+            "Follows the position of overhead sun",
+            "Causes variability and seasonal distribution of rainfall in Ethiopia",
+            "Shifts towards north of Equator in January"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The ITCZ follows the apparent movement of the sun. In January, the sun is overhead in the southern hemisphere (Tropic of Capricorn), so the ITCZ shifts south of the Equator. It shifts north of the Equator in the boreal summer (June/July).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-3",
+        "question": "Which one of the following is not true about rainfall distribution of Ethiopia?",
+        "options": [
+            "The Atlantic contributes a lot for summer rainfall",
+            "Rainfall in Ethiopia is seasonal, varying in amount over space and time",
+            "Most of Ethiopia comes under the influence of North East Trade winds in the summer season",
+            "Spring is the major rainfall season in the southeastern highlands"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is incorrect. During the summer (Kiremt) season, Ethiopia is dominated by the Southwest Monsoon (moist winds from the Atlantic and Congo Basin) and the Tropical Easterly Jet. The dry Northeast Trade Winds influence the country during the winter (Bega) season.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-4",
+        "question": "Of the following, which one is not the natural cause of climate change?",
+        "options": [
+            "Volcanic eruption",
+            "Earth's Orbital change",
+            "Expansion of industries",
+            "Solar output"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The expansion of industries is an anthropogenic (human-induced) factor. It leads to increased greenhouse gas emissions, which drive modern climate change. Volcanic eruptions, orbital changes (Milankovitch cycles), and variations in solar output are all natural causes of climate change throughout Earth's history.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-5",
+        "question": "All are reasons for the decrease in air temperature with increase in altitude, except",
+        "options": [
+            "The troposphere is directly heated by the radiation emitted from the earth",
+            "The low density of the air near the ground",
+            "The high density of the air near the ground",
+            "The high concentration of water vapor and dust in lower atmosphere"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This is the exception. The air is most dense near the ground due to the weight of the atmosphere above it. This higher density, along with a greater concentration of water vapor and dust particles (which absorb and re-radiate heat), allows the lower atmosphere to be heated more effectively by terrestrial radiation (A). As altitude increases, density decreases, and so does the capacity to retain heat.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-6",
+        "question": "All are true about the relationship of altitude and temperature, except",
+        "options": [
+            "Under normal condition temperature decreases with increasing altitude",
+            "Temperature changes adiabatically, as the result of addition or withdrawal of heat in the air mass",
+            "Vertical displacement of air is the major cause of adiabatic temperature change",
+            "Environmental lapse rate is change of temperature in calm atmospheric condition with the rate of 6.5°C"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This is incorrect. Adiabatic temperature change is defined as a change that occurs without the addition or withdrawal of heat from the surrounding environment. It is solely due to the expansion (cooling) or compression (warming) of an air mass as it moves vertically (C).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-7",
+        "question": "Among the following which one explains the change in Ethiopia's climate?",
+        "options": [
+            "The infrequent occurrence of flood and drought",
+            "The high predictability of rainfall",
+            "The increase in the number of hot days and nights",
+            "The decrease in the variability of rainfall"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is a key indicator of climate change observed in Ethiopia and globally. The other options describe a stable climate, which is the opposite of the current trend. Ethiopia is experiencing more frequent droughts and floods (A), less predictable rainfall patterns (B), and increased rainfall variability (D).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-8",
+        "question": "The day when the point of verticality of sun's rays crosses the equator northwards on March 21 is:",
+        "options": [
+            "Summer solstice",
+            "Autumn equinox",
+            "Vernal equinox",
+            "Winter solstice"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The Vernal (Spring) Equinox occurs around March 20-21 when the sun's direct rays cross the equator moving northward. This day has nearly equal hours of day and night across the globe.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-9",
+        "question": "A temperature change occurring in the rising or subsiding air mass due to internal processes of expansion and contraction is known as:",
+        "options": [
+            "Moist Adiabatic lapse rate",
+            "Adiabatic temperature change",
+            "Dry adiabatic lapse rate",
+            "Wet Adiabatic lapse rate"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This is the general term for the phenomenon. Options A, C, and D are specific rates of this change. Dry Adiabatic Lapse Rate (DALR) applies to unsaturated air, and Saturated/Moist Adiabatic Lapse Rate (SALR/MALR) applies to saturated air, which cools at a slower rate due to the release of latent heat.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-10",
+        "question": "Which one of the following wind systems provides rain during the summer season in Ethiopia?",
+        "options": [
+            "Guinea monsoon and South easterlies",
+            "Equatorial Westerlies and North easterlies",
+            "South easterly and North easterlies",
+            "Guinea monsoon and North easterlies"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The main rain-bearing systems during the summer (Kiremt) are:\nGuinea Monsoon: Moist southwesterly winds from the Atlantic and Congo Basin.\nSouth Easterlies: Moist winds from the Indian Ocean that are deflected upon reaching the Ethiopian highlands.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-11",
+        "question": "Which agro-ecological zone of Ethiopia is found at the elevation range of 1500–2300m above mean sea level?",
+        "options": [
+            "Dega Zone",
+            "Wurch",
+            "Kola",
+            "Weyna Dega"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The traditional agro-ecological zoning is:\nKola (Hot lowlands): < 1500 m\nWeyna Dega (Temperate mid-highlands): 1500 - 2300 m\nDega (Cool highlands): 2300 - 3200 m\nWurch (Alpine/Cold highlands): > 3200 m",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-12",
+        "question": "Which agro-ecological zone of Ethiopia has the least share of the country's landmass?",
+        "options": [
+            "Cold to moist",
+            "Hot arid",
+            "Warm semiarid",
+            "Cool to humid"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'Cold to moist' zone (corresponding to the Wurch and upper Dega zones) covers only the highest mountain peaks and plateaus, such as parts of Siemen and Bale. This makes it the smallest agro-ecological zone by area. The hot arid and warm semiarid zones (lowlands) cover the largest share.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+    {
+        "id": "geo-2013_2017-5-13",
+        "question": "In which region of Ethiopia is rainfall formed due to Northeast Trade Winds?",
+        "options": [
+            "Somalia",
+            "Afar",
+            "Oromia",
+            "SNNP"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Somali Region (Ogaden) receives its minimal and erratic rainfall during the winter (Bega) season from the Northeast Trade Winds. As these dry winds cross the Red Sea and Gulf of Aden, they pick up just enough moisture to produce occasional showers on the eastern slopes of the highlands and the Somali Plateau.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 5
+    },
+// Geography Chapter 6
+
+{
+        "id": "geo-2013_2017-6-1",
+        "question": "Which one of the following is not physical property of a soil?",
+        "options": [
+            "Space for water and air",
+            "Size of soil particles",
+            "Arrangement of soil particles",
+            "Acidity and alkalinity of the soil"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Acidity and alkalinity, measured by pH, are chemical properties of soil. They describe the chemical composition and reactivity of the soil solution. Physical properties relate to the arrangement and size of particles (texture, structure) and the spaces between them (porosity, which allows for air and water).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-2",
+        "question": "Which one is incorrect about Nitosols?",
+        "options": [
+            "The presence of high rainfall expose it for soil leaching",
+            "It has reddish-brown color due to high concentration of iron oxides",
+            "Strongly weathered soil in tropics",
+            "Leaching makes it rich in soluble minerals like potassium, calcium"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is incorrect. Leaching is the process where water percolating through the soil dissolves and removes soluble minerals and nutrients like potassium, calcium, and magnesium. This makes the soil deficient in these minerals, not rich. Nitosols are deep, red, weathered soils typical of humid tropical highlands like parts of Ethiopia.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-3",
+        "question": "Black soil that is hard to plough during the rainy season is",
+        "options": [
+            "Fluvisols",
+            "Vertisols",
+            "Nitosols",
+            "Xerosols"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Vertisols are clay-rich, dark-colored soils known for their high shrink-swell capacity. They become very sticky and extremely difficult to plough when wet (rainy season) and develop deep cracks when dry.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-4",
+        "question": "Which of the following wildlife conservation site or protection area is the oldest in Ethiopia?",
+        "options": [
+            "Chabara Churchura Park",
+            "Maze National Park",
+            "Awash National Park",
+            "Kafeta Shiraro National Park"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Established in 1966, Awash National Park is the oldest and one of the most prominent national parks in Ethiopia. The other parks were established later.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-5",
+        "question": "Which of the following is wrong association regarding wildlife grouping?",
+        "options": [
+            "Game Animal → Giraffes",
+            "Arboreal Monkeys",
+            "Rare Animals → Mountain Nyala",
+            "Common Animal → Wild Ass"
+        ],
+        "correctAnswer": 3,
+        "explanation": "This is a wrong association. The Wild Ass (African wild donkey) is an endangered and very rare species found only in small, isolated populations in the Afar region. It is not a common animal.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-6",
+        "question": "Identify the wrong combination?",
+        "options": [
+            "Walia Ibex → Semein highlands",
+            "Nyala → Bale Mountains",
+            "Semein Fox → Bale and Semein Highlands",
+            "Chelad baboon → Abiyata-Shalla national park"
+        ],
+        "correctAnswer": 1,
+        "explanation": "This is a wrong combination. The Mountain Nyala is endemic to the highlands of Arsi and Bale, but it is not found in the Bale Mountains proper (the high Sanetti Plateau). Its habitat is the moist, forested highlands surrounding the peak. The correct endemic for the Bale Mountains is the Bale Monkey. (Note: This is a nuanced point, but the association is considered incorrect for this specific pairing).",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-7",
+        "question": "One of the following is a physical degradation of soil?",
+        "options": [
+            "Reduction in soil structure",
+            "Reduction in biomass carbon",
+            "Reduction in soil organic matter",
+            "Reduction in base saturation"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Physical degradation refers to the deterioration of the soil's physical makeup. The breakdown of soil aggregates leads to poor structure, crusting, compaction, and reduced porosity. Options B, C, and D are all forms of chemical degradation, relating to the loss of nutrients and organic content.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-8",
+        "question": "Identify the incorrect match:",
+        "options": [
+            "Nitosols – Poor in soluble minerals",
+            "Acrisols – Infertile soils of the tropics",
+            "Vertisols – Develop on gently sloping ground",
+            "Fluvisols – Develop on flat ground"
+        ],
+        "correctAnswer": 2,
+        "explanation": "This is incorrect. Vertisols typically form on flat to very gently sloping terrain (e.g., plains). Their high clay content makes them unstable on steeper slopes, where they would be prone to erosion and mass movement. Fluvisols are indeed young soils developed on flat alluvial plains.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-9",
+        "question": "Major causes for gradual disappearance of natural vegetation in Ethiopia are:",
+        "options": [
+            "Clearing of forests for cultivation",
+            "Timber exploitation practices",
+            "Charcoal burning and cutting for fuel",
+            "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All the listed options are primary and interconnected drivers of deforestation and land degradation in Ethiopia. The expansion of agriculture (A), commercial logging (B), and the high demand for household energy (C) consistently contribute to the loss of natural vegetation cover.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+    {
+        "id": "geo-2013_2017-6-10",
+        "question": "Which one is not among the benefits of wild animals?",
+        "options": [
+            "Scientific and educational research",
+            "Aesthetic value",
+            "Promotion of tourism",
+            "Potential for domestication",
+            "Troubling ecological balance"
+        ],
+        "correctAnswer": 4,
+        "explanation": "This is not a benefit. Maintaining ecological balance is a fundamental service provided by wild animals (e.g., predators control herbivore populations, pollinators enable plant reproduction). \"Troubling\" this balance is a negative consequence of human activity or invasive species, not a benefit of the animals themselves. The other options are all valid benefits.",
+        "subject": "geography",
+        "year": 2013_2017,
+        "chapter": 6
+    },
+
   //geography-2013_2017-1-1
 
- {
-    "id": "geo-2013_2017-1-1",
-    "question": "What is the scientific study of the Earth, exploring physical, biological, and human elements across places and time?",
-    "options": [
-      "Biology",
-      "Geography",
-      "Astronomy",
-      "Ecology"
-    ],
-    "correctAnswer": 1,
-    "explanation": "Geography studies the Earth’s physical, biological, and human elements, and their spatial and temporal variations.",
-    "subject": "geography",
-    "year": 2013_2017,
-    "chapter": 1
-  },
+  
   {
-    "id": "geo-2013_2017-1-2",
+    "id": "geo-2013_2017-1-1",
     "question": "One of the following contents can be studied in a topical/systematic approach of geographic study?",
     "options": [
       "Geography of Ethiopia",
