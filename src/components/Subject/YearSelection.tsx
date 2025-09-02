@@ -282,7 +282,7 @@ export default function YearSelection() {
                       <Calendar size={24} className={isSelected ? 'text-white' : isAttempted ? 'text-green-600' : 'text-gray-500'} />
                     </div>
                     <div>
-                      <div className={`text-xl font-bold ${textColor}`}>{`Year ${year}`}</div>
+                      <div className={`text-xl font-bold ${textColor}`}>{`Exam collection`}</div>
                       <div className={`text-sm ${subtextColor}`}>{isAttempted ? `Average Score: ${score.toFixed(1)}%` : 'Not attempted yet'}</div>
                     </div>
                   </div>
