@@ -18412,6 +18412,474 @@ export const sampleQuestions: Question[] = [
     subject: 'Anthropology',
     year: 2013_2017,
     chapter: 2
+  },
+  // ANthropology Chapter 3 
+  {
+    id: 'anthro-2013_2017-3-1',
+    question: 'The vast region covering the southern part of Ethiopia that extends from Guraghe, Sidama, and Gedeo areas constitutes:',
+    options: ['Coffee culture area', 'Plough culture area', 'Enset culture area', 'A & C'],
+    correctAnswer: 3,
+    explanation: 'The region in the question is known as the "Enset culture area" due to the widespread cultivation and cultural significance of the enset plant (Ensete ventricosum). This crop serves as a dietary staple and plays a central role in the economy and society of the Sidama, Gurage, and Gedeo peoples, among others.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 2
+  },
+  {
+    id: 'anthro-2013_2017-3-2',
+    question: 'Which one of the following indicates the transmission of cultural elements from one culture to another?',
+    options: ['Acculturation', 'Socialization', 'Diffusion', 'Assimilation', 'Integration'],
+    correctAnswer: 2,
+    explanation: 'Diffusion is the anthropological term for the process by which cultural items—such as ideas, styles, religions, technologies, or languages—spread from one culture or society to another. This can happen through direct contact, intermediate contact, or mass media. The other terms describe different processes: Socialization (B) is learning one\'s own culture; Acculturation (A) is the extensive borrowing of cultural traits due to prolonged direct contact; Assimilation (D) is the full adoption of another culture and loss of one\'s original identity; and Integration (E) is the process of becoming a functional part of a larger society.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-3',
+    question: 'Which of the following is NOT related to the benefit or importance of multiculturalism?',
+    options: ['Reduction of prejudice and discrimination', 'Reduction of negative stereotypes', 'Giving equal opportunities', 'Promoting values of cultural diversity', 'Encouraging cultural diversity'],
+    correctAnswer: 4,
+    explanation: 'This question asks for the option that is NOT a benefit. Encouraging cultural diversity is not a benefit of multiculturalism; it is the definition or core principle of multiculturalism itself. The benefits or positive outcomes that result from this encouragement are listed in the other options: reduced prejudice (A), reduced stereotypes (B), equal opportunities (C), and the promotion of diversity\'s value (D).',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-4',
+    question: 'Among the following, which one is the essence of culture complex?',
+    options: ['A cluster of related culture traits', 'Artefacts used by primitive society', 'Culture traits which are practised in modern society', 'It is centrally an approach to society', 'A cluster of inter-related culture pattern'],
+    correctAnswer: 0,
+    explanation: 'In anthropology, the hierarchy of cultural elements starts with a culture trait (a single item, like a bow and arrow). A culture complex is formed when a number of these related traits come together around a basic activity (e.g., the "cattle complex" including traits like herding, milking, and warrior traditions). A culture pattern (E) is a larger configuration of complexes that gives a society its distinctive character. Option B is incorrect as complexes are not limited to artefacts or "primitive" societies.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-5',
+    question: 'Among the following statements, which is NOT the characteristic feature of anthropology?',
+    options: ['It is concerned with both human biology and culture', 'It is about human evolution, variation, and adaptation', 'It uses both qualitative and quantitative research approaches', 'It only focuses on pre-historic societies and cultures', 'It employs a micro-focused approach to study its subject matter'],
+    correctAnswer: 3,
+    explanation: 'Anthropology is a holistic discipline. While it does include the study of prehistoric societies (through archaeology), it is not its sole focus. A core feature of anthropology is its study of contemporary human societies, cultures, languages, and biological aspects around the world. All other options are accurate: its holistic bio-cultural nature (A), its focus on evolution and adaptation (B), its diverse methodological toolkit (C), and its common use of micro-level, in-depth ethnographic study (E).',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-6',
+    question: 'Which one of the following statements is NOT true about non-human primates?',
+    options: ['They are closed to contact with members of other communities', 'They are usually tied to a particular locality', 'They rarely migrate outside of their home range', 'They usually avoid members of other communities', 'They are usually aggressive towards other community’s members'],
+    correctAnswer: 0,
+    explanation: 'Primate social behavior is complex and varies by species. However, a common feature among many primates (like chimpanzees) is that they live in "fission-fusion" societies where communities are not completely closed. There can be interactions, migrations (especially of adolescents), and even adoptions between groups. While inter-group encounters can be aggressive (E), they are not always so, and avoidance (D) or limited migration (C) are common strategies. Therefore, stating they are completely "closed" to contact is not accurate.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-7',
+    question: 'Which of the following indicates a Levirate marriage?',
+    options: ['Marriage of a woman to her deceased husband’s brother', 'Marriage of a woman to her parallel cousin or nephew', 'Levirate marriage is generally a cousin’s marriage', 'Marriage practice of a man to his wife’s sister', 'Marriage of a man to one’s parallel niece'],
+    correctAnswer: 0,
+    explanation: 'Levirate marriage is a specific type of marriage where a widow is expected to marry the brother of her deceased husband. This practice is often used to provide social and economic security for the widow and her children and to keep her and her children within the deceased husband\'s kin group. Option D describes Sororate marriage.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-8',
+    question: 'Which one of the following is NOT included in non-material culture?',
+    options: ['Speaking one’s own language(s)', 'Observing one’s own ceremony', 'Celebrating one’s own cultural rituals', 'Hardware parts of personal computers', 'Customs and traditions a person follows'],
+    correctAnswer: 3,
+    explanation: 'Non-material culture refers to the intangible world of ideas, beliefs, knowledge, values, rules, and language that shape a society\'s way of life. Options A, B, C, and E are all examples of non-material culture. The "hardware parts of personal computers" are physical, tangible objects, which are the domain of material culture.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-9',
+    question: 'Which family is formed by agglomeration of husband, wife, and their dependent children?',
+    options: ['Compound family', 'Nuclear family', 'Composite family', 'Extended family', 'Polygamous family'],
+    correctAnswer: 1,
+    explanation: 'The nuclear family is defined as the basic family unit consisting of a married couple (husband and wife) and their dependent children. An extended family (D) includes multiple generations (e.g., grandparents, aunts, uncles) living together. A composite (C) or polygamous family (E) is based on plural marriages (one man with multiple wives or vice versa).',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-10',
+    question: 'Among the following statements, which one shows the difference between multiculturalism and American concept of a cultural melting pot?',
+    options: ['Multiculturalism maintains separate cultural traditions and customs', 'Multiculturalism is the anthropological term for the melting pot metaphor', 'Multiculturalism is an excuse to not learning English by immigrant groups', 'Multiculturalism is an excuse to not assimilating in the dominant culture', 'Multiculturalism asserts that cultural differences do not exist'],
+    correctAnswer: 0,
+    explanation: 'The "melting pot" concept suggests that all immigrant cultures melt together into a new, homogeneous American culture, losing their distinct identities. In contrast, multiculturalism (or the "salad bowl" metaphor) emphasizes that different cultural groups can coexist within a single society while maintaining their unique traditions, languages, and customs. The other options (B, C, D, E) are mischaracterizations or criticisms of multiculturalism, not accurate descriptions of its core difference from the melting pot ideal.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    id: 'anthro-2013_2017-3-11',
+    question: 'Which of the following statements is correct?',
+    options: ['An individual can be part of only one distinct culture', 'An individual can be part of many cultures', 'An individual cannot be part of many subcultures', 'Culture cannot be shared between multiple societies', 'Culture cannot diffuse into many societies based on contexts'],
+    correctAnswer: 1,
+    explanation: 'Culture is not monolithic or mutually exclusive. An individual\'s identity is complex and can encompass multiple cultural affiliations simultaneously. For example, a person can identify with their national culture, their ethnic culture, their professional culture, and a religious culture all at once. This also includes being part of many subcultures (making C incorrect). Furthermore, cultures are constantly shared and diffused between societies (making D and E incorrect), which is why option A is also false.',
+    subject: 'Anthropology',
+    year: 2013_2017,
+    chapter: 3
+  },
+  {
+    "id": "anthro-2013_2017-4-1",
+    "question": "The vast region covering the southern part of Ethiopia that extends from Guraghe, Sidama, and Gedeo areas constitutes:",
+    "options": [
+      "Coffee culture area",
+      "Plough culture area",
+      "Enset culture area",
+      "A & C"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The region in the question is known as the \"Enset culture area\" due to the widespread cultivation and cultural significance of the enset plant (Ensete ventricosum). This crop serves as a dietary staple and plays a central role in the economy and society of the Sidama, Gurage, and Gedeo peoples, among others.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-2",
+    "question": "Which of the following statements is NOT correct in the Ethiopian context?",
+    "options": [
+      "Marginalized groups are limited among 14 ethnic groups in the society",
+      "Marginalization varies from place to place, and culture to culture",
+      "Potters, weavers, tanners, and iron-smiths are marginalized occupational groups",
+      "Marginalized groups experience different types of mistreatment in the society",
+      "Marginalization occurs related to gender, age, and language, but not religion"
+    ],
+    "correctAnswer": 4,
+    "explanation": "In the Ethiopian context, marginalization is multifaceted and can occur on the basis of religion. There are historical and contemporary instances where religious minorities have faced social, political, or economic exclusion. Therefore, stating that marginalization does not occur based on religion is incorrect. Option A is also debatable as marginalization exists within and beyond the major ethnic groups, but E is definitively false.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-3",
+    "question": "A Professor of Social Anthropology argues that there is a double standard with respect to the practice of female genital mutilation/cutting (FGM/C). Which statement best supports her/his argument?",
+    "options": [
+      "The practice of FGM/C exists because of cultural norms in a society",
+      "The practice of FGM/C exists because of cultural values in a society",
+      "The procedure of such practice has various level of acceptance",
+      "This is a procedure that is a cultural collision",
+      "The outsiders are accepting the FGM/C procedure"
+    ],
+    "correctAnswer": 4,
+    "explanation": "The argument about a \"double standard\" typically refers to the fact that while Western societies widely condemn FGM/C as a human rights violation practiced in other cultures, they simultaneously accept and perform medically unnecessary cosmetic genital surgeries (like labiaplasty) on women for aesthetic reasons. This creates a double standard where one form of genital alteration is condemned as barbaric while another is normalized. The professor's argument is best supported by pointing out this acceptance by \"outsiders\" (those from cultures that criticize FGM/C) of a conceptually similar procedure.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-4",
+    "question": "If a man loves his neighbour’s daughter and wants to marry her, but the girl’s family refused the proposed marriage, what type of marginalization does this case indicate?",
+    "options": [
+      "Social marginalization",
+      "Spatial marginalization",
+      "Cultural marginalization",
+      "Religious marginalization",
+      "Economic marginalization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This scenario describes a form of social exclusion based on social status, lineage, or caste. The refusal is likely rooted in perceived social differences between the man's family and the girl's family (e.g., one family belonging to a marginalized occupational group, a different clan, or a lower social stratum). This is a denial of a fundamental social institution (marriage) based on social hierarchy, making it a clear case of social marginalization.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-5",
+    "question": "Marginalization of craft workers such as tanners, potters, weavers and ironsmiths is commonly classified as:",
+    "options": [
+      "Occupational-based marginalization",
+      "Gender-based marginalization",
+      "Age-based marginalization",
+      "Religious-based marginalization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In Ethiopia and many other societies, certain artisan occupations have historically been associated with low social status and are subject to stigma and exclusion. This marginalization is not primarily due to the workers' gender, age, or religion, but is directly attached to the occupation itself and the perceived impurity or low prestige of the work.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-6",
+    "question": "Which one of the following group of people is exposed to ethnic-based marginalization?",
+    "options": [
+      "Muslim Rohingyas",
+      "The Jewish people",
+      "Craft workers",
+      "People with disabilities"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ethnic-based marginalization refers to the exclusion and persecution of a group based on their shared ancestry, culture, language, or national origin. The Rohingya people are a stateless Muslim ethnic group who have faced severe persecution, violence, and denial of citizenship in Myanmar based explicitly on their ethnic and religious identity. While Jewish people (B) have faced historical ethnic and religious persecution, the most contemporary and stark example of ethnic cleansing and marginalization from the list is the Rohingyas. Craft workers (C) face occupational marginalization, and people with disabilities (D) face marginalization based on ability.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-4-7",
+    "question": "______ is a specific group of people occupying a certain geographic area for many generations.",
+    "options": [
+      "Vulnerable people",
+      "Marginalized people",
+      "Indigenous people",
+      "None"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a standard definition for the term \"indigenous people.\" They are groups who are native to a particular geographic region, often possessing a deep historical and cultural connection to the land that spans many generations. While indigenous people can also be vulnerable or marginalized, those terms (A and B) are conditions or statuses, not definitions of a group based on historical territorial occupancy.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 4
+  },
+  {
+    "id": "anthro-2013_2017-5-1",
+    "question": "One is not true about ethnicity and ethnic group, according to Max Weber?",
+    "options": [
+      "Ethnic group is based on the belief in common descent shared by its members.",
+      "Ethnic membership does not constitute a group beyond facilitating group formation.",
+      "What matters for ethnic group is the existence of blood relationship.",
+      "It is primarily the political community; no matter how artificially organized."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Max Weber's key contribution was to argue that ethnicity is not based on an actual biological blood relationship, but on a subjective belief in a shared descent. He emphasized that this belief is what matters for group formation, not any objective biological reality. Option D is a direct quote from Weber describing a nation, not an ethnic group, making it the \"not true\" statement about his view on ethnicity. However, the question asks for what is \"not true\" about his view, and C directly contradicts his core idea. (Note: There is nuance here; D is also incorrect for ethnicity, but C is the most fundamentally opposed to Weber's definition.) Clarification on D: Weber saw the nation as a \"political community,\" but he defined the ethnic group by a belief in common descent. Therefore, stating that an ethnic group is \"primarily the political community\" is not an accurate representation of his view on ethnicity.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "anthro-2013_2017-5-2",
+    "question": "According to F. Barth, ethnicity implies:",
+    "options": [
+      "A political membership to a group that facilitates a belief in common descent.",
+      "An imagined community that has certain quality and character.",
+      "A cultural differentiation as resulted in relationship between two groups.",
+      "A group of people who create solidarity beyond kinship ties."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Fredrik Barth's groundbreaking work in \"Ethnic Groups and Boundaries\" argued that ethnicity is not defined by a checklist of cultural traits possessed in isolation. Instead, it is generated and maintained through social interaction and the creation of boundaries between groups. Ethnicity implies a process of cultural differentiation that emerges from the relationship and contrast with other groups.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "anthro-2013_2017-5-3",
+    "question": "Assume that Abebe belongs to ethnic group “X.” Abebe believed that he gained the “X” identity naturally from his parents. He usually says that belonging to “X” is deep and he is highly attached to the culture of the group. Moreover, he argues that “X” identity is perennial and ancient. By considering the above case of Abebe’s, which one of the following theories best describes “X” identity formation?",
+    "options": [
+      "Instrumentalism",
+      "Social constructivism",
+      "Primordialism",
+      "Constructivist approach"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Primordialism is the theory that ethnic identities are deeply rooted, ancient, and fixed from birth (\"gained naturally from his parents\"). It views these attachments as powerful, emotional, and perennial (\"deep,\" \"highly attached,\" \"perennial and ancient\"). This contrasts sharply with Instrumentalism (which sees ethnicity as a tool for political or economic gain) and Constructivism (which sees ethnicity as fluid, situational, and socially built).",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "anthro-2013_2017-5-4",
+    "question": "Which one of the following statements is true about the (Social) Constructivist Theory of Ethnicity?",
+    "options": [
+      "It argues that each individual is born into and lives in an ethnic group",
+      "It perceives ethnicity in fundamentally rational calculation terms",
+      "It considers the relational, interactional, and situational nature of ethnicity",
+      "It constructs ethnicity based on social, historical, political and economic factors",
+      "It views ethnicity as instrumental means to achieve political ends"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The core of Social Constructivism is that ethnic identities are not fixed but are created, negotiated, and changed through social processes. They are relational (defined in opposition to others), interactional (formed through contact), and situational (an individual may emphasize different identities in different contexts). While D and E touch on factors that constructivism acknowledges, they are more specific to other theories (D is broad, E is a description of Instrumentalism). C captures the essential process of how constructivism believes ethnicity works.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "anthro-2013_2017-5-5",
+    "question": "Which one of the following statements indicates the similarity between the Instrumentalist Theory of Ethnicity and the Constructivist Theory of Ethnicity?",
+    "options": [
+      "The unchanging nature of ethnicity",
+      "The dynamic and flexible nature of ethnicity",
+      "The biological nature of ethnicity",
+      "The two theories are opposite and unrelated",
+      "The actors in both cases are similar in the formation of ethnicity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Both Instrumentalism and Constructivism reject the Primordialist idea that ethnicity is fixed and ancient. They are modern theories that see ethnicity as dynamic and flexible. Instrumentalists see it as a flexible tool that can be adopted or emphasized for gain. Constructivists see it as a fluid identity that is context-dependent. This shared view on the non-static nature of ethnicity is their primary similarity.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+  {
+    "id": "anthro-2013_2017-5-6",
+    "question": "If your ancestors are the Gurages, then you remain a Gurage forever. Which Theory of Ethnicity supports this statement?",
+    "options": [
+      "Primordialism",
+      "Instrumentalism",
+      "Constructivism",
+      "Marxism",
+      "Integration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "This statement reflects the core tenets of Primordialism: that ethnic identity is an innate, ascribed status determined by birth (\"your ancestors\") and is permanent and unchangeable (\"you remain a Gurage forever\"). It is treated as a natural, given fact of life, which is the fundamental perspective of the Primordialist approach.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 5
+  },
+   {
+    "id": "anthro-2013_2017-6-1",
+    "question": "Which one of the following is incorrect about traditional governance in Ethiopia?",
+    "options": [
+      "All traditional governance systems have a centralized political system.",
+      "Similarities exist among various traditional governance systems.",
+      "Most traditional governance systems are embedded in the belief systems.",
+      "Traditional governance was started before the emergence of the modern state system."
+    ],
+    "correctAnswer": 0,
+    "explanation": "This statement is incorrect. Ethiopia is home to a vast diversity of traditional governance systems, and they are not all centralized. For example, the Gada system of the Oromo is a highly organized but decentralized democratic system. In contrast, the traditional monarchy of the northern highlands (e.g., pre-20th century Abyssinia) was centralized. Many other systems, like those of the SNNPRS communities, were based on clan or age-set structures without a strong central authority. Options B, C, and D are generally correct statements about traditional governance.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "anthro-2013_2017-6-2",
+    "question": "Which one of the following is correct about the Gada system?",
+    "options": [
+      "Political power is transferred from one generation set to another in every 5 years.",
+      "Power is usually transferred from one leader to the other through war.",
+      "Administration, law making, and dispute settlement are all the concerns of the system.",
+      "All"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Gada system is a comprehensive socio-political system that governs all aspects of life. It is not merely a leadership rotation system; it includes a complex structure for administration (the Gada council), law making (proclaiming new laws at the Gada assembly), and dispute settlement (through a judicial process). Option A is incorrect because power is transferred every 8 years, not 5. Option B is completely false, as the Gada system is known for its peaceful and ritualized transfer of power. Option D (\"All\") is invalid as it is not a complete statement and, given that A and B are wrong, cannot be correct.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 6
+  },
+  {
+    "id": "anthro-2013_2017-7-1",
+    "question": "Development projects should take Indigenous Knowledge (IK) into consideration for the following reasons, except:",
+    "options": [
+      "Indigenous knowledge may help to identify cost-effective development solution.",
+      "It provides mutual learning and adaptation to empower the local community.",
+      "It can create development solution that is culturally appropriate and acceptable.",
+      "Indigenous knowledge is important for its perfect solutions in every aspect."
+    ],
+    "correctAnswer": 3,
+    "explanation": "While Indigenous Knowledge (IK) is incredibly valuable and context-specific, it is not infallible or universally \"perfect.\" It has evolved to address specific local conditions and challenges, but it may not have solutions for entirely new problems (like novel pandemics or certain modern industrial issues) or may need to be adapted. The other options (A, B, C) are all well-established, valid reasons for integrating IK into development projects. Development should be a dialogue between IK and external scientific knowledge, not a replacement of one with the other.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-2",
+    "question": "Which one of the following is a distinguishing feature of indigenous people?",
+    "options": [
+      "Historical continuity with precolonial societies",
+      "Strong link to territories and land",
+      "Distinct language, culture and beliefs",
+      "Self-identification as indigenous people"
+    ],
+    "correctAnswer": 3,
+    "explanation": "According to the most widely accepted international definitions (e.g., by the UN and ILO), the fundamental criterion for defining indigenous peoples is self-identification. This means a community itself claims an indigenous identity. While options A, B, and C are common and often defining characteristics of indigenous peoples, the ultimate distinguishing feature is their own assertion of that identity.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-3",
+    "question": "Which one of the following is not a feature of indigenous knowledge?",
+    "options": [
+      "It is static",
+      "It is not easily codifiable",
+      "Transmitted orally",
+      "B and C",
+      "None"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Indigenous Knowledge is dynamic and adaptive. It is not frozen in time; it evolves as communities experiment, innovate, and adapt to new environmental and social challenges. The other options are key features: it is often not easily codifiable (B) into written manuals as it is experiential, and it is primarily transmitted orally (C) through stories, songs, and apprenticeships.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-4",
+    "question": "Which of the following factors contribute to the erosion of indigenous knowledge systems?",
+    "options": [
+      "Rapid population growth",
+      "Deforestation",
+      "Outsiders",
+      "All",
+      "None"
+    ],
+    "correctAnswer": 3,
+    "explanation": "All listed factors are major drivers of IK erosion. Rapid population growth (A) can strain traditional resources and lead to migration, breaking knowledge transmission chains. Deforestation (B) destroys the ecosystems that are the living library for much IK. Outsiders (C), through processes like formal education, modern agriculture, religious conversion, and land grabbing, often devalue local knowledge and disrupt the social structures that maintain it.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-5",
+    "question": "Which of the following could result in the erosion of Indigenous Knowledge Systems?",
+    "options": [
+      "Rapid population growth",
+      "Mechanized agriculture",
+      "Mass utilization of chemicals",
+      "All"
+    ],
+    "correctAnswer": 3,
+    "explanation": "As in the previous question, all options are correct. Rapid population growth disrupts social structures. Mechanized agriculture (B) replaces traditional farming techniques and the knowledge associated with them. The mass utilization of chemicals (C) (e.g., fertilizers, pesticides) replaces intricate indigenous practices of soil fertility management and pest control, making that knowledge obsolete for younger generations.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-6",
+    "question": "One cannot be an element of indigenous knowledge domain in indigenous community:",
+    "options": [
+      "Botanic knowledge",
+      "Health care knowledge",
+      "Natural resource management",
+      "Governance system",
+      "Conflict management",
+      "Scientific knowledge"
+    ],
+    "correctAnswer": 5,
+    "explanation": "This is a trick question based on terminology. Indigenous Knowledge is a complete knowledge system in its own right, but it is distinct from the formalized, positivist tradition of \"Scientific knowledge\" (often called Western science). IK encompasses all the other domains listed: detailed botanic knowledge (A), traditional health care (B), sustainable natural resource management (C), traditional governance systems (D), and methods for conflict management (E). To call it \"scientific\" in the formal sense mislabels it, though it is undoubtedly empirical and systematic.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-7",
+    "question": "Indigenous knowledge is alternatively named by all, except:",
+    "options": [
+      "Folk knowledge",
+      "Local knowledge",
+      "Traditional knowledge",
+      "Indigenous technical knowledge",
+      "Scientific knowledge"
+    ],
+    "correctAnswer": 4,
+    "explanation": "Indigenous Knowledge is commonly referred to by many alternative names that emphasize its local, traditional, and community-based nature, such as folk knowledge (A), local knowledge (B), traditional knowledge (C), and indigenous technical knowledge (D). It is not conventionally called \"Scientific knowledge\" (E), as that term is typically reserved for the international, academic, and laboratory-based system of knowledge production.",
+    "subject": "Anthropology",
+    "year":  2013_2017,
+    "chapter": 7
+  },
+  {
+    "id": "anthro-2013_2017-7-8",
+    "question": "One is NOT a factor for the decline of indigenous knowledge and practices:",
+    "options": [
+      "Modernization",
+      "Industrialization",
+      "Globalization",
+      "Homogenization of farming",
+      "None"
+    ],
+    "correctAnswer": 4,
+    "explanation": "This question asks for the option that is not a factor. In this case, all of the listed options (A, B, C, D) are significant factors in the decline of IK. Modernization (A) often promotes new technologies and values that displace traditional ones. Industrialization (B) shifts economies away from traditional practices. Globalization (C) spreads homogeneous cultural and economic models. Homogenization of farming (D) replaces diverse, locally adapted crops and practices with standardized monocultures. Therefore, \"E. None\" is correct because there is no valid option that is not a factor; they all are.",
+    "subject": "Anthropology",
+    "year": 2013_2017,
+    "chapter": 7
   }
 ];
 
