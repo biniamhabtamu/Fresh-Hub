@@ -12171,8 +12171,1526 @@ tr:nth-child(even) {
 </html>`
       },
       { 
-        id: 'macro', 
-        title: 'Macroeconomics', 
+        id: 'economics2', 
+        title: 'Chapter 2 : Theory of Demand and Supply', 
+        content:   `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Two: Theory of Demand and Supply</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #e9ecef;
+            --text-color: #343a40;
+            --heading-color: #212529;
+            --accent-blue: #007bff;
+            --accent-green: #28a745;
+            --accent-orange: #fd7e14;
+            --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+
+            --card1-bg: #e0f7fa; /* Light Cyan */
+            --card1-text: #006064;
+            --card2-bg: #fff3e0; /* Light Orange */
+            --card2-text: #e65100;
+            --card3-bg: #e8f5e9; /* Light Green */
+            --card3-text: #2e7d32;
+            --card4-bg: #f3e5f5; /* Light Purple */
+            --card4-text: #6a1b9a;
+            --card5-bg: #ffebee; /* Light Red */
+            --card5-text: #c62828;
+            --card6-bg: #e3f2fd; /* Light Blue */
+            --card6-text: #1565c0;
+            --card7-bg: #fbe9e7; /* Light Deep Orange */
+            --card7-text: #d84315;
+            --card8-bg: #eceff1; /* Blue Grey */
+            --card8-text: #37474f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: grid;
+            gap: 25px;
+        }
+
+        .chapter-header {
+            background: linear-gradient to right, #6a1b9a, #4a148c);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2, .card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 .icon, .card h3 .icon {
+            color: var(--accent-blue);
+            font-size: 1.1em;
+        }
+
+        .card-1 { background-color: var(--card1-bg); color: var(--card1-text); }
+        .card-1 h2, .card-1 h3 { color: var(--card1-text); border-bottom-color: rgba(0, 96, 100, 0.2); }
+        .card-1 h2 .icon, .card-1 h3 .icon { color: var(--card1-text); }
+
+        .card-2 { background-color: var(--card2-bg); color: var(--card2-text); }
+        .card-2 h2, .card-2 h3 { color: var(--card2-text); border-bottom-color: rgba(230, 81, 0, 0.2); }
+        .card-2 h2 .icon, .card-2 h3 .icon { color: var(--card2-text); }
+
+        .card-3 { background-color: var(--card3-bg); color: var(--card3-text); }
+        .card-3 h2, .card-3 h3 { color: var(--card3-text); border-bottom-color: rgba(46, 125, 50, 0.2); }
+        .card-3 h2 .icon, .card-3 h3 .icon { color: var(--card3-text); }
+
+        .card-4 { background-color: var(--card4-bg); color: var(--card4-text); }
+        .card-4 h2, .card-4 h3 { color: var(--card4-text); border-bottom-color: rgba(106, 27, 154, 0.2); }
+        .card-4 h2 .icon, .card-4 h3 .icon { color: var(--card4-text); }
+
+        .card-5 { background-color: var(--card5-bg); color: var(--card5-text); }
+        .card-5 h2, .card-5 h3 { color: var(--card5-text); border-bottom-color: rgba(198, 40, 40, 0.2); }
+        .card-5 h2 .icon, .card-5 h3 .icon { color: var(--card5-text); }
+
+        .card-6 { background-color: var(--card6-bg); color: var(--card6-text); }
+        .card-6 h2, .card-6 h3 { color: var(--card6-text); border-bottom-color: rgba(21, 101, 192, 0.2); }
+        .card-6 h2 .icon, .card-6 h3 .icon { color: var(--card6-text); }
+
+        .card-7 { background-color: var(--card7-bg); color: var(--card7-text); }
+        .card-7 h2, .card-7 h3 { color: var(--card7-text); border-bottom-color: rgba(216, 67, 21, 0.2); }
+        .card-7 h2 .icon, .card-7 h3 .icon { color: var(--card7-text); }
+
+        .card-8 { background-color: var(--card8-bg); color: var(--card8-text); }
+        .card-8 h2, .card-8 h3 { color: var(--card8-text); border-bottom-color: rgba(55, 71, 79, 0.2); }
+        .card-8 h2 .icon, .card-8 h3 .icon { color: var(--card8-text); }
+
+
+        p, li {
+            margin-bottom: 1em;
+        }
+
+        ul {
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .definition {
+            font-weight: 700;
+            font-style: italic;
+            color: var(--heading-color);
+        }
+
+        .note, .calculation {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-blue);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .note h4, .calculation h4 {
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .calculation {
+            border-left-color: var(--accent-green);
+        }
+
+        .calculation pre {
+            background-color: var(--secondary-bg);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #333;
+            border: 1px solid #ced4da;
+        }
+        .calculation pre strong {
+            color: #c0392b; /* Highlight for specific parts in code */
+        }
+
+        .equation {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 1em;
+            display: block;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .equation .frac {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em;
+            text-align: center;
+        }
+        .equation .frac > span {
+            display: block;
+            padding: 0.1em;
+        }
+        .equation .frac .fup { border-bottom: 1px solid currentColor; }
+        .equation .frac .fdn { }
+
+
+        .list-item-title {
+            font-weight: 700;
+            margin-top: 15px;
+            display: block;
+            color: var(--heading-color);
+        }
+        .list-item-title .icon {
+            margin-right: 8px;
+            color: var(--accent-orange);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-bg);
+            font-weight: 700;
+            color: var(--heading-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .image-placeholder {
+            background-color: var(--secondary-bg);
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .chapter-header h1 {
+                font-size: 2.5em;
+            }
+            .card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 10px;
+                gap: 20px;
+            }
+            .chapter-header {
+                padding: 30px 15px;
+                margin-bottom: 20px;
+            }
+            .chapter-header h1 {
+                font-size: 2em;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h2, .card h3 {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .note, .calculation {
+                padding: 15px;
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 14px;
+            }
+            .chapter-header h1 {
+                font-size: 1.8em;
+            }
+            .card h2, .card h3 {
+                font-size: 1.2em;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .card h2 .icon, .card h3 .icon {
+                margin-bottom: 5px;
+            }
+            .list-item-title {
+                margin-top: 10px;
+            }
+            .calculation pre {
+                font-size: 0.85em;
+                padding: 10px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                border-bottom: 1px solid #dee2e6;
+                display: block;
+                margin-bottom: 10px;
+            }
+            td {
+                display: block;
+                text-align: right;
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                color: var(--heading-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter Two: Theory of Demand and Supply <i class="fas fa-book-open"></i></h1>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <h2><i class="fas fa-chart-line icon"></i> 2.1 Theory of Demand</h2>
+        <p>The theory of demand is a fundamental concept in economics that focuses on how consumers behave and make decisions regarding consumption. Its main goal is to identify the various factors that influence the amount of a product or service that people are willing and able to buy.</p>
+        <p>❖ የፍላጎት ጽንሰ-ሀሳብ በኢኮኖሚክስ ውስጥ መሠረታዊ የሆነ ጽንሰ-ሀሳብ ሲሆን፣ የሸማቾች የፍጆታ ባህሪ እና ውሳኔዎች ላይ ትኩረት ያደርጋል። ዋናው ዓላማው ሰዎች ለመግዛት ፈቃደኛ የሆኑትን እና አቅም ያላቸውን የምርት ወይም አገልግሎት መጠን ላይ ተጽዕኖ የሚያሳድሩ የተለያዩ ሁኔታዎችን መለየት ነው።</p>
+        
+        <h3><i class="fas fa-question-circle icon"></i> What is Demand in Economics?</h3>
+        <p>In economics, the term "demand" has a very specific meaning that is different from its everyday use. It refers to the quantity of a good or service that a consumer is willing and able to purchase at a specific price within a given time period.</p>
+        <p>❖ በኢኮኖሚክስ ውስጥ "ፍላጎት" የሚለው ቃል በየቀኑ ከምንጠቀምበት የተለየ ትርጉም አለው። ይህም አንድ ሸማች በአንድ የተወሰነ ጊዜ ውስጥ ባለው ዋጋ ለመግዛት ፈቃደኛ የሆነውን እና አቅም ያለውን የምርት ወይም አገልግሎት መጠን ያመለክታል።</p>
+        <p>A mere desire is not the same as demand. For a desire to become demand, it must be backed by the financial capacity to pay and the willingness to buy.</p>
+        <div class="note">
+            <p><strong>Demand = ability to pay + willingness to pay + availability of the good</strong></p>
+        </div>
+    </div>
+
+    <div class="card card-2">
+        <h3><i class="fas fa-balance-scale icon"></i> The Law of Demand</h3>
+        <p>This principle states that there is an <strong>inverse relationship</strong> between the price of a product and the quantity demanded, assuming all other factors remain constant (<strong>ceteris paribus</strong>). This means:</p>
+        <ul>
+            <li>When the price of a good increases, the quantity demanded decreases.</li>
+            <li>When the price of a good decreases, the quantity demanded increases.</li>
+        </ul>
+        <div class="note">
+            <h4><i class="fas fa-pizza-slice"></i> Example 1: The Pizza Shop</h4>
+            <p>A local pizza shop lowers the price of a large pizza from $20 to $15. As a result, more people buy large pizzas, and the quantity demanded increases.</p>
+        </div>
+        <div class="note">
+            <h4><i class="fas fa-mobile-alt"></i> Example 2: The Smartphone Market</h4>
+            <p>A new smartphone model is released at a very high price. Initial demand is low. After a few months, the company lowers the price, and the quantity demanded of the smartphone goes up significantly.</p>
+        </div>
+        <div class="note">
+            <h4><i class="fas fa-apple-alt"></i> Example 3: Seasonal Fruits</h4>
+            <p>During the peak harvest season, the price of mangoes drops. This lower price leads to more people buying mangoes, increasing the quantity demanded.</p>
+        </div>
+    </div>
+
+    <div class="card card-3">
+        <h3><i class="fas fa-chart-bar icon"></i> 2.1.1 Ways to Represent Demand</h3>
+        <p>The relationship between price and quantity demanded can be shown in three ways:</p>
+        <p><strong class="list-item-title"><i class="fas fa-table icon"></i> A) A Demand Schedule (Table)</strong></p>
+        <p>A demand schedule is a table that shows the relationship between different prices and the corresponding quantities demanded.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Price (Per KG) <i class="fas fa-money-bill-wave"></i></th>
+                    <th>QD (Per Week) <i class="fas fa-apple-alt"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td data-label="Price (Per KG)">5</td><td data-label="QD (Per Week)">5</td></tr>
+                <tr><td data-label="Price (Per KG)">4</td><td data-label="QD (Per Week)">7</td></tr>
+                <tr><td data-label="Price (Per KG)">3</td><td data-label="QD (Per Week)">9</td></tr>
+                <tr><td data-label="Price (Per KG)">2</td><td data-label="QD (Per Week)">11</td></tr>
+                <tr><td data-label="Price (Per KG)">1</td><td data-label="QD (Per Week)">13</td></tr>
+            </tbody>
+        </table>
+        <div class="note">
+            <p>Export to Sheets</p>
+        </div>
+        <p><strong class="list-item-title"><i class="fas fa-chart-area icon"></i> B) Demand Curve</strong></p>
+        <p>A demand curve is a graphical representation of the demand schedule. It plots the relationship between the price of a good on the vertical (Y) axis and the quantity demanded on the horizontal (X) axis. It typically slopes downward from left to right, illustrating the law of demand.</p>
+        <div class="image-placeholder">
+            <i class="fas fa-image fa-3x"></i>
+            <p><em>Placeholder for Demand Curve Graph</em></p>
+        </div>
+        <p><strong class="list-item-title"><i class="fas fa-calculator icon"></i> C) Demand Function</strong></p>
+        <p>A demand function is a mathematical equation that shows the relationship between the quantity demanded and its price, with all other factors held constant.</p>
+        <p class="definition">Typical Demand Function:</p>
+        <div class="calculation">
+            <pre class="equation">Q_D = f(P)</pre>
+        </div>
+        <div class="calculation">
+            <h4>Example Calculation:</h4>
+            <p>Given the function Q_D = a + bP, where b is the slope.</p>
+            <p>Using the table above, if we move from point A to B:</p>
+            <pre class="equation">b = <span class="frac"><span>ΔQ</span><span class="fup"></span><span>ΔP</span><span class="fdn"></span></span> = <span class="frac"><span>7-5</span><span class="fup"></span><span>4-5</span><span class="fdn"></span></span> = <span class="frac"><span>2</span><span class="fup"></span><span>-1</span><span class="fdn"></span></span> = -2</pre>
+            <p>To find 'a', substitute the values from point B:</p>
+            <pre class="equation">7 = a - 2(4)
+7 = a - 8
+a = 15</pre>
+            <p>So, the individual demand function is: Q_D = 15 - 2P</p>
+        </div>
+        
+        <h3><i class="fas fa-store icon"></i> Market Demand</h3>
+        <p>Market demand is the <strong>total demand</strong> for a product by all consumers in a market. It is calculated by <strong>horizontally adding</strong> the quantity demanded by each individual buyer at every given price.</p>
+        <div class="calculation">
+            <h4>Market Demand Function</h4>
+            <p>If the individual demand function is Q = 20 - 2P and there are 100 identical buyers:</p>
+            <pre class="equation">Market Demand (Q_M) = (Individual Demand) x (Number of Buyers)
+Q_M = (20 - 2P) × 100
+Q_M = 2000 - 200P</pre>
+            <p>This shows the total quantity demanded in the market at any given price.</p>
+        </div>
+    </div>
+
+    <div class="card card-4">
+        <h3><i class="fas fa-sliders-h icon"></i> 2.1.2 Determinants of Demand (Demand Shifters)</h3>
+        <p>Factors other than the price of the good itself can cause a <strong>shift in the entire demand curve</strong>. These are known as demand shifters.</p>
+        <ul>
+            <li><span class="list-item-title"><i class="fas fa-tag"></i> A) Price of the Product Itself</span>
+                <p>This is the most significant factor. As stated by the law of demand, a change in price causes a <strong>movement along the demand curve</strong>, not a shift of the curve.</p>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-money-bill-wave-alt"></i> B) Income of the Consumer</span>
+                <p>The effect of income on demand depends on the type of good:</p>
+                <ul>
+                    <li><strong>Normal Goods (Superior Goods):</strong> As income increases, demand for these goods also increases (positive income effect).
+                        <p>Examples: Branded clothes, high-quality chocolates, cars.</p>
+                        <p>ተጨማሪ ምሳሌዎች: ከፍተኛ ጥራት ያለው ቡና፣ ውድ የሆኑ የቤት እቃዎች፣ በበዓላት ጊዜ የሚገዙ የቅንጦት እቃዎች።</p>
+                    </li>
+                    <li><strong>Inferior Goods:</strong> As income increases, demand for these goods decreases (negative income effect). People switch to better-quality alternatives.
+                        <p>Examples: Generic brand cereal, low-quality shoes, second-hand clothing.</p>
+                        <p>ተጨማሪ ምሳሌዎች: ርካሽ የህዝብ ትራንስፖርት (እንደ ባጃጅ ያሉ)፣ የገበያ ቅሪት የሆኑ ምግቦች፣ በጣም ርካሽ የሆኑ የውጭ ጫማዎች።</p>
+                    </li>
+                </ul>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-link"></i> C) Prices of Related Goods</span>
+                <ul>
+                    <li><strong>Substitute Goods:</strong> Goods that can be used in place of each other. If the price of one substitute good increases, the demand for the other substitute good increases.
+                        <p>Examples: Pepsi and Coca-Cola, coffee and tea.</p>
+                        <p>ተጨማሪ ምሳሌዎች: ቅቤ እና ማርጋሪን፣ ስልክ እና ታብሌት፣ ሩዝ እና ፓስታ።</p>
+                    </li>
+                    <li><strong>Complementary Goods:</strong> Goods that are used together. If the price of one complementary good increases, the demand for the other good decreases.
+                        <p>Examples: Cars and fuel, tea and sugar.</p>
+                        <p>ተጨማሪ ምሳሌዎች: ስልክ እና ሲም ካርድ፣ ካሜራ እና ማህደረ ትውስታ ካርድ፣ ፕሪንተር እና ቀለሙ።</p>
+                    </li>
+                </ul>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-heart"></i> D) Tastes and Preferences</span>
+                <p>If a product becomes fashionable or consumers' preferences shift in its favor, demand for it will increase. Conversely, if a product becomes less popular, demand will decrease.</p>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-magic"></i> E) Consumer Expectations</span>
+                <ul>
+                    <li><strong>Future Price Expectation:</strong> If consumers expect prices to rise in the future, they may increase their current demand.</li>
+                    <li><strong>Future Income Expectation:</strong> If consumers expect their income to increase, they might increase their current demand for certain goods.</li>
+                </ul>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-users"></i> F) Number of Buyers (Population) and Family Size</span>
+                <p>Since market demand is a sum of individual demands, an increase in the number of buyers in the market or in family size will increase the total market demand.</p>
+            </li>
+            <li><span class="list-item-title"><i class="fas fa-cloud-sun"></i> G) Climate/Weather</span>
+                <p>Demand for certain goods is directly influenced by the climate. For example, demand for warm clothes increases in winter, while demand for ice cream and fans increases in summer.</p>
+            </li>
+        </ul>
+
+        <h3><i class="fas fa-exchange-alt icon"></i> Change in Demand vs. Change in Quantity Demanded</h3>
+        <p>This is a crucial distinction:</p>
+        <ul>
+            <li>A <strong>change in quantity demanded</strong> is a <strong>movement along a single demand curve</strong>, caused only by a change in the product's own price.</li>
+            <li>A <strong>change in demand</strong> is a <strong>shift of the entire demand curve</strong> (either to the right for an increase or to the left for a decrease), caused by a change in any of the determinants of demand other than the product's price.</li>
+        </ul>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-line fa-3x"></i>
+            <p><em>Placeholder for Demand Curve Shifts Illustration</em></p>
+        </div>
+    </div>
+
+    <div class="card card-5">
+        <h3><i class="fas fa-ruler-combined icon"></i> 2.1.3 Elasticity of Demand</h3>
+        <p><strong>Elasticity</strong> is a measure of responsiveness. In economics, it shows how much one variable changes in response to a change in another.</p>
+        <p><strong>Elasticity of demand</strong> measures how sensitive the quantity demanded is to changes in its price, consumer income, or the prices of related goods.</p>
+        <p>The three main types of demand elasticity are:</p>
+        <ul>
+            <li>Price Elasticity of Demand</li>
+            <li>Income Elasticity of Demand</li>
+            <li>Cross Elasticity of Demand</li>
+        </ul>
+
+        <h4><i class="fas fa-money-bill-wave icon"></i> i) Price Elasticity of Demand</h4>
+        <p>This measures how much the quantity demanded of a good responds to a change in its price.</p>
+        <ul>
+            <li><strong>Elastic Demand ($|e_d| > 1$):</strong> Consumers are very responsive to price changes. A small price change leads to a large change in quantity demanded.</li>
+            <li><strong>Inelastic Demand ($0 < |e_d| < 1$):</strong> Consumers are not very responsive to price changes. Demand for necessities is often inelastic.</li>
+            <li><strong>Unitary Elasticity ($|e_d| = 1$):</strong> Quantity demanded changes by the same percentage as the price.</li>
+            <li><strong>Perfectly Inelastic ($|e_d| = 0$):</strong> Quantity demanded does not change at all, regardless of the price.</li>
+            <li><strong>Perfectly Elastic ($|e_d| = \infty$):</strong> Consumers will only buy at one specific price; at any other price, demand is zero.</li>
+        </ul>
+        
+        <h4>Formulae for Price Elasticity of Demand</h4>
+        <p><strong class="list-item-title"><i class="fas fa-dot-circle"></i> A) Point Price Elasticity of Demand</strong></p>
+        <p>This is used for small changes in price and quantity at a specific point on the demand curve.</p>
+        <div class="calculation">
+            <pre class="equation">$$e_{d_p} = \frac{\%\Delta Q_D}{\%\Delta P} = \frac{\Delta Q}{\Delta P} \times \frac{P_1}{Q_1}$$</pre>
+            <h4>Example:</h4>
+            <p>Price falls from Birr 5 to 4, and quantity demanded increases from 100 to 150 units.</p>
+            <pre class="equation">e_d_p = <span class="frac"><span>150-100</span><span class="fup"></span><span>4-5</span><span class="fdn"></span></span> × <span class="frac"><span>5</span><span class="fup"></span><span>100</span><span class="fdn"></span></span> = <span class="frac"><span>50</span><span class="fup"></span><span>-1</span><span class="fdn"></span></span> × <span class="frac"><span>5</span><span class="fup"></span><span>100</span><span class="fdn"></span></span> = -2.5</pre>
+            <p>The result of -2.5 implies that at a price of Birr 5, a 1% decrease in price leads to a 2.5% increase in quantity demanded.</p>
+        </div>
+        
+        <p><strong class="list-item-title"><i class="fas fa-grip-lines"></i> B) Arc Price Elasticity of Demand</strong></p>
+        <p>This is used for relatively large changes in price and quantity between two points on the demand curve. It provides a more accurate measure over a segment of the curve.</p>
+        <div class="calculation">
+            <pre class="equation">e_d_a = <span class="frac"><span>ΔQ</span><span class="fup"></span><span>ΔP</span><span class="fdn"></span></span> × <span class="frac"><span>P_2 + P_1</span><span class="fup"></span><span>Q_2 + Q_1</span><span class="fdn"></span></span></pre>
+            <h4>Example:</h4>
+            <p>Using the same data as above:</p>
+            <pre class="equation">e_d_a = <span class="frac"><span>150-100</span><span class="fup"></span><span>4-5</span><span class="fdn"></span></span> × <span class="frac"><span>4+5</span><span class="fup"></span><span>150+100</span><span class="fdn"></span></span> = <span class="frac"><span>50</span><span class="fup"></span><span>-1</span><span class="fdn"></span></span> × <span class="frac"><span>9</span><span class="fup"></span><span>250</span><span class="fdn"></span></span> = <span class="frac"><span>450</span><span class="fup"></span><span>-250</span><span class="fdn"></span></span> = -1.8</pre>
+        </div>
+        
+        <h4><i class="fas fa-info-circle"></i> Key Notes about Price Elasticity:</h4>
+        <ul>
+            <li>It is a unit-free measure.</li>
+            <li>It is usually a negative number due to the inverse relationship in the law of demand.</li>
+            <li>If the value is positive, it indicates a Giffen or Veblen good (not covered in this text, but good to know).</li>
+        </ul>
+        
+        <h4><i class="fas fa-cogs"></i> Determinants of Price Elasticity of Demand</h4>
+        <ul>
+            <li><strong>Availability of Substitutes:</strong> The more substitutes a product has, the more elastic its demand.</li>
+            <li><strong>Time:</strong> Demand tends to be more elastic in the long run as consumers have more time to find substitutes or adjust their consumption patterns.</li>
+            <li><strong>Proportion of Income Spent:</strong> The smaller the percentage of a consumer's income spent on a good, the less elastic its demand will be (e.g., salt).</li>
+            <li><strong>Necessity vs. Luxury:</strong> Demand for necessities (like basic food) is less elastic than for luxury goods (like jewelry).</li>
+            <li><strong>Number of Uses:</strong> A good with many uses (e.g., electricity) tends to have more elastic demand.</li>
+            <li><strong>Habit-forming Nature:</strong> Demand for habit-forming goods (e.g., cigarettes) is often inelastic.</li>
+        </ul>
+        
+        <h4><i class="fas fa-chart-line icon"></i> ii) Income Elasticity of Demand</h4>
+        <p>This measures the responsiveness of quantity demanded to a change in consumer income.</p>
+        <div class="calculation">
+            <pre class="equation">e_d_I = <span class="frac"><span>ΔQ</span><span class="fup"></span><span>ΔM</span><span class="fdn"></span></span> × <span class="frac"><span>M_1</span><span class="fup"></span><span>Q_1</span><span class="fdn"></span></span></pre>
+            <h4>Example:</h4>
+            <p>Income increases from Birr 1000 to 1200, and wheat consumption increases from 4kg to 5kg.</p>
+            <pre class="equation">e_d_I = <span class="frac"><span>5-4</span><span class="fup"></span><span>1200-1000</span><span class="fdn"></span></span> × <span class="frac"><span>1000</span><span class="fup"></span><span>4</span><span class="fdn"></span></span> = <span class="frac"><span>1</span><span class="fup"></span><span>200</span><span class="fdn"></span></span> × <span class="frac"><span>1000</span><span class="fup"></span><span>4</span><span class="fdn"></span></span> = 1.25</pre>
+        </div>
+        
+        <h4><i class="fas fa-info-circle"></i> Interpretation of Income Elasticity Values:</h4>
+        <ul>
+            <li>$e_{d_I} > 1$: The good is a <strong>luxury good</strong>.</li>
+            <li>$0 < e_{d_I} < 1$: The good is a <strong>necessity good</strong>.</li>
+            <li>$e_{d_I} < 0$: The good is an <strong>inferior good</strong>.</li>
+        </ul>
+
+        <h4><i class="fas fa-exchange-alt icon"></i> iii) Cross Elasticity of Demand</h4>
+        <p>This measures how the demand for one good is affected by a change in the price of another related good.</p>
+        <div class="calculation">
+            <pre class="equation">e_d_xy = <span class="frac"><span>ΔQ_x</span><span class="fup"></span><span>ΔP_y</span><span class="fdn"></span></span> × <span class="frac"><span>P_{y_1}</span><span class="fup"></span><span>Q_{x_1}</span><span class="fdn"></span></span></pre>
+            <h4>Example:</h4>
+            <p>Price of Good Y increases from 10 to 15 Birr, and the quantity demanded of Good X decreases from 1500 to 1000 units.</p>
+            <pre class="equation">e_d_xy = <span class="frac"><span>1000-1500</span><span class="fup"></span><span>15-10</span><span class="fdn"></span></span> × <span class="frac"><span>10</span><span class="fup"></span><span>1500</span><span class="fdn"></span></span> = <span class="frac"><span>-500</span><span class="fup"></span><span>5</span><span class="fdn"></span></span> × <span class="frac"><span>10</span><span class="fup"></span><span>1500</span><span class="fdn"></span></span> = -0.667</pre>
+        </div>
+        
+        <h4><i class="fas fa-info-circle"></i> Interpretation of Cross Elasticity Values:</h4>
+        <ul>
+            <li>$e_{d_{xy}}$ is <strong>positive</strong> $(>0)$: The goods are <strong>substitutes</strong>.</li>
+            <li>$e_{d_{xy}}$ is <strong>negative</strong> $(<0)$: The goods are <strong>complements</strong>.</li>
+            <li>$e_{d_{xy}}$ is <strong>zero</strong> $(0)$: The goods are <strong>unrelated</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="card card-6">
+        <h2><i class="fas fa-box-open icon"></i> 2.2 Theory of Supply</h2>
+        <h3><i class="fas fa-cubes icon"></i> Definition of Supply</h3>
+        <p>Supply refers to the various quantities of a product that sellers (producers) are willing and able to provide at different prices over a given period of time, with all other factors remaining unchanged.</p>
+        <p>❖ አቅርቦት ማለት ሻጮች (አምራቾች) በተለያዩ የዋጋ ደረጃዎች ለአንድ የተወሰነ ጊዜ ለመሸጥ ፈቃደኛና አቅም ያላቸው የተለያዩ የምርት መጠኖች ማለት ነው።</p>
+        
+        <h3><i class="fas fa-hand-holding-usd icon"></i> The Law of Supply</h3>
+        <p>The law of supply states that, all other things being equal (<strong>ceteris paribus</strong>), as the price of a product increases, the quantity supplied of that product also increases, and as the price decreases, the quantity supplied decreases. This is a <strong>direct relationship</strong> between price and quantity supplied.</p>
+        <div class="note">
+            <h4><i class="fas fa-coffee"></i> Example 1: A coffee bean farmer</h4>
+            <p>A coffee bean farmer sees the market price for coffee increase significantly. Motivated by the higher profit, the farmer works to harvest more beans and brings a larger quantity to the market.</p>
+        </div>
+        <div class="note">
+            <h4><i class="fas fa-chair"></i> Example 2: A furniture maker</h4>
+            <p>A furniture maker notices the price of his handcrafted chairs has dropped. He decides to produce fewer chairs, as the lower price makes it less profitable to do so.</p>
+        </div>
+        <div class="note">
+            <h4><i class="fas fa-toy-dinosaur"></i> Example 3: Seasonal Toys</h4>
+            <p>During the Christmas season, the price of toys goes up. Toy manufacturers increase their production and supply to capitalize on the higher prices.</p>
+        </div>
+    </div>
+
+    <div class="card card-7">
+        <h3><i class="fas fa-chart-line icon"></i> 2.2.1 Supply Schedule, Supply Curve, and Supply Function</h3>
+        <p>These are three ways to represent the relationship between price and quantity supplied.</p>
+        
+        <p><strong class="list-item-title"><i class="fas fa-table icon"></i> A) Supply Schedule</strong></p>
+        <p>A supply schedule is a tabular statement that shows the different quantities of a product offered for sale at various prices.</p>
+        <div class="note">
+            <h4>Table 2.3: An Individual Seller's Supply Schedule for Butter</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Price (Birr per KG)</th>
+                        <th>Q_S (KG/Week)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Price (Birr per KG)">30</td><td data-label="Q_S (KG/Week)">100</td></tr>
+                    <tr><td data-label="Price (Birr per KG)">25</td><td data-label="Q_S (KG/Week)">90</td></tr>
+                    <tr><td data-label="Price (Birr per KG)">20</td><td data-label="Q_S (KG/Week)">80</td></tr>
+                    <tr><td data-label="Price (Birr per KG)">15</td><td data-label="Q_S (KG/Week)">70</td></tr>
+                    <tr><td data-label="Price (Birr per KG)">10</td><td data-label="Q_S (KG/Week)">60</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <p><strong class="list-item-title"><i class="fas fa-chart-area icon"></i> B) Supply Curve</strong></p>
+        <p>A supply curve is a graphical representation of the information in a supply schedule. It plots the price on the vertical (Y) axis and the quantity supplied on the horizontal (X) axis. It is an <strong>upward-sloping line</strong>, reflecting the law of supply.</p>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-area fa-3x"></i>
+            <p><em>Placeholder for Supply Curve Graph</em></p>
+        </div>
+        
+        <p><strong class="list-item-title"><i class="fas fa-calculator icon"></i> C) Supply Function</strong></p>
+        <p>A supply function is a mathematical representation of the relationship between the quantity supplied and its price. It can be expressed as:</p>
+        <div class="calculation">
+            <pre class="equation">S = f(P)</pre>
+        </div>
+        <p>Where S is quantity supplied and P is the price of the commodity.</p>
+
+        <h3><i class="fas fa-industry icon"></i> Market Supply</h3>
+        <p>Market supply is the <strong>total supply</strong> of a product in the market. It is derived by <strong>horizontally adding</strong> the quantity supplied by all individual sellers at each price.</p>
+        <div class="note">
+            <h4>Example:</h4>
+            <p>If there are three sellers supplying 10, 15, and 20 units respectively at a price of 5 Birr, the market supply at that price would be 10 + 15 + 20 = 45 units.</p>
+        </div>
+    </div>
+
+    <div class="card card-8">
+        <h3><i class="fas fa-wrench icon"></i> 2.2.2 Determinants of Supply (Supply Shifters)</h3>
+        <p>These are factors other than the product's own price that cause the entire supply curve to shift.</p>
+        <ul>
+            <li><span class="list-item-title"><i class="fas fa-dollar-sign"></i> i) Input Price:</span> An increase in the price of production inputs (like labor, raw materials, or capital) raises production costs. This makes producers less willing to supply the same quantity at the same price, causing a <strong>decrease in supply</strong> and a <strong>leftward shift</strong> of the supply curve.</li>
+            <li><span class="list-item-title"><i class="fas fa-microchip"></i> ii) State of Technology:</span> Technological advancement allows firms to produce more output with the same or fewer inputs. This lowers production costs and leads to an <strong>increase in supply</strong>, causing an outward (<strong>rightward</strong>) shift of the supply curve.</li>
+            <li><span class="list-item-title"><i class="fas fa-tag"></i> iii) Price of Related Goods:</span> If the price of another good that a firm can produce increases, the firm may shift its production to that more profitable good. This leads to a <strong>reduction in the supply</strong> of the original product, even if its own price hasn't changed.</li>
+            <li><span class="list-item-title"><i class="fas fa-bullseye"></i> iv) Objectives of the Firm:</span> While the main objective is often profit maximization, firms may also have other goals such as maximizing sales, employment, or overall production. Pursuing these alternative objectives can lead to an <strong>increase in supply</strong>.</li>
+            <li><span class="list-item-title"><i class="fas fa-cloud-rain"></i> v) Weather Condition:</span> A change in weather can significantly impact the supply of products, especially agricultural ones. Favorable weather can lead to a good harvest, <strong>increasing supply</strong>, while adverse weather can lead to a poor harvest, <strong>decreasing supply</strong>.</li>
+            <li><span class="list-item-title"><i class="fas fa-chart-line"></i> vi) Sellers' Expectation of Price:</span> If sellers expect the price of their product to increase in the future, they may <strong>reduce their current supply</strong> to sell at a higher price later. The opposite is also true.</li>
+            <li><span class="list-item-title"><i class="fas fa-store-alt"></i> vii) Number of Sellers in the Market:</span> An increase in the number of sellers in the market leads to a greater total quantity being supplied at each price, thus <strong>increasing the market supply</strong>.</li>
+            <li><span class="list-item-title"><i class="fas fa-hand-holding-usd"></i> vii) Taxes & Subsidies (Fiscal Policy):</span> <strong>Taxes</strong> on production increase costs, which <strong>decreases supply</strong>. <strong>Subsidies</strong> (government payments to producers) lower costs, which <strong>increases supply</strong>.</li>
+            <li><span class="list-item-title"><i class="fas fa-globe"></i> viii) Other Factors:</span> This includes market access (infrastructure development like roads) and political stability. Better infrastructure and a stable political environment can reduce costs and risks, leading to an <strong>increase in supply</strong>.</li>
+        </ul>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-bar fa-3x"></i>
+            <p><em>Placeholder for Supply Curve Shifts Illustration</em></p>
+        </div>
+    </div>
+
+    <div class="card card-1">
+        <h3><i class="fas fa-ruler-horizontal icon"></i> 2.2.3 Elasticity of Supply</h3>
+        <p><strong>Elasticity of supply</strong> is the degree of responsiveness of quantity supplied to a change in price. It is the percentage change in quantity supplied divided by the percentage change in price.</p>
+        <div class="calculation">
+            <h4>Formula (Point Method):</h4>
+            <pre class="equation">$$e_{S_p} = \frac{\text{Percentage change in quantity supplied}}{\text{Percentage change in price}} = \frac{\%\Delta Q_S}{\%\Delta P}$$</pre>
+            <p>This can be calculated as:</p>
+            <pre class="equation">$$e_{S_p} = \frac{\Delta Q}{\Delta P} \times \frac{P_1}{Q_1}$$</pre>
+        </div>
+        <h4><i class="fas fa-info-circle"></i> Interpretation of the Value ($e_{S_p}$):</h4>
+        <ul>
+            <li><strong>Elastic ($e_{S_p} > 1$):</strong> Supply is highly responsive to price changes. A small price change leads to a large change in quantity supplied.</li>
+            <li><strong>Inelastic ($0 < e_{S_p} < 1$):</strong> Supply is not very responsive to price changes.</li>
+            <li><strong>Unitary Elastic ($e_{S_p} = 1$):</strong> Quantity supplied changes by the same percentage as the price.</li>
+            <li><strong>Perfectly Inelastic ($e_{S_p} = 0$):</strong> Quantity supplied does not change at all, regardless of the price.</li>
+            <li><strong>Perfectly Elastic ($e_{S_p} = \infty$):</strong> Sellers will supply an infinite quantity at a specific price, but nothing at any other price.</li>
+        </ul>
+    </div>
+
+    <div class="card card-2">
+        <h2><i class="fas fa-balance-scale icon"></i> 2.3 Market Equilibrium</h2>
+        <p><strong>Market equilibrium</strong> is the state where the quantity demanded by consumers equals the quantity supplied by producers. At this point, there is no pressure for the price to change.</p>
+        <div class="calculation">
+            <h4>Example:</h4>
+            <p>Given $Q_d = 100 - 2P$ and $P = \frac{Q_s}{2} + 10$.</p>
+            <p>First, rearrange the supply function to solve for $Q_s$:</p>
+            <pre class="equation">P - 10 = <span class="frac"><span>Q_s</span><span class="fup"></span><span>2</span><span class="fdn"></span></span>
+2(P - 10) = Q_s
+Q_s = 2P - 20</pre>
+            <p><strong class="list-item-title"><i class="fas fa-calculator"></i> a) Calculate Equilibrium Price and Quantity:</strong></p>
+            <p>At equilibrium, $Q_d = Q_s$.</p>
+            <pre class="equation">100 - 2P = 2P - 20
+120 = 4P
+<strong>P^* = 30</strong></pre>
+            <p>Now, substitute $P^*$ back into either equation to find $Q^*$:</p>
+            <pre class="equation">Q^* = 100 - 2(30)
+<strong>Q^* = 40</strong></pre>
+            <p><strong>Equilibrium Price ($P^*$) = 30 and Equilibrium Quantity ($Q^*$) = 40.</strong></p>
+            
+            <p><strong class="list-item-title"><i class="fas fa-chart-pie"></i> b) Determine Surplus or Shortage:</strong></p>
+            <p><strong>At P = 25:</strong></p>
+            <pre class="equation">Q_d = 100 - 2(25) = 50
+Q_s = 2(25) - 20 = 30</pre>
+            <p>Since $Q_d > Q_s$, there is a <strong>shortage</strong> of $50 - 30 = 20$ units.</p>
+            <p><strong>At P = 35:</strong></p>
+            <pre class="equation">Q_d = 100 - 2(35) = 30
+Q_s = 2(35) - 20 = 50</pre>
+            <p>Since $Q_s > Q_d$, there is a <strong>surplus</strong> of $50 - 30 = 20$ units.</p>
+        </div>
+        
+        <h3><i class="fas fa-chart-area icon"></i> Effects of Shifts in Demand and Supply on Equilibrium</h3>
+        <p><strong>i) When Demand Changes (Supply is Constant):</strong></p>
+        <ul>
+            <li>An <strong>increase in demand</strong> (rightward shift) leads to a <strong>higher equilibrium price</strong> and a <strong>higher equilibrium quantity</strong>.</li>
+            <li>A <strong>decrease in demand</strong> (leftward shift) leads to a <strong>lower equilibrium price</strong> and a <strong>lower equilibrium quantity</strong>.</li>
+        </ul>
+        <p><strong>ii) When Supply Changes (Demand is Constant):</strong></p>
+        <ul>
+            <li>An <strong>increase in supply</strong> (rightward shift) leads to a <strong>lower equilibrium price</strong> and a <strong>higher equilibrium quantity</strong>.</li>
+            <li>A <strong>decrease in supply</strong> (leftward shift) leads to a <strong>higher equilibrium price</strong> and a <strong>lower equilibrium quantity</strong>.</li>
+        </ul>
+        <p><strong>iii) Combined Changes in Demand and Supply:</strong></p>
+        <ul>
+            <li><strong>When both increase,</strong> the equilibrium quantity will definitely increase. The effect on price is uncertain and depends on the relative magnitude of the shifts.
+                <ul>
+                    <li>If the increase in demand is greater than the increase in supply, price goes up.</li>
+                    <li>If the increase in supply is greater than the increase in demand, price falls.</li>
+                    <li>If the increases are the same, the price remains unchanged.</li>
+                </ul>
+            </li>
+            <li><strong>When both decrease,</strong> the equilibrium quantity will definitely decrease. The effect on price depends on the relative magnitude of the decreases.
+                <ul>
+                    <li>If the decrease in demand is greater than the decrease in supply, the price will decrease.</li>
+                    <li>If the decrease in supply is greater than the decrease in demand, the price will rise.</li>
+                    <li>If the decreases are the same, the price remains unchanged.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-pie fa-3x"></i>
+            <p><em>Placeholder for Market Equilibrium Shifts Illustration</em></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'economics3', 
+        title: 'Chapter 3 : Theory of Consumer Behaviour', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Three: Theory of Consumer Behavior</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #e9ecef;
+            --text-color: #343a40;
+            --heading-color: #212529;
+            --accent-blue: #007bff;
+            --accent-green: #28a745;
+            --accent-orange: #fd7e14;
+            --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+
+            --card1-bg: #e0f7fa; /* Light Cyan */
+            --card1-text: #006064;
+            --card2-bg: #fff3e0; /* Light Orange */
+            --card2-text: #e65100;
+            --card3-bg: #e8f5e9; /* Light Green */
+            --card3-text: #2e7d32;
+            --card4-bg: #f3e5f5; /* Light Purple */
+            --card4-text: #6a1b9a;
+            --card5-bg: #ffebee; /* Light Red */
+            --card5-text: #c62828;
+            --card6-bg: #e3f2fd; /* Light Blue */
+            --card6-text: #1565c0;
+            --card7-bg: #fbe9e7; /* Light Deep Orange */
+            --card7-text: #d84315;
+            --card8-bg: #eceff1; /* Blue Grey */
+            --card8-text: #37474f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: grid;
+            gap: 25px;
+        }
+
+        .chapter-header {
+            background: linear-gradient(to right, #6a1b9a, #4a148c);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .chapter-header .icon {
+            font-size: 1.2em;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2, .card h3, .card h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 .icon, .card h3 .icon, .card h4 .icon {
+            color: var(--accent-blue);
+            font-size: 1.1em;
+        }
+
+        .card-1 { background-color: var(--card1-bg); color: var(--card1-text); }
+        .card-1 h2, .card-1 h3, .card-1 h4 { color: var(--card1-text); border-bottom-color: rgba(0, 96, 100, 0.2); }
+        .card-1 .icon { color: var(--card1-text); }
+
+        .card-2 { background-color: var(--card2-bg); color: var(--card2-text); }
+        .card-2 h2, .card-2 h3, .card-2 h4 { color: var(--card2-text); border-bottom-color: rgba(230, 81, 0, 0.2); }
+        .card-2 .icon { color: var(--card2-text); }
+
+        .card-3 { background-color: var(--card3-bg); color: var(--card3-text); }
+        .card-3 h2, .card-3 h3, .card-3 h4 { color: var(--card3-text); border-bottom-color: rgba(46, 125, 50, 0.2); }
+        .card-3 .icon { color: var(--card3-text); }
+
+        .card-4 { background-color: var(--card4-bg); color: var(--card4-text); }
+        .card-4 h2, .card-4 h3, .card-4 h4 { color: var(--card4-text); border-bottom-color: rgba(106, 27, 154, 0.2); }
+        .card-4 .icon { color: var(--card4-text); }
+
+        .card-5 { background-color: var(--card5-bg); color: var(--card5-text); }
+        .card-5 h2, .card-5 h3, .card-5 h4 { color: var(--card5-text); border-bottom-color: rgba(198, 40, 40, 0.2); }
+        .card-5 .icon { color: var(--card5-text); }
+
+        p, li {
+            margin-bottom: 1em;
+        }
+
+        ul {
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .definition {
+            font-weight: 700;
+            font-style: italic;
+            color: var(--heading-color);
+        }
+
+        .note, .calculation {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-blue);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .note h4, .calculation h4 {
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .calculation {
+            border-left-color: var(--accent-green);
+        }
+
+        .calculation pre {
+            background-color: var(--secondary-bg);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #333;
+            border: 1px solid #ced4da;
+        }
+        .calculation pre strong {
+            color: #c0392b; /* Highlight for specific parts in code */
+        }
+        
+        .equation {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 1.1em;
+            display: block;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .equation .frac {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em;
+            text-align: center;
+        }
+        .equation .frac > span {
+            display: block;
+            padding: 0.1em;
+        }
+        .equation .frac .fup { border-bottom: 1px solid currentColor; }
+        .equation .frac .fdn { }
+
+        .list-item-title {
+            font-weight: 700;
+            margin-top: 15px;
+            display: block;
+            color: var(--heading-color);
+        }
+
+        .list-item-title .icon {
+            margin-right: 8px;
+            color: var(--accent-orange);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-bg);
+            font-weight: 700;
+            color: var(--heading-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .table-note {
+            font-style: italic;
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            color: #6c757d;
+        }
+
+        .image-placeholder {
+            background-color: var(--secondary-bg);
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .chapter-header h1 {
+                font-size: 2.5em;
+            }
+            .card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 10px;
+                gap: 20px;
+            }
+            .chapter-header {
+                padding: 30px 15px;
+                margin-bottom: 20px;
+            }
+            .chapter-header h1 {
+                font-size: 2em;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h2, .card h3 {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .note, .calculation {
+                padding: 15px;
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 14px;
+            }
+            .chapter-header h1 {
+                font-size: 1.8em;
+            }
+            .card h2, .card h3 {
+                font-size: 1.2em;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .card h2 .icon, .card h3 .icon {
+                margin-bottom: 5px;
+            }
+            .list-item-title {
+                margin-top: 10px;
+            }
+            .calculation pre {
+                font-size: 0.85em;
+                padding: 10px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                border-bottom: 1px solid #dee2e6;
+                display: block;
+                margin-bottom: 10px;
+            }
+            td {
+                display: block;
+                text-align: right;
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                color: var(--heading-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter 3: Theory of Consumer Behavior <i class="fas fa-shopping-bag icon"></i></h1>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <p>The theory of consumer behavior is built on the idea that we can understand what people like by observing their choices. It's a fundamental concept in economics that explains how individuals make decisions about what to buy, considering their preferences and limitations.</p>
+        <p>The process of understanding consumer behavior can be broken down into three key steps:</p>
+        <ul>
+            <li><strong>Preferences:</strong> First, we must have a way to describe how consumers prefer one good over another. This involves understanding their likes and dislikes.</li>
+            <li><strong>Budget Constraints:</strong> Second, we must recognize that consumers have limited incomes. This means their ability to buy goods is restricted. <i class="fas fa-dollar-sign"></i></li>
+            <li><strong>Consumer Choice:</strong> Finally, we combine preferences and budget constraints to determine the ultimate choices consumers make.</li>
+        </ul>
+        
+        <h3><i class="fas fa-check-circle icon"></i> 3.1 Consumer Preferences</h3>
+        <p>A consumption bundle is a collection of goods and services that a consumer can choose from. A consumer makes choices by comparing these bundles.</p>
+        
+        <p><strong>Strict Preference ($≻$):</strong> When a consumer definitely prefers one bundle (X) over another (Y). We write this as $X \succ Y$.</p>
+        <p>አንድ ሸማች አንድን የሸቀጦች ስብስብ (X) ከሌላ ስብስብ (Y) በግልፅ ሲመርጥ፣ ምርጫውን በ$X \succ Y$ እንገልፃለን።</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>A consumer who always chooses a brand-name cola over a generic one shows a strict preference for the brand-name cola.</li>
+            <li>You consistently choose to buy a hardcover book over an e-book of the same title, indicating a strict preference for the physical book.</li>
+            <li>Given the choice between a large pepperoni pizza and a small one, you always choose the large, showing a strict preference for the larger size.</li>
+        </ul>
+        
+        <p><strong>Indifference ($∼$):</strong> When a consumer is equally satisfied with two different bundles. We write this as $X \sim Y$.</p>
+        <p>አንድ ሸማች ከሁለት የተለያዩ የሸቀጦች ስብስቦች እኩል እርካታ ሲያገኝ፣ ምርጫውን በ$X \sim Y$ እንገልፃለን።</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>A consumer might be indifferent between getting a free coffee and a free donut.</li>
+            <li>You are equally happy with two different movie streaming services that offer similar content.</li>
+            <li>A person is indifferent between buying a red shirt and a blue shirt, as long as the style and price are the same.</li>
+        </ul>
+        
+        <p><strong>Weak Preference ($\succeq$):</strong> When a consumer prefers or is indifferent between two bundles. We write this as $X \succeq Y$.</p>
+        <p>አንድ ሸማች አንድን የሸቀጦች ስብስብ (X) ከሌላኛው (Y) ቢመርጥ ወይም እኩል እርካታ ቢያገኝ፣ ምርጫውን በ$X \succeq Y$ እንገልፃለን።</p>
+        
+        <p><strong>Key Notes on Preferences:</strong> <i class="fas fa-key icon"></i></p>
+        <ul>
+            <li>If $X \succeq Y$ and $Y \succeq X$, it means the consumer considers X at least as good as Y, and Y at least as good as X. This can only be true if they are indifferent, so $X \sim Y$.</li>
+            <li>If $X \succeq Y$ but we know it's not the case that $X \sim Y$, then the consumer must strictly prefer X to Y. So, $X \succ Y$.</li>
+        </ul>
+    </div>
+
+    <div class="card card-2">
+        <h3><i class="fas fa-lightbulb icon"></i> 3.2 The Concept of Utility</h3>
+        <p>Utility is the satisfaction or pleasure a person gets from consuming a good or service. In other words, it is a product's power to satisfy human wants.</p>
+        
+        <h4><strong>Definitions:</strong></h4>
+        <p><strong>Utility:</strong> The satisfaction derived from consuming a good or service.</p>
+        <p><strong>ዩቲሊቲ (Utility):</strong> አንድን ዕቃ ወይም አገልግሎት በመጠቀም የሚገኝ የእርካታ ወይም ደስታ መጠን። በሌላ አገላለጽ፣ የሰውን ፍላጎት የማርካት ኃይል ነው።</p>
+        
+        <h4><strong>Important Points about Utility:</strong> <i class="fas fa-thumbtack icon"></i></h4>
+        <p><strong>Utility and Usefulness are NOT the same.</strong></p>
+        <p>A product can have high utility even if it has no functional use. For example, a piece of art can provide great utility (satisfaction) to an art collector, but it doesn't perform a practical function like a hammer or a car.</p>
+        <p><strong>ዩቲሊቲ (Utility) እና ጠቃሚነት (Usefulness) አንድ አይደሉም።</strong></p>
+        <p>አንድ ዕቃ ምንም ተግባራዊ ጥቅም ባይኖረውም ከፍተኛ ዩቲሊቲ ሊኖረው ይችላል። ለምሳሌ፣ የጥበብ ስራ ለአንድ ሰብሳቢ ከፍተኛ እርካታ ሊሰጥ ቢችልም፣ እንደ መዶሻ ወይም መኪና ያለ ተግባራዊ ጥቅም የለውም።</p>
+        <p><strong>Example 1:</strong> A collector buys a vintage car solely to display it, not to drive it. The utility comes from its aesthetic value, not its usefulness as a vehicle.</p>
+        <p><strong>Example 2:</strong> An audiophile buys expensive, high-fidelity headphones. While cheaper headphones can also play music, the added utility for the audiophile comes from the superior sound quality, not just the basic function of listening.</p>
+        <p><strong>Example 3:</strong> A person with a severe allergy to peanuts would derive zero utility from a peanut butter sandwich, even though it's a very useful and nutritious food for others.</p>
+        
+        <p><strong>Utility is Subjective.</strong></p>
+        <p>Utility varies from person to person. The satisfaction two individuals get from consuming the same good may be completely different.</p>
+        <p><strong>ዩቲሊቲ (Utility) ግላዊ ነው።</strong></p>
+        <p>ከሰው ወደ ሰው ይለያያል። አንድን ዕቃ በመጠቀም ሁለት ግለሰቦች የሚያገኙት እርካታ ፍጹም የተለየ ሊሆን ይችላል።</p>
+        <p><strong>Example 1:</strong> A smoker gets significant utility from a cigarette, while a non-smoker gets none.</p>
+        <p><strong>Example 2:</strong> A vegan gets zero utility from a steak dinner, while a meat-eater finds it highly satisfying.</p>
+        <p><strong>Example 3:</strong> A person who loves spicy food will get a lot of utility from a hot pepper, whereas someone who dislikes spice will get negative utility.</p>
+        
+        <p><strong>Utility can differ based on time and place.</strong></p>
+        <p>The utility derived from a good can change depending on when and where it's consumed.</p>
+        <p><strong>ዩቲሊቲ (Utility) በቦታና በጊዜ ሊለያይ ይችላል።</strong></p>
+        <p>አንድን ዕቃ በመጠቀም የሚገኘው እርካታ እንደየአካባቢውና እንደየጊዜው ሊለዋወጥ ይችላል።</p>
+        <p><strong>Example 1:</strong> A cold bottle of water provides very high utility on a hot, sunny day compared to a cold, rainy day.</p>
+        <p><strong>Example 2:</strong> A warm jacket provides high utility in a cold climate but very little in a tropical one.</p>
+        <p><strong>Example 3:</strong> Eating a full, heavy meal at noon provides more utility when you are hungry than if you were to eat the same meal late at night after already having dinner.</p>
+    </div>
+
+    <div class="card card-3">
+        <h3><i class="fas fa-ruler-horizontal icon"></i> 3.3 Approaches to Measuring Utility</h3>
+        <p>Economists use two main approaches to measure utility: cardinal and ordinal.</p>
+        
+        <ul>
+            <li><strong>Cardinalist School:</strong> Believes utility can be measured objectively using units.</li>
+            <li><strong>Ordinalist School:</strong> Believes utility cannot be measured, but consumers can rank their preferences.</li>
+        </ul>
+        
+        <h4><i class="fas fa-sort-numeric-up icon"></i> 3.3.1 The Cardinal Utility Theory</h4>
+        <p>According to this theory, utility can be measured using arbitrary units called **utils** (e.g., 1, 2, 3). For example, a consumer might get 10 utils from an orange and 8 utils from a banana, meaning they get more satisfaction from the orange.</p>
+        
+        <h5><strong>3.3.1.1 Assumptions of Cardinal Utility Theory</strong></h5>
+        <ul>
+            <li><strong>Rationality of Consumers:</strong> The main goal of a consumer is to maximize their satisfaction given their limited budget. To do this, they must act rationally, making logical choices.</li>
+            <li><strong>የሸማቾች ምክንያታዊነት (Rationality of consumers):</strong> የአንድ ሸማች ዋና ዓላማ ውስን በሆነ በጀቱ ከፍተኛውን እርካታ ማግኘት ነው። ይህን ለማድረግ፣ ምክንያታዊ በሆነ መንገድ መወሰን አለበት።</li>
+            <li><strong>Utility is Cardinally Measurable:</strong> It's assumed that utility can be measured using specific numbers (utils).</li>
+            <li><strong>ዩቲሊቲ (Utility) በቁጥር ሊለካ ይችላል።</strong></li>
+            <li><strong>Constant Marginal Utility of Money:</strong> This assumption states that the value of money itself remains constant regardless of how much of it a consumer has. Each unit of money is worth the same.</li>
+            <li><strong>የገንዘብ ህዳግ ዩቲሊቲ ቋሚነት (Constant marginal utility of money):</strong> ይህ ግምት አንድ ሸማች ምንም ያህል ገንዘብ ቢኖረውም የገንዘቡ ዋጋ ቋሚ ነው የሚል ነው። እያንዳንዱ የገንዘብ ክፍል እኩል ዋጋ አለው።</li>
+            <li><strong>Diminishing Marginal Utility (DMU):</strong> The additional satisfaction from consuming each successive unit of a good decreases. The more you consume, the less extra satisfaction you get from each new unit.</li>
+            <li><strong>የሚቀንስ ህዳግ ዩቲሊቲ (Diminishing Marginal Utility):</strong> አንድ ዕቃ እየተጨመረ በሄደ ቁጥር ከእያንዳንዱ ተጨማሪ ክፍል የሚገኘው ተጨማሪ እርካታ እየቀነሰ ይሄዳል።</li>
+            <li><strong>Example 1:</strong> The first slice of pizza is incredibly satisfying, the second is good, but by the fifth slice, the extra satisfaction you get is very small.</li>
+            <li><strong>Example 2:</strong> The first cup of coffee in the morning provides a lot of utility, but the tenth cup may provide very little or even negative utility.</li>
+            <li><strong>Example 3:</strong> When you buy your first pair of shoes, you get high utility. Buying a second, third, or fourth pair will provide less and less extra utility.</li>
+            <li><strong>Total Utility Depends on Quantities:</strong> The total satisfaction from a bundle of goods depends on the quantities of each individual good. If a bundle has commodities $X_1, X_2, X_3,..., X_n$, the total utility is given by: $TU = f(X_1, X_2, X_3,..., X_n)$</li>
+        </ul>
+        
+        <h5><strong>3.3.1.2 Total and Marginal Utility</strong></h5>
+        
+        <div class="note">
+            <p><strong>Concept</strong> | <strong>Definition</strong> | <strong>Explanation</strong></p>
+            <p><strong>Total Utility (TU)</strong> | The total satisfaction a consumer gets from consuming a specific quantity of a good. | As a consumer consumes more of a good, their total utility increases until it reaches a saturation point, after which it may decline.</p>
+            <p><strong>Marginal Utility (MU)</strong> | The extra satisfaction from consuming one additional unit of a product. | It's the change in total utility that results from consuming one more unit.</p>
+        </div>
+        <p>Export to Sheets</p>
+        
+        <p><strong>Total Utility (TU):</strong></p>
+        <p><strong>ጠቅላላ ዩቲሊቲ (Total Utility):</strong> አንድ ሸማች አንድን ዕቃ በተወሰነ መጠን ሲጠቀም የሚያገኘው አጠቃላይ እርካታ።</p>
+        <p><strong>Key Note:</strong> Total utility increases with consumption but at a decreasing rate due to the law of diminishing marginal utility. It will eventually reach a maximum point and then start to decline if consumption continues.</p>
+        
+        <p><strong>Marginal Utility (MU):</strong></p>
+        <p><strong>ህዳግ ዩቲሊቲ (Marginal Utility):</strong> አንድ ተጨማሪ ዕቃ ሲበላ ከጠቅላላው እርካታ ላይ የሚጨመረው ለውጥ።</p>
+        <p><strong>Mathematical Formula:</strong> $MU = \frac{\Delta TU}{\Delta Q}$</p>
+        <p><strong>Example:</strong> If your total utility from 2 hamburgers is 18 and from 3 hamburgers is 24, the marginal utility of the 3rd hamburger is $24 - 18 = 6$.</p>
+        
+        <p><strong>Table 3.1: Total and Marginal Utility</strong> <i class="fas fa-chart-bar icon"></i></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quantity (Q)</th>
+                    <th>Total Utility (TU)</th>
+                    <th>Marginal Utility (MU)</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td data-label="Quantity (Q)">0</td><td data-label="Total Utility (TU)">0</td><td data-label="Marginal Utility (MU)">-</td><td data-label="Notes">No consumption, no utility.</td></tr>
+                <tr><td data-label="Quantity (Q)">1</td><td data-label="Total Utility (TU)">10</td><td data-label="Marginal Utility (MU)">10</td><td data-label="Notes">The first unit provides the highest marginal utility.</td></tr>
+                <tr><td data-label="Quantity (Q)">2</td><td data-label="Total Utility (TU)">18</td><td data-label="Marginal Utility (MU)">8</td><td data-label="Notes">TU increases, but MU decreases (Law of DMU).</td></tr>
+                <tr><td data-label="Quantity (Q)">3</td><td data-label="Total Utility (TU)">24</td><td data-label="Marginal Utility (MU)">6</td><td data-label="Notes"></td></tr>
+                <tr><td data-label="Quantity (Q)">4</td><td data-label="Total Utility (TU)">28</td><td data-label="Marginal Utility (MU)">4</td><td data-label="Notes"></td></tr>
+                <tr><td data-label="Quantity (Q)">5</td><td data-label="Total Utility (TU)">30</td><td data-label="Marginal Utility (MU)">2</td><td data-label="Notes"></td></tr>
+                <tr><td data-label="Quantity (Q)">6</td><td data-label="Total Utility (TU)">30</td><td data-label="Marginal Utility (MU)">0</td><td data-label="Notes">TU is maximized. MU is zero. This is the saturation point.</td></tr>
+                <tr><td data-label="Quantity (Q)">7</td><td data-label="Total Utility (TU)">28</td><td data-label="Marginal Utility (MU)">-2</td><td data-label="Notes">TU is decreasing. MU is negative.</td></tr>
+            </tbody>
+        </table>
+        <p>Export to Sheets</p>
+        
+        <p>Graphical Representation of TU and MU <i class="fas fa-chart-line icon"></i></p>
+        <p>Licensed by Google</p>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-line fa-3x"></i>
+            <p><em>Placeholder for TU and MU Graph</em></p>
+        </div>
+        
+        <p><strong>Key Relationships from the Graph:</strong></p>
+        <ul>
+            <li>When TU is increasing, the MU is positive (above the x-axis). <i class="fas fa-arrow-up"></i><i class="fas fa-smile"></i></li>
+            <li>When TU is at its maximum (the peak of the curve), the MU is zero (it crosses the x-axis). <i class="fas fa-trophy"></i></li>
+            <li>When TU is decreasing, the MU is negative (below the x-axis). <i class="fas fa-arrow-down"></i><i class="fas fa-frown"></i></li>
+        </ul>
+        
+        <h5><strong>3.3.1.3 Law of Diminishing Marginal Utility (LDMU)</strong> <i class="fas fa-chart-line icon"></i></h5>
+        <p>Is the utility you get from the consumption of the first orange the same as the second or the third orange? <i class="fas fa-utensils"></i> The simple answer is no. The utility from each additional orange will decrease.</p>
+        <p><strong>Definition:</strong> The Law of Diminishing Marginal Utility (LDMU) states that as a consumer increases the consumption of a good per unit of time, the additional satisfaction (utility) derived from each successive unit decreases. This happens while the consumption of all other goods remains constant.</p>
+        <p><strong>የሚቀንስ ህዳግ ዩቲሊቲ ህግ (LDMU)፡</strong> አንድ ሸማች አንድን ዕቃ በተወሰነ የጊዜ ገደብ ውስጥ ሲጨምር፣ ከእያንዳንዱ ተጨማሪ ክፍል የሚያገኘው ተጨማሪ እርካታ (ዩቲሊቲ) ይቀንሳል። ይህ የሚሆነው ሌሎች ሁሉም ዕቃዎች ቋሚ ሲሆኑ ነው።</p>
+        <p><strong>Extra Examples:</strong></p>
+        <ul>
+            <li><strong>Water on a Hot Day:</strong> The first glass of water on a hot day provides immense satisfaction. The second glass is still good, but the thirst is less intense. By the fifth glass, the additional satisfaction is almost zero, and consuming more might even lead to discomfort (negative utility).</li>
+            <li><strong>Listening to a Favorite Song:</strong> The first time you hear a new favorite song, it gives you a lot of enjoyment. Listening to it for the tenth time in a row, however, the thrill diminishes, and you may even get tired of it.</li>
+            <li><strong>Eating Chocolates:</strong> The first piece of chocolate is delicious and highly satisfying. The second is still good, but the craving is less. By the time you get to the fifth or sixth piece, you might feel a little sick, and the marginal utility becomes negative.</li>
+        </ul>
+        <p><strong>Assumptions of the LDMU:</strong></p>
+        <ul>
+            <li><strong>Rational Consumer:</strong> The consumer acts logically to maximize their satisfaction.</li>
+            <li><strong>Identical/Homogenous Product:</strong> The goods consumed must be the same in quality, size, color, etc. You can't compare the utility of a small orange to a large one.</li>
+            <li><strong>No Time Gap:</strong> The consumption of the good is continuous, with no significant time gap between units.</li>
+            <li><strong>Unchanged Preferences:</strong> The consumer's tastes and preferences remain the same throughout the consumption period.</li>
+        </ul>
+        
+        <h5><strong>3.3.1.4 Equilibrium of a Consumer</strong> <i class="fas fa-bullseye icon"></i></h5>
+        <p>A rational consumer's main objective is to maximize their total utility. They want to get the most satisfaction possible from their purchases.</p>
+        <p><strong>Definition:</strong> Consumer Equilibrium is the state where a consumer has allocated their limited income in such a way that they cannot increase their total utility by reallocating their spending. It is the point of maximum satisfaction.</p>
+        <p><strong>የሸማች ሚዛን (Consumer Equilibrium):</strong> አንድ ሸማች ውስን ገቢውን አከፋፍሎ አጠቃላይ እርካታውን ሊጨምር በማይችልበት ሁኔታ ላይ ሲደርስ ነው። ይህ ከፍተኛው የእርካታ ደረጃ ነው።</p>
+        
+        <p><strong>A) The Case of One Commodity</strong> <i class="fas fa-apple-alt icon"></i></p>
+        <p>When a consumer buys a single good, they reach equilibrium when the marginal utility of the good is equal to its market price.</p>
+        <p><strong>Equilibrium Condition:</strong> $MU_x = P_x$</p>
+        <p><strong>Proof:</strong> A consumer aims to maximize their total utility minus their expenditure: Max($U(Q_x) - P_x Q_x$). By taking the derivative and setting it to zero, we find the maximizing condition is $MU_x = P_x$.</p>
+        <p><strong>Explanation:</strong></p>
+        <ul>
+            <li>If $MU_x > P_x$, the additional satisfaction from consuming one more unit (MU) is greater than the cost of that unit (P). So, the consumer should buy more.</li>
+            <li>If $MU_x < P_x$, the additional satisfaction is less than the cost. The consumer should buy less.</li>
+            <li>At the point where $MU_x = P_x$, the consumer is in equilibrium because they are getting a level of satisfaction that is exactly worth the price they are paying.</li>
+        </ul>
+        <p>*** The intersection point C where $MU_x=P_x$ represents the point of consumer equilibrium.</p>
+        
+        <p><strong>B) The Case of Two or More Commodities</strong> <i class="fas fa-shopping-cart icon"></i></p>
+        <p>With two or more goods, the consumer's equilibrium is achieved when the marginal utility per birr spent is equal for each good purchased, and their entire income is exhausted. This is also known as the **Equi-Marginal Utility Principle**.</p>
+        <p><strong>Equilibrium Conditions:</strong></p>
+        <div class="calculation">
+            <pre class="equation">$$\frac{MU_x}{P_x} = \frac{MU_y}{P_y} = ... = \frac{MU_n}{P_n}$$</pre>
+            <p>(The utility per birr spent is equal for all goods)</p>
+            <pre class="equation">$$P_xQ_x + P_yQ_y + ... + P_nQ_n = M$$</pre>
+            <p>(The entire income is spent)</p>
+        </div>
+        <p><strong>Example:</strong> Suppose Saron has an income (M) of 7 Birr and can buy bananas ($P_{banana}=1$) and bread ($P_{bread}=4$). The equilibrium conditions are met when she buys 3 units of banana and 1 loaf of bread.</p>
+        <div class="calculation">
+            <pre class="equation">$$\frac{MU_{banana}}{P_{banana}} = \frac{MU_{bread}}{P_{bread}}$$</pre>
+            <pre class="equation">$$\frac{4}{1} = \frac{4}{4} \rightarrow \text{This is not correct from the table.}$$</pre>
+        </div>
+        <p>The example provided in the text has a typo, and the table for banana and bread is missing. Based on the solution ($1*3 + 4*1 = 7$), the consumer buys 3 bananas and 1 bread. The total utility is calculated as the sum of the utility from each: $TU=TU_{banana} + TU_{bread} = 14 + 12 = 26$. This combination gives her the highest possible utility given her budget.</p>
+        
+        <h5><strong>Limitations of the Cardinal Approach</strong> <i class="fas fa-times-circle icon"></i></h5>
+        <ul>
+            <li><strong>Quantification of Utility:</strong> It's highly doubtful that utility can be measured objectively in units like 'utils'. How can we say one orange gives exactly 10 utils and a banana 8? It's subjective and difficult to quantify.</li>
+            <li><strong>Constant Marginal Utility of Money:</strong> The assumption that the value of money is constant is unrealistic. For a poor person, the marginal utility of an additional birr is very high, but for a wealthy person, it's very low. The value of money changes with a person's income.</li>
+        </ul>
+    </div>
+    
+    <div class="card card-4">
+        <h3><i class="fas fa-scroll icon"></i> 3.3.2 The Ordinal Utility Theory</h3>
+        <p>The ordinal utility approach argues that it's impossible to express utility in absolute numbers. Instead, consumers can rank their preferences for different commodities.</p>
+        <p><strong>Definition:</strong> Ordinal Utility Theory is a way of analyzing consumer behavior based on the idea that consumers can rank bundles of goods in order of preference, without needing to assign a specific numerical value to the utility they receive.</p>
+        <p><strong>ኦርዲናል ዩቲሊቲ ቲዎሪ (Ordinal Utility Theory):</strong> ይህ የሸማቾች ባህሪ ትንተና ዩቲሊቲ በቁጥር ሊገለጽ እንደማይችል በመገመት፣ ሸማቾች የሸቀጦችን ስብስቦች እንደ ምርጫቸው ቅደም ተከተል ብቻ ሊያደራጁ እንደሚችሉ የሚገልጽ ነው።</p>
+        <p><strong>Key Idea:</strong> It's enough for a consumer to say "I prefer bundle A over bundle B" or "I am indifferent between A and B." They don't need to say "A gives me 10 utils and B gives me 8."</p>
+        
+        <h5><strong>3.3.2.1 Assumptions of Ordinal Utility Theory</strong></h5>
+        <ul>
+            <li><strong>Consumers are Rational:</strong> They aim to maximize their satisfaction given their income and prices.</li>
+            <li><strong>Utility is Ordinal:</strong> Utility cannot be measured, but consumers can rank their preferences.</li>
+            <li><strong>Diminishing Marginal Rate of Substitution (MRS):</strong> The rate at which a consumer is willing to substitute one good for another to maintain the same level of satisfaction decreases as they consume more of the first good.</li>
+            <li><strong>Total Utility from the Consumption Basket:</strong> A consumer's total utility is determined by the quantities of all goods they consume.</li>
+            <li><strong>Consistent Preferences:</strong> If a consumer prefers X to Y and Y to Z, they must also prefer X to Z. This is called the axiom of transitivity.</li>
+        </ul>
+        <p><strong>Example:</strong> If you prefer Pepsi to Coke, and Coke to Sprite, then you must prefer Pepsi to Sprite. If your preference were the opposite, it would be inconsistent.</p>
+        <p><strong>Indifference Curve Approach:</strong> The ordinal utility theory is primarily explained using indifference curves, so it is also known as the indifference curve approach.</p>
+        
+        <h5><strong>3.3.2.2 Indifference Set, Curve, and Map</strong></h5>
+        <p><strong>Indifference Set/Schedule:</strong> A table showing different combinations of two goods that give a consumer the same level of satisfaction.</p>
+        <p><strong>Example:</strong> Table 3.3 shows four combinations (A, B, C, D) of oranges and bananas that all provide the same utility. The consumer is indifferent between any of these combinations.</p>
+        <p><strong>Indifference Curve:</strong> A graphical representation of an indifference set. It's a curve that shows all the combinations of two goods that provide a consumer with the same level of satisfaction.</p>
+        <div class="image-placeholder">
+            <i class="fas fa-chart-area fa-3x"></i>
+            <p><em>Placeholder for Indifference Curve Graph</em></p>
+        </div>
+        <p><strong>Indifference Map:</strong> A set of multiple indifference curves on a single graph. A higher indifference curve represents a higher level of satisfaction.</p>
+        
+        <h5><strong>3.3.2.3 Properties of Indifference Curves</strong></h5>
+        <ul>
+            <li><strong>Negative Slope:</strong> Indifference curves slope downwards from left to right. This is because to get more of one good, a consumer must give up some of the other good to maintain the same level of satisfaction.</li>
+            <li><strong>Convex to the Origin:</strong> Indifference curves are curved inwards towards the origin. This shape is a result of the diminishing marginal rate of substitution. It implies that the two goods are not perfect substitutes.</li>
+            <li><strong>Higher Curves are Preferred:</strong> A curve further away from the origin represents a higher level of utility because it contains a greater quantity of at least one good.</li>
+            <li><strong>Never Intersect:</strong> Two indifference curves can never cross each other. This is due to the assumptions of transitivity and consistency. If they intersected, it would imply that a single point provides two different levels of utility, which is a contradiction.</li>
+        </ul>
+        <p>**** In Figure 3.4, if $IC_1$ and $IC_2$ cross at a point, it would mean that point B on $IC_1$ gives the same utility as point A on $IC_2$ (since A and B are on the same IC). But point C is on a higher IC than point B, so C is preferred to B. However, point A and C are on the same IC, implying they give the same utility. This is a contradiction, proving that indifference curves cannot intersect.</p>
+        
+        <h5><strong>3.3.2.4 Marginal Rate of Substitution (MRS)</strong> <i class="fas fa-exchange-alt icon"></i></h5>
+        <p><strong>Definition:</strong> The Marginal Rate of Substitution (MRS) is the rate at which a consumer is willing to give up one good (Y) to get one more unit of another good (X) while remaining on the same indifference curve. It measures the consumer's willingness to trade.</p>
+        <p><strong>የመተካት ህዳግ ምጣኔ (MRS)፡</strong> አንድ ሸማች የእርካታ ደረጃውን ሳይቀንስ አንድን ዕቃ (Y) ለማግኘት ሌላውን ዕቃ (X) ለመተው ፈቃደኛ የሆነበት ምጣኔ ነው።</p>
+        <p><strong>Formula:</strong> $MRS_{X,Y} = |\frac{\Delta Y}{\Delta X}|$</p>
+        <p>This is the absolute value of the slope of the indifference curve.</p>
+        <p><strong>Diminishing MRS:</strong> As you move down an indifference curve, the MRS decreases. This is the **Principle of Diminishing Marginal Rate of Substitution**. A consumer is willing to give up a lot of a good they have a large quantity of to get a unit of a good they have little of, but this willingness to trade diminishes as they get more of the second good.</p>
+        <p><strong>MRS and Marginal Utility:</strong> The MRS can also be expressed as the ratio of the marginal utilities of the two goods.</p>
+        <div class="calculation">
+            <pre class="equation">$$MRS_{X,Y} = \frac{MU_x}{MU_y}$$</pre>
+        </div>
+        
+        <h5><strong>3.3.2.5 The Budget Line or the Price Line</strong> <i class="fas fa-money-bill-alt icon"></i></h5>
+        <p><strong>Definition:</strong> A budget line is a graphical representation that shows all the possible combinations of two goods that a consumer can buy given their limited income and the market prices of the two goods. It's the boundary of the consumer's spending power.</p>
+        <p><strong>የበጀት መስመር (Budget Line)፡</strong> አንድ ሸማች ባለው ገቢ እና የሁለቱ ዕቃዎች ዋጋ መሰረት ሊገዛቸው የሚችላቸውን የተለያዩ የዕቃዎች ስብስቦች የሚያሳይ ግራፍ ነው።</p>
+        <p><strong>Assumptions:</strong></p>
+        <ul>
+            <li>Only two goods (X and Y).</li>
+            <li>Fixed market prices ($P_x$ and $P_y$).</li>
+            <li>A fixed money income (M).</li>
+        </ul>
+        <p><strong>Equation:</strong> $P_xQ_x + P_yQ_y = M$</p>
+        <p><strong>Slope of the budget line:</strong> $-\frac{P_x}{P_y}$</p>
+        <p><strong>Shifts in the Budget Line:</strong></p>
+        <ul>
+            <li><strong>Change in Income:</strong>
+                <ul>
+                    <li>An increase in income shifts the budget line outward (parallel shift), allowing the consumer to buy more of both goods.</li>
+                    <li>A decrease in income shifts the budget line inward (parallel shift), forcing the consumer to buy less.</li>
+                    <li>The slope remains the same.</li>
+                </ul>
+            </li>
+            <li><strong>Change in Price:</strong>
+                <ul>
+                    <li>A change in the price of only one good will change the slope of the budget line and cause the corresponding intercept to pivot.</li>
+                    <li>If $P_x$ increases, the horizontal intercept moves inward, and the line becomes steeper.</li>
+                    <li>If $P_x$ decreases, the horizontal intercept moves outward, and the line becomes flatter.</li>
+                    <li>The same logic applies to changes in $P_y$ affecting the vertical intercept.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h5><strong>3.3.2.6 Equilibrium of the Consumer</strong></h5>
+        <p>The equilibrium of a consumer is the point where they achieve the highest possible level of utility given their budget. This is the point where the budget line is tangent to the highest attainable indifference curve.</p>
+        <p><strong>Equilibrium Condition:</strong></p>
+        <ul>
+            <li><strong>Graphical:</strong> The point of tangency between the budget line and an indifference curve.</li>
+            <li><strong>Mathematical:</strong> The slope of the indifference curve equals the slope of the budget line.</li>
+        </ul>
+        <div class="calculation">
+            <pre class="equation">$$MRS_{X,Y} = -\frac{P_x}{P_y}$$</pre>
+            <pre class="equation">$$\frac{MU_x}{MU_y} = \frac{P_x}{P_y}$$</pre>
+        </div>
+        <p>(Rearranging the terms gives the same result as the Cardinal approach, showing they are consistent.)</p>
+        <p><strong>Example from the text:</strong> A consumer with a utility function $U(X,Y)=XY+2X$ and a budget of 60 Birr, with prices $P_x=4$ and $P_y=2$.</p>
+        <ul>
+            <li><strong>Step 1:</strong> Budget constraint: $4Q_x + 2Q_y = 60 \rightarrow Q_y = 30-2Q_x$</li>
+            <li><strong>Step 2:</strong> Find the slope of the Indifference Curve ($MRS_{X,Y}$):
+                <ul>
+                    <li>$MU_x = \frac{\partial U}{\partial X} = Y+2$</li>
+                    <li>$MU_y = \frac{\partial U}{\partial Y} = X$</li>
+                    <li>$MRS_{X,Y} = \frac{MU_x}{MU_y} = \frac{Y+2}{X}$</li>
+                </ul>
+            </li>
+            <li><strong>Step 3:</strong> Set the slopes equal for equilibrium:
+                <div class="calculation">
+                    <pre class="equation">$$\frac{Y+2}{X} = \frac{4}{2} = 2 \rightarrow Y+2 = 2X \rightarrow Y=2X-2$$</pre>
+                </div>
+            </li>
+            <li><strong>Step 4:</strong> Substitute $Y=2X-2$ into the budget equation:
+                <div class="calculation">
+                    <pre class="equation">$$4X + 2(2X-2) = 60$$
+$$4X + 4X - 4 = 60$$
+$$8X = 64 \rightarrow X=8$$</pre>
+                </div>
+            </li>
+            <li><strong>Step 5:</strong> Find Y:
+                <div class="calculation">
+                    <pre class="equation">$$Y = 2(8)-2 = 16-2 = 14$$</pre>
+                </div>
+            </li>
+        </ul>
+        <p><strong>Final Answer:</strong> The utility-maximizing quantities are $X = 8$ and $Y = 14$.</p>
+        <p><strong>b) MRS at equilibrium:</strong></p>
+        <div class="calculation">
+            <pre class="equation">$$MRS_{X,Y} = \frac{Y+2}{X} = \frac{14+2}{8} = \frac{16}{8} = 2$$</pre>
+        </div>
+        <p>This confirms the slope of the budget line.</p>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'economics4', 
+        title: 'Chapter 4 : The Theory of Production and Cost', 
+        content: '<h2>National Economies</h2><p>GDP, inflation, fiscal policy...</p>'
+      },
+      { 
+        id: 'economics5', 
+        title: 'Chapter 5 : Market Structure', 
         content: '<h2>National Economies</h2><p>GDP, inflation, fiscal policy...</p>'
       }
     ]
@@ -12245,8 +13763,2052 @@ tr:nth-child(even) {
       { 
         id: 'techniques', 
         title: 'Interpretation Techniques', 
-        content: '<h2>Language Mediation</h2><p>Consecutive vs simultaneous...</p>'
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: The Nature of Entrepreneurship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f0f4f8; /* Light blue-gray */
+            --secondary-bg: #e1eaf2;
+            --text-color: #334e68; /* Dark slate blue */
+            --heading-color: #102a43; /* Very dark blue */
+            --accent-blue: #2d82b7;
+            --accent-green: #48a14d;
+            --accent-orange: #f26a1b;
+
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+            --card1-bg: #d1e7e7;
+            --card2-bg: #f8f1de;
+            --card3-bg: #d9e9d9;
+            --card4-bg: #e2d9eb;
+            --card5-bg: #f5e4e6;
+            --card6-bg: #dbeaf5;
+            --card7-bg: #f1e2d1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 30px;
+        }
+
+        .chapter-header {
+            background-color: #fcfcfc;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239eabbd' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--heading-color);
+            padding: 50px 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 0.2em;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .chapter-header p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2, .card h3, .card h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card h2 .icon, .card h3 .icon, .card h4 .icon {
+            font-size: 1.3em;
+            color: var(--accent-blue);
+        }
+        
+        .card-1 { background-color: var(--card1-bg); }
+        .card-2 { background-color: var(--card2-bg); }
+        .card-3 { background-color: var(--card3-bg); }
+        .card-4 { background-color: var(--card4-bg); }
+        .card-5 { background-color: var(--card5-bg); }
+        .card-6 { background-color: var(--card6-bg); }
+        
+        p, li {
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            padding-left: 25px;
+            list-style-type: none;
+            margin-bottom: 1.5em;
+        }
+        
+        ul li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .definition-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .definition-list dt {
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: var(--heading-color);
+        }
+        
+        .definition-list dd {
+            margin-left: 0;
+            margin-bottom: 1.5em;
+        }
+
+        .extra-example {
+            margin-top: 20px;
+            border-left: 3px solid var(--accent-green);
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        .equation-block {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Merriweather', serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            margin: 30px 0;
+            color: var(--accent-blue);
+            border: 2px dashed #9eabbd;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+                gap: 25px;
+            }
+            .card {
+                padding: 25px;
+            }
+            .card h2, .card h3, .card h4 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter 1: The Nature of Entrepreneurship 🧑‍💼</h1>
+    <p>Creativity, innovation, and risk-taking: The core of building something new and valuable.</p>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <p><strong>Entrepreneurship</strong> is the process of creating something new and valuable by identifying opportunities and investing resources to exploit them for profit. It involves creativity, innovation, risk-taking, and the ability to turn ideas into action. The individual who undertakes this process is called an **entrepreneur**.</p>
+        <h2><i class="fas fa-info-circle icon"></i> 1.1 Introduction</h2>
+        <p>The word 'entrepreneur' originates from the French word 'entreprender,' which means "to undertake." An entrepreneur is an individual who undertakes a particular project. Entrepreneurship is the process they perform, and 'entrepreneurial' is an adjective describing how they do it.</p>
+        <h3>Historical Development of the Entrepreneur's Role:</h3>
+        <ul>
+            <li><strong>Ancient Period:</strong> The term referred to a person managing large commercial projects with provided resources.</li>
+            <li><strong>17th Century:</strong> It referred to a person with a contractual agreement with the government to provide products or services.</li>
+            <li><strong>18th Century:</strong> Richard Cantillon developed the first theory, defining an entrepreneur as a risk-taker. This century also saw the role of the entrepreneur being differentiated from that of the capital provider.</li>
+            <li><strong>Late 19th & Early 20th Century:</strong> An entrepreneur was defined as someone who organizes and operates an enterprise for personal gain.</li>
+            <li><strong>Mid-20th Century:</strong> The notion of an entrepreneur as an inventor was established.</li>
+            <li><strong>Evolution of the Concept:</strong> The perception of the word entrepreneur has evolved from managing commercial projects to applying innovation and creativity to business ideas.</li>
+        </ul>
+    </div>
+
+    <div class="card card-2">
+        <h2><i class="fas fa-file-alt icon"></i> 1.3 Definitions of Entrepreneurship and Entrepreneur</h2>
+        <p>Entrepreneurship is the process of identifying business opportunities and investing resources to exploit them for profit. It involves creating something different and better with value by assuming the necessary financial, social, and psychological risks.</p>
+        <p>የኢንተርፕረነርሺፕ ሂደት ለትርፍ ሲባል የንግድ ዕድሎችን መለየት እና ለመጠቀም ሀብቶችን ማፍሰስ ነው። አስፈላጊ የሆኑትን የገንዘብ፣ የማህበራዊ እና የስነ-ልቦና አደጋዎችን በመውሰድ የተለየ እና የተሻለ ዋጋ ያለው ነገር የመፍጠር ሂደት ነው።</p>
+        <h3>Extra Examples of Entrepreneurship:</h3>
+        <ul>
+            <li><p>A person sees a gap in the local market for organic food and opens a store to sell locally sourced, organic products.</p>
+            <p>አንድ ሰው በአካባቢው ገበያ ውስጥ ኦርጋኒክ ምግብ አለመኖሩን አይቶ በአካባቢው የሚመረቱ ኦርጋኒክ ምርቶችን ለመሸጥ ሱቅ ይከፍታል።</p></li>
+            <li><p>An individual develops a new app that connects freelance writers with clients, creating a platform that previously did not exist.</p>
+            <p>አንድ ግለሰብ ፍሪላንስ ፀሀፊዎችን ከደንበኞች ጋር የሚያገናኝ አዲስ መተግበሪያ በመፍጠር ከዚህ በፊት ያልነበረ መድረክ ይፈጥራል።</p></li>
+            <li><p>A baker creates a unique business model of a mobile bakery truck, bringing fresh baked goods to different neighborhoods on a schedule.</p>
+            <p>አንድ ዳቦ ጋጋሪ ተንቀሳቃሽ የዳቦ መኪና በመጠቀም፣ በአንድ መርሐግብር መሰረት ትኩስ የተጋገሩ እቃዎችን ወደ ተለያዩ ሰፈሮች የሚያቀርብ ልዩ የንግድ ሞዴል ይፈጥራል።</p></li>
+        </ul>
+        <h3>Five Critical Elements of Entrepreneurship:</h3>
+        <ul>
+            <li>The ability to perceive an opportunity.</li>
+            <li>The ability to commercialize the opportunity (innovation).</li>
+            <li>The ability to pursue it on a sustainable basis.</li>
+            <li>The ability to pursue it through systematic means.</li>
+            <li>The acceptance of risk or failure.</li>
+        </ul>
+        <p>An entrepreneur is the person who organizes, operates, and assumes the risks of a business venture.</p>
+        <p>ኢንተርፕረነር ማለት የንግድ ሥራን የሚያደራጅ፣ የሚያንቀሳቅስ እና አደጋዎችን የሚቀበል ሰው ነው።</p>
+        <h3>Definition of Entrepreneur from different perspectives:</h3>
+        <dl class="definition-list">
+            <dt>To an economist:</dt>
+            <dd>One who combines resources (labor, materials, and other assets) to make their value greater than before. <p>ለኢኮኖሚስት፡- የሰው ኃይልን፣ ቁሳቁሶችን እና ሌሎች ንብረቶችን በማጣመር ዋጋቸውን ከቀድሞው የበለጠ ከፍ የሚያደርግ ሰው ነው።</p></dd>
+            <dt>To a psychologist:</dt>
+            <dd>A person typically driven by a need to attain something, to experiment, to accomplish, or to escape the authority of others. <p>ለስነ-ልቦና ባለሙያ፡- አብዛኛውን ጊዜ የሆነ ነገር ለማግኘት፣ ለመሞከር፣ ለመፈጸም ወይም ከሌሎች ስልጣን ለመሸሽ በሚያነሳሳ ኃይል የሚመራ ሰው ነው።</p></dd>
+            <dt>To a capitalist philosopher:</dt>
+            <dd>One who creates wealth for others, finds better ways to utilize resources, reduces waste, and produces jobs. <p>ለካፒታሊስት ፈላስፋ፡- ለሌሎች ሀብትን የሚፈጥር፣ ሀብትን ለመጠቀም የተሻለ መንገድ የሚያገኝ፣ ብክነትን የሚቀንስ እና ሌሎች በደስታ የሚሰሩበትን ስራ የሚፈጥር ሰው ነው።</p></dd>
+        </dl>
+        <p><strong>Key Distinction:</strong> Entrepreneur refers to the person, while entrepreneurship defines the process. All entrepreneurs are business persons, but not all business persons are entrepreneurs.</p>
+    </div>
+
+    <div class="card card-3">
+        <h2><i class="fas fa-users-cog icon"></i> 1.4 Types of Entrepreneurs</h2>
+        <ul>
+            <li><strong>The Individual Entrepreneur:</strong> Someone who has started, acquired, or franchised their own independent organization.
+            <p>አንድ ግለሰብ ኢንተርፕረነር፡- የራሱን ድርጅት የጀመረ፣ ያገኘ ወይም ፍራንቻይዝ ያደረገ ሰው ነው።</p></li>
+            <li><strong>Intrapreneur:</strong> A person who does entrepreneurial work within a large organization.
+            <p>ኢንትራፕረነር፡- በትልቅ ድርጅት ውስጥ ኢንተርፕረነርሺፕ ስራ የሚሰራ ሰው ነው።</p></li>
+            <li><strong>The Entrepreneurial Organization:</strong> An organization that creates an environment where all its members can contribute to the entrepreneurial function.
+            <p>ኢንተርፕረነርሺያል ድርጅት፡- ሁሉም አባላቱ በኢንተርፕረነርሺፕ ተግባር ውስጥ እንዲሳተፉ የሚያስችል አካባቢ የሚፈጥር ድርጅት ነው።</p></li>
+        </ul>
+    </div>
+
+    <div class="card card-4">
+        <h2><i class="fas fa-chart-line icon"></i> 1.5 Role of Entrepreneurs in Economic Development 📈</h2>
+        <p>Entrepreneurs are crucial for economic growth and stability. Their roles include:</p>
+        <ul>
+            <li>Improvement in Per Capita Income/Wealth Generation: They create new businesses that contribute to the national income.</li>
+            <li>Generation of Employment Opportunities: They create jobs for themselves and others.</li>
+            <li>Inspire others towards Entrepreneurship: Their success can motivate others to start their own ventures.</li>
+            <li>Balanced Regional Development: By starting businesses in various regions, they help reduce regional disparities.</li>
+            <li>Enhance the Number of Enterprises: They contribute to the growth of the business sector.</li>
+            <li>Provide Diversity in Firms: They introduce new products and services, creating a more dynamic market.</li>
+            <li>Economic Independence: They reduce reliance on foreign goods and investments.</li>
+            <li>Combine Economic Factors: They effectively bring together land, labor, and capital to create value.</li>
+            <li>Provide Market Efficiency: They introduce competition and innovation, leading to better products and lower prices.</li>
+            <li>Accepting Risk: Their willingness to take risks drives economic progress.</li>
+            <li>Maximize Investor’s Return: Successful ventures provide returns for investors.</li>
+        </ul>
+    </div>
+
+    <div class="card card-5">
+        <h2><i class="fas fa-cogs icon"></i> 1.6 Entrepreneurial Competence and Environment</h2>
+        <h3><i class="fas fa-brain icon"></i> 1.6.1 Entrepreneurial Mindset</h3>
+        <h4><i class="fas fa-user-circle icon"></i> 1.6.1.1 Who Becomes an Entrepreneur?</h4>
+        <ul>
+            <li><strong>The Young Professional:</strong> Often educated with some work experience, they have new ideas and the drive to implement them.</li>
+            <li><strong>The Inventor:</strong> An individual with a creative, innovative idea that they want to bring to market.</li>
+            <li><strong>The Excluded:</strong> Someone who has faced social or professional barriers and decides to create their own opportunities.</li>
+        </ul>
+        <h4><i class="fas fa-star icon"></i> 1.6.1.2 Qualities of an Entrepreneur</h4>
+        <p>To be successful, an entrepreneur should have the following qualities:</p>
+        <ul>
+            <li>Opportunity-seeking</li>
+            <li>Persevering</li>
+            <li>Risk Taking</li>
+            <li>Demanding for efficiency and quality</li>
+            <li>Information-seeking</li>
+            <li>Goal Setting</li>
+            <li>Planning</li>
+            <li>Persuasion and networking</li>
+            <li>Building self-confidence</li>
+            <li>Listening to others</li>
+            <li>Demonstrating leadership</li>
+        </ul>
+        <h4><i class="fas fa-toolbox icon"></i> 1.6.1.3 Entrepreneurial Skills</h4>
+        <ul>
+            <li><strong>General Management Skills:</strong> Skills required to organize physical & financial resources. Examples include:
+                <ul><li>Strategy, Planning, Marketing, Financial, Project Management, and Time Management Skills.</li></ul></li>
+            <li><strong>People Management Skills:</strong> Skills for managing and interacting with people. Examples include:
+                <ul><li>Communication, Leadership, Motivation, Delegation, and Negotiation Skills.</li></ul></li>
+        </ul>
+        <p><strong>Key Point:</strong> Entrepreneurial performance is a result of a combination of industry knowledge, general management skills, people skills, and personal motivation.</p>
+        <h4><i class="fas fa-tasks icon"></i> 1.6.1.4 The Entrepreneurial Tasks</h4>
+        <ul>
+            <li>Owning Organizations: Taking full responsibility for a business.</li>
+            <li>Founding New Organizations: The process of starting a new company.</li>
+            <li>Bringing Innovations to Market: Turning a new idea into a marketable product or service.</li>
+            <li>Identification of Market Opportunity: Spotting unmet needs in the market.</li>
+            <li>Application of Expertise: Using specialized knowledge to solve problems.</li>
+            <li>Provision of Leadership: Guiding the team and the venture.</li>
+            <li>The Entrepreneur as Manager: Playing a dual role of both a visionary and an operational manager.</li>
+        </ul>
+        <h4><i class="fas fa-hand-holding-usd icon"></i> 1.6.1.5 Wealth of the Entrepreneur</h4>
+        <p><strong>Definition of Wealth:</strong> Money and anything that money can buy.</p>
+        <p><strong>Who Benefits from an entrepreneur’s wealth?</strong></p>
+        <ul>
+            <li>Employees: Through salaries and benefits.</li>
+            <li>Investors: Through dividends and increased stock value.</li>
+            <li>Suppliers: By providing a consistent market for their goods.</li>
+            <li>Customers: By providing valuable products and services.</li>
+            <li>The Local Community: Through job creation and economic activity.</li>
+            <li>Government: Through taxes paid on profits and income.</li>
+        </ul>
+        <h3><i class="fas fa-globe-americas icon"></i> 1.6.2 Entrepreneurship and Environment</h3>
+        <h4><i class="fas fa-stream icon"></i> 1.6.2.1 Phases of Business Environment</h4>
+        <p>The business environment is classified into two broad categories:</p>
+        <ul>
+            <li><strong>External Environment:</strong> Factors outside the business's direct control. These include:
+                <ul><li>Economic, Legal, Political, Socio-Cultural, and Demographic environments.</li></ul></li>
+            <li><strong>Internal Environment:</strong> Factors within the business's control. These include:
+                <ul><li>Raw Material, Production/Operation, Finance, and Human Resources.</li></ul></li>
+        </ul>
+        <h4><i class="fas fa-exclamation-triangle icon"></i> 1.6.2.2 Environmental Factors Affecting Entrepreneurship</h4>
+        <p>Factors that can hinder entrepreneurial growth:</p>
+        <ul>
+            <li>Sudden changes in Government policy.</li>
+            <li>Sudden political upsurge, war, or regional conflicts.</li>
+            <li>Political instability or a hostile Government attitude towards industry.</li>
+            <li>Excessive corruption among Government agencies.</li>
+            <li>Ideological and social conflicts.</li>
+            <li>Unreliable supply of power, materials, finance, and labor.</li>
+            <li>Rise in the cost of inputs.</li>
+            <li>Unfavorable market fluctuations.</li>
+            <li>Non-cooperative attitude of banks and financial institutions.</li>
+        </ul>
+        <p><strong>Conclusion:</strong> Entrepreneurship is environmentally determined; favorable conditions are essential for entrepreneurial growth.</p>
+    </div>
+
+    <div class="card card-6">
+        <h2><i class="fas fa-lightbulb icon"></i> 1.7 Creativity, Innovation, and Entrepreneurship</h2>
+        <h3><i class="fas fa-brain icon"></i> 1.7.1 Creativity 🧠</h3>
+        <p>Creativity is a process of assembling ideas by recombining elements that are already known but were previously assumed to be unrelated.</p>
+        <p>የፈጠራ ችሎታ (Creativity)፡- ቀድሞውኑ የታወቁ ግን እርስ በርስ ግንኙነት የሌላቸው መስለው የሚታዩ ነገሮችን እንደገና በማጣመር አዲስ ሀሳቦችን የመፍጠር ሂደት ነው።</p>
+        <h4>Key elements of this definition:</h4>
+        <ul>
+            <li><strong>Process:</strong> Creativity is a skill that can be improved with practice.</li>
+            <li><strong>Ideas:</strong> The result of creativity is new ideas that have potential value.</li>
+            <li><strong>Recombining:</strong> The core of the creative process is putting things together in unexpected ways.</li>
+        </ul>
+        <h4>Extra Examples of Creativity:</h4>
+        <ul>
+            <li><p>The Invention of Velcro: George de Mestral's creativity involved observing burrs clinging to his dog's fur and recombining the idea of tiny hooks and loops to create a new fastener.</p>
+            <p>የቬልክሮ ፈጠራ፡- ጆርጅ ደ ሜስትራል የፈጠራ ችሎታው በውሻው ፀጉር ላይ የተጣበቁትን ቡርሮች በማየት እና ትናንሽ መንጠቆዎችን እና ቀለበቶችን ሀሳብ በማጣመር አዲስ ማያያዣ መፍጠር ነው።</p></li>
+            <li><p>The Concept of a "Food Truck": A chef recombines the idea of a restaurant with a mobile vehicle to create a new, flexible business model that reaches a wider audience.</p>
+            <p>"የምግብ መኪና" ጽንሰ-ሀሳብ፡- አንድ ሼፍ የምግብ ቤትን ሀሳብ ከተንቀሳቃሽ ተሽከርካሪ ጋር በማጣመር ሰፋ ያለ ታዳሚዎችን የሚያገኝ አዲስ እና ተለዋዋጭ የንግድ ሞዴል ይፈጥራል።</p></li>
+            <li><p>A "Smart Home" System: An inventor recombines existing technologies like lighting, thermostats, and security systems with a central control unit and an app to create a new, integrated system for convenience and efficiency.</p>
+            <p>"ስማርት ቤት" ሲስተም፡- አንድ ፈጣሪ እንደ መብራት፣ ቴርሞስታት እና የደህንነት ስርዓቶችን ከመካከለኛው የመቆጣጠሪያ ክፍል እና ከመተግበሪያ ጋር በማጣመር ለአጠቃቀም ምቹ እና ውጤታማ የሆነ አዲስ የተቀናጀ ሲስተም ይፈጥራል።</p></li>
+        </ul>
+        <p>Creativity is the ability to generate new ideas, while innovation is the process of implementing those ideas to create value. Entrepreneurship combines both creativity and innovation to launch a new venture.</p>
+        <h4><i class="fas fa-star-of-life icon"></i> 1.7.1.1 Steps in the Creative Process ✨</h4>
+        <p>The creative process is a five-step journey from recognizing a problem to applying a solution.</p>
+        <dl>
+            <dt>Opportunity or Problem Recognition:</dt>
+            <dd><p>This is the initial stage where a person identifies that a new opportunity exists or that a problem needs to be solved.</p>
+                <p>አንድ ሰው አዲስ እድል እንዳለ ወይም አንድ ችግር መፈታት እንዳለበት የሚያገኝበት የመጀመሪያው ደረጃ ነው።</p>
+                <p><strong>Example 1:</strong> A young professional notices that there's a lack of healthy fast-food options in their city. They recognize an opportunity.</p>
+                <p><strong>Example 2:</strong> A software developer sees that a specific task in their work is repetitive and inefficient, identifying a problem.</p>
+                <p><strong>Example 3:</strong> A parent realizes that there are no safe, eco-friendly toys for their child, spotting a market gap.</p></dd>
+            <dt>Immersion:</dt>
+            <dd><p>The individual focuses on the problem and delves deeply into it. They gather all the relevant information they can.</p>
+                <p>ግለሰቡ በችግሩ ላይ ትኩረት አድርጎ የሚያስፈልጉትን መረጃዎች በሙሉ ይሰበስባል።</p>
+                <p><strong>Example 1:</strong> The young professional researches the nutritional content of existing fast-food menus, studies health trends, and interviews potential customers.</p>
+                <p><strong>Example 2:</strong> The developer studies the code of the inefficient process, identifies bottlenecks, and learns about alternative programming methods.</p>
+                <p><strong>Example 3:</strong> The parent researches eco-friendly materials, toy safety standards, and existing toy brands to understand what's missing.</p></dd>
+            <dt>Incubation:</dt>
+            <dd><p>This is a period where the individual is not actively thinking about the problem, but their subconscious mind continues to work on it. This is a time for rest and allowing the mind to make unexpected connections.</p>
+                <p>አንድ ሰው በችግሩ ላይ በንቃት የማይሰራበት ጊዜ ቢሆንም፣ ውስጣዊ አእምሮው ግን አሁንም በጉዳዩ ላይ ተሰማርቷል።</p>
+                <p><strong>Example 1:</strong> After weeks of research, the professional takes a break and goes for a walk.</p>
+                <p><strong>Example 2:</strong> The developer works on a different project, letting the previous problem rest in the back of their mind.</p>
+                <p><strong>Example 3:</strong> The parent takes their mind off the problem by reading a non-related book.</p></dd>
+            <dt>Insight:</dt>
+            <dd>The "Aha! Experience" flashes into the person's mind at an unexpected time. The solution to the problem suddenly becomes clear.</dd>
+            <dt>Verification and Application:</dt>
+            <dd><p>The individual sets out to prove that their creative solution is valid. They test the idea, get feedback, and apply the solution.</p>
+                <p>ግለሰቡ የፈጠራ መፍትሄው ጠቀሜታ እንዳለው ለማረጋገጥ ይሞክራል፣ ሀሳቡን ይፈትሻል እና መፍትሄውን ተግባራዊ ያደርጋል።</p>
+                <p><strong>Example 1:</strong> The professional creates a business plan, develops a menu, and opens a small pilot stall at a local market to test the concept.</p>
+                <p><strong>Example 2:</strong> The developer writes and tests the new code, ensuring it works as intended and is more efficient than the old process.</p>
+                <p><strong>Example 3:</strong> The parent creates a prototype of the toy and gets feedback from other parents, adjusting the design as needed before production.</p></dd>
+        </dl>
+        <h4><i class="fas fa-ban icon"></i> 1.7.1.2 Barriers to Creativity 🚧</h4>
+        <p>There are numerous psychological and behavioral barriers that can hinder a person's creativity.</p>
+        <ul>
+            <li>Searching for the one 'right' answer: Believing there is only a single correct solution prevents exploring alternative ideas.</li>
+            <li>Focusing on being logical: Over-relying on logic can stifle imagination and intuition.</li>
+            <li>Blindly following the rules: An unwillingness to challenge established norms can limit new possibilities.</li>
+            <li>Constantly being practical: Fearing impractical or "crazy" ideas can kill creative thoughts before they have a chance to develop.</li>
+            <li>Viewing play as frivolous: Seeing playful or imaginative activities as a waste of time can restrict creative thinking.</li>
+            <li>Becoming overly specialized: A narrow focus can prevent new ideas from being formed through the recombination of unrelated concepts.</li>
+            <li>Avoiding Ambiguity: A need for certainty and clear-cut answers can discourage the exploration of complex or uncertain problems.</li>
+            <li>Fearing looking foolish: Worrying about what others will think can prevent people from sharing or pursuing unconventional ideas.</li>
+            <li>Fearing mistakes and failure: The fear of getting it wrong can stop a person from taking the risks necessary for creative breakthroughs.</li>
+            <li>Believing that 'I’m not creative': This is a self-limiting belief that can become a self-fulfilling prophecy.</li>
+        </ul>
+        <h3><i class="fas fa-lightbulb icon"></i> 1.7.2 Innovation ⚙️</h3>
+        <p>Innovation is the implementation of a new idea at the individual, group, or organizational level. It is a process of intentional change made to create value by meeting an opportunity and seeking an advantage.</p>
+        <p>ፈጠራ፡- በአንድ ግለሰብ፣ ቡድን ወይም ድርጅት ደረጃ አዲስ ሀሳብን ወደ ተግባር የመቀየር ሂደት ነው። ይህ እድሎችን በመጠቀም እና ጥቅም በማግኘት ዋጋን ለመፍጠር ሆን ተብሎ የሚደረግ የለውጥ ሂደት ነው።</p>
+        <h4>Types of Innovation</h4>
+        <p>There are four types of innovation:</p>
+        <dl>
+            <dt>Invention:</dt>
+            <dd><p>The creation of a brand new product, service, or process.</p>
+                <p>አዲስ ነገር መፍጠር፡- አዲስ ምርት፣ አገልግሎት ወይም ሂደት መፍጠር ነው።</p>
+                <p><strong>Example 1:</strong> Thomas Edison's creation of the first practical electric light bulb.</p>
+                <p><strong>Example 2:</strong> The invention of the World Wide Web by Tim Berners-Lee.</p>
+                <p><strong>Example 3:</strong> The creation of the first vaccine by Edward Jenner.</p></dd>
+            <dt>Extension:</dt>
+            <dd><p>The expansion of an existing product, service, or process to a new market.</p>
+                <p>ማስፋፊያ፡- አንድን ነባር ምርት፣ አገልግሎት ወይም ሂደት ወደ አዲስ ገበያ ማስፋፋት ነው።</p>
+                <p><strong>Example 1:</strong> McDonald's extending its fast-food concept to other countries.</p>
+                <p><strong>Example 2:</strong> Starbucks introducing its coffee brand to supermarket aisles.</p>
+                <p><strong>Example 3:</strong> The iPhone's original App Store extending the phone's functionality to millions of third-party applications.</p></dd>
+            <dt>Duplication:</dt>
+            <dd><p>The replication of an already existing product, service, or process. It is not an exact copy, but a creative adaptation.</p>
+                <p>ቅጂ፡- አስቀድሞ ያለን ምርት፣ አገልግሎት ወይም ሂደት መገልበጥ ነው። ትክክለኛ ቅጂ ሳይሆን የፈጠራ ማስተካከያ ነው።</p>
+                <p><strong>Example 1:</strong> The creation of a new, local coffee shop that duplicates the successful model of a major chain but with a unique, local flavor.</p>
+                <p><strong>Example 2:</strong> A new online retailer that duplicates Amazon's business model but specializes in a specific niche like handmade goods.</p>
+                <p><strong>Example 3:</strong> The many social media platforms that have duplicated the core features of Facebook (e.g., profiles, news feeds, friend lists) but with their own twist.</p></dd>
+            <dt>Synthesis:</dt>
+            <dd><p>The combination of existing concepts and factors into a new formulation. It is different from invention because it uses existing elements.</p>
+                <p>ውህደት፡- ነባር ጽንሰ-ሀሳቦችን እና ነገሮችን ወደ አዲስ ቀመር ማጣመር ነው። ነባር ነገሮችን ስለሚጠቀም ከፈጠራ ይለያል።</p>
+                <p><strong>Example 1:</strong> The creation of the iPhone, which synthesized the existing technologies of a phone, a music player, and a web browser.</p>
+                <p><strong>Example 2:</strong> The development of a hybrid car, which synthesizes a traditional gasoline engine with an electric motor.</p>
+                <p><strong>Example 3:</strong> The creation of a drone, which synthesizes model aircraft technology with GPS and camera technology.</p></dd>
+        </dl>
+        <h4><i class="fas fa-chart-line icon"></i> 1.7.2.1 The Innovation Process 📈</h4>
+        <p>The innovation process is a four-step framework for turning an idea into a valuable business venture.</p>
+        <ol>
+            <li><strong>Analytical Planning:</strong> This step involves carefully identifying the features of the new product or service and the resources needed.</li>
+            <li><strong>Resources Organization:</strong> The entrepreneur obtains the required resources, including materials, technology, human capital, and financial resources.</li>
+            <li><strong>Implementation:</strong> The resources are applied to accomplish the plans.</li>
+            <li><strong>Commercial Application:</strong> The product or service is launched to provide value to customers, reward employees, and satisfy stakeholders.</li>
+        </ol>
+        <h4><i class="fas fa-bullseye icon"></i> 1.7.2.2 Areas of Innovation 🎯</h4>
+        <p>Innovation can occur in various areas of a business:</p>
+        <ul>
+            <li>New products</li>
+            <li>New services</li>
+            <li>New production techniques</li>
+            <li>New ways of delivering products or services to customers</li>
+            <li>New operating practices</li>
+            <li>New ways of informing customers about the product (e.g., marketing)</li>
+            <li>New ways of managing relationships within the organization</li>
+            <li>New ways of managing relationships between organizations</li>
+        </ul>
+        <h3><i class="fas fa-rocket icon"></i> 1.7.3 From Creativity to Entrepreneurship 🚀</h3>
+        <p>The relationship between creativity, innovation, and entrepreneurship can be summarized by the following equation:</p>
+        <div class="equation-block">
+            <strong>Entrepreneurship = Creativity + Innovation</strong>
+        </div>
+        <p><strong>Creativity</strong> is the ability to develop new ideas and see problems and opportunities in a new light.</p>
+        <p><strong>Innovation</strong> is the ability to apply those creative solutions to problems and opportunities, ultimately enhancing people's lives or enriching society.</p>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'entrepreneurship', 
+        title: 'Entrepreneurship Basics', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Business Formation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f0f4f8; /* Light blue-gray */
+            --secondary-bg: #e1eaf2;
+            --text-color: #334e68; /* Dark slate blue */
+            --heading-color: #102a43; /* Very dark blue */
+            --accent-blue: #2d82b7;
+            --accent-green: #48a14d;
+            --accent-orange: #f26a1b;
+
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+            --card1-bg: #d1e7e7;
+            --card2-bg: #f8f1de;
+            --card3-bg: #d9e9d9;
+            --card4-bg: #e2d9eb;
+            --card5-bg: #f5e4e6;
+            --card6-bg: #dbeaf5;
+            --card7-bg: #f1e2d1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 30px;
+        }
+
+        .chapter-header {
+            background-color: #fcfcfc;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239eabbd' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--heading-color);
+            padding: 50px 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 0.2em;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .chapter-header p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2, .card h3, .card h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card h2 .icon, .card h3 .icon, .card h4 .icon {
+            font-size: 1.3em;
+            color: var(--accent-blue);
+        }
+        
+        .card-1 { background-color: var(--card1-bg); }
+        .card-2 { background-color: var(--card2-bg); }
+        .card-3 { background-color: var(--card3-bg); }
+        .card-4 { background-color: var(--card4-bg); }
+        .card-5 { background-color: var(--card5-bg); }
+        .card-6 { background-color: var(--card6-bg); }
+        
+        p, li {
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            padding-left: 25px;
+            list-style-type: none;
+            margin-bottom: 1.5em;
+        }
+        
+        ul li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .definition-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .definition-list dt {
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: var(--heading-color);
+        }
+        
+        .definition-list dd {
+            margin-left: 0;
+            margin-bottom: 1.5em;
+        }
+
+        .extra-example {
+            margin-top: 20px;
+            border-left: 3px solid var(--accent-green);
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        .equation-block {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Merriweather', serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            margin: 30px 0;
+            color: var(--accent-blue);
+            border: 2px dashed #9eabbd;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            table-layout: fixed;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table thead tr {
+            background-color: var(--accent-blue);
+            color: white;
+            text-align: left;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+                gap: 25px;
+            }
+            .card {
+                padding: 25px;
+            }
+            .card h2, .card h3, .card h4 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+                gap: 10px;
+            }
+            table {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter 3: Business Formation 📝</h1>
+    <p>This chapter explores the concept of small businesses, their legal forms, and their vital role in economic development. It also delves into the factors that lead to business success and failure.</p>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <h2><i class="fas fa-chart-line icon"></i> 3.2 The Concept of Small Business Development 📈</h2>
+        <p><strong>Definition:</strong> Countries define small businesses differently based on their socio-economic conditions. They primarily use two criteria: size and economic control.</p>
+        <p>የየአገሮች ኢኮኖሚያዊ ሁኔታ መሰረት አነስተኛ ንግድን የሚገልጹበት መንገድ ይለያያል. ይህን ለመወሰን ሁለት ዋና መስፈርቶችን ይጠቀማሉ፡ የመጠን እና የኢኮኖሚያዊ ቁጥጥር.</p>
+        <p><strong>Size Criteria:</strong> This includes objective metrics like the number of employees and startup capital. It doesn't always reflect the true nature of an enterprise, as qualitative characteristics are also used to differentiate small businesses from others.</p>
+        <p>የመጠን መስፈርት፡- ይህ የሰራተኞችን ብዛት እና የጅምር ካፒታልን የሚያካትት ሲሆን ሁልጊዜ የንግዱን እውነተኛ ባህሪ ላይገልጽ ይችላል።</p>
+        <p><strong>Economic/Control Criteria:</strong> This focuses on qualitative characteristics.</p>
+        <p>የኢኮኖሚያዊ/ቁጥጥር መስፈርት፡- ይህ በባህሪያዊ (qualitative) ባህሪያት ላይ ያተኩራል።</p>
+        <ul>
+            <li><strong>Small market share:</strong> The business is not large enough to significantly influence market prices.</li>
+            <p>አነስተኛ የገበያ ድርሻ፡- ንግዱ የገበያ ዋጋዎችን በከፍተኛ ደረጃ ተጽዕኖ ለማድረግ የሚያስችል በቂ አይደለም።</p>
+            <li><strong>Independence:</strong> The owner personally controls and manages the business.</li>
+            <p>ነፃነት፡- የንግዱ ባለቤት ራሱ ንግዱን ይቆጣጠራል እና ያስተዳድራል።</p>
+            <li><strong>Personalized management:</strong> The owner is actively involved in all aspects of the business, with little delegation.</li>
+            <p>ግላዊ አያያዝ፡- ባለቤቱ በሁሉም የንግዱ ዘርፎች ላይ በንቃት ይሳተፋል እና አነስተኛ የስራ ልዑክ ይሰጣል።</p>
+            <li><strong>Limited geographical operation:</strong> The business's activities are typically localized.</li>
+            <p>የተወሰነ የጂኦግራፊያዊ ሽፋን፡- የንግዱ ስራዎች በአብዛኛው በአካባቢው የተገደቡ ናቸው።</p>
+        </ul>
+        <p>Micro and small enterprises (MSEs) play an important role in both developed and developing economies. They require less capital, enjoy quick returns, and have the flexibility to adapt to market changes. However, they face common problems such as a lack of finance, poor operations management, a lack of experience, and poor financial management.</p>
+    </div>
+
+    <div class="card card-2">
+        <h2><i class="fas fa-building icon"></i> 3.3 Forms of Business Organizations 🏢</h2>
+        <p>There are three basic legal forms of businesses, each with distinct characteristics regarding ownership, liability, and management.</p>
+        <p>ሶስት መሰረታዊ የንግድ ድርጅት አይነቶች አሉ፣ እያንዳንዳቸውም በባለቤትነት፣ በሃላፊነት እና በአስተዳደር ላይ ልዩ ባህሪያት አሏቸው።</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Proprietorship</th>
+                        <th>Partnership</th>
+                        <th>Corporation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ownership</td>
+                        <td>One individual</td>
+                        <td>Two or more individuals</td>
+                        <td>Stockholders</td>
+                    </tr>
+                    <tr>
+                        <td>Liability</td>
+                        <td>Unlimited</td>
+                        <td>Unlimited (usually joint)</td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr>
+                        <td>Start-up Costs</td>
+                        <td>Very low</td>
+                        <td>Low to moderate</td>
+                        <td>Very high</td>
+                    </tr>
+                    <tr>
+                        <td>Continuity</td>
+                        <td>Ceases with death/withdrawal of owner</td>
+                        <td>May cease with death/withdrawal of partner</td>
+                        <td>Unlimited, perpetual existence</td>
+                    </tr>
+                    <tr>
+                        <td>Transferability</td>
+                        <td>N/A</td>
+                        <td>Difficult</td>
+                        <td>Easy (by selling stock)</td>
+                    </tr>
+                    <tr>
+                        <td>Capital</td>
+                        <td>Limited to owner's funds</td>
+                        <td>Limited to partners' funds</td>
+                        <td>Unlimited (can raise capital from public)</td>
+                    </tr>
+                    <tr>
+                        <td>Management Control</td>
+                        <td>Owner has full control</td>
+                        <td>Partners share control</td>
+                        <td>Managed by a board of directors</td>
+                    </tr>
+                    <tr>
+                        <td>Profit/Loss</td>
+                        <td>Owner receives all</td>
+                        <td>Shared among partners</td>
+                        <td>Distributed as dividends or retained earnings</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card card-3">
+        <h2><i class="fas fa-hand-holding-usd icon"></i> 3.4 Definition and Role/Importance of SMEs in Developing Countries</h2>
+        <h3><i class="fas fa-search-plus icon"></i> 3.4.1 Definition of MSEs</h3>
+        <h4>1. Size Criteria Approach</h4>
+        <p>The most widely used measures to define the size of a business are:</p>
+        <ul>
+            <li>The number of employees</li>
+            <li>Volume and value of sales turnover</li>
+            <li>Asset size and volume of deposits</li>
+            <li>Total capital investment</li>
+            <li>Volume/value of production, and</li>
+            <li>A combination of these factors.</li>
+        </ul>
+        <p>The Small Business Administration (SBA) suggests the following general criteria:</p>
+        <ul>
+            <li>Owned and financed by one individual or a small group (rarely more than 15-20 owners).</li>
+            <li>The firm’s operations are geographically localized.</li>
+            <li>The business is small compared to the biggest firms in the industry.</li>
+            <li>The number of employees is usually fewer than 100.</li>
+        </ul>
+        <h4>2. Economic/Control Criteria Approach</h4>
+        <p>This approach uses four characteristics to define a small business:</p>
+        <ul>
+            <li><strong>Small Market Share:</strong> The business is not large enough to influence the prices of goods.</li>
+            <li><strong>Independence:</strong> The owner has full control and is not subject to external control.</li>
+            <li><strong>Personalized Management:</strong> The owner actively participates in all aspects of management and delegates very little.</li>
+            <li><strong>Limited Geographical Area of Operation:</strong> The business serves a local market.</li>
+        </ul>
+        <h3><i class="fas fa-globe-africa icon"></i> 3.4.2 Role/Importance of MSEs in Developing Countries (Reading Assignment) 🌍</h3>
+        <p>MSEs play a critical role in the economic development of developing countries.</p>
+        <ul>
+            <li>Large Employment Opportunities: They are a major source of jobs, especially for low-skilled workers.</li>
+            <li>Balanced Regional Development: They help reduce regional economic imbalances by setting up businesses in less-developed areas.</li>
+            <li>Equitable Distribution of Wealth: They promote a more even distribution of wealth and decentralization of economic power.</li>
+            <li>Unregulated Growth of Large-scale Industries: They act as a counterbalance to large industries.</li>
+            <li>Dispersal over Wide Areas: Their ability to operate locally allows them to be spread out across the country.</li>
+            <li>Higher Standard of Living: They contribute to economic growth, which raises the standard of living.</li>
+            <li>Mobilization of Local Resources: They tap into local resources and act as symbols of national identity.</li>
+            <li>Innovative and Productive: They often use simpler, more flexible technology.</li>
+            <li>Less Dependence on Foreign Capital: They rely less on foreign investment and promote export.</li>
+            <li>Promotion of Self-Employment: They are a key pathway for individuals to become self-employed.</li>
+            <li>Protection of Environment: They can be designed to be environmentally friendly and sustainable.</li>
+            <li>Shorter Gestation Period: They start generating returns on investment relatively quickly.</li>
+            <li>Facilitate Development of Large-Scale Enterprises: They can serve as suppliers or service providers for larger companies.</li>
+            <li>Individual Tastes, Fashions, and Personalized Services: They can cater to specific niche markets and provide personalized services that larger firms can't.</li>
+            <li>More Employment Creation Capacity: They have a greater capacity to create jobs compared to larger firms.</li>
+        </ul>
+    </div>
+
+    <div class="card card-4">
+        <h2><i class="fas fa-rocket icon"></i> 3.5 Setting Up Small Scale Business 🚀</h2>
+        <p>The process of launching a new business is divided into three key stages: Discovery, Evaluation, and Implementation.</p>
+        <p>አዲስ ንግድ የማቋቋም ሂደት በሶስት ዋና ደረጃዎች የተከፈለ ነው፡ መገኘት (Discovery)፣ ምዘና (Evaluation) እና ትግበራ (Implementation).</p>
+        <p>This process begins with an <strong>Environmental Analysis</strong>, which includes:</p>
+        <ul>
+            <li><strong>Macro Environment:</strong> Analyzing broad factors such as the political, technological, social, legal, and economic conditions.</li>
+            <li><strong>Sectoral Analysis:</strong> Studying the specific industry or sector the business will operate in.</li>
+        </ul>
+        <p>A <strong>SWOT Analysis</strong> helps the entrepreneur to clearly identify his/her own Strengths and Weaknesses (internal factors) as well as the Opportunities and Threats (external factors) in the environment.</p>
+        <p>የ SWOT ትንተና አንድ ኢንተርፕረነር የራሱን ጥንካሬዎችና ድክመቶች (ውስጣዊ ሁኔታዎች) እንዲሁም በአካባቢው ያሉ እድሎችና ስጋቶች (ውጫዊ ሁኔታዎች) በግልፅ እንዲለይ ይረዳዋል።</p>
+    </div>
+
+    <div class="card card-5">
+        <h2><i class="fas fa-exclamation-triangle icon"></i> 3.6 Small Business Failure and Success Factors 📉</h2>
+        <h3><i class="fas fa-times-circle icon"></i> 3.6.1 Small Business Failure Factors</h3>
+        <p><strong>What is Business Failure?</strong></p>
+        <p>Business failure is a negative outcome for a business.</p>
+        <ul>
+            <li>It involves actions such as bankruptcy, foreclosure, or voluntary withdrawal from the business with a financial loss to a creditor.</li>
+            <p>የንግድ ውድቀት፡- በኪሳራ፣ በንብረት ማስወገድ ወይም በገንዘብ ኪሳራ ከንግድ ስራ በፈቃደኝነት መውጣትን የሚያካትት አሉታዊ ውጤት ነው።</p>
+            <li>It can also be a court action such as receivership (when the business is involuntarily taken over) or reorganization (receiving protection from creditors).</li>
+            <p>በፍርድ ቤት ትዕዛዝ ንብረት ማስከፈት (receivership) ወይም እንደገና ማደራጀት (reorganization) የመሳሰሉ ህጋዊ እርምጃዎችንም ሊያካትት ይችላል።</p>
+        </ul>
+        <p><strong>Causes of Business Failure</strong></p>
+        <p>The two most common causes are inadequate management and inadequate financing.</p>
+        <p>ለንግድ ውድቀት በጣም የተለመዱት መንስኤዎች በቂ ያልሆነ አስተዳደር እና በቂ ያልሆነ ፋይናንስ ናቸው።</p>
+        <h4>I. Inadequate Management</h4>
+        <ul>
+            <li>This is the biggest cause of failure, with 89% of failures being attributed to internal, controllable factors.</li>
+            <li>Poor management of:
+                <ul>
+                    <li>Adequate capital</li>
+                    <li>Cash flow</li>
+                    <li>Facilities/equipment</li>
+                    <li>Inventory control</li>
+                    <li>Human resources</li>
+                    <li>Leadership</li>
+                    <li>Organizational structure</li>
+                    <li>Accounting systems</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>II. Inadequate Financing</h4>
+        <ul>
+            <li>This includes both a shortage of capital and improper managerial control of funds.</li>
+            <li>Without enough starting capital, a business cannot afford the necessary facilities or personnel.</li>
+            <li>Even with adequate capital, poor financial management can lead to an inability to maintain inventory or a healthy financial balance.</li>
+        </ul>
+        <p><strong>General Causes of Failure:</strong></p>
+        <ul>
+            <li>Extending too much credit.</li>
+            <li>Failing to plan for the future.</li>
+            <li>Over-investing in fixed assets.</li>
+            <li>Hiring the wrong people.</li>
+        </ul>
+        <p><strong>Business Termination vs. Failure</strong></p>
+        <p>It is important to differentiate between these two concepts.</p>
+        <ul>
+            <li>A business termination occurs when a business closes for a positive or neutral reason, such as:
+                <ul>
+                    <li>Selling the business for a profit.</li>
+                    <li>Moving on to a new venture.</li>
+                    <li>Retirement.</li>
+                    <li>Losing interest.</li>
+                </ul>
+            </li>
+            <p>የንግድ ስራ ማብቃት፡- አንድ ንግድ ትርፍ ላይ በመሸጥ፣ ወደ አዲስ ንግድ በመዛወር፣ ጡረታ በመውጣት ወይም ፍላጎት በማጣት ምክንያት የሚዘጋበት ጊዜ ነው።</p>
+            <li>A business failure occurs when a business closes with a financial loss to a creditor.</li>
+            <p>የንግድ ውድቀት፡- አንድ ንግድ ለበአለዕዳ የገንዘብ ኪሳራን አስከትሎ ሲዘጋ ነው።</p>
+        </ul>
+        <p><strong>Common Mistakes Leading to Business Failure:</strong></p>
+        <ul>
+            <li>Neglecting to plan for the future.</li>
+            <li>Lack of commitment and hard work.</li>
+            <li>Not delegating tasks or hiring additional employees.</li>
+            <li>Inaccurate estimates of cash flow and capital requirements.</li>
+        </ul>
+    </div>
+
+    <div class="card card-6">
+        <h3><i class="fas fa-check-circle icon"></i> 3.6.2 Small Business Success Factors 📈</h3>
+        <p>To succeed, small businesses must overcome failure factors by focusing on three key areas: a conducive environment, adequate credit assistance, and markets and marketing support.</p>
+        <p><strong>Conducive Environment:</strong> This refers to the favorable political, economic, technological, and socio-cultural factors that support a business.</p>
+        <p>አመቺ ሁኔታ፡ ይህ ንግድን የሚደግፉ ምቹ የፖለቲካ፣ የኢኮኖሚ፣ የቴክኖሎጂ እና የማህበራዊ-ባህላዊ ሁኔታዎችን ያመለክታል።</p>
+        <ul>
+            <li><strong>Example 1:</strong> A government passes a law that reduces taxes for small businesses.
+            <p>አንድ መንግስት ለአነስተኛ ንግዶች ታክስ የሚቀንስ ህግ አወጣ።</p></li>
+            <li><strong>Example 2:</strong> Technological advancements make it cheaper and easier to start an online store.
+            <p>የቴክኖሎጂ እድገቶች የመስመር ላይ ሱቅ መክፈት ርካሽ እና ቀላል ያደርጉታል።</p></li>
+            <li><strong>Example 3:</strong> A country's culture values and supports local, small-scale producers.
+            <p>አንድ አገር ባህል የአካባቢውን አነስተኛ አምራቾችን ያደንቃል እና ይደግፋል።</p></li>
+        </ul>
+        <p><strong>Adequate Credit Assistance:</strong> This involves providing sufficient and timely financial support. This support can be in the form of:</p>
+        <ul>
+            <li>Special financing programs with lower interest rates.</li>
+            <li>Less collateral requirements and lower equity ratios.</li>
+            <li>Assistance schemes like preparing project studies.</li>
+        </ul>
+        <p>በቂ የብድር ድጋፍ፡ ይህ በቂ እና ወቅታዊ የገንዘብ ድጋፍ መስጠትን ያካትታል። ይህ ድጋፍ በበርካታ መንገዶች ሊሆን ይችላል፡</p>
+        <ul>
+            <li>ዝቅተኛ የወለድ ተመኖች ባላቸው ልዩ የገንዘብ ፕሮግራሞች።</li>
+            <li>አነስተኛ የዋስትና (collateral) መስፈርቶች እና ዝቅተኛ የፍትሃዊነት መጠን።</li>
+            <li>የፕሮጀክት ጥናቶችን ማዘጋጀትን የመሳሰሉ የድጋፍ መርሃ ግብሮች።</li>
+        </ul>
+        <p><strong>Markets and Marketing Support:</strong> This involves helping small businesses sell their products effectively.</p>
+        <p>ገበያዎች እና የግብይት ድጋፍ፡ ይህ አነስተኛ ንግዶች ምርቶቻቸውን በብቃት እንዲሸጡ መርዳትን ያካትታል።</p>
+        <ul>
+            <li><strong>Example 1:</strong> Small businesses can sell their products collectively through associations.
+            <p>አነስተኛ ንግዶች በድርጅቶች በኩል ምርቶቻቸውን በጋራ መሸጥ ይችላሉ።</p></li>
+            <li><strong>Example 2:</strong> The government can assist groups of entrepreneurs in selling their products.
+            <p>መንግስት የአነስተኛ ኢንተርፕረነሮችን ቡድኖች ምርቶቻቸውን እንዲሸጡ ሊረዳ ይችላል።</p></li>
+            <li><strong>Example 3:</strong> A community organization creates a local market day specifically for small businesses to showcase their goods.
+            <p>አንድ የማህበረሰብ ድርጅት አነስተኛ ንግዶች ምርቶቻቸውን የሚያሳዩበት የአካባቢ የገበያ ቀን ይፈጥራል።</p></li>
+        </ul>
+        <div class="table-container">
+            <table>
+                <caption>Table 3.2. Improved definition of MSEs in Ethiopia 🇪🇹</caption>
+                <thead>
+                    <tr>
+                        <th>Level of Enterprise</th>
+                        <th>Sector</th>
+                        <th>Human Power</th>
+                        <th>Total Asset</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Micro Enterprise</td>
+                        <td>Industry</td>
+                        <td>≤5</td>
+                        <td>Br ≤100,000</td>
+                    </tr>
+                    <tr>
+                        <td>Service</td>
+                        <td>≤5</td>
+                        <td>Br ≤50,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Small Enterprise</td>
+                        <td>Industry</td>
+                        <td>6-30</td>
+                        <td>Br ≤1,500,000</td>
+                    </tr>
+                    <tr>
+                        <td>Service</td>
+                        <td>6-30</td>
+                        <td>Br ≤500,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Priority Sectors and Sub-Sectors for MSEs Engagement In Ethiopia:</strong></p>
+        <ul>
+            <li>Manufacturing Sector</li>
+            <li>Construction Sectors</li>
+            <li>Trade Sectors</li>
+            <li>Service Sectors</li>
+            <li>Agriculture Sector (Urban Agriculture)</li>
+        </ul>
+        <p><strong>Levels of MSEs in Ethiopia:</strong></p>
+        <ul>
+            <li>Start-up</li>
+            <li>Growth Level</li>
+            <li>Maturity Level</li>
+            <li>Growth-Medium Level</li>
+        </ul>
+    </div>
+
+    <div class="card card-7">
+        <h2><i class="fas fa-handshake icon"></i> 3.8 Main Supporting Packages for MSEs Development in Ethiopia (Reading Assignment)</h2>
+        <p>In Ethiopia, supporting packages for MSEs include:</p>
+        <ul>
+            <li>Awareness creation: Educating people about the sector.</li>
+            <li>Provision of legal services: Helping entrepreneurs form legal business enterprises.</li>
+            <li>Technical and business management training: Providing skills and knowledge.</li>
+            <li>Financial support: Based on personal savings, a 20/80 model is often used where beneficiaries save 20% and Microfinance Institutions (MFIs) provide a loan for the remaining 80%.</li>
+            <li>Facilitating working premises: Helping businesses secure work spaces.</li>
+            <li>Bookkeeping and audit services.</li>
+        </ul>
+    </div>
+
+    <div class="card card-5">
+        <h2><i class="fas fa-exclamation-circle icon"></i> 3.9 Problems of Small Scale Business in Ethiopia ⚠️</h2>
+        <p>Despite their potential, small-scale businesses in Ethiopia face significant problems, primarily related to finance, production, and marketing.</p>
+        <p><strong>Financial Problems:</strong> A major handicap is the lack of adequate finance and credit. Small-scale units often have difficulty accessing capital because they are usually organized as proprietorships or partnerships and are very small.</p>
+        <p><strong>Production Problems:</strong> Small enterprises find it difficult to get good quality raw materials at reasonable prices. They often use outdated production techniques due to poor financial positions, which hurts their productivity.</p>
+        <p>An entrepreneur can avoid these common problems by:</p>
+        <ul>
+            <li>Knowing their business in depth.</li>
+            <li>Developing a solid business plan.</li>
+            <li>Managing financial resources effectively.</li>
+            <li>Understanding financial statements.</li>
+            <li>Learning to manage people effectively.</li>
+        </ul>
+    </div>
+
+    <div class="card card-6">
+        <h2><i class="fas fa-users-cog icon"></i> 3.10 Organizational Structure and Entrepreneurial Team Formation</h2>
+        <h3><i class="fas fa-user-friends icon"></i> 3.10.1 Introduction</h3>
+        <p>The success of a new venture is significantly tied to the management team and their commitment. Investors prioritize a team that is prepared to operate the business full-time at a modest salary. An attempt to draw a large salary or treat the venture as a sideline is perceived as a lack of psychological commitment.</p>
+        <p>የድርጅት አወቃቀር እና የኢንተርፕረነርሺፕ ቡድን ምስረታ: የአንድ አዲስ ንግድ ስኬት በአብዛኛው የተመካው በአስተዳደር ቡድን እና በቁርጠኝነታቸው ላይ ነው። ባለሀብቶች ንግዱን ሙሉ ጊዜያቸውን በትንሽ ደመወዝ ለመስራት ዝግጁ የሆነ ቡድን ይፈልጋሉ። ከፍተኛ ደመወዝ ለመቀበል መሞከር ወይም ንግዱን እንደትርፍ ጊዜ ስራ መቁጠር የስነ-ልቦና ቁርጠኝነት አለመኖሩን ያሳያል።</p>
+        <h3><i class="fas fa-drafting-compass icon"></i> 3.10.2 Designing the Organization</h3>
+        <p>The organization's design is the entrepreneur's formal indication of what is expected from the members. These expectations are grouped into five areas:</p>
+        <ul>
+            <li>Organization structure: The formal hierarchy and reporting lines.</li>
+            <li>Planning, measurement, and evaluation schemes: How goals are set, progress is tracked, and performance is evaluated.</li>
+            <li>Rewards: How employees are compensated and recognized for their work.</li>
+            <li>Selection criteria: The standards for hiring new team members.</li>
+            <li>Training: How employees are developed and given new skills.</li>
+        </ul>
+        <h3><i class="fas fa-users icon"></i> 3.9.3 Building the Management Team and a Successful Organization Culture</h3>
+        <p>Before assembling a team, the entrepreneur must ensure the team can perform three key functions:</p>
+        <ul>
+            <li>Execute the business plan.</li>
+            <li>Identify fundamental changes in the business as they occur.</li>
+            <li>Make adjustments to the plan based on changes in the environment and market to maintain profitability.</li>
+        </ul>
+        <p>አስተዳደር ቡድን መገንባት እና ስኬታማ የድርጅት ባህል መፍጠር፡ አንድ ቡድን ከመሰብሰብዎ በፊት ኢንተርፕረነሩ ቡድኑ ሶስት ዋና ዋና ተግባራትን ማከናወን እንደሚችል ማረጋገጥ አለበት።</p>
+        <ul>
+            <li>የንግድ እቅዱን መተግበር።</li>
+            <li>በንግዱ ውስጥ የሚከሰቱ መሰረታዊ ለውጦችን መለየት።</li>
+            <li>በአካባቢው እና በገበያ ላይ በሚደረጉ ለውጦች መሰረት ትርፋማነትን ለማስቀጠል በእቅዱ ላይ ማስተካከያ ማድረግ።</li>
+        </ul>
+        <p><strong>Important considerations and strategies for building a team and culture:</strong></p>
+        <ul>
+            <li>The entrepreneur's desired culture must align with the business strategy.</li>
+            <li>The leader must create a workplace where employees are motivated and rewarded.</li>
+            <li>The entrepreneur should be flexible and willing to try different things.</li>
+            <li>It is necessary to spend extra time on the hiring process to find the right people.</li>
+            <li>The entrepreneur needs to understand the significance of leadership.</li>
+        </ul>
+        <p>Finding an effective team and creating a positive culture is a significant challenge for an entrepreneur but is just as critical as having an innovative, marketable product. It is a vital ingredient for an organization's success.</p>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'entrepreneurship2', 
+        title: 'chapter 4:', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Products or Services Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f0f4f8; /* Light blue-gray */
+            --secondary-bg: #e1eaf2;
+            --text-color: #334e68; /* Dark slate blue */
+            --heading-color: #102a43; /* Very dark blue */
+            --accent-blue: #2d82b7;
+            --accent-green: #48a14d;
+            --accent-orange: #f26a1b;
+
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+            --card1-bg: #d1e7e7;
+            --card2-bg: #f8f1de;
+            --card3-bg: #d9e9d9;
+            --card4-bg: #e2d9eb;
+            --card5-bg: #f5e4e6;
+            --card6-bg: #dbeaf5;
+            --card7-bg: #f1e2d1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 30px;
+        }
+
+        .chapter-header {
+            background-color: #fcfcfc;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239eabbd' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--heading-color);
+            padding: 50px 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 0.2em;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .chapter-header p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2, .card h3, .card h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card h2 .icon, .card h3 .icon, .card h4 .icon {
+            font-size: 1.3em;
+            color: var(--accent-blue);
+        }
+        
+        .card-1 { background-color: var(--card1-bg); }
+        .card-2 { background-color: var(--card2-bg); }
+        .card-3 { background-color: var(--card3-bg); }
+        .card-4 { background-color: var(--card4-bg); }
+        .card-5 { background-color: var(--card5-bg); }
+        .card-6 { background-color: var(--card6-bg); }
+        
+        p, li {
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            padding-left: 25px;
+            list-style-type: none;
+            margin-bottom: 1.5em;
+        }
+        
+        ul li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .definition-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .definition-list dt {
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: var(--heading-color);
+        }
+        
+        .definition-list dd {
+            margin-left: 0;
+            margin-bottom: 1.5em;
+        }
+
+        .example-block {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-left: 3px solid var(--accent-green);
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .example-block p {
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+                gap: 25px;
+            }
+            .card {
+                padding: 25px;
+            }
+            .card h2, .card h3, .card h4 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter 4: Products or Services Development 💡</h1>
+    <p>This chapter details the process of creating and launching a new product or service, from idea generation to commercialization. It also covers the legal frameworks and intellectual property protection crucial for entrepreneurs.</p>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <h2><i class="fas fa-info-circle icon"></i> 4.1 Introduction</h2>
+        <p><strong>Product/service development</strong> is the ongoing process of bringing a new product or service to market. It is an essential practice for businesses seeking to grow and strengthen their market position. The process involves idea generation, product design, detailed engineering, market research, and marketing analysis.</p>
+        <p>የምርት/አገልግሎት ልማት፡- አዲስ ምርት ወይም አገልግሎት ወደ ገበያ የማቅረብ ቀጣይነት ያለው ሂደት ነው። ይህ ሂደት የሃሳብ ማመንጨት፣ የምርት ዲዛይን፣ ዝርዝር ምህንድስና፣ የገበያ ጥናት እና የግብይት ትንተናን ያካትታል።</p>
+        <p>A successful product or service does not just have an attractive design; it must also provide robust performance that satisfies and delights the customer. A business's success is directly dependent on its ability to create products and services that have all the attributes customers require.</p>
+    </div>
+
+    <div class="card card-2">
+        <h2><i class="fas fa-rocket icon"></i> 4.3 Product/Service Development Process 🚀</h2>
+        <p>Product development is how companies respond to market signals and customer demands, adopt new technologies, and ensure continuous growth. It is a multi-step process that can be summarized as follows:</p>
+
+        <h3><i class="fas fa-lightbulb icon"></i> New Idea Generation</h3>
+        <p>This is the initial stage of creating a new product or service idea with market potential.</p>
+        <p>አዲስ ሀሳብ ማመንጨት፡- ገበያ ሊኖረው የሚችል አዲስ የምርት/አገልግሎት ሀሳብ የሚፈጠርበት የመጀመሪያው ደረጃ ነው።</p>
+        <p><strong>Sources of ideas:</strong></p>
+        <ul>
+            <li><strong>Consumers:</strong> By observing, interviewing, or surveying consumers, entrepreneurs can identify new needs.
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A consumer complains about their smartphone battery life, leading to the idea for an extra-durable portable charger.</p>
+                </div>
+            </li>
+            <li><strong>Existing products and services:</strong> Improving or modifying existing products can create new ideas.
+                <div class="example-block">
+                    <p><strong>Example 2:</strong> Observing the popularity of streaming services, a company creates a platform that combines movie streaming with online gaming.</p>
+                </div>
+            </li>
+            <li><strong>Distribution channels:</strong> Feedback from distributors and retailers can reveal new opportunities.
+                <div class="example-block">
+                    <p><strong>Example 3:</strong> A grocery store manager suggests a need for smaller, family-sized packaging for a popular snack.</p>
+                </div>
+            </li>
+            <li><strong>The federal government:</strong> Patents, research publications, and government contracts can be sources of ideas.</li>
+            <li><strong>Research and development (R&D):</strong> Internal R&D departments can generate new ideas from their scientific work.</li>
+        </ul>
+
+        <h3><i class="fas fa-filter icon"></i> Idea Screening</h3>
+        <p>The process of reducing the number of ideas to a few promising and valuable ones. An "idea committee" should categorize ideas into three groups: Promising Ideas, Marginal Ideas, and Rejects.</p>
+        <p>የሃሳብ ምርመራ፡- የሃሳቦችን ብዛት ወደ ጥቂት ጠቃሚ ሀሳቦች የመቀነስ ሂደት ነው። የሃሳብ ኮሚቴ ሃሳቦችን በሶስት ቡድን ይከፍላል - ተስፋ ሰጪ ሃሳቦች፣ ብዙም የማይጠቅሙ ሃሳቦች እና ውድቅ የተደረጉ ሃሳቦች።</p>
+
+        <h3><i class="fas fa-tasks icon"></i> Concept Development and Testing</h3>
+        <p>Refining promising ideas into product concepts and testing them with a target group of consumers. People buy concepts, not just ideas.</p>
+        <p>የፅንሰ-ሃሳብ ልማት እና ሙከራ፡- ተስፋ ሰጪ ሀሳቦችን ወደ ምርት ፅንሰ-ሃሳቦች ማሻሻል እና ከታለመላቸው ሸማቾች ቡድን ጋር መሞከር። ሰዎች የሚገዙት ፅንሰ-ሃሳቦችን እንጂ ሃሳቦችን ብቻ አይደለም።</p>
+        <div class="example-block">
+            <p><strong>Example 1 (Concept Development):</strong> A "new and healthier energy drink" idea is refined into a concept like "a sugar-free, vitamin-infused sparkling water for busy professionals."</p>
+            <p><strong>Example 2 (Concept Testing):</strong> The company presents the concept to a focus group of professionals to get their reactions and feedback.</p>
+        </div>
+
+        <h3><i class="fas fa-chart-bar icon"></i> Marketing Strategy Development</h3>
+        <p>Developing a preliminary marketing plan for the new product. This plan has three parts:</p>
+        <ul>
+            <li>Market size, structure, and behavior.</li>
+            <li>Planned marketing budget, price, and distribution strategy.</li>
+            <li>Long-run sales, profit goals, and marketing mix strategy.</li>
+        </ul>
+
+        <h3><i class="fas fa-chart-line icon"></i> Business Analysis</h3>
+        <p>Evaluating the product concept's business attractiveness by preparing sales, cost, and profit projections. Management must estimate whether total sales will be high enough to yield a satisfactory profit.</p>
+
+        <h3><i class="fas fa-tools icon"></i> Product Development</h3>
+        <p>If the concept passes the business test, R&D creates one or more physical prototypes. The goal is to find a prototype that embodies the key attributes described in the product concept statement.</p>
+
+        <h3><i class="fas fa-store icon"></i> Market Testing</h3>
+        <p>After the prototype is ready, the product is tested in a real-world setting with consumers. The goal is to learn about the size of the market and how consumers and dealers react to the actual product.</p>
+        <p>የገበያ ሙከራ፡- የቅድመ-ምሳሌው (prototype) ከተዘጋጀ በኋላ ምርቱ በገበያ ውስጥ ከሸማቾች ጋር ይሞከራል። ዓላማው የገበያውን መጠን እና ሸማቾች ለትክክለኛው ምርት ምን ምላሽ እንደሚሰጡ ለመረዳት ነው።</p>
+
+        <h3><i class="fas fa-check-circle icon"></i> Commercialization</h3>
+        <p>Launching the new product into the market. Timing is a critical factor.</p>
+        <p>የንግድ ማስጀመር፡- አዲሱን ምርት ወደ ገበያ ማቅረብ። ጊዜ አጠባበቅ ወሳኝ ነገር ነው።</p>
+        <p><strong>Entry Strategies:</strong></p>
+        <ul>
+            <li><strong>First Entry:</strong> The firm enters the market first and enjoys the "first-mover advantage" of securing key distributors and gaining a reputation.
+                <p>የመጀመሪያ መግቢያ፡- ድርጅቱ ገበያውን መጀመሪያ በመግባት ዋና ዋና አከፋፋዮችን በማግኘት እና መልካም ስምን በማትረፍ "የመጀመሪያው ተንቀሳቃሽ ጥቅም" ያገኛል።</p>
+            </li>
+            <li><strong>Late Entry:</strong> The firm enters the market after competitors. The advantages are that competitors have already borne the cost of educating the market, their product faults can be identified and avoided, and the market size can be learned.
+                <p>ዘግይቶ መግባት፡- ድርጅቱ ከተወዳዳሪዎች በኋላ ገበያውን ይገባል። ጥቅሞቹ ተወዳዳሪዎች ገበያውን የማስተማር ወጪን ወስደዋል፣ የምርታቸው ጉድለቶች ሊታወቁ እና ሊወገዱ ይችላሉ፣ እንዲሁም የገበያውን መጠን መማር ይቻላል።</p>
+            </li>
+            <li><strong>Parallel Entry:</strong> The firm enters the market at the same time as a competitor. A prospective businessman can take advantage of the latest technology and operate at a higher volume.
+                <p>ትይዩ መግቢያ፡- ድርጅቱ ከተወዳዳሪ ጋር በተመሳሳይ ጊዜ ወደ ገበያ ይገባል። ንግድ ለመጀመር ያቀደ ሰው አዳዲስ ቴክኖሎጂዎችን በመጠቀም በከፍተኛ የምርት መጠን መስራት ይችላል።</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card card-3">
+        <h2><i class="fas fa-gavel icon"></i> 4.4 Legal and Regulatory Frameworks for Entrepreneurs ⚖️</h2>
+        <p>To operate legally and protect the business, an entrepreneur must understand the various laws that govern their business. It is necessary to get legal advice on issues such as liability, taxes, continuity, transferability of interest, and start-up costs to make the most appropriate decisions.</p>
+    </div>
+
+    <div class="card card-4">
+        <h2><i class="fas fa-shield-alt icon"></i> 4.5 Intellectual Property Protection 🛡️</h2>
+        <h3><i class="fas fa-brain icon"></i> 4.5.1 What is Intellectual Property?</h3>
+        <p><strong>Intellectual Property (IP)</strong> is a legal definition for ideas, inventions, artistic works, and other commercially viable products created from one's own mental processes. To enjoy the benefits of owning these assets, an entrepreneur needs to protect them through relevant laws.</p>
+        <p>የአእምሮ ንብረት፡- ከአንድ ሰው አእምሯዊ ሂደት የተፈጠሩ ሀሳቦች፣ ፈጠራዎች፣ ጥበባዊ ስራዎች እና ሌሎች ለንግድ ሊውሉ የሚችሉ ምርቶች ህጋዊ ፍቺ ነው። ኢንተርፕረነሮች እነዚህን ንብረቶች ለመጠበቅ ተዛማጅ ህጎችን መጠቀም አለባቸው።</p>
+
+        <h3><i class="fas fa-scroll icon"></i> 4.5.2 Patents 📜</h3>
+        <p>A **patent** is a legal contract between an inventor and the government. In exchange for disclosing the invention, the government grants the inventor the exclusive right to enjoy the benefits from the invention. A patent provides the owner with exclusive rights to hold, transfer, and license the production and sale of a product or process.</p>
+        <p>የፈጠራ የባለቤትነት መብት (ፓተንት)፡- በአንድ ፈጣሪ እና በመንግስት መካከል የሚደረግ ህጋዊ ውል ነው። መንግስት ፈጣሪው ፈጠራውን እንዲገልጽ በመፍቀድ፣ ፈጠራው በሚያመጣው ጥቅም ላይ ብቸኛ መብት ይሰጠዋል። ፓተንት ባለቤቱ ምርትን ወይም ሂደትን የማምረት እና የመሸጥ ብቸኛ መብት ይሰጣል።</p>
+        <p><strong>Types of Patents:</strong></p>
+        <ul>
+            <li><strong>Utility Patent:</strong> Protects any new invention or functional improvements on existing inventions.</li>
+            <li><strong>Design Patent:</strong> Protects the appearance of an object. It covers new, original, and ornamental designs.</li>
+        </ul>
+
+        <h3><i class="fas fa-registered icon"></i> 4.5.3 Trademarks ™️</h3>
+        <p>A **trademark** is a word, symbol, design, slogan, or sound that identifies the source or sponsorship of certain goods or services. These are distinctive marks that are registered by government offices.</p>
+        <p>የንግድ ምልክት (ትሬድማርክ)፡- የአንድን ምርት ወይም አገልግሎት ምንጭ የሚያመለክት ቃል፣ ምልክት፣ ዲዛይን፣ መፈክር ወይም የተለየ ድምጽ ነው። እነዚህ በመንግስት ቢሮዎች የሚመዘገቡ ልዩ ምልክቶች ናቸው።</p>
+        <p><strong>Benefits of a Registered Trademark:</strong></p>
+        <ul>
+            <li>It provides exclusive rights to use the mark throughout the country.</li>
+            <li>It allows the owner to sue in federal court for trademark infringement and recover profits and damages.</li>
+            <li>It establishes incontestable rights regarding the commercial use of the mark.</li>
+            <li>It establishes the right to deposit registration with customs to prevent the importation of goods with a similar mark.</li>
+        </ul>
+
+        <h3><i class="fas fa-copyright icon"></i> 4.5.4 Copyrights 📝</h3>
+        <p><strong>Copyright</strong> is a legal right granted to the creator of an original work to prevent others from copying, printing, or publishing it without permission.</p>
+        <p>የቅጂ መብት፡- የፈጠራ ስራ ባለቤት የሆነን ሰው ስራው በሌሎች እንዳይታተም፣ እንዳይገለበጥ ወይም እንዳይታተም ለመከላከል የሚሰጥ ህጋዊ መብት ነው።</p>
+        <p>This form of protection is given to creative individuals for their original literary or artistic productions. It covers a wide range of works, including:</p>
+        <ul>
+            <li>Literary works: Such as poetry, novels, and books.</li>
+            <li>Dramatic and musical works: Including songs, plays, and movies.</li>
+            <li>Artistic works: Such as paintings, sculptures, and architectural designs.</li>
+            <li>Software and other digital creations: Including computer programs and websites.</li>
+        </ul>
+        <p>Copyrights are considered a form of intellectual property. They are typically valid for the life of the inventor plus a few decades, ensuring that the creator and their heirs can benefit from the work for a long period.</p>
+        <div class="example-block">
+            <p><strong>Extra Examples of Copyrights:</strong></p>
+            <ul>
+                <li>The musical score and lyrics to a hit song are protected by copyright, preventing other artists from releasing a direct copy of the song without a license.
+                <p>የአንድ ታዋቂ ዘፈን የሙዚቃ ቅንብር እና ግጥም በቅጂ መብት የተጠበቀ ነው፣ ይህም ሌሎች አርቲስቶች ያለፈቃድ ዘፈኑን እንዳይገለብጡ ይከላከላል።</p></li>
+                <li>The code for a new mobile application is automatically copyrighted, meaning a competing developer cannot simply copy and paste the code into their own app.
+                <p>የአዲስ የሞባይል አፕሊኬሽን ኮድ በቅጂ መብት የተጠበቀ ነው፣ ይህም ተፎካካሪ የሆነ ገንቢ ኮዱን በቀጥታ ገልብጦ ወደራሱ አፕሊኬሽን እንዳይጠቀምበት ይከላከላል።</p></li>
+                <li>A photograph taken by a professional photographer is a copyrighted work. If a company wants to use the photo in an advertisement, they must get permission from the photographer.
+                <p>በአንድ ባለሙያ ፎቶግራፍ አንሺ የተነሳ ፎቶ በቅጂ መብት የተጠበቀ ስራ ነው። አንድ ኩባንያ ፎቶውን በማስታወቂያ ለመጠቀም ከፈለገ ከፎቶግራፍ አንሺው ፈቃድ ማግኘት አለበት።</p></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'entrepreneurship5', 
+        title: 'entrepreneurship5', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f0f4f8; /* Light blue-gray */
+            --secondary-bg: #e1eaf2;
+            --text-color: #334e68; /* Dark slate blue */
+            --heading-color: #102a43; /* Very dark blue */
+            --accent-blue: #2d82b7;
+            --accent-green: #48a14d;
+            --accent-orange: #f26a1b;
+
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+            --card1-bg: #d1e7e7;
+            --card2-bg: #f8f1de;
+            --card3-bg: #d9e9d9;
+            --card4-bg: #e2d9eb;
+            --card5-bg: #f5e4e6;
+            --card6-bg: #dbeaf5;
+            --card7-bg: #f1e2d1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 30px;
+        }
+
+        .chapter-header {
+            background-color: #fcfcfc;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239eabbd' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--heading-color);
+            padding: 50px 25px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 0.2em;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .chapter-header p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2, .card h3, .card h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card h2 .icon, .card h3 .icon, .card h4 .icon {
+            font-size: 1.3em;
+            color: var(--accent-blue);
+        }
+        
+        .card-1 { background-color: var(--card1-bg); }
+        .card-2 { background-color: var(--card2-bg); }
+        .card-3 { background-color: var(--card3-bg); }
+        .card-4 { background-color: var(--card4-bg); }
+        .card-5 { background-color: var(--card5-bg); }
+        .card-6 { background-color: var(--card6-bg); }
+        .card-7 { background-color: var(--card7-bg); }
+        
+        p, li {
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            padding-left: 25px;
+            list-style-type: none;
+            margin-bottom: 1.5em;
+        }
+        
+        ul li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .definition-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .definition-list dt {
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: var(--heading-color);
+        }
+        
+        .definition-list dd {
+            margin-left: 0;
+            margin-bottom: 1.5em;
+        }
+
+        .example-block {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-left: 3px solid var(--accent-green);
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .example-block p {
+            font-style: italic;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--heading-color);
+            color: #fff;
+            font-family: 'Merriweather', serif;
+            white-space: nowrap;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+                gap: 25px;
+            }
+            .card {
+                padding: 25px;
+            }
+            .card h2, .card h3, .card h4 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-header">
+    <h1>Chapter 5: Marketing 🛍️</h1>
+    <p>This chapter outlines the core concepts and philosophies of marketing, a crucial aspect of any business venture. It explores how companies identify and satisfy customer needs to achieve their goals.</p>
+</div>
+
+<div class="container">
+
+    <div class="card card-1">
+        <h2><i class="fas fa-bullhorn icon"></i> 5.1 & 5.2 Meaning and Definitions of Marketing</h2>
+        <p><strong>Marketing</strong> is a social and managerial process by which individuals and groups obtain what they need and want through creating, offering, and freely exchanging products and services of value with others.</p>
+        <p>ግብይት (ማርኬቲንግ) ግለሰቦች እና ቡድኖች ዋጋ ያላቸው ምርቶችንና አገልግሎቶችን በመፍጠር፣ በማቅረብ እና በነፃነት በመለዋወጥ የሚፈልጉትንና የሚያስፈልጋቸውን የሚያገኙበት ማህበራዊ እና የአስተዳደር ሂደት ነው።</p>
+        <p><strong>Key Definitions from Marketing Associations:</strong></p>
+        <ul class="definition-list">
+            <li><strong>American Marketing Association:</strong> The process of planning and executing the conception, pricing, promotion, and distribution of ideas, goods, and services to create exchanges that satisfy individual and organizational goals.</li>
+            <li><strong>The Chartered Institute of Marketing:</strong> The management process for identifying, anticipating, and satisfying customer requirements profitably.</li>
+        </ul>
+    </div>
+
+    <div class="card card-2">
+        <h2><i class="fas fa-bullseye icon"></i> 5.3 Core Concepts of Marketing 🎯</h2>
+        <h3><i class="fas fa-user-circle icon"></i> 5.3.1 Needs, Wants, and Demands</h3>
+        <ul>
+            <li><strong>Needs:</strong> States of felt deprivation or deficiency. They are a basic part of human nature and are not created by marketers.
+                <p>ፍላጎቶች (Needs): የጎደለ ስሜት ወይም እጥረት ያለበት ሁኔታ ነው። እነዚህ የሰው ልጅ ተፈጥሮ መሰረታዊ አካል ሲሆኑ በገበያ ሰሪዎች (marketers) የተፈጠሩ አይደሉም።</p>
+                <div class="example-block">
+                    <p><strong>Examples:</strong> Basic physical needs for food, clothing, warmth, and safety; social needs for belonging and affection; individual needs for knowledge and self-expression.</p>
+                </div>
+            </li>
+            <li><strong>Wants:</strong> The specific forms that human needs take, as shaped by an individual’s culture and personality.
+                <p>ምኞቶች (Wants): የሰው ልጅ ፍላጎቶች በአንድ ሰው ባህል እና ማንነት የሚቀርጹበት የተወሰነ አይነት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A hungry person needs food, but their want might be a specific Ethiopian dish like Injera with Doro Wat.</p>
+                    <p><strong>Example 2:</strong> The need for transportation can be translated into a want for a Mercedes-Benz.</p>
+                    <p><strong>Example 3:</strong> The need for a communication device can be a want for the latest iPhone.</p>
+                </div>
+            </li>
+            <li><strong>Demands:</strong> Wants that are backed by buying power (the ability and willingness to pay).
+                <p>ፍላጎት (Demands): በገንዘብ ችሎታ እና የመግዛት ፍላጎት የተደገፉ ምኞቶች ናቸው።</p>
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A student may want the latest laptop, but their demand is for a more affordable second-hand laptop that they can pay for.</p>
+                    <p><strong>Example 2:</strong> An individual may want a new luxury car, but their demand is for a used, fuel-efficient sedan that they can afford.</p>
+                    <p><strong>Example 3:</strong> Someone may want to fly first class, but their demand is for an economy-class ticket they can afford.</p>
+                </div>
+            </li>
+        </ul>
+        <h3><i class="fas fa-book icon"></i> Other Key Concepts</h3>
+        <ul>
+            <li><strong>Product:</strong> Anything that can be offered to a market to satisfy a need or want. It can be tangible (a car) or intangible (a service).
+                <p>ምርት (Product): ፍላጎትን ወይም ምኞትን ለማርካት ለገበያ ሊቀርብ የሚችል ማንኛውም ነገር ነው።</p>
+            </li>
+            <li><strong>Cost:</strong> The amount of money spent or to be spent to acquire a product.
+                <p>ዋጋ (Cost): አንድን ምርት ለማግኘት የሚወጣ ወይም የወጣ የገንዘብ መጠን ነው።</p>
+            </li>
+            <li><strong>Exchange:</strong> The act of obtaining a desired product from someone by offering something in return.
+                <p>መለዋወጥ (Exchange): ከሌላ ሰው የሚፈለገውን ምርት በምላሹ ሌላ ነገር በመስጠት የማግኘት ተግባር ነው።</p>
+            </li>
+            <li><strong>Value:</strong> The customer's perception of the difference between the benefits of owning and using a product and the costs of obtaining it.
+                <p>ዋጋ (Value): አንድ ደንበኛ ምርትን ከመጠቀም እና ከማግኘት ከሚያገኘው ጥቅም እና ከሚወጣው ወጪ መካከል ያለው ልዩነት።</p>
+            </li>
+            <li><strong>Transaction:</strong> A trading of values between two parties. One party gives something and gets something else in return.
+                <p>ግብይት (Transaction): በሁለት ወገኖች መካከል የሚደረግ የዋጋ መለዋወጥ ነው።</p>
+            </li>
+            <li><strong>Market:</strong> The set of all actual and potential buyers of a product or service.
+                <p>ገበያ (Market): የአንድ ምርት ወይም አገልግሎት ትክክለኛ እና ሊሆኑ የሚችሉ ገዢዎች ስብስብ።</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card card-3">
+        <h2><i class="fas fa-star icon"></i> 5.4 Importance of Marketing</h2>
+        <p>Marketing creates <strong>utility</strong>, which is the value derived from satisfying human needs. There are five types of utility:</p>
+        <ul>
+            <li><strong>Form Utility:</strong> Value created by changing the form of inputs into a finished product.
+                <p>ቅርፅ ጥቅም (Form Utility): ጥሬ እቃዎችን ወደ ተጠናቀቀ ምርት በመቀየር የሚፈጠር እሴት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> Turning cotton into a T-shirt.</p>
+                </div>
+            </li>
+            <li><strong>Task Utility:</strong> Value provided when someone performs a task for another person.
+                <p>የተግባር ጥቅም (Task Utility): አንድ ሰው ለሌላ ሰው ስራ ሲሰራ የሚፈጠር እሴት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> A plumber fixing a leaky pipe.</p>
+                </div>
+            </li>
+            <li><strong>Place Utility:</strong> Value created by making products available in a convenient location.
+                <p>የቦታ ጥቅም (Place Utility): ምርቶችን በቀላሉ በሚደረስበት ቦታ ላይ በማቅረብ የሚፈጠር እሴት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> Selling sunscreen at a beachside store.</p>
+                </div>
+            </li>
+            <li><strong>Information Utility:</strong> Value created by informing prospective buyers that a product exists.
+                <p>የመረጃ ጥቅም (Information Utility): የሚገዙትን ሰዎች ምርት መኖሩን በማሳወቅ የሚፈጠር እሴት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> An advertisement for a new car model.</p>
+                </div>
+            </li>
+            <li><strong>Time Utility:</strong> Value created by making products available to customers when they want them.
+                <p>የጊዜ ጥቅም (Time Utility): ምርቶችን ደንበኞች በሚፈልጉበት ጊዜ እንዲገኙ በማድረግ የሚፈጠር እሴት ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> A store being open 24/7.</p>
+                </div>
+            </li>
+            <li><strong>Possession Utility:</strong> Value created by transferring the ownership of a product from the seller to the customer.
+                <p>የባለቤትነት ጥቅም (Possession Utility): የአንድ ምርት ባለቤትነትን ከሻጭ ወደ ደንበኛ በማስተላለፍ የሚፈጠር እሴት።</p>
+                <div class="example-block">
+                    <p><strong>Example:</strong> Selling a car to a customer.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card card-4">
+        <h2><i class="fas fa-brain icon"></i> 5.5 Marketing Philosophies</h2>
+        <p>The role of marketing in a company is determined by its philosophy. There are five alternative concepts that guide marketing activities:</p>
+        <ul>
+            <li><strong>Production Concept:</strong> This philosophy holds that consumers prefer products that are widely available and inexpensive. It is useful when demand exceeds supply or when the product's cost is too high.
+                <p>የምርት ጽንሰ-ሀሳብ (Production Concept): ይህ ጽንሰ-ሀሳብ ሸማቾች በስፋት የሚገኙ እና ርካሽ የሆኑ ምርቶችን እንደሚመርጡ ያስቀምጣል።</p>
+            </li>
+            <li><strong>Product Concept:</strong> The philosophy that consumers will favor products offering the most quality, performance, and innovative features. This can lead to marketing myopia, a short-sighted focus on the product itself rather than on customer benefits.
+                <p>የምርት ጽንሰ-ሀሳብ (Product Concept): ሸማቾች ከፍተኛ ጥራት፣ አፈፃፀም እና ፈጠራ ባህሪያት ያላቸውን ምርቶች እንደሚመርጡ የሚያምን ፍልስፍና ነው። ይህ ማርኬቲንግ ማይኦፒያ (በደንበኛ ፍላጎት ላይ ከማተኮር ይልቅ በምርቱ ላይ ብቻ ማተኮር) ሊያስከትል ይችላል።</p>
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A company that builds a better mousetrap, but the customer's real need is to get rid of pests, which could be done with a more effective poison or exterminator service.</p>
+                    <p><strong>Example 2:</strong> A company that focuses solely on making a technically advanced camera without considering that most customers just want a simple, easy-to-use camera phone.</p>
+                </div>
+            </li>
+            <li><strong>Selling Concept:</strong> The idea that consumers will not buy enough of the company's products unless there is a large-scale selling and promotion effort. It is often used for "unsought goods" (products buyers do not typically think of buying) and in situations of overcapacity. It focuses on selling what the company makes, rather than making what the market wants.
+                <p>የመሸጥ ጽንሰ-ሀሳብ (Selling Concept): አንድ ድርጅት በሰፊው የሽያጭ እና የማስተዋወቅ ጥረት ካላደረገ በስተቀር ሸማቾች በቂ ምርቶችን እንደማይገዙ የሚገልጽ ሀሳብ ነው። ይህ በዋናነት ለ"ያልተፈለጉ እቃዎች" (unsought goods) እና ከፍ ያለ የምርት መጠን ላላቸው ድርጅቶች ያገለግላል።</p>
+            </li>
+            <li><strong>Marketing Concept:</strong> The philosophy that achieving organizational goals depends on determining the needs and wants of target markets and delivering the desired satisfactions more effectively and efficiently than competitors.
+                <p>የግብይት ጽንሰ-ሀሳብ (Marketing Concept): የድርጅት ግቦችን ማሳካት የሚቻለው የታለመላቸውን ገበያዎች ፍላጎትና ምኞት በመወሰን እና ከተወዳዳሪዎች በበለጠ ውጤታማ እና ብቃት ባለው መንገድ የሚፈለገውን እርካታ በማቅረብ ነው የሚል የአስተዳደር ፍልስፍና ነው።</p>
+                <p><strong>Key Features:</strong> Meeting needs profitably, finding wants and filling gaps, and loving the customer, not the product. It has a customer-centric, outside-in perspective.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Selling Concept</th>
+                                <th>Marketing Concept</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Focuses on:</strong> Needs of the seller</td>
+                                <td><strong>Focuses on:</strong> Needs of the customer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Perspective:</strong> Inside-out (starts with existing products and uses heavy promotion)</td>
+                                <td><strong>Perspective:</strong> Outside-in (starts with customer needs and delivers value)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+            <li><strong>Societal Marketing Concept:</strong> The idea that an organization should determine the needs, wants, and interests of target markets and deliver satisfactions in a way that maintains or improves the consumer's and society's well-being. It balances company profits, customer wants, and society's interests.
+                <p>የማህበራዊ ግብይት ጽንሰ-ሀሳብ (Societal Marketing Concept): አንድ ድርጅት የታለመላቸውን ገበያዎች ፍላጎት፣ ምኞት እና ጥቅሞች በመወሰን፣ የሸማቹን እና የህብረተሰቡን ደህንነት በሚያስጠብቅ ወይም በሚያሻሽል መንገድ እርካታን መስጠት አለበት የሚል ሀሳብ ነው።</p>
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A company selling healthy, organic food that is also committed to sustainable farming practices.</p>
+                    <p><strong>Example 2:</strong> An automobile company that produces fuel-efficient cars to reduce pollution, even if it costs more to develop.</p>
+                    <p><strong>Example 3:</strong> A clothing brand that uses recycled materials and donates a portion of its profits to environmental causes.</p>
+                </div>
+            </li>
+            <li><strong>Relationship Marketing:</strong> The practice of building long-term, satisfying relationships with key parties like customers, suppliers, and distributors to retain their long-term loyalty and business. The ultimate goal is to create a unique asset called a marketing network.
+                <p>የግንኙነት ግብይት (Relationship Marketing): ከዋና ዋና ወገኖች ማለትም ከደንበኞች፣ ከአቅራቢዎች እና ከአከፋፋዮች ጋር ለረጅም ጊዜ የሚቆይና አጥጋቢ ግንኙነት የመገንባት ልምምድ ሲሆን ይህም የረጅም ጊዜ ታማኝነታቸውን እና ንግዳቸውን ለማስጠበቅ ይረዳል።</p>
+            </li>
+        </ul>
+        <h3>Table 5.2: Summary of the Evolution of Marketing</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Philosophy</th>
+                        <th>Core Idea</th>
+                        <th>Guiding Principle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Production</strong></td>
+                        <td>Consumers prefer widely available and affordable products.</td>
+                        <td>"Availability and affordability is what the customer wants."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product</strong></td>
+                        <td>Consumers favor products with the most quality and features.</td>
+                        <td>"A good product will sell itself."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales</strong></td>
+                        <td>Consumers will buy products only with aggressive promotion.</td>
+                        <td>"Creative advertising and selling will overcome consumer resistance."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing</strong></td>
+                        <td>Focus on the needs of target markets to deliver satisfaction better than competitors.</td>
+                        <td>"The consumer is king! Find a need and fill it."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relationship</strong></td>
+                        <td>Focus on superior value and long-term relationships with customers and partners.</td>
+                        <td>"Long-term relationships with customers and other partners lead to success."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card card-5">
+        <h2><i class="fas fa-search-plus icon"></i> 5.6 Marketing Information Systems 🧠</h2>
+        <p>A <strong>Marketing Information System (MIS)</strong> is a system of people, equipment, and procedures to collect, sort, analyze, and distribute needed, timely, and accurate information to marketing decision-makers.</p>
+
+        <h3><i class="fas fa-microscope icon"></i> 5.6.1 Marketing Research 🔬</h3>
+        <p><strong>Marketing research</strong> is the systematic process of setting objectives, collecting, analyzing, and disseminating information to assist management in making informed decisions.</p>
+        <p>የገበያ ጥናት፡- አስተዳደሩ ውሳኔ እንዲያደርግ ለመርዳት ዓላማን የማውጣት፣ መረጃ የመሰብሰብ፣ የመተንተንና የማሰራጨት ሥርዓታዊ ሂደት ነው።</p>
+        <h4>5.6.1.1 The Role of Marketing Research in Decision-Making</h4>
+        <p>There are three key functional roles of marketing research:</p>
+        <ul>
+            <li><strong>Descriptive Function:</strong> Involves gathering and presenting factual statements.
+                <div class="example-block">
+                    <p><strong>Example 1:</strong> A report showing the number of customers who purchased a product in the last quarter.</p>
+                </div>
+            </li>
+            <li><strong>Diagnostic (Analytical) Function:</strong> Involves explaining data and finding cause-and-effect relationships.
+                <div class="example-block">
+                    <p><strong>Example 2:</strong> An analysis showing that sales declined in a specific region due to a competitor's new promotional campaign.</p>
+                </div>
+            </li>
+            <li><strong>Predictive Function:</strong> Involves using descriptive and diagnostic research to predict the results of a planned marketing decision.
+                <div class="example-block">
+                    <p><strong>Example 3:</strong> Using research data to forecast the sales increase from a planned 15% price reduction.</p>
+                </div>
+            </li>
+        </ul>
+
+        <h4>5.6.1.2 Marketing Research Components</h4>
+        <p>Marketing researchers deal with various aspects, including:</p>
+        <ul>
+            <li>Market size: The total sales potential within a given market.</li>
+            <li>Market share: The percentage of the total market that a company controls.</li>
+            <li>Market penetration: The percentage of the target market that has bought a product.</li>
+            <li>Brand equity research: The value and strength of a brand in the market.</li>
+            <li>Buyer decision processes research: How and why customers make purchase decisions.</li>
+        </ul>
+
+        <h4>5.6.1.3 Customer Satisfaction Research</h4>
+        <p>This involves different types of research to assess customer feedback:</p>
+        <ul>
+            <li>Distribution channel audits: Evaluating the effectiveness of the channels used to deliver a product.</li>
+            <li>Marketing effectiveness and analytics: Measuring the success of marketing campaigns.</li>
+            <li>Mystery Consumer/Mystery Shopping: Using trained observers to act as customers and evaluate service quality.</li>
+            <li>Positioning research: Understanding how a product is perceived in the minds of consumers relative to competitors.</li>
+            <li>Price elasticity testing: Measuring how changes in price affect demand.</li>
+            <li>Sales forecasting: Predicting future sales volumes.</li>
+            <li>Segmentation research: Dividing a market into distinct groups of buyers with different needs.</li>
+            <li>Test marketing: Launching a product in a small, controlled area to test its potential.</li>
+        </ul>
+        
+        <h4>5.6.1.4 Marketing Research Process</h4>
+        <p>This is a logical and systematic process with a number of steps:</p>
+        <ol>
+            <li>Define the research purpose or objectives: Clearly state what you want to achieve with the research.</li>
+            <li>Research Design Formulation: Plan the methodology, including what data to collect and from whom.</li>
+            <li>Gather Secondary Data: Collect existing data from sources like government reports, articles, and databases.</li>
+            <li>Gather Primary Data: Collect new data directly from the source through surveys, interviews, or experiments.</li>
+            <li>Data Processing and Analysis: Organize and analyze the collected data to find meaningful insights.</li>
+            <li>Report Preparations and Presentation: Summarize the findings and present them to management for decision-making.</li>
+        </ol>
+    </div>
+
+    <div class="card card-6">
+        <h2><i class="fas fa-poll icon"></i> 5.6.2 Marketing Intelligence 🕵️</h2>
+        <p><strong>Marketing intelligence</strong> is the systematic process of gathering, analyzing, and applying information about the external market environment. It is used to determine:</p>
+        <ul>
+            <li>Current and future market needs.</li>
+            <li>Changes in the business environment that may affect the size and nature of the market.</li>
+            <li>The overall environment that may impact the future of the market.</li>
+        </ul>
+        <p>የገበያ መረጃ፡- ስለ ውጫዊው የገበያ አካባቢ መረጃን (ጥራት እና ብዛት ያለው) የመሰብሰብ፣ የመተንተን እና የመተግበር ሥርዓታዊ ሂደት ነው።</p>
+        
+        <h4>5.6.2.1 The Importance of Marketing Intelligence</h4>
+        <p>Marketing intelligence is crucial for businesses because it helps to:</p>
+        <ul>
+            <li>Promote an external focus: Encourages the company to look outside its internal operations.</li>
+            <li>Identify new opportunities: Uncovers emerging trends and untapped markets.</li>
+            <li>Smart segmentation: Enables businesses to effectively target specific customer groups.</li>
+            <li>Provide early warning of competitor moves: Helps the company stay ahead of its rivals.</li>
+            <li>Minimize investment risks: Reduces the chance of a failed venture.</li>
+            <li>Provide quicker, more efficient, and cost-effective information.</li>
+        </ul>
+        
+        <h4>5.6.2.2 Ways to Undertake Marketing Intelligence</h4>
+        <ul>
+            <li><strong>Unfocused scanning:</strong> A general search for information in the environment.</li>
+            <li><strong>Semi-focused scanning:</strong> A more specific search for information related to a particular industry or topic.</li>
+            <li><strong>Informal search:</strong> Seeking information through casual conversations and personal networks.</li>
+            <li><strong>Formal search:</strong> Planned and systematic gathering of information through formal research.</li>
+        </ul>
+    </div>
+
+    <div class="card card-7">
+        <h2><i class="fas fa-balance-scale icon"></i> 5.6.3 Competitive Analysis 🥊</h2>
+        <p><strong>Competitive analysis</strong> is the process of determining the strengths and weaknesses of competitors and designing strategies to take advantage of opportunities or tackle threats they pose.</p>
+        <p>የፉክክር ትንተና፡- የተፎካካሪዎችን ጥንካሬ እና ድክመት በመወሰን የሚመጡ እድሎችን ለመጠቀም ወይም ስጋቶችን ለመቋቋም የሚያስችሉ መንገዶችን የማዘጋጀት ሂደት ነው።</p>
+        
+        <h4>5.6.3.1 Uses of Competitive Analysis</h4>
+        <p>Competitive analysis helps management:</p>
+        <ul>
+            <li>Understand its competitive advantages.</li>
+            <li>Understand competitors' past, present, and future strategies.</li>
+            <li>Develop informed strategies to achieve a competitive advantage.</li>
+            <li>Forecast the returns from future investments.</li>
+        </ul>
+        
+        <h4>5.6.3.3 Steps of Competitive Analysis</h4>
+        <ol>
+            <li>Identify your competitors: Determine who your direct and indirect competitors are.</li>
+            <li>Gather information about competitors: Collect data on their products, services, prices, and marketing efforts.</li>
+            <li>Analyze the competition: Evaluate the gathered information to understand their strengths and weaknesses.</li>
+            <li>Develop a pricing strategy: Use the analysis to set a competitive price for your product.</li>
+        </ol>
+    </div>
+
+    <div class="card card-3">
+        <h2><i class="fas fa-toolbox icon"></i> 5.7 The Marketing Mix and Marketing Strategies 🧩</h2>
+        <h3>5.7.1 The 4 P's of Marketing (The Marketing Mix)</h3>
+        <p>The <strong>marketing mix</strong> is the set of marketing tools a firm uses to achieve its marketing objectives in the target market. The four P's are:</p>
+        <ul>
+            <li><strong>Product:</strong> This includes the product's quality, design, features, brand name, and packaging.</li>
+            <li><strong>Price:</strong> This includes pricing strategies, discounts, and credit terms.</li>
+            <li><strong>Promotion:</strong> This includes advertising, sales promotion, personal selling, and public relations.</li>
+            <li><strong>Place:</strong> This includes the channels, coverage, and location for distributing the product.</li>
+        </ul>
+        
+        <h3>5.7.2 What Is Marketing Strategy? 🗺️</h3>
+        <p>A <strong>marketing strategy</strong> is a process that enables an organization to concentrate its limited resources on the greatest opportunities to increase sales and achieve a sustainable competitive advantage.</p>
+        
+        <h4>1. Pricing Strategy 💰</h4>
+        <ul>
+            <li><strong>Price Skimming:</strong> Setting a high initial price to "skim" revenues from the market. This is common for new, innovative products.</li>
+            <li><strong>Penetration Pricing:</strong> Setting a low initial price to quickly attract a large number of buyers and gain market share.</li>
+            <li><strong>Cost-plus pricing:</strong> Adding a standard markup to the cost of the product.</li>
+            <li><strong>Mark-up pricing:</strong> Adding a certain percentage of the selling price to the unit cost.</li>
+            <li><strong>Competition-Based Pricing:</strong> Pricing based on competitors' prices. A company may price at the same level, above, or below the competition.</li>
+            <li><strong>Psychological Pricing:</strong> Pricing that considers the psychology of prices, such as setting a price at $9.99 instead of $10.00 to make it appear cheaper.</li>
+        </ul>
+        
+        <h4>2. Promotion Strategies 🗣️</h4>
+        <ul>
+            <li><strong>Advertising:</strong> Paid, non-personal communication about a product or organization transmitted through mass media.</li>
+            <li><strong>Personal Selling:</strong> A promotional method where a salesperson uses skills to build personal relationships with a potential buyer.</li>
+            <li><strong>Public Relations (PR)/Publicity:</strong> Communication that seeks to change the perceptions of the public about a company and its products.</li>
+            <li><strong>Sales Promotion:</strong> Short-term techniques to persuade a target market to respond to a specific offer (e.g., discounts, coupons).</li>
+        </ul>
+        
+        <h4>3. Distribution Strategies 🚚</h4>
+        <p><strong>Marketing channels</strong> are the individuals or organizations that make a product available to consumers. There are two types:</p>
+        <ul>
+            <li><strong>Direct channels:</strong> Producers and end-users interact directly (e.g., selling directly from a farm).</li>
+            <li><strong>Indirect channels:</strong> Intermediaries like wholesalers and retailers are involved.</li>
+        </ul>
+        <p><strong>Factors for Choosing the Best Distribution Strategy:</strong></p>
+        <ul>
+            <li><strong>Company Factors:</strong> Financial, human, and technological capabilities.</li>
+            <li><strong>Market Characteristics:</strong> Geography, market density, and size.</li>
+            <li><strong>Product Attributes:</strong> Perishability, value, and sophistication.</li>
+            <li><strong>Environmental Forces:</strong> Competition, technology, and culture.</li>
+        </ul>
+    </div>
+
+    <div class="card card-4">
+        <h2><i class="fas fa-heart icon"></i> 5.8 Selling and Customer Service ❤️</h2>
+        <h3>5.8.1 The Concept of Service</h3>
+        <p>A **service** is an intangible act or performance that does not result in the ownership of anything. Services are characterized by:</p>
+        <ul>
+            <li><strong>Intangibility:</strong> They cannot be seen, felt, or tasted before they are bought.</li>
+            <li><strong>Inseparability:</strong> Services are produced and consumed at the same time.</li>
+            <li><strong>Variability:</strong> The quality of a service depends on who provides it and when.</li>
+            <li><strong>Perishability:</strong> Services cannot be stored for later use.</li>
+        </ul>
+        
+        <h3>5.8.2 The Concept of Customer</h3>
+        <p>A <strong>customer</strong> is a person or organization that buys a product or service. Customers can be internal (members of the organization) or external (coming from outside). A deep understanding of customer service is essential for providing quality service.</p>
+        
+        <h3>5.8.3 Strategic Activities for Quality Customer Service Delivery</h3>
+        <ul>
+            <li>Establish a clear customer service strategy.</li>
+            <li>Ensure the correct people are in place with the right skills.</li>
+            <li>Establish clear service delivery processes.</li>
+            <li>Continuously improve through process improvement, quality monitoring, and recovery.</li>
+            <li>Participatory Management: Involving employees in decision-making.</li>
+        </ul>
+        
+        <h3>5.8.4 Customer Handling and Satisfaction</h3>
+        <p>Customer satisfaction is key to business success. The most important principle is not losing a single customer.</p>
+        <ul>
+            <li><strong>Major reasons for losing customers:</strong> Poor service, poor quality, and rude behavior.</li>
+            <li><strong>Considering Customers as an Invaluable Asset:</strong> The value of a customer is infinite. It includes not only their lifetime purchases but also the new customers they generate through word of mouth.</li>
+            <li><strong>Reducing Customer Complaints:</strong> Every complaint should be treated as an opportunity to improve.
+                <div class="example-block">
+                    <p>Research shows that 91% of customers with a complaint will not return, but if the issue is resolved quickly, 82% will return.</p>
+                </div>
+            </li>
+        </ul>
+        <p>Treat the cost of satisfying a customer as an investment rather than an expense. You will get unmatched returns through referrals, repeat purchases, and decreased operational costs.</p>
+    </div>
+
+</div>
+
+</body>
+</html>`
       }
+
     ]
   },
   {
@@ -12336,8 +15898,887 @@ tr:nth-child(even) {
     chapters: [
       { 
         id: 'world', 
-        title: 'World History', 
-        content: '<h2>Major Civilizations</h2><p>Ancient to modern historical developments...</p>'
+        title: 'Chapter 1:', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Meaning of History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #fdfafa;
+            --secondary-bg: #e6f3f8;
+            --text-color: #334e68;
+            --heading-color: #1a2a3a;
+            --accent-blue: #007bff;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .chapter-header {
+            background-color: var(--card-bg);
+            padding: 50px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8em;
+            color: var(--heading-color);
+            margin-bottom: 0.2em;
+        }
+
+        .chapter-header p {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--secondary-bg);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+        h4 { font-size: 1.2em; }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.8em;
+        }
+
+        .highlight-text {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+        
+        .amharic-text {
+            color: #666;
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .list-with-examples li {
+            list-style-type: none;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .list-with-examples li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-with-examples .example {
+            margin-top: 5px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        th {
+            background-color: var(--heading-color);
+            color: #ffffff;
+            font-family: 'Merriweather', serif;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            .chapter-header {
+                padding: 30px 15px;
+            }
+            .section {
+                padding: 20px;
+            }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="chapter-header">
+        <h1>The Meaning of History 📖</h1>
+        <p>A systematic and organized study of the human past.</p>
+    </div>
+
+    <div class="section">
+        <h2>The Meaning of History</h2>
+        <p><strong>History</strong> is the systematic and organized study of the human past, including how human society has interacted with its natural environment. The term originates from the Greek word <span class="highlight-text">"Istoria,"</span> which means "inquiry." The first person to use the word in the context of writing a narration of past events was <span class="highlight-text">Herodotus</span> (c. 484–425 B.C.), who is often called the "father of history."</p>
+        <p class="amharic-text">የታሪክ ትርጉም ታሪክ የሰው ልጅ ያለፈውን እና ከትክክለኛ አካባቢው ጋር የነበረውን ግንኙነት ስልታዊ እና የተደራጀ ጥናት ነው። ቃሉ "ምርመራ" ማለት ከሆነው ከግሪክ ቃል "Istoria" የመጣ ነው። ቃሉን ያለፉ ክስተቶችን ለመፃፍ ለመጀመሪያ ጊዜ የተጠቀመው ሄሮዶተስ (c. 484-425 B.C.) ሲሆን፣ እሱም ብዙ ጊዜ "የታሪክ አባት" ተብሎ ይጠራል።</p>
+        <p>Since the human past is vast and infinite, historians divide it into distinct periods, a process known as <span class="highlight-text">periodization</span>, such as ancient, medieval, and modern times. A core focus of historical study is to analyze continuity and change over time.</p>
+    </div>
+
+    <div class="section">
+        <h2>The Uses of History 💡</h2>
+        <p>History isn't just about the past; it's vital for understanding the present and shaping the future. The uses of history include:</p>
+        <ul class="list-with-examples">
+            <li><strong>Understanding the present:</strong> By tracing the origins of current problems, history provides context and a deeper understanding of today's issues.</li>
+            <li><strong>Providing identity:</strong> History helps individuals and groups understand who they are, where they come from, and their place in the world.</li>
+            <li><strong>Teaching critical skills:</strong> It teaches how to evaluate sources, interpret evidence, and construct arguments, which are skills valuable in many other disciplines.</li>
+            <li><strong>Fostering tolerance and open-mindedness:</strong> Studying different historical periods and cultures helps people develop flexibility and an appreciation for diverse perspectives.</li>
+            <li><strong>Providing a background for other disciplines:</strong> History provides a foundational context for fields in both social and natural sciences.</li>
+            <li><strong>Supplying fascination:</strong> History is an endless source of intriguing stories and insights.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Sources and Methods of History 🧐</h2>
+        <p>To ensure their work is factual, historians must use evidence from sources. These sources are categorized into primary and secondary.</p>
+        
+        <h3>Primary Sources</h3>
+        <p>These are original, firsthand traces of the past, closest to the event in both time and space.</p>
+        <p class="amharic-text">ዋና ምንጮች ከታሪክ ክስተቶች ጋር በጊዜና በቦታ በጣም ቅርብ የሆኑ የመጀመሪያ ወይም ቀጥተኛ ማስረጃዎች ናቸው።</p>
+        <div class="example">Examples: Inscriptions, manuscripts, diaries, travel accounts, artifacts, fossils, and photographs.</div>
+
+        <h3>Secondary Sources</h3>
+        <p>These are interpretations or analyses of primary sources, written long after the event has occurred.</p>
+        <p class="amharic-text">ሁለተኛ ደረጃ ምንጮች ከታሪክ ክስተት በኋላ የተጻፉ እና የመጀመሪያ ምንጮችን በመጠቀም የተተነተኑ ስራዎች ናቸው።</p>
+        <div class="example">Examples: Research papers, books, biographies, and published literary works.</div>
+
+        <h3>Oral Sources (Oral Data)</h3>
+        <p>This includes oral traditions and oral history, which are crucial for studying and documenting the history of non-literate societies.</p>
+        <p class="amharic-text">የቃል ምንጮች የቃል ትውፊቶችን እና የቃል ታሪክን ያካተቱ ሲሆን፣ ማንበብና መጻፍ ለማይችሉ ማኅበረሰቦች ታሪክ ለመመዝገብ በጣም ጠቃሚ ናቸው።</p>
+
+        <h3>Methods</h3>
+        <p>These refer to the ways historians collect, evaluate, and present evidence. This process is a fundamental part of <span class="highlight-text">historiography</span>.</p>
+        <p class="amharic-text">ዘዴዎች የታሪክ ፀሐፊዎች ማስረጃዎችን የሚሰበስቡበት፣ የሚገመግሙበት እና የሚያቀርቡበት መንገዶች ናቸው። ይህ ሂደት የ ሂስቶሪዮግራፊ መሰረታዊ አካል ነው።</p>
+        <p>Historiography is the history of historical writing itself—it studies how knowledge of the past is obtained and transmitted. <span class="highlight-text">Leopold Von Ranke</span> (1795–1886) is often called the "father of modern historiography" for establishing history as an independent academic discipline in the 19th century.</p>
+    </div>
+
+    <div class="section">
+        <h2>Historiography of Ethiopia and the Horn of Africa 🇪🇹</h2>
+        <p>Historical writing in Ethiopia and the Horn has undergone significant transformations, evolving from ancient travel accounts to modern scholarly works.</p>
+
+        <h3>Ancient Travel Accounts</h3>
+        <p>These are some of the earliest written references.</p>
+        <ul class="list-with-examples">
+            <li><strong>Periplus of the Erythrean Sea (1st century A.D.):</strong> The earliest known reference, an anonymous handbook of the region.</li>
+            <li><strong>Christian Topography (6th century A.D.):</strong> Composed by Cosmas Indicopleustes, this work includes a copy of the Adulis inscription, a valuable source about the Aksumite kingdom.</li>
+        </ul>
+
+        <h3>Manuscripts</h3>
+        <p>Handwritten documents, largely religious, that provide insights into the country's past. A 7th-century manuscript was found in Abba Gerima Monastery in Tigray, and a 13th-century one in Haiq Istifanos monastery in Wollo.</p>
+
+        <h3>Hagiographies</h3>
+        <p>These are biographies of saints, martyrs, and holy figures from both the Ethiopian Orthodox Church and Mosques, often written in Ge'ez. They provide valuable insights into both religious and political history.</p>
+        <p class="amharic-text">የሕይወት ታሪኮች (Hagiographies) የኢትዮጵያ ኦርቶዶክስ ቤተ ክርስቲያን እና መስጊዶች የቅዱሳን እና ሰማዕታት የሕይወት ታሪኮች ናቸው። እነዚህም የቅዱሳንን ሕይወት በተመለከተ ግንዛቤ የሚሰጡ ሲሆን ስለ ሃይማኖታዊ እና መንግስታዊ ጉዳዮች ለመረዳት ጠቃሚ ምንጭ ናቸው።</p>
+    </div>
+
+    <div class="section">
+        <h2>Sources of Ethiopian and Horn History 📜</h2>
+
+        <h3>Hagiographies</h3>
+        <p>Hagiographies are biographies of saints and martyrs from the Ethiopian Orthodox Church and Mosques. They offer insights into the lives of holy figures and are an important source for understanding religious and state issues. Written primarily in Ge'ez, they combine spiritual and historical narratives. For example, a hagiography of St. Teklehaymanot from Shewa provides a blend of religious devotion and historical context.</p>
+
+        <h3>Chronicles</h3>
+        <p>Chronicles are writings about monarchs, which first appeared in the 14th century. They were produced by recognized scribes or clergymen associated with the royal court. While they provide a chronological framework, they are known for their factual, not analytical, detail. They offer limited insight into social and economic developments, and they often explain historical events in religious terms.</p>
+        <p class="amharic-text">ዜና መዋዕል (Chronicles) በ14ኛው ክፍለ ዘመን ለመጀመሪያ ጊዜ የታዩ ስለ ነገሥታት የተጻፉ ጽሑፎች ናቸው። እነዚህም የሚጻፉት በመንግሥት ፀሐፊዎች ወይም ቀሳውስት ናቸው። ምንም እንኳን የጊዜ ቅደም ተከተል መሠረት ቢሰጡም፣ በዋናነት እውነታን እንጂ ትንታኔያዊ ዝርዝሮችን አያቀርቡም።</p>
+        <div class="example">Key Examples: Glorious Victories of Amde-Tsion, and Chronicle of Abeto Iyasu and Empress Zewditu.</div>
+
+        <h3>Foreign Accounts</h3>
+        <p>Accounts of Arabic-speaking visitors and European travelers & missionaries provide valuable external perspectives on the region, covering religious and political developments, as well as foreign relations.</p>
+        <div class="example">Examples: The 10th-century writings of al-Masudi and Francisco Alvarez's The Prester John of the Indies.</div>
+
+        <h3>The Professionalization of History</h3>
+        <ul>
+            <li><strong>Ethiopian Studies in Europe:</strong> Formal study began with Hiob Ludolf's <span class="highlight-text">Historia Aethiopica</span> (A History of Ethiopia), based on conversations with the Ethiopian priest Abba Gorgorios.</li>
+            <li><strong>Contribution of Ethiopian Writers:</strong> Writers like Abba Bahrey and Gebre-Hiwot Baykedagn moved away from the chronicle tradition towards more objective and methodologically sophisticated works.</li>
+            <li><strong>Modern Academia:</strong> The Department of History at Addis Ababa University and the Institute of Ethiopian Studies (IES) helped professionalize the field in the 1960s.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Common Problems in the Study of Ethiopian History 🤔</h2>
+        <p>The study of Ethiopian history is complex due to various factors:</p>
+        <ul class="list-with-examples">
+            <li><strong>Geographical diversity:</strong> The varied landscape has shaped the interactions of diverse ethno-linguistic groups.</li>
+            <li><strong>Lack of a single narrative:</strong> History is shaped by many contacts (commerce, migrations, wars), making a single, linear narrative difficult to construct.</li>
+            <li><strong>Decolonization efforts:</strong> The need to "recast the historical record" and recover pre-colonial civilizations that were often overlooked or misrepresented.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+       { 
+        id: 'historych2', 
+        title: 'Chapter 2 :', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biological and Cultural Evolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #f9fbfd;
+            --secondary-bg: #eaf4f7;
+            --text-color: #34495e;
+            --heading-color: #2c3e50;
+            --accent-blue: #007bff;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2em;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--secondary-bg);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5em;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+
+        .amharic-text {
+            color: #666;
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .key-term {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5em;
+        }
+
+        li {
+            margin-bottom: 1em;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-group {
+            margin-bottom: 2em;
+        }
+
+        .list-group li {
+            margin-bottom: 0.5em;
+        }
+
+        .list-group li strong {
+            display: block;
+            font-size: 1.1em;
+            color: var(--heading-color);
+        }
+        
+        .list-group li p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .subsection {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .subsection h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2em;
+            color: var(--heading-color);
+            border-bottom: 1px solid #cce5ff;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item strong {
+            font-size: 1.1em;
+            color: var(--heading-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="section">
+        <h3>UNIT TWO PEOPLES AND CULTURES IN ETHIOPIAAND THE HORN</h3>
+        <h3>A. Biological Evolution 🧬</h3>
+        <p><strong>Evolution</strong> is the process of gradual change in species over time, with these changes being passed down through genes. Archaeological evidence suggests that the East African Rift Valley is the “cradle of humanity.”</p>
+        <p class="amharic-text">ዝግመተ ለውጥ በአንድ ዝርያ ላይ በጊዜ ሂደት የሚከሰት ቀስ በቀስ ለውጥ ሲሆን፣ እነዚህ ለውጦች በዘረመል በኩል ይተላለፋሉ። የአርኪኦሎጂ ማስረጃዎች እንደሚያሳዩት የምስራቅ አፍሪካ ስምጥ ሸለቆ “የሰው ልጅ መገኛ” ነው።</p>
+
+        <h3>Key Hominid Fossils Discovered in Ethiopia:</h3>
+        <ul class="list-group">
+            <li>
+                <strong>Chororapithecus</strong>
+                <p>Age: 10 million years Before Present (B.P.)</p>
+                <p>Place of discovery: Anchar, West Hararghe</p>
+                <p>Significance: Believed to be an early gorilla ancestor.</p>
+            </li>
+            <li>
+                <strong>Ardipithicus ramidus</strong>
+                <p>Age: 4.2 million years B.P.</p>
+                <p>Place of discovery: Aramis, Afar</p>
+                <p>Significance: One of the earliest hominids, a potential link between primates and later human ancestors.</p>
+            </li>
+            <li>
+                <strong>Australopithecus afarensis ("Selam")</strong>
+                <p>Age: 3.3 million years B.P.</p>
+                <p>Place of discovery: Dikika, Mille, Afar</p>
+                <p>Significance: A well-preserved skeleton of a three-year-old child, providing new information on hominid growth and development.</p>
+            </li>
+            <li>
+                <strong>Australopithecus Afarensis ("Lucy" or "Dinkinesh")</strong>
+                <p>Age: c. 3.18 million years B.P.</p>
+                <p>Place of discovery: Hadar, Afar</p>
+                <p>Significance: A famous and nearly complete fossil skeleton. The fact that Lucy was bipedal (walked on two feet) is a major discovery.</p>
+            </li>
+        </ul>
+
+        <h3>Genus Homo 🧠</h3>
+        <p>The <span class="key-term">genus Homo</span> emerged approximately 2-2.5 million years B.P. and is characterized by the development of a larger brain. Fossils of this genus discovered in Ethiopia and the Horn include:</p>
+        <ul class="list-group">
+            <li>
+                <strong>Homo Habilis</strong>
+                <p>Name meaning: "skillful human being"</p>
+                <p>Age: 1.9 million years B.P.</p>
+                <p>Place of discovery: Lower Omo Valley.</p>
+            </li>
+            <li>
+                <strong>Homo Erectus</strong>
+                <p>Name meaning: "upright human being."</p>
+                <p>Age: 1.6 million years B.P.</p>
+                <p>Significance: First hominid to migrate out of Africa and invented fire. They were also the first to practice burial.</p>
+                <p>Place of discovery: Melka Kunture, Konso, Gardula, and Gadeb.</p>
+            </li>
+            <li>
+                <strong>Homo Sapiens</strong>
+                <p>Name meaning: "knowledgeable human being."</p>
+                <p>Age: Archaic Homo Sapiens (400,000 years B.P.), Homo Sapiens idaltu (160,000 years B.P.), Homo Sapiens Sapiens (100,000 years B.P.)</p>
+            </li>
+        </ul>
+        <p>The Lower Omo and Middle Awash valleys are considered major centers of human evolution in Ethiopia, where many significant fossils have been discovered.</p>
+    </div>
+
+    <div class="section">
+        <h2>B. Cultural Evolution 🎨</h2>
+        <p><strong>Cultural evolution</strong> refers to the technological changes that brought about socio-economic transformations in human life. These changes are typically grouped into the Stone Age, Bronze Age, and Iron Age.</p>
+        <p class="amharic-text">የባህል ዝግመተ ለውጥ በሰው ልጅ ሕይወት ውስጥ ማህበራዊና ኢኮኖሚያዊ ለውጦችን ያስከተለውን የቴክኖሎጂ እድገት ያመለክታል። እነዚህ ለውጦች በሦስት ዋና ዋና ጊዜያት ማለትም በድንጋይ ዘመን፣ በነሐስ ዘመን እና በብረት ዘመን ይከፈላሉ።</p>
+
+        <h3>The Stone Age ⚒️</h3>
+        <p>The Stone Age is divided into three sub-periods based on the type and sophistication of the tools used.</p>
+        <div class="timeline-item">
+            <strong>Paleolithic (Old Stone Age)</strong>
+            <p><strong>Age:</strong> 3.4 million to 11,000 B.P.</p>
+            <p><strong>Characteristics:</strong> Humans developed language, lived in caves, and used tools made from stone, bone, and wood.</p>
+            <p><strong>Tool Modes:</strong> Mode I (Olduwan), Mode II (Acheulean), Mode III (Sangoon).</p>
+        </div>
+        <div class="timeline-item">
+            <strong>Mesolithic (Middle Stone Age)</strong>
+            <p><strong>Age:</strong> 11,000 to 10,000 B.P.</p>
+            <p><strong>Characteristics:</strong> A transitional period. The oldest stone tool evidence in the world was found at Dikika in 2010.</p>
+        </div>
+        <div class="timeline-item">
+            <strong>Neolithic (New Stone Age)</strong>
+            <p><strong>Characteristics:</strong> Defined by the <span class="key-term">Neolithic Revolution</span>, a period marked by the domestication of plants and animals, which transformed humanity from a mobile, hunter-gatherer lifestyle to a sedentary one.</p>
+            <p><strong>Domesticated crops in Ethiopia and the Horn:</strong> Teff, dagussa, nug, and enset.</p>
+            <p><strong>Consequences:</strong> Formation of states, evolution of cities, division of labor, surplus production and trade, and technological development.</p>
+        </div>
+
+        <h3>2.3.1. Languages and Linguistic Processes 🗣️</h3>
+        <p>Ethiopia and the Horn are home to diverse ethnic and linguistic groups, which are classified into two major superfamilies:</p>
+        <ul>
+            <li><strong>Afro-Asiatic:</strong> The largest superfamily, with subdivisions including Cushitic, Semitic, and Omotic families.</li>
+            <li><strong>Nilo-Saharan:</strong> Classified into the Chari-Nile and Koman language families.</li>
+        </ul>
+        <p>Language status is not static; it is affected by factors such as population movements, warfare, trade, and religious or territorial expansion.</p>
+
+        <h3>2.4.1 Indigenous Religions in Ethiopia and the Horn 🌍</h3>
+        <p>Indigenous religions are belief systems native to a region that have existed since ancient times. A defining feature is the worship of a single Supreme Being, with special powers attributed to natural phenomena and spirits.</p>
+        <p class="amharic-text">የአገሬው ተወላጅ ሃይማኖቶች ለአንድ ክልል የአገሬው ተወላጅ የሆኑ እና ከጥንት ጀምሮ ሲተገበሩ የኖሩ እምነቶች እና ልምዶች ናቸው።</p>
+
+        <div class="subsection">
+            <h4>Major Indigenous Religions and Deities</h4>
+            <ul>
+                <li><strong>Oromo (Waqeffanna):</strong> Supreme Being is Waqa, with spirits called Ayyana.</li>
+                <li><strong>Hadiya:</strong> Supreme Being is Waa.</li>
+                <li><strong>Kambata:</strong> Supreme Being is Negita or Aricho Magano.</li>
+                <li><strong>Konso:</strong> Supreme Being is Waaq/Wakh.</li>
+                <li><strong>Gurage:</strong> Supreme Being is Waq/Goita.</li>
+                <li><strong>Nuer:</strong> Believe in Kuoth Nhial (God in Heaven).</li>
+            </ul>
+        </div>
+        
+        <h3>Judaism in Ethiopia 🇮🇱</h3>
+        <p>Judaism has a long history in Ethiopia, particularly among the <span class="key-term">Bete-Israel</span> community, who practiced a form of Judaism called Haymanot. Several traditions exist regarding their origin, including links to the Tribe of Dan, the Queen of Saba and King Solomon, and 6th-century Jewish immigrants.</p>
+        
+        <h3>Christianity ✝️</h3>
+        <p>Christianity was introduced to Aksum in the 4th century A.D. by the Syrian brothers <span class="key-term">Aedesius and Frumentius</span>. King Ezana converted, making Christianity the state religion in 334 A.D. The faith was expanded by the Nine Saints and later faced controversies with Jesuit missionaries.</p>
+        
+        <h3>Islam ☪️</h3>
+        <p>Islam was introduced to the Horn of Africa through peaceful means, primarily trade and the work of preachers and merchants. The port of Zeila was a crucial gateway. The Prophet Mohammed sent early followers to Aksum, where they were granted asylum by King Armah Ella Seham from 615 to 628 A.D.</p>
+
+        <h3>Settlement Patterns and Economic Activities 🏞️</h3>
+        <p>The domestication of plants and animals led to two primary modes of life: agriculture and pastoralism.</p>
+        <ul>
+            <li><strong>Highland areas:</strong> Inhabited by people who practice sedentary agriculture or mixed farming.</li>
+            <li><strong>Eastern lowlands:</strong> Primarily dominated by pastoralism (livestock herding).</li>
+            <li><strong>Western lowlands:</strong> Characterized by a mix of pastoralism, shifting agriculture, fishing, and hunting.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>`
+      },
+      { 
+        id: 'historych3', 
+        title: 'chapter 3 :', 
+        content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics, Economy, and Society in Ethiopia and the Horn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #f7f9fc;
+            --secondary-bg: #e9eff5;
+            --text-color: #34495e;
+            --heading-color: #2c3e50;
+            --accent-color: #3498db;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .chapter-header {
+            background-color: var(--card-bg);
+            padding: 50px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .chapter-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            color: var(--heading-color);
+            margin-bottom: 0.2em;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--secondary-bg);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+        h4 { font-size: 1.2em; }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1.5em;
+        }
+        
+        li {
+            margin-bottom: 0.8em;
+        }
+
+        .amharic-text {
+            color: #666;
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        .key-term {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .subsection {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .subsection h4 {
+            border-bottom: 1px solid #cce5ff;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .example-list li {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0.5em;
+        }
+
+        .example-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #cdd5e0;
+        }
+
+        th {
+            background-color: var(--heading-color);
+            color: #ffffff;
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="chapter-header">
+        <h1>Unit Three: Politics, Economy, and Society in Ethiopia and the Horn to the End of the 13th Century 🌍</h1>
+    </div>
+
+    <div class="section">
+        <h2>3.1. Emergence of States</h2>
+        <h3>What's a State?</h3>
+        <p>A <span class="key-term">state</span> is an independent political unit with a population, a defined territory, sovereignty (the power to govern itself), and a government that can create and enforce laws.</p>
+        <p class="amharic-text">አንድ ሀገር ህዝብ፣ የተወሰነ ድንበር፣ ሉዓላዊነት (ራሱን በራሱ የማስተዳደር ስልጣን) እና ህጎችን ማውጣትና ማስፈጸም የሚችል መንግስት ያለው ራሱን የቻለ የፖለቲካ ክፍል ነው።</p>
+        <p>The first states were <span class="key-term">theocratic</span>, meaning they were ruled by religious leaders. States emerged at different times and in different places.</p>
+
+        <h3>Factors for the Emergence of States 📈</h3>
+        <p>Several key factors led to the formation of states:</p>
+        <ul>
+            <li>
+                <strong>Sedentary Agriculture:</strong> The shift from nomadic lifestyles to settled farming created stable communities that needed organization.
+                <ul class="example-list">
+                    <li><p><strong>Examples:</strong> The development of early farming communities along the Nile River in Egypt and the establishment of permanent settlements in the highlands of Ethiopia.</p></li>
+                </ul>
+            </li>
+            <li>
+                <strong>Trade:</strong> The exchange of goods led to the need for rules, security, and a central authority to manage transactions and trade routes.
+                <ul class="example-list">
+                    <li><p><strong>Examples:</strong> The ancient states of Punt and Aksum grew powerful because they controlled important trade routes to the Red Sea.</p></li>
+                </ul>
+            </li>
+            <li>
+                <strong>War and Conquest:</strong> The conquering of one group by another led to the formation of larger political units.
+                <ul class="example-list">
+                    <li><p><strong>Examples:</strong> The expansion of the Roman Empire and the formation of the Mongol Empire.</p></li>
+                </ul>
+            </li>
+            <li>
+                <strong>Social Contract:</strong> The theory that people voluntarily gave up some of their freedoms to a government in exchange for protection and order.
+            </li>
+            <li>
+                <strong>Religion:</strong> Shared religious beliefs often united people under a common leader or priestly class.
+            </li>
+        </ul>
+
+        <h3>The Unique Case of Ethiopia and the Horn 🗺️</h3>
+        <p>Ethiopia and the Horn are among the first African regions to see state formation. Many of these states grew into powerful kingdoms due to their proximity to international water bodies like the Red Sea, which gave them an advantage in trade.</p>
+    </div>
+
+    <div class="section">
+        <h2>3.2. Ancient States</h2>
+
+        <h3>I. North and Northeast Africa</h3>
+        <h4>Pre-Aksumite States ✨</h4>
+        <p>Some of the earliest states in this region were Punt, Yeha, Damat, Coloe, and Matara.</p>
+        
+        <div class="subsection">
+            <h4>A. Punt 🚢</h4>
+            <p>Punt was the earliest recorded state in Ethiopia and the Horn. Evidence comes from ancient Egyptian hieroglyphic writings and paintings, especially from the expedition sent by Queen Hatshepsut (1490-1468 B.C.). The exact location of Punt remains a mystery to scholars.</p>
+            <p><strong>Exports from Punt to Egypt:</strong> Iron, bronze, asses, cattle, and animal fur.</p>
+            <p><strong>Imports from Egypt to Punt:</strong> Axes, daggers, swords, clothes, and jewelry.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>B. Damat 🏰</h4>
+            <p>Damat had its center slightly south of Aksum. Its king used the politico-religious title <span class="key-term">Mukarib</span>. The state worshipped various gods and goddesses, including Almouqah (principal god), Astarr (Venus god), and Shamsi (sun god).</p>
+        </div>
+
+        <div class="subsection">
+            <h4>C. Other States in Ethiopia and Eritrea 📜</h4>
+            <ul>
+                <li><strong>Yeha:</strong> Located 30 kms northeast of Aksum. It was a trading center for South Arabian merchants and is known for its magnificent temple.</li>
+                <li><strong>Hawulti Melazo:</strong> Known for its stone tablets with inscriptions.</li>
+                <li><strong>Addi-Seglemeni:</strong> Site of the oldest Ethiopian monumental inscription.</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h4>D. The Aksumite State 👑</h4>
+            <p>The Aksumite state started to form between 200-100 B.C., with its power centered around the town of Aksum. Its history is documented in sources like <span class="key-term">The Periplus of the Erythraean Sea</span> and <span class="key-term">The Christian Topography</span>, which mention its main port, Adulis.</p>
+            <p><strong>External Relations:</strong> Aksumite kings had wide-ranging contacts, especially with South Arabia, which sometimes led to conflicts.</p>
+            <p><strong>Achievements:</strong> The development of the indigenous Ge'ez script and calendar, sophisticated architecture (stelae and rock-hewn churches), and a complex governance system.</p>
+            <p><strong>Decline and Downfall:</strong> The state began to decline in the late 7th century due to internal issues and external challenges like the destruction of the port of Adulis by Arabs and recurring rebellions from groups like the Agaw.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>E. The Zagwe Dynasty 🏛️</h4>
+            <p>After the decline of Aksum, its center shifted south to the Agaw territory. The founder of the Zagwe Dynasty was <span class="key-term">Merra Teklehaimanot</span>, who ruled from c. 1150 to 1270 A.D. Its political center was in the Wag and Lasta regions.</p>
+            <p><strong>Achievements:</strong> A golden age for Ethiopian paintings and the construction of monolithic rock-hewn churches, particularly the eleven churches of Lalibela.</p>
+            <p><strong>Decline:</strong> The dynasty ended due to internal succession issues and opposition from groups who claimed to be descended from the Aksumite rulers based on the <span class="key-term">Kebra Negest</span>.</p>
+        </div>
+
+        <h3>3.2.2. East, Central, Southern, and Western States 🏞️</h3>
+        <p>This section covers various kingdoms and Muslim sultanates that flourished in different parts of the region.</p>
+        
+        <div class="subsection">
+            <h4>A. Bizamo 🏰</h4>
+            <p>A kingdom founded in the 8th century on the southern bend of the Abay River. Its location likely made it a strategic hub for regional commerce.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>B. Damot 🛡️</h4>
+            <p>A powerful kingdom that expanded its territory to include most of the land south of the Abay River. Motalami was a well-known king of Damot in the 13th century.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>C. Enarya 👑</h4>
+            <p>A kingdom in southwestern Ethiopia with a divine kingship. The king (<span class="key-term">Hinnare-Tato</span>) communicated through an intermediary, while the real power was with a council called the <span class="key-term">Mikretcho</span>.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>D. Gafat ⛰️</h4>
+            <p>Inhabited by a Semitic-speaking population south of the Abay River. They were a rich source of gold and paid tribute to the Christian Kingdom.</p>
+        </div>
+
+        <div class="subsection">
+            <h4>3.2.2.2. Muslim Sultanates 🕌</h4>
+            <p>Following the spread of Islam in the 8th century, several viable Muslim communities and states were established along the main trade routes.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sultanate</th>
+                        <th>Location & Description</th>
+                        <th>Key Facts & Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shewa</td>
+                        <td>Northeastern foothill of Shewa.</td>
+                        <td>Established in 896 A.D. by Makhzumi Khalid ibn al-Walid.</td>
+                    </tr>
+                    <tr>
+                        <td>Fatagar</td>
+                        <td>A hilly lowland area around Minjar, Shenkora, and Ada’a.</td>
+                        <td>Known for its cultivated fields and extensive grazing lands.</td>
+                    </tr>
+                    <tr>
+                        <td>Dawaro</td>
+                        <td>South of Fatagar.</td>
+                        <td>Had its own currency called hakuna.</td>
+                    </tr>
+                    <tr>
+                        <td>Bali</td>
+                        <td>An extensive kingdom on a high plateau.</td>
+                        <td>One of Ethiopia's largest Muslim provinces. Its economy was based on barter trade.</td>
+                    </tr>
+                    <tr>
+                        <td>Ifat</td>
+                        <td>Next to the Shewan Sultanate.</td>
+                        <td>Founded by Umar Walasma between 1271 and 1285. Annexed the Shewa sultanate. First place where chat was consumed as a stimulant.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Others:</strong> Autonomous states like Arababani, Biqulzar, Dera, Gidaya, and Sharkah also existed alongside the larger sultanates.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3.3. External Contacts 🌐</h2>
+
+        <h3>Relations with Egypt 🇪🇬</h3>
+        <p>The earliest and longest-standing foreign contact of the region. Initially smooth, it was later affected by the spread of Islam and the rise of the Mamluks, which created a barrier for contact between Christian Ethiopia and Europe.</p>
+        <p class="amharic-text">ይህ የክልሉ ቀደምት እና የረዥም ጊዜ የውጭ ግንኙነት ሲሆን፣ መጀመሪያ ላይ ግብፅ ውስጥ እስልምና እስከተስፋፋበት ጊዜ ድረስ ሰላማዊ ነበር።</p>
+
+        <h3>The Myth of Prester John 🛡️✨</h3>
+        <p>A European myth that emerged in the mid-12th century about a very rich and powerful Christian ruler named <span class="key-term">Prester John</span>, believed to exist in the "East." Europeans began to regard the Ethiopian Christian Kingdom as the land of Prester John, a belief that lasted for over a century.</p>
+        <p class="amharic-text">በ12ኛው ክፍለ ዘመን አጋማሽ አካባቢ በአውሮፓ ውስጥ ስለ አንድ እጅግ ሀብታም እና ኃያል ክርስቲያን ገዥ የሆነው ፕረስቴር ጆን የወጣ አፈ ታሪክ ነው። እሱም በ"ምስራቅ" ውስጥ እንደሚገኝ ይታመን ነበር።</p>
+    </div>
+
+</div>
+
+</body>
+</html>`
       }
     ]
   }
