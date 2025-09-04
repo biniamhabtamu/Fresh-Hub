@@ -1,262 +1,237 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import BottomBar from "../../../components/Layout/BottomBar";
-import Header from "../../../components/Layout/Header";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import BottomBar from '../../../components/Layout/BottomBar';
+import Header from '../../../components/Layout/Header';
 
-const Card = ({ title, description, icon, color, onClick, popularity, isPopular }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    exit={{ opacity: 0, y: -20, scale: 0.95 }}
-    transition={{ duration: 0.3 }}
-    onClick={onClick}
-    className={`relative w-full max-w-md p-6 rounded-2xl shadow-xl cursor-pointer text-white bg-gradient-to-br ${color} transform transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group`}
-  >
-    {isPopular && (
-      <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full z-10">
-        POPULAR
-      </div>
-    )}
-    
-    <div className="flex items-center space-x-5">
-      <div className="bg-white/20 p-4 rounded-xl group-hover:bg-white/30 transition-all duration-300">
-        {icon}
-      </div>
-      <div className="flex-1">
-        <h3 className="text-xl font-bold mb-1">{title}</h3>
-        <p className="text-sm opacity-90 mb-3">{description}</p>
-        
-        {popularity && (
-          <div className="w-full bg-white/20 rounded-full h-2">
-            <div 
-              className="bg-white h-2 rounded-full transition-all duration-500 ease-out" 
-              style={{ width: `${popularity}%` }}
-            ></div>
-          </div>
-        )}
-      </div>
-    </div>
-    
-    <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform origin-left group-hover:scale-x-100 scale-x-0 transition-transform duration-300"></div>
-  </motion.div>
-);
+interface Selection {
+  subject: string;
+  term: string;
+  questionType: string;
+}
 
-const Target = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <circle cx="12" cy="12" r="10" />
-    <circle cx="12" cy="12" r="6" />
-    <circle cx="12" cy="12" r="2" />
-  </svg>
-);
+const subjects = [
+  { name: "Psychology", icon: "🧠" },
+  { name: "Logic", icon: "🧩" },
+  { name: "Geography", icon: "🌍" },
+  { name: "Economics", icon: "💰" },
+  { name: "Anthropology", icon: "👥" },
+  { name: "English", icon: "📖" },
+  { name: "Civic", icon: "⚖️" },
+  { name: "Emerging Technology", icon: "🤖" },
+  { name: "Physics", icon: "🔬" },
+  { name: "C++", icon: "💻" },
+  { name: "History", icon: "🏰" },
+  { name: "Inclusive", icon: "🌈" },
+  { name: "Entrepreneurship", icon: "📈" },
+];
 
-const Users = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
+const terms = ['Mid', 'Final'];
+const questionTypes = ['Simple', 'Medium', 'Hard', 'Difficult'];
 
-const Trophy = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-    <path d="M4 22h16" />
-    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-  </svg>
-);
-
-// New component for the skeleton loading card
 const SkeletonCard = () => (
-  <div
-    className="relative w-full max-w-md p-6 rounded-2xl shadow-xl cursor-default bg-gray-600/50 dark:bg-gray-800/50 animate-pulse overflow-hidden"
-  >
-    <div className="flex items-center space-x-5">
-      <div className="bg-white/20 p-4 rounded-xl">
-        <div className="w-8 h-8 rounded-full bg-white/30 dark:bg-white/20" />
-      </div>
-      <div className="flex-1 space-y-2">
-        <div className="h-5 bg-white/30 dark:bg-white/20 rounded-full w-4/5" />
-        <div className="h-3 bg-white/20 dark:bg-white/10 rounded-full w-full" />
-      </div>
+  <div className="p-4 bg-white rounded-2xl border-2 border-gray-200 shadow-md animate-pulse">
+    <div className="flex flex-col items-center">
+      <div className="bg-gray-300 w-12 h-12 rounded-full mb-2"></div>
+      <div className="bg-gray-300 h-4 w-3/4 rounded-full"></div>
     </div>
-    <div className="absolute top-4 right-4 bg-white/20 dark:bg-white/10 text-xs font-bold px-3 py-1 rounded-full z-10 w-20 h-5" />
   </div>
 );
 
-const ChallengeHome = () => {
+const QuestionSelection: React.FC = () => {
   const navigate = useNavigate();
-  const [activePlayers, setActivePlayers] = useState(42);
-  const [loading, setLoading] = useState(true);
+  const [showOptionsModal, setShowOptionsModal] = useState(false);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const [selection, setSelection] = useState<Selection>({
+    subject: '',
+    term: '',
+    questionType: '',
+  });
 
-  // Simulate data fetching on component mount
+  // Simulate data fetching
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500); // Simulate a 1.5-second network delay
-    
+      setIsLoading(false);
+    }, 1200);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    // Simulate changing player count
-    const interval = setInterval(() => {
-      setActivePlayers(prev => prev + Math.floor(Math.random() * 5) - 2);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
+  const handleSubjectClick = (subjectName: string) => {
+    setSelectedSubject(subjectName);
+    setSelection(prev => ({ ...prev, subject: subjectName.toLowerCase() }));
+    setShowOptionsModal(true);
+  };
 
-  const challenges = [
-    {
-      title: "Question Challenge",
-      description: "Test your knowledge with fun questions",
-      icon: <Target className="text-white" />,
-      color: "from-purple-600 via-indigo-600 to-blue-500",
-      popularity: 78,
-      onClick: () => navigate("/challenge/QuestionSelection"),
-    },
-    {
-      title: "Live Challenge",
-      description: "Compete with others in real-time",
-      icon: <Users className="text-white" />,
-      color: "from-rose-600 via-pink-600 to-red-500",
-      popularity: 92,
-      isPopular: true,
-      onClick: () => navigate("/challenge/LiveChallenge"),
-    },
-    {
-      title: "Daily Tournament",
-      description: "Win rewards in special events",
-      icon: <Trophy className="text-white" />,
-      color: "from-amber-600 visa-orange-600 to-yellow-500",
-      popularity: 65,
-      onClick: () => navigate("/challenge/AdminPage"),
-    },
-  ];
+  const handleStart = () => {
+    if (!selection.subject || !selection.term || !selection.questionType) {
+      alert("Please select all fields!");
+      return;
+    }
+    navigate(`/challenge/question-page?subject=${selection.subject}&term=${selection.term}&type=${selection.questionType}`);
+  };
+
+  const handleSelect = (key: 'term' | 'questionType', value: string) => {
+    setSelection(prev => ({ ...prev, [key]: value.toLowerCase() }));
+  };
+
+  const filteredSubjects = subjects.filter(sub =>
+    sub.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-6 flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <Header />
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white/10"
-            style={{
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float${i % 3} ${15 + Math.random() * 10}s infinite ease-in-out`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+      <Header />
+
+      <div className="flex flex-col items-center p-4 sm:p-6 pb-24">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl sm:text-5xl font-extrabold text-center text-gray-800 mt-12 mb-4"
+        >
+          Exam Challenge 🚀
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center text-lg sm:text-xl text-gray-600 mb-6 font-medium"
+        >
+          Choose a subject to begin.
+        </motion.p>
+
+        {/* Search Bar */}
+        <div className="w-full max-w-lg mb-8">
+          <input
+            type="text"
+            placeholder="🔍 Search subject..."
+            className="w-full p-3 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-        ))}
-      </div>
-
-      <div className="text-center mb-8 z-10">
-        <h1 className="text-4xl font-bold text-white mb-3 drop-shadow-md">
-          Challenge Arena
-        </h1>
-        <p className="text-white/90 max-w-md mx-auto text-lg">
-          Choose your challenge and test your skills against players worldwide
-        </p>
-      </div>
-      
-      <div className="w-full max-w-md space-y-6 z-10">
-        {loading ? (
-            <>
-                {/* Render skeleton cards while loading */}
-                {[...Array(3)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.15 }}
-                    >
-                        <SkeletonCard />
-                    </motion.div>
-                ))}
-            </>
-        ) : (
-            <>
-                {/* Render actual challenge cards once loaded */}
-                {challenges.map((c, i) => (
-                    <Card key={i} {...c} />
-                ))}
-            </>
-        )}
-      </div>
-      
-      <div className="mt-10 text-center z-10">
-        <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
-          <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-green-400 flex items-center justify-center mr-3 shadow-md">
-              <span className="text-white font-bold">{activePlayers}</span>
-            </div>
-            <span className="text-white text-sm font-medium">
-              Active players right now
-            </span>
-          </div>
         </div>
+
+        {/* Subject Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-4xl mb-24">
+          {isLoading ? (
+            subjects.map((_, index) => <SkeletonCard key={index} />)
+          ) : (
+            filteredSubjects.map((sub) => (
+              <motion.button
+                key={sub.name}
+                onClick={() => handleSubjectClick(sub.name)}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-4 bg-white rounded-2xl border-2 border-gray-200 text-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:border-purple-500"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="text-3xl sm:text-4xl mb-2">{sub.icon}</span>
+                  <span className="font-bold text-sm sm:text-base">{sub.name}</span>
+                </div>
+              </motion.button>
+            ))
+          )}
+        </div>
+
+        {/* Options Modal */}
+        <AnimatePresence>
+          {showOptionsModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50"
+            >
+              <motion.div
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="relative bg-white rounded-3xl shadow-2xl p-6 sm:p-8 w-full max-w-lg"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowOptionsModal(false)}
+                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                >
+                  ✖
+                </button>
+
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-center text-gray-800 mb-4">
+                  {selectedSubject} Quiz
+                </h2>
+                <p className="text-center text-gray-600 mb-6">
+                  Select your options to continue.
+                </p>
+
+                {/* Progress Indicator */}
+                <div className="flex justify-center mb-6 space-x-2">
+                  <span className={`w-3 h-3 rounded-full ${selection.term ? 'bg-blue-600' : 'bg-gray-300'}`}></span>
+                  <span className={`w-3 h-3 rounded-full ${selection.questionType ? 'bg-green-600' : 'bg-gray-300'}`}></span>
+                </div>
+
+                {/* Term and Type Selection */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  {/* Exam Term */}
+                  <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <label className="block text-base font-bold text-gray-700 mb-2">Exam Term</label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {terms.map((term) => (
+                        <button
+                          key={term}
+                          onClick={() => handleSelect('term', term)}
+                          className={`p-2 rounded-lg border font-semibold transition-all duration-300 ${
+                            selection.term === term.toLowerCase()
+                              ? 'bg-blue-600 border-blue-600 text-white'
+                              : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          {term}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Question Type */}
+                  <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <label className="block text-base font-bold text-gray-700 mb-2">Question Type</label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {questionTypes.map((type) => (
+                        <button
+                          key={type}
+                          onClick={() => handleSelect('questionType', type)}
+                          className={`p-2 rounded-lg border font-semibold transition-all duration-300 ${
+                            selection.questionType === type.toLowerCase()
+                              ? 'bg-green-600 border-green-600 text-white'
+                              : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Start Button */}
+                <button
+                  onClick={handleStart}
+                  disabled={!selection.subject || !selection.term || !selection.questionType}
+                  className="w-full bg-purple-600 text-white p-4 rounded-xl font-bold text-lg sm:text-xl hover:bg-purple-700 transition transform hover:scale-105 shadow-xl disabled:bg-gray-400 disabled:cursor-not-allowed"
+                >
+                  Start Quiz
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      <style jsx>{`
-        @keyframes float0 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        @keyframes float1 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(15px) rotate(-5deg); }
-        }
-        @keyframes float2 {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          50% { transform: translate(10px, -15px) rotate(5deg); }
-        }
-      `}</style>
       <BottomBar />
     </div>
   );
 };
 
-export default ChallengeHome;
+export default QuestionSelection;

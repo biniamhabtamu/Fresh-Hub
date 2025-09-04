@@ -20,7 +20,9 @@ import {
   Eye,
   BookmarkCheck,
   Menu,
-  Search
+  Search,
+  Save,
+  Trash2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../../firebase/config';
@@ -44,8 +46,12 @@ const NotePage = () => {
   const [userLiked, setUserLiked] = useState(false);
   const [userViewed, setUserViewed] = useState(false);
   const [tocSearch, setTocSearch] = useState('');
+  const [noteSearch, setNoteSearch] = useState('');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [noteTitle, setNoteTitle] = useState('');
+  const [allUserNotes, setAllUserNotes] = useState([]);
   const contentRef = useRef(null);
+  const noteTitleRef = useRef(null);
   const { currentUser } = useAuth();
 
   // Firebase document references
@@ -63,11 +69,15 @@ const NotePage = () => {
       if (mobile && showTableOfContents) {
         setShowTableOfContents(false);
       }
+      // Auto-close note panel when switching to mobile if it was open
+      if (mobile && showNoteTaking) {
+        setShowNoteTaking(false);
+      }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [showTableOfContents]);
+  }, [showTableOfContents, showNoteTaking]);
 
   // Record view in Firebase
   const recordView = useCallback(async () => {
@@ -168,6 +178,16 @@ const NotePage = () => {
     }
   }, [chapterStatsRef, userStatsRef, currentUser]);
 
+  // Load user notes
+  const loadUserNotes = useCallback(() => {
+    const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
+    if (notes[chapterId]) {
+      setUserNotes(notes[chapterId].content || '');
+      setNoteTitle(notes[chapterId].title || '');
+      setAllUserNotes(notes);
+    }
+  }, [chapterId]);
+
   useEffect(() => {
     const subject = noteCollections.find((s) => s.id === subjectId);
     if (subject) {
@@ -178,10 +198,7 @@ const NotePage = () => {
         setIsBookmarked(!!bookmarks[chapterId]);
 
         // Load user notes if they exist
-        const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
-        if (notes[chapterId]) {
-          setUserNotes(notes[chapterId]);
-        }
+        loadUserNotes();
       } else {
         navigate('/handouts');
       }
@@ -214,7 +231,7 @@ const NotePage = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
-  }, [subjectId, chapterId, navigate]);
+  }, [subjectId, chapterId, navigate, loadUserNotes]);
 
   useEffect(() => {
     // Initialize Firebase stats
@@ -297,8 +314,24 @@ const NotePage = () => {
 
   const saveUserNotes = () => {
     const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
-    notes[chapterId] = userNotes;
+    notes[chapterId] = {
+      title: noteTitle,
+      content: userNotes,
+      updatedAt: new Date().toISOString(),
+      subjectId,
+      chapterId
+    };
     localStorage.setItem('userNotes', JSON.stringify(notes));
+    setAllUserNotes(notes);
+  };
+
+  const deleteNote = () => {
+    const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
+    delete notes[chapterId];
+    localStorage.setItem('userNotes', JSON.stringify(notes));
+    setUserNotes('');
+    setNoteTitle('');
+    setAllUserNotes(notes);
     setShowNoteTaking(false);
   };
 
@@ -359,12 +392,21 @@ const NotePage = () => {
   // Save highlighted text as note
   const saveHighlightAsNote = () => {
     const notes = JSON.parse(localStorage.getItem('userNotes') || '{}');
-    const existingNotes = notes[chapterId] || '';
+    const existingNotes = notes[chapterId]?.content || '';
     const newNote = `${existingNotes ? existingNotes + '\n\n' : ''}${highlightedText}`;
     setUserNotes(newNote);
-    notes[chapterId] = newNote;
+    notes[chapterId] = {
+      ...notes[chapterId],
+      content: newNote,
+      updatedAt: new Date().toISOString()
+    };
     localStorage.setItem('userNotes', JSON.stringify(notes));
     setHighlightedText('');
+  };
+
+  // Get note preview for the note panel
+  const getNotePreview = () => {
+    return userNotes.length > 100 ? userNotes.substring(0, 100) + '...' : userNotes;
   };
 
   return (
@@ -397,6 +439,13 @@ const NotePage = () => {
                   aria-label="Table of contents"
                 >
                   <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
+                </button>
+                <button
+                  onClick={() => setShowNoteTaking(true)}
+                  className="p-2 rounded-full text-gray-500 hover:text-amber-500 transition-colors"
+                  aria-label="Your notes"
+                >
+                  <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
                   onClick={toggleBookmark}
@@ -432,7 +481,7 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Content and TOC container */}
+      {/* Main Content and Panels container */}
       <div className="flex max-w-7xl mx-auto">
         {/* Table of Contents Panel (for desktop) */}
         <AnimatePresence>
@@ -518,7 +567,7 @@ const NotePage = () => {
         </AnimatePresence>
 
         {/* Note Content Area */}
-        <div className={`flex-1 p-4 sm:p-6 ${showTableOfContents ? 'lg:pl-0' : ''}`}>
+        <div className={`flex-1 p-4 sm:p-6 ${showTableOfContents ? 'lg:pl-0' : ''} ${showNoteTaking ? 'lg:pr-0' : ''}`}>
           <div className="max-w-3xl mx-auto py-8 sm:py-12 pt-16 sm:pt-20">
             {/* Header Section */}
             <motion.div
@@ -567,7 +616,12 @@ const NotePage = () => {
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 text-sm"
                 >
                   <BookOpen className="h-4 w-4" />
-                  <span>Take Notes</span>
+                  <span>Your Notes</span>
+                  {userNotes && (
+                    <span className="bg-amber-200 text-amber-800 text-xs px-2 py-0.5 rounded-full">
+                      Saved
+                    </span>
+                  )}
                 </button>
               </div>
             </motion.div>
@@ -644,6 +698,72 @@ const NotePage = () => {
             )}
           </div>
         </div>
+
+        {/* Note Taking Panel (for desktop) */}
+        <AnimatePresence>
+          {showNoteTaking && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.3 }}
+              className="hidden lg:block w-72 xl:w-80 pt-20 pl-6"
+            >
+              <div className="sticky top-20 p-6 bg-white rounded-2xl shadow-md border border-gray-200 h-[calc(100vh-7rem)] flex flex-col">
+                <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
+                  <h2 className="text-xl font-bold text-gray-900">Your Notes</h2>
+                  <button
+                    onClick={() => setShowNoteTaking(false)}
+                    className="p-1 rounded-full text-gray-400 hover:text-gray-600"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                {/* Note Title */}
+                <div className="mb-4">
+                  <input
+                    ref={noteTitleRef}
+                    type="text"
+                    placeholder="Note title..."
+                    value={noteTitle}
+                    onChange={(e) => setNoteTitle(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-amber-300 font-medium"
+                  />
+                </div>
+                
+                {/* Notes Content */}
+                <div className="flex-1 mb-4">
+                  <textarea
+                    value={userNotes}
+                    onChange={(e) => setUserNotes(e.target.value)}
+                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none"
+                    placeholder="Write your notes here..."
+                  />
+                </div>
+                
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-4 border-t border-gray-200">
+                  <button
+                    onClick={deleteNote}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100 text-sm"
+                    disabled={!userNotes}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    Clear
+                  </button>
+                  <button
+                    onClick={saveUserNotes}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 text-white hover:bg-amber-600 text-sm font-medium ml-auto"
+                  >
+                    <Save className="h-4 w-4" />
+                    Save
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Mobile TOC Modal */}
@@ -738,7 +858,7 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Note-Taking Modal - UPDATED FOR MOBILE CENTERING */}
+      {/* Mobile Note-Taking Modal */}
       <AnimatePresence>
         {showNoteTaking && (
           <>
@@ -746,51 +866,66 @@ const NotePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-40"
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
               onClick={() => setShowNoteTaking(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-2xl bg-white rounded-2xl shadow-xl z-50 overflow-hidden flex flex-col max-h-[90vh]"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-50 overflow-y-auto flex flex-col"
             >
-              {/* Modal Header with Close Button */}
-              <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200 bg-gray-50">
-                <h2 className="text-xl font-bold text-gray-900">Your Notes</h2>
-                <button
-                  onClick={() => setShowNoteTaking(false)}
-                  className="p-2 rounded-full hover:bg-gray-200 transition-colors"
-                  aria-label="Close notes"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-              
-              {/* Notes Content */}
-              <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
-                <textarea
-                  value={userNotes}
-                  onChange={(e) => setUserNotes(e.target.value)}
-                  className="w-full h-full min-h-[200px] p-4 rounded-lg border border-gray-200 bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm sm:text-base resize-none"
-                  placeholder="Write your notes here..."
-                />
-              </div>
-              
-              {/* Modal Footer */}
-              <div className="flex justify-end gap-3 p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
-                <button
-                  onClick={() => setShowNoteTaking(false)}
-                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 text-sm font-medium"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={saveUserNotes}
-                  className="px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 text-sm font-medium"
-                >
-                  Save Notes
-                </button>
+              <div className="p-4 sm:p-6 h-full flex flex-col">
+                <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
+                  <h2 className="text-xl font-bold text-gray-900">Your Notes</h2>
+                  <button
+                    onClick={() => setShowNoteTaking(false)}
+                    className="p-1 rounded-full hover:bg-gray-100"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                {/* Note Title */}
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Note title..."
+                    value={noteTitle}
+                    onChange={(e) => setNoteTitle(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-amber-300 font-medium"
+                  />
+                </div>
+                
+                {/* Notes Content */}
+                <div className="flex-1 mb-4">
+                  <textarea
+                    value={userNotes}
+                    onChange={(e) => setUserNotes(e.target.value)}
+                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none"
+                    placeholder="Write your notes here..."
+                  />
+                </div>
+                
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-4 border-t border-gray-200">
+                  <button
+                    onClick={deleteNote}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100 text-sm"
+                    disabled={!userNotes}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    Clear
+                  </button>
+                  <button
+                    onClick={saveUserNotes}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 text-white hover:bg-amber-600 text-sm font-medium ml-auto"
+                  >
+                    <Save className="h-4 w-4" />
+                    Save
+                  </button>
+                </div>
               </div>
             </motion.div>
           </>
@@ -886,6 +1021,28 @@ const NotePage = () => {
           {/* Center: Quick actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
             <button
+              onClick={() => setShowTableOfContents(!showTableOfContents)}
+              className={`p-2 sm:p-3 rounded-full transition-all ${
+                showTableOfContents 
+                  ? 'bg-indigo-100 text-indigo-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+              }`}
+              aria-label="Table of contents"
+            >
+              <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
+            </button>
+            <button
+              onClick={() => setShowNoteTaking(!showNoteTaking)}
+              className={`p-2 sm:p-3 rounded-full transition-all ${
+                showNoteTaking 
+                  ? 'bg-amber-100 text-amber-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+              }`}
+              aria-label="Your notes"
+            >
+              <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
+            </button>
+            <button
               onClick={toggleLike}
               className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all ${
                 userLiked ? 'bg-rose-100 text-rose-600' : ''
@@ -895,13 +1052,6 @@ const NotePage = () => {
               <Heart
                 className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`}
               />
-            </button>
-            <button
-              onClick={() => setShowNoteTaking(true)}
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
-              aria-label="Take notes"
-            >
-              <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
 
