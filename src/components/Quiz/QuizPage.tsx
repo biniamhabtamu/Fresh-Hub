@@ -17,21 +17,16 @@ import {
   BookOpen,
   X,
   ArrowLeft,
-  ArrowRight
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  Home,
+  BarChart3,
+  Target,
+  Lightbulb
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/**
- * Improved QuizPage
- * - Fully responsive / touch friendly
- * - Flexible (fluid) layout using Tailwind (flex/grid/responsive classes)
- * - Preserves original functionality
- * - Performance improvements: useMemo/useCallback, cleaned effects
- *
- * Replace your old file with this one directly.
- */
-
-// keep a Question type for clarity
 interface Question {
   question: string;
   options: string[];
@@ -61,20 +56,17 @@ export default function QuizPage(): JSX.Element {
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
 
+  const explanationRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(true);
 
-  // handle resize (use matchMedia for more responsive behavior)
   useEffect(() => {
     mountedRef.current = true;
     const mql = window.matchMedia('(max-width: 767px)');
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    // set initial
     setIsMobile(mql.matches);
     if ('addEventListener' in mql) {
       mql.addEventListener('change', handler);
     } else {
-      // older browsers
-      // @ts-ignore
       mql.addListener(handler);
     }
     return () => {
@@ -82,13 +74,11 @@ export default function QuizPage(): JSX.Element {
       if ('removeEventListener' in mql) {
         mql.removeEventListener('change', handler);
       } else {
-        // @ts-ignore
         mql.removeListener(handler);
       }
     };
   }, []);
 
-  // derive questions via useMemo to avoid recomputing on unrelated re-renders
   const questions: Question[] = useMemo(() => {
     const filtered = sampleQuestions.filter((q: any) =>
       q.subject === subjectId &&
@@ -98,7 +88,6 @@ export default function QuizPage(): JSX.Element {
     return filtered as Question[];
   }, [subjectId, year, chapter]);
 
-  // initialize answers length when questions change
   useEffect(() => {
     setAnswers(new Array(questions.length).fill(-1));
     setCurrentQuestion(0);
@@ -109,7 +98,6 @@ export default function QuizPage(): JSX.Element {
     setTimeElapsed(0);
   }, [questions.length]);
 
-  // timer (safe set with mountedRef)
   useEffect(() => {
     if (quizCompleted) return;
     const id = setInterval(() => {
@@ -119,19 +107,15 @@ export default function QuizPage(): JSX.Element {
     return () => clearInterval(id);
   }, [quizCompleted]);
 
-  // format time mm:ss
   const formatTime = useCallback((seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }, []);
 
-  // memoize current question
   const currentQ = useMemo(() => questions[currentQuestion], [questions, currentQuestion]);
 
-  // helper to update answer (touch-friendly target)
   const handleAnswerSelect = useCallback((answerIndex: number) => {
-    // prevent changing answer once selected for that question
     setAnswers(prev => {
       if (!prev || prev.length === 0) return prev;
       if (prev[currentQuestion] !== -1) return prev;
@@ -159,7 +143,6 @@ export default function QuizPage(): JSX.Element {
       return;
     }
 
-    // count correct answers
     const correctAnswers = answers.reduce((acc, answer, idx) => {
       if (answer === questions[idx]?.correctAnswer) return acc + 1;
       return acc;
@@ -169,7 +152,6 @@ export default function QuizPage(): JSX.Element {
     setScore(percentage);
     setQuizCompleted(true);
 
-    // Save result once
     if (!isScoreSaved && currentUser && subjectId && year && chapter) {
       try {
         const userId = (currentUser as any).id || (currentUser as any).uid || 'unknown';
@@ -200,13 +182,11 @@ export default function QuizPage(): JSX.Element {
     setShowExplanation(true);
   }, []);
 
-  // progress percent
   const progress = useMemo(() => {
     if (questions.length === 0) return 0;
     return ((currentQuestion + 1) / questions.length) * 100;
   }, [currentQuestion, questions.length]);
 
-  // convenience booleans
   const isAnswerSelected = answers[currentQuestion] !== -1;
 
   const getOptionClasses = useCallback((index: number) => {
@@ -230,13 +210,11 @@ export default function QuizPage(): JSX.Element {
     return 'border-gray-200 opacity-70';
   }, [answers, currentQuestion, currentQ]);
 
-  // compute weaknesses for completed view
   const weaknesses = useMemo(() => {
     if (!quizCompleted) return [];
     return questions.filter((q, idx) => answers[idx] !== -1 && answers[idx] !== q.correctAnswer);
   }, [quizCompleted, questions, answers]);
 
-  // keyboard navigation for accessibility (left/right)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') handlePrevious();
@@ -246,7 +224,22 @@ export default function QuizPage(): JSX.Element {
     return () => window.removeEventListener('keydown', handler);
   }, [handleNext, handlePrevious]);
 
-  // If no questions: empty state
+  // Scroll to explanation when it's opened
+  const scrollToExplanation = useCallback(() => {
+    if (showExplanation && explanationRef.current) {
+      setTimeout(() => {
+        explanationRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center'
+        });
+      }, 100);
+    }
+  }, [showExplanation]);
+
+  useEffect(() => {
+    scrollToExplanation();
+  }, [scrollToExplanation]);
+
   if (questions.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center p-4">
@@ -265,7 +258,6 @@ export default function QuizPage(): JSX.Element {
     );
   }
 
-  // Completed view:
   if (quizCompleted) {
     const correctCount = answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length;
     const pct = Math.round(score);
@@ -276,7 +268,7 @@ export default function QuizPage(): JSX.Element {
           <header className="p-6 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-center">
             <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.3 }}>
               <Award size={64} className="mx-auto mb-3" />
-              <h1 className="text-2xl sm:text-3xl font-extrabold">Quiz Complete!</h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold">Question Complete!</h1>
               <p className="text-sm sm:text-base opacity-90 mt-1">Here's your performance review</p>
             </motion.div>
           </header>
@@ -353,67 +345,79 @@ export default function QuizPage(): JSX.Element {
     );
   }
 
-  // Normal quiz view
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
-      {/* header */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setShowNav(v => !v)}
-              aria-label="Toggle question navigator"
-              className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-              type="button"
-            >
-              {showNav ? <X size={20} /> : <Menu size={20} />}
-            </button>
+      {/* Enhanced Header with Progress Card */}
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+          <div className="flex items-center justify-between gap-3 mb-3">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => navigate(-1)}
+                aria-label="Go back"
+                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                type="button"
+              >
+                <ArrowLeft size={20} />
+              </button>
 
-            <div className="flex flex-col">
-              <div className="text-sm sm:text-base font-semibold text-gray-800">{(subjectId || 'SUBJECT').toUpperCase()}</div>
-              <div className="text-xs text-gray-500">Year {year} • Chapter {chapter}</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-indigo-50 px-3 py-1 rounded-full">
-              <Clock size={16} className="text-indigo-600" />
-              <span className="text-sm font-medium text-indigo-700">{formatTime(timeElapsed)}</span>
+              <div className="flex flex-col">
+                <div className="text-sm sm:text-base font-semibold text-gray-800">{(subjectId || 'SUBJECT').toUpperCase()}</div>
+                <div className="text-xs text-gray-500">Year {year} • Chapter {chapter}</div>
+              </div>
             </div>
 
-            <button
-              onClick={() => setShowNotes(v => !v)}
-              aria-label="Toggle notes"
-              className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-              type="button"
-            >
-              <BookOpen size={18} />
-            </button>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 bg-indigo-50 px-3 py-1 rounded-full">
+                <Clock size={16} className="text-indigo-600" />
+                <span className="text-sm font-medium text-indigo-700">{formatTime(timeElapsed)}</span>
+              </div>
+
+              <button
+                onClick={() => setShowNav(v => !v)}
+                aria-label="Toggle question navigator"
+                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                type="button"
+              >
+                {showNav ? <X size={20} /> : <BarChart3 size={20} />}
+              </button>
+            </div>
           </div>
+          
+          {/* Progress Card integrated into header */}
+          <motion.div 
+            className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-4 text-white shadow-md"
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <Target size={16} />
+                <span className="text-sm font-medium">Progress</span>
+              </div>
+              <span className="text-sm font-semibold">{Math.round(progress)}%</span>
+            </div>
+            
+            <div className="w-full bg-white/30 rounded-full h-2 mb-1">
+              <motion.div
+                className="rounded-full h-2 bg-white"
+                style={{ width: `${progress}%` }}
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.45 }}
+              />
+            </div>
+            
+            <div className="flex justify-between text-xs">
+              <span>Question {currentQuestion + 1} of {questions.length}</span>
+              <span>{Math.round(progress)}% Complete</span>
+            </div>
+          </motion.div>
         </div>
       </header>
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-28">
-        {/* progress card */}
-        <motion.div className="bg-white rounded-2xl shadow-md p-4 mb-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="text-sm text-gray-600">
-              Question <span className="font-semibold text-indigo-600">{currentQuestion + 1}</span> of <span className="font-semibold text-gray-800">{questions.length}</span>
-            </div>
-            <div className="text-xs text-gray-500">{Math.round(progress)}%</div>
-          </div>
-
-          <div className="mt-3 w-full bg-gray-200 rounded-full h-2">
-            <motion.div
-              className="rounded-full h-2 bg-gradient-to-r from-blue-500 to-indigo-600"
-              style={{ width: `${progress}%` }}
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.45 }}
-            />
-          </div>
-        </motion.div>
-
         {/* navigator */}
         <AnimatePresence>
           {showNav && (
@@ -440,28 +444,6 @@ export default function QuizPage(): JSX.Element {
                     </button>
                   );
                 })}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* notes panel */}
-        <AnimatePresence>
-          {showNotes && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="bg-white rounded-2xl shadow-md p-3 mb-4"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-sm font-semibold">Chapter Notes</h4>
-                <button onClick={() => setShowNotes(false)} aria-label="Close notes" className="p-1 rounded-full hover:bg-gray-100">
-                  <X size={16} />
-                </button>
-              </div>
-              <div className="bg-yellow-50 border border-yellow-100 rounded-md p-3 text-sm text-yellow-800">
-                Notes for <span className="font-medium text-yellow-900">{subjectId}</span> Chapter <span className="font-medium">{chapter}</span>.
               </div>
             </motion.div>
           )}
@@ -516,19 +498,29 @@ export default function QuizPage(): JSX.Element {
                 })}
               </div>
 
-              {/* explanation toggler */}
+              {/* explanation toggler with improved UI */}
               {isAnswerSelected && currentQ?.explanation && (
-                <div className="mt-4">
-                  <button
-                    onClick={() => setShowExplanation(v => !v)}
+                <div className="mt-4" ref={explanationRef}>
+                  <motion.button
+                    onClick={() => {
+                      setShowExplanation(v => !v);
+                    }}
+                    whileTap={{ scale: 0.98 }}
                     type="button"
-                    className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium text-sm focus:outline-none"
+                    className="w-full flex items-center justify-between p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors"
                     aria-expanded={showExplanation}
                     aria-controls="explanation-panel"
                   >
-                    <HelpCircle size={16} />
-                    {showExplanation ? 'Hide explanation' : 'Show explanation'}
-                  </button>
+                    <div className="flex items-center gap-2">
+                      <Lightbulb size={16} className="text-indigo-600" />
+                      <span className="text-sm font-medium text-indigo-700">Explanation</span>
+                    </div>
+                    {showExplanation ? (
+                      <ChevronUp size={16} className="text-indigo-600" />
+                    ) : (
+                      <ChevronDown size={16} className="text-indigo-600" />
+                    )}
+                  </motion.button>
 
                   <AnimatePresence>
                     {showExplanation && (
@@ -567,40 +559,40 @@ export default function QuizPage(): JSX.Element {
               )}
             </motion.div>
           </AnimatePresence>
-
-          {/* bottom simplified actions (only appears on mobile screens to make navigation easier) */}
-          <div className="hidden sm:block" />
         </div>
       </main>
 
-      {/* bottom navigation - fixed, touch friendly */}
+      {/* Enhanced bottom navigation */}
       <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-lg z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-3">
             <motion.button
               onClick={handlePrevious}
               disabled={currentQuestion === 0}
-              whileTap={{ scale: currentQuestion === 0 ? 1 : 0.98 }}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition ${currentQuestion === 0 ? 'text-gray-400' : 'text-indigo-600 hover:bg-indigo-50'}`}
+              whileTap={{ scale: currentQuestion === 0 ? 1 : 0.95 }}
+              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition ${currentQuestion === 0 ? 'text-gray-400 bg-gray-100' : 'text-white bg-indigo-600 hover:bg-indigo-700 shadow-md'}`}
               type="button"
               aria-label="Previous question"
             >
-              <ArrowLeft size={18} />
+              <ChevronLeft size={18} />
               <span className="hidden sm:inline">Previous</span>
             </motion.button>
 
-            <div className="text-sm text-gray-600">{currentQuestion + 1} / {questions.length}</div>
+            <div className="flex flex-col items-center">
+              <div className="text-xs text-gray-500">Question</div>
+              <div className="font-semibold text-indigo-600">{currentQuestion + 1}<span className="text-gray-400">/{questions.length}</span></div>
+            </div>
 
             <motion.button
               onClick={handleNext}
-              disabled={answers[currentQuestion] === -1 || currentQuestion === questions.length - 1}
-              whileTap={{ scale: answers[currentQuestion] === -1 || currentQuestion === questions.length - 1 ? 1 : 0.98 }}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition ${answers[currentQuestion] === -1 || currentQuestion === questions.length - 1 ? 'text-gray-400' : 'text-indigo-600 hover:bg-indigo-50'}`}
+              disabled={currentQuestion === questions.length - 1}
+              whileTap={{ scale: currentQuestion === questions.length - 1 ? 1 : 0.95 }}
+              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition ${currentQuestion === questions.length - 1 ? 'text-gray-400 bg-gray-100' : 'text-white bg-indigo-600 hover:bg-indigo-700 shadow-md'}`}
               type="button"
               aria-label="Next question"
             >
               <span className="hidden sm:inline">Next</span>
-              <ArrowRight size={18} />
+              <ChevronRight size={18} />
             </motion.button>
           </div>
         </div>
