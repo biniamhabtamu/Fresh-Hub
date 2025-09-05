@@ -11,18 +11,25 @@ import {
   BookOpen,
   BookText,
   BookmarkCheck,
-  Menu,
   Search,
   Save,
   Trash2,
   RotateCw,
   Edit3,
-  Type
+  Type,
+  Bold,
+  Italic,
+  Underline,
+  ListOrdered,
+  List,
+  Quote,
+  SplitSquareVertical
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../../firebase/config';
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { useAuth } from '../../contexts/AuthContext';
+import './NotePage.css'; // We'll create this for landscape mode
 
 const NotePage = () => {
   const { subjectId, chapterId } = useParams();
@@ -40,12 +47,12 @@ const NotePage = () => {
   const [userLiked, setUserLiked] = useState(false);
   const [userViewed, setUserViewed] = useState(false);
   const [tocSearch, setTocSearch] = useState('');
-  const [noteSearch, setNoteSearch] = useState('');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [noteTitle, setNoteTitle] = useState('');
   const [allUserNotes, setAllUserNotes] = useState([]);
   const [isLandscape, setIsLandscape] = useState(false);
-  const [showEditorToolbar, setShowEditorToolbar] = useState(false);
+  const [showEditorToolbar, setShowEditorToolbar] = useState(true);
+  const [lastTap, setLastTap] = useState(0);
   const contentRef = useRef(null);
   const noteTitleRef = useRef(null);
   const noteEditorRef = useRef(null);
@@ -62,7 +69,6 @@ const NotePage = () => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      // Auto-close TOC when switching to mobile if it was open
       if (mobile && showTableOfContents) {
         setShowTableOfContents(false);
       }
@@ -77,7 +83,6 @@ const NotePage = () => {
     if (!currentUser || userViewed) return;
 
     try {
-      // Create user stats document if it doesn't exist
       await setDoc(
         userStatsRef,
         {
@@ -90,7 +95,6 @@ const NotePage = () => {
         { merge: true }
       );
 
-      // Update chapter stats
       await updateDoc(chapterStatsRef, {
         views: increment(1),
       });
@@ -104,7 +108,6 @@ const NotePage = () => {
   // Toggle like in Firebase
   const toggleLike = useCallback(async () => {
     if (!currentUser) {
-      // Redirect to login or show login prompt
       navigate('/login');
       return;
     }
@@ -114,13 +117,11 @@ const NotePage = () => {
       const hasLiked = userStatsSnap.exists() && userStatsSnap.data().liked;
 
       if (hasLiked) {
-        // Remove like
         await updateDoc(userStatsRef, { liked: false });
         await updateDoc(chapterStatsRef, { likes: increment(-1) });
         setUserLiked(false);
         setLikesCount((prev) => prev - 1);
       } else {
-        // Add like
         await setDoc(
           userStatsRef,
           {
@@ -189,8 +190,6 @@ const NotePage = () => {
         setContent(chapter.content);
         const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
         setIsBookmarked(!!bookmarks[chapterId]);
-
-        // Load user notes if they exist
         loadUserNotes();
       } else {
         navigate('/handouts');
@@ -200,17 +199,13 @@ const NotePage = () => {
     }
 
     const handleScroll = () => {
-      // Hide controls when scrolling
       setShowControls(false);
-      
-      // Show controls again after scrolling stops
       clearTimeout(window.scrollTimeout);
       window.scrollTimeout = setTimeout(() => {
         setShowControls(true);
       }, 1500);
     };
 
-    // Get highlighted text
     const handleSelection = () => {
       const selection = window.getSelection();
       if (selection.toString().trim()) {
@@ -218,20 +213,31 @@ const NotePage = () => {
       }
     };
 
+    // Double tap to toggle controls on mobile
+    const handleTouchEnd = (e) => {
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTap;
+      if (tapLength < 300 && tapLength > 0) {
+        e.preventDefault();
+        setShowControls(prev => !prev);
+      }
+      setLastTap(currentTime);
+    };
+
     document.addEventListener('selectionchange', handleSelection);
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('touchend', handleTouchEnd);
 
     return () => {
       document.removeEventListener('selectionchange', handleSelection);
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('touchend', handleTouchEnd);
       clearTimeout(window.scrollTimeout);
     };
-  }, [subjectId, chapterId, navigate, loadUserNotes]);
+  }, [subjectId, chapterId, navigate, loadUserNotes, lastTap]);
 
   useEffect(() => {
-    // Initialize Firebase stats
     const initializeStats = async () => {
-      // Create chapter stats if it doesn't exist
       await setDoc(
         chapterStatsRef,
         {
@@ -241,7 +247,6 @@ const NotePage = () => {
         { merge: true }
       );
 
-      // Load existing stats
       await loadStats();
     };
 
@@ -249,7 +254,6 @@ const NotePage = () => {
   }, [chapterId, chapterStatsRef, loadStats]);
 
   useEffect(() => {
-    // Record view when component mounts
     const recordViewIfNeeded = async () => {
       if (!userViewed && currentUser) {
         await recordView();
@@ -322,18 +326,41 @@ const NotePage = () => {
   };
 
   // Toggle screen orientation
-  const toggleScreenOrientation = () => {
-    setIsLandscape(!isLandscape);
-    if (!isLandscape) {
+  const toggleScreenOrientation = (e) => {
+    e.stopPropagation();
+    const newLandscapeMode = !isLandscape;
+    setIsLandscape(newLandscapeMode);
+    
+    if (newLandscapeMode) {
       document.documentElement.classList.add('landscape-mode');
+      document.body.style.overflow = 'hidden';
     } else {
       document.documentElement.classList.remove('landscape-mode');
+      document.body.style.overflow = 'auto';
     }
   };
 
   // Toggle controls visibility
-  const toggleControls = () => {
-    setShowControls(!showControls);
+  const handleContentClick = (e) => {
+    // Don't toggle if clicking on interactive elements
+    if (e.target.tagName === 'BUTTON' || 
+        e.target.tagName === 'A' || 
+        e.target.closest('button') || 
+        e.target.closest('a')) {
+      return;
+    }
+    
+    // Check if double tap on mobile
+    if (isMobile) {
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTap;
+      if (tapLength < 300 && tapLength > 0) {
+        setShowControls(prev => !prev);
+      }
+      setLastTap(currentTime);
+    } else {
+      setShowControls(prev => !prev);
+    }
   };
 
   // Calculate reading time
@@ -406,16 +433,23 @@ const NotePage = () => {
   };
 
   // Format text in note editor
-  const formatText = (format) => {
-    document.execCommand(format, false, null);
+  const formatText = (format, value = null) => {
+    document.execCommand(format, false, value);
     noteEditorRef.current.focus();
+    // Update state to trigger re-render
+    setUserNotes(noteEditorRef.current.innerHTML);
+  };
+
+  // Clear formatting
+  const clearFormatting = () => {
+    document.execCommand('removeFormat', false, null);
+    document.execCommand('unlink', false, null);
+    noteEditorRef.current.focus();
+    setUserNotes(noteEditorRef.current.innerHTML);
   };
 
   return (
-    <div 
-      className="min-h-screen font-sans antialiased transition-colors duration-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800"
-      onClick={toggleControls}
-    >
+    <div className="min-h-screen font-sans antialiased transition-colors duration-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
       {/* Floating Navigation (Fixed header on scroll) */}
       <AnimatePresence>
         {showControls && (
@@ -424,7 +458,7 @@ const NotePage = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-20 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200"
+            className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-40 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200"
           >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
               <button
@@ -556,7 +590,6 @@ const NotePage = () => {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-1">
-                        <Eye className="h-4 w-4" />
                         <span>{viewsCount}</span>
                       </div>
                     </div>
@@ -644,6 +677,7 @@ const NotePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative bg-white rounded-2xl sm:rounded-3xl shadow-md sm:shadow-xl border border-gray-200"
+              onClick={handleContentClick}
             >
               <div className="p-4 sm:p-6 md:p-8">
                 <div
@@ -748,26 +782,43 @@ const NotePage = () => {
                   />
                 </div>
                 
-                {/* Notes Content */}
-                <div className="flex-1 mb-4 relative">
+                {/* Enhanced Notes Content with Editor Toolbar */}
+                <div className="flex-1 mb-4 relative border border-gray-200 rounded-lg overflow-hidden">
                   {showEditorToolbar && (
-                    <div className="absolute top-0 left-0 right-0 bg-gray-100 p-2 rounded-t-lg border-b border-gray-200 z-10 flex gap-1">
-                      <button onClick={() => formatText('bold')} className="p-1 rounded hover:bg-gray-200 font-bold">B</button>
-                      <button onClick={() => formatText('italic')} className="p-1 rounded hover:bg-gray-200 italic">I</button>
-                      <button onClick={() => formatText('underline')} className="p-1 rounded hover:bg-gray-200 underline">U</button>
-                      <button onClick={() => setShowEditorToolbar(false)} className="ml-auto p-1 rounded hover:bg-gray-200">
-                        <X className="h-4 w-4" />
+                    <div className="bg-gray-100 p-2 border-b border-gray-200 flex flex-wrap gap-1">
+                      <button onClick={() => formatText('bold')} className="p-2 rounded hover:bg-gray-200" title="Bold">
+                        <Bold className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('italic')} className="p-2 rounded hover:bg-gray-200" title="Italic">
+                        <Italic className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('underline')} className="p-2 rounded hover:bg-gray-200" title="Underline">
+                        <Underline className="h-4 w-4" />
+                      </button>
+                      <div className="w-px h-6 bg-gray-300 mx-1"></div>
+                      <button onClick={() => formatText('insertOrderedList')} className="p-2 rounded hover:bg-gray-200" title="Numbered List">
+                        <ListOrdered className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('insertUnorderedList')} className="p-2 rounded hover:bg-gray-200" title="Bulleted List">
+                        <List className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('formatBlock', '<blockquote>')} className="p-2 rounded hover:bg-gray-200" title="Blockquote">
+                        <Quote className="h-4 w-4" />
+                      </button>
+                      <div className="w-px h-6 bg-gray-300 mx-1"></div>
+                      <button onClick={clearFormatting} className="p-2 rounded hover:bg-gray-200" title="Clear Formatting">
+                        <SplitSquareVertical className="h-4 w-4" />
                       </button>
                     </div>
                   )}
+                  
                   <div
                     ref={noteEditorRef}
                     contentEditable
-                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none overflow-auto"
-                    style={{ paddingTop: showEditorToolbar ? '50px' : '12px' }}
+                    className="w-full h-full min-h-[300px] p-3 bg-white focus:outline-none overflow-auto prose max-w-none"
                     onInput={(e) => setUserNotes(e.currentTarget.innerHTML)}
                     dangerouslySetInnerHTML={{ __html: userNotes }}
-                    onClick={() => setShowEditorToolbar(true)}
+                    style={{ minHeight: '200px' }}
                   />
                 </div>
                 
@@ -870,12 +921,6 @@ const NotePage = () => {
                       <BookOpen className="h-4 w-4" />
                       <span>~{calculateReadingTime()} min read</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1">
-                        <Eye className="h-4 w-4" />
-                        <span>{viewsCount}</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -925,26 +970,43 @@ const NotePage = () => {
                   />
                 </div>
                 
-                {/* Notes Content with Editor Toolbar */}
-                <div className="flex-1 mb-4 relative">
+                {/* Enhanced Notes Content with Editor Toolbar */}
+                <div className="flex-1 mb-4 relative border border-gray-200 rounded-lg overflow-hidden">
                   {showEditorToolbar && (
-                    <div className="absolute top-0 left-0 right-0 bg-gray-100 p-2 rounded-t-lg border-b border-gray-200 z-10 flex gap-1">
-                      <button onClick={() => formatText('bold')} className="p-1 rounded hover:bg-gray-200 font-bold">B</button>
-                      <button onClick={() => formatText('italic')} className="p-1 rounded hover:bg-gray-200 italic">I</button>
-                      <button onClick={() => formatText('underline')} className="p-1 rounded hover:bg-gray-200 underline">U</button>
-                      <button onClick={() => setShowEditorToolbar(false)} className="ml-auto p-1 rounded hover:bg-gray-200">
-                        <X className="h-4 w-4" />
+                    <div className="bg-gray-100 p-2 border-b border-gray-200 flex flex-wrap gap-1">
+                      <button onClick={() => formatText('bold')} className="p-2 rounded hover:bg-gray-200" title="Bold">
+                        <Bold className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('italic')} className="p-2 rounded hover:bg-gray-200" title="Italic">
+                        <Italic className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('underline')} className="p-2 rounded hover:bg-gray-200" title="Underline">
+                        <Underline className="h-4 w-4" />
+                      </button>
+                      <div className="w-px h-6 bg-gray-300 mx-1"></div>
+                      <button onClick={() => formatText('insertOrderedList')} className="p-2 rounded hover:bg-gray-200" title="Numbered List">
+                        <ListOrdered className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('insertUnorderedList')} className="p-2 rounded hover:bg-gray-200" title="Bulleted List">
+                        <List className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => formatText('formatBlock', '<blockquote>')} className="p-2 rounded hover:bg-gray-200" title="Blockquote">
+                        <Quote className="h-4 w-4" />
+                      </button>
+                      <div className="w-px h-6 bg-gray-300 mx-1"></div>
+                      <button onClick={clearFormatting} className="p-2 rounded hover:bg-gray-200" title="Clear Formatting">
+                        <SplitSquareVertical className="h-4 w-4" />
                       </button>
                     </div>
                   )}
+                  
                   <div
                     ref={noteEditorRef}
                     contentEditable
-                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none overflow-auto"
-                    style={{ paddingTop: showEditorToolbar ? '50px' : '12px' }}
+                    className="w-full h-full min-h-[300px] p-3 bg-white focus:outline-none overflow-auto prose max-w-none"
                     onInput={(e) => setUserNotes(e.currentTarget.innerHTML)}
                     dangerouslySetInnerHTML={{ __html: userNotes }}
-                    onClick={() => setShowEditorToolbar(true)}
+                    style={{ minHeight: '200px' }}
                   />
                 </div>
                 
@@ -1057,7 +1119,9 @@ const NotePage = () => {
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <button
                   onClick={toggleScreenOrientation}
-                  className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
+                  className={`p-2 sm:p-3 rounded-full transition-all ${
+                    isLandscape ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  }`}
                   aria-label="Rotate screen"
                 >
                   <RotateCw className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -1067,7 +1131,10 @@ const NotePage = () => {
               {/* Center: Quick actions */}
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <button
-                  onClick={() => setShowTableOfContents(!showTableOfContents)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowTableOfContents(!showTableOfContents);
+                  }}
                   className={`p-2 sm:p-3 rounded-full transition-all ${
                     showTableOfContents 
                       ? 'bg-indigo-100 text-indigo-600' 
@@ -1078,7 +1145,10 @@ const NotePage = () => {
                   <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
-                  onClick={() => setShowNoteTaking(!showNoteTaking)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowNoteTaking(!showNoteTaking);
+                  }}
                   className={`p-2 sm:p-3 rounded-full transition-all ${
                     showNoteTaking 
                       ? 'bg-amber-100 text-amber-600' 
@@ -1093,7 +1163,10 @@ const NotePage = () => {
               {/* Right side: Font controls */}
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <button
-                  onClick={decreaseFontSize}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    decreaseFontSize();
+                  }}
                   className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
                   aria-label="Decrease font size"
                 >

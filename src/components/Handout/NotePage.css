@@ -1,0 +1,55 @@
+/* NotePage.css */
+.landscape-mode {
+  overflow: hidden;
+}
+
+.landscape-mode .content-text {
+  font-size: 110% !important;
+  line-height: 1.6;
+}
+
+.landscape-mode .max-w-3xl {
+  max-width: 100% !important;
+}
+
+.landscape-mode .prose {
+  max-width: none;
+}
+
+.landscape-mode .rounded-2xl {
+  border-radius: 0.5rem;
+}
+
+/* Adjust padding for landscape */
+.landscape-mode .p-4 {
+  padding: 1rem;
+}
+
+.landscape-mode .p-6 {
+  padding: 1.5rem;
+}
+
+.landscape-mode .p-8 {
+  padding: 2rem;
+}
+
+/* Ensure proper scrolling in landscape */
+.landscape-mode .overflow-auto {
+  overflow: auto;
+}
+
+/* Adjust bottom bar for landscape */
+.landscape-mode .fixed.bottom-0 {
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+/* Adjust header for landscape */
+.landscape-mode .fixed.top-0 {
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  border-radius: 0.75rem;
+}
