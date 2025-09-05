@@ -18,7 +18,9 @@ const BottomBar = () => {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3">
+    // The main container is now fixed to the very bottom with `inset-x-0`
+    // and a bottom padding to create a small, aesthetically pleasing space.
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 pb-3 px-3">
       <div 
         ref={containerRef}
         className="relative bg-slate-800/90 backdrop-blur-xl rounded-full shadow-lg border border-slate-700/50"
@@ -40,7 +42,7 @@ const BottomBar = () => {
                     layoutId="bubble"
                     className={`absolute inset-0 z-0 rounded-full transition-colors duration-300 ${
                       isChallenge
-                        ? 'bg-red-500/20' // Less intense background for a unique icon
+                        ? 'bg-red-500/20'
                         : 'bg-cyan-400/20'
                     }`}
                     transition={{
@@ -56,7 +58,7 @@ const BottomBar = () => {
                       isActive
                         ? 'text-white'
                         : isChallenge
-                        ? 'text-gray-400' // Ensure all inactive icons are the same color
+                        ? 'text-gray-400'
                         : 'text-gray-400'
                     }`}
                     animate={{ scale: isActive ? 1.2 : 1 }}
