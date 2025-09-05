@@ -23,7 +23,7 @@ import {
   Home,
   BarChart3,
   Target,
-  Lightbulb
+  Lightbulb,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -80,10 +80,11 @@ export default function QuizPage(): JSX.Element {
   }, []);
 
   const questions: Question[] = useMemo(() => {
-    const filtered = sampleQuestions.filter((q: any) =>
-      q.subject === subjectId &&
-      q.year === parseInt(year || '0') &&
-      q.chapter === parseInt(chapter || '0')
+    const filtered = sampleQuestions.filter(
+      (q: any) =>
+        q.subject === subjectId &&
+        q.year === parseInt(year || '0') &&
+        q.chapter === parseInt(chapter || '0')
     );
     return filtered as Question[];
   }, [subjectId, year, chapter]);
@@ -102,7 +103,7 @@ export default function QuizPage(): JSX.Element {
     if (quizCompleted) return;
     const id = setInterval(() => {
       if (!mountedRef.current) return;
-      setTimeElapsed(prev => prev + 1);
+      setTimeElapsed((prev) => prev + 1);
     }, 1000);
     return () => clearInterval(id);
   }, [quizCompleted]);
@@ -113,26 +114,34 @@ export default function QuizPage(): JSX.Element {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }, []);
 
-  const currentQ = useMemo(() => questions[currentQuestion], [questions, currentQuestion]);
+  const currentQ = useMemo(
+    () => questions[currentQuestion],
+    [questions, currentQuestion]
+  );
 
-  const handleAnswerSelect = useCallback((answerIndex: number) => {
-    setAnswers(prev => {
-      if (!prev || prev.length === 0) return prev;
-      if (prev[currentQuestion] !== -1) return prev;
-      const copy = [...prev];
-      copy[currentQuestion] = answerIndex;
-      return copy;
-    });
-  }, [currentQuestion]);
+  const handleAnswerSelect = useCallback(
+    (answerIndex: number) => {
+      setAnswers((prev) => {
+        if (!prev || prev.length === 0) return prev;
+        if (prev[currentQuestion] !== -1) return prev;
+        const copy = [...prev];
+        copy[currentQuestion] = answerIndex;
+        return copy;
+      });
+    },
+    [currentQuestion]
+  );
 
   const handleNext = useCallback(() => {
     setShowExplanation(false);
-    setCurrentQuestion(prev => Math.min(prev + 1, Math.max(0, questions.length - 1)));
+    setCurrentQuestion((prev) =>
+      Math.min(prev + 1, Math.max(0, questions.length - 1))
+    );
   }, [questions.length]);
 
   const handlePrevious = useCallback(() => {
     setShowExplanation(false);
-    setCurrentQuestion(prev => Math.max(0, prev - 1));
+    setCurrentQuestion((prev) => Math.max(0, prev - 1));
   }, []);
 
   const handleSubmit = useCallback(async () => {
@@ -154,7 +163,8 @@ export default function QuizPage(): JSX.Element {
 
     if (!isScoreSaved && currentUser && subjectId && year && chapter) {
       try {
-        const userId = (currentUser as any).id || (currentUser as any).uid || 'unknown';
+        const userId =
+          (currentUser as any).id || (currentUser as any).uid || 'unknown';
         const resultId = `${userId}_${subjectId}_${year}_${chapter}`;
         await setDoc(doc(db, 'results', resultId), {
           userId,
@@ -165,7 +175,7 @@ export default function QuizPage(): JSX.Element {
           totalQuestions: questions.length,
           percentage,
           completedAt: new Date(),
-          timeElapsed
+          timeElapsed,
         });
         if (mountedRef.current) setIsScoreSaved(true);
       } catch (error) {
@@ -189,30 +199,35 @@ export default function QuizPage(): JSX.Element {
 
   const isAnswerSelected = answers[currentQuestion] !== -1;
 
-  const getOptionClasses = useCallback((index: number) => {
-    const isSelected = answers[currentQuestion] === index;
-    const isCorrect = currentQ?.correctAnswer === index;
-    const answered = answers[currentQuestion] !== -1;
+  const getOptionClasses = useCallback(
+    (index: number) => {
+      const isSelected = answers[currentQuestion] === index;
+      const isCorrect = currentQ?.correctAnswer === index;
+      const answered = answers[currentQuestion] !== -1;
 
-    if (!answered) {
-      return 'border-gray-200 hover:border-blue-400 hover:bg-blue-50';
-    }
+      if (!answered) {
+        return 'border-gray-200 hover:border-blue-400 hover:bg-blue-50';
+      }
 
-    if (isSelected && isCorrect) {
-      return 'border-green-500 bg-green-50 text-green-700';
-    }
-    if (isSelected && !isCorrect) {
-      return 'border-red-500 bg-red-50 text-red-700';
-    }
-    if (answered && isCorrect) {
-      return 'border-green-500 bg-green-50 text-green-700';
-    }
-    return 'border-gray-200 opacity-70';
-  }, [answers, currentQuestion, currentQ]);
+      if (isSelected && isCorrect) {
+        return 'border-green-500 bg-green-50 text-green-700';
+      }
+      if (isSelected && !isCorrect) {
+        return 'border-red-500 bg-red-50 text-red-700';
+      }
+      if (answered && isCorrect) {
+        return 'border-green-500 bg-green-50 text-green-700';
+      }
+      return 'border-gray-200 opacity-70';
+    },
+    [answers, currentQuestion, currentQ]
+  );
 
   const weaknesses = useMemo(() => {
     if (!quizCompleted) return [];
-    return questions.filter((q, idx) => answers[idx] !== -1 && answers[idx] !== q.correctAnswer);
+    return questions.filter(
+      (q, idx) => answers[idx] !== -1 && answers[idx] !== q.correctAnswer
+    );
   }, [quizCompleted, questions, answers]);
 
   useEffect(() => {
@@ -224,13 +239,12 @@ export default function QuizPage(): JSX.Element {
     return () => window.removeEventListener('keydown', handler);
   }, [handleNext, handlePrevious]);
 
-  // Scroll to explanation when it's opened
   const scrollToExplanation = useCallback(() => {
     if (showExplanation && explanationRef.current) {
       setTimeout(() => {
-        explanationRef.current?.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center'
+        explanationRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
         });
       }, 100);
     }
@@ -249,9 +263,19 @@ export default function QuizPage(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-3">No Questions Available</h2>
-            <p className="text-gray-600 mb-4">There are no questions for this chapter yet. We will add them soon.</p>
-            <p className="text-sm text-gray-500">Subject: <span className="font-medium text-gray-700">{subjectId}</span> • Chapter: <span className="font-medium text-gray-700">{chapter}</span></p>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-3">
+              No Questions Available
+            </h2>
+            <p className="text-gray-600 mb-4">
+              There are no questions for this chapter yet. We will add them
+              soon.
+            </p>
+            <p className="text-sm text-gray-500">
+              Subject:{' '}
+              <span className="font-medium text-gray-700">{subjectId}</span> •
+              Chapter:{' '}
+              <span className="font-medium text-gray-700">{chapter}</span>
+            </p>
           </motion.div>
         </div>
       </div>
@@ -259,27 +283,48 @@ export default function QuizPage(): JSX.Element {
   }
 
   if (quizCompleted) {
-    const correctCount = answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length;
+    const correctCount = answers.filter(
+      (answer, index) => answer === questions[index]?.correctAnswer
+    ).length;
     const pct = Math.round(score);
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center p-4">
         <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden">
           <header className="p-6 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-center">
-            <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
               <Award size={64} className="mx-auto mb-3" />
-              <h1 className="text-2xl sm:text-3xl font-extrabold">Question Complete!</h1>
-              <p className="text-sm sm:text-base opacity-90 mt-1">Here's your performance review</p>
+              <h1 className="text-2xl sm:text-3xl font-extrabold">
+                Question Complete!
+              </h1>
+              <p className="text-sm sm:text-base opacity-90 mt-1">
+                Here's your performance review
+              </p>
             </motion.div>
           </header>
-
           <main className="p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
               <div className="flex-shrink-0 w-36 h-36 sm:w-44 sm:h-44 relative rounded-full bg-white/40 flex items-center justify-center shadow-md">
                 <svg className="w-full h-full" viewBox="0 0 36 36" aria-hidden>
-                  <path className="text-gray-200" fill="none" stroke="currentColor" strokeWidth="4" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path
+                    className="text-gray-200"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  />
                   <motion.path
-                    className={pct >= 80 ? 'text-green-500' : pct >= 60 ? 'text-yellow-500' : 'text-red-500'}
+                    className={
+                      pct >= 80
+                        ? 'text-green-500'
+                        : pct >= 60
+                        ? 'text-yellow-500'
+                        : 'text-red-500'
+                    }
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="4"
@@ -291,35 +336,64 @@ export default function QuizPage(): JSX.Element {
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-2xl sm:text-4xl font-extrabold text-gray-800">{pct}%</span>
+                  <span className="text-2xl sm:text-4xl font-extrabold text-gray-800">
+                    {pct}%
+                  </span>
                 </div>
               </div>
-
               <div className="flex-1 text-center sm:text-left">
-                <p className="text-lg sm:text-xl font-semibold text-gray-700">You got <span className="font-bold text-indigo-600">{correctCount}</span> out of <span className="font-bold">{questions.length}</span> right.</p>
-                <p className={`mt-2 font-bold ${pct >= 80 ? 'text-green-600' : pct >= 60 ? 'text-yellow-600' : 'text-red-600'}`}>
-                  {pct >= 80 ? 'Excellent work! 🎉' : pct >= 60 ? 'Good job! Keep practicing.' : "Let's review and improve together."}
+                <p className="text-lg sm:text-xl font-semibold text-gray-700">
+                  You got{' '}
+                  <span className="font-bold text-indigo-600">
+                    {correctCount}
+                  </span>{' '}
+                  out of <span className="font-bold">{questions.length}</span>{' '}
+                  right.
+                </p>
+                <p
+                  className={`mt-2 font-bold ${
+                    pct >= 80
+                      ? 'text-green-600'
+                      : pct >= 60
+                      ? 'text-yellow-600'
+                      : 'text-red-600'
+                  }`}
+                >
+                  {pct >= 80
+                    ? 'Excellent work! 🎉'
+                    : pct >= 60
+                    ? 'Good job! Keep practicing.'
+                    : "Let's review and improve together."}
                 </p>
               </div>
             </div>
-
             {weaknesses.length > 0 && (
               <section className="mt-6 bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-2">Areas to improve</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  Areas to improve
+                </h3>
                 <ul className="space-y-2 text-sm text-gray-700">
                   {weaknesses.map((q, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="w-6 flex-shrink-0 text-red-600 font-bold">{questions.indexOf(q) + 1}.</span>
+                      <span className="w-6 flex-shrink-0 text-red-600 font-bold">
+                        {questions.indexOf(q) + 1}.
+                      </span>
                       <div className="flex-1">
-                        <div className="font-medium text-gray-800">{q.question}</div>
-                        <div className="text-xs text-gray-600 mt-0.5">Correct answer: <span className="font-semibold text-gray-700">{String.fromCharCode(65 + q.correctAnswer)}</span></div>
+                        <div className="font-medium text-gray-800">
+                          {q.question}
+                        </div>
+                        <div className="text-xs text-gray-600 mt-0.5">
+                          Correct answer:{' '}
+                          <span className="font-semibold text-gray-700">
+                            {String.fromCharCode(65 + q.correctAnswer)}
+                          </span>
+                        </div>
                       </div>
                     </li>
                   ))}
                 </ul>
               </section>
             )}
-
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -330,7 +404,6 @@ export default function QuizPage(): JSX.Element {
               >
                 Review Answers
               </motion.button>
-
               <button
                 onClick={() => navigate(-1)}
                 className="py-3 px-4 w-full rounded-xl border border-gray-200 bg-white text-gray-700 font-semibold shadow-sm hover:bg-gray-50 focus:outline-none"
@@ -348,75 +421,84 @@ export default function QuizPage(): JSX.Element {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       {/* Enhanced Header with Progress Card */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+          {/* Top Row: Back Button, Title, Time, and Menu */}
           <div className="flex items-center justify-between gap-3 mb-3">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => navigate(-1)}
                 aria-label="Go back"
-                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition"
                 type="button"
               >
-                <ArrowLeft size={20} />
+                <ArrowLeft size={20} className="text-gray-600" />
               </button>
-
               <div className="flex flex-col">
-                <div className="text-sm sm:text-base font-semibold text-gray-800">{(subjectId || 'SUBJECT').toUpperCase()}</div>
-                <div className="text-xs text-gray-500">Year {year} • Chapter {chapter}</div>
+                <div className="text-sm sm:text-base font-semibold text-gray-800">
+                  {(subjectId || 'SUBJECT').toUpperCase()}
+                </div>
+                <div className="text-xs text-gray-500">
+                  Year {year} • Chapter {chapter}
+                </div>
               </div>
             </div>
-
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 bg-indigo-50 px-3 py-1 rounded-full">
-                <Clock size={16} className="text-indigo-600" />
-                <span className="text-sm font-medium text-indigo-700">{formatTime(timeElapsed)}</span>
+              <div className="flex items-center gap-2 bg-purple-50 px-3 py-1 rounded-full border border-purple-100">
+                <Clock size={16} className="text-purple-600" />
+                <span className="text-sm font-medium text-purple-700">
+                  {formatTime(timeElapsed)}
+                </span>
               </div>
-
               <button
-                onClick={() => setShowNav(v => !v)}
+                onClick={() => setShowNav((v) => !v)}
                 aria-label="Toggle question navigator"
-                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-200 transition"
                 type="button"
               >
-                {showNav ? <X size={20} /> : <BarChart3 size={20} />}
+                {showNav ? (
+                  <X size={20} className="text-gray-600" />
+                ) : (
+                  <BarChart3 size={20} className="text-gray-600" />
+                )}
               </button>
             </div>
           </div>
-          
-          {/* Progress Card integrated into header */}
-          <motion.div 
-            className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-4 text-white shadow-md"
-            initial={{ opacity: 0, y: -5 }}
+          {/* Integrated Progress Card */}
+          <motion.div
+            className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-4 text-white shadow-lg transition-all"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
             <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-sm font-medium opacity-90">
                 <Target size={16} />
-                <span className="text-sm font-medium">Progress</span>
+                <span>Your Progress</span>
               </div>
-              <span className="text-sm font-semibold">{Math.round(progress)}%</span>
+              <span className="text-lg font-bold">
+                {Math.round(progress)}%
+              </span>
             </div>
-            
-            <div className="w-full bg-white/30 rounded-full h-2 mb-1">
+            {/* Progress Bar */}
+            <div className="w-full bg-white/30 rounded-full h-2">
               <motion.div
                 className="rounded-full h-2 bg-white"
                 style={{ width: `${progress}%` }}
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.45 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               />
             </div>
-            
-            <div className="flex justify-between text-xs">
-              <span>Question {currentQuestion + 1} of {questions.length}</span>
+            <div className="flex justify-between text-xs mt-1 opacity-80">
+              <span>
+                Question {currentQuestion + 1} of {questions.length}
+              </span>
               <span>{Math.round(progress)}% Complete</span>
             </div>
           </motion.div>
         </div>
       </header>
-
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-28">
         {/* navigator */}
         <AnimatePresence>
@@ -427,7 +509,9 @@ export default function QuizPage(): JSX.Element {
               exit={{ opacity: 0, height: 0 }}
               className="bg-white rounded-2xl shadow-md p-3 mb-4"
             >
-              <h4 className="text-sm font-semibold text-gray-800 mb-2">Question Navigator</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                Question Navigator
+              </h4>
               <div className="grid grid-cols-6 sm:grid-cols-8 gap-2">
                 {questions.map((q, idx) => {
                   const answered = answers[idx] !== -1;
@@ -436,8 +520,19 @@ export default function QuizPage(): JSX.Element {
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => { setCurrentQuestion(idx); setShowNav(false); }}
-                      className={`w-full aspect-square rounded-lg text-sm font-semibold flex items-center justify-center transition ${idx === currentQuestion ? 'bg-indigo-600 text-white shadow' : answered ? correct ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                      onClick={() => {
+                        setCurrentQuestion(idx);
+                        setShowNav(false);
+                      }}
+                      className={`w-full aspect-square rounded-lg text-sm font-semibold flex items-center justify-center transition ${
+                        idx === currentQuestion
+                          ? 'bg-indigo-600 text-white shadow'
+                          : answered
+                          ? correct
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
                       aria-label={`Go to question ${idx + 1}`}
                     >
                       {idx + 1}
@@ -448,7 +543,6 @@ export default function QuizPage(): JSX.Element {
             </motion.div>
           )}
         </AnimatePresence>
-
         {/* question card */}
         <div className="relative">
           <AnimatePresence mode="wait">
@@ -463,7 +557,6 @@ export default function QuizPage(): JSX.Element {
               <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 leading-relaxed">
                 {currentQ?.question}
               </h3>
-
               <div className="grid gap-3">
                 {currentQ?.options?.map((option, index) => {
                   const optionClasses = getOptionClasses(index);
@@ -473,23 +566,36 @@ export default function QuizPage(): JSX.Element {
                       onClick={() => handleAnswerSelect(index)}
                       whileTap={!isAnswerSelected ? { scale: 0.99 } : undefined}
                       type="button"
-                      className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${optionClasses} ${isAnswerSelected ? 'cursor-default' : 'cursor-pointer'}`}
+                      className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${optionClasses} ${
+                        isAnswerSelected ? 'cursor-default' : 'cursor-pointer'
+                      }`}
                       style={{ touchAction: 'manipulation' }}
                       aria-pressed={answers[currentQuestion] === index}
-                      aria-label={`Answer option ${String.fromCharCode(65 + index)}`}
+                      aria-label={`Answer option ${String.fromCharCode(
+                        65 + index
+                      )}`}
                     >
                       <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 flex-shrink-0">
-                        <span className="font-bold text-sm">{String.fromCharCode(65 + index)}</span>
+                        <span className="font-bold text-sm">
+                          {String.fromCharCode(65 + index)}
+                        </span>
                       </div>
-                      <div className="flex-1 text-sm sm:text-base text-gray-800">{option}</div>
-
+                      <div className="flex-1 text-sm sm:text-base text-gray-800">
+                        {option}
+                      </div>
                       {/* result icon */}
                       {isAnswerSelected && (
                         <div className="flex-shrink-0">
                           {currentQ.correctAnswer === index ? (
-                            <CheckCircle size={isMobile ? 16 : 20} className="text-green-600" />
+                            <CheckCircle
+                              size={isMobile ? 16 : 20}
+                              className="text-green-600"
+                            />
                           ) : answers[currentQuestion] === index ? (
-                            <XCircle size={isMobile ? 16 : 20} className="text-red-600" />
+                            <XCircle
+                              size={isMobile ? 16 : 20}
+                              className="text-red-600"
+                            />
                           ) : null}
                         </div>
                       )}
@@ -497,13 +603,12 @@ export default function QuizPage(): JSX.Element {
                   );
                 })}
               </div>
-
               {/* explanation toggler with improved UI */}
               {isAnswerSelected && currentQ?.explanation && (
                 <div className="mt-4" ref={explanationRef}>
                   <motion.button
                     onClick={() => {
-                      setShowExplanation(v => !v);
+                      setShowExplanation((v) => !v);
                     }}
                     whileTap={{ scale: 0.98 }}
                     type="button"
@@ -513,7 +618,9 @@ export default function QuizPage(): JSX.Element {
                   >
                     <div className="flex items-center gap-2">
                       <Lightbulb size={16} className="text-indigo-600" />
-                      <span className="text-sm font-medium text-indigo-700">Explanation</span>
+                      <span className="text-sm font-medium text-indigo-700">
+                        Explanation
+                      </span>
                     </div>
                     {showExplanation ? (
                       <ChevronUp size={16} className="text-indigo-600" />
@@ -521,7 +628,6 @@ export default function QuizPage(): JSX.Element {
                       <ChevronDown size={16} className="text-indigo-600" />
                     )}
                   </motion.button>
-
                   <AnimatePresence>
                     {showExplanation && (
                       <motion.div
@@ -534,14 +640,15 @@ export default function QuizPage(): JSX.Element {
                       >
                         <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3 text-sm text-indigo-900">
                           <div className="font-semibold mb-1">Explanation</div>
-                          <div className="text-gray-700">{currentQ.explanation}</div>
+                          <div className="text-gray-700">
+                            {currentQ.explanation}
+                          </div>
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
               )}
-
               {/* submit button - show only when last question answered */}
               {answers[questions.length - 1] !== -1 && (
                 <div className="mt-5">
@@ -561,33 +668,46 @@ export default function QuizPage(): JSX.Element {
           </AnimatePresence>
         </div>
       </main>
-
       {/* Enhanced bottom navigation */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-lg z-40">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-xl z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex items-center justify-between gap-3">
+            {/* Previous Button */}
             <motion.button
               onClick={handlePrevious}
               disabled={currentQuestion === 0}
               whileTap={{ scale: currentQuestion === 0 ? 1 : 0.95 }}
-              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition ${currentQuestion === 0 ? 'text-gray-400 bg-gray-100' : 'text-white bg-indigo-600 hover:bg-indigo-700 shadow-md'}`}
+              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition-all ${
+                currentQuestion === 0
+                  ? 'text-gray-400 bg-gray-100 cursor-not-allowed'
+                  : 'text-white bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-700 hover:to-indigo-800 shadow-lg'
+              }`}
               type="button"
               aria-label="Previous question"
             >
               <ChevronLeft size={18} />
               <span className="hidden sm:inline">Previous</span>
             </motion.button>
-
+            {/* Question Counter */}
             <div className="flex flex-col items-center">
               <div className="text-xs text-gray-500">Question</div>
-              <div className="font-semibold text-indigo-600">{currentQuestion + 1}<span className="text-gray-400">/{questions.length}</span></div>
+              <div className="font-semibold text-purple-600">
+                {currentQuestion + 1}
+                <span className="text-gray-400">/{questions.length}</span>
+              </div>
             </div>
-
+            {/* Next Button */}
             <motion.button
               onClick={handleNext}
               disabled={currentQuestion === questions.length - 1}
-              whileTap={{ scale: currentQuestion === questions.length - 1 ? 1 : 0.95 }}
-              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition ${currentQuestion === questions.length - 1 ? 'text-gray-400 bg-gray-100' : 'text-white bg-indigo-600 hover:bg-indigo-700 shadow-md'}`}
+              whileTap={{
+                scale: currentQuestion === questions.length - 1 ? 1 : 0.95,
+              }}
+              className={`flex items-center gap-1 px-4 py-3 rounded-xl font-medium transition-all ${
+                currentQuestion === questions.length - 1
+                  ? 'text-gray-400 bg-gray-100 cursor-not-allowed'
+                  : 'text-white bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-700 hover:to-indigo-800 shadow-lg'
+              }`}
               type="button"
               aria-label="Next question"
             >

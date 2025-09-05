@@ -7,22 +7,17 @@ import {
   ArrowLeft,
   Bookmark,
   Layers,
-  Plus,
-  Minus,
-  Maximize2,
-  Minimize2,
   X,
   BookOpen,
   BookText,
-  Star,
-  BookmarkPlus,
-  Heart,
-  Eye,
   BookmarkCheck,
   Menu,
   Search,
   Save,
-  Trash2
+  Trash2,
+  RotateCw,
+  Edit3,
+  Type
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../../firebase/config';
@@ -33,10 +28,9 @@ const NotePage = () => {
   const { subjectId, chapterId } = useParams();
   const navigate = useNavigate();
   const [content, setContent] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [showControls, setShowControls] = useState(true);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [fontSize, setFontSize] = useState(100);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [showTableOfContents, setShowTableOfContents] = useState(false);
   const [showNoteTaking, setShowNoteTaking] = useState(false);
   const [userNotes, setUserNotes] = useState('');
@@ -50,8 +44,11 @@ const NotePage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [noteTitle, setNoteTitle] = useState('');
   const [allUserNotes, setAllUserNotes] = useState([]);
+  const [isLandscape, setIsLandscape] = useState(false);
+  const [showEditorToolbar, setShowEditorToolbar] = useState(false);
   const contentRef = useRef(null);
   const noteTitleRef = useRef(null);
+  const noteEditorRef = useRef(null);
   const { currentUser } = useAuth();
 
   // Firebase document references
@@ -69,15 +66,11 @@ const NotePage = () => {
       if (mobile && showTableOfContents) {
         setShowTableOfContents(false);
       }
-      // Auto-close note panel when switching to mobile if it was open
-      if (mobile && showNoteTaking) {
-        setShowNoteTaking(false);
-      }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [showTableOfContents, showNoteTaking]);
+  }, [showTableOfContents]);
 
   // Record view in Firebase
   const recordView = useCallback(async () => {
@@ -207,11 +200,14 @@ const NotePage = () => {
     }
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      // Hide controls when scrolling
+      setShowControls(false);
+      
+      // Show controls again after scrolling stops
+      clearTimeout(window.scrollTimeout);
+      window.scrollTimeout = setTimeout(() => {
+        setShowControls(true);
+      }, 1500);
     };
 
     // Get highlighted text
@@ -224,12 +220,11 @@ const NotePage = () => {
 
     document.addEventListener('selectionchange', handleSelection);
     window.addEventListener('scroll', handleScroll);
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     return () => {
       document.removeEventListener('selectionchange', handleSelection);
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      clearTimeout(window.scrollTimeout);
     };
   }, [subjectId, chapterId, navigate, loadUserNotes]);
 
@@ -286,16 +281,6 @@ const NotePage = () => {
   const increaseFontSize = () => setFontSize((prev) => Math.min(prev + 5, 150));
   const decreaseFontSize = () => setFontSize((prev) => Math.max(prev - 5, 70));
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-  };
-
   const toggleBookmark = () => {
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
     if (isBookmarked) {
@@ -323,6 +308,7 @@ const NotePage = () => {
     };
     localStorage.setItem('userNotes', JSON.stringify(notes));
     setAllUserNotes(notes);
+    setShowNoteTaking(false);
   };
 
   const deleteNote = () => {
@@ -333,6 +319,21 @@ const NotePage = () => {
     setNoteTitle('');
     setAllUserNotes(notes);
     setShowNoteTaking(false);
+  };
+
+  // Toggle screen orientation
+  const toggleScreenOrientation = () => {
+    setIsLandscape(!isLandscape);
+    if (!isLandscape) {
+      document.documentElement.classList.add('landscape-mode');
+    } else {
+      document.documentElement.classList.remove('landscape-mode');
+    }
+  };
+
+  // Toggle controls visibility
+  const toggleControls = () => {
+    setShowControls(!showControls);
   };
 
   // Calculate reading time
@@ -404,16 +405,20 @@ const NotePage = () => {
     setHighlightedText('');
   };
 
-  // Get note preview for the note panel
-  const getNotePreview = () => {
-    return userNotes.length > 100 ? userNotes.substring(0, 100) + '...' : userNotes;
+  // Format text in note editor
+  const formatText = (format) => {
+    document.execCommand(format, false, null);
+    noteEditorRef.current.focus();
   };
 
   return (
-    <div className="min-h-screen font-sans antialiased transition-colors duration-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
+    <div 
+      className="min-h-screen font-sans antialiased transition-colors duration-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800"
+      onClick={toggleControls}
+    >
       {/* Floating Navigation (Fixed header on scroll) */}
       <AnimatePresence>
-        {isScrolled && (
+        {showControls && (
           <motion.div
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -423,7 +428,10 @@ const NotePage = () => {
           >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
               <button
-                onClick={() => navigate('/handouts')}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate('/handouts');
+                }}
                 className="flex items-center text-xs sm:text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
@@ -434,21 +442,30 @@ const NotePage = () => {
               </h2>
               <div className="flex items-center gap-1 sm:gap-2">
                 <button
-                  onClick={() => setShowTableOfContents(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowTableOfContents(true);
+                  }}
                   className="p-2 rounded-full text-gray-500 hover:text-indigo-500 transition-colors"
                   aria-label="Table of contents"
                 >
                   <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
-                  onClick={() => setShowNoteTaking(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowNoteTaking(true);
+                  }}
                   className="p-2 rounded-full text-gray-500 hover:text-amber-500 transition-colors"
                   aria-label="Your notes"
                 >
                   <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
-                  onClick={toggleBookmark}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleBookmark();
+                  }}
                   className={`p-2 rounded-full transition-colors ${
                     isBookmarked
                       ? 'text-indigo-500 bg-indigo-50'
@@ -461,19 +478,6 @@ const NotePage = () => {
                   ) : (
                     <Bookmark className="h-4 w-4 sm:h-5 sm:w-5" />
                   )}
-                </button>
-                <button
-                  onClick={toggleLike}
-                  className={`p-2 rounded-full transition-colors ${
-                    userLiked
-                      ? 'text-rose-500 bg-rose-50'
-                      : 'text-gray-400 hover:text-gray-600'
-                  }`}
-                  aria-label={userLiked ? 'Unlike' : 'Like'}
-                >
-                  <Heart
-                    className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`}
-                  />
                 </button>
               </div>
             </div>
@@ -492,6 +496,7 @@ const NotePage = () => {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
               className="hidden lg:block w-72 xl:w-80 pt-20 pr-6"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-20 p-6 bg-white rounded-2xl shadow-md border border-gray-200 h-[calc(100vh-7rem)] flex flex-col">
                 <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
@@ -554,10 +559,6 @@ const NotePage = () => {
                         <Eye className="h-4 w-4" />
                         <span>{viewsCount}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className={`h-4 w-4 ${userLiked ? 'fill-rose-500' : ''}`} />
-                        <span>{likesCount}</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -570,61 +571,72 @@ const NotePage = () => {
         <div className={`flex-1 p-4 sm:p-6 ${showTableOfContents ? 'lg:pl-0' : ''} ${showNoteTaking ? 'lg:pr-0' : ''}`}>
           <div className="max-w-3xl mx-auto py-8 sm:py-12 pt-16 sm:pt-20">
             {/* Header Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-6 sm:mb-8"
-            >
-              <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2">
-                <button
-                  onClick={() => navigate('/handouts')}
-                  className="flex items-center gap-1 text-indigo-500 hover:underline transition-colors"
-                >
-                  <Layers className="h-3 w-3 sm:h-4 sm:w-4" />
-                  <span>{currentSubject?.name}</span>
-                </button>
-                <span className="text-gray-300">/</span>
-                <span className="text-gray-500">Chapter</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                {currentChapter?.title}
-              </h1>
-              <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600">
-                {currentChapter?.description}
-              </p>
-              
-              <div className="mt-4 sm:mt-6 flex flex-wrap gap-3">
-                <button
-                  onClick={() => setShowTableOfContents(!showTableOfContents)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 text-sm"
-                >
-                  {showTableOfContents ? (
-                    <>
-                      <X className="h-4 w-4" />
-                      <span>Close TOC</span>
-                    </>
-                  ) : (
-                    <>
-                      <BookText className="h-4 w-4" />
-                      <span>Table of Contents</span>
-                    </>
-                  )}
-                </button>
-                <button
-                  onClick={() => setShowNoteTaking(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 text-sm"
-                >
-                  <BookOpen className="h-4 w-4" />
-                  <span>Your Notes</span>
-                  {userNotes && (
-                    <span className="bg-amber-200 text-amber-800 text-xs px-2 py-0.5 rounded-full">
-                      Saved
-                    </span>
-                  )}
-                </button>
-              </div>
-            </motion.div>
+            {showControls && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 sm:mb-8"
+              >
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate('/handouts');
+                    }}
+                    className="flex items-center gap-1 text-indigo-500 hover:underline transition-colors"
+                  >
+                    <Layers className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <span>{currentSubject?.name}</span>
+                  </button>
+                  <span className="text-gray-300">/</span>
+                  <span className="text-gray-500">Chapter</span>
+                </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                  {currentChapter?.title}
+                </h1>
+                <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600">
+                  {currentChapter?.description}
+                </p>
+                
+                <div className="mt-4 sm:mt-6 flex flex-wrap gap-3">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowTableOfContents(!showTableOfContents);
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 text-sm"
+                  >
+                    {showTableOfContents ? (
+                      <>
+                        <X className="h-4 w-4" />
+                        <span>Close TOC</span>
+                      </>
+                    ) : (
+                      <>
+                        <BookText className="h-4 w-4" />
+                        <span>Table of Contents</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowNoteTaking(true);
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-100 text-sm"
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    <span>Your Notes</span>
+                    {userNotes && (
+                      <span className="bg-amber-200 text-amber-800 text-xs px-2 py-0.5 rounded-full">
+                        Saved
+                      </span>
+                    )}
+                  </button>
+                </div>
+              </motion.div>
+            )}
 
             {/* Content */}
             <motion.div
@@ -636,7 +648,7 @@ const NotePage = () => {
               <div className="p-4 sm:p-6 md:p-8">
                 <div
                   ref={contentRef}
-                  className="prose prose-sm sm:prose-lg max-w-none leading-relaxed content-text"
+                  className="prose prose-sm sm:prose-lg max-w-none leading-relaxed content-text select-text"
                   style={{ fontSize: `${fontSize}%` }}
                 >
                   {content ? (
@@ -653,7 +665,7 @@ const NotePage = () => {
             </motion.div>
 
             {/* Chapter Navigation */}
-            {currentSubject && (
+            {currentSubject && showControls && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -667,7 +679,10 @@ const NotePage = () => {
                   {currentSubject.chapters.map((chapter) => (
                     <button
                       key={chapter.id}
-                      onClick={() => navigate(`/notes/${subjectId}/${chapter.id}`)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/notes/${subjectId}/${chapter.id}`);
+                      }}
                       className={`group p-4 sm:p-5 rounded-xl sm:rounded-2xl border transition-all text-left shadow-sm hover:shadow-md ${
                         chapterId === chapter.id
                           ? 'bg-indigo-50 border-indigo-200 font-bold'
@@ -708,6 +723,7 @@ const NotePage = () => {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
               className="hidden lg:block w-72 xl:w-80 pt-20 pl-6"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-20 p-6 bg-white rounded-2xl shadow-md border border-gray-200 h-[calc(100vh-7rem)] flex flex-col">
                 <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
@@ -733,12 +749,25 @@ const NotePage = () => {
                 </div>
                 
                 {/* Notes Content */}
-                <div className="flex-1 mb-4">
-                  <textarea
-                    value={userNotes}
-                    onChange={(e) => setUserNotes(e.target.value)}
-                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none"
-                    placeholder="Write your notes here..."
+                <div className="flex-1 mb-4 relative">
+                  {showEditorToolbar && (
+                    <div className="absolute top-0 left-0 right-0 bg-gray-100 p-2 rounded-t-lg border-b border-gray-200 z-10 flex gap-1">
+                      <button onClick={() => formatText('bold')} className="p-1 rounded hover:bg-gray-200 font-bold">B</button>
+                      <button onClick={() => formatText('italic')} className="p-1 rounded hover:bg-gray-200 italic">I</button>
+                      <button onClick={() => formatText('underline')} className="p-1 rounded hover:bg-gray-200 underline">U</button>
+                      <button onClick={() => setShowEditorToolbar(false)} className="ml-auto p-1 rounded hover:bg-gray-200">
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  )}
+                  <div
+                    ref={noteEditorRef}
+                    contentEditable
+                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none overflow-auto"
+                    style={{ paddingTop: showEditorToolbar ? '50px' : '12px' }}
+                    onInput={(e) => setUserNotes(e.currentTarget.innerHTML)}
+                    dangerouslySetInnerHTML={{ __html: userNotes }}
+                    onClick={() => setShowEditorToolbar(true)}
                   />
                 </div>
                 
@@ -783,6 +812,7 @@ const NotePage = () => {
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 left-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-50 overflow-y-auto lg:hidden"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 sm:p-6 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
@@ -845,10 +875,6 @@ const NotePage = () => {
                         <Eye className="h-4 w-4" />
                         <span>{viewsCount}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className={`h-4 w-4 ${userLiked ? 'fill-rose-500' : ''}`} />
-                        <span>{likesCount}</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -858,7 +884,7 @@ const NotePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Note-Taking Modal */}
+      {/* Mobile Note-Taking Modal - Full Screen */}
       <AnimatePresence>
         {showNoteTaking && (
           <>
@@ -866,15 +892,16 @@ const NotePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 z-40"
               onClick={() => setShowNoteTaking(false)}
             />
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-50 overflow-y-auto flex flex-col"
+              className="fixed top-0 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto flex flex-col"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 sm:p-6 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-4 border-b pb-4 border-gray-200">
@@ -898,13 +925,26 @@ const NotePage = () => {
                   />
                 </div>
                 
-                {/* Notes Content */}
-                <div className="flex-1 mb-4">
-                  <textarea
-                    value={userNotes}
-                    onChange={(e) => setUserNotes(e.target.value)}
-                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none"
-                    placeholder="Write your notes here..."
+                {/* Notes Content with Editor Toolbar */}
+                <div className="flex-1 mb-4 relative">
+                  {showEditorToolbar && (
+                    <div className="absolute top-0 left-0 right-0 bg-gray-100 p-2 rounded-t-lg border-b border-gray-200 z-10 flex gap-1">
+                      <button onClick={() => formatText('bold')} className="p-1 rounded hover:bg-gray-200 font-bold">B</button>
+                      <button onClick={() => formatText('italic')} className="p-1 rounded hover:bg-gray-200 italic">I</button>
+                      <button onClick={() => formatText('underline')} className="p-1 rounded hover:bg-gray-200 underline">U</button>
+                      <button onClick={() => setShowEditorToolbar(false)} className="ml-auto p-1 rounded hover:bg-gray-200">
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  )}
+                  <div
+                    ref={noteEditorRef}
+                    contentEditable
+                    className="w-full h-full min-h-[300px] p-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-amber-300 focus:ring focus:ring-amber-200 focus:ring-opacity-50 text-sm resize-none overflow-auto"
+                    style={{ paddingTop: showEditorToolbar ? '50px' : '12px' }}
+                    onInput={(e) => setUserNotes(e.currentTarget.innerHTML)}
+                    dangerouslySetInnerHTML={{ __html: userNotes }}
+                    onClick={() => setShowEditorToolbar(true)}
                   />
                 </div>
                 
@@ -940,12 +980,13 @@ const NotePage = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white rounded-full px-3 py-2 sm:px-4 sm:py-2 flex items-center gap-2 sm:gap-3 z-50 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={addHighlight}
               className="flex items-center gap-1 text-xs sm:text-sm hover:text-amber-300"
             >
-              <Star className="h-3 w-3 sm:h-4 sm:w-4" />
+              <Type className="h-3 w-3 sm:h-4 sm:w-4" />
               Highlight
             </button>
             <div className="h-3 sm:h-4 w-px bg-gray-600"></div>
@@ -953,7 +994,7 @@ const NotePage = () => {
               onClick={saveHighlightAsNote}
               className="flex items-center gap-1 text-xs sm:text-sm hover:text-indigo-300"
             >
-              <BookmarkPlus className="h-3 w-3 sm:h-4 sm:w-4" />
+              <Edit3 className="h-3 w-3 sm:h-4 sm:w-4" />
               Save as Note
             </button>
             <button
@@ -967,110 +1008,105 @@ const NotePage = () => {
       </AnimatePresence>
 
       {/* Floating Scroll Buttons */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isScrolled ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-        className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 flex flex-col space-y-2 sm:space-y-3 z-30"
-      >
-        <button
-          onClick={scrollToTop}
-          className="p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
-        </button>
-        <button
-          onClick={scrollToBottom}
-          className="p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all"
-          aria-label="Scroll to bottom"
-        >
-          <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
-        </button>
-      </motion.div>
+      <AnimatePresence>
+        {showControls && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 flex flex-col space-y-2 sm:space-y-3 z-30"
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                scrollToTop();
+              }}
+              className="p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all"
+              aria-label="Scroll to top"
+            >
+              <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                scrollToBottom();
+              }}
+              className="p-2 sm:p-3 rounded-full shadow-lg bg-white text-gray-700 hover:scale-110 active:scale-95 transition-all"
+              aria-label="Scroll to bottom"
+            >
+              <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom Control Bar */}
-      <motion.div
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 z-30"
-      >
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
-          {/* Left side: Font controls */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <button
-              onClick={decreaseFontSize}
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
-              aria-label="Decrease font size"
-            >
-              <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-            <div className="text-xs sm:text-sm font-medium text-gray-700 w-10 sm:w-12 text-center select-none">
-              {fontSize}%
+      <AnimatePresence>
+        {showControls && (
+          <motion.div
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            exit={{ y: 100 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 z-30"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
+              {/* Left side: Rotate button */}
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <button
+                  onClick={toggleScreenOrientation}
+                  className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
+                  aria-label="Rotate screen"
+                >
+                  <RotateCw className="h-4 w-4 sm:h-5 sm:w-5" />
+                </button>
+              </div>
+
+              {/* Center: Quick actions */}
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <button
+                  onClick={() => setShowTableOfContents(!showTableOfContents)}
+                  className={`p-2 sm:p-3 rounded-full transition-all ${
+                    showTableOfContents 
+                      ? 'bg-indigo-100 text-indigo-600' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  }`}
+                  aria-label="Table of contents"
+                >
+                  <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
+                </button>
+                <button
+                  onClick={() => setShowNoteTaking(!showNoteTaking)}
+                  className={`p-2 sm:p-3 rounded-full transition-all ${
+                    showNoteTaking 
+                      ? 'bg-amber-100 text-amber-600' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  }`}
+                  aria-label="Your notes"
+                >
+                  <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
+                </button>
+              </div>
+
+              {/* Right side: Font controls */}
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <button
+                  onClick={decreaseFontSize}
+                  className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
+                  aria-label="Decrease font size"
+                >
+                  <Type className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs absolute -top-1 -right-1 bg-indigo-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
+                    {fontSize}%
+                  </span>
+                </button>
+              </div>
             </div>
-            <button
-              onClick={increaseFontSize}
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
-              aria-label="Increase font size"
-            >
-              <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-          </div>
-
-          {/* Center: Quick actions */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <button
-              onClick={() => setShowTableOfContents(!showTableOfContents)}
-              className={`p-2 sm:p-3 rounded-full transition-all ${
-                showTableOfContents 
-                  ? 'bg-indigo-100 text-indigo-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-              }`}
-              aria-label="Table of contents"
-            >
-              <BookText className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-            <button
-              onClick={() => setShowNoteTaking(!showNoteTaking)}
-              className={`p-2 sm:p-3 rounded-full transition-all ${
-                showNoteTaking 
-                  ? 'bg-amber-100 text-amber-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-              }`}
-              aria-label="Your notes"
-            >
-              <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-            <button
-              onClick={toggleLike}
-              className={`p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all ${
-                userLiked ? 'bg-rose-100 text-rose-600' : ''
-              }`}
-              aria-label={userLiked ? 'Unlike' : 'Like'}
-            >
-              <Heart
-                className={`h-4 w-4 sm:h-5 sm:w-5 ${userLiked ? 'fill-rose-500' : ''}`}
-              />
-            </button>
-          </div>
-
-          {/* Right side: Actions */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <button
-              onClick={toggleFullscreen}
-              className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
-              aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-            >
-              {isFullscreen ? (
-                <Minimize2 className="h-4 w-4 sm:h-5 sm:w-5" />
-              ) : (
-                <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5" />
-              )}
-            </button>
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
