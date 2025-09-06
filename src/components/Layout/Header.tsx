@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, Home, Book, GraduationCap, Settings, MoreVertical, X, LogOut, User, Info, Trophy, BarChart2 } from 'lucide-react';
+import { FaTelegram } from 'react-icons/fa';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -56,6 +57,11 @@ export default function Header() {
     } catch (error) {
       console.error("Failed to log out", error);
     }
+  };
+
+  const navigateToTelegram = () => {
+    // Replace with your actual Telegram URL
+    window.open('https://t.me/FreshHubs', '_blank');
   };
 
   const headerVariants = {
@@ -154,6 +160,18 @@ export default function Header() {
                 </span>
               </button>
             )}
+
+            {/* Telegram Icon */}
+            <button 
+              onClick={navigateToTelegram}
+              className={`
+                p-2 rounded-full transition-all duration-300
+                ${scrolled ? 'text-blue-500 hover:bg-blue-100' : 'text-blue-500 hover:bg-blue-100'}
+              `}
+              aria-label="Join our Telegram channel"
+            >
+              <FaTelegram size={24} />
+            </button>
 
             <div className="relative more-dropdown-container">
               <button 

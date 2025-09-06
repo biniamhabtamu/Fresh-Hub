@@ -1,0 +1,12 @@
+{
+	"appId": "com.freshhubs.app",
+	"appName": "fresh-hub",
+	"webDir": "dist",
+	"packageClassList": [
+		"HttpPlugin",
+		"AppPlugin",
+		"FilesystemPlugin",
+		"PreferencesPlugin",
+		"ToastPlugin"
+	]
+}

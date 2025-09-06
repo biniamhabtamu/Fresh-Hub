@@ -1,4 +1,10 @@
 /* NotePage.css */
+:root {
+  /* iOS notch safe area fallbacks */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 .landscape-mode {
   overflow: hidden;
 }
@@ -40,7 +46,7 @@
 
 /* Adjust bottom bar for landscape */
 .landscape-mode .fixed.bottom-0 {
-  bottom: 0.5rem;
+  bottom: calc(0.5rem + var(--safe-bottom));
   left: 0.5rem;
   right: 0.5rem;
   border-radius: 0.75rem;
@@ -48,8 +54,16 @@
 
 /* Adjust header for landscape */
 .landscape-mode .fixed.top-0 {
-  top: 0.5rem;
+  top: calc(0.5rem + var(--safe-top));
   left: 0.5rem;
   right: 0.5rem;
   border-radius: 0.75rem;
+}
+
+/* Tiny devices: reduce content padding */
+@media (max-width: 360px) {
+  .content-text {
+    font-size: 95% !important;
+  }
+  .p-4 { padding: 0.75rem; }
 }

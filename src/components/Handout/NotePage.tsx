@@ -23,7 +23,9 @@ import {
   ListOrdered,
   List,
   Quote,
-  SplitSquareVertical
+  SplitSquareVertical,
+  Plus,
+  Minus
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../../firebase/config';
@@ -459,6 +461,7 @@ const NotePage = () => {
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-40 py-2 px-4 sm:py-3 sm:px-6 border-b border-gray-200"
+            style={{ paddingTop: 'env(safe-area-inset-top)' }}
           >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
               <button
@@ -846,6 +849,9 @@ const NotePage = () => {
         </AnimatePresence>
       </div>
 
+      {/* Spacer to avoid bottom bar overlap on small screens */}
+      <div className="h-20 sm:h-24 lg:hidden" />
+
       {/* Mobile TOC Modal */}
       <AnimatePresence>
         {showTableOfContents && (
@@ -863,6 +869,7 @@ const NotePage = () => {
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 left-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-50 overflow-y-auto lg:hidden"
+              style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 sm:p-6 h-full flex flex-col">
@@ -946,6 +953,7 @@ const NotePage = () => {
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto flex flex-col"
+              style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 sm:p-6 h-full flex flex-col">
@@ -1042,6 +1050,7 @@ const NotePage = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white rounded-full px-3 py-2 sm:px-4 sm:py-2 flex items-center gap-2 sm:gap-3 z-50 shadow-lg"
+            style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -1078,6 +1087,7 @@ const NotePage = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 flex flex-col space-y-2 sm:space-y-3 z-30"
+            style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}
           >
             <button
               onClick={(e) => {
@@ -1112,6 +1122,7 @@ const NotePage = () => {
             exit={{ y: 100 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg shadow-2xl border-t border-gray-200 z-30"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
@@ -1170,10 +1181,20 @@ const NotePage = () => {
                   className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
                   aria-label="Decrease font size"
                 >
-                  <Type className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs absolute -top-1 -right-1 bg-indigo-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
-                    {fontSize}%
-                  </span>
+                  <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
+                </button>
+                <span className="text-xs font-medium text-gray-700 px-2 select-none">
+                  {fontSize}%
+                </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    increaseFontSize();
+                  }}
+                  className="p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
+                  aria-label="Increase font size"
+                >
+                  <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
               </div>
             </div>
