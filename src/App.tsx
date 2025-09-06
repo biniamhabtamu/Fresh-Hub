@@ -33,19 +33,20 @@ import QuestionPage from './features/Pages/challenge/QuestionPage';
 import AdminPage from './features/Pages/challenge/AdminPage';
 import SubjectsModule from './components/SubjectsModule/SubjectsModule';
 
+// Protects routes from unauthenticated users
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
   return currentUser ? <>{children}</> : <Navigate to="/auth" />;
 }
 
+// Defines all app routes
 function AppRoutes() {
   const { currentUser } = useAuth();
-
   return (
     <Routes>
-      <Route 
-        path="/auth" 
-        element={currentUser ? <Navigate to="/dashboard" /> : <AuthForm />} 
+      <Route
+        path="/auth"
+        element={currentUser ? <Navigate to="/dashboard" /> : <AuthForm />}
       />
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
       <Route path="/subject/:subjectId" element={<ProtectedRoute><YearSelection /></ProtectedRoute>} />
@@ -61,32 +62,45 @@ function AppRoutes() {
       <Route path="/ContactUs" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
       <Route path="/Community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
       <Route path="/SubjectsModule" element={<ProtectedRoute><SubjectsModule /></ProtectedRoute>} />
-      {/* Challenge Feature Routes */}
       <Route path="/challenge" element={<ProtectedRoute><ChallengeHome /></ProtectedRoute>} />
       <Route path="/challenge/self" element={<ProtectedRoute><ChallengeModeSelection /></ProtectedRoute>} />
       <Route path="/challenge/self/custom" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
-       <Route path="friend" element={<ComingSoon />} />
-       <Route path="/challenge/livechallenge" element={<ProtectedRoute><LiveChallenge /></ProtectedRoute>} />
-       <Route path="/challenge/questionselection" element={<ProtectedRoute><QuestionSelection /></ProtectedRoute>} />
-        <Route path="/challenge/AdminPage" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
-       <Route path="/challenge/question-page" element={<ProtectedRoute>< QuestionPage /></ProtectedRoute>} />
+      <Route path="friend" element={<ComingSoon />} />
+      <Route path="/challenge/livechallenge" element={<ProtectedRoute><LiveChallenge /></ProtectedRoute>} />
+      <Route path="/challenge/questionselection" element={<ProtectedRoute><QuestionSelection /></ProtectedRoute>} />
+      <Route path="/challenge/AdminPage" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+      <Route path="/challenge/question-page" element={<ProtectedRoute>< QuestionPage /></ProtectedRoute>} />
       <Route path="/challenge/self/:questions" element={<ProtectedRoute><ChallengeYourself /></ProtectedRoute>} />
       <Route path="/challenge/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
       <Route path="/challenge/coming-soon" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
-       <Route path="/Layout/GPACalculator" element={<ProtectedRoute><GPACalculator /></ProtectedRoute>} />
-       <Route path="/pages/challenge/Global" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
-
+      <Route path="/Layout/GPACalculator" element={<ProtectedRoute><GPACalculator /></ProtectedRoute>} />
+      <Route path="/pages/challenge/Global" element={<ProtectedRoute><ComingSoon /></ProtectedRoute>} />
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>
   );
 }
 
+// Handles app content and loading states
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
   const [lastBackPress, setLastBackPress] = useState(0);
-  const { currentUser } = useAuth();
+  const { currentUser, loadingAuth } = useAuth();
   const [backHandler, setBackHandler] = useState<PluginListenerHandle | null>(null);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const handleOnlineStatus = () => setIsOnline(true);
+    const handleOfflineStatus = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnlineStatus);
+    window.addEventListener('offline', handleOfflineStatus);
+
+    return () => {
+      window.removeEventListener('online', handleOnlineStatus);
+      window.removeEventListener('offline', handleOfflineStatus);
+    };
+  }, []);
 
   const showToast = async (message: string) => {
     await Toast.show({
@@ -96,28 +110,13 @@ function AppContent() {
   };
 
   useEffect(() => {
+    // Return early if the app is still loading
+    if (loadingAuth) return;
+
     const handleBackButton = ({ canGoBack }: { canGoBack: boolean }) => {
-      if (!currentUser) {
-        navigate('/auth', { replace: true });
-        return;
-      }
-
-      const exitRoutes = ['/auth', '/dashboard'];
+      // Logic for handling the back button on Android
+      const exitRoutes = ['/', '/dashboard', '/auth'];
       const isExitRoute = exitRoutes.includes(location.pathname);
-
-      const homeRoutes = [
-        '/subject', 
-        '/premium', 
-        '/leaderboard', 
-        '/profilepage',
-        '/handouts', 
-        '/notes', 
-        '/settings', 
-        '/ContactUs', 
-        '/Community',
-        '/challenge',
-      ];
-      const isHomeRoute = homeRoutes.some(route => location.pathname.startsWith(route));
 
       if (isExitRoute) {
         const now = Date.now();
@@ -126,12 +125,6 @@ function AppContent() {
         } else {
           showToast('Press back again to exit');
           setLastBackPress(now);
-        }
-      } else if (isHomeRoute) {
-        if (window.history.length > 1) {
-          navigate(-1);
-        } else {
-          navigate('/dashboard', { replace: true });
         }
       } else {
         if (canGoBack) {
@@ -159,33 +152,20 @@ function AppContent() {
           .catch(error => console.warn('Error removing back handler:', error));
       }
     };
-  }, [navigate, location, lastBackPress, currentUser]);
+  }, [navigate, location, lastBackPress, loadingAuth, backHandler]);
 
-  return <AppRoutes />;
-}
-
-function App() {
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const totalDuration = 2000;
-    const interval = 16;
-    let currentProgress = 0;
-
-    const progressTimer = setInterval(() => {
-      currentProgress += (interval / totalDuration) * 100;
-      if (currentProgress >= 100) {
-        clearInterval(progressTimer);
-        setLoading(false);
-      }
-      setProgress(Math.min(currentProgress, 100));
-    }, interval);
-
-    return () => clearInterval(progressTimer);
-  }, []);
-
-  if (loading) {
+  // Display special loading screen while authentication is in progress
+  if (loadingAuth) {
+    if (!isOnline) {
+      return (
+        <div className="fixed inset-0 bg-gray-900 flex flex-col items-center justify-center text-white p-4">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold mb-4">No Internet Connection ⚠️</h1>
+            <p className="text-gray-400">Please check your network and try again. Your account will automatically load once you are back online.</p>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-indigo-900 to-purple-900 flex flex-col items-center justify-center overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -211,7 +191,6 @@ function App() {
             }}
           />
         ))}
-
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
           <motion.div
             initial={{ y: -20, opacity: 0 }}
@@ -219,7 +198,7 @@ function App() {
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
-            <motion.h1 
+            <motion.h1
               className="text-5xl font-bold mb-2"
               animate={{
                 backgroundSize: ['200%', '400%'],
@@ -238,7 +217,7 @@ function App() {
             >
               FreshHub
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-purple-200 text-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -247,13 +226,7 @@ function App() {
               Your learning companion
             </motion.p>
           </motion.div>
-
-          <motion.div
-            className="flex items-center justify-center mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
+          <div className="flex items-center justify-center mb-8">
             <span className="text-white text-xl mr-1">Loading</span>
             <div className="flex space-x-1">
               {[...Array(3)].map((_, i) => (
@@ -272,45 +245,24 @@ function App() {
                 />
               ))}
             </div>
-          </motion.div>
-
-          <motion.div 
-            className="w-64 h-2 bg-white/20 rounded-full overflow-hidden mb-2"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full relative"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 5, ease: "linear" }}
-            >
-              <motion.div
-                className="absolute right-0 top-0 w-1 h-full bg-white"
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 0.5, repeat: Infinity }}
-              />
-            </motion.div>
-          </motion.div>
-
-          <motion.span 
-            className="text-white text-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-          >
-            {Math.round(progress)}%
-          </motion.span>
+          </div>
         </div>
       </div>
     );
   }
 
+  // Once authentication is confirmed, display the routes
+  return <AppRoutes />;
+}
+
+// Main App component with providers
+function App() {
   return (
     <AuthProvider>
       <Router>
-        <AppContent />
+        <ChallengeProvider>
+          <AppContent />
+        </ChallengeProvider>
       </Router>
     </AuthProvider>
   );

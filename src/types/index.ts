@@ -21,8 +21,9 @@ export interface User {
   lastActive?: string;
   wins: number;
   losses: number;
-  totalPoints: number;
+  totalScore: number;
   challengesCompleted: number;
+  university?: string;
 }
 export interface Chapter {
   id: string;
@@ -49,7 +50,6 @@ export interface Question {
   correctAnswer: number;
   explanation?: string;
   subject: string;
-  year: number;
   chapter: number;
   difficulty?: 'easy' | 'medium' | 'hard';
 }
